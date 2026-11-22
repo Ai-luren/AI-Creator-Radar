@@ -62,7 +62,7 @@
     "region": "China",
     "focus": "Qwen",
     "url": "https://qwenlm.github.io/blog/index.xml",
-    "active": true,
+    "active": false,
     "priority": 1
   },
   {
@@ -105,7 +105,7 @@
     "kind": "official",
     "region": "Global",
     "focus": "Microsoft",
-    "url": "https://blogs.microsoft.com/ai/feed/",
+    "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/feed//",
     "active": true,
     "priority": 2
   },
@@ -262,5 +262,60 @@
     "url": "https://github.com/yt-dlp/yt-dlp/releases.atom",
     "active": true,
     "priority": 3
+  },
+  {
+    "id": "qwen-news-search",
+    "name": "Qwen · Official news discovery",
+    "category": "models",
+    "kind": "discovery",
+    "region": "China",
+    "focus": "Qwen",
+    "url": "https://news.google.com/rss/search?q=site%3Aqwen.ai%20Qwen%20model%20release&hl=en-US&gl=US&ceid=US:en",
+    "active": true,
+    "priority": 1
+  },
+  {
+    "id": "meta-ai-search",
+    "name": "Meta AI / Llama · News search",
+    "category": "models",
+    "kind": "discovery",
+    "region": "Global",
+    "focus": "Meta AI",
+    "url": "https://news.google.com/rss/search?q=Meta%20AI%20Llama%20model%20release&hl=en-US&gl=US&ceid=US:en",
+    "active": true,
+    "priority": 2
+  },
+  {
+    "id": "xai-search",
+    "name": "xAI / Grok · News search",
+    "category": "models",
+    "kind": "discovery",
+    "region": "Global",
+    "focus": "xAI",
+    "url": "https://news.google.com/rss/search?q=xAI%20Grok%20model%20release&hl=en-US&gl=US&ceid=US:en",
+    "active": true,
+    "priority": 2
+  },
+  {
+    "id": "minimax-search",
+    "name": "MiniMax · News search",
+    "category": "models",
+    "kind": "discovery",
+    "region": "China",
+    "focus": "MiniMax",
+    "url": "https://news.google.com/rss/search?q=MiniMax%20AI%20model%20video%20release&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+    "active": true,
+    "priority": 2
+  },
+  {
+    "id": "glm-search",
+    "name": "Zhipu / GLM · News search",
+    "category": "models",
+    "kind": "discovery",
+    "region": "China",
+    "focus": "GLM",
+    "url": "https://news.google.com/rss/search?q=Zhipu%20GLM%20model%20release&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+    "active": true,
+    "priority": 2
   }
 ]
