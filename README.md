@@ -49,12 +49,13 @@ GitHub API 每日同步精选仓库的元数据：
 
 ## 自动更新
 
-GitHub Actions 每天北京时间 **08:20** 运行：
+GitHub Actions 每天北京时间 **08:20** 运行（合并到默认分支 `main` 后生效）：
 1. 检查官方模型版本发布。
 2. 拉取 RSS / Atom 订阅。
 3. 同步精选 GitHub 仓库元数据。
 4. 保留上次成功缓存；单一信源失败不会覆盖其他来源的数据。
-5. 更新静态数据后部署 GitHub Pages。
+5. 将模型监控与 RSS / Awesome 资源采集结果持久化到触发分支。
+6. 仅当触发分支为 `main` 时部署 GitHub Pages；功能分支手动运行只验证和更新功能分支，不发布生产站点。
 
 工作流文件：.github/workflows/update-site.yml
 
@@ -85,7 +86,8 @@ GitHub Actions 每天北京时间 **08:20** 运行：
     scripts/collect_resources.py          RSS 与 GitHub 元数据采集器
     site/index.html                       个人 AI 创作工作台
     site/preview-v2.html                  V2 预览页面（读取 site/data-v2/）
-    site/preview-v3.html                  V3 预览页面（读取 site/data-v3/）
+    site/preview-v3.html                  V3 预览页面（保留基线，读取 site/data-v3/）
+    site/preview-v4.html                  V4 预览页面（V3 内容 + V4 社媒监控与导航）
     site/data/models.json                 模型目录
     site/data/model-updates.json          模型发布历史
     site/data/model-monitor-status.json   模型信源状态
@@ -97,9 +99,20 @@ GitHub Actions 每天北京时间 **08:20** 运行：
     site/data/tutorials.json              官方教程和 Skill
     site/data/platforms.json              常用创作平台
     site/data-v2/                         V2 预览专用静态数据
-    site/data-v3/                         V3 预览专用静态数据（当前预览版本）
+    site/data-v3/                         V3 基础静态数据（模型、榜单、主题与早报）
+    site/data-v4/social-accounts.json      官方社媒账号、公开粉丝快照与宣传动态
+    site/data-v4/platforms.json            V4 创作导航（含国内外社交媒体分类）
     tests/                                采集器单元测试
     archive/legacy-news/                  旧版泛资讯数据，仅供回滚参考
+
+## V4 预览说明（尚未发布）
+
+- V4 预览入口：`site/preview-v4.html`，不替换 `site/index.html`，也不会自动部署。
+- 模型、榜单、主题与早报暂时沿用 `site/data-v3/`；社媒账号和创作导航使用 `site/data-v4/`。
+- 首批社媒监控包含 7 个品牌、27 个平台账号入口、8 条官方宣传动态和 9 个公开粉丝数快照。
+- 账号分为已核验、官方搜索入口和待复核；搜索入口不代表已确认官方账号。
+- 粉丝数是带采集时间的公开快照，不是实时数据。无法读取时保留空值，不将缺失值记为 0。
+- 小红书及部分平台的账号归属仍需复核；后续优先补齐官方主页链接，再建立连续粉丝数历史。
 
 ## License
 
