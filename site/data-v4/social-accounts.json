@@ -1,0 +1,447 @@
+{
+  "updatedAt": "2026-11-22",
+  "scope": "首批已核验或明确标注待复核的 AI 视频 / 创作平台官方账号",
+  "methodology": "账号归属优先依据品牌官网、官方 Linktree、平台认证标识或品牌官方主页。粉丝数是公开页面快照，不代表实时值；平台无法读取或第三方未采集时显示“未读取”，不以 0 代替。",
+  "brands": [
+    {
+      "id": "jimeng",
+      "name": "即梦 AI",
+      "company": "字节跳动",
+      "region": "中国",
+      "focus": "图像生成 / 视频生成",
+      "officialSite": "https://jimeng.jianying.com",
+      "note": "重点观察 Seedance、Seedream 的模型宣传、功能上新、创作者活动和官方教程。",
+      "accounts": [
+        {
+          "platform": "抖音",
+          "handle": "即梦AI",
+          "url": "https://www.douyin.com/user/MS4wLjABAAAATAf2FKPSpZx_TdDWzwzNlznaEE6HttAqJgrnRPGdW24adAIlxfGeasDraUIR5JRp",
+          "status": "verified",
+          "verification": "AIPick 账号页标注“Dreamina官方账号”",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "平台粉丝数未成功读取",
+          "sourceUrl": "https://aipick.news/items/gmodn1tv3bp33pwvu6v1hfg9i",
+          "note": "官方账号主页；AIPick 的粉丝字段返回 0，按采集缺失处理，不当作真实粉丝数。"
+        },
+        {
+          "platform": "B站",
+          "handle": "即梦AI",
+          "url": "https://search.bilibili.com/zh-Hans/all?keyword=%E5%8D%B3%E6%A2%A6AI",
+          "status": "verified-search",
+          "verification": "B站搜索结果标注“即梦AI官方账号”",
+          "followers": 28000,
+          "followersDisplay": "2.8 万",
+          "snapshotLabel": "约 2026-11-15 · 搜索索引快照",
+          "sourceUrl": "https://search.bilibili.com/zh-Hans/all?keyword=%E5%8D%B3%E6%A2%A6AI",
+          "extraMetric": "188 个视频",
+          "note": "目前拿到的是官方账号搜索入口，尚未解析出稳定的空间 UID。"
+        }
+      ]
+    },
+    {
+      "id": "kling",
+      "name": "可灵 AI",
+      "company": "快手",
+      "region": "中国 / 全球",
+      "focus": "视频生成 / 图像生成",
+      "officialSite": "https://kling.ai",
+      "note": "重点观察模型发布、图像与视频能力、创作者合作和全球社媒传播。",
+      "accounts": [
+        {
+          "platform": "抖音",
+          "handle": "可灵AI",
+          "url": "https://www.douyin.com/user/MS4wLjABAAAAlf7u2nV_SoLrjP-jBr9HvnpLkWLrwLaJwoFXTUyRBnCe1XJ9eSBE-pQ7b33QXjhL",
+          "status": "verified",
+          "verification": "官方视频页显示可灵AI认证徽章",
+          "followers": 124000,
+          "followersDisplay": "12.4 万",
+          "snapshotLabel": "约 2026-11-08 · 页面抓取快照",
+          "sourceUrl": "https://www.douyin.com/video/7604299810652407814",
+          "note": "粉丝数来自可灵官方视频页的公开展示，日期为近似抓取时间。"
+        },
+        {
+          "platform": "微博",
+          "handle": "可灵AI",
+          "url": "https://weibo.com/u/7929423749",
+          "status": "verified",
+          "verification": "官方微博认证页，简介为“可灵AI官方微博”",
+          "followers": 94605,
+          "followersDisplay": "9.46 万",
+          "snapshotLabel": "约 2026-07 · 历史快照",
+          "sourceUrl": "https://weibo.com/u/7929423749",
+          "note": "历史快照，后续需要重新采集。"
+        },
+        {
+          "platform": "X",
+          "handle": "@Kling_ai",
+          "url": "https://x.com/Kling_ai",
+          "status": "verified",
+          "verification": "Kling AI 官方 Linktree 直接链接",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "X 页面访问受限",
+          "sourceUrl": "https://linktr.ee/Kling_AI"
+        },
+        {
+          "platform": "Instagram",
+          "handle": "@klingai_official",
+          "url": "https://www.instagram.com/klingai_official/",
+          "status": "verified",
+          "verification": "Kling AI 官方 Linktree 直接链接",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "公开页面未返回粉丝数",
+          "sourceUrl": "https://linktr.ee/Kling_AI"
+        },
+        {
+          "platform": "TikTok",
+          "handle": "@klingai_official",
+          "url": "https://www.tiktok.com/@klingai_official",
+          "status": "verified",
+          "verification": "Kling AI 官方 Linktree 直接链接",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "公开页面未返回粉丝数",
+          "sourceUrl": "https://linktr.ee/Kling_AI"
+        },
+        {
+          "platform": "YouTube",
+          "handle": "@Kling_ai",
+          "url": "https://www.youtube.com/@Kling_ai",
+          "status": "verified",
+          "verification": "Kling AI 官方 Linktree 直接链接",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "未取得订阅数快照",
+          "sourceUrl": "https://linktr.ee/Kling_AI"
+        }
+      ]
+    },
+    {
+      "id": "higgsfield",
+      "name": "Higgsfield",
+      "company": "Higgsfield AI",
+      "region": "海外",
+      "focus": "AI 视频 / 创作者工作流",
+      "officialSite": "https://higgsfield.ai",
+      "note": "重点观察广告宣传、创作者赛事、产品工作室、学院和社媒增长。",
+      "accounts": [
+        {
+          "platform": "X",
+          "handle": "@higgsfield",
+          "url": "https://x.com/higgsfield",
+          "status": "verified",
+          "verification": "Higgsfield 官方帮助中心列出的官方账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "X 页面访问受限",
+          "sourceUrl": "https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms"
+        },
+        {
+          "platform": "Instagram",
+          "handle": "@higgsfield.ai",
+          "url": "https://www.instagram.com/higgsfield.ai/",
+          "status": "verified",
+          "verification": "Higgsfield 官方帮助中心列出的官方账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "公开页面未返回粉丝数",
+          "sourceUrl": "https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms"
+        },
+        {
+          "platform": "YouTube",
+          "handle": "@HiggsfieldAI",
+          "url": "https://www.youtube.com/@HiggsfieldAI",
+          "status": "verified",
+          "verification": "Higgsfield 官方帮助中心列出的官方账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "未取得订阅数快照",
+          "sourceUrl": "https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms"
+        },
+        {
+          "platform": "TikTok",
+          "handle": "@higgsfield.ai90",
+          "url": "https://www.tiktok.com/@higgsfield.ai90",
+          "status": "verified",
+          "verification": "Higgsfield 官方帮助中心列出的官方账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "公开页面未返回粉丝数",
+          "sourceUrl": "https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms"
+        },
+        {
+          "platform": "LinkedIn",
+          "handle": "Higgsfield AI",
+          "url": "https://www.linkedin.com/company/higgsfield/",
+          "status": "verified",
+          "verification": "品牌官方公司主页",
+          "followers": 128123,
+          "followersDisplay": "12.81 万",
+          "snapshotLabel": "2026-11-22 · 约 3 小时前页面快照",
+          "sourceUrl": "https://www.linkedin.com/company/higgsfield/"
+        }
+      ]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "company": "Runway",
+      "region": "海外",
+      "focus": "AI 视频 / 视频编辑",
+      "officialSite": "https://runwayml.com",
+      "note": "重点观察视频模型、创作者节、广告产品和面向专业制作团队的宣传。",
+      "accounts": [
+        {
+          "platform": "LinkedIn",
+          "handle": "Runway",
+          "url": "https://www.linkedin.com/company/runwayml/",
+          "status": "verified",
+          "verification": "品牌官方公司主页",
+          "followers": 199963,
+          "followersDisplay": "19.996 万",
+          "snapshotLabel": "约 2026-11-20 · 页面抓取快照",
+          "sourceUrl": "https://www.linkedin.com/company/runwayml/"
+        },
+        {
+          "platform": "X",
+          "handle": "@runwayml",
+          "url": "https://x.com/runwayml",
+          "status": "review",
+          "verification": "品牌 Linktree 名称匹配，仍需与官网交叉复核",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "账号归属待二次确认",
+          "sourceUrl": "https://linktr.ee/runwayml"
+        }
+      ]
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "company": "Pika Labs",
+      "region": "海外",
+      "focus": "AI 视频 / 音频",
+      "officialSite": "https://pika.art",
+      "note": "重点观察视频模型、音频模型、API 聚合、创作者功能和社媒增长。",
+      "accounts": [
+        {
+          "platform": "LinkedIn",
+          "handle": "Pika",
+          "url": "https://www.linkedin.com/company/pika-labs/",
+          "status": "verified",
+          "verification": "品牌官方公司主页",
+          "followers": 39155,
+          "followersDisplay": "3.92 万",
+          "snapshotLabel": "公开页面索引快照，日期不精确",
+          "sourceUrl": "https://www.linkedin.com/company/pika-labs/"
+        },
+        {
+          "platform": "X",
+          "handle": "@pika_labs",
+          "url": "https://x.com/pika_labs",
+          "status": "review",
+          "verification": "第三方社媒目录称官网关联该账号，待官网复核",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "账号归属待二次确认",
+          "sourceUrl": "https://socials.fru.dev/companies/pika"
+        },
+        {
+          "platform": "Instagram",
+          "handle": "@pika_labs",
+          "url": "https://www.instagram.com/pika_labs/",
+          "status": "review",
+          "verification": "第三方社媒目录称官网关联该账号，待官网复核",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "账号归属待二次确认",
+          "sourceUrl": "https://socials.fru.dev/companies/pika"
+        }
+      ]
+    },
+    {
+      "id": "luma",
+      "name": "Luma",
+      "company": "Luma AI",
+      "region": "海外",
+      "focus": "视频生成 / 世界模型",
+      "officialSite": "https://lumalabs.ai",
+      "note": "重点观察 Dream Machine、创作者活动、产品工作流和模型宣传。",
+      "accounts": [
+        {
+          "platform": "X",
+          "handle": "@LumaLabsAI",
+          "url": "https://x.com/LumaLabsAI",
+          "status": "verified",
+          "verification": "Luma 官方 Linktree 关联账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "X 页面访问受限",
+          "sourceUrl": "https://linktr.ee/lumalabsai"
+        },
+        {
+          "platform": "Instagram",
+          "handle": "@lumalabsai",
+          "url": "https://www.instagram.com/lumalabsai/",
+          "status": "verified",
+          "verification": "Luma 官方 Linktree 关联账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "公开页面未返回粉丝数",
+          "sourceUrl": "https://linktr.ee/lumalabsai"
+        },
+        {
+          "platform": "YouTube",
+          "handle": "Luma",
+          "url": "https://www.youtube.com/@LumaAI",
+          "status": "verified",
+          "verification": "Luma 官方 Linktree 关联账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "未取得订阅数快照",
+          "sourceUrl": "https://linktr.ee/lumalabsai"
+        },
+        {
+          "platform": "TikTok",
+          "handle": "@lumalabsai",
+          "url": "https://www.tiktok.com/@lumalabsai",
+          "status": "verified",
+          "verification": "Luma 官方 Linktree 关联账号",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "公开页面未返回粉丝数",
+          "sourceUrl": "https://linktr.ee/lumalabsai"
+        }
+      ]
+    },
+    {
+      "id": "bytedance",
+      "name": "字节跳动",
+      "company": "ByteDance",
+      "region": "中国 / 全球",
+      "focus": "母公司 / Seed / 即梦 / Dreamina",
+      "officialSite": "https://www.bytedance.com",
+      "note": "母公司官方账号会宣传 Seedream、Seedance 等模型；与即梦产品账号分开统计。",
+      "accounts": [
+        {
+          "platform": "LinkedIn",
+          "handle": "ByteDance",
+          "url": "https://www.linkedin.com/company/bytedance/",
+          "status": "verified",
+          "verification": "品牌官方公司主页",
+          "followers": 1633368,
+          "followersDisplay": "163.34 万",
+          "snapshotLabel": "约 2026-11-20 · 页面抓取快照",
+          "sourceUrl": "https://www.linkedin.com/company/bytedance/"
+        }
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "id": "jimeng-seedance-4k",
+      "brandId": "jimeng",
+      "brand": "即梦 AI",
+      "platform": "抖音",
+      "publishedLabel": "2026-11-19",
+      "title": "Seedance 2.5 升级 4K，支持 10bit BT.709 色彩格式",
+      "type": "功能更新 / 产品宣传",
+      "url": "https://www.douyin.com/video/7709557568837864739",
+      "sourceUrl": "https://aipick.news/items/gmodn1tv3bp33pwvu6v1hfg9i",
+      "sourceLabel": "AIPick 采集的官方账号原文",
+      "metrics": {
+        "likes": 8802,
+        "comments": 447,
+        "shares": 501,
+        "favorites": 475
+      },
+      "note": "官方账号宣传 4K 画质、色彩格式与限时价格。"
+    },
+    {
+      "id": "jimeng-seedream-55",
+      "brandId": "jimeng",
+      "brand": "即梦 AI",
+      "platform": "抖音",
+      "publishedLabel": "2026-11-19",
+      "title": "Seedream 5.5 发布：人像质感、局部编辑与透明素材",
+      "type": "模型发布",
+      "url": "https://www.douyin.com/video/7709844021014809883",
+      "sourceUrl": "https://aipick.news/items/bqpkx40essa8znush1w4f7abe",
+      "sourceLabel": "AIPick 采集的官方账号原文",
+      "metrics": {
+        "likes": 37,
+        "comments": 8,
+        "shares": 7,
+        "favorites": 11
+      },
+      "note": "账号认证为 Dreamina 官方账号；互动数字为采集时快照。"
+    },
+    {
+      "id": "kling-video-3",
+      "brandId": "kling",
+      "brand": "可灵 AI",
+      "platform": "抖音",
+      "publishedLabel": "2026-02-08",
+      "title": "可灵 3.0 模型发布宣传：多镜头、角色一致性与原生音频",
+      "type": "模型发布",
+      "url": "https://www.douyin.com/video/7604299810652407814",
+      "sourceUrl": "https://www.douyin.com/video/7604299810652407814",
+      "sourceLabel": "可灵AI认证账号视频",
+      "note": "官方视频页可见可灵 AI 认证徽章与粉丝数。"
+    },
+    {
+      "id": "higgsfield-editing-room",
+      "brandId": "higgsfield",
+      "brand": "Higgsfield",
+      "platform": "LinkedIn",
+      "publishedLabel": "2026-11-22 · 约 3 小时前",
+      "title": "Higgsfield Editing Room 上线宣传",
+      "type": "新功能 / 产品宣传",
+      "url": "https://www.linkedin.com/company/higgsfield/",
+      "sourceUrl": "https://www.linkedin.com/company/higgsfield/",
+      "sourceLabel": "Higgsfield AI 官方 LinkedIn",
+      "note": "宣传在同一时间线上调整镜头角度、角色、灯光和场景。"
+    },
+    {
+      "id": "runway-seedance-4k",
+      "brandId": "runway",
+      "brand": "Runway",
+      "platform": "LinkedIn",
+      "publishedLabel": "约 1 周前",
+      "title": "Seedance 2.5 4K 已在 Runway 上线",
+      "type": "模型接入 / 产品宣传",
+      "url": "https://www.linkedin.com/company/runwayml/",
+      "sourceUrl": "https://www.linkedin.com/company/runwayml/",
+      "sourceLabel": "Runway 官方 LinkedIn",
+      "note": "展示平台引入第三方模型的产品宣传方向。"
+    },
+    {
+      "id": "pika-audio",
+      "brandId": "pika",
+      "brand": "Pika",
+      "platform": "LinkedIn",
+      "publishedLabel": "约 1 周前",
+      "title": "Pika Audio：四款生成式音频模型发布",
+      "type": "模型发布 / 产品宣传",
+      "url": "https://www.linkedin.com/company/pika-labs/",
+      "sourceUrl": "https://www.linkedin.com/company/pika-labs/",
+      "sourceLabel": "Pika 官方 LinkedIn",
+      "note": "强调音乐、音效、语音等模型能力与价格策略。"
+    },
+    {
+      "id": "bytedance-seedream-55",
+      "brandId": "bytedance",
+      "brand": "字节跳动",
+      "platform": "LinkedIn",
+      "publishedLabel": "约 1 周前",
+      "title": "Seedream 5.5 发布宣传：多轮编辑与透明素材能力",
+      "type": "模型发布 / 母公司宣传",
+      "url": "https://www.linkedin.com/company/bytedance/",
+      "sourceUrl": "https://www.linkedin.com/company/bytedance/",
+      "sourceLabel": "ByteDance 官方 LinkedIn",
+      "note": "母公司账号宣传 Seedream 5.5 的编辑稳定性、RGBA 输出和文字渲染。"
+    }
+  ]
+}
