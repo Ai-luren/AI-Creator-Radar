@@ -36,6 +36,28 @@
           "sourceUrl": "https://search.bilibili.com/zh-Hans/all?keyword=%E5%8D%B3%E6%A2%A6AI",
           "extraMetric": "188 个视频",
           "note": "目前拿到的是官方账号搜索入口，尚未解析出稳定的空间 UID。"
+        },
+        {
+          "platform": "小红书",
+          "handle": "搜索入口（官方账号待核验）",
+          "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%B3%E6%A2%A6AI",
+          "status": "review",
+          "verification": "暂未找到可确认的官方主页",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "搜索入口，不代表已确认官方账号",
+          "sourceUrl": "https://www.xiaohongshu.com/search_result?keyword=%E5%8D%B3%E6%A2%A6AI"
+        },
+        {
+          "platform": "X",
+          "handle": "搜索入口（官方账号待核验）",
+          "url": "https://x.com/search?q=Dreamina&src=typed_query",
+          "status": "review",
+          "verification": "暂未找到可确认的 Dreamina 官方账号",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "搜索入口，不代表已确认官方账号",
+          "sourceUrl": "https://x.com/search?q=Dreamina&src=typed_query"
         }
       ]
     },
@@ -115,6 +137,17 @@
           "followersDisplay": "未读取",
           "snapshotLabel": "未取得订阅数快照",
           "sourceUrl": "https://linktr.ee/Kling_AI"
+        },
+        {
+          "platform": "小红书",
+          "handle": "搜索入口（官方账号待核验）",
+          "url": "https://www.xiaohongshu.com/search_result?keyword=%E5%8F%AF%E7%81%B5AI",
+          "status": "review",
+          "verification": "暂未找到可交叉确认的官方主页",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "搜索入口，不代表已确认官方账号",
+          "sourceUrl": "https://www.xiaohongshu.com/search_result?keyword=%E5%8F%AF%E7%81%B5AI"
         }
       ]
     },
@@ -357,7 +390,8 @@
         "shares": 501,
         "favorites": 475
       },
-      "note": "官方账号宣传 4K 画质、色彩格式与限时价格。"
+      "note": "官方账号宣传 4K 画质、色彩格式与限时价格。",
+      "sortKey": "2026-11-19"
     },
     {
       "id": "jimeng-seedream-55",
@@ -376,7 +410,8 @@
         "shares": 7,
         "favorites": 11
       },
-      "note": "账号认证为 Dreamina 官方账号；互动数字为采集时快照。"
+      "note": "账号认证为 Dreamina 官方账号；互动数字为采集时快照。",
+      "sortKey": "2026-11-19"
     },
     {
       "id": "kling-video-3",
@@ -389,7 +424,8 @@
       "url": "https://www.douyin.com/video/7604299810652407814",
       "sourceUrl": "https://www.douyin.com/video/7604299810652407814",
       "sourceLabel": "可灵AI认证账号视频",
-      "note": "官方视频页可见可灵 AI 认证徽章与粉丝数。"
+      "note": "官方视频页可见可灵 AI 认证徽章与粉丝数。",
+      "sortKey": "2026-02-08"
     },
     {
       "id": "higgsfield-editing-room",
@@ -402,7 +438,8 @@
       "url": "https://www.linkedin.com/company/higgsfield/",
       "sourceUrl": "https://www.linkedin.com/company/higgsfield/",
       "sourceLabel": "Higgsfield AI 官方 LinkedIn",
-      "note": "宣传在同一时间线上调整镜头角度、角色、灯光和场景。"
+      "note": "宣传在同一时间线上调整镜头角度、角色、灯光和场景。",
+      "sortKey": "2026-11-22"
     },
     {
       "id": "runway-seedance-4k",
@@ -415,7 +452,8 @@
       "url": "https://www.linkedin.com/company/runwayml/",
       "sourceUrl": "https://www.linkedin.com/company/runwayml/",
       "sourceLabel": "Runway 官方 LinkedIn",
-      "note": "展示平台引入第三方模型的产品宣传方向。"
+      "note": "展示平台引入第三方模型的产品宣传方向。",
+      "sortKey": "2026-11-15"
     },
     {
       "id": "pika-audio",
@@ -428,7 +466,8 @@
       "url": "https://www.linkedin.com/company/pika-labs/",
       "sourceUrl": "https://www.linkedin.com/company/pika-labs/",
       "sourceLabel": "Pika 官方 LinkedIn",
-      "note": "强调音乐、音效、语音等模型能力与价格策略。"
+      "note": "强调音乐、音效、语音等模型能力与价格策略。",
+      "sortKey": "2026-11-15"
     },
     {
       "id": "bytedance-seedream-55",
@@ -441,7 +480,8 @@
       "url": "https://www.linkedin.com/company/bytedance/",
       "sourceUrl": "https://www.linkedin.com/company/bytedance/",
       "sourceLabel": "ByteDance 官方 LinkedIn",
-      "note": "母公司账号宣传 Seedream 5.5 的编辑稳定性、RGBA 输出和文字渲染。"
+      "note": "母公司账号宣传 Seedream 5.5 的编辑稳定性、RGBA 输出和文字渲染。",
+      "sortKey": "2026-11-15"
     }
   ]
 }
