@@ -378,7 +378,7 @@ function socialPage(){
   return '<article class="social-brand-card"><div class="social-brand-head">'+brandBox(b.name,b.officialSite)+'<div style="min-width:0;flex:1"><div class="social-brand-title">'+esc(b.name)+'</div><div class="social-brand-sub">'+esc(b.company)+' · '+esc(b.region)+' · '+esc(b.focus)+'</div></div><span class="platform-status common">'+x.accounts.length+' 个入口</span></div><p class="social-brand-note">'+esc(b.note)+'</p><div class="social-accounts-grid">'+accountCards+'</div></article>'
  }).join('');
  var postCards=posts.map(function(p){
-  var postLinkLabel=p.platform==='LinkedIn'?'打开官方动态页':'查看原始宣传内容';
+  var postLinkLabel=(p.platform==='LinkedIn'||p.platform==='B站')?'打开官方动态页':'查看原始宣传内容';
   var metric=p.metrics?'<span class="pill">赞 '+Number(p.metrics.likes||0).toLocaleString('zh-CN')+'</span><span class="pill">评 '+Number(p.metrics.comments||0).toLocaleString('zh-CN')+'</span><span class="pill">分享 '+Number(p.metrics.shares||0).toLocaleString('zh-CN')+'</span>':'';
   return '<article class="social-post-card"><div class="social-post-meta"><span class="pill blue">'+esc(p.brand)+'</span><span class="pill">'+esc(p.platform)+'</span><span class="pill">'+esc(p.type)+'</span><span style="font-size:9px;color:var(--muted2)">'+esc(p.publishedLabel)+'</span></div><h3>'+esc(p.title)+'</h3><p>'+esc(p.note||'官方账号宣传动态。')+'</p><div class="social-post-meta" style="margin-top:9px">'+metric+'</div><a href="'+safeUrl(p.url)+'" target="_blank" rel="noopener noreferrer">'+postLinkLabel+' ↗</a>'+(p.sourceUrl&&p.sourceUrl!==p.url?'<a style="margin-left:12px" href="'+safeUrl(p.sourceUrl)+'" target="_blank" rel="noopener noreferrer">采集与核验来源 ↗</a>':'')+'</article>'
  }).join('');
