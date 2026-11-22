@@ -18,7 +18,7 @@
     "region": "Global",
     "focus": "Google DeepMind",
     "url": "https://deepmind.google/blog/rss.xml",
-    "active": true,
+    "active": false,
     "priority": 1
   },
   {
@@ -317,5 +317,16 @@
     "url": "https://news.google.com/rss/search?q=Zhipu%20GLM%20model%20release&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
     "active": true,
     "priority": 2
+  },
+  {
+    "id": "deepmind-search",
+    "name": "Google DeepMind / Gemini · News search",
+    "category": "models",
+    "kind": "discovery",
+    "region": "Global",
+    "focus": "Google DeepMind",
+    "url": "https://news.google.com/rss/search?q=Google%20DeepMind%20Gemini%20model%20release&hl=en-US&gl=US&ceid=US:en",
+    "active": true,
+    "priority": 1
   }
 ]
