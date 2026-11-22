@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T01:28:24Z",
+  "generatedAt": "2026-11-22T01:29:18Z",
   "sources": [
     {
       "id": "openai-news",
@@ -9,17 +9,6 @@
       "region": "Global",
       "focus": "OpenAI",
       "url": "https://openai.com/news/rss.xml",
-      "active": true,
-      "priority": 1
-    },
-    {
-      "id": "deepmind-blog",
-      "name": "Google DeepMind",
-      "category": "models",
-      "kind": "official",
-      "region": "Global",
-      "focus": "Google DeepMind",
-      "url": "https://deepmind.google/blog/rss.xml",
       "active": true,
       "priority": 1
     },
@@ -308,6 +297,17 @@
       "url": "https://news.google.com/rss/search?q=Zhipu%20GLM%20model%20release&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
       "active": true,
       "priority": 2
+    },
+    {
+      "id": "deepmind-search",
+      "name": "Google DeepMind / Gemini · News search",
+      "category": "models",
+      "kind": "discovery",
+      "region": "Global",
+      "focus": "Google DeepMind",
+      "url": "https://news.google.com/rss/search?q=Google%20DeepMind%20Gemini%20model%20release&hl=en-US&gl=US&ceid=US:en",
+      "active": true,
+      "priority": 1
     }
   ]
 }
