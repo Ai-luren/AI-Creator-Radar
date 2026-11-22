@@ -100,10 +100,10 @@
           "url": "https://x.com/Kling_ai",
           "status": "verified",
           "verification": "Kling AI 官方 Linktree 直接链接",
-          "followers": null,
-          "followersDisplay": "未读取",
-          "snapshotLabel": "X 页面访问受限",
-          "sourceUrl": "https://linktr.ee/Kling_AI"
+          "followers": 134000,
+          "followersDisplay": "13.4 万",
+          "snapshotLabel": "约 2026-07 · X 页面快照",
+          "sourceUrl": "https://x.com/Kling_ai/with_replies?lang=en"
         },
         {
           "platform": "Instagram",
@@ -346,6 +346,17 @@
           "followersDisplay": "未读取",
           "snapshotLabel": "公开页面未返回粉丝数",
           "sourceUrl": "https://linktr.ee/lumalabsai"
+        },
+        {
+          "platform": "LinkedIn",
+          "handle": "Luma",
+          "url": "https://www.linkedin.com/company/lumalabsai/",
+          "status": "verified",
+          "verification": "品牌官方公司主页；YouTube 官方频道简介也链接到 Luma LinkedIn",
+          "followers": 128739,
+          "followersDisplay": "12.87 万",
+          "snapshotLabel": "2026-11-22 · 今日页面快照",
+          "sourceUrl": "https://www.linkedin.com/company/lumalabsai/"
         }
       ]
     },
@@ -364,9 +375,9 @@
           "url": "https://www.linkedin.com/company/bytedance/",
           "status": "verified",
           "verification": "品牌官方公司主页",
-          "followers": 1633368,
-          "followersDisplay": "163.34 万",
-          "snapshotLabel": "约 2026-11-20 · 页面抓取快照",
+          "followers": 1633801,
+          "followersDisplay": "163.38 万",
+          "snapshotLabel": "约 2026-11-20 · 页面快照",
           "sourceUrl": "https://www.linkedin.com/company/bytedance/"
         }
       ]
@@ -435,8 +446,8 @@
       "publishedLabel": "2026-11-22 · 约 3 小时前",
       "title": "Higgsfield Editing Room 上线宣传",
       "type": "新功能 / 产品宣传",
-      "url": "https://www.linkedin.com/company/higgsfield/",
-      "sourceUrl": "https://www.linkedin.com/company/higgsfield/",
+      "url": "https://www.linkedin.com/company/higgsfield/posts/",
+      "sourceUrl": "https://www.linkedin.com/company/higgsfield/posts/",
       "sourceLabel": "Higgsfield AI 官方 LinkedIn",
       "note": "宣传在同一时间线上调整镜头角度、角色、灯光和场景。",
       "sortKey": "2026-11-22"
@@ -449,8 +460,8 @@
       "publishedLabel": "约 1 周前",
       "title": "Seedance 2.5 4K 已在 Runway 上线",
       "type": "模型接入 / 产品宣传",
-      "url": "https://www.linkedin.com/company/runwayml/",
-      "sourceUrl": "https://www.linkedin.com/company/runwayml/",
+      "url": "https://www.linkedin.com/company/runwayml/posts/",
+      "sourceUrl": "https://www.linkedin.com/company/runwayml/posts/",
       "sourceLabel": "Runway 官方 LinkedIn",
       "note": "展示平台引入第三方模型的产品宣传方向。",
       "sortKey": "2026-11-15"
@@ -463,8 +474,8 @@
       "publishedLabel": "约 1 周前",
       "title": "Pika Audio：四款生成式音频模型发布",
       "type": "模型发布 / 产品宣传",
-      "url": "https://www.linkedin.com/company/pika-labs/",
-      "sourceUrl": "https://www.linkedin.com/company/pika-labs/",
+      "url": "https://www.linkedin.com/company/pika-labs/posts/",
+      "sourceUrl": "https://www.linkedin.com/company/pika-labs/posts/",
       "sourceLabel": "Pika 官方 LinkedIn",
       "note": "强调音乐、音效、语音等模型能力与价格策略。",
       "sortKey": "2026-11-15"
@@ -477,11 +488,25 @@
       "publishedLabel": "约 1 周前",
       "title": "Seedream 5.5 发布宣传：多轮编辑与透明素材能力",
       "type": "模型发布 / 母公司宣传",
-      "url": "https://www.linkedin.com/company/bytedance/",
-      "sourceUrl": "https://www.linkedin.com/company/bytedance/",
+      "url": "https://www.linkedin.com/company/bytedance/posts/",
+      "sourceUrl": "https://www.linkedin.com/company/bytedance/posts/",
       "sourceLabel": "ByteDance 官方 LinkedIn",
       "note": "母公司账号宣传 Seedream 5.5 的编辑稳定性、RGBA 输出和文字渲染。",
       "sortKey": "2026-11-15"
+    },
+    {
+      "id": "luma-shot-coverage",
+      "brandId": "luma",
+      "brand": "Luma",
+      "platform": "LinkedIn",
+      "publishedLabel": "约 1 周前",
+      "sortKey": "2026-11-15",
+      "title": "Shot Coverage：从已有视频生成新的运动机位",
+      "type": "新功能 / 工作流宣传",
+      "url": "https://www.linkedin.com/company/lumalabsai/posts/",
+      "sourceUrl": "https://www.linkedin.com/company/lumalabsai/posts/",
+      "sourceLabel": "Luma 官方 LinkedIn",
+      "note": "宣传从已有视频扩展新的动态角度，面向剪辑和镜头覆盖工作流。"
     }
   ]
 }
