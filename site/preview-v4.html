@@ -172,7 +172,7 @@ button,input{font:inherit}button{cursor:pointer}
 .social-account-status.review{background:#fff6e9;color:#9a6a27}
 .social-account-metric{font-size:17px;font-weight:780;letter-spacing:-.3px;margin-top:8px}
 .social-account-note{font-size:8px;line-height:1.55;color:var(--muted2);margin-top:3px}
-.social-account-source{font-size:9px;color:var(--blue);margin-top:6px}
+.social-account-source{font-size:9px;color:var(--blue);margin-top:6px;display:flex;gap:10px;flex-wrap:wrap}.social-account-source a{color:var(--blue);text-decoration:none;font-weight:700;margin-right:8px}
 .social-post-list{display:grid;gap:9px}
 .social-post-card{border:1px solid var(--line);background:#fff;border-radius:13px;padding:13px 15px;box-shadow:var(--shadow)}
 .social-post-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:6px}
@@ -353,7 +353,7 @@ function platformsPage(){
 
 function socialPage(){
  var brands=state.social.brands||[];
- var posts=(state.social.posts||[]).filter(function(p){return matches([p.brand,p.platform,p.title,p.type,p.note].join(' '))&&(state.socialPlatform==='all'||p.platform===state.socialPlatform)}).slice().sort(function(a,b){return String(b.publishedLabel||'').localeCompare(String(a.publishedLabel||''))});
+ var posts=(state.social.posts||[]).filter(function(p){return matches([p.brand,p.platform,p.title,p.type,p.note].join(' '))&&(state.socialPlatform==='all'||p.platform===state.socialPlatform)}).slice().sort(function(a,b){return String(b.sortKey||'').localeCompare(String(a.sortKey||''))});
  var allAccounts=[];brands.forEach(function(b){(b.accounts||[]).forEach(function(a){allAccounts.push(a)})});
  var verified=allAccounts.filter(function(a){return a.status==='verified'||a.status==='verified-search'}).length;
  var snapshots=allAccounts.filter(function(a){return a.followers!==null&&a.followers!==undefined}).length;
@@ -370,7 +370,8 @@ function socialPage(){
    var review=a.status==='review';
    var statusLabel=review?'待复核':a.status==='verified-search'?'官方搜索入口':'已核验';
    var metric=a.followersDisplay||'未读取';
-   return '<a class="social-account-card" href="'+safeUrl(a.url)+'" target="_blank" rel="noopener noreferrer"><div class="social-account-head"><span class="social-account-name">'+esc(a.platform)+' · '+esc(a.handle)+'</span><span class="social-account-status '+(review?'review':'')+'">'+statusLabel+'</span></div><div class="social-account-metric">'+esc(metric)+'</div><div class="social-account-note">'+esc(a.snapshotLabel||a.verification||'粉丝数待采集')+'</div>'+(a.extraMetric?'<div class="social-account-note">'+esc(a.extraMetric)+'</div>':'')+'<div class="social-account-source">打开账号 ↗</div></a>'
+   var accountLabel=a.status==='verified-search'?'打开官方搜索入口':'打开账号主页';
+   return '<article class="social-account-card"><div class="social-account-head"><span class="social-account-name">'+esc(a.platform)+' · '+esc(a.handle)+'</span><span class="social-account-status '+(review?'review':'')+'">'+statusLabel+'</span></div><div class="social-account-metric">'+esc(metric)+'</div><div class="social-account-note">'+esc(a.snapshotLabel||a.verification||'粉丝数待采集')+'</div>'+(a.extraMetric?'<div class="social-account-note">'+esc(a.extraMetric)+'</div>':'')+'<div class="social-account-source"><a href="'+safeUrl(a.url)+'" target="_blank" rel="noopener noreferrer">'+accountLabel+' ↗</a>'+(a.sourceUrl?'<a href="'+safeUrl(a.sourceUrl)+'" target="_blank" rel="noopener noreferrer">核验来源 ↗</a>':'')+'</div></article>'
   }).join('');
   return '<article class="social-brand-card"><div class="social-brand-head">'+brandBox(b.name,b.officialSite)+'<div style="min-width:0;flex:1"><div class="social-brand-title">'+esc(b.name)+'</div><div class="social-brand-sub">'+esc(b.company)+' · '+esc(b.region)+' · '+esc(b.focus)+'</div></div><span class="platform-status common">'+x.accounts.length+' 个入口</span></div><p class="social-brand-note">'+esc(b.note)+'</p><div class="social-accounts-grid">'+accountCards+'</div></article>'
  }).join('');
@@ -380,7 +381,7 @@ function socialPage(){
  }).join('');
  return pageHead('官方社媒监控','追踪竞品官方账号在哪些平台发声、宣传什么功能，以及公开粉丝规模。',''+brands.length+' 家品牌 · '+allAccounts.length+' 个账号')+
  '<div class="social-summary"><div class="social-summary-card"><span>监控品牌</span><strong>'+brands.length+'</strong></div><div class="social-summary-card"><span>账号入口</span><strong>'+allAccounts.length+'</strong></div><div class="social-summary-card"><span>已核验账号</span><strong>'+verified+'</strong></div><div class="social-summary-card"><span>粉丝数快照</span><strong>'+snapshots+'</strong></div></div>'+
- '<div class="social-disclaimer"><strong>数据口径：</strong>只把官网链接、平台认证或可追溯官方主页确认的账号标为已核验。粉丝数是带日期的公开快照，不是实时值；暂时无法读取的平台显示“未读取”，不把缺失值当作 0。待复核账号不会计入已核验数量。</div>'+
+ '<div class="social-disclaimer"><strong>数据口径：</strong>只把官网链接、平台认证或可追溯官方主页确认的账号标为已核验。粉丝数是带日期的公开快照，不是实时值；暂时无法读取的平台显示“未读取”，不把缺失值当作 0。待复核账号不会计入已核验数量。小红书与部分 X 账号目前仅提供检索入口，不冒充官方主页。</div>'+
  '<div class="section-head"><div><h2>官方账号库</h2><p>按平台筛选，查看账号主页与粉丝数快照。</p></div><span class="head-meta">'+(state.socialPlatform==='all'?'全部平台':esc(state.socialPlatform))+' · '+filteredBrands.length+' 家品牌</span></div>'+
  '<div class="tabs">'+tabs+'</div><div class="social-brand-grid">'+(brandCards||empty('当前筛选条件下没有已收录的账号。'))+'</div>'+
  '<div class="section-head"><div><h2>近期官方宣传</h2><p>模型发布、功能上新、产品接入和创作者活动。</p></div><span class="head-meta">'+posts.length+' 条可核验动态</span></div><div class="social-post-list">'+(postCards||empty('当前筛选条件下暂时没有官方宣传动态。'))+'</div>'+
