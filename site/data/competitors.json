@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Higgsfield",
+    "region": "Global",
+    "position": "AI-native creative suite",
+    "url": "https://higgsfield.ai/",
+    "watchUrl": "https://higgsfield.ai/creator-hub/changelog",
+    "watchType": "Official changelog",
+    "focus": ["模型接入", "视频工具", "创作者生态", "赛事与营销"],
+    "note": "重点观察模型上新、工作流工具、学院与创作者活动。"
+  },
+  {
+    "name": "Dreamina / 即梦",
+    "region": "Global / China",
+    "position": "ByteDance AI image & video creation",
+    "url": "https://dreamina.capcut.com/",
+    "watchUrl": "https://dreamina.capcut.com/",
+    "watchType": "Official product",
+    "focus": ["Seedance", "图片与视频模型", "编辑能力", "商业化"],
+    "note": "同时关注海外 Dreamina 与国内即梦的产品节奏和模型差异。"
+  },
+  {
+    "name": "Kling / 可灵",
+    "region": "China / Global",
+    "position": "AI video generation platform",
+    "url": "https://klingai.com/",
+    "watchUrl": "https://news.google.com/rss/search?q=Kling%20AI%20video&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+    "watchType": "News search",
+    "focus": ["视频模型", "参考生视频", "运镜控制", "创作者活动"],
+    "note": "关注模型版本、生成时长、参考能力与商业化变化。"
+  },
+  {
+    "name": "TapNow",
+    "region": "Global / China",
+    "position": "Agentic creative canvas",
+    "url": "https://www.tapnow.ai/",
+    "watchUrl": "https://docs.tapnow.ai/docs",
+    "watchType": "Official docs",
+    "focus": ["Agent 工作流", "无限画布", "分镜预演", "创作者社区"],
+    "note": "观察从单点生成工具向创作工作流与 Agent 的演进。"
+  },
+  {
+    "name": "LibTV",
+    "region": "China",
+    "position": "AI video creation platform",
+    "url": "https://www.libtv.com/",
+    "watchUrl": "https://www.libtv.com/",
+    "watchType": "Official product",
+    "focus": ["模型上新", "画布与 Agent", "创作者赛事", "课程生态"],
+    "note": "重点关注模型接入、活动、创作者扶持与教育内容。"
+  },
+  {
+    "name": "Flova",
+    "region": "Global",
+    "position": "AI video agent",
+    "url": "https://www.flova.ai/en/",
+    "watchUrl": "https://www.flova.ai/en/",
+    "watchType": "Official product",
+    "focus": ["Agent 创作", "脚本与分镜", "资产库", "团队协作"],
+    "note": "观察端到端创作流程、资产复用和 Agent 的实际执行边界。"
+  },
+  {
+    "name": "Updream",
+    "region": "China",
+    "position": "AI video creation assistant",
+    "url": "https://www.updream.cn/",
+    "watchUrl": "https://www.updream.cn/",
+    "watchType": "Official product",
+    "focus": ["预演台", "人物多视角", "技能库", "创作者运营"],
+    "note": "关注创作技能、导演工作流、模型接入和创作者激励。"
+  },
+  {
+    "name": "ShotLab",
+    "region": "To verify",
+    "position": "AI video / shot workflow",
+    "url": "",
+    "watchUrl": "https://news.google.com/rss/search?q=ShotLab%20AI%20video&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+    "watchType": "News search",
+    "focus": ["产品功能", "分镜工作流", "模型接入"],
+    "note": "先通过新闻检索观察；官网地址待确认，避免误链。"
+  },
+  {
+    "name": "Runway",
+    "region": "Global",
+    "position": "AI video creation and editing",
+    "url": "https://runwayml.com/",
+    "watchUrl": "https://runwayml.com/",
+    "watchType": "Official product",
+    "focus": ["视频模型", "编辑工具", "工作流", "创作者案例"],
+    "note": "关注模型能力、视频编辑和专业创作工作流。"
+  },
+  {
+    "name": "Pika",
+    "region": "Global",
+    "position": "AI video creation",
+    "url": "https://pika.art/",
+    "watchUrl": "https://pika.art/",
+    "watchType": "Official product",
+    "focus": ["视频特效", "创作模板", "产品体验"],
+    "note": "关注差异化视频玩法、模板和社交传播。"
+  },
+  {
+    "name": "Luma",
+    "region": "Global",
+    "position": "AI visual generation",
+    "url": "https://lumalabs.ai/",
+    "watchUrl": "https://lumalabs.ai/",
+    "watchType": "Official product",
+    "focus": ["视频模型", "视觉生成", "创作工具"],
+    "note": "关注模型质量、参考控制和创作工具链。"
+  }
+]

@@ -1,0 +1,1 @@
+"""AI-Creator-Radar collector package."""

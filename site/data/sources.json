@@ -1,0 +1,269 @@
+{
+  "generatedAt": null,
+  "sources": [
+    {
+      "id": "openai-news",
+      "name": "OpenAI News",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "OpenAI",
+      "url": "https://openai.com/news/rss.xml",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "deepmind-blog",
+      "name": "Google DeepMind",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "Google DeepMind",
+      "url": "https://deepmind.google/blog/rss.xml",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "google-ai",
+      "name": "Google AI · The Keyword",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "Google",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "google-research",
+      "name": "Google Research",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "Google",
+      "url": "https://research.google/blog/rss/",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "huggingface-blog",
+      "name": "Hugging Face Blog",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "Hugging Face",
+      "url": "https://huggingface.co/blog/feed.xml",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "qwen-blog",
+      "name": "Qwen Blog",
+      "category": "models",
+      "kind": "official",
+      "region": "China",
+      "focus": "Qwen",
+      "url": "https://qwenlm.github.io/blog/index.xml",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "mistral-news",
+      "name": "Mistral AI News",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "Mistral",
+      "url": "https://mistral.ai/news/rss",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "nvidia-blog",
+      "name": "NVIDIA Blog",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "NVIDIA",
+      "url": "https://blogs.nvidia.com/feed/",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "aws-ml",
+      "name": "AWS Machine Learning",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "AWS",
+      "url": "https://aws.amazon.com/blogs/machine-learning/feed/",
+      "active": true,
+      "priority": 3
+    },
+    {
+      "id": "microsoft-ai",
+      "name": "Microsoft AI Blog",
+      "category": "models",
+      "kind": "official",
+      "region": "Global",
+      "focus": "Microsoft",
+      "url": "https://blogs.microsoft.com/ai/feed/",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "anthropic-search",
+      "name": "Anthropic / Claude · News search",
+      "category": "models",
+      "kind": "discovery",
+      "region": "Global",
+      "focus": "Anthropic",
+      "url": "https://news.google.com/rss/search?q=Anthropic%20Claude%20model%20release&hl=en-US&gl=US&ceid=US:en",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "deepseek-search",
+      "name": "DeepSeek · News search",
+      "category": "models",
+      "kind": "discovery",
+      "region": "Global",
+      "focus": "DeepSeek",
+      "url": "https://news.google.com/rss/search?q=DeepSeek%20AI%20model%20release&hl=en-US&gl=US&ceid=US:en",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "seedance-kling-search",
+      "name": "Seedance / Kling · News search",
+      "category": "models",
+      "kind": "discovery",
+      "region": "China",
+      "focus": "Seedance · Kling",
+      "url": "https://news.google.com/rss/search?q=Seedance%20OR%20Kling%20AI%20video&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "higgsfield-search",
+      "name": "Higgsfield · News search",
+      "category": "competitors",
+      "kind": "discovery",
+      "region": "Global",
+      "focus": "Higgsfield",
+      "url": "https://news.google.com/rss/search?q=Higgsfield%20AI%20video&hl=en-US&gl=US&ceid=US:en",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "dreamina-search",
+      "name": "Dreamina / 即梦 · News search",
+      "category": "competitors",
+      "kind": "discovery",
+      "region": "Global",
+      "focus": "Dreamina",
+      "url": "https://news.google.com/rss/search?q=Dreamina%20CapCut%20AI&hl=en-US&gl=US&ceid=US:en",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "tapnow-search",
+      "name": "TapNow · News search",
+      "category": "competitors",
+      "kind": "discovery",
+      "region": "Global",
+      "focus": "TapNow",
+      "url": "https://news.google.com/rss/search?q=TapNow%20AI%20video&hl=en-US&gl=US&ceid=US:en",
+      "active": true,
+      "priority": 1
+    },
+    {
+      "id": "libtv-search",
+      "name": "LibTV · News search",
+      "category": "competitors",
+      "kind": "discovery",
+      "region": "China",
+      "focus": "LibTV",
+      "url": "https://news.google.com/rss/search?q=LibTV%20AI%20video&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "flova-search",
+      "name": "Flova · News search",
+      "category": "competitors",
+      "kind": "discovery",
+      "region": "Global",
+      "focus": "Flova",
+      "url": "https://news.google.com/rss/search?q=Flova%20AI%20video&hl=en-US&gl=US&ceid=US:en",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "updream-search",
+      "name": "Updream · News search",
+      "category": "competitors",
+      "kind": "discovery",
+      "region": "China",
+      "focus": "Updream",
+      "url": "https://news.google.com/rss/search?q=updream%20AI%20video&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "shotlab-search",
+      "name": "ShotLab · News search",
+      "category": "competitors",
+      "kind": "discovery",
+      "region": "China",
+      "focus": "ShotLab",
+      "url": "https://news.google.com/rss/search?q=ShotLab%20AI%20video&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "active": true,
+      "priority": 3
+    },
+    {
+      "id": "techcrunch-ai",
+      "name": "TechCrunch · AI",
+      "category": "industry",
+      "kind": "media",
+      "region": "Global",
+      "focus": "Industry",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "active": true,
+      "priority": 3
+    },
+    {
+      "id": "comfyui-releases",
+      "name": "ComfyUI Releases",
+      "category": "software",
+      "kind": "github",
+      "region": "Global",
+      "focus": "ComfyUI",
+      "url": "https://github.com/comfyanonymous/ComfyUI/releases.atom",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "diffusers-releases",
+      "name": "Hugging Face Diffusers Releases",
+      "category": "software",
+      "kind": "github",
+      "region": "Global",
+      "focus": "Diffusers",
+      "url": "https://github.com/huggingface/diffusers/releases.atom",
+      "active": true,
+      "priority": 2
+    },
+    {
+      "id": "yt-dlp-releases",
+      "name": "yt-dlp Releases",
+      "category": "software",
+      "kind": "github",
+      "region": "Global",
+      "focus": "yt-dlp",
+      "url": "https://github.com/yt-dlp/yt-dlp/releases.atom",
+      "active": true,
+      "priority": 3
+    }
+  ]
+}

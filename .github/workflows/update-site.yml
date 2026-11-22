@@ -1,0 +1,60 @@
+name: Collect AI intelligence and deploy Pages
+
+on:
+  schedule:
+    # 08:17, 12:17, 18:17, 22:17 Asia/Shanghai (UTC+8)
+    - cron: "17 0,4,10,14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ai-creator-radar-pages
+  cancel-in-progress: false
+
+jobs:
+  collect-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect public feeds
+        run: python scripts/collect.py
+
+      - name: Persist collected data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data/news.json site/data/status.json site/data/sources.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(data): refresh AI intelligence feed"
+            git push
+          else
+            echo "No data changes to commit."
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

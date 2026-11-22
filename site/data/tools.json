@@ -1,0 +1,14 @@
+[
+  {"name":"Seedance","category":"视频生成","platform":"Web","url":"https://www.dreamina.capcut.com/","note":"视频生成与多模态参考；具体版本以官方产品页为准。"},
+  {"name":"Kling / 可灵","category":"视频生成","platform":"Web / App","url":"https://klingai.com/","note":"文生视频、图生视频与参考控制。"},
+  {"name":"即梦 / Dreamina","category":"图像与视频","platform":"Web / App","url":"https://dreamina.capcut.com/","note":"图像、视频与创意编辑工作流。"},
+  {"name":"Higgsfield","category":"视频生成 / 创作套件","platform":"Web","url":"https://higgsfield.ai/","note":"模型聚合、视频工具、创作者生态。"},
+  {"name":"Runway","category":"视频生成 / 编辑","platform":"Web","url":"https://runwayml.com/","note":"生成式视频与专业编辑工作流。"},
+  {"name":"Midjourney","category":"图像生成","platform":"Web","url":"https://www.midjourney.com/","note":"视觉概念、角色和场景开发。"},
+  {"name":"ComfyUI","category":"节点式工作流","platform":"Desktop","url":"https://www.comfy.org/","note":"本地模型与节点式生成工作流。"},
+  {"name":"Topaz Video AI","category":"视频增强","platform":"macOS / Windows","url":"https://www.topazlabs.com/topaz-video","note":"超分、降噪、帧率转换与细节增强。"},
+  {"name":"DaVinci Resolve","category":"剪辑 / 调色","platform":"macOS / Windows / Linux","url":"https://www.blackmagicdesign.com/products/davinciresolve","note":"剪辑、调色、音频和交付。"},
+  {"name":"剪映专业版","category":"剪辑","platform":"macOS / Windows","url":"https://www.capcut.cn/","note":"快速剪辑、字幕和短视频包装。"},
+  {"name":"IINA","category":"播放器","platform":"macOS","url":"https://iina.io/","note":"查看素材、帧率与媒体信息。"},
+  {"name":"yt-dlp","category":"素材获取","platform":"CLI","url":"https://github.com/yt-dlp/yt-dlp","note":"命令行媒体下载工具；遵守平台条款与版权要求。"}
+]
