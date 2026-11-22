@@ -1,0 +1,115 @@
+[
+  {
+    "id": "seed-official",
+    "name": "字节跳动 Seed 官方动态",
+    "type": "html",
+    "url": "https://seed.bytedance.com/zh/",
+    "vendor": "字节跳动 Seed",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "seedance": [
+        "seedance"
+      ],
+      "seedream": [
+        "seedream"
+      ],
+      "seed-realtime": [
+        "seedrealtime"
+      ],
+      "seed-audio": [
+        "seed audio"
+      ]
+    }
+  },
+  {
+    "id": "kuaishou-ir",
+    "name": "快手官方投资者关系动态",
+    "type": "html",
+    "url": "https://kuaishou.gcs-web.com/investor-relations/",
+    "vendor": "快手 / 可灵",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "kling": [
+        "kling",
+        "可灵"
+      ]
+    }
+  },
+  {
+    "id": "deepmind-blog",
+    "name": "Google DeepMind 官方模型卡",
+    "type": "model-cards",
+    "url": "https://deepmind.google/models/model-cards/",
+    "vendor": "Google DeepMind",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "nano-banana": [
+        "nano banana"
+      ],
+      "lyria": [
+        "lyria"
+      ],
+      "veo": [
+        "veo"
+      ],
+      "gemini": [
+        "gemini"
+      ]
+    },
+    "updateType": "model-card"
+  },
+  {
+    "id": "minimax-ir",
+    "name": "MiniMax 官方最新发布",
+    "type": "html",
+    "url": "https://ir.minimax.io/zh/news-events/new-releases",
+    "vendor": "MiniMax",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "minimax-h3-image": [
+        "h3-image",
+        "h3 image"
+      ],
+      "minimax-h3": [
+        "minimax h3",
+        "h3 video"
+      ],
+      "minimax-music": [
+        "minimax music",
+        "music 3.0"
+      ]
+    }
+  },
+  {
+    "id": "suno-release",
+    "name": "Suno 官方更新日志",
+    "type": "html",
+    "url": "https://suno.com/release-notes",
+    "vendor": "Suno",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "suno": [
+        "re:v\\d+(?:\\.\\d+)*"
+      ]
+    }
+  },
+  {
+    "id": "openai-news",
+    "name": "OpenAI 官方动态",
+    "type": "html",
+    "url": "https://openai.com/news/",
+    "vendor": "OpenAI",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "sora": [
+        "sora"
+      ]
+    }
+  }
+]

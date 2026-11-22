@@ -1,0 +1,397 @@
+[
+  {
+    "group": "公司与模型",
+    "id": "openai",
+    "name": "OpenAI / ChatGPT",
+    "description": "GPT 系列、ChatGPT、Sora 与公司产品动态。",
+    "keywords": [
+      "OpenAI",
+      "ChatGPT",
+      "GPT",
+      "Sora"
+    ],
+    "domain": "openai.com"
+  },
+  {
+    "group": "公司与模型",
+    "id": "anthropic",
+    "name": "Anthropic / Claude",
+    "description": "Claude 模型、Claude Code、安全研究与公司进展。",
+    "keywords": [
+      "Anthropic",
+      "Claude"
+    ],
+    "domain": "anthropic.com"
+  },
+  {
+    "group": "公司与模型",
+    "id": "google",
+    "name": "Google / Gemini",
+    "description": "Gemini、Veo、DeepMind 研究与产品更新。",
+    "keywords": [
+      "Google",
+      "Gemini",
+      "Veo"
+    ],
+    "domain": "deepmind.google"
+  },
+  {
+    "group": "公司与模型",
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "description": "DeepSeek 模型、开源权重与技术报告。",
+    "keywords": [
+      "DeepSeek"
+    ],
+    "domain": "deepseek.com"
+  },
+  {
+    "group": "公司与模型",
+    "id": "qwen",
+    "name": "通义千问 Qwen",
+    "description": "Qwen 模型家族、开源发布与多模态能力。",
+    "keywords": [
+      "Qwen",
+      "通义千问"
+    ],
+    "domain": "qwen.ai"
+  },
+  {
+    "group": "公司与模型",
+    "id": "kimi",
+    "name": "月之暗面 / Kimi",
+    "description": "Kimi 系列、长上下文与 Agent 能力。",
+    "keywords": [
+      "Kimi",
+      "月之暗面"
+    ],
+    "domain": "kimi.com"
+  },
+  {
+    "group": "公司与模型",
+    "id": "minimax",
+    "name": "MiniMax",
+    "description": "语言、视频、图像与语音模型及产品。",
+    "keywords": [
+      "MiniMax",
+      "海螺"
+    ],
+    "domain": "minimax.io"
+  },
+  {
+    "group": "公司与模型",
+    "id": "zhipu",
+    "name": "智谱 GLM",
+    "description": "GLM 模型、代码能力与开源生态。",
+    "keywords": [
+      "智谱",
+      "GLM",
+      "Z.ai"
+    ],
+    "domain": "z.ai"
+  },
+  {
+    "group": "公司与模型",
+    "id": "xai",
+    "name": "xAI / Grok",
+    "description": "Grok 模型、产品更新与基础设施。",
+    "keywords": [
+      "xAI",
+      "Grok"
+    ],
+    "domain": "x.ai"
+  },
+  {
+    "group": "公司与模型",
+    "id": "meta",
+    "name": "Meta / Llama",
+    "description": "Llama、Meta 多模态模型与开源研究。",
+    "keywords": [
+      "Meta",
+      "Llama"
+    ],
+    "domain": "meta.ai"
+  },
+  {
+    "group": "公司与模型",
+    "id": "microsoft",
+    "name": "Microsoft / Copilot",
+    "description": "Copilot、Azure AI 与模型生态。",
+    "keywords": [
+      "Microsoft",
+      "Copilot"
+    ],
+    "domain": "microsoft.com"
+  },
+  {
+    "group": "公司与模型",
+    "id": "nvidia",
+    "name": "NVIDIA",
+    "description": "GPU、推理基础设施、模型与开发生态。",
+    "keywords": [
+      "NVIDIA",
+      "英伟达"
+    ],
+    "domain": "nvidia.com"
+  },
+  {
+    "group": "公司与模型",
+    "id": "huggingface",
+    "name": "Hugging Face",
+    "description": "开源模型、数据集、评测榜与社区动态。",
+    "keywords": [
+      "Hugging Face"
+    ],
+    "domain": "huggingface.co"
+  },
+  {
+    "group": "公司与模型",
+    "id": "cursor",
+    "name": "Cursor",
+    "description": "AI 编程 IDE、Agent 工作流与产品更新。",
+    "keywords": [
+      "Cursor"
+    ],
+    "domain": "cursor.com"
+  },
+  {
+    "group": "技术方向",
+    "id": "agent",
+    "name": "Agent 智能体",
+    "description": "自主规划、工具调用、多 Agent 协作与任务执行。",
+    "keywords": [
+      "Agent",
+      "智能体"
+    ],
+    "topicUrl": "https://aihot.news/topics/agent"
+  },
+  {
+    "group": "技术方向",
+    "id": "coding",
+    "name": "AI 编码",
+    "description": "代码模型、编程助手、Vibe Coding 与工程 Agent。",
+    "keywords": [
+      "编程",
+      "编码",
+      "代码",
+      "Coding"
+    ],
+    "topicUrl": "https://aihot.news/topics/coding"
+  },
+  {
+    "group": "技术方向",
+    "id": "reasoning",
+    "name": "推理能力",
+    "description": "数学、逻辑、复杂任务与推理模型。",
+    "keywords": [
+      "推理",
+      "数学",
+      "Reasoning"
+    ],
+    "topicUrl": "https://aihot.news/topics/reasoning"
+  },
+  {
+    "group": "技术方向",
+    "id": "multimodal",
+    "name": "多模态",
+    "description": "图像、视频、音频与文本的联合理解和生成。",
+    "keywords": [
+      "多模态",
+      "Multimodal"
+    ],
+    "topicUrl": "https://aihot.news/topics/multimodal"
+  },
+  {
+    "group": "技术方向",
+    "id": "image-gen",
+    "name": "图像生成",
+    "description": "文生图、图像编辑、参考图与视觉创作。",
+    "keywords": [
+      "图像",
+      "图片",
+      "图像生成",
+      "图像编辑"
+    ],
+    "topicUrl": "https://aihot.news/topics/image-gen"
+  },
+  {
+    "group": "技术方向",
+    "id": "video",
+    "name": "AI 视频",
+    "description": "文生视频、图生视频、视频编辑与影视创作。",
+    "keywords": [
+      "视频",
+      "Video",
+      "Seedance",
+      "Kling"
+    ],
+    "topicUrl": "https://aihot.news/topics/video"
+  },
+  {
+    "group": "技术方向",
+    "id": "voice",
+    "name": "语音与音频",
+    "description": "TTS、语音克隆、实时语音与音乐生成。",
+    "keywords": [
+      "语音",
+      "音频",
+      "TTS",
+      "音乐"
+    ],
+    "topicUrl": "https://aihot.news/topics/voice"
+  },
+  {
+    "group": "技术方向",
+    "id": "embodied",
+    "name": "具身智能",
+    "description": "机器人、世界模型与物理环境交互。",
+    "keywords": [
+      "具身智能",
+      "机器人"
+    ],
+    "topicUrl": "https://aihot.news/topics/embodied"
+  },
+  {
+    "group": "技术方向",
+    "id": "on-device",
+    "name": "端侧 AI",
+    "description": "本地模型、端侧推理与轻量化部署。",
+    "keywords": [
+      "端侧",
+      "本地模型",
+      "On-device"
+    ],
+    "topicUrl": "https://aihot.news/topics/on-device"
+  },
+  {
+    "group": "技术方向",
+    "id": "open-source",
+    "name": "开源生态",
+    "description": "开放权重、开源框架、模型许可与社区。",
+    "keywords": [
+      "开源",
+      "开放权重",
+      "Open Source"
+    ]
+  },
+  {
+    "group": "技术方向",
+    "id": "deployment",
+    "name": "部署工程",
+    "description": "推理服务、模型部署、性能优化与成本。",
+    "keywords": [
+      "部署",
+      "推理服务",
+      "Inference"
+    ]
+  },
+  {
+    "group": "技术方向",
+    "id": "data-training",
+    "name": "数据与训练",
+    "description": "训练数据、合成数据、后训练与评测方法。",
+    "keywords": [
+      "数据",
+      "训练",
+      "微调"
+    ]
+  },
+  {
+    "group": "技术方向",
+    "id": "safety",
+    "name": "安全对齐",
+    "description": "模型安全、红队、隐私与风险治理。",
+    "keywords": [
+      "安全",
+      "隐私",
+      "对齐"
+    ]
+  },
+  {
+    "group": "技术方向",
+    "id": "mcp",
+    "name": "MCP 与工具调用",
+    "description": "MCP、工具协议、Agent 接入与工作流。",
+    "keywords": [
+      "MCP",
+      "工具调用"
+    ]
+  },
+  {
+    "group": "内容类型",
+    "id": "model-release",
+    "name": "模型发布",
+    "description": "新模型、新版本、开放权重与模型卡更新。",
+    "keywords": [
+      "发布",
+      "模型",
+      "版本"
+    ]
+  },
+  {
+    "group": "内容类型",
+    "id": "product-update",
+    "name": "产品更新",
+    "description": "AI 产品新功能、版本更新与使用体验变化。",
+    "keywords": [
+      "产品更新",
+      "上线",
+      "功能"
+    ]
+  },
+  {
+    "group": "内容类型",
+    "id": "research",
+    "name": "论文研究",
+    "description": "学术论文、技术报告与研究成果。",
+    "keywords": [
+      "论文",
+      "研究",
+      "Research"
+    ]
+  },
+  {
+    "group": "内容类型",
+    "id": "benchmark",
+    "name": "评测基准",
+    "description": "模型排行榜、基准测试与第三方实测。",
+    "keywords": [
+      "评测",
+      "排行榜",
+      "Benchmark"
+    ]
+  },
+  {
+    "group": "内容类型",
+    "id": "tutorial",
+    "name": "教程实践",
+    "description": "官方教程、工作流、提示词与创作者实践。",
+    "keywords": [
+      "教程",
+      "指南",
+      "实践"
+    ]
+  },
+  {
+    "group": "内容类型",
+    "id": "opinion",
+    "name": "大佬观点",
+    "description": "研究者、创始人与行业建设者的第一手观点。",
+    "keywords": [
+      "观点",
+      "访谈",
+      "创始人"
+    ]
+  },
+  {
+    "group": "内容类型",
+    "id": "trend",
+    "name": "现象与趋势",
+    "description": "值得关注的行业现象、产品趋势与生态变化。",
+    "keywords": [
+      "趋势",
+      "行业",
+      "生态"
+    ]
+  }
+]

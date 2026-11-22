@@ -1,0 +1,23 @@
+{
+  "checkedAt": "2026-11-22T03:37:26Z",
+  "feedCount": 1,
+  "feedSuccess": 1,
+  "feedFailed": 1,
+  "repositoryCount": 0,
+  "repositorySuccess": 0,
+  "feeds": [
+    {
+      "id": "juya-daily",
+      "name": "橘鸦 AI 早报",
+      "url": "https://daily.juya.uk/rss.xml",
+      "website": "https://daily.juya.uk/",
+      "archiveUrl": "https://daily.juya.uk/archive/",
+      "status": "error",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "lastSuccessAt": "2026-11-22T03:34:27Z",
+      "itemCount": 10,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  ],
+  "repositories": []
+}

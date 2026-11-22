@@ -1,116 +1,105 @@
-# AI Creator Radar
+# AI Creator Workbench
 
-面向 AI 视频创作者的轻量情报站：自动收集模型发布、AI 视频产品竞品动态、开源软件更新，并沉淀可复用的提示词模板。
+个人 AI 创作工作台：把模型上新、AI 早报、真实创作案例、开源 Prompt 仓库、自己的提示词和教程入口放在一个地方。
 
-**公开 RSS / Atom / GitHub Releases → GitHub Actions 定时采集 → JSON 历史归档 → GitHub Pages 静态网站。**
+核心原则：**优先复用已经存在的优质数据源，不重复建设新闻库和 Prompt 大全。**
 
-> 不调用 GPT、Claude、Gemini 或其他大模型 API；不需要 API Key；不产生模型 Token 费用。采集摘要直接使用信源提供的描述，不自动翻译、不生成 AI 观点。
+## 工作台模块
 
-## 在线网站
+- **模型动态 / 模型库**：关注常用视频、图片、语言和音乐模型；自动检查官方版本发布。
+- **AI 早报**：订阅公开 RSS，当前接入橘鸦 AI 早报；展示摘要、发布时间和原文链接。
+- **创作案例**：接入 GoodCase.ai RSS，展示案例封面、作者、摘要和 Prompt 预览；完整内容回到原站。
+- **Awesome 资源**：通过 GitHub API 同步精选开源仓库的描述、Star、Fork、更新时间和许可证。
+- **我的提示词**：人物设定、人物三视图、场景母图、多机位、分镜、单镜头视频、TVC、Seedance 2.5 结构化 Prompt。
+- **教程与 Skill**：优先保存模型厂商和平台官方指南、工作流与可安装 Skill。
+- **创作平台 / 模型排行榜 / 我的收藏 / 偏好设置**：常用入口、个人收藏、编辑和备份。
 
-部署完成后访问：
+## 外部资源接入
 
-    https://ai-luren.github.io/AI-Creator-Radar/
+### RSS / Atom
 
-## 功能
+配置文件：config/resource-sources.json
 
-- **今日总览**：资讯数量、重点动态、最近更新。
-- **模型上新**：OpenAI、Google DeepMind、Qwen、Hugging Face、Anthropic / DeepSeek 等公开动态。
-- **竞品动态**：Higgsfield、Dreamina / 即梦、Kling、TapNow、LibTV、Flova、Updream、ShotLab、Runway、Pika、Luma。
-- **提示词库**：人物三视图、角色定妆、场景母图、多机位、分镜关键帧、图生视频、产品 TVC、一致性约束。
-- **工具软件**：常用 AI 创作与后期工具目录，并追踪 ComfyUI、Diffusers、yt-dlp 等公开版本更新。
-- **信源状态**：逐源显示成功、失败和最近一次采集时间；失败不会清空上次有效数据。
-- **收藏**：收藏保存在当前浏览器 localStorage，不需要账号或后端。
+当前接入：
+- 橘鸦 AI 早报：https://daily.juya.uk/rss.xml
+- GoodCase.ai：https://goodcase.ai/feed.xml
+
+采集器会提取标题、摘要、原始链接、发布时间、图片、作者和分类。GoodCase 还会把 RSS 中的 Prompt 预览单独拆出来。
+
+RSS 拉取失败时保留上次缓存，不会清空历史。某些站点会因网络线路或反爬策略出现临时连接失败，状态页会区分本次失败与已有缓存。
+
+### GoodCase 公共 API
+
+GoodCase 另提供无需 API Key 的公开 API，支持按分类和关键词检索案例，并提供完整 Prompt、原始来源、热度和复测字段。当前工作台先使用 RSS 作为轻量静态预览；后续可按需接入 API 搜索和案例详情。
+
+接口文档：https://goodcase.ai/connect
+
+### GitHub Awesome 仓库
+
+GitHub API 每日同步精选仓库的元数据：
+- LearnPrompt/awesome-seedance
+- ai-boost/awesome-image-video-prompts
+- cclank/lanshu-awesome-ai-video-kit
+- ZeroLu/awesome-seedance
+- LichAmnesia/awesome-ad-video-prompts
+- ZeroLu/awesome-nanobanana-pro
+- UnderleveledBuilder/awesome-short-drama-skills
+
+**不自动克隆整个仓库，也不默认复制仓库中的全部 Prompt。** 工作台只建立索引、显示仓库元数据和原始链接。若未来需要把具体 Prompt 导入个人库，先检查对应文件的 License、作者署名和内容来源。不同仓库的许可证并不相同。
 
 ## 自动更新
 
-GitHub Actions 默认按北京时间每天四次运行：
+GitHub Actions 每天北京时间 **08:20** 运行：
+1. 检查官方模型版本发布。
+2. 拉取 RSS / Atom 订阅。
+3. 同步精选 GitHub 仓库元数据。
+4. 保留上次成功缓存；单一信源失败不会覆盖其他来源的数据。
+5. 更新静态数据后部署 GitHub Pages。
 
-| 北京时间 | UTC |
-|---|---|
-| 08:17 | 00:17 |
-| 12:17 | 04:17 |
-| 18:17 | 10:17 |
-| 22:17 | 14:17 |
+工作流文件：.github/workflows/update-site.yml
 
-GitHub Actions 的定时任务可能有排队延迟，并非秒级准点。也可以在仓库 Actions 页面手动运行 Collect AI intelligence and deploy Pages。
+## 个人数据与隐私
 
-每次运行会：
-1. 并发读取启用的 RSS / Atom 信源。
-2. 解析标题、原文链接、发布时间和信源提供的摘要。
-3. 通过 URL 去重，合并同一文章的来源和标签。
-4. 按规则标记“重点 / 关注 / 一般”，不调用模型。
-5. 保留最近 60 天、最多 1,500 条记录；单个信源失败时保留上次成功数据。
-6. 更新 JSON 并部署 GitHub Pages。
-
-## 部署说明
-
-仓库使用 GitHub Pages 的 **GitHub Actions** 发布方式。无需 Netlify、Vercel、数据库、服务器或外部定时服务。
-
-首次创建仓库后，在 GitHub：
-1. 打开 Settings → Pages。
-2. Build and deployment → Source 选择 GitHub Actions。
-3. 打开 Actions，允许运行 workflow。
-4. 手动执行一次 Collect AI intelligence and deploy Pages。
-5. 等待部署完成，网站地址为上面的 GitHub Pages URL。
-
-如果 workflow 无法提交采集后的 JSON，检查 Settings → Actions → General → Workflow permissions，允许 Read and write permissions。本仓库 workflow 只需要仓库内 contents: write、pages: write 和 id-token: write。
-
-## 目录结构
-
-    config/sources.json               RSS / Atom / GitHub Releases 信源配置
-    scripts/collect.py                纯 Python 标准库采集器
-    site/index.html                   无构建步骤的响应式静态网站
-    site/data/news.json               自动生成的资讯历史
-    site/data/status.json             每个信源的采集状态
-    site/data/sources.json            前端展示的信源清单
-    site/data/competitors.json        竞品观察名单
-    site/data/prompts.json            提示词模板
-    site/data/tools.json              软件与工具目录
-    .github/workflows/update-site.yml 定时采集与 Pages 部署
-    tests/test_collector.py           采集器单元测试
-
-## 修改信源
-
-编辑 config/sources.json，每条信源包含：
-
-- id：唯一 ID。
-- name：展示名称。
-- category：models、competitors、software 或 industry。
-- kind：official、media、discovery 或 github。
-- focus：关联模型厂商或竞品名称。
-- url：RSS / Atom 地址。
-- active：是否启用。
-- priority：配置排序优先级。
-
-建议优先添加官方 RSS / Atom。没有公开 RSS 的产品，暂时通过 Google News RSS 搜索发现线索，并在竞品卡片中保留官方入口；搜索结果不是官方声明，发布模型上新视频前请回到厂商公告核实。
+- 预置模型、教程、平台、订阅源和 Awesome 资源目录随静态网站发布。
+- 你在网页编辑模式新增的模型、提示词、图片、平台和收藏保存在当前浏览器 localStorage。
+- 个人新增内容不会自动写入 GitHub 仓库，也不会自动上传到服务器。
+- 建议定期在“偏好设置”导出个人配置备份。
+- 本项目不调用 GPT、Claude、Gemini 等大模型 API，不消耗模型 Token。
 
 ## 本地运行
 
-要求 Python 3.10+，不需要安装第三方包：
+要求 Python 3.10+，不需要第三方 Python 依赖：
 
     python3 -m unittest discover -s tests -v
-    python3 scripts/collect.py
+    python3 scripts/collect_models.py --dry-run
+    python3 scripts/collect_resources.py
     python3 -m http.server 8080 --directory site
 
 打开 http://localhost:8080 预览。
 
-只检查信源而不写入 JSON：
+## 目录结构
 
-    python3 scripts/collect.py --dry-run
-
-## 设计原则与边界
-
-- 采集公开 RSS / Atom 内容和公开 GitHub Releases；不绕过登录、付费墙、验证码或访问控制。
-- 不抓取私人社媒内容；X / 微信等需要登录或付费 API 的内容不在零 Token 首版范围。
-- 不调用 LLM，所以不会自动生成中文翻译或编辑性总结。外文内容保留原文标题和来源摘要。
-- 关键词优先级只是可解释的规则标签，不等同于人工判断。
-- 竞品动态的覆盖率取决于公开信源；没有 RSS 的产品可能漏掉站内公告，建议人工核实官方更新页。
-- 收藏仅保存在本地浏览器；清理浏览器数据会清除收藏。
-
-## 关于 AIHOT
-
-本项目参考了 https://github.com/KKKKhazix/AIHOT 所体现的“围绕行业信源建立个人情报站”的思路，但没有复制其代码、提示词、品牌或 Logo。AIHOT 的完整引擎包含数据库和大模型精选流程；本项目选择更轻的 RSS + 静态 JSON 方案，以免引入模型 Token 和服务器成本。
+    config/model-sources.json             官方模型监控信源
+    config/resource-sources.json          RSS 与 GitHub Awesome 资源配置
+    scripts/collect_models.py             官方模型发布采集器
+    scripts/collect_resources.py          RSS 与 GitHub 元数据采集器
+    site/index.html                       个人 AI 创作工作台
+    site/preview-v2.html                  V2 预览页面（读取 site/data-v2/）
+    site/preview-v3.html                  V3 预览页面（读取 site/data-v3/）
+    site/data/models.json                 模型目录
+    site/data/model-updates.json          模型发布历史
+    site/data/model-monitor-status.json   模型信源状态
+    site/data/feed-items.json             RSS 内容缓存
+    site/data/resource-sources.json       浏览器展示的订阅源目录
+    site/data/resource-status.json        RSS / GitHub 同步状态
+    site/data/awesome-repos.json           Awesome 仓库元数据
+    site/data/prompts.json                个人初始提示词模板
+    site/data/tutorials.json              官方教程和 Skill
+    site/data/platforms.json              常用创作平台
+    site/data-v2/                         V2 预览专用静态数据
+    site/data-v3/                         V3 预览专用静态数据（当前预览版本）
+    tests/                                采集器单元测试
+    archive/legacy-news/                  旧版泛资讯数据，仅供回滚参考
 
 ## License
 

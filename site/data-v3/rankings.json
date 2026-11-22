@@ -1,0 +1,272 @@
+{
+  "categories": [
+    {
+      "id": "image",
+      "name": "图像",
+      "icon": "image",
+      "description": "文生图与图像编辑分开评测。",
+      "boards": [
+        {
+          "id": "t2i-arena",
+          "name": "文生图 · Arena AI",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/image/text-to-image",
+          "embed": "https://arena.ai/leaderboard/image/text-to-image",
+          "note": "7,045,110 票 · 87 个模型",
+          "method": "同一提示词下匿名模型对战，由用户投票选择更好的生成结果；人类偏好 Elo。",
+          "updatedAt": "2026-11-21"
+        },
+        {
+          "id": "t2i-aa",
+          "name": "文生图 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+          "embed": "https://artificialanalysis.ai/embed/text-to-image-leaderboard/leaderboard/text-to-image",
+          "note": "AA-Image-T2I v2.1",
+          "method": "盲测偏好投票，提供 Elo、样本量、置信区间与成本维度。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "image-edit-arena",
+          "name": "图像编辑 · Arena AI",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/image/image-edit/single-image",
+          "embed": "https://arena.ai/leaderboard/image/image-edit/single-image",
+          "note": "32,025,912 票 · 64 个模型",
+          "method": "单图编辑盲测偏好排名；当前页面为 Single Image Edit 子榜。",
+          "updatedAt": "2026-11-16"
+        },
+        {
+          "id": "image-edit-aa",
+          "name": "图像编辑 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/image/leaderboard/editing",
+          "embed": "https://artificialanalysis.ai/image/leaderboard/editing",
+          "note": "AA-Image-Editing v2.1",
+          "method": "相同输入图与编辑指令下的盲测偏好比较。",
+          "updatedAt": "随原站更新"
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "name": "视频",
+      "icon": "video",
+      "description": "文生视频、图生视频和视频编辑是三种独立任务。",
+      "boards": [
+        {
+          "id": "t2v-arena",
+          "name": "文生视频 · Arena AI",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/video/text-to-video",
+          "embed": "https://arena.ai/leaderboard/video/text-to-video",
+          "note": "891,840 票 · 50 个模型",
+          "method": "相同文本提示下匿名模型对战，由用户投票；人类偏好 Elo。",
+          "updatedAt": "2026-11-08"
+        },
+        {
+          "id": "t2v-aa",
+          "name": "文生视频 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "embed": "https://artificialanalysis.ai/embed/text-to-video-leaderboard/leaderboard/text-to-video",
+          "note": "AA-Video-T2V v2.1",
+          "method": "盲测偏好评测；可区分有音频与无音频任务。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "i2v-arena",
+          "name": "图生视频 · Arena AI",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/video/image-to-video",
+          "embed": "https://arena.ai/leaderboard/video/image-to-video",
+          "note": "2,505,296 票 · 50 个模型",
+          "method": "相同参考图条件下的匿名视频对战，由用户投票选择。",
+          "updatedAt": "2026-11-08"
+        },
+        {
+          "id": "i2v-aa",
+          "name": "图生视频 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+          "embed": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+          "note": "AA-Video-I2V v2.1",
+          "method": "以相同来源图像与任务进行盲测偏好比较。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "video-edit-arena",
+          "name": "视频编辑 · Arena AI",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/video/video-edit",
+          "embed": "https://arena.ai/leaderboard/video/video-edit",
+          "note": "55,880 票 · 12 个模型",
+          "method": "给定相同源视频与编辑要求，按人类偏好投票排名。",
+          "updatedAt": "2026-11-10"
+        },
+        {
+          "id": "video-edit-aa",
+          "name": "视频编辑 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/video-editing",
+          "embed": "https://artificialanalysis.ai/video/leaderboard/video-editing",
+          "note": "AA-Video-Editing v1.1",
+          "method": "以文字指令编辑源视频；可区分保留音频与无音频任务。",
+          "updatedAt": "随原站更新"
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "name": "音乐 / 语音",
+      "icon": "music",
+      "description": "纯音乐、歌曲人声和 TTS 分开看；同时保留开源与社区榜。",
+      "boards": [
+        {
+          "id": "instrumental",
+          "name": "纯音乐生成 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/music/leaderboard/instrumental",
+          "embed": "https://artificialanalysis.ai/embed/music-generation-leaderboard/leaderboard/instrumental",
+          "note": "AA-Music-Instrumental v1.1",
+          "method": "经过验证的评测者进行盲听偏好投票，按 Elo 排名。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "vocal",
+          "name": "人声 / 歌曲生成 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/music/leaderboard/vocals",
+          "embed": "https://artificialanalysis.ai/embed/music-generation-leaderboard/leaderboard/vocals",
+          "note": "AA-Music-Vocal v1.1",
+          "method": "对含歌唱或人声元素的音乐进行盲听偏好比较。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "tts-aa",
+          "name": "TTS · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice",
+          "embed": "https://artificialanalysis.ai/embed/text-to-speech-leaderboard/leaderboard/provider-voice",
+          "note": "Speech Arena · Provider Voice",
+          "method": "匿名语音盲听偏好，展示 Elo、样本量、声音数量、发布时间与价格。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "tts-arena",
+          "name": "TTS · TTS Arena V2",
+          "source": "TTS Arena",
+          "url": "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2",
+          "embed": "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2",
+          "note": "社区盲听偏好榜",
+          "method": "两种匿名模型朗读同一句文本，用户选择更自然的一方；样本量需一并观察。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "open-tts",
+          "name": "开源 / 多语言 TTS · Hugging Face",
+          "source": "Hugging Face",
+          "url": "https://huggingface.co/spaces/hf-audio/open_tts_leaderboard",
+          "embed": "https://huggingface.co/spaces/hf-audio/open_tts_leaderboard",
+          "note": "Open TTS Leaderboard",
+          "method": "关注多语言、声音克隆与可复现评估集；与主观盲听榜互补。",
+          "updatedAt": "随原站更新"
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "name": "网页前端",
+      "icon": "code",
+      "description": "把文字需求和设计稿转网页分开评测。",
+      "boards": [
+        {
+          "id": "webdev",
+          "name": "文字生成网页 · Arena AI",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/code/webdev/frontend",
+          "embed": "https://arena.ai/leaderboard/code/webdev/frontend",
+          "note": "897,929 票 · 162 个模型",
+          "method": "两个匿名模型根据同一需求构建可运行网页，由用户投票比较前端质量。",
+          "updatedAt": "2026-11-20"
+        },
+        {
+          "id": "image-webdev",
+          "name": "截图 / 设计稿转网页 · Arena AI",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/code/image-to-webdev",
+          "embed": "https://arena.ai/leaderboard/code/image-to-webdev",
+          "note": "218,511 票 · 70 个模型",
+          "method": "两个匿名模型根据同一张图像构建网页，由用户投票比较还原与实现质量。",
+          "updatedAt": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "coding",
+      "name": "编程能力",
+      "icon": "terminal",
+      "description": "综合编程、真实仓库修复、竞赛题与终端 Agent 分开看。",
+      "boards": [
+        {
+          "id": "aihot-coding",
+          "name": "编程综合榜 · AI HOT",
+          "source": "AI HOT",
+          "url": "https://aihot.news/leaderboard",
+          "embed": "https://aihot.news/leaderboard",
+          "note": "47 项评测 · 13 家机构",
+          "method": "在内嵌页面顶部切换「编程」；它是 AI HOT 综合评测体系中的独立类别。",
+          "updatedAt": "2026-11-22"
+        },
+        {
+          "id": "swebench",
+          "name": "真实代码修复 · SWE-bench Verified",
+          "source": "SWE-bench",
+          "url": "https://www.swebench.com/verified",
+          "embed": "https://www.swebench.com/verified",
+          "note": "500 个人工验证任务",
+          "method": "真实 GitHub Issue 修复任务；可切换完整 Agent 榜与统一 mini-SWE-agent 设置。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "livecode",
+          "name": "竞赛编程 · LiveCodeBench",
+          "source": "LiveCodeBench",
+          "url": "https://livecodebench.github.io/leaderboard.html",
+          "embed": "https://livecodebench.github.io/leaderboard.html",
+          "note": "动态更新的竞赛题",
+          "method": "持续收集新竞赛题，减少训练数据污染；展示 Pass@1 与 Easy / Medium / Hard 分项。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "terminal",
+          "name": "终端 Agent · Terminal-Bench 4.1",
+          "source": "Terminal-Bench",
+          "url": "https://www.tbench.ai/",
+          "embed": "https://www.tbench.ai/",
+          "note": "4.1 · Stanford / Harbor / Laude Institute",
+          "method": "测量 Agent 在终端环境完成任务的成功率，并展示成本、Token 与置信区间。",
+          "updatedAt": "随原站更新"
+        }
+      ]
+    },
+    {
+      "id": "llm",
+      "name": "大语言模型",
+      "icon": "brain",
+      "description": "保留中文综合榜；不同评测体系不拼成一个分数。",
+      "boards": [
+        {
+          "id": "aihot-overall",
+          "name": "综合能力榜 · AI HOT",
+          "source": "AI HOT",
+          "url": "https://aihot.news/leaderboard",
+          "embed": "https://aihot.news/leaderboard",
+          "note": "47 项评测 · 13 家机构",
+          "method": "编程 38%、科研 19%、专业办公 19%、知识问答 14%、真人盲选 10%；可切换不同专项榜。",
+          "updatedAt": "2026-11-22"
+        }
+      ]
+    }
+  ]
+}

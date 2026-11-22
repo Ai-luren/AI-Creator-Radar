@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-11-22T03:37:26Z",
+  "feedCount": 2,
+  "feedSuccess": 1,
+  "feedFailed": 1,
+  "repositoryCount": 7,
+  "repositorySuccess": 7,
+  "feeds": [
+    {
+      "id": "goodcase",
+      "name": "GoodCase.ai",
+      "url": "https://goodcase.ai/feed.xml",
+      "website": "https://goodcase.ai/",
+      "archiveUrl": null,
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "lastSuccessAt": "2026-11-22T03:37:26Z",
+      "itemCount": 50,
+      "error": null
+    },
+    {
+      "id": "juya-daily",
+      "name": "橘鸦 AI 早报",
+      "url": "https://daily.juya.uk/rss.xml",
+      "website": "https://daily.juya.uk/",
+      "archiveUrl": "https://daily.juya.uk/archive/",
+      "status": "error",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "lastSuccessAt": "2026-11-22T03:34:27Z",
+      "itemCount": 10,
+      "error": "TimeoutError: The read operation timed out"
+    }
+  ],
+  "repositories": [
+    {
+      "id": "goodcase-seedance",
+      "repo": "LearnPrompt/awesome-seedance",
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "error": null
+    },
+    {
+      "id": "ad-video-prompts",
+      "repo": "LichAmnesia/awesome-ad-video-prompts",
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "error": null
+    },
+    {
+      "id": "short-drama-skills",
+      "repo": "UnderleveledBuilder/awesome-short-drama-skills",
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "error": null
+    },
+    {
+      "id": "nanobanana-prompts",
+      "repo": "ZeroLu/awesome-nanobanana-pro",
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "error": null
+    },
+    {
+      "id": "zerolu-seedance",
+      "repo": "ZeroLu/awesome-seedance",
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "error": null
+    },
+    {
+      "id": "image-video-prompts",
+      "repo": "ai-boost/awesome-image-video-prompts",
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "error": null
+    },
+    {
+      "id": "lanshu-video-kit",
+      "repo": "cclank/lanshu-awesome-ai-video-kit",
+      "status": "ok",
+      "checkedAt": "2026-11-22T03:37:26Z",
+      "error": null
+    }
+  ]
+}

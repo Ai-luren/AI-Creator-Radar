@@ -1,9 +1,9 @@
-name: Collect AI intelligence and deploy Pages
+name: Monitor official AI model releases and deploy Pages
 
 on:
   schedule:
-    # 08:17, 12:17, 18:17, 22:17 Asia/Shanghai (UTC+8)
-    - cron: "17 0,4,10,14 * * *"
+    # Daily at 08:20 Asia/Shanghai (00:20 UTC)
+    - cron: "20 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -32,19 +32,25 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Collect public feeds
-        run: python scripts/collect.py
+      - name: Test collectors
+        run: python -m unittest discover -s tests -v
+
+      - name: Collect official model updates
+        run: python scripts/collect_models.py
+
+      - name: Collect RSS and Awesome resources
+        run: python scripts/collect_resources.py
 
       - name: Persist collected data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/data/news.json site/data/status.json site/data/sources.json
+          git add site/data/model-updates.json site/data/model-monitor-status.json site/data/model-monitor-state.json
           if ! git diff --cached --quiet; then
-            git commit -m "chore(data): refresh AI intelligence feed"
+            git commit -m "chore(data): refresh official model updates"
             git push
           else
-            echo "No data changes to commit."
+            echo "No model update changes to commit."
           fi
 
       - name: Configure GitHub Pages
