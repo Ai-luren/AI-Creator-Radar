@@ -16,11 +16,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  collect-and-deploy:
+  collect:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: github-pages
     steps:
       - name: Checkout the triggering ref
         uses: actions/checkout@v4
@@ -60,8 +58,6 @@ jobs:
             echo "No collected data changes."
           fi
 
-      # A manually dispatched run on a feature branch validates and updates that branch,
-      # but must never publish an unmerged preview to the production Pages site.
       - name: Configure GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
@@ -72,7 +68,13 @@ jobs:
         with:
           path: site
 
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: collect
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
         id: deployment
         uses: actions/deploy-pages@v4
