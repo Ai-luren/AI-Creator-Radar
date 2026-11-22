@@ -56,9 +56,10 @@ GitHub Actions 每 **4 小时**运行一次（工作流合并到默认分支 `ma
 3. 同步精选 GitHub 仓库元数据。
 4. 更新公开的 FAI.Fashion 图像与视频榜单快照。
 5. 更新 AIHOT 精选资讯与 AIPick 视频选题的 V4 本地快照。
-6. 保留上次成功缓存；单一信源失败不会覆盖其他来源的数据。
-7. 将生产与 V3 共用的模型目录、模型更新、榜单快照及资源数据，以及 V4 资讯快照，持久化到触发分支；V4 模型页读取 V3 数据目录。
-8. 仅当触发分支为 `main` 时部署 GitHub Pages；功能分支手动运行只验证和更新功能分支，不发布生产站点。
+6. 搜索近期视频与图像模型的公开评测线索；搜狗微信只保存结果标题、摘要、账号和日期，不读取文章全文，遇到验证即停止并退避。
+7. 保留上次成功缓存；单一信源失败不会覆盖其他来源的数据。
+8. 将生产与 V3 共用的模型目录、模型更新、榜单快照及资源数据，以及 V4 资讯快照，持久化到触发分支；V4 模型页读取 V3 数据目录。
+9. 仅当触发分支为 `main` 时部署 GitHub Pages；功能分支手动运行只验证和更新功能分支，不发布生产站点。
 
 工作流文件：.github/workflows/update-site.yml
 
@@ -80,6 +81,7 @@ GitHub Actions 每 **4 小时**运行一次（工作流合并到默认分支 `ma
     python3 scripts/collect_rankings.py --dry-run
     python3 scripts/collect_aihot.py
     python3 scripts/collect_aipick.py
+    python3 scripts/collect_model_evaluations.py
     python3 -m http.server 8080 --directory site
 
 打开 http://localhost:8080 预览。
@@ -93,6 +95,7 @@ GitHub Actions 每 **4 小时**运行一次（工作流合并到默认分支 `ma
     scripts/collect_rankings.py            FAI.Fashion 图像与视频榜单快照采集器
     scripts/collect_aihot.py               AIHOT 精选动态采集与本地快照更新
     scripts/collect_aipick.py              AIPick 视频选题与热点采集器
+    scripts/collect_model_evaluations.py   新模型评测候选采集器（AIPick + 搜狗微信摘要）
     site/index.html                       个人 AI 创作工作台
     site/preview-v2.html                  V2 预览页面（读取 site/data-v2/）
     site/preview-v3.html                  V3 预览页面（保留基线，读取 site/data-v3/）
@@ -114,6 +117,7 @@ GitHub Actions 每 **4 小时**运行一次（工作流合并到默认分支 `ma
     site/data-v4/social-accounts.json      官方社媒账号、公开粉丝快照与宣传动态
     site/data-v4/aihot-items.json          AIHOT 最近 24 小时精选动态快照
     site/data-v4/aipick-data.json          AIPick 最近 7 天选题与热点快照
+    site/data-v4/model-evaluations.json   近期视频 / 图像模型评测候选快照
     site/data-v4/platforms.json            V4 创作导航（含国内外社交媒体分类）
     tests/                                采集器单元测试
     archive/legacy-news/                  旧版泛资讯数据，仅供回滚参考
@@ -124,6 +128,7 @@ GitHub Actions 每 **4 小时**运行一次（工作流合并到默认分支 `ma
 - 模型、榜单、主题与早报暂时沿用 `site/data-v3/`；社媒账号和创作导航使用 `site/data-v4/`。
 - AIHOT 精选页在浏览器中按需请求 `/api/v1/items`，请求失败时显示 `site/data-v4/aihot-items.json`；运行 `python3 scripts/collect_aihot.py` 可手动刷新快照。
 - 视频选题页按需读取 AIPick 最近 7 天精选和 Top 热点，展示推荐理由与评分；在线请求失败时显示 `site/data-v4/aipick-data.json`。运行 `python3 scripts/collect_aipick.py` 可手动刷新。
+- 新模型首测页从近 21 天的视频与图像模型正式发布中筛选目标，展示 AIPick 精选及搜狗微信搜索的评测候选。搜狗只读取搜索结果摘要；遇到验证页停止查询，不采集公众号全文。运行 `python3 scripts/collect_model_evaluations.py` 可手动刷新。
 - 首批社媒监控包含 7 个品牌、27 个平台账号入口、10 条官方宣传动态和 9 个公开粉丝数快照；创作导航另含 16 个国内外社交媒体与社区入口。
 - 账号分为已核验、官方搜索入口和待复核；搜索入口不代表已确认官方账号。
 - 粉丝数是带采集时间的公开快照，不是实时数据。无法读取时保留空值，不将缺失值记为 0。

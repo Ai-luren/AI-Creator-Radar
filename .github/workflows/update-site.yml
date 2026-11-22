@@ -48,6 +48,9 @@ jobs:
       - name: Collect AIPick video ideas
         run: python scripts/collect_aipick.py
 
+      - name: Collect new model evaluation candidates
+        run: python scripts/collect_model_evaluations.py
+
       - name: Persist collected data to the triggering branch
         run: |
           git config user.name "github-actions[bot]"
@@ -65,6 +68,7 @@ jobs:
             site/data-v3/reference-rankings.json \
             site/data-v4/aihot-items.json \
             site/data-v4/aipick-data.json \
+            site/data-v4/model-evaluations.json \
             site/data/feed-items.json \
             site/data/awesome-repos.json \
             site/data/resource-status.json \
