@@ -2,8 +2,8 @@ name: Monitor official AI model releases and deploy Pages
 
 on:
   schedule:
-    # Daily at 08:20 Asia/Shanghai (00:20 UTC). Scheduled workflows run on the default branch.
-    - cron: "20 0 * * *"
+    # Every four hours. Scheduled workflows run on the default branch.
+    - cron: "0 */4 * * *"
   workflow_dispatch:
 
 permissions:
@@ -39,20 +39,38 @@ jobs:
       - name: Collect RSS and Awesome resources
         run: python scripts/collect_resources.py
 
+      - name: Collect public model leaderboard snapshot
+        run: python scripts/collect_rankings.py
+
+      - name: Collect AIHOT selected items
+        run: python scripts/collect_aihot.py
+
+      - name: Collect AIPick video ideas
+        run: python scripts/collect_aipick.py
+
       - name: Persist collected data to the triggering branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
+            site/data/models.json \
             site/data/model-updates.json \
             site/data/model-monitor-status.json \
             site/data/model-monitor-state.json \
+            site/data-v3/models.json \
+            site/data-v3/model-updates.json \
+            site/data-v3/model-monitor-status.json \
+            site/data-v3/model-monitor-state.json \
+            site/data/reference-rankings.json \
+            site/data-v3/reference-rankings.json \
+            site/data-v4/aihot-items.json \
+            site/data-v4/aipick-data.json \
             site/data/feed-items.json \
             site/data/awesome-repos.json \
             site/data/resource-status.json \
             site/data/resource-sources.json
           if ! git diff --cached --quiet; then
-            git commit -m "chore(data): refresh model and resource intelligence"
+            git commit -m "chore(data): refresh models, rankings and resources"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           else
             echo "No collected data changes."

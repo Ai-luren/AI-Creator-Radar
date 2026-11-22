@@ -1,0 +1,933 @@
+{
+  "source": "AIPick",
+  "sourceUrl": "https://aipick.news",
+  "attribution": {
+    "name": "AIPick",
+    "url": "https://aipick.news"
+  },
+  "window": "7d",
+  "fetchedAt": "2026-11-22T08:08:09+00:00",
+  "etags": {
+    "items": "W/\"v1-items-b287d962ac4810a4\"",
+    "hotTopics": "W/\"v1-hot-4fba4dad863c3993\""
+  },
+  "items": [
+    {
+      "id": "pabc6kxwkeqbvdd282p3bbo4i",
+      "title": "用 Claude 加 Higgsfield 制作 GTA 6 风格短剧的六步流程",
+      "originalTitle": "Comment “GTA” and I’ll send you the link 👇 This is one of the easiest ways to create GTA 6-style drama stories using Claude and Higgsfield. You can build the story, characters, and scenes without leaving Claude. Here’s how: 1. Grab the free Claude Skill 2. Connect Higgsfield inside Claude 3. Add the Skill and describe your story 4. Ask Claude to generate the characters 5. Animate each scene using Higgsfield 6. Put the clips together and end before the big reveal For this example, I used a story about a pizza delivery guy who steals a gangster’s car while the gangster’s daughter secretly hides him. The best part is you can reuse the same characters to create more episodes. Keep testing different story ideas and build your own AI drama series. #gta6 #claudeai #higgsfield #aivideo #viralcontent",
+      "summary": "作者演示用 Claude 配合 Higgsfield 制作 GTA 6 风格剧情短片，全程不离开 Claude。流程为领取免费 Claude Skill、在 Claude 设置中通过 connectors 连接 Higgsfield、添加 Skill 并描述故事、让 Claude 生成角色、用 Higgsfield 逐场景动画化，最后拼接片段并在大反转前收尾。",
+      "source": {
+        "name": "TikTok · 搜「higgsfield」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/pabc6kxwkeqbvdd282p3bbo4i",
+        "original": "https://www.tiktok.com/@hustle.faceless/video/7710416632509861126"
+      },
+      "publishedAt": "2026-11-21T00:34:45.000Z",
+      "discoveredAt": "2026-11-22T07:39:44.469Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出在 Claude 内连接 Higgsfield 的完整步骤和角色复用玩法，适合录屏演示从故事到分镜动画的全流程。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/pabc6kxwkeqbvdd282p3bbo4i"
+      }
+    },
+    {
+      "id": "zmkkw8kt6nfuidtj6wi3v4di6",
+      "title": "即梦短剧工作室用 Seedream 5.5 与 Seedance 2.5 fast 组合生成短剧《人类居所》",
+      "originalTitle": "人类居所 由即梦短剧工作室制作 本次使用seedream5.5+seedance2.5 fast组合生成视频 对比image2.5 seedream 5.5 的质感表现更好 #即梦短剧工作室 #即梦掌管AI短剧的神",
+      "summary": "即梦短剧工作室用 Seedream 5.5 加 Seedance 2.5 fast 的组合生成了短剧《人类居所》，作者称对比 image2.5，Seedream 5.5 的质感表现更好。视频呈现了一段机器人探访末日人类遗迹的对话剧情，涉及海底居所、科技富豪避难与火星移民等设定。",
+      "source": {
+        "name": "抖音 · 热点搜「Seedream 5.5」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/zmkkw8kt6nfuidtj6wi3v4di6",
+        "original": "https://www.douyin.com/video/7710585142489730339"
+      },
+      "publishedAt": "2026-11-21T11:28:30.000Z",
+      "discoveredAt": "2026-11-22T06:14:44.380Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用即梦短剧工作室的 Seedream 5.5 加 Seedance 2.5 fast 组合生成短剧，并对比 image2.5 的质感差异，适合做同题材生成效果对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/zmkkw8kt6nfuidtj6wi3v4di6"
+      }
+    },
+    {
+      "id": "dcd2hiqrx0q8o24grej4dr4kx",
+      "title": "谷歌员工用 Gemini 4 Carbon 让 Windows 11 在 iPhone Duo 上运行并开源 WindowsiOS",
+      "originalTitle": "在 iPhone Duo上跑 Windows 11，Gemini 4 Carbon又整大活了",
+      "summary": "Google AI Studio 产品与设计负责人 Ammaar Reshi 借助 Gemini 4 Carbon，让完整 Windows 11 在 iPhone Duo 上本地运行，无需越狱也不依赖云端串流，项目以 WindowsiOS 在 GitHub 开源。",
+      "source": {
+        "name": "公众号 · APPSO"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/dcd2hiqrx0q8o24grej4dr4kx",
+        "original": "http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2651117905&idx=1&sn=ecbf9b5fb31aaa9846c866be109ac867&chksm=bc5931c1fe67ee17b1bbaed0085afc8f93fc6dfd422031e41f03a680ae904866ab958d38efa6&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-22T02:27:50.000Z",
+      "discoveredAt": "2026-11-22T03:31:46.450Z",
+      "category": "industry",
+      "score": 78,
+      "selected": true,
+      "reason": "原文给出开源仓库地址和折叠形态演示，适合录屏展示 iPhone Duo 折叠后运行 Windows 11 与 Antigravity 的实际操作。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/dcd2hiqrx0q8o24grej4dr4kx"
+      }
+    },
+    {
+      "id": "lylwnhgtvva82odaucdupmlxw",
+      "title": "Lean FRO与Mathlib Initiative核验通过Claude参与的黎曼猜想形式化证明",
+      "originalTitle": "刚刚，Claude黎曼猜想证明通过验证！菲尔兹奖得主回应“数学研究不存在了？”",
+      "summary": "Lean FRO和Mathlib Initiative发布联合声明，称Anthropic数学家Levent Alpöge与Claude合作给出的黎曼猜想Lean形式化证明通过核验，命题表述、完整编译、命题一致性和多款独立检查器验证四项均成立。",
+      "source": {
+        "name": "公众号 · 智东西"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/lylwnhgtvva82odaucdupmlxw",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzA4MTQ4NjQzMw==&mid=2652814789&idx=1&sn=6caa852d974efcf2f42c4c76eec37488&chksm=858d693990f8680ab78fad78f408945ebfb8837df8f77d4bb3b400bb486fef1fed7588c08b4a&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-22T03:23:30.000Z",
+      "discoveredAt": "2026-11-22T03:30:45.135Z",
+      "category": "industry",
+      "score": 95,
+      "selected": true,
+      "reason": "围绕Lean FRO与Mathlib Initiative的四点核验结论，讲清机器核验与同行评审的差别，以及25万页证明为何难评审。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/lylwnhgtvva82odaucdupmlxw"
+      }
+    },
+    {
+      "id": "pets2mmui9hxka0syqzsmii1z",
+      "title": "AIWarper 分享 15 秒动漫分镜视频生成提示词",
+      "originalTitle": "Prompt: Use @Image1 as the exact first frame. Keep her on screen left and the armored knight on screen right. Preserve their appearances, the moonlit blue courtyard, and the drifting petals. Match the reference’s hand-drawn anime linework and cel shading. The entire exchange unfolds in real time. SHOT 1 | 0.0–1.5s | Original two-shot Begin on the exact still. She stares up at him, breathing through parted lips. He starts to step toward her. She stiffens, and he stops. SHOT 2 | 1.5–4.5s | Tight close-up on her Tears well up as she tries to speak. The first word comes out thin, then she screams, “How could you do this?!” Her voice cracks on “this.” Her brows are drawn tight and her eyes stay locked on his as the first tear spills down her cheek. SHOT 3 | 4.5–6.0s | Reverse close-up on him He flinches at the scream. His mouth opens, but he can’t get a word out. He looks straight at her as the anger in her face gives way to hurt. SHOT 4 | 6.0–8.5s | Medium profile two-shot She closes the d",
+      "summary": "AIWarper 发布一份视频生成提示词，以 @Image1 作为精确首帧，保留画面左侧女性与右侧铠甲骑士的形象、月夜蓝色庭院和飘落花瓣，并匹配参考图的手绘动漫线条与赛璐璐上色。提示词把 15 秒剧情拆成 7 个带时间码的镜头，从对峙、哭喊“How could you do this?!”到拥抱和解，逐镜规定景别、表情、动作和台词，并要求音频贴近真实，保留尖叫、沉默、不均匀呼吸与风声布料声。",
+      "source": {
+        "name": "X · AIWarper"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/pets2mmui9hxka0syqzsmii1z",
+        "original": "https://x.com/AIWarper/status/2124306050199519650"
+      },
+      "publishedAt": "2026-11-22T00:56:44.000Z",
+      "discoveredAt": "2026-11-22T03:21:44.284Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "原文是一份可直接复用的分镜提示词，按秒切分 7 个镜头并写明台词与音效，适合演示如何用首帧图生成 15 秒连续动画。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/pets2mmui9hxka0syqzsmii1z"
+      }
+    },
+    {
+      "id": "gal1l5x0xrp616co5oqq3hl74",
+      "title": "Flux 3、Kling 4 与 Kling 4 Flash 同首帧生成效果对比",
+      "originalTitle": "Flux 3 vs Kling 4 vs Kling 4 Flash Start frame only, prompt in first comment below. Which is best? https://t.co/DR8DM9D3zE",
+      "summary": "AIWarper 用同一张首帧图和同一提示词，对比 Flux 3、Kling 4 与 Kling 4 Flash 三款模型的生成效果，并询问哪个最好。提示词放在评论区，正文附有对比视频。",
+      "source": {
+        "name": "X · AIWarper"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/gal1l5x0xrp616co5oqq3hl74",
+        "original": "https://x.com/AIWarper/status/2124306048442077596"
+      },
+      "publishedAt": "2026-11-22T00:56:44.000Z",
+      "discoveredAt": "2026-11-22T03:21:44.271Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用同一首帧和提示词对比 Flux 3、Kling 4 与 Kling 4 Flash 的生成效果，适合做三款模型同题横评的对比视频。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/gal1l5x0xrp616co5oqq3hl74"
+      }
+    },
+    {
+      "id": "bvt9ud77720rst92t1r5w1ggq",
+      "title": "特斯拉推出 Reality View，用端到端网络生成车辆 360 度跟车视角",
+      "originalTitle": "Okay this is nuts. Tesla's new \"Reality View\" handily sets a new standard for spatial awareness in vehicles. It fuses all the cameras into a fully generated 360 drone view trailing your car, with the route drawn right in. Feels a lot like GTA 6 in real life, except the camera doesn't follow you when you get out of the car. Could not be more perfectly timed, because two days after Rockstar ships the pinnacle of rendering triangles to simulate reality -- Tesla goes the opposite direction using no game engine whatsoever. The universe really does have a sense of humor! As a bonus it uses less compute than the old way - replacing all the explicit signals and draw calls with one end to end network. Elon says it runs on half of one AI4 TRIP accelerator! Maybe i'm just a 3D reality capture nerd, but I cannot overstate how cool this is. I think Tesla's Phil Duan comes close when he says \"we've always wanted the UI to show the world through the eyes of the FSD model. We were just too busy solvin",
+      "summary": "特斯拉推出名为 Reality View 的新功能，把车上所有摄像头融合成一个完全生成的 360 度无人机视角，跟随车辆并直接画出路线。作者称它不使用任何游戏引擎，用一个端到端网络替代了原有的显式信号和绘制调用，算力消耗比旧方案更低；马斯克称它只占用半个 AI4 TRIP 加速器。特斯拉的 Phil Duan 表示，团队一直希望 UI 能通过 FSD 模型的视角展示世界。",
+      "source": {
+        "name": "X · Bilawal Sidhu"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/bvt9ud77720rst92t1r5w1ggq",
+        "original": "https://x.com/bilawalsidhu/status/2124323235063816204"
+      },
+      "publishedAt": "2026-11-22T02:05:01.000Z",
+      "discoveredAt": "2026-11-22T03:21:43.291Z",
+      "category": "industry",
+      "score": 65,
+      "selected": true,
+      "reason": "原文展示了特斯拉 Reality View 把多路摄像头融合成 360 度跟车视角的画面，适合结合视频讲这套端到端网络如何替代传统渲染。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/bvt9ud77720rst92t1r5w1ggq"
+      }
+    },
+    {
+      "id": "r7jaeelc3bqvnwo64jmpbx76d",
+      "title": "作者用 Kling 4.0 复刻四年前“巨石强森吃石头”AI 视频",
+      "originalTitle": "Четыре года назад весь интернет смеялся над видео, где Дуэйн Джонсон ест камни. Тогда это было лучшее, что умел ИИ. А сейчас вышел Kling 4.0, и я решил проверить, какой путь мы прошли. На Abacus AI через Nano Banana Pro сделал кадр, где мы вместе едим камни, добавив свои фото с разных ракурсов. Потом в Kling 4.0 прикрепил фото как первый кадр, расписал сцену и поставил 30 секунд. Раньше максимум был 15, теперь целая сцена одним дублем. Четыре года назад было месиво из пикселей, а теперь хрустят даже камни. Весь процесс - в ролике. #abacusai #chatllm #kling #aitools #aivideo",
+      "summary": "作者在 Abacus AI 上用 Nano Banana Pro 生成自己与巨石强森同桌吃石头的首帧图，再把它作为首帧输入 Kling 4.0，设定 30 秒生成整段场景。他提到此前最长只能生成 15 秒，如今可一次生成完整场景，并对比四年前同类视频的像素糊状画面。整个流程记录在视频中。",
+      "source": {
+        "name": "TikTok · 搜「kling」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/r7jaeelc3bqvnwo64jmpbx76d",
+        "original": "https://www.tiktok.com/@aleko.so/video/7710626356777848084"
+      },
+      "publishedAt": "2026-11-21T14:08:23.000Z",
+      "discoveredAt": "2026-11-22T01:36:44.604Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用同一张“吃石头”首帧在 Kling 4.0 里跑 30 秒单镜头，可拍成从四年前像素糊图到如今画面质感的对比实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/r7jaeelc3bqvnwo64jmpbx76d"
+      }
+    },
+    {
+      "id": "h0wxum1i2enbszzqfhtdrdpbh",
+      "title": "创作者用 Kling 4.0 把一张自拍做成多镜头电影世界",
+      "originalTitle": "Kling 4.0 turned one photo of me into a whole cinematic world. 🚂✨ Magical trains, floating islands, and an adventure beyond imagination. All created with AI using Omni References, Multiple Keyframes, and Dynamic Motions. Black Friday is here! 🔥 50% off annual plans for all users and 35% off a 3-month subscription for new users. Want to create your own cinematic world? Comment “KLING” and I’ll DM you the link and prompt! 🔗 @Kling AI #KlingAI #Kling4 #KlingAIVariousTutorials #AIvideo #Keyframes",
+      "summary": "创作者 fatihlyfe 用 Kling 4.0 把一张自拍生成一段穿越魔法列车与浮空岛的连贯电影式视频。他在 Kling 的 Multiple Keyframes 中最多加入 10 张图来引导从开场到结尾的剧情，并用 Omni References 以自拍保持角色一致，再配合 Dynamic Motions 加入运镜和角色动作。",
+      "source": {
+        "name": "TikTok · 搜「kling」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/h0wxum1i2enbszzqfhtdrdpbh",
+        "original": "https://www.tiktok.com/@fatihlyfe/video/7710666797401246990"
+      },
+      "publishedAt": "2026-11-21T16:45:25.000Z",
+      "discoveredAt": "2026-11-22T01:36:44.558Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用一张自拍串起多镜头旅程，可跟拍演示多关键帧与 Omni References 如何保持角色一致。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/h0wxum1i2enbszzqfhtdrdpbh"
+      }
+    },
+    {
+      "id": "h7kvez6k22262oexu0mlbvrdq",
+      "title": "创作者用 Seedance 生成伪手机实拍 VFX 视频并公开 20 秒提示词",
+      "originalTitle": "This is the kind of footage that would break the internet if it were real. 🌊💀 I've been pushing Seedance with impossible VFX scenarios filmed like random smartphone videos. And this one is particularly satisfying. No destruction. No apocalypse. Just reality doing something it absolutely shouldn't. 👀 I'm sharing the exact 20-second prompt below. 👇 Would you believe this if you saw it on your feed? #DreaminaCPP @dreamina_ai",
+      "summary": "创作者 Charaspower 用 Seedance 生成了一段伪装成手机随手拍的 VFX 视频，画面没有破坏或末日场景，而是让现实做出不该发生的事。作者称已公开这条 20 秒视频的完整提示词，并带 #DreaminaCPP 标签 @dreamina_ai。",
+      "source": {
+        "name": "X · Charaspower"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/h7kvez6k22262oexu0mlbvrdq",
+        "original": "https://x.com/CharaspowerAI/status/2124216403796304327"
+      },
+      "publishedAt": "2026-11-21T19:00:31.000Z",
+      "discoveredAt": "2026-11-22T00:20:47.456Z",
+      "category": "tip",
+      "score": 62,
+      "selected": true,
+      "reason": "作者用 Seedance 生成一段伪装成手机随手拍的 20 秒 VFX 视频，并公开了完整提示词，适合照着复现同款伪实拍效果。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/h7kvez6k22262oexu0mlbvrdq"
+      }
+    },
+    {
+      "id": "g2eifm5ttmpy2meobvqhz3daw",
+      "title": "Gemini 4 上车指南：作者实测优缺点与省钱用法",
+      "originalTitle": "王者归来？gemini4上车指南榨干性能 gemini4新出的几个模型这周杀疯了：超高的性价比、对中国用户好，性能拳打claude脚踢gpt，这一期就将它的优缺点和上手指南一次讲清，到底值不值得冲？ #gemini #antigravity #agent #AI #省钱技巧",
+      "summary": "作者坏猫404 实测 Google 新出的 Gemini 4 系列模型，称其在不少复杂任务上已能与 Claude 同级模型掰手腕，同价位 token 用量比 GPT 更大方。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/g2eifm5ttmpy2meobvqhz3daw",
+        "original": "https://www.douyin.com/video/7710544919311518991"
+      },
+      "publishedAt": "2026-11-21T08:52:25.000Z",
+      "discoveredAt": "2026-11-22T00:10:42.968Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "作者实测 Gemini 4 系列后给出省钱上车与避坑建议，可围绕土耳其区订阅价格、antigravity 审核卡顿和 Flow 出片流程做上手实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/g2eifm5ttmpy2meobvqhz3daw"
+      }
+    },
+    {
+      "id": "q2mdp6fadsmi7ytfi1d2vav3k",
+      "title": "Gemini 4 Neon 与 Claude Opus 5.5 实测对比：榜单领先但真实改代码落后",
+      "originalTitle": "Gemini 4 Neon vs Claude Opus 5.5：榜单说 Neon 赢，博主实测却不一样 · 第三方 Artificial Analysis（两边都按最高推理档）：智能指数 Neon 61 vs Opus 59；单任务成本 $6.44 vs $10.04 · Google 官方评测（Google 自测）：两边都有分数的 18 项里 Neon 赢 16 项，Opus 领先 Terminal-bench 4.1 和 FrontierCode 2.0 · Bito 实测（真实项目里多轮改代码）：Opus 86.9% vs Neon 79.8%；每轮平均花费 Neon $7.37，Opus $18.38 · DataCamp 实测（写一个自对弈的变体象棋网页）：Neon 12 局全部将死，Opus 5 局和棋；每次花费 $0.90 vs $1.70 · Flavio Copes 实测（写 CSV 解析函数）：两边都 27/27 全对，但 Neon 思考用了 5,495 token，Opus 只用 694，单次花费 $0.091 vs $0.029 · 补充：MindStudio 一次生成 6 个应用的测试里，Neon 37.9 分高于 Opus 34.7 分，但 Neon 写的容器工具有越权漏洞，Opus 没有 · 标价（每百万 token 输入/输出）：Neon $3 / $15，Opus 5.5 $4 / $20 #Gemini #Claude #AI评测 #大模型 #人工智能",
+      "summary": "Gemini 4 Neon 与 Claude Opus 5.5 的多方评测结果出现分歧：第三方 Artificial Analysis 智能指数 Neon 61 对 Opus 59，单任务成本 $6.44 对 $10.04；Google 官方评测中两边都有分数的 18 项里 Neon 赢 16 项。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/q2mdp6fadsmi7ytfi1d2vav3k",
+        "original": "https://www.douyin.com/video/7710596404502546569"
+      },
+      "publishedAt": "2026-11-21T12:12:04.000Z",
+      "discoveredAt": "2026-11-22T00:10:42.953Z",
+      "category": "ai-models",
+      "score": 68,
+      "selected": true,
+      "reason": "原文汇总了 Artificial Analysis、Google 官方和多位博主对 Gemini 4 Neon 与 Claude Opus 5.5 的实测差异，适合做榜单分数与真实项目表现的对比盘点。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/q2mdp6fadsmi7ytfi1d2vav3k"
+      }
+    },
+    {
+      "id": "f9p84q7zm0kftzcexj94uiges",
+      "title": "Lean 与 Mathlib 社区认证 Claude 参与的黎曼猜想形式化证明",
+      "originalTitle": "突发！Claude 的黎曼猜想证明获 Lean 官方认证，马斯克直呼惊人成就",
+      "summary": "Lean 和 Mathlib 社区发布联合声明，正式认证 Anthropic 数学家 Levent Alpöge 提交的黎曼猜想形式化证明，并表示对其正确性具有充分信心。",
+      "source": {
+        "name": "公众号 · APPSO"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/f9p84q7zm0kftzcexj94uiges",
+        "original": "http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2651117904&idx=1&sn=64519a752d00cb434805314d92223d94&chksm=bc7542b33585ad997d1fa6153dfaf0fb9433cc38bdf0827f4663acaa72abbb0d7a118a0af217&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-21T23:34:31.000Z",
+      "discoveredAt": "2026-11-22T03:31:46.459Z",
+      "category": "industry",
+      "score": 96,
+      "selected": true,
+      "reason": "围绕1700万行Lean代码和社区四项验证标准，讲清Claude参与推导的黎曼猜想证明如何被Lean官方认证。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/f9p84q7zm0kftzcexj94uiges"
+      }
+    },
+    {
+      "id": "dmhayywth1gvh0vniqm4i3gyp",
+      "title": "零行 Claude 代码，用 Gemini 4 Neon 从写歌到渲染视频全流程教程",
+      "originalTitle": "上条爆了，全在说是Claude做的。 今天直接扔教程：0行Claude，100%Gemini 4 Neon 纯代码直出！#Claude #Claude封号 #Gemini #反重力 #Antigravity",
+      "summary": "作者回应上条视频被质疑是 Claude 制作的争议，给出全程零行 Claude、100% 由 Gemini 4 Neon 完成的教程。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/dmhayywth1gvh0vniqm4i3gyp",
+        "original": "https://www.douyin.com/video/7710503306900163882"
+      },
+      "publishedAt": "2026-11-21T06:10:56.000Z",
+      "discoveredAt": "2026-11-21T20:09:42.970Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "作者用同一条视频回应质疑，完整演示从写词、听歌卡点到代码渲染都由 Gemini 4 Neon 完成，适合跟做复刻这套三步流程。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/dmhayywth1gvh0vniqm4i3gyp"
+      }
+    },
+    {
+      "id": "f2v9x0suzbngxjivaubv92foe",
+      "title": "Gemini 4 Neon 实测：三维建模与前端设计稿能力提升，游戏 UI 生成偏弱",
+      "originalTitle": "Gemini 4 Neon 实测：能直接出设计稿，设计能力提升，能力good！！！ 建模和6.2Astra碰一碰了，前端能力也有相应提升！！！#ai新星计划 #真实生活分享计划 #vibe知识大赏 #gemini4 #google",
+      "summary": "作者阿水Ai说用 10 个案例实测 Gemini 4 Neon，认为其三维建模可与 GPT 6.2 相比，前端网页设计审美在线、对参考图风格还原较好，动效视频与 OpenAI 5.5 不相上下。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/f2v9x0suzbngxjivaubv92foe",
+        "original": "https://www.douyin.com/video/7710330174093111202"
+      },
+      "publishedAt": "2026-11-20T23:00:00.000Z",
+      "discoveredAt": "2026-11-21T20:09:42.916Z",
+      "category": "ai-models",
+      "score": 72,
+      "selected": true,
+      "reason": "作者用同一套提示词对比 Gemini 4 Neon 与 GPT 6.2 的 10 个案例，可拍成三维建模和前端设计稿的效果对比实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/f2v9x0suzbngxjivaubv92foe"
+      }
+    },
+    {
+      "id": "g4h9wtbwyfjhhsofzrsoro7qh",
+      "title": "中国创业公司 Photon Matrix 推出激光灭蚊设备，已获 5000 台预订",
+      "originalTitle": "🦟🚫 This Chinese startup built a machine that hunts mosquitoes with lasers. Photon Matrix uses lidar to track insects in flight, then fires a powerful laser burst to burn off their wings. A camera using AI and a separate radar system are designed to prevent unsafe shots around people and pets. But its Class 4 laser can damage eyes, including through reflections. Buyers must pass a safety test before activating it. The company already reported 5,000 pre-orders, but the big question is whether these lasers can become reliable household devices.",
+      "summary": "中国创业公司 Photon Matrix 开发了一款用激光追踪并烧掉蚊虫翅膀的设备，已获得 5000 台预订。该系统每秒发出 10 万次微弱激光脉冲扫描前方平面，蚊子穿过时被定位，随后用更强的激光照射 1/100 秒破坏其翅膀。设备使用 Class 4 激光，直射或反射光都可能伤眼，因此配有 AI 摄像头识别人员、宠物和反光表面以阻止不安全射击，买家还需通过 15 题安全测试并录入指纹才能激活。",
+      "source": {
+        "name": "TikTok · Rowan Cheung"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/g4h9wtbwyfjhhsofzrsoro7qh",
+        "original": "https://www.tiktok.com/@rowancheung/video/7710348952159210783"
+      },
+      "publishedAt": "2026-11-21T17:00:00.000Z",
+      "discoveredAt": "2026-11-21T19:09:44.937Z",
+      "category": "industry",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出了激光灭蚊的完整工作流程和 15 题安全测试门槛，适合做产品原理拆解，重点讲清 AI 摄像头如何拦截误伤。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/g4h9wtbwyfjhhsofzrsoro7qh"
+      }
+    },
+    {
+      "id": "vnh8h0xurhlkzynw96mhdbmbv",
+      "title": "创作者用即梦动效工作室把熬夜细胞科普做成像素动画",
+      "originalTitle": "当你连续熬夜 30 天，体内细胞会发生什么？#全抖音都在vibe科普#牛马细胞#熬夜#即梦动效工作室 #即梦AI",
+      "summary": "一位创作者用即梦AI的动效工作室，把连续熬夜30天对腺苷、海马体、杏仁核和免疫细胞的影响做成像素风格动态画面。其流程是先确定要呈现的医学知识和画面风格，再通过文字描述创意生成对应动画效果。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/vnh8h0xurhlkzynw96mhdbmbv",
+        "original": "https://www.douyin.com/video/7709906662064552059"
+      },
+      "publishedAt": "2026-11-20T04:01:01.000Z",
+      "discoveredAt": "2026-11-21T18:11:45.351Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用即梦动效工作室把熬夜对细胞的影响做成像素动画，可拆解从确定医学知识点到生成动画的完整流程。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/vnh8h0xurhlkzynw96mhdbmbv"
+      }
+    },
+    {
+      "id": "a852pz4fdrsy2641q1k09iknu",
+      "title": "兔姬-Ai 用四个模型 one shot 做骑单车动画并排名，ChatGPT 6.2 ultra 居首",
+      "originalTitle": "gpt6.2跟gemini开始神仙打架了！！ #gpt #gemini #ai #neon #鹈鹕骑单车",
+      "summary": "兔姬-Ai 用四个模型 one shot 各做一版金鱼娘骑单车 SVG 动画并排名，第一名是 ChatGPT 6.2 ultra，第二名 gemini 4.0，第三名 cross opus 5.5，第四名 ChatGPT 6 ultra。",
+      "source": {
+        "name": "抖音 · 热点搜「macOS版Gemini」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/a852pz4fdrsy2641q1k09iknu",
+        "original": "https://www.douyin.com/video/7710549744455667007"
+      },
+      "publishedAt": "2026-11-21T11:20:00.000Z",
+      "discoveredAt": "2026-11-21T16:13:42.994Z",
+      "category": "opinion",
+      "score": 60,
+      "selected": true,
+      "reason": "作者用同一句提示词让四个模型各做一版金鱼娘骑单车 SVG 动画并排名，可对照口播逐帧看关节、时序和背景的差异。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/a852pz4fdrsy2641q1k09iknu"
+      }
+    },
+    {
+      "id": "mt8m4f3sxgdiryl5oz4vcyfa1",
+      "title": "Lovable、Bolt、Replit 与 Claude Code 怎么选：AI 建应用工具对比与切换时机",
+      "originalTitle": "Which AI app builder should you use? Lovable vs Bolt vs Replit vs Claude Code If you want to build an app with AI, here's which tool to use, and when to switch. There are two kinds: App builders, where you start. They run in your browser: you describe the app in a chat, it builds it, and it's running a minute later. Hosting and the database are built in. Lovable: the easiest; good-looking apps, fast. Free to try with 5 credits a day; every message uses credits. Bolt: same idea. Describe it, it builds it, it hosts it. Free to start with a monthly allowance. Replit: a full coding workspace under the chat. Free to try, but the free app goes offline after 30 days; the full builder is about $20 a month. Coding agents, for when you get serious. They work on the real code, on your own computer. Claude Code: comes with Claude Pro (about $20 a month). It's what I build with. Codex: OpenAI's version, with ChatGPT. On the $20 plan you get it in the app, your terminal and your code editor. Cursor",
+      "summary": "作者把 AI 建应用工具分成两类：Lovable、Bolt、Replit 在浏览器里用聊天生成应用并自带托管和数据库，Lovable 每天 5 个免费 credits。",
+      "source": {
+        "name": "TikTok · 搜「ai tools」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/mt8m4f3sxgdiryl5oz4vcyfa1",
+        "original": "https://www.tiktok.com/@pro.glitch/video/7709923061310442765"
+      },
+      "publishedAt": "2026-11-19T16:55:00.000Z",
+      "discoveredAt": "2026-11-21T15:01:43.618Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "作者按上手难度和价格把 Lovable、Bolt、Replit 与 Claude Code、Codex 分成两类，可对照演示各自免费额度和切换时机。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/mt8m4f3sxgdiryl5oz4vcyfa1"
+      }
+    },
+    {
+      "id": "czsxfhz127ql33klq7tmci8mn",
+      "title": "谷歌 Gemini 4 Neon 实测：涩谷地图跑酷游戏与修 bug 成绩",
+      "originalTitle": "谷歌新模型 Gemini 4 Neon 到底什么水平？ 谷歌新模型 Gemini 4 Neon 到底什么水平？这条视频看它做游戏、写 3D、建模、画诗都交出了什么，再看真实修 bug 的成绩，最后说说会员都送什么。 #Gemini4Neon #AI编程 #谷歌",
+      "summary": "谷歌新模型 Gemini 4 Neon 支持文字、图片、视频、音频和 PDF 输入，上下文窗口为 100 万 token。视频展示了它根据涩谷真实地图生成可玩的跑酷游戏，以及从零写出约 10200 行代码的勃朗峰 3D 场景，官方称未使用现成 3D 素材。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/czsxfhz127ql33klq7tmci8mn",
+        "original": "https://www.douyin.com/video/7710617259399548201"
+      },
+      "publishedAt": "2026-11-21T13:33:07.000Z",
+      "discoveredAt": "2026-11-21T14:22:44.035Z",
+      "category": "ai-models",
+      "score": 80,
+      "selected": true,
+      "reason": "视频用涩谷真实地图跑酷游戏和约10200行代码的勃朗峰3D场景展示Gemini 4 Neon的多模态生成能力，适合做效果实测对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/czsxfhz127ql33klq7tmci8mn"
+      }
+    },
+    {
+      "id": "hyj6n1fka54q7k3zs7shpkjcq",
+      "title": "实测用GPT-4 Neo两小时做出二次元格斗游戏",
+      "originalTitle": "Gemini4 Neon实测：2小时搓二次元格斗游戏 #AI #大模型 #AI做游戏 #gemini #gemini4",
+      "summary": "作者称用不到2小时、仅消耗Pro会员5%周用量，借助GPT-4 Neo做出一款2D格斗游戏，把各家大模型拟人化角色放进擂台。游戏包含黄昏樱花天台、赛博霓虹街头和数据中心三套擂台，支持单人对战电脑、本地双人和AI互殴观战，受击血条延迟反馈、能量条发光、大招特写、KO展机与胜利台词均由该模型完成。作者据此认为其理解、代码和审美能力扎实。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/hyj6n1fka54q7k3zs7shpkjcq",
+        "original": "https://www.douyin.com/video/7710537343995825417"
+      },
+      "publishedAt": "2026-11-21T13:00:00.000Z",
+      "discoveredAt": "2026-11-21T14:22:44.026Z",
+      "category": "tip",
+      "score": 63,
+      "selected": true,
+      "reason": "作者用不到2小时做出可玩的2D格斗游戏，展示三套擂台、AI互殴观战和KO结算，适合做上手实测与效果展示。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/hyj6n1fka54q7k3zs7shpkjcq"
+      }
+    },
+    {
+      "id": "a98y7q56hodtfjneb2ut34w8z",
+      "title": "Gemini 4 Neon 实测：网页版视频生成与中文写作对比 Claude",
+      "originalTitle": "Gemini 4 Neon 实测！！！ 迟来的测评，文字确实写得好。 等哪天原价充一个试一试antigravity。 #ai干货分享 #大模型 #gemini4 #模型测评",
+      "summary": "作者用学生优惠账号实测 Gemini 4 Neon，网页版直接生成视频，建模真实度、运镜效果不错，但画面中间出现奇怪的雨点。作者用同一段中文青春小说 prompt 让 Gemini 4 Neon 与 Claude Opus 5.5 各写一篇，认为 Gemini 的对话更自然，Claude 部分描写和对话偏生硬。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/a98y7q56hodtfjneb2ut34w8z",
+        "original": "https://www.douyin.com/video/7710462552664313107"
+      },
+      "publishedAt": "2026-11-21T03:32:45.000Z",
+      "discoveredAt": "2026-11-21T14:22:43.992Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用学生优惠账号实测 Gemini 4 Neon 的网页版视频生成和中文写作，并与 Claude 写同一篇小说 prompt 做对比，适合做同题写作效果对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/a98y7q56hodtfjneb2ut34w8z"
+      }
+    },
+    {
+      "id": "fmye9curexyh9sqgnos030ryr",
+      "title": "用多 Agent 协同开发产品：产品、研发、测试、git 管理四个角色怎么分工",
+      "originalTitle": "Vibe Coding必学课—多Agent协同产品开发！ 本期教你在Agent里构建一组自己的开发团队！ 纯纯干活！收藏起来！ #全抖音都在vibe科普 #vibe知识大赏 #即梦动效工作室 #即梦AI",
+      "summary": "珍妮丁丁在 Vibe Coding 系列第三期讲多 Agent 协同产品开发，把开发流程拆成产品 Agent 出原型图和 spec 文档、研发 Agent 写代码、测试 Agent 验收、git 管理 Agent 管分支四个角色。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/fmye9curexyh9sqgnos030ryr",
+        "original": "https://www.douyin.com/video/7709912816840461604"
+      },
+      "publishedAt": "2026-11-20T03:00:41.000Z",
+      "discoveredAt": "2026-11-21T14:10:49.130Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "作者把产品、研发、测试、git 管理四个 Agent 的分工和流转讲成一套可照做的流程，适合按步骤演示多 Agent 协同开发。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/fmye9curexyh9sqgnos030ryr"
+      }
+    },
+    {
+      "id": "jdzoe8xzgruqkbnz3eivkfgk2",
+      "title": "老三AIGC 用即梦 Seedance 2.5 生成魔幻东北农村题材短片",
+      "originalTitle": "魔幻大东北！硬核老奶！ 【本视频由即梦Seedance 2.5生成】#即梦AI #一站式AI创作工作台 #即梦超级创作者#东北#东北农村生活",
+      "summary": "创作者老三AIGC 发布一条魔幻大东北题材短片，标注视频由即梦 Seedance 2.5 生成，并带上 #即梦AI #一站式AI创作工作台 #即梦超级创作者 等话题。短片以东北农村生活为背景，口播呈现老奶搬铅球、买菜等夸张桥段。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/jdzoe8xzgruqkbnz3eivkfgk2",
+        "original": "https://www.douyin.com/video/7710565600468865003"
+      },
+      "publishedAt": "2026-11-21T10:12:32.000Z",
+      "discoveredAt": "2026-11-21T14:10:49.047Z",
+      "category": null,
+      "score": 58,
+      "selected": true,
+      "reason": null,
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/jdzoe8xzgruqkbnz3eivkfgk2"
+      }
+    },
+    {
+      "id": "qszhvy6fblu2k1jaqciz4bm2h",
+      "title": "即梦短剧工作室上线，创作者演示2D动漫短剧全流程复刻",
+      "originalTitle": "《明天也要OK哦》AI复刻教学 即梦短剧工作室重磅上线，给大家带来2D动漫的AI制作教学。 #即梦短剧工作室 #即梦AI #即梦 #即梦掌管AI短剧的神",
+      "summary": "即梦短剧工作室上线，AIGC创作者编导李让用《明天也要OK哦》中男主热鸡蛋一段，演示从提示词拆分到成片的2D动漫制作全流程。他把提示词分为前置提示词和分镜提示词，前置管画风、光线和整体感觉，分镜管人物位置、动作、景别和机位。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/qszhvy6fblu2k1jaqciz4bm2h",
+        "original": "https://www.douyin.com/video/7710557549346458907"
+      },
+      "publishedAt": "2026-11-21T09:56:29.000Z",
+      "discoveredAt": "2026-11-21T14:10:48.944Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "用即梦短剧工作室全流程复刻一段2D动漫短剧，从提示词拆分到分镜、首帧、480样片、多轨剪辑逐步演示，适合跟做实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/qszhvy6fblu2k1jaqciz4bm2h"
+      }
+    },
+    {
+      "id": "giirkmwvzel6e9sw6q7qyp7ym",
+      "title": "作者分享 Seedance 动漫动作提示词，主打密集枪术与运镜",
+      "originalTitle": "If you’re into anime action, steal this prompt. ⚔️🔥 I wanted something that gives Seedance absolutely no room to breathe: dense spear choreography, extreme verticality, camera rotation, hit-stops and full sakuga energy. The goal: make 15 seconds feel like the animation team suddenly got an unlimited budget. 💀 Full prompt below 👇",
+      "summary": "作者在 X 上分享了一段专为 Seedance 编写的动漫动作提示词，目标是让 15 秒片段呈现密集枪术编排、极端垂直调度、镜头旋转和 hit-stop 的作画能量。作者称这段提示词刻意不给模型留喘息空间，完整提示词附在推文下方。",
+      "source": {
+        "name": "X · Charaspower"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/giirkmwvzel6e9sw6q7qyp7ym",
+        "original": "https://x.com/CharaspowerAI/status/2124110605682376736"
+      },
+      "publishedAt": "2026-11-21T12:00:07.000Z",
+      "discoveredAt": "2026-11-21T12:17:43.553Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "作者公开了一段专为 Seedance 设计的动漫动作提示词，强调密集枪术编排、垂直运镜和 hit-stop，适合直接拿来生成 15 秒动作片段做效果展示。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/giirkmwvzel6e9sw6q7qyp7ym"
+      }
+    },
+    {
+      "id": "nshef9oce62vtjis4z2bpc6fm",
+      "title": "谷歌为 Mac 版 Gemini 开放 computer use 电脑操作功能",
+      "originalTitle": "Gemini电脑操作 结账前自动暂停 综合 14 篇报道，谷歌给 Mac 版 Gemini 开了电脑操作，隔离窗口替你点菜单填表格，登录付款自动暂停，还能用一次性虚拟卡号替你结账。 #Gemini #Geminicomputeruse #豆包电脑版 #AI智能体 #大模型应用",
+      "summary": "谷歌 11 月 19 日为 Mac 版 Gemini 开放 computer use 电脑操作功能，Gemini 在隔离后台窗口中替用户点菜单、填表格、跨软件跑流程，不占用主屏和鼠标。登录和付款会自动暂停，敏感操作需用户确认，结账时使用一次性虚拟卡号。该功能目前只对美国英语用户开放，且仅限 Google AI Plus、Pro、Ultra 三个付费档。",
+      "source": {
+        "name": "抖音 · 热点搜「macOS版Gemini」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/nshef9oce62vtjis4z2bpc6fm",
+        "original": "https://www.douyin.com/video/7710426067353259302"
+      },
+      "publishedAt": "2026-11-21T01:11:09.000Z",
+      "discoveredAt": "2026-11-21T12:12:43.351Z",
+      "category": "ai-products",
+      "score": 71,
+      "selected": true,
+      "reason": "原文给出隔离窗口、登录付款自动暂停和一次性虚拟卡号等具体设定，适合围绕这些安全刹车做功能拆解。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/nshef9oce62vtjis4z2bpc6fm"
+      }
+    },
+    {
+      "id": "cwj4id4zljwf1yjpandwt2xvc",
+      "title": "Anthropic 称 Claude 证出黎曼猜想，斯坦福数小时后发布全人类独立证明草稿",
+      "originalTitle": "Hours after Anthropic claims a Claude proof of the Riemann hypothesis, Stanford releases an all-human competing draft",
+      "summary": "Anthropic 数学家 Levent Alpöge 称与 Claude 合作发现了黎曼猜想的证明，并进一步解决了广义黎曼猜想（GRH），证明以 Lean 语言发布、分为 14 个数据包，打印出来超过 25 万页。",
+      "source": {
+        "name": "The Decoder"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/cwj4id4zljwf1yjpandwt2xvc",
+        "original": "https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/"
+      },
+      "publishedAt": "2026-11-21T11:19:49.000Z",
+      "discoveredAt": "2026-11-21T11:29:41.312Z",
+      "category": "industry",
+      "score": 88,
+      "selected": true,
+      "reason": "Anthropic 数学家称 Claude 证出黎曼猜想，斯坦福数小时后放出全人类独立草稿，适合梳理这场同日对撞的时间线与双方验证方式。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/cwj4id4zljwf1yjpandwt2xvc"
+      }
+    },
+    {
+      "id": "j9x3u6p8taz5oxbdkvoq26i9l",
+      "title": "Dwarkesh Patel 为何把超级智能时间表大幅提前",
+      "originalTitle": "RSI已经开始？AI 距离超级智能还有多远 | 递归自我改进 | AGI | Dwarkesh Patel | AI研究自动化 | Transformer | OpenAI | Anthropic",
+      "summary": "Dwarkesh Patel 解释了他为何把超级智能的时间表大幅提前：METR 评估显示 Anthropic 的 AI 研发速度已达一年前的 2 倍，Claude 已主导其 26% 的研发工作。",
+      "source": {
+        "name": "最佳拍档"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/j9x3u6p8taz5oxbdkvoq26i9l",
+        "original": "https://www.youtube.com/watch?v=EpdVND24Lhk"
+      },
+      "publishedAt": "2026-11-21T10:00:25.000Z",
+      "discoveredAt": "2026-11-21T10:32:40.738Z",
+      "category": "opinion",
+      "score": 58,
+      "selected": true,
+      "reason": "Dwarkesh Patel 把超级智能时间表大幅提前，可围绕 METR 评估、Claude 承担 26% 研发和 2028 年中位年份这几个数字做热点评论。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/j9x3u6p8taz5oxbdkvoq26i9l"
+      }
+    },
+    {
+      "id": "ys0cnnmen3q8qnqjp72xaa88x",
+      "title": "Gemini 4 Neon 实测：审美登顶测评榜，对比 Claude Opus 5.5 与 GPT-6.2 Astra",
+      "originalTitle": "Gemini 4 Neon实测，审美登顶测评榜|晓AI说测评 你现在看到的这期测评视频，视觉和剪辑全部由谷歌这周刚发布的 Gemini 4 Neon 完成。 五周连发四款 Gemini 4（Argon / Carbon / Hydrogen / Neon），很多人越看越乱。这期直接把四兄弟定位和 12 月 1 日 Carbon 价格翻倍的时间差讲透，再用两组同 Prompt 实测（3D 雨夜城市街角 + SVG 鹈鹕骑自行车）横向对比 Claude Opus 5.5、GPT-6.2 Astra 和 DeepSeek Flash，看看 Neon 凭什么能当 AI 视频剪辑与视觉工作流的新主力。 本期重点： - Gemini 4 四兄弟一句话分工 & 12 月 1 日调价省钱节点 - 实测 01：3D 雨夜城市街角光影横评（含 Opus 5.5 初版黑屏 Bug 与修复版记录） - 实测 02：SVG 鹈鹕骑自行车结构与机械细节对比 - 速度与公开榜单表现：比 Carbon 快 40%，体感快于 Codex - 真实踩坑：Pro 档高思考模式额度掉得非常快，日常怎么切档最省 看完实测，你觉得 Gemini 4 Neon 配得上你的主力位吗？评论区聊聊，下期想看我拉哪款模型正面对决？ #ai #ai新星计划 #vibe知识大赏 #我在抖音学ai #gemini",
+      "summary": "晓AI同学实测谷歌本周发布的 Gemini 4 Neon，用 3D 雨夜城市街角和 SVG 鹈鹕骑自行车两组同 Prompt 横向对比 Claude Opus 5.5、GPT-6.2 Astra 和 DeepSeek Flash，并称整期视频的视觉与剪辑均由 Neon 完成。",
+      "source": {
+        "name": "抖音 · 热点搜「Gemini 4 Neon」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ys0cnnmen3q8qnqjp72xaa88x",
+        "original": "https://www.douyin.com/video/7710559056842296611"
+      },
+      "publishedAt": "2026-11-21T09:47:15.000Z",
+      "discoveredAt": "2026-11-21T10:21:43.880Z",
+      "category": "ai-models",
+      "score": 78,
+      "selected": true,
+      "reason": "作者用两组同 Prompt 横评 Neon 与 Claude Opus 5.5、GPT-6.2 Astra，并展示整期视频由 Neon 完成，适合做同题对比实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/ys0cnnmen3q8qnqjp72xaa88x"
+      }
+    }
+  ],
+  "hotTopics": [
+    {
+      "rank": 1,
+      "id": "ostztmxocluyo2ii52td88b7b",
+      "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
+      "source": {
+        "name": "公众号 · 赛博禅心"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ostztmxocluyo2ii52td88b7b",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzkzNDQxOTU2MQ==&mid=2247523120&idx=1&sn=2e046f178e7f9ddaf9f61e6b3deb2a36&chksm=c3566895e74ee50d9454ea46f2ad22fe367d6177d8f50344cdedc0eb2fc19d0a8ffbcd4547fd&scene=126&sessionid=0#rd",
+        "story": "https://aipick.news/story/4c790184-a881-40da-9a04-fa9997a5cc8c"
+      },
+      "sourceCount": 14,
+      "signalCount": 0,
+      "participantCount": 14,
+      "sourceNames": [
+        "公众号 · APPSO",
+        "公众号 · 新智元",
+        "X · 宝玉",
+        "X · Thariq",
+        "X · 歸藏",
+        "公众号 · 硅星人Pro",
+        "Wes Roth",
+        "X · Justine Moore"
+      ],
+      "latestAt": "2026-11-21T23:34:31.000Z"
+    },
+    {
+      "rank": 2,
+      "id": "scesbhjfnwbhjoqkyrmyui1w8",
+      "title": "Thinking Machines 开源循环模型 Inkling 2 Mini",
+      "source": {
+        "name": "发布页 · Thinking Machines Lab"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/scesbhjfnwbhjoqkyrmyui1w8",
+        "original": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "story": "https://aipick.news/story/b8bbbd14-3a67-42d2-9311-918e211151cb"
+      },
+      "sourceCount": 5,
+      "signalCount": 0,
+      "participantCount": 5,
+      "sourceNames": [
+        "抖音 · 热点搜「Inkling 2 Mini」",
+        "X · Min Choi",
+        "The Decoder",
+        "公众号 · 智东西",
+        "X · Thinking Machines Lab"
+      ],
+      "latestAt": "2026-11-22T00:00:00.000Z"
+    },
+    {
+      "rank": 3,
+      "id": "rmge8ql61hoi8772dk44bjn1m",
+      "title": "腾讯发布低价Hy4 flash并开源权重",
+      "source": {
+        "name": "抖音 · 热点搜「Hy4 flash」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/rmge8ql61hoi8772dk44bjn1m",
+        "original": "https://www.douyin.com/video/7709700532306234651",
+        "story": "https://aipick.news/story/8c4f723c-5c71-4ea3-ae24-e9d88750cbc2"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "抖音 · 热点搜「Hy4 flash」",
+        "量子位",
+        "公众号 · 智东西"
+      ],
+      "latestAt": "2026-11-21T14:18:28.000Z"
+    },
+    {
+      "rank": 4,
+      "id": "lnvkfih63odetjvctg01f3i5q",
+      "title": "博主实测Gemini 4 Neon等四款中杯模型3D建模",
+      "source": {
+        "name": "抖音 · 热点搜「Hy4 flash」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/lnvkfih63odetjvctg01f3i5q",
+        "original": "https://www.douyin.com/video/7709858955446553906",
+        "story": "https://aipick.news/story/3970945d-aa01-479c-9be5-8605e889e15a"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "抖音 · 热点搜「Gemini 4 Neon」",
+        "X · Linus Ekenstam"
+      ],
+      "latestAt": "2026-11-21T13:33:07.000Z"
+    },
+    {
+      "rank": 5,
+      "id": "r4a8fydq10aldjd1bpstv1ulc",
+      "title": "Google为macOS版Gemini加入电脑操作功能",
+      "source": {
+        "name": "X · Gemini"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/r4a8fydq10aldjd1bpstv1ulc",
+        "original": "https://x.com/GeminiApp/status/2123513203745538423",
+        "story": "https://aipick.news/story/915f6aba-8a21-45eb-b7d9-af037ee9ff92"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "抖音 · 热点搜「macOS版Gemini」",
+        "The Decoder"
+      ],
+      "latestAt": "2026-11-21T20:37:54.000Z"
+    },
+    {
+      "rank": 6,
+      "id": "biv308rhx9lnb26gxzfg2uuhl",
+      "title": "字节 Seedream 5.5 上线即梦并接入多平台",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/biv308rhx9lnb26gxzfg2uuhl",
+        "original": "https://www.douyin.com/video/7706104364217224463",
+        "story": "https://aipick.news/story/258dec5f-a116-4f37-898d-40a48388f497"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "X · 即梦 Dreamina",
+        "X · Recraft",
+        "抖音 · 热点搜「Seedream 5.5」"
+      ],
+      "latestAt": "2026-11-20T19:00:00.000Z"
+    },
+    {
+      "rank": 7,
+      "id": "ithuyncyo7esjaeymw1cclkuh",
+      "title": "OpenAI公布反蒸馏措施并加固GPT-6.2推理防护",
+      "source": {
+        "name": "OpenAI News"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ithuyncyo7esjaeymw1cclkuh",
+        "original": "https://openai.com/index/combatting-adversarial-distillation",
+        "story": "https://aipick.news/story/d00ef087-c824-48c3-a478-137ea520b045"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "公众号 · 新智元",
+        "The Decoder",
+        "X · OpenAI"
+      ],
+      "latestAt": "2026-11-21T00:41:23.000Z"
+    },
+    {
+      "rank": 8,
+      "id": "glzmtks75wufark005mpu5f7k",
+      "title": "Signal 在 iOS 27 与 Android 上阻止 AI 截屏",
+      "source": {
+        "name": "The Decoder"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/glzmtks75wufark005mpu5f7k",
+        "original": "https://the-decoder.com/signal-blocks-screenshots-on-ios-27-and-android-to-stop-ai-agents-from-reading-private-chats/",
+        "story": "https://aipick.news/story/c1808a57-247c-4602-95b2-0ae3757a5f6b"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "TechCrunch · AI",
+        "The Decoder",
+        "Hacker News · AI 高分帖"
+      ],
+      "latestAt": "2026-11-21T21:37:10.000Z"
+    },
+    {
+      "rank": 9,
+      "id": "yx3g3vsjee0jwieeep22x1bhx",
+      "title": "ElevenLabs 发布医疗外呼提醒 Agent 构建教程",
+      "source": {
+        "name": "ElevenLabs Blog"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/yx3g3vsjee0jwieeep22x1bhx",
+        "original": "https://elevenlabs.io/blog/build-an-outbound-reminder-agent-with-architect",
+        "story": "https://aipick.news/story/b871999c-929f-4a0f-b6a4-efcd7aaffa9f"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "X · ElevenLabs",
+        "ElevenLabs Blog"
+      ],
+      "latestAt": "2026-11-20T18:49:25.000Z"
+    },
+    {
+      "rank": 10,
+      "id": "hiam2jaow20qoho921g10ki9k",
+      "title": "Hume发布ASR实体数据集并新增实体准确率指标",
+      "source": {
+        "name": "发布页 · Hume AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/hiam2jaow20qoho921g10ki9k",
+        "original": "https://www.hume.ai/blog/asr-entity-accuracy-benchmark",
+        "story": "https://aipick.news/story/43d0fee0-aab0-422b-8fb8-01fd1a006c5f"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "X · Hume AI",
+        "发布页 · Hume AI"
+      ],
+      "latestAt": "2026-11-20T17:48:49.000Z"
+    }
+  ],
+  "unchanged": [],
+  "errors": []
+}

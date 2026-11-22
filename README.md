@@ -7,6 +7,7 @@
 ## 工作台模块
 
 - **模型动态 / 模型库**：关注常用视频、图片、语言和音乐模型；自动检查官方版本发布。
+- **模型排行榜**：本地显示 FAI.Fashion 公布的图像与视频榜单快照，并保留原榜和评分来源入口。
 - **AI 早报**：订阅公开 RSS，当前接入橘鸦 AI 早报；展示摘要、发布时间和原文链接。
 - **创作案例**：接入 GoodCase.ai RSS，展示案例封面、作者、摘要和 Prompt 预览；完整内容回到原站。
 - **Awesome 资源**：通过 GitHub API 同步精选开源仓库的描述、Star、Fork、更新时间和许可证。
@@ -49,13 +50,15 @@ GitHub API 每日同步精选仓库的元数据：
 
 ## 自动更新
 
-GitHub Actions 每天北京时间 **08:20** 运行（合并到默认分支 `main` 后生效）：
+GitHub Actions 每 **4 小时**运行一次（工作流合并到默认分支 `main` 后生效）：
 1. 检查官方模型版本发布。
 2. 拉取 RSS / Atom 订阅。
 3. 同步精选 GitHub 仓库元数据。
-4. 保留上次成功缓存；单一信源失败不会覆盖其他来源的数据。
-5. 将模型监控与 RSS / Awesome 资源采集结果持久化到触发分支。
-6. 仅当触发分支为 `main` 时部署 GitHub Pages；功能分支手动运行只验证和更新功能分支，不发布生产站点。
+4. 更新公开的 FAI.Fashion 图像与视频榜单快照。
+5. 更新 AIHOT 精选资讯与 AIPick 视频选题的 V4 本地快照。
+6. 保留上次成功缓存；单一信源失败不会覆盖其他来源的数据。
+7. 将生产与 V3 共用的模型目录、模型更新、榜单快照及资源数据，以及 V4 资讯快照，持久化到触发分支；V4 模型页读取 V3 数据目录。
+8. 仅当触发分支为 `main` 时部署 GitHub Pages；功能分支手动运行只验证和更新功能分支，不发布生产站点。
 
 工作流文件：.github/workflows/update-site.yml
 
@@ -74,6 +77,9 @@ GitHub Actions 每天北京时间 **08:20** 运行（合并到默认分支 `main
     python3 -m unittest discover -s tests -v
     python3 scripts/collect_models.py --dry-run
     python3 scripts/collect_resources.py
+    python3 scripts/collect_rankings.py --dry-run
+    python3 scripts/collect_aihot.py
+    python3 scripts/collect_aipick.py
     python3 -m http.server 8080 --directory site
 
 打开 http://localhost:8080 预览。
@@ -84,6 +90,9 @@ GitHub Actions 每天北京时间 **08:20** 运行（合并到默认分支 `main
     config/resource-sources.json          RSS 与 GitHub Awesome 资源配置
     scripts/collect_models.py             官方模型发布采集器
     scripts/collect_resources.py          RSS 与 GitHub 元数据采集器
+    scripts/collect_rankings.py            FAI.Fashion 图像与视频榜单快照采集器
+    scripts/collect_aihot.py               AIHOT 精选动态采集与本地快照更新
+    scripts/collect_aipick.py              AIPick 视频选题与热点采集器
     site/index.html                       个人 AI 创作工作台
     site/preview-v2.html                  V2 预览页面（读取 site/data-v2/）
     site/preview-v3.html                  V3 预览页面（保留基线，读取 site/data-v3/）
@@ -91,6 +100,7 @@ GitHub Actions 每天北京时间 **08:20** 运行（合并到默认分支 `main
     site/data/models.json                 模型目录
     site/data/model-updates.json          模型发布历史
     site/data/model-monitor-status.json   模型信源状态
+    site/data/reference-rankings.json     生产页读取的外部榜单快照
     site/data/feed-items.json             RSS 内容缓存
     site/data/resource-sources.json       浏览器展示的订阅源目录
     site/data/resource-status.json        RSS / GitHub 同步状态
@@ -100,7 +110,10 @@ GitHub Actions 每天北京时间 **08:20** 运行（合并到默认分支 `main
     site/data/platforms.json              常用创作平台
     site/data-v2/                         V2 预览专用静态数据
     site/data-v3/                         V3 基础静态数据（模型、榜单、主题与早报）
+    site/data-v3/reference-rankings.json  V3 / V4 共用的外部榜单快照
     site/data-v4/social-accounts.json      官方社媒账号、公开粉丝快照与宣传动态
+    site/data-v4/aihot-items.json          AIHOT 最近 24 小时精选动态快照
+    site/data-v4/aipick-data.json          AIPick 最近 7 天选题与热点快照
     site/data-v4/platforms.json            V4 创作导航（含国内外社交媒体分类）
     tests/                                采集器单元测试
     archive/legacy-news/                  旧版泛资讯数据，仅供回滚参考
@@ -109,6 +122,8 @@ GitHub Actions 每天北京时间 **08:20** 运行（合并到默认分支 `main
 
 - V4 预览入口：`site/preview-v4.html`，不替换 `site/index.html`，也不会自动部署。
 - 模型、榜单、主题与早报暂时沿用 `site/data-v3/`；社媒账号和创作导航使用 `site/data-v4/`。
+- AIHOT 精选页在浏览器中按需请求 `/api/v1/items`，请求失败时显示 `site/data-v4/aihot-items.json`；运行 `python3 scripts/collect_aihot.py` 可手动刷新快照。
+- 视频选题页按需读取 AIPick 最近 7 天精选和 Top 热点，展示推荐理由与评分；在线请求失败时显示 `site/data-v4/aipick-data.json`。运行 `python3 scripts/collect_aipick.py` 可手动刷新。
 - 首批社媒监控包含 7 个品牌、27 个平台账号入口、10 条官方宣传动态和 9 个公开粉丝数快照；创作导航另含 16 个国内外社交媒体与社区入口。
 - 账号分为已核验、官方搜索入口和待复核；搜索入口不代表已确认官方账号。
 - 粉丝数是带采集时间的公开快照，不是实时数据。无法读取时保留空值，不将缺失值记为 0。

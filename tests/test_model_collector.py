@@ -28,6 +28,9 @@ class ModelCollectorTests(unittest.TestCase):
     def test_parse_month_date(self):
         self.assertEqual(parse_date("Nov 17, 2026"), "2026-11-17T00:00:00Z")
 
+    def test_parse_us_numeric_date(self):
+        self.assertEqual(parse_date("11/19/2026"), "2026-11-19T00:00:00Z")
+
     def test_model_match(self):
         self.assertEqual(match_model("Seedance 2.5 正式发布", self.source), "seedance")
         self.assertEqual(match_model("Seedream 5.5 release", self.source), "seedream")
@@ -91,6 +94,27 @@ class ModelCollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["title"], "Veo 3.1 Lite")
         self.assertEqual(items[0]["publishedAt"], "2026-04-08T00:00:00Z")
         self.assertEqual(items[0]["url"], "https://deepmind.google/models/veo-31-lite")
+
+    def test_model_card_table_accepts_long_official_update_rows(self):
+        from scripts.collect_models import model_card_items
+        page = (
+            "<table><tr><td>2026/10/7</td><td>New Models - Vidu Q4 Preview: "
+            + ("Supports reference voices and high-dynamic scenes. " * 12)
+            + "</td></tr></table>"
+        )
+        parser = BlockParser()
+        parser.feed(page)
+        parser.close()
+        source = {
+            "id": "vidu-updates", "name": "Vidu updates",
+            "url": "https://platform.vidu.com/docs/api-reference/updates",
+            "modelMatches": {"vidu": ["vidu q4", "viduq4"]},
+            "maxRowLength": 2500,
+        }
+        items = model_card_items(parser.blocks, source)
+        self.assertEqual(len(items), 1)
+        self.assertIn("Vidu Q4 Preview", items[0]["title"])
+        self.assertEqual(items[0]["publishedAt"], "2026-10-07T00:00:00Z")
 
     def test_rss_extracts_official_model_release(self):
         source = {

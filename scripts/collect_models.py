@@ -24,6 +24,11 @@ MODELS_FILE = ROOT / "site" / "data" / "models.json"
 UPDATES_FILE = ROOT / "site" / "data" / "model-updates.json"
 STATUS_FILE = ROOT / "site" / "data" / "model-monitor-status.json"
 STATE_FILE = ROOT / "site" / "data" / "model-monitor-state.json"
+V3_DIR = ROOT / "site" / "data-v3"
+V3_MODELS_FILE = V3_DIR / "models.json"
+V3_UPDATES_FILE = V3_DIR / "model-updates.json"
+V3_STATUS_FILE = V3_DIR / "model-monitor-status.json"
+V3_STATE_FILE = V3_DIR / "model-monitor-state.json"
 MAX_BYTES = 6 * 1024 * 1024
 MAX_ITEMS_PER_SOURCE = 80
 RETENTION_DAYS = 730
@@ -74,7 +79,7 @@ def parse_date(value: str | None) -> str | None:
             return None
 
     for fmt in ("%B %d, %Y", "%b %d, %Y", "%d %B %Y", "%d %b %Y",
-                "%Y-%m-%d", "%Y/%m/%d", "%Y.%m.%d"):
+                "%Y-%m-%d", "%Y/%m/%d", "%Y.%m.%d", "%m/%d/%Y"):
         try:
             parsed = datetime.strptime(raw[:40], fmt).replace(tzinfo=timezone.utc)
             return parsed.isoformat(timespec="seconds").replace("+00:00", "Z")
@@ -95,6 +100,7 @@ def find_date(value: str | None) -> str | None:
     raw = str(value)
     candidates = [
         r"20\d{2}[年./-]\s*\d{1,2}[月./-]\s*\d{1,2}日?",
+        r"\d{1,2}/\d{1,2}/20\d{2}",
         r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+20\d{2}",
         r"\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\s+20\d{2}",
     ]
@@ -310,7 +316,7 @@ def model_card_items(blocks: list[dict], source: dict) -> list[dict]:
     results = []
     rows = [block for block in blocks if block["tag"] == "tr"]
     for row in rows:
-        if len(row.get("text", "")) > 260:
+        if len(row.get("text", "")) > int(source.get("maxRowLength", 260)):
             continue
         nested = [
             block for block in blocks
@@ -327,11 +333,11 @@ def model_card_items(blocks: list[dict], source: dict) -> list[dict]:
         model_id = match_model(row_text, source)
         if not model_id or not published_at:
             continue
-        title = ""
-        for block in nested:
-            if block["tag"] in {"td", "th", "a"} and match_model(block["text"], source):
-                title = block["text"]
-                break
+        matching_titles = [
+            block["text"] for block in nested
+            if block["tag"] in {"td", "th", "a"} and match_model(block["text"], source)
+        ]
+        title = min(matching_titles, key=len) if matching_titles else ""
         title = title or row_text
         article_url = source["url"]
         for block in nested:
@@ -339,8 +345,8 @@ def model_card_items(blocks: list[dict], source: dict) -> list[dict]:
                 article_url = urljoin(source["url"], block["attrs"]["href"])
                 break
         results.append({
-            "title": clean_text(title),
-            "summary": "官方模型卡页面记录的发布日期或更新日期。",
+            "title": clean_text(title)[:220],
+            "summary": clean_text(row_text)[:520] or "官方模型资料页记录的更新。",
             "url": article_url,
             "publishedAt": published_at,
             "modelId": model_id,
@@ -454,6 +460,12 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
     url = normalize_url(urljoin(source["url"], raw.get("url") or source["url"]))
     identity = url if url != normalize_url(source["url"]) else source["id"] + "|" + raw["title"].casefold()
     stable_id = hashlib.sha256(identity.encode("utf-8")).hexdigest()[:18]
+    version = None
+    version_pattern = source.get("versionPatterns", {}).get(model_id)
+    if version_pattern:
+        version_match = re.search(version_pattern, raw["title"] + " " + raw.get("summary", ""), flags=re.I)
+        if version_match:
+            version = clean_text(version_match.group(1))
     return {
         "id": stable_id,
         "modelId": model_id,
@@ -471,6 +483,7 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         "sourceName": source["name"],
         "official": bool(source.get("official", True)),
         "updateType": source.get("updateType", "release"),
+        "modelVersion": version,
     }
 
 
@@ -482,10 +495,39 @@ def merge_item(old: dict, new: dict) -> dict:
         merged["publishedAt"] = new["publishedAt"]
     if len(new.get("summary", "")) > len(old.get("summary", "")):
         merged["summary"] = new["summary"]
+    if new.get("modelVersion"):
+        merged["modelVersion"] = new["modelVersion"]
     sources = list(dict.fromkeys(old.get("sourceNames", [old.get("sourceName", "")]) +
                                   [new.get("sourceName", "")]))
     merged["sourceNames"] = [value for value in sources if value]
     return merged
+
+
+def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) -> list[str]:
+    """Apply only explicitly configured, dated version announcements from the last 4 days."""
+    cutoff = now - timedelta(days=4)
+    changed = []
+    dated = sorted(items, key=lambda item: item.get("publishedAt") or "")
+    for item in dated:
+        model_id = item.get("modelId")
+        model = models.get(model_id)
+        version = item.get("modelVersion")
+        published = find_date(item.get("publishedAt"))
+        if not model or not version or not published:
+            continue
+        published_dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+        if published_dt < cutoff:
+            continue
+        previous_dt = find_date(model.get("versionUpdatedAt"))
+        if previous_dt and published_dt < datetime.fromisoformat(previous_dt.replace("Z", "+00:00")):
+            continue
+        if model.get("version") == version:
+            continue
+        model["version"] = version
+        model["versionUpdatedAt"] = published
+        model["versionSourceUrl"] = item.get("url")
+        changed.append(f"{model_id} → {version}")
+    return changed
 
 
 def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
@@ -511,6 +553,9 @@ def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
                 page = body.decode(charset, errors="replace")
             except LookupError:
                 page = body.decode("utf-8", errors="replace")
+            required_text = source.get("requiredText")
+            if required_text and not re.search(required_text, page, flags=re.I):
+                raise ValueError("Expected model text is absent; the official page may be client-rendered or changed")
             items = html_page_items(page, source)
         return source, items, None
     except Exception as exc:
@@ -532,7 +577,8 @@ def main() -> int:
 
     models_list = load_json(MODELS_FILE, [])
     models = {model["id"]: model for model in models_list if model.get("id")}
-    previous = load_json(UPDATES_FILE, {"items": []})
+    previous_sets = [load_json(path, {"items": []}) for path in (UPDATES_FILE, V3_UPDATES_FILE)]
+    previous = {"items": []}
     previous_status = load_json(STATUS_FILE, {"sources": []})
     old_status = {entry.get("id"): entry for entry in previous_status.get("sources", [])}
     now = datetime.now(timezone.utc)
@@ -544,7 +590,11 @@ def main() -> int:
         for future in concurrent.futures.as_completed(futures):
             fetched.append(future.result())
 
-    by_id = {item.get("id"): item for item in previous.get("items", []) if item.get("id")}
+    by_id = {}
+    for collection in previous_sets:
+        for item in collection.get("items", []):
+            if item.get("id"):
+                by_id[item["id"]] = merge_item(by_id[item["id"]], item) if item["id"] in by_id else item
     status_entries = []
     success_count = 0
     new_count = 0
@@ -586,6 +636,10 @@ def main() -> int:
     retained.sort(key=lambda item: item.get("publishedAt") or item.get("discoveredAt") or "", reverse=True)
     retained = retained[:1000]
 
+    recent_incoming = [item for source_entry in status_entries
+                       for item in by_id.values()
+                       if item.get("sourceId") == source_entry["id"] and item.get("lastSeenAt") == now_iso]
+    version_changes = apply_recent_model_versions(models, recent_incoming, now)
     status = {
         "checkedAt": now_iso, "totalSources": len(active), "successSources": success_count,
         "failedSources": len(active) - success_count, "newUpdates": new_count,
@@ -594,15 +648,23 @@ def main() -> int:
     updates = {"generatedAt": now_iso, "items": retained}
     print(f"Model monitor: {success_count}/{len(active)} official sources OK; "
           f"{new_count} new items; {len(retained)} retained.")
+    if version_changes:
+        print("Model versions updated from recent official sources: " + ", ".join(version_changes))
     for entry in status_entries:
         label = "OK" if not entry["error"] else "WARN"
         print(f"[{label}] {entry['name']}: {entry['itemCount']} matched updates"
               + (f" — {entry['error']}" if entry["error"] else ""))
 
     if not args.dry_run:
+        models_output = [models[model["id"]] for model in models_list if model.get("id") in models]
         write_json(UPDATES_FILE, updates)
         write_json(STATUS_FILE, status)
         write_json(STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active]})
+        write_json(MODELS_FILE, models_output)
+        write_json(V3_MODELS_FILE, models_output)
+        write_json(V3_UPDATES_FILE, updates)
+        write_json(V3_STATUS_FILE, status)
+        write_json(V3_STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active]})
     return 0
 
 

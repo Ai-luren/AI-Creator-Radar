@@ -24,17 +24,29 @@
   },
   {
     "id": "kuaishou-ir",
-    "name": "快手官方投资者关系动态",
+    "name": "Kling 官方 API 更新记录",
     "type": "html",
-    "url": "https://kuaishou.gcs-web.com/investor-relations/",
-    "vendor": "快手 / 可灵",
+    "url": "https://kling.ai/document-api/updates/api",
+    "vendor": "Kling AI",
     "official": true,
     "active": true,
+    "requiredText": "Kling\\s+(?:Image\\s+)?(?:4\\.0|[0-9])",
     "modelMatches": {
+      "kling-image": [
+        "kling image",
+        "kling-image"
+      ],
       "kling": [
-        "kling",
-        "可灵"
+        "kling 4.0",
+        "kling 3.0",
+        "kling video",
+        "kling"
       ]
+    },
+    "updateType": "model-card",
+    "versionPatterns": {
+      "kling-image": "Kling\\s+Image\\s+([0-9]+(?:\\.[0-9]+)*)",
+      "kling": "Kling\\s+([0-9]+(?:\\.[0-9]+)*)"
     }
   },
   {
@@ -54,12 +66,13 @@
       ],
       "veo": [
         "veo"
-      ],
-      "gemini": [
-        "gemini"
       ]
     },
-    "updateType": "model-card"
+    "updateType": "model-card",
+    "versionPatterns": {
+      "nano-banana": "Nano\\s+Banana\\s+([0-9]+(?:\\.[0-9]+)*)",
+      "veo": "Veo\\s+([0-9]+(?:\\.[0-9]+)*)"
+    }
   },
   {
     "id": "minimax-ir",
@@ -110,6 +123,105 @@
       "sora": [
         "sora"
       ]
+    }
+  },
+  {
+    "id": "vidu-api-updates",
+    "name": "Vidu 官方模型更新日志",
+    "type": "model-cards",
+    "url": "https://platform.vidu.com/docs/api-reference/updates",
+    "vendor": "生数科技 / Vidu",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "maxRowLength": 2500,
+    "modelMatches": {
+      "vidu": [
+        "vidu q4",
+        "viduq4",
+        "vidu q3"
+      ]
+    },
+    "versionPatterns": {
+      "vidu": "\\b(Q\\d+\\s+Preview)\\b"
+    }
+  },
+  {
+    "id": "qwen-image-updates",
+    "name": "通义千问图像模型官方发布",
+    "type": "html",
+    "url": "https://qwen.ai/blog?id=qwen-image-3.0",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "requiredText": "Qwen[- ]Image[- ]3\\.0|Qwen Image 3\\.0",
+    "updateType": "model-card",
+    "modelMatches": {
+      "qwen-image-3": [
+        "qwen-image-3.0",
+        "qwen image 3.0"
+      ]
+    },
+    "versionPatterns": {
+      "qwen-image-3": "Qwen[- ]Image[- ]([0-9]+(?:\\.[0-9]+)*)"
+    }
+  },
+  {
+    "id": "xai-model-updates",
+    "name": "xAI Imagine 官方模型更新",
+    "type": "html",
+    "url": "https://docs.x.ai/developers/release-notes",
+    "vendor": "xAI",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "grok-imagine-video": [
+        "grok-imagine-video",
+        "grok imagine video"
+      ],
+      "grok-imagine-image": [
+        "grok-imagine-image",
+        "grok imagine image"
+      ]
+    },
+    "versionPatterns": {
+      "grok-imagine-video": "Grok\\s+Imagine\\s+Video\\s+([0-9]+(?:\\.[0-9]+)*)",
+      "grok-imagine-image": "Grok\\s+Imagine\\s+Image\\s+([0-9]+(?:\\.[0-9]+)*)"
+    }
+  },
+  {
+    "id": "pika-h3-flex-updates",
+    "name": "Pika H3 Flex 官方发布",
+    "type": "html",
+    "url": "https://pika.art/blog/pika-h3-flex-research",
+    "vendor": "Pika",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "pika-h3-flex": [
+        "pika h3 flex"
+      ]
+    }
+  },
+  {
+    "id": "luma-ray-updates",
+    "name": "Luma Ray 官方更新指南",
+    "type": "html",
+    "url": "https://lumalabs.ai/learning-hub/ray314-user-guide",
+    "vendor": "Luma AI",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "ray3-14": [
+        "ray3.14",
+        "ray 3.14"
+      ]
+    },
+    "versionPatterns": {
+      "ray3-14": "Ray\\s*([0-9]+\\.[0-9]+)"
     }
   }
 ]
