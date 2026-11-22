@@ -268,6 +268,9 @@ async function loadData(){
  var socialResponse=await fetch(SOCIAL_DATA+'social-accounts.json?v=4');
  if(!socialResponse.ok)throw new Error('social-accounts.json');
  state.social=await socialResponse.json();
+ var platformResponse=await fetch(SOCIAL_DATA+'platforms.json?v=4');
+ if(!platformResponse.ok)throw new Error('platforms.json');
+ state.platforms=await platformResponse.json();
  render();
 }
 function setView(v){state.view=v;state.activeTopic=null;document.querySelectorAll('#sidebar [data-view]').forEach(function(b){b.classList.toggle('active',b.dataset.view===v)});document.getElementById('crumbTitle').textContent=labels[v]||'模型动态';document.getElementById('sidebar').classList.remove('open');render()}
@@ -344,10 +347,10 @@ function platformCard(p){
  return '<article class="platform-card"><div class="card-top"><div class="card-brand">'+brandBox(p.name,p.url)+'<div><div class="card-title">'+esc(p.name)+'</div><div class="card-sub">'+esc(p.type||'AI 创作工具')+'</div></div></div><span class="platform-status '+(p.status==='常用'?'common':'')+'">'+esc(p.status||'候选')+'</span></div><p class="card-note">'+esc(p.note||'创作工具入口。')+'</p><div class="card-foot"><a class="text-link" href="'+safeUrl(p.url)+'" target="_blank" rel="noopener noreferrer">打开官网 ↗</a><span style="font-size:9px;color:var(--muted2)">官方站点图标</span></div></article>'
 }
 function platformsPage(){
- var cats=[['video','视频','video'],['image','图像','image'],['music','音乐','music'],['text','文字','type'],['aggregate','聚合平台','layers']];
+ var cats=[['video','视频','video'],['image','图像','image'],['music','音乐','music'],['text','文字','type'],['aggregate','聚合平台','layers'],['social','社交媒体','megaphone']];
  var items=state.platforms.filter(function(p){return (p.categories||[]).indexOf(state.platformCategory)>=0&&matches([p.name,p.type,p.note].join(' '))});
  var tabs=cats.map(function(x){return '<button class="platform-tab '+(state.platformCategory===x[0]?'active':'')+'" data-platform-cat="'+x[0]+'">'+icon(x[2])+x[1]+'</button>'}).join('');
- var description={video:'视频生成、视频编辑与影视创作平台。',image:'图像生成、图像编辑与视觉设计工具。',music:'音乐生成、歌曲创作与音频工具。',text:'文本、研究、代码与通用 AI 助手。',aggregate:'多模型聚合平台、画布工具与创作工作流。'};
+ var description={video:'视频生成、视频编辑与影视创作平台。',image:'图像生成、图像编辑与视觉设计工具。',music:'音乐生成、歌曲创作与音频工具。',text:'文本、研究、代码与通用 AI 助手。',aggregate:'多模型聚合平台、画布工具与创作工作流。',social:'国内外社交媒体、创作者社区与 AI 行业讨论入口。'};
  return pageHead('创作导航','按实际创作任务找工具。聚合平台与单一模型工具分开归类，不设置无意义的「全部」。',''+state.platforms.length+' 个入口')+'<div class="notice"><strong>'+cats.find(function(x){return x[0]===state.platformCategory})[1]+'：</strong>'+description[state.platformCategory]+' 所有品牌图标从对应官网 Favicon 获取；图标缺失时才使用文字缩写。</div><div class="platform-tabs">'+tabs+'</div><div class="section-head"><div><h2>'+cats.find(function(x){return x[0]===state.platformCategory})[1]+'工具</h2><p>'+description[state.platformCategory]+'</p></div><span class="head-meta">'+items.length+' 个网站</span></div><div class="platform-grid">'+(items.length?items.map(platformCard).join(''):empty('这个分类暂时没有收录工具。'))+'</div>'
 }
 
