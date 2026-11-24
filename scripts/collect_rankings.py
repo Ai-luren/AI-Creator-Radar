@@ -172,19 +172,46 @@ def fetch_arena_boards() -> list[dict]:
     return boards
 
 
-def merge_arena_boards(snapshot: dict, boards: list[dict]) -> dict:
+def merge_reference_boards(snapshot: dict, arena_boards: list[dict], cached_boards: list[dict] | None = None) -> dict:
     snapshot = dict(snapshot)
-    snapshot["boards"] = list(snapshot.get("boards", [])) + boards
+    boards = list(snapshot.get("boards", []))
+    board_ids = {board.get("id") for board in boards}
+
+    cached_boards = cached_boards or []
+    # Keep dated/supplemental snapshots when the live FAI feed does not
+    # publish those board IDs. Fresh FAI boards win when an ID is present in
+    # both the current feed and the cached snapshot.
+    for board in cached_boards:
+        if (board.get("source") or {}).get("id") == "arena":
+            continue
+        if board.get("id") and board["id"] not in board_ids:
+            boards.append(board)
+            board_ids.add(board["id"])
+
+    # Fresh Arena boards win over cached versions.
+    for board in arena_boards:
+        if board.get("id") and board["id"] not in board_ids:
+            boards.append(board)
+            board_ids.add(board["id"])
+
+    # Preserve any cached Arena board that was not refreshed this run.
+    for board in cached_boards:
+        if (board.get("source") or {}).get("id") != "arena":
+            continue
+        if board.get("id") and board["id"] not in board_ids:
+            boards.append(board)
+            board_ids.add(board["id"])
+
+    snapshot["boards"] = boards
     return snapshot
 
 
-def cached_arena_boards(path: Path) -> list[dict]:
+def cached_reference_boards(path: Path) -> list[dict]:
     try:
         cached = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return []
-    return [board for board in cached.get("boards", [])
-            if (board.get("source") or {}).get("id") == "arena"]
+    return cached.get("boards", [])
 
 
 def write_json(path: Path, payload: dict) -> None:
@@ -215,7 +242,8 @@ def main() -> int:
           f"source snapshot {snapshot.get('publishedAt')}; checked {snapshot.get('sourceCheckedAt')}.")
     if not args.dry_run:
         for output in OUTPUTS:
-            updated = merge_arena_boards(snapshot, arena_boards or cached_arena_boards(output))
+            cached_boards = cached_reference_boards(output)
+            updated = merge_reference_boards(snapshot, arena_boards, cached_boards)
             write_json(output, updated)
     return 0
 

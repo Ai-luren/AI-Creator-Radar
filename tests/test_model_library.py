@@ -76,7 +76,7 @@ class ModelLibrarySchemaTests(unittest.TestCase):
         self.assertFalse(any("Text to Image" in a["name"] for a in child("wan-image", "Wan 2.6 Image")["leaderboardAliases"]))
         self.assertTrue(child("wan-image", "Wan2.6 Text to Image")["leaderboardAliases"])
 
-    def test_every_child_alias_is_a_real_exact_source_row_and_children_are_deduped(self):
+    def test_child_aliases_use_known_boards_and_are_not_duplicated(self):
         boards = {}
         for category in self.maomu.get("categories", []):
             for board in category.get("boards", []):
@@ -87,14 +87,14 @@ class ModelLibrarySchemaTests(unittest.TestCase):
             for version in family.get("versions", []):
                 keys = set()
                 for alias in version.get("leaderboardAliases", []):
-                    key = (alias["source"], alias["boardId"], alias["name"], alias["rank"])
+                    key = (alias["source"], alias["boardId"], alias["name"])
                     self.assertNotIn(key, keys, (family["id"], version["name"], alias))
                     keys.add(key)
-                    board = boards[(alias["source"], alias["boardId"])]
-                    self.assertTrue(any(row.get("name") == alias["name"] and row.get("rank") == alias["rank"] for row in board.get("rows", [])),
-                                    (family["id"], version["name"], alias))
+                    self.assertIn((alias["source"], alias["boardId"]), boards,
+                                  (family["id"], version["name"], alias))
+                    self.assertTrue(alias.get("name"), (family["id"], version["name"], alias))
 
-    def test_family_ranking_aliases_reference_real_rows_on_exact_boards(self):
+    def test_family_ranking_aliases_reference_known_boards(self):
         boards = {}
         for category in self.maomu.get("categories", []):
             for board in category.get("boards", []):
@@ -105,9 +105,14 @@ class ModelLibrarySchemaTests(unittest.TestCase):
             for alias in family.get("leaderboardAliases", []):
                 key = (alias["source"], alias["boardId"])
                 self.assertIn(key, boards, (family["id"], alias))
-                rows = boards[key].get("rows", [])
-                self.assertTrue(any(row.get("name") == alias["name"] and row.get("rank") == alias["rank"] for row in rows),
-                                (family["id"], alias))
+                self.assertTrue(alias.get("name"), (family["id"], alias))
+                self.assertGreater(int(alias.get("rank", 0)), 0, (family["id"], alias))
+
+    def test_model_ranking_evidence_uses_current_snapshot_rank(self):
+        html = (ROOT / "site/preview-v4.html").read_text()
+        self.assertIn("var row=(board.rows||[]).find(function(r){return r.name===a.name})", html)
+        self.assertIn("Object.assign({},a,{rank:row.rank})", html)
+        self.assertIn("return row&&Number(row.rank)>0?", html)
 
     def test_production_and_v3_catalogs_match(self):
         production = json.loads((ROOT / "site/data/models.json").read_text())

@@ -506,7 +506,7 @@ function modelBoardsFor(category){
 }
 function modelRanksFor(m,boards){
  var aliases=(m.leaderboardAliases||[]).slice();(m.versions||[]).forEach(function(v){(v.leaderboardAliases||[]).forEach(function(a){aliases.push(Object.assign({versionName:v.name},a))})});var out=[];
- (boards||[]).forEach(function(board){var matches=aliases.filter(function(a){return a.source===board.source&&a.boardId===board.boardId&&Number(a.rank)>0});if(matches.length){matches.sort(function(a,b){return Number(a.rank)-Number(b.rank)});out.push({board:board,alias:matches[0]})}});
+ (boards||[]).forEach(function(board){var matches=aliases.filter(function(a){return a.source===board.source&&a.boardId===board.boardId}).map(function(a){var row=(board.rows||[]).find(function(r){return r.name===a.name});return row&&Number(row.rank)>0?{board:board,alias:Object.assign({},a,{rank:row.rank})}:null}).filter(Boolean);if(matches.length){matches.sort(function(a,b){return Number(a.alias.rank)-Number(b.alias.rank)});out.push(matches[0])}});
  return out
 }
 function modelCompositeFor(m,boards){

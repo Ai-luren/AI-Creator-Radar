@@ -10,6 +10,172 @@
   "note": "第三方评测榜单的公开快照。名次与 Elo 按各自任务和原榜版本保留，不跨任务合并；模型资料链接不等同于厂商官方认证。",
   "boards": [
     {
+      "id": "music-aa-instrumental-aurion-20261112",
+      "name": "AA Music Arena · 器乐",
+      "kind": "music",
+      "task": "instrumental music generation",
+      "version": "AA Music Arena v1.1 · 2026-11-12 读取",
+      "publishedAt": "2026-11-12",
+      "source": {
+        "id": "project-aurion-aa-music-v1-1",
+        "name": "Project AURION · AA Music Arena 核对记录",
+        "url": "https://artificialanalysis.ai/music/leaderboard/instrumental",
+        "providerUrl": "https://aurion.semai.id/benchmarks/aa-music-arena-v1-1/",
+        "kind": "independent",
+        "description": "Project AURION 于 2026-11-12 读取 Artificial Analysis Music Arena v1.1 器乐榜，公开列出 10 个模型的 Elo 与 95% 置信区间；仅作为注明日期的第三方抄录快照，非官方实时分数。AA 方法为盲测偏好投票、Bradley-Terry/Elo。"
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "name": "Suno v6",
+          "provider": "Suno",
+          "elo": 1148,
+          "ciLow": 1126,
+          "ciHigh": 1170,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 2,
+          "name": "Suno v6-mini",
+          "provider": "Suno",
+          "elo": 1114,
+          "ciLow": 1093,
+          "ciHigh": 1135,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 3,
+          "name": "Mureka V9.5",
+          "provider": "Mureka",
+          "elo": 1084,
+          "ciLow": 1063,
+          "ciHigh": 1105,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 4,
+          "name": "Mureka V9",
+          "provider": "Mureka",
+          "elo": 1083,
+          "ciLow": 1062,
+          "ciHigh": 1104,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 5,
+          "name": "Lyria 3 Pro",
+          "provider": "Google DeepMind",
+          "elo": 1080,
+          "ciLow": 1059,
+          "ciHigh": 1101,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 6,
+          "name": "Lyria 3.5",
+          "provider": "Google DeepMind",
+          "elo": 1078,
+          "ciLow": 1057,
+          "ciHigh": 1099,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 7,
+          "name": "MiniMax Music 3",
+          "provider": "MiniMax",
+          "elo": 1000,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 8,
+          "name": "Stable Audio 3 Medium",
+          "provider": "Stability AI",
+          "elo": 996,
+          "ciLow": 975,
+          "ciHigh": 1017,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 9,
+          "name": "Lyria 2",
+          "provider": "Google DeepMind",
+          "elo": 926,
+          "ciLow": 904,
+          "ciHigh": 948,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        },
+        {
+          "rank": 10,
+          "name": "MusicGen",
+          "provider": "Meta",
+          "elo": 868,
+          "ciLow": 845,
+          "ciHigh": 891,
+          "evaluatedAt": "2026-11-12",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/instrumental"
+        }
+      ]
+    },
+    {
+      "id": "music-aa-vocal-aurion-202610",
+      "name": "AA Music Arena · 人声",
+      "kind": "music",
+      "task": "vocal music generation",
+      "version": "AA Music Arena v1.1 · 2026-10 二手抓取",
+      "publishedAt": "2026-10",
+      "source": {
+        "id": "project-aurion-aa-music-v1-1-vocal",
+        "name": "Project AURION · AA Music Arena 人声分榜记录",
+        "url": "https://artificialanalysis.ai/music/leaderboard/vocals",
+        "providerUrl": "https://aurion.semai.id/benchmarks/aa-music-arena-v1-1/",
+        "kind": "independent",
+        "description": "来源页仅记录 2026-10 的二手抓取结果，样本不完整，来源是 AlphaSignal 对 AA 文章的二次记录。此处展示 4 条已公开数值，MiniMax 原榜名次为 #11，不能代表完整人声榜，也不与器乐榜横向合并。"
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "name": "Suno v6",
+          "provider": "Suno",
+          "elo": 1142,
+          "evaluatedAt": "2026-10",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/vocals"
+        },
+        {
+          "rank": 2,
+          "name": "Suno v6-mini",
+          "provider": "Suno",
+          "elo": 1116,
+          "evaluatedAt": "2026-10",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/vocals"
+        },
+        {
+          "rank": 3,
+          "name": "Mureka V9.5",
+          "provider": "Mureka",
+          "elo": 1103,
+          "evaluatedAt": "2026-10",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/vocals"
+        },
+        {
+          "rank": 11,
+          "name": "MiniMax Music 3",
+          "provider": "MiniMax",
+          "elo": 1000,
+          "evaluatedAt": "2026-10",
+          "detailsUrl": "https://artificialanalysis.ai/music/leaderboard/vocals"
+        }
+      ]
+    },
+    {
       "id": "image",
       "name": "文生图",
       "kind": "image",

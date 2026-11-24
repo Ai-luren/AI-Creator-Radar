@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.collect_rankings import build_snapshot, compact_arena_row, merge_arena_boards
+from scripts.collect_rankings import build_snapshot, compact_arena_row, merge_reference_boards
 
 
 class RankingsCollectorTests(unittest.TestCase):
@@ -93,13 +93,29 @@ class RankingsCollectorTests(unittest.TestCase):
         self.assertEqual(row["comparisons"], 420)
         self.assertEqual(row["license"], "Open Weights")
 
-    def test_merges_arena_boards_without_replacing_fai_snapshot(self):
+    def test_preserves_supplemental_snapshots_and_merges_fresh_arena_boards(self):
         snapshot = build_snapshot(self.payload, "2026-11-22T09:00:00Z")
         arena = {"id": "arena-text-to-image", "source": {"id": "arena"}, "rows": [{"rank": 1}]}
+        curated_music = {"id": "music-aa-instrumental-aurion-20261112", "source": {"id": "project-aurion"}, "rows": [{"rank": 1}]}
+        stale_image = {"id": "image", "source": {"id": "old-fai"}, "rows": [{"rank": 99}]}
+        stale_arena = {"id": "arena-text-to-image", "source": {"id": "arena"}, "rows": [{"rank": 99}]}
 
-        result = merge_arena_boards(snapshot, [arena])
+        result = merge_reference_boards(snapshot, [arena], [curated_music, stale_image, stale_arena])
 
-        self.assertEqual([board["id"] for board in result["boards"]], ["image", "video", "speech", "arena-text-to-image"])
+        self.assertEqual(
+            [board["id"] for board in result["boards"]],
+            ["image", "video", "speech", "music-aa-instrumental-aurion-20261112", "arena-text-to-image"],
+        )
+        self.assertEqual(result["boards"][0]["rows"][0]["name"], "Example Image")
+        self.assertEqual(result["boards"][-1]["rows"][0]["rank"], 1)
+
+    def test_keeps_cached_arena_boards_when_fresh_arena_collection_is_empty(self):
+        snapshot = build_snapshot(self.payload, "2026-11-22T09:00:00Z")
+        cached_arena = {"id": "arena-text-to-image", "source": {"id": "arena"}, "rows": [{"rank": 1}]}
+
+        result = merge_reference_boards(snapshot, [], [cached_arena])
+
+        self.assertEqual(result["boards"][-1]["id"], "arena-text-to-image")
 
 
 if __name__ == "__main__":
