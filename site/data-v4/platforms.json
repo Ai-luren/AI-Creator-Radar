@@ -1,5 +1,313 @@
 [
   {
+    "id": "dreamina",
+    "name": "即梦",
+    "type": "图像与视频创作平台",
+    "url": "https://jimeng.jianying.com/",
+    "status": "常用",
+    "note": "图像模型：Seedream；视频模型：Seedance。海外站品牌名为 Dreamina。",
+    "categories": [
+      "image",
+      "video"
+    ],
+    "logoKey": "dreamina",
+    "primaryLabel": "国内站",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://dreamina.capcut.com/"
+      }
+    ]
+  },
+  {
+    "id": "nano-banana",
+    "name": "Gemini",
+    "type": "图像生成平台",
+    "url": "https://gemini.google.com/",
+    "status": "常用",
+    "logoKey": "gemini",
+    "categories": [
+      "image"
+    ],
+    "note": "Gemini 图像创作入口；Nano Banana 系列型号查看模型库。",
+    "primaryLabel": "海外站",
+    "relatedLinks": []
+  },
+  {
+    "id": "gpt-image",
+    "name": "ChatGPT",
+    "type": "图像生成平台",
+    "url": "https://chatgpt.com/",
+    "status": "常用",
+    "logoKey": "chatgpt",
+    "categories": [
+      "image"
+    ],
+    "note": "ChatGPT 图像创作入口；GPT Image 系列型号查看模型库。",
+    "primaryLabel": "打开官网",
+    "relatedLinks": []
+  },
+  {
+    "id": "midjourney",
+    "name": "悠船",
+    "type": "图像创作平台",
+    "url": "https://www.youchuan.cn/",
+    "status": "常用",
+    "logoKey": "youchuan",
+    "categories": [
+      "image"
+    ],
+    "note": "悠船提供中文 Midjourney 创作入口。",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://www.midjourney.com/"
+      }
+    ],
+    "primaryLabel": "国内站"
+  },
+  {
+    "id": "pixverse-platform",
+    "name": "拍我",
+    "type": "视频创作平台",
+    "url": "https://pai.video/",
+    "status": "候选",
+    "logoKey": "pixverse",
+    "categories": [
+      "video"
+    ],
+    "note": "PixVerse 的中国大陆官方创作平台；国际站使用 PixVerse 品牌。",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://app.pixverse.ai/"
+      }
+    ],
+    "primaryLabel": "国内站"
+  },
+  {
+    "id": "kling-platform",
+    "name": "可灵",
+    "type": "视频创作平台",
+    "url": "https://klingai.kuaishou.com/",
+    "status": "常用",
+    "logoKey": "kling",
+    "categories": [
+      "video"
+    ],
+    "note": "快手视频创作平台；国际站使用 Kling 品牌。",
+    "primaryLabel": "国内站",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://klingai.com/"
+      }
+    ]
+  },
+  {
+    "id": "vidu-platform",
+    "name": "Vidu",
+    "type": "视频创作平台",
+    "url": "https://www.vidu.cn/",
+    "status": "候选",
+    "logoKey": "vidu",
+    "categories": [
+      "video"
+    ],
+    "note": "生数科技官方视频创作平台，支持文生视频、图生视频与参考生视频。",
+    "primaryLabel": "国内站",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://www.vidu.com/"
+      }
+    ]
+  },
+  {
+    "id": "wan-platform",
+    "name": "通义万相",
+    "type": "图像与视频创作平台",
+    "url": "https://tongyi.aliyun.com/wan",
+    "status": "候选",
+    "logoKey": "wan",
+    "categories": [
+      "video"
+    ],
+    "note": "阿里巴巴通义万相官方创作平台；海外站品牌名为 Wan。",
+    "primaryLabel": "国内站",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://wan.video/"
+      }
+    ]
+  },
+  {
+    "id": "google-flow",
+    "name": "Flow",
+    "type": "视频创作平台",
+    "url": "https://flow.google/",
+    "status": "常用",
+    "logoKey": "flow",
+    "categories": [
+      "video"
+    ],
+    "note": "Google 官方视频创作与编辑平台；可体验 Gemini Omni Flash 1.2、Veo 等模型。",
+    "primaryLabel": "海外站",
+    "relatedLinks": []
+  },
+  {
+    "id": "suno-platform",
+    "name": "Suno",
+    "type": "AI 音乐生成平台",
+    "url": "https://suno.com/",
+    "status": "常用",
+    "logoKey": "suno",
+    "categories": [
+      "music"
+    ],
+    "note": "歌曲、人声与音乐生成。"
+  },
+  {
+    "id": "minimax-music",
+    "name": "MiniMax 音乐创作",
+    "type": "音乐生成平台",
+    "url": "https://www.minimax.cn/audio/music",
+    "status": "候选",
+    "logoKey": "minimax-audio",
+    "categories": [
+      "music"
+    ],
+    "note": "国内入口位于 MiniMax 语音的音乐创作；海外入口为 MiniMax Audio。Music 3.0 等型号查看模型库。",
+    "primaryLabel": "国内站",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://www.minimax.io/audio/music"
+      }
+    ]
+  },
+  {
+    "id": "mureka-platform",
+    "name": "Mureka",
+    "type": "AI 音乐生成平台",
+    "url": "https://www.mureka.ai/",
+    "status": "候选",
+    "logoKey": "",
+    "categories": [
+      "music"
+    ],
+    "note": "AI 歌曲与音乐生成工具。"
+  },
+  {
+    "id": "udio",
+    "name": "Udio",
+    "type": "AI 音乐生成平台",
+    "url": "https://www.udio.com/",
+    "status": "候选",
+    "logoKey": "",
+    "categories": [
+      "music"
+    ],
+    "note": "AI 音乐创作与歌曲生成。"
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT / Codex",
+    "type": "通用 AI 助手 / 编程 Agent",
+    "url": "https://chatgpt.com/",
+    "status": "常用",
+    "logoKey": "chatgpt",
+    "categories": [
+      "text"
+    ],
+    "note": "文本、研究、图像创作与编程工作流；编程功能通过 Codex 使用。",
+    "relatedLinks": [
+      {
+        "label": "Codex",
+        "url": "https://openai.com/codex/"
+      }
+    ]
+  },
+  {
+    "id": "claude",
+    "name": "Claude / Claude Code",
+    "type": "通用 AI 助手 / 编程 Agent",
+    "url": "https://claude.ai/",
+    "status": "常用",
+    "logoKey": "claude",
+    "categories": [
+      "text"
+    ],
+    "note": "长文本分析、写作与复杂任务；代码开发可进入 Claude Code。",
+    "relatedLinks": [
+      {
+        "label": "Claude Code",
+        "url": "https://claude.com/product/claude-code"
+      }
+    ]
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini",
+    "type": "通用 AI 助手",
+    "url": "https://gemini.google.com/",
+    "status": "候选",
+    "logoKey": "gemini",
+    "categories": [
+      "text"
+    ],
+    "note": "Google 多模态 AI 助手与模型体验入口。"
+  },
+  {
+    "id": "deepseek-chat",
+    "name": "DeepSeek",
+    "type": "通用 AI 助手",
+    "url": "https://chat.deepseek.com/",
+    "status": "常用",
+    "logoKey": "deepseek",
+    "categories": [
+      "text"
+    ],
+    "note": "推理、文本与代码任务。"
+  },
+  {
+    "id": "qwen-chat",
+    "name": "通义千问",
+    "type": "通用 AI 助手",
+    "url": "https://chat.qwen.ai/",
+    "status": "候选",
+    "logoKey": "qwen",
+    "categories": [
+      "text"
+    ],
+    "note": "阿里巴巴通义系列模型体验入口。"
+  },
+  {
+    "id": "kimi",
+    "name": "Kimi",
+    "type": "通用 AI 助手",
+    "url": "https://www.kimi.com/",
+    "status": "候选",
+    "logoKey": "",
+    "categories": [
+      "text"
+    ],
+    "note": "长文本、搜索与资料整理。"
+  },
+  {
+    "id": "doubao",
+    "name": "豆包",
+    "type": "通用 AI 助手",
+    "url": "https://www.doubao.com/",
+    "status": "候选",
+    "logoKey": "doubao",
+    "categories": [
+      "text"
+    ],
+    "note": "字节跳动 AI 助手与多模态能力入口。"
+  },
+  {
     "id": "higgsfield",
     "name": "Higgsfield",
     "type": "模型聚合 / 创作套件",
@@ -49,7 +357,7 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "tapnow"
   },
   {
     "id": "flova",
@@ -93,268 +401,56 @@
   {
     "id": "pexo",
     "name": "Pexo",
-    "type": "AI 视频创作平台",
+    "type": "模型聚合 / AI 视频创作平台",
     "url": "https://pexo.ai/",
     "status": "候选",
     "logo": "",
-    "note": "视频生成与编辑平台，也提供 Agent 环境集成。",
+    "note": "聚合多种视频生成与编辑模型，也提供 Agent 环境集成。",
     "categories": [
-      "video"
+      "aggregate"
     ],
     "logoKey": ""
   },
   {
-    "id": "dreamina",
-    "name": "即梦 / Dreamina",
-    "type": "模型官方创作平台",
-    "url": "https://jimeng.jianying.com/",
+    "name": "抖音",
+    "url": "https://www.douyin.com",
+    "categories": [
+      "social"
+    ],
+    "type": "国内短视频",
+    "note": "观察国内 AI 视频热点、官方宣传、挑战赛与爆款内容。",
+    "status": "常用"
+  },
+  {
+    "name": "小红书",
+    "url": "https://www.xiaohongshu.com",
+    "categories": [
+      "social"
+    ],
+    "type": "国内内容社区",
+    "note": "观察国内 AI 工具实测、创作案例、教程与口碑。",
     "status": "常用",
-    "logo": "bytedance-brand-color",
-    "note": "Seedream、Seedance 的主要体验入口；关注国内外产品版本差异。",
+    "logoKey": "xiaohongshu"
+  },
+  {
+    "name": "哔哩哔哩",
+    "url": "https://www.bilibili.com",
     "categories": [
-      "video"
+      "social"
     ],
-    "logoKey": "bytedance-brand-color"
+    "type": "国内视频社区",
+    "note": "追踪长视频教程、模型测评、工作流拆解和创作者动态。",
+    "status": "常用"
   },
   {
-    "id": "runway",
-    "name": "Runway",
-    "type": "AI 视频创作平台",
-    "url": "https://runwayml.com/",
-    "status": "候选",
-    "logoKey": "",
+    "name": "微信视频号",
+    "url": "https://channels.weixin.qq.com",
     "categories": [
-      "video"
+      "social"
     ],
-    "note": "视频生成与编辑工具，适合观察专业视频制作工作流。"
-  },
-  {
-    "id": "kling-platform",
-    "name": "可灵 AI",
-    "type": "官方视频生成平台",
-    "url": "https://klingai.com/",
-    "status": "常用",
-    "logoKey": "",
-    "categories": [
-      "video"
-    ],
-    "note": "快手视频生成平台，直接体验 Kling 系列模型。"
-  },
-  {
-    "id": "midjourney",
-    "name": "Midjourney",
-    "type": "AI 图像生成平台",
-    "url": "https://www.midjourney.com/",
-    "status": "常用",
-    "logoKey": "",
-    "categories": [
-      "image"
-    ],
-    "note": "图像生成与视觉风格探索。"
-  },
-  {
-    "id": "firefly",
-    "name": "Adobe Firefly",
-    "type": "AI 图像与设计工具",
-    "url": "https://firefly.adobe.com/",
-    "status": "候选",
-    "logoKey": "",
-    "categories": [
-      "image"
-    ],
-    "note": "Adobe 官方生成式图像与设计工具。"
-  },
-  {
-    "id": "recraft",
-    "name": "Recraft",
-    "type": "AI 图像与矢量设计",
-    "url": "https://www.recraft.ai/",
-    "status": "候选",
-    "logoKey": "",
-    "categories": [
-      "image"
-    ],
-    "note": "图像生成、矢量图形与品牌视觉资产。"
-  },
-  {
-    "id": "ideogram",
-    "name": "Ideogram",
-    "type": "AI 图像生成平台",
-    "url": "https://ideogram.ai/",
-    "status": "候选",
-    "logoKey": "",
-    "categories": [
-      "image"
-    ],
-    "note": "图像生成与文字排版表现。"
-  },
-  {
-    "id": "suno-platform",
-    "name": "Suno",
-    "type": "AI 音乐生成平台",
-    "url": "https://suno.com/",
-    "status": "常用",
-    "logoKey": "suno",
-    "categories": [
-      "music"
-    ],
-    "note": "歌曲、人声与音乐生成。"
-  },
-  {
-    "id": "udio",
-    "name": "Udio",
-    "type": "AI 音乐生成平台",
-    "url": "https://www.udio.com/",
-    "status": "候选",
-    "logoKey": "",
-    "categories": [
-      "music"
-    ],
-    "note": "AI 音乐创作与歌曲生成。"
-  },
-  {
-    "id": "mureka-platform",
-    "name": "Mureka",
-    "type": "AI 音乐生成平台",
-    "url": "https://www.mureka.ai/",
-    "status": "候选",
-    "logoKey": "minimax",
-    "categories": [
-      "music"
-    ],
-    "note": "AI 歌曲与音乐生成工具。"
-  },
-  {
-    "id": "chatgpt",
-    "name": "ChatGPT",
-    "type": "通用 AI 助手",
-    "url": "https://chatgpt.com/",
-    "status": "常用",
-    "logoKey": "",
-    "categories": [
-      "text"
-    ],
-    "note": "文本、研究、图像理解与创作辅助。"
-  },
-  {
-    "id": "claude",
-    "name": "Claude",
-    "type": "通用 AI 助手",
-    "url": "https://claude.ai/",
-    "status": "常用",
-    "logoKey": "anthropic",
-    "categories": [
-      "text"
-    ],
-    "note": "长文本分析、写作、代码与复杂任务。"
-  },
-  {
-    "id": "gemini",
-    "name": "Gemini",
-    "type": "通用 AI 助手",
-    "url": "https://gemini.google.com/",
-    "status": "候选",
-    "logoKey": "google",
-    "categories": [
-      "text"
-    ],
-    "note": "Google 多模态 AI 助手与模型体验入口。"
-  },
-  {
-    "id": "deepseek-chat",
-    "name": "DeepSeek",
-    "type": "通用 AI 助手",
-    "url": "https://chat.deepseek.com/",
-    "status": "常用",
-    "logoKey": "deepseek",
-    "categories": [
-      "text"
-    ],
-    "note": "推理、文本与代码任务。"
-  },
-  {
-    "id": "qwen-chat",
-    "name": "通义千问",
-    "type": "通用 AI 助手",
-    "url": "https://chat.qwen.ai/",
-    "status": "候选",
-    "logoKey": "alibabacloud",
-    "categories": [
-      "text"
-    ],
-    "note": "阿里巴巴通义系列模型体验入口。"
-  },
-  {
-    "id": "kimi",
-    "name": "Kimi",
-    "type": "通用 AI 助手",
-    "url": "https://www.kimi.com/",
-    "status": "候选",
-    "logoKey": "",
-    "categories": [
-      "text"
-    ],
-    "note": "长文本、搜索与资料整理。"
-  },
-  {
-    "id": "doubao",
-    "name": "豆包",
-    "type": "通用 AI 助手",
-    "url": "https://www.doubao.com/",
-    "status": "候选",
-    "logoKey": "bytedance",
-    "categories": [
-      "text"
-    ],
-    "note": "字节跳动 AI 助手与多模态能力入口。"
-  },
-  {
-    "id": "krea",
-    "name": "Krea",
-    "type": "多模型聚合 / 创作画布",
-    "url": "https://www.krea.ai/",
-    "status": "候选",
-    "logo": "",
-    "note": "多模型图像、视频与实时画布工作流。",
-    "categories": [
-      "aggregate"
-    ]
-  },
-  {
-    "id": "freepik",
-    "name": "Freepik AI",
-    "type": "多模型聚合 / 设计套件",
-    "url": "https://www.freepik.com/ai",
-    "status": "候选",
-    "logo": "",
-    "note": "图像、视频、音频模型聚合与设计工作流。",
-    "categories": [
-      "aggregate"
-    ]
-  },
-  {
-    "id": "comfyui",
-    "name": "ComfyUI",
-    "type": "节点式生成画布",
-    "url": "https://www.comfy.org/",
-    "status": "常用",
-    "logo": "",
-    "note": "节点式图像、视频与音频工作流画布。",
-    "categories": [
-      "aggregate"
-    ]
-  },
-  {
-    "id": "openart",
-    "name": "OpenArt",
-    "type": "多模型聚合 / 创作工作台",
-    "url": "https://openart.ai/",
-    "status": "候选",
-    "logo": "",
-    "note": "多模型生成、编辑与工作流工具。",
-    "categories": [
-      "aggregate"
-    ]
+    "type": "国内视频社区",
+    "note": "观察国内品牌、创作者和行业活动的视频传播。",
+    "status": "候选"
   },
   {
     "name": "X",
@@ -405,115 +501,5 @@
     "type": "海外视频社区",
     "note": "官方发布会、产品演示、教程、测评与创作者访谈。",
     "status": "常用"
-  },
-  {
-    "name": "Threads",
-    "url": "https://www.threads.net",
-    "categories": [
-      "social"
-    ],
-    "type": "海外社交媒体",
-    "note": "追踪创作者、产品团队和行业人物的短帖讨论。",
-    "status": "候选"
-  },
-  {
-    "name": "Discord",
-    "url": "https://discord.com",
-    "categories": [
-      "social"
-    ],
-    "type": "海外社群",
-    "note": "进入模型厂商、创作工具和 AI 创作者官方社区。",
-    "status": "常用"
-  },
-  {
-    "name": "Pinterest",
-    "url": "https://www.pinterest.com",
-    "categories": [
-      "social"
-    ],
-    "type": "海外视觉灵感",
-    "note": "收集视觉风格、分镜、广告美术与创意参考。",
-    "status": "候选"
-  },
-  {
-    "name": "小红书",
-    "url": "https://www.xiaohongshu.com",
-    "categories": [
-      "social"
-    ],
-    "type": "国内内容社区",
-    "note": "观察国内 AI 工具实测、创作案例、教程与口碑。",
-    "status": "常用"
-  },
-  {
-    "name": "抖音",
-    "url": "https://www.douyin.com",
-    "categories": [
-      "social"
-    ],
-    "type": "国内短视频",
-    "note": "观察国内 AI 视频热点、官方宣传、挑战赛与爆款内容。",
-    "status": "常用"
-  },
-  {
-    "name": "哔哩哔哩",
-    "url": "https://www.bilibili.com",
-    "categories": [
-      "social"
-    ],
-    "type": "国内视频社区",
-    "note": "追踪长视频教程、模型测评、工作流拆解和创作者动态。",
-    "status": "常用"
-  },
-  {
-    "name": "微博",
-    "url": "https://weibo.com",
-    "categories": [
-      "social"
-    ],
-    "type": "国内社交媒体",
-    "note": "关注国内厂商公告、产品话题、热点与行业讨论。",
-    "status": "候选"
-  },
-  {
-    "name": "微信视频号",
-    "url": "https://channels.weixin.qq.com",
-    "categories": [
-      "social"
-    ],
-    "type": "国内视频社区",
-    "note": "观察国内品牌、创作者和行业活动的视频传播。",
-    "status": "候选"
-  },
-  {
-    "name": "新片场 AIGC",
-    "url": "https://aigc.xinpianchang.com",
-    "categories": [
-      "social"
-    ],
-    "type": "AIGC 创作者社区",
-    "note": "关注 AI 影视创作、作品案例、创作者活动和行业交流。",
-    "status": "常用"
-  },
-  {
-    "name": "即刻",
-    "url": "https://web.okjike.com",
-    "categories": [
-      "social"
-    ],
-    "type": "国内兴趣社区",
-    "note": "关注 AI 产品、创作者经验和小范围行业讨论。",
-    "status": "候选"
-  },
-  {
-    "name": "知乎",
-    "url": "https://www.zhihu.com",
-    "categories": [
-      "social"
-    ],
-    "type": "国内知识社区",
-    "note": "查找深度经验、技术解释、产品比较与长期讨论。",
-    "status": "候选"
   }
 ]

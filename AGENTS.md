@@ -19,6 +19,11 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - State model-weight access and license limits per specific model; do not generalize a family's license.
 - Preserve user-authored data and existing uncommitted changes. Do not commit temporary files, caches, credentials, or personal configuration.
 
+## Social account monitoring
+
+- Before collecting or editing social account snapshots, read [`docs/social-monitor-data-guide.md`](docs/social-monitor-data-guide.md). It defines the account verification, platform coverage, follower count, timestamp, and missing-data rules for `site/data-v4/social-accounts.json`.
+- Treat follower counts as manual public-profile snapshots unless a reviewed collector is explicitly implemented; do not imply that this dataset refreshes automatically.
+
 ## Verification
 
 - Validate edited JSON with `python3 -m json.tool <file>`.

@@ -66,6 +66,10 @@
       ],
       "veo": [
         "veo"
+      ],
+      "gemini-omni-flash": [
+        "gemini omni flash",
+        "omni flash"
       ]
     },
     "updateType": "model-card",
@@ -222,6 +226,103 @@
     },
     "versionPatterns": {
       "ray3-14": "Ray\\s*([0-9]+\\.[0-9]+)"
+    }
+  },
+  {
+    "id": "meta-models",
+    "name": "Meta Superintelligence Labs 官方模型发布",
+    "type": "html",
+    "url": "https://ai.meta.com/research/",
+    "vendor": "Meta Superintelligence Labs",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "muse-image": [
+        "muse image"
+      ],
+      "muse-video": [
+        "muse video"
+      ],
+      "muse-spark": [
+        "muse spark"
+      ]
+    }
+  },
+  {
+    "id": "qwen3-tts-releases",
+    "name": "Qwen3-TTS 官方发布与版本记录",
+    "type": "markdown-news",
+    "url": "https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/README.md",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "updateType": "model-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "qwen3-tts": [
+        "Qwen3-TTS"
+      ]
+    },
+    "section": "News",
+    "requiredText": "Qwen3-TTS"
+  },
+  {
+    "id": "claude-code-releases",
+    "name": "Claude Code 官方 GitHub Releases",
+    "type": "rss",
+    "url": "https://github.com/anthropics/claude-code/releases.atom",
+    "vendor": "Anthropic",
+    "official": true,
+    "active": true,
+    "updateType": "product-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "claude-code": [
+        "re:v?2\\.1\\.\\d+"
+      ]
+    },
+    "versionPatterns": {
+      "claude-code": "v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+    }
+  },
+  {
+    "id": "qwen-agent-releases",
+    "name": "Qwen-Agent 官方 GitHub Releases",
+    "type": "rss",
+    "url": "https://github.com/QwenLM/Qwen-Agent/releases.atom",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "updateType": "product-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "qwen-agent": [
+        "re:v?0\\.0\\.\\d+"
+      ]
+    },
+    "versionPatterns": {
+      "qwen-agent": "v?([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)"
+    }
+  },
+  {
+    "id": "codex-cli-releases",
+    "name": "OpenAI Codex CLI 官方 GitHub Releases",
+    "type": "rss",
+    "url": "https://github.com/openai/codex/releases.atom",
+    "vendor": "OpenAI",
+    "official": true,
+    "active": true,
+    "updateType": "product-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "codex": [
+        "re:rust-v?\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.]+)?",
+        "re:v?\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.]+)?"
+      ]
+    },
+    "versionPatterns": {
+      "codex": "v?([0-9]+\\.[0-9]+\\.[0-9]+)"
     }
   }
 ]

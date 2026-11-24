@@ -1,0 +1,20 @@
+﻿厂商,遗漏模型或产品,所属领域,可能时间,官方证据URL,与数据库关系,处理状态,说明
+OpenAI / ChatGPT,GPT-5 Pro,语言/推理,首发公告 2025-08-07；独立型号/API日期待核,https://openai.com/index/introducing-gpt-5/ | https://developers.openai.com/api/docs/models/all,v48有GPT-5主节点，未见独立Pro节点,候选遗漏；待核日期与粒度,首发公告提及Pro变体，官方模型目录证明独立型号；需核实是否独立节点及API事件。
+OpenAI / ChatGPT,GPT-5 mini,语言/轻量,日期待查,https://developers.openai.com/api/docs/models/all,v48未见独立mini节点,候选遗漏；待核首发公告,官方目录证明型号存在，不单独证明首次发布日。
+OpenAI / ChatGPT,GPT-5 nano,语言/轻量,日期待查,https://developers.openai.com/api/docs/models/all,v48未见独立nano节点,候选遗漏；待核首发公告,官方目录证明型号存在，不单独证明首次发布日。
+OpenAI / ChatGPT,GPT-5.1-Codex-Mini,代码模型,日期待查,https://developers.openai.com/api/docs/models/all | https://openai.com/index/gpt-5-1-for-developers/,v48有Codex-Max等节点，未见Codex-Mini,候选遗漏；待核首发日期,官方模型目录和开发者文章证明分支/型号存在，需锁定该分支独立上线日。
+Google / Gemini Veo,Gemini Robotics 1.5,具身/VLA,待从原始公告录入,https://deepmind.google/blog/gemini-robotics-1-5-brings-ai-into-the-physical-world/,v48无Gemini Robotics独立节点,候选遗漏；待主审核日期与事件性质,官方公告支持型号存在；需分别记录公告与可用阶段。
+Google / Gemini Veo,Gemini Robotics 2,具身/VLA,待从原始公告录入,https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/,v48无Gemini Robotics独立节点,候选遗漏；待主审核日期与事件性质,官方公告支持型号存在；与2.5分开建模。
+Google / Gemini Veo,Gemini Robotics 2.5,具身/VLA,2026-11-10（公告页日期，需主审核复核）,https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/,v48无Gemini Robotics独立节点,候选遗漏；待核服务阶段,官方公告支持型号和发布/介绍日期；不等同API/产品可用阶段。
+Google / Gemini Veo,Gemini Robotics ER / ER 2 / On-Device 2,具身推理/端侧,日期待查,https://deepmind.google/models/model-cards/,v48无独立节点,候选遗漏；目录证实型号，待原始公告,官方模型卡目录支持型号存在，不证明首次发布日期。
+Google / Gemini Veo,Veo 3.1 Lite,视频生成/轻量API分支,日期待查,https://deepmind.google/models/model-cards/,v48有Veo主线，未见Lite,候选遗漏；待判定模型或服务档位,动态目录支持名称存在；需核对其是独立型号、服务档位还是API别名。
+Google / Gemini Veo,Gemini 3.8 Audio,语音/音频,日期待查,https://deepmind.google/models/model-cards/gemini-3-8-audio/ | https://deepmind.google/models/model-cards/,v48未见该型号,候选遗漏；待首发公告核验,目录支持家族/端点存在；Live、TTS等是否拆分需依官方事件记录判断。
+Google / Gemini Veo,Gemini 3.5 Audio,语音/音频,日期待查,https://deepmind.google/models/model-cards/,v48未见该型号,候选遗漏；待原始公告核验,动态目录仅证明当前列出名称，未证首发日期。
+Google / Gemini Veo,EmbeddingGemma 2,文本嵌入,日期待查,https://deepmind.google/blog/,v48未见该型号,候选遗漏；待定位原始公告,官方新闻目录列出型号；需锁定具体公告及发布时间。
+Meta / Llama,SAM 3.1,图像/视频分割,2026-03-27（官方公告）,https://ai.meta.com/blog/segment-anything-model-3/,v48有SAM 3，未见SAM 3.1,确认型号候选；待纳入决策,官方公告支持名称、日期及SAM 3更新性质；需作为更新版节点而非新家族。
+Meta / Llama,SAM 3D Objects / SAM 3D Body,3D重建/人体重建,2025-11-19（官方公告）,https://ai.meta.com/blog/sam-3d,v48无SAM 3D节点,确认型号候选；待纳入决策,Meta原始公告支持两个模型分支及权重/代码发布。
+Meta / Llama,Muse Voice Transcribe,语音转写/说话人分离,日期待查,https://ai.meta.com/llama/,v48未见独立语音节点,候选遗漏；待找原始公告,动态目录证明型号存在，不足以确认首发日期。
+Anthropic / Claude,Claude 3.5 Haiku,语言模型/轻量,2024-10-22（原始公告，待回归复核）,https://www.anthropic.com/news/3-5-models-and-computer-use,v48有Claude 3.5 Sonnet，未见Haiku,候选遗漏；待策略确认,官方公告同时宣布Sonnet升级与Haiku；区分型号发布与Computer Use Beta。
+阿里巴巴 / Qwen HappyHorse Wan,Qwen2.5-Coder,代码模型,2024-09-19（公告）；2024-11-12完整系列扩展,https://qwenlm.github.io/blog/qwen2.5-coder/ | https://qwenlm.github.io/blog/qwen2.5-coder-family/,v48有Qwen3-Coder，未见Qwen2.5-Coder,候选遗漏；待与模型系列节点去重,官方系列公告支持型号及不同阶段，首发与32B/完整系列开放日需分开。
+阿里巴巴 / Qwen HappyHorse Wan,Qwen2.5-Math,数学模型,日期待查,https://qwenlm.github.io/blog/qwen2.5/,v48未见Qwen2.5-Math,候选遗漏；待首发日期确认,官方Qwen2.5公告将其列为数学专用分支，需补精确首发阶段。
+Google / Gemini Veo,Gemini 3.5 Flash Cyber,代码安全/漏洞发现与修复,官方公告及有限访问试点：2026-07-21,https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/ | https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/,7/21同日节点仅列 Gemini 3.6 Flash 与 3.5 Flash-Lite，缺少专用 Cyber 分支,已核实并补录至 v49,DeepMind 官方公告确认型号、公告日期及面向政府/可信合作伙伴的有限访问试点；不可描述为普遍GA。

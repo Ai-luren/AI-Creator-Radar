@@ -1,9 +1,14 @@
 name: Monitor official AI model releases and deploy Pages
 
 on:
+  push:
+    branches: [main]
   schedule:
-    # Every four hours. Scheduled workflows run on the default branch.
-    - cron: "0 */4 * * *"
+    # 08:00, 10:00 and 15:00 China Standard Time (UTC+8).
+    # GitHub schedule events run on the default branch.
+    - cron: "0 0 * * *"
+    - cron: "0 2 * * *"
+    - cron: "0 7 * * *"
   workflow_dispatch:
 
 permissions:
@@ -34,21 +39,51 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Collect official model updates
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_models.py
 
+      - name: Update company chronologies from official model sources
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_chronicle_updates.py
+
+      - name: Check official model resource links
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/check_model_resources.py
+
       - name: Collect RSS and Awesome resources
+        if: github.event_name != 'schedule' || github.event.schedule == '0 2 * * *'
         run: python scripts/collect_resources.py
 
       - name: Collect public model leaderboard snapshot
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_rankings.py
 
+      - name: Collect Maomu model ranking boards
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_maomu_rankings.py
+
       - name: Collect AIHOT selected items
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_aihot.py
 
+      - name: Collect AIHOT daily digest
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_briefings.py aihot
+
+      - name: Collect Juya daily digest
+        if: github.event_name != 'schedule' || github.event.schedule == '0 2 * * *'
+        run: python scripts/collect_briefings.py juya
+
+      - name: Collect Follow Builders public feeds
+        if: github.event_name != 'schedule' || github.event.schedule == '0 7 * * *'
+        run: python scripts/collect_follow_builders.py
+
       - name: Collect AIPick video ideas
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_aipick.py
 
       - name: Collect new model evaluation candidates
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_model_evaluations.py
 
       - name: Persist collected data to the triggering branch
@@ -64,9 +99,16 @@ jobs:
             site/data-v3/model-updates.json \
             site/data-v3/model-monitor-status.json \
             site/data-v3/model-monitor-state.json \
+            site/data-v3/topics.json \
+            site/data-v3/chronicle-updates-status.json \
             site/data/reference-rankings.json \
             site/data-v3/reference-rankings.json \
             site/data-v4/aihot-items.json \
+            site/data-v4/aihot-daily.json \
+            site/data-v4/juya-daily.json \
+            site/data-v4/maomu-rankings.json \
+            site/data-v4/follow-builders.json \
+            site/data-v4/model-resource-status.json \
             site/data-v4/aipick-data.json \
             site/data-v4/model-evaluations.json \
             site/data/feed-items.json \
@@ -83,6 +125,10 @@ jobs:
       - name: Configure GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
+
+      - name: Publish the AI video creator workbench as the homepage
+        if: github.ref == 'refs/heads/main'
+        run: cp site/preview-v4.html site/index.html
 
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main'

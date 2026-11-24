@@ -54,5 +54,19 @@
     "type": "社区盲听偏好",
     "url": "https://huggingface.co/spaces/TTS-AGI/TTS-Arena-V2",
     "description": "社区对匿名语音样本进行偏好投票；需结合比赛数量判断稳定性。"
+  },
+  {
+    "id": "fai",
+    "name": "FAI.Fashion",
+    "type": "公开 JSON 榜单快照",
+    "url": "https://fai.fashion/leaderboard",
+    "description": "公开快照覆盖文生图、视频生成与厂商原生语音子榜；本地保留排名字段、来源、更新时间和原榜链接。"
+  },
+  {
+    "id": "benchlm",
+    "name": "BenchLM.ai",
+    "type": "官方互动榜单嵌入",
+    "url": "https://benchlm.ai/data",
+    "description": "为综合、推理、数学、代码、多模态和 Agent 榜提供带署名的官方嵌入组件；页面直接加载实时榜单。"
   }
 ]

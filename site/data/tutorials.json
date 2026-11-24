@@ -6,7 +6,7 @@
     "model": "Seedance 2.5",
     "official": true,
     "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/seedance-2-5-prompt-guide",
-    "description": "火山方舟官方指南：结构化 Prompt、素材指代、时间戳、镜头语言、声音控制、参考生视频与视频编辑。"
+    "description": "火山方舟官方指南：结构化提示词、素材指代、时间戳、镜头语言、声音控制、参考生视频与视频编辑。"
   },
   {
     "id": "seedance-usage",
@@ -19,12 +19,12 @@
   },
   {
     "id": "seedance-skill",
-    "title": "Seedance 2.5 Prompt Skill（sd25-pe）",
+    "title": "Seedance 2.5 提示词优化工具（sd25-pe）",
     "type": "官方提示词工具",
     "model": "Seedance 2.5",
     "official": true,
     "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/seedance-2-5",
-    "description": "火山方舟官方提供的提示词优化 Skill，可在 AI 对话中使用 /sd25-pe + 提示词进行调优。",
+    "description": "火山方舟官方提供的提示词优化工具，可在 人工智能对话中使用 /sd25-pe + 提示词进行调优。",
     "command": "npx --yes skills@latest add https://arkdocs.tos-cn-beijing.volces.com/skills/ --skill sd25-pe --yes"
   },
   {
@@ -33,7 +33,7 @@
     "type": "官方发布动态",
     "model": "Seedance 2.5",
     "official": true,
-    "url": "https://seed.bytedance.com/zh/",
+    "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
     "description": "字节 Seed 官方模型主页，包含 Seedance 2.5 的模型能力与最新动态。"
   },
   {
@@ -64,6 +64,24 @@
     "description": "Google DeepMind 官方模型入口与能力说明。"
   },
   {
+    "id": "veo-prompt-guide",
+    "title": "Veo 提示词指南",
+    "type": "官方提示词指南",
+    "model": "Veo 3.1",
+    "official": true,
+    "url": "https://deepmind.google/models/veo/prompt-guide/",
+    "description": "Google DeepMind 官方指南，含运镜、风格、光线、角色、动作、对白与视频示例。"
+  },
+  {
+    "id": "runway-gen45-guide",
+    "title": "Gen-4.5 使用指南",
+    "type": "官方模型教程",
+    "model": "Runway Gen-4.5",
+    "official": true,
+    "url": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
+    "description": "Runway 官方模型使用说明与提示词指南入口，涵盖文生视频和图生视频。"
+  },
+  {
     "id": "suno-notes",
     "title": "Suno 官方版本更新日志",
     "type": "官方更新日志",
@@ -74,7 +92,7 @@
   },
   {
     "id": "flova-skills",
-    "title": "Flova Skill 工作流",
+    "title": "Flova 技能 工作流",
     "type": "平台创作教程",
     "model": "Flova",
     "official": true,
@@ -87,8 +105,8 @@
     "type": "公开提示词参考",
     "model": "多模型",
     "official": false,
-    "url": "https://www.mokeaigc.ai/cinematique.html",
-    "description": "按创作类型浏览公开提示词与视觉参考，适合寻找人物、场景和镜头灵感。"
+    "url": "https://www.mokeaigc.ai/",
+    "description": "MOKE AIGC 提示词库入口；受保护内容需要登录后访问。"
   },
   {
     "id": "higgsfield",
@@ -97,6 +115,222 @@
     "model": "Higgsfield",
     "official": true,
     "url": "https://higgsfield.ai/",
-    "description": "查看公开创作案例、工具和创作者内容；需要登录的 Prompt 或教程不自动抓取。"
+    "description": "查看公开创作案例、工具和创作者内容；需要登录的提示词或教程不自动抓取。"
+  },
+  {
+    "id": "seedream-55-guide",
+    "title": "Seedream 5.5 官方使用指南",
+    "type": "官方使用指南",
+    "model": "Seedream 5.5",
+    "official": true,
+    "url": "https://console.volcengine.com/ark/region:cn-beijing/docs/seedream-5-5",
+    "description": "火山方舟官方模型说明与图像生成、编辑流程。"
+  },
+  {
+    "id": "minimax-h3-image-guide",
+    "title": "MiniMax H3-Image 图像生成指南",
+    "type": "官方使用指南",
+    "model": "MiniMax H3-Image",
+    "official": true,
+    "url": "https://platform.minimax.cn/docs/guides/image-generation",
+    "description": "MiniMax 官方指南：H3-Image 图像生成与编辑流程。"
+  },
+  {
+    "id": "gpt-image-26-guide",
+    "title": "GPT Image 2.6 提示词指南",
+    "type": "官方提示词指南",
+    "model": "GPT Image 2.6",
+    "official": true,
+    "url": "https://developers.openai.com/api/docs/guides/image-prompting?model=gpt-image-2.6",
+    "description": "OpenAI 官方提示词编写指南，按 GPT Image 2.6 模型说明。"
+  },
+  {
+    "id": "gpt-image-26-api",
+    "title": "GPT Image 2.6 图像生成接口",
+    "type": "官方接口文档",
+    "model": "GPT Image 2.6",
+    "official": true,
+    "url": "https://developers.openai.com/api/docs/guides/image-generation?generate-images-api=responses",
+    "description": "OpenAI 官方图像生成接口指南。"
+  },
+  {
+    "id": "nano-banana-21-guide",
+    "title": "Nano Banana 2.1 官方模型与生成指南",
+    "type": "官方模型文档",
+    "model": "Nano Banana 2.1",
+    "official": true,
+    "url": "https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn",
+    "description": "Gemini官方接口官方图像生成文档；模型编号 与当前价格见官方型号页面。"
+  },
+  {
+    "id": "nano-banana-21-model",
+    "title": "Nano Banana 2.1 官方模型编号 与价格",
+    "type": "官方接口文档",
+    "model": "Nano Banana 2.1",
+    "official": true,
+    "url": "https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#gemini-nano-banana-2-1",
+    "description": "确认官方名称 Gemini Nano Banana 2.1 与接口模型编号。"
+  },
+  {
+    "id": "midjourney-v82-guide",
+    "title": "Midjourney V8.2 版本使用指南",
+    "type": "官方使用指南",
+    "model": "Midjourney V8.2",
+    "official": true,
+    "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+    "description": "Midjourney 官方文档说明如何切换模型版本，并介绍 V8.2 当前默认状态。"
+  },
+  {
+    "id": "kling-40-guide",
+    "title": "Kling 4.0 开放平台教程",
+    "type": "官方模型文档",
+    "model": "Kling 4.0",
+    "official": true,
+    "url": "https://klingai.com/document-api/api/usage-guide/kling-4-0",
+    "description": "快手可灵开放平台官方模型使用教程。"
+  },
+  {
+    "id": "kling-40-prompt-guide",
+    "title": "Kling 4.0 提示词指南",
+    "type": "官方提示词指南",
+    "model": "Kling 4.0",
+    "official": true,
+    "url": "https://klingai.com/document-api/api/usage-guide/kling-4-0-prompt-guide",
+    "description": "快手可灵开放平台官方提示词指南。"
+  },
+  {
+    "id": "kling-image-40-guide",
+    "title": "Kling Image 4.0 开放平台教程",
+    "type": "官方模型文档",
+    "model": "Kling Image 4.0",
+    "official": true,
+    "url": "https://klingai.com/document-api/api/usage-guide/kling-image-4-0",
+    "description": "快手可灵开放平台官方图像模型教程。"
+  },
+  {
+    "id": "kling-image-40-prompt-guide",
+    "title": "Kling Image 4.0 提示词指南",
+    "type": "官方提示词指南",
+    "model": "Kling Image 4.0",
+    "official": true,
+    "url": "https://klingai.com/document-api/api/usage-guide/kling-image-4-0-prompt-guide",
+    "description": "快手可灵开放平台官方图像提示词指南。"
+  },
+  {
+    "id": "wan-30-guide",
+    "title": "Wan 3.0 官方视频生成教程",
+    "type": "官方模型文档",
+    "model": "Wan 3.0",
+    "official": true,
+    "url": "https://help.aliyun.com/zh/model-studio/wan3-video-generation-guide",
+    "description": "阿里云百炼 官方 Wan 3.0 视频生成指南。"
+  },
+  {
+    "id": "wan-30-prompt-guide",
+    "title": "Wan 3.0 官方提示词指南",
+    "type": "官方提示词指南",
+    "model": "Wan 3.0",
+    "official": true,
+    "url": "https://help.aliyun.com/zh/model-studio/wan3-video-generation-prompt-guide",
+    "description": "阿里云百炼 官方提示词指南。"
+  },
+  {
+    "id": "minimax-h3-video-guide",
+    "title": "MiniMax H3 视频生成教程",
+    "type": "官方模型文档",
+    "model": "MiniMax H3",
+    "official": true,
+    "url": "https://platform.minimax.cn/docs/guides/video-generation",
+    "description": "MiniMax 官方视频生成工作流与参数说明。"
+  },
+  {
+    "id": "minimax-h3-video-prompt",
+    "title": "MiniMax H3 官方视频提示词示例",
+    "type": "官方提示词指南",
+    "model": "MiniMax H3",
+    "official": true,
+    "url": "https://platform.minimax.cn/docs/guides/video-prompt",
+    "description": "MiniMax 官方视频提示词和案例示例。"
+  },
+  {
+    "id": "seed-audio-10-guide",
+    "title": "Seed Audio 1.0 官方接口文档",
+    "type": "官方接口文档",
+    "model": "Seed Audio 1.0",
+    "official": true,
+    "url": "https://docs.byteplus.com/en/docs/byteplusvoice/seedaudio-01",
+    "description": "BytePlus 官方 Seed Audio 文档与接口接入说明。"
+  },
+  {
+    "id": "minimax-speech-28-guide",
+    "title": "MiniMax Speech 2.8 官方语音教程",
+    "type": "官方模型文档",
+    "model": "MiniMax Speech 2.8",
+    "official": true,
+    "url": "https://platform.minimax.cn/docs/guides/speech-t2a-websocket",
+    "description": "MiniMax 官方语音合成指南。"
+  },
+  {
+    "id": "eleven-v4-guide",
+    "title": "Eleven v4 官方语音使用指南",
+    "type": "官方使用指南",
+    "model": "Eleven v4",
+    "official": true,
+    "url": "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
+    "description": "ElevenLabs 官方 文字转语音文档，包含 v4 与 v4 Turbo 的使用说明。"
+  },
+  {
+    "id": "mureka-95-guide",
+    "title": "Mureka V9.5 官方发布与效果示例",
+    "type": "官方发布说明",
+    "model": "Mureka V9.5",
+    "official": true,
+    "url": "https://www.mureka.ai/blog_en/mureka-v9-5-model-changes.html",
+    "description": "官方发布文章介绍 Mureka V9.5 的模型变化与音乐生成示例；不是接口接入教程。"
+  },
+  {
+    "id": "eleven-music-v25-guide",
+    "title": "Eleven Music v2.5 音乐生成指南",
+    "type": "官方使用指南",
+    "model": "Eleven Music v2.5",
+    "official": true,
+    "url": "https://elevenlabs.io/docs/overview/capabilities/music",
+    "description": "ElevenLabs 官方指南：音乐生成、提示词和音轨编辑流程。"
+  },
+  {
+    "id": "vidu-q4-preview-guide",
+    "title": "Vidu Q4 开放平台接口文档",
+    "type": "官方接口文档",
+    "model": "Vidu Q4",
+    "official": true,
+    "url": "https://platform.vidu.com/docs/api-reference/video-models/vidu-q4-preview/reference-to-video",
+    "description": "Vidu 官方参考生视频接口文档；模型编号 为 viduq4-preview，当前处于预览阶段。"
+  },
+  {
+    "id": "gemini-omni-12-guide",
+    "title": "Gemini Omni 1.2 Flash 官方模型卡",
+    "type": "官方模型卡",
+    "model": "Gemini Omni 1.2 Flash",
+    "official": true,
+    "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+    "description": "Google DeepMind 官方模型卡，名称与发布信息以此为准。"
+  },
+  {
+    "id": "gemini-omni-12-api",
+    "title": "Gemini Omni 1.2 Flash 接口文档",
+    "type": "官方接口文档",
+    "model": "Gemini Omni 1.2 Flash",
+    "official": true,
+    "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-2-flash",
+    "description": "Google 官方文档列出模型编号 gemini-omni-1.2-flash、正式可用状态及视频生成能力。"
+  },
+  {
+    "id": "suno-v6-guide",
+    "title": "Suno v6 系列模型使用指南",
+    "type": "官方使用指南",
+    "model": "Suno v6",
+    "official": true,
+    "url": "https://help.suno.com/en/articles/13924993",
+    "description": "Suno 官方说明如何选择 v6、v6-wild 和 v6-mini，并介绍各版本的适用场景。"
   }
 ]

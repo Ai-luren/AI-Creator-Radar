@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.collect_rankings import build_snapshot
+from scripts.collect_rankings import build_snapshot, compact_arena_row, merge_arena_boards
 
 
 class RankingsCollectorTests(unittest.TestCase):
@@ -38,14 +38,22 @@ class RankingsCollectorTests(unittest.TestCase):
                     "task": "text-to-video",
                     "rows": [{"rank": 1, "tool": {"name": "Example Video"}, "elo": 1100}],
                 },
+                {
+                    "id": "speech",
+                    "name": "Provider Voice",
+                    "kind": "speech",
+                    "task": "text-to-speech",
+                    "rows": [{"rank": 1, "tool": {"name": "Example Voice"}, "elo": 1090}],
+                },
+                {"id": "empty-speech", "name": "Empty Speech", "kind": "speech", "rows": []},
             ],
         }
 
-    def test_keeps_only_populated_image_and_video_boards(self):
+    def test_keeps_populated_image_video_and_speech_boards(self):
         result = build_snapshot(self.payload, "2026-11-22T09:00:00Z")
 
-        self.assertEqual([board["id"] for board in result["boards"]], ["image", "video"])
-        self.assertEqual(len(result["boards"]), 2)
+        self.assertEqual([board["id"] for board in result["boards"]], ["image", "video", "speech"])
+        self.assertEqual(len(result["boards"]), 3)
 
     def test_normalizes_rank_fields_for_local_display(self):
         result = build_snapshot(self.payload, "2026-11-22T09:00:00Z")
@@ -65,6 +73,33 @@ class RankingsCollectorTests(unittest.TestCase):
 
         with self.assertRaisesRegex(ValueError, "missing video or image"):
             build_snapshot(self.payload, "2026-11-22T09:00:00Z")
+
+    def test_normalizes_official_arena_dataset_rows_for_table_display(self):
+        row = compact_arena_row({
+            "model_name": "Example Image Edit",
+            "organization": "example-lab",
+            "license": "Open Weights",
+            "rating": 1300.5,
+            "rating_lower": 1290.5,
+            "rating_upper": 1310.5,
+            "vote_count": 420,
+            "rank": 1,
+        })
+
+        self.assertEqual(row["name"], "Example Image Edit")
+        self.assertEqual(row["provider"], "example-lab")
+        self.assertEqual(row["elo"], 1300.5)
+        self.assertEqual(row["ciLow"], 1290.5)
+        self.assertEqual(row["comparisons"], 420)
+        self.assertEqual(row["license"], "Open Weights")
+
+    def test_merges_arena_boards_without_replacing_fai_snapshot(self):
+        snapshot = build_snapshot(self.payload, "2026-11-22T09:00:00Z")
+        arena = {"id": "arena-text-to-image", "source": {"id": "arena"}, "rows": [{"rank": 1}]}
+
+        result = merge_arena_boards(snapshot, [arena])
+
+        self.assertEqual([board["id"] for board in result["boards"]], ["image", "video", "speech", "arena-text-to-image"])
 
 
 if __name__ == "__main__":

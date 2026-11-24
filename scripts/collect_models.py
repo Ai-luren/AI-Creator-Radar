@@ -39,6 +39,11 @@ RELEASE_TERMS = (
     "launch", "launched", "now available", "officially available",
     "正式发布", "正式上线", "发布", "上线", "推出", "新模型", "模型发布",
 )
+PRE_RELEASE_TERMS = (
+    "coming soon", "available soon", "waitlist", "pre-register",
+    "join the waitlist", "即将开放", "即将上线", "即将发布", "发布预告",
+    "开放预约", "开启预约", "预约体验", "候补名单", "内测招募",
+)
 VERSION_RE = re.compile(r"(?<![a-z])v?\d+(?:\.\d+){1,3}(?!\d)", re.I)
 
 
@@ -255,12 +260,15 @@ def match_model(text: str, source: dict) -> str | None:
     return None
 
 
-def is_release_candidate(title: str, published_at: str | None) -> bool:
+def is_release_candidate(title: str, published_at: str | None, allow_version_only: bool = False) -> bool:
     lowered = title.casefold()
+    if any(term in lowered for term in PRE_RELEASE_TERMS):
+        return True
     has_release_word = any(term in lowered for term in RELEASE_TERMS)
     has_version = bool(VERSION_RE.search(title))
     # A bare model heading is not an announcement; model-card tables have their own parser.
-    return has_release_word or (has_version and published_at is not None and len(title.split()) >= 3)
+    return has_release_word or (has_version and published_at is not None and
+                                (allow_version_only or len(title.split()) >= 3))
 
 
 
@@ -445,13 +453,41 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
         summary = clean_text(child_text(entry, {"description", "summary", "content", "encoded"}))
         model_id = match_model(title + " " + summary, source)
         published = parse_date(child_text(entry, {"pubdate", "published", "updated", "date", "created"}))
-        if not model_id or not is_release_candidate(title, published):
+        if not model_id or not is_release_candidate(title, published, source.get("allowVersionOnly", False)):
             continue
         results.append({
             "title": title, "summary": summary, "url": entry_link(entry),
             "publishedAt": published, "modelId": model_id,
         })
     return results
+
+
+def markdown_news_items(page: str, source: dict) -> list[dict]:
+    """Read dated announcement bullets from a named section in an official Markdown page."""
+    section_name = re.escape(source.get("section", "News"))
+    section = re.search(rf"^#+\s+{section_name}\s*$([\s\S]*?)(?=^#{{1,6}}\s|\Z)", page, flags=re.I | re.M)
+    if not section:
+        return []
+    results = []
+    for line in section.group(1).splitlines():
+        bullet = re.match(r"^\s*[-*+]\s+(.+)$", line)
+        if not bullet:
+            continue
+        raw = bullet.group(1).strip()
+        links = re.findall(r"\[([^\]]+)\]\((https?://[^)]+)\)", raw)
+        plain = re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r"\1", raw)
+        title = clean_text(plain)
+        published = find_date(title)
+        model_id = match_model(title, source)
+        if not model_id or not published or not is_release_candidate(title, published, True):
+            continue
+        summary = re.sub(r"^20\d{2}[年./-]\s*\d{1,2}[月./-]\s*\d{1,2}日?\s*[:：-]?\s*", "", title)
+        results.append({
+            "title": title[:220], "summary": summary[:520],
+            "url": links[0][1] if links else source["url"],
+            "publishedAt": published, "modelId": model_id,
+        })
+    return dedupe_candidates(results)
 
 
 def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
@@ -466,6 +502,10 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         version_match = re.search(version_pattern, raw["title"] + " " + raw.get("summary", ""), flags=re.I)
         if version_match:
             version = clean_text(version_match.group(1))
+    update_type = source.get("updateType", "release")
+    title_lower = raw["title"].casefold()
+    if update_type in {"release", "model-release", "model-card"} and any(term in title_lower for term in PRE_RELEASE_TERMS):
+        update_type = "announcement"
     return {
         "id": stable_id,
         "modelId": model_id,
@@ -482,23 +522,29 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         "sourceId": source["id"],
         "sourceName": source["name"],
         "official": bool(source.get("official", True)),
-        "updateType": source.get("updateType", "release"),
+        "updateType": update_type,
         "modelVersion": version,
     }
 
 
 def merge_item(old: dict, new: dict) -> dict:
     merged = dict(old)
-    merged["lastSeenAt"] = new["lastSeenAt"]
-    merged["discoveredAt"] = min(old.get("discoveredAt") or new["discoveredAt"], new["discoveredAt"])
+    last_seen = new.get("lastSeenAt") or new.get("discoveredAt") or old.get("lastSeenAt") or old.get("discoveredAt")
+    discovered = [value for value in (old.get("discoveredAt"), new.get("discoveredAt")) if value]
+    if last_seen:
+        merged["lastSeenAt"] = last_seen
+    if discovered:
+        merged["discoveredAt"] = min(discovered)
     if not merged.get("publishedAt") and new.get("publishedAt"):
         merged["publishedAt"] = new["publishedAt"]
     if len(new.get("summary", "")) > len(old.get("summary", "")):
         merged["summary"] = new["summary"]
     if new.get("modelVersion"):
         merged["modelVersion"] = new["modelVersion"]
-    sources = list(dict.fromkeys(old.get("sourceNames", [old.get("sourceName", "")]) +
-                                  [new.get("sourceName", "")]))
+    existing_sources = old.get("sourceNames")
+    if not isinstance(existing_sources, list):
+        existing_sources = [old.get("sourceName", "")]
+    sources = list(dict.fromkeys(existing_sources + [new.get("sourceName", "")]))
     merged["sourceNames"] = [value for value in sources if value]
     return merged
 
@@ -509,8 +555,15 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
     changed = []
     dated = sorted(items, key=lambda item: item.get("publishedAt") or "")
     for item in dated:
+        if item.get("updateType") == "product-release":
+            continue
         model_id = item.get("modelId")
         model = models.get(model_id)
+        if not model and model_id:
+            # Family consolidation keeps old collector IDs on versions so existing
+            # source configuration continues to update the right family.
+            model = next((candidate for candidate in models.values()
+                          if model_id in candidate.get("legacyIds", [])), None)
         version = item.get("modelVersion")
         published = find_date(item.get("publishedAt"))
         if not model or not version or not published:
@@ -521,9 +574,23 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
         previous_dt = find_date(model.get("versionUpdatedAt"))
         if previous_dt and published_dt < datetime.fromisoformat(previous_dt.replace("Z", "+00:00")):
             continue
-        if model.get("version") == version:
+        structured = model.setdefault("versions", [])
+        current = next((entry for entry in structured
+                        if entry.get("name") == version or entry.get("id") == re.sub(r"[^a-z0-9]+", "-", version.lower()).strip("-")), None)
+        if current and current.get("releaseDate") == published:
             continue
-        model["version"] = version
+        if not current:
+            version_id = re.sub(r"[^a-z0-9]+", "-", version.lower()).strip("-")
+            current = {"id": version_id, "name": version, "legacyIds": [],
+                       "leaderboardAliases": [], "status": "官方发布"}
+            structured.append(current)
+        current["releaseDate"] = published
+        current["releaseUrl"] = item.get("url")
+        current["status"] = "官方发布"
+        if model_id and model_id not in current.setdefault("legacyIds", []):
+            current["legacyIds"].append(model_id)
+        model["version"] = " / ".join(dict.fromkeys(
+            entry.get("name", "") for entry in structured if entry.get("name")))
         model["versionUpdatedAt"] = published
         model["versionSourceUrl"] = item.get("url")
         changed.append(f"{model_id} → {version}")
@@ -556,7 +623,7 @@ def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
             required_text = source.get("requiredText")
             if required_text and not re.search(required_text, page, flags=re.I):
                 raise ValueError("Expected model text is absent; the official page may be client-rendered or changed")
-            items = html_page_items(page, source)
+            items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
         return source, items, None
     except Exception as exc:
         return source, [], f"{type(exc).__name__}: {str(exc)[:220]}"
