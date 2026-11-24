@@ -1,0 +1,16 @@
+{
+  "feeds": [
+    {
+      "id": "juya-daily",
+      "name": "橘鸦 AI 早报",
+      "type": "rss",
+      "url": "https://daily.juya.uk/rss.xml",
+      "website": "https://daily.juya.uk/",
+      "archiveUrl": "https://daily.juya.uk/archive/",
+      "category": "news",
+      "description": "每日 AI 行业早报。内容由 AI 辅助生成，阅读时回到原始来源核验。",
+      "active": true
+    }
+  ],
+  "repositories": []
+}

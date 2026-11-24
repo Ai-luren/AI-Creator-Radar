@@ -1,0 +1,3071 @@
+{
+  "archiveReason": "Preserved original company-topic records before replacing the active company chronicle with v49 verified milestones and its 20-vendor whitelist.",
+  "source": "site/data-v3/topics.json",
+  "capturedAt": "2026-11-24",
+  "companyTopics": [
+    {
+      "group": "公司与模型",
+      "id": "ace-studio",
+      "name": "ACE Studio",
+      "description": "ACE Studio 的音乐生成模型及音乐制作工具。",
+      "keywords": [
+        "ACE Studio",
+        "ACE Music",
+        "ACE-Step"
+      ],
+      "topicUrl": "https://acemusic.ai/help/articles/choose-an-ace-music-model/",
+      "domain": "acemusic.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2025-12-08",
+          "kind": "产品",
+          "title": "ACE Studio 发布 2.0 音乐工作站",
+          "summary": "官方版本更新加入新 AI 歌声、乐器、生成套件与编曲界面。",
+          "url": "https://acestudio.ai/blog/ace-studio-2-0-all-in-one-ai-music-studio-released/",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "agnes-ai",
+      "name": "Agnes AI",
+      "description": "Agnes AI 的语言、图像与视频模型及模型后训练进展。",
+      "keywords": [
+        "Agnes AI",
+        "Agnes 2.5 Pro"
+      ],
+      "topicUrl": "https://github.com/AgnesAI-Labs",
+      "domain": "github.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "llm",
+        "image",
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09-24",
+          "kind": "型号现状",
+          "title": "Agnes 官方目录收录 Image 2.5 Flash",
+          "summary": "官方目录快照列出该图像生成与编辑型号；这是目录记录日期，不代表正式发布日期。",
+          "url": "https://github.com/AgnesAI-Labs/skills/blob/main/agnes-ai-models/references/model_catalog.md",
+          "modelCategory": "image"
+        },
+        {
+          "date": "2026-09-24",
+          "kind": "型号现状",
+          "title": "Agnes 官方目录收录 Video 2.5 系列",
+          "summary": "官方目录快照列出 Agnes Video 2.5 与 2.5 Flash；这是目录记录日期，不代表正式发布日期。",
+          "url": "https://github.com/AgnesAI-Labs/skills/blob/main/agnes-ai-models/references/model_catalog.md",
+          "modelCategory": "video"
+        },
+        {
+          "date": "2026-07",
+          "kind": "模型",
+          "title": "Agnes AI 发布 Agnes 2.5 Pro Alpha",
+          "summary": "官方模型卡注明该 Alpha 版本基于 Qwen3.5 后训练。",
+          "url": "https://huggingface.co/Agnes-AI/Agnes-2.5-Pro-Alpha/blob/main/README.md",
+          "modelCategory": "llm"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "hidream-ai",
+      "name": "HiDream.ai / 智象未来",
+      "description": "HiDream-O 系列多模态模型与视频生成能力进展。",
+      "keywords": [
+        "HiDream",
+        "HiDream.ai",
+        "智象未来",
+        "HiDream-O1-Video"
+      ],
+      "topicUrl": "https://hiharness.ai/docs/hidream_o/video/introduction.html",
+      "domain": "hidream.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09",
+          "kind": "模型",
+          "title": "HiDream.ai 公布 HiDream-O1-Video 1.0（内部测试）",
+          "summary": "公司公告介绍全模态视频模型并说明当时处于内部测试；不同语言公告日期有差异，按月份记录。",
+          "url": "https://www.newsfilecorp.com/release/314609",
+          "modelCategory": "video"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "anthropic",
+      "name": "Anthropic / Claude",
+      "description": "Anthropic 的 Claude 系列模型、Claude Code 更新，以及安全研究与公司动向。",
+      "keywords": [
+        "Anthropic",
+        "Claude"
+      ],
+      "aihotSlug": "anthropic",
+      "topicUrl": "https://aihot.news/topics/anthropic",
+      "domain": "anthropic.com",
+      "modelCategories": [
+        "llm"
+      ],
+      "milestones": [
+        {
+          "date": "2025-05-22",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Anthropic 发布 Claude 4 系列",
+          "summary": "发布 Claude Opus 4 与 Sonnet 4，强化编程和智能体任务。",
+          "url": "https://www.anthropic.com/news/claude-4",
+          "verificationUrl": "https://www.reuters.com/technology/anthropic-unveils-claude-4-models-including-new-opus-sonnet-2025-05-22/"
+        },
+        {
+          "date": "2025-02-24",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Anthropic 发布 Claude 3.7 Sonnet",
+          "summary": "推出可切换即时回答与扩展思考的混合推理模型。",
+          "url": "https://www.anthropic.com/news/claude-3-7-sonnet",
+          "verificationNote": "Claude Code 同场为产品预览；此节点记录模型发布。"
+        },
+        {
+          "date": "2024-06-21",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Anthropic 发布 Claude 3.5 Sonnet",
+          "summary": "Claude 3.5 系列首个版本，重点提升综合能力、速度与图像理解。",
+          "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+          "verificationNote": "Anthropic 当前公告时间标注为 6 月 21 日；早期媒体使用 6 月 20 日时区日期，按厂商公告日记录。"
+        },
+        {
+          "date": "2024-03-04",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Anthropic 发布 Claude 3 系列",
+          "summary": "推出 Haiku、Sonnet、Opus 三种规模型号。",
+          "url": "https://www.anthropic.com/news/claude-3-family",
+          "verificationUrl": "https://www.reuters.com/technology/anthropic-releases-more-powerful-claude-3-ai-tech-race-continues-2024-03-04/"
+        },
+        {
+          "date": "2023-07-11",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Anthropic 发布 Claude 2",
+          "summary": "升级长文本处理与代码能力，并开放公开使用。",
+          "url": "https://www.anthropic.com/news/claude-2",
+          "verificationUrl": "https://www.reuters.com/technology/anthropic-launches-new-ai-model-claude-2-2023-07-11/"
+        },
+        {
+          "date": "2023-03-14",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Anthropic 发布 Claude",
+          "summary": "Claude 系列首次公开发布，成为 Anthropic 的主要通用语言模型。",
+          "url": "https://www.anthropic.com/news/introducing-claude",
+          "verificationUrl": "https://apnews.com/article/53fb21bd250b936d93c5c8885af8d393"
+        },
+        {
+          "date": "2021",
+          "kind": "公司",
+          "modelCategory": "llm",
+          "title": "Anthropic 成立",
+          "summary": "AI 安全研究团队成立，随后推出 Claude 模型系列。",
+          "url": "https://www.anthropic.com/company",
+          "verificationUrl": "https://apnews.com/article/53fb21bd250b936d93c5c8885af8d393"
+        }
+      ]
+    },
+    {
+      "id": "black-forest-labs",
+      "name": "Black Forest Labs / FLUX",
+      "description": "FLUX 图像生成与编辑模型，以及面向创作者的开放权重工作流。",
+      "keywords": [
+        "Black Forest Labs",
+        "BFL",
+        "FLUX"
+      ],
+      "topicUrl": "https://bfl.ai/models/",
+      "domain": "bfl.ai",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "image"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-15",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Black Forest Labs 发布 FLUX.3 Image Klein",
+          "summary": "发布 FLUX 3 Image 家族中的 Klein 型号；不代表该系列所有型号均已发布。",
+          "url": "https://bfl.ai/blog/flux-3-image-klein"
+        },
+        {
+          "date": "2026-01-15",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Black Forest Labs 发布 FLUX.2 Klein",
+          "summary": "推出面向快速生成与编辑的轻量图像模型系列。",
+          "url": "https://bfl.ai/blog/flux2-klein-towards-interactive-visual-intelligence"
+        },
+        {
+          "date": "2025-11-25",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Black Forest Labs 发布 FLUX.2 图像模型",
+          "summary": "推出新一代图像生成与多参考图编辑模型。",
+          "url": "https://bfl.ai/blog/flux-2"
+        },
+        {
+          "date": "2025-05",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Black Forest Labs 发布 FLUX.1 Kontext",
+          "summary": "推出支持上下文图像编辑的 FLUX.1 Kontext 系列。",
+          "url": "https://bfl.ai/blog/flux-1-kontext",
+          "verificationUrl": "https://theaiengineering.com/releases/black-forest-labs",
+          "verificationNote": "官方公告可确认版本与月份；未将平台上架日期作为发布日期。"
+        },
+        {
+          "date": "2024-11-21",
+          "kind": "产品",
+          "modelCategory": "image",
+          "title": "Black Forest Labs 发布 FLUX.1 Tools",
+          "summary": "推出 Fill、Depth、Canny、Redux 等编辑与控制工具。",
+          "url": "https://bfl.ai/blog/24-11-21-tools",
+          "verificationUrl": "https://theaiengineering.com/releases/black-forest-labs"
+        },
+        {
+          "date": "2024-10-02",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Black Forest Labs 发布 FLUX1.1 pro",
+          "summary": "更新图像生成质量与速度，并开放 BFL API。",
+          "url": "https://bfl.ai/blog/24-10-02-flux",
+          "verificationUrl": "https://techcrunch.com/2024/10/03/black-forest-labs-the-startup-behind-groks-image-generator-releases-an-api/"
+        },
+        {
+          "date": "2024-08-01",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Black Forest Labs 发布 FLUX.1 系列",
+          "summary": "推出 FLUX.1 pro、dev 与 schnell 图像模型。",
+          "url": "https://bfl.ai/blog/24-08-01-bfl",
+          "verificationUrl": "https://arstechnica.com/information-technology/2024/08/flux-this-new-ai-image-generator-is-eerily-good-at-creating-human-hands/"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "canva",
+      "name": "Canva",
+      "description": "Canva Research 的图像生成模型与面向设计工作的 AI 创作产品。",
+      "keywords": [
+        "Canva",
+        "Canva Research",
+        "Craft"
+      ],
+      "topicUrl": "https://www.canva.com/newsroom/news/",
+      "domain": "canva.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "image"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-22",
+          "kind": "模型",
+          "title": "Canva 发布 Craft 图像生成模型",
+          "summary": "Canva 首个自研图像基础模型，支持最高 2K 输出与可编辑结果。",
+          "url": "https://www.canva.com/newsroom/news/canva-craft/",
+          "modelCategory": "image"
+        },
+        {
+          "date": "2013",
+          "kind": "公司",
+          "title": "Canva 创立",
+          "summary": "Canva 官方资料将公司上线年份记为 2013 年。",
+          "url": "https://about.canva.com/wp-content/uploads/sites/3/2019/10/Canva-for-Enterprise.pdf"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "cartesia",
+      "name": "Cartesia",
+      "description": "Cartesia 的实时语音模型与语音智能体技术。",
+      "keywords": [
+        "Cartesia",
+        "Sonic"
+      ],
+      "topicUrl": "https://www.cartesia.ai/blog",
+      "domain": "cartesia.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-08-27",
+          "kind": "模型",
+          "title": "Cartesia 发布 Sonic-3.6",
+          "summary": "语音合成模型升级，重点提升自然度与多语言表现。",
+          "url": "https://www.cartesia.ai/launch",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "cursor",
+      "name": "Cursor",
+      "description": "Cursor（Anysphere）的编辑器与编码 Agent 更新、自研模型与定价变化。",
+      "keywords": [
+        "Cursor",
+        "Anysphere"
+      ],
+      "aihotSlug": "cursor",
+      "topicUrl": "https://aihot.news/topics/cursor",
+      "domain": "cursor.com",
+      "modelCategories": [
+        "llm"
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "description": "DeepSeek（深度求索）的模型发布、开源权重、技术报告与 API 价格变化。",
+      "keywords": [
+        "DeepSeek",
+        "深度求索"
+      ],
+      "aihotSlug": "deepseek",
+      "topicUrl": "https://aihot.news/topics/deepseek",
+      "domain": "deepseek.com",
+      "modelCategories": [
+        "llm"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09-10",
+          "kind": "模型",
+          "title": "DeepSeek 发布 V4.1 Flash",
+          "summary": "官方公告确认模型上线，并注明 API 路由 deepseek-flash。",
+          "url": "https://deepseek.com/en/news/deepseek-v4-1-flash/",
+          "modelCategory": "llm",
+          "verificationUrl": "https://api-docs.deepseek.com/updates/?release=releasing-the-full-suite-of-application-apis"
+        },
+        {
+          "date": "2025-01-20",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "DeepSeek 发布 R1 推理模型",
+          "summary": "公开推理模型与训练方法，带动开源推理模型发展。",
+          "url": "https://deepseek.com/en/news/deepseek-r1/",
+          "verificationUrl": "https://apnews.com/article/d2ed33f2521917193616e061674d5f92"
+        },
+        {
+          "date": "2024-12-26",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "DeepSeek 发布 V3",
+          "summary": "推出新一代开源语言模型，公开技术报告与权重。",
+          "url": "https://github.com/deepseek-ai/DeepSeek-V3",
+          "verificationUrl": "https://www.reuters.com/technology/artificial-intelligence/chinese-startup-deepseek-releases-new-ai-model-2024-12-26/"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "description": "ElevenLabs 的语音合成、声音克隆与音乐生成模型。",
+      "keywords": [
+        "ElevenLabs",
+        "Eleven v4",
+        "Eleven Music"
+      ],
+      "topicUrl": "https://elevenlabs.io/blog/category/product",
+      "domain": "elevenlabs.io",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09-28",
+          "kind": "模型",
+          "title": "ElevenLabs 发布 Eleven v4",
+          "summary": "推出新一代语音合成模型系列。",
+          "url": "https://elevenlabs.io/blog/eleven-v4",
+          "modelCategory": "audio"
+        },
+        {
+          "date": "2026-09-11",
+          "kind": "模型",
+          "title": "ElevenLabs 发布 Music v2.5",
+          "summary": "音乐模型升级并成为 ElevenMusic 默认版本，也提供 API。",
+          "url": "https://elevenlabs.io/blog/music-v2-5-model",
+          "modelCategory": "audio"
+        },
+        {
+          "date": "2026-05-26",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "ElevenLabs 发布 Music v2",
+          "summary": "升级音乐生成模型，后续开放 API。",
+          "url": "https://elevenlabs.io/blog/introducing-music-v2",
+          "verificationUrl": "https://www.musicbusinessworldwide.com/elevenlabs-expands-ai-music-generator-with-music-v2/"
+        },
+        {
+          "date": "2025-08-05",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "ElevenLabs 发布 Music",
+          "summary": "推出首个音乐生成模型。",
+          "url": "https://elevenlabs.io/blog/elevenlabs-music",
+          "verificationUrl": "https://techcrunch.com/2025/08/05/elevenlabs-launches-an-ai-music-generator-which-it-claims-is-cleared-for-commercial-use/"
+        },
+        {
+          "date": "2025-06-03",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "ElevenLabs 发布 Eleven v3 Alpha",
+          "summary": "推出支持表达性语音生成的 Alpha 语音模型。",
+          "url": "https://elevenlabs.io/blog/eleven-v3",
+          "verificationUrl": "https://techcrunch.com/2025/06/03/elevenlabs-unveils-new-ai-model-with-more-expressive-speech/"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "fal",
+      "name": "fal Research",
+      "description": "fal Research 与基础模型团队合作进行后训练和推理优化，推出 FLUX 3 Max 等视频模型。",
+      "keywords": [
+        "fal",
+        "fal Research",
+        "FLUX 3 Max"
+      ],
+      "topicUrl": "https://fal.ai/blog",
+      "domain": "fal.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-19",
+          "kind": "模型",
+          "title": "fal Research 与 Black Forest Labs 发布 FLUX 3 Max",
+          "summary": "fal Research 与 Black Forest Labs 合作，在 FLUX 3 视频基础模型上进行后训练并优化推理。",
+          "url": "https://fal.ai/blog/introducing-flux-3-max-by-fal",
+          "modelCategory": "video",
+          "verificationUrl": "https://venturebeat.com/ai/fal-launches-flux-3-max-claiming-22-faster-ai-video-generation-than-seedance-2-5"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "fish-audio",
+      "name": "Fish Audio",
+      "description": "Fish Audio 的语音合成与表演控制模型。",
+      "keywords": [
+        "Fish Audio",
+        "Drama 3",
+        "Fish Speech"
+      ],
+      "topicUrl": "https://beta.fish.audio/blog/",
+      "domain": "fish.audio",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-13",
+          "kind": "模型",
+          "title": "Fish Audio 发布 Drama 3 Preview",
+          "summary": "上线文本转语音页面与 API；官方仍标注为 Preview。",
+          "url": "https://beta.fish.audio/blog/fish-audio-drama-3/",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "google",
+      "name": "Google / Gemini",
+      "description": "Google 与 DeepMind 的 Gemini 模型、Veo 视频生成、前沿研究与各条产品线的 AI 更新。",
+      "keywords": [
+        "Google",
+        "Gemini",
+        "Veo",
+        "DeepMind"
+      ],
+      "aihotSlug": "google",
+      "topicUrl": "https://aihot.news/topics/google",
+      "domain": "deepmind.google",
+      "modelCategories": [
+        "llm",
+        "image",
+        "video",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-11-05",
+          "kind": "模型",
+          "title": "Google 发布 Gemini Omni 1.2 Flash",
+          "summary": "更新多模态 Flash 模型，视频型号按独立版本记录。",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "modelCategory": "video"
+        },
+        {
+          "date": "2026-07-29",
+          "kind": "模型",
+          "title": "Google 发布 Lyria 3.5",
+          "summary": "音乐模型卡记录 Lyria 3.5 发布及其能力范围。",
+          "url": "https://deepmind.google/models/model-cards/lyria-3-5/",
+          "modelCategory": "audio"
+        },
+        {
+          "date": "2026-03-25",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "Google 发布 Lyria 3 Pro",
+          "summary": "扩展 Lyria 音乐生成能力与创作时长。",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro/",
+          "verificationUrl": "https://techcrunch.com/2026/03/25/google-launches-lyria-3-pro-music-generation-model/"
+        },
+        {
+          "date": "2026-02-26",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Google 发布 Nano Banana 2",
+          "summary": "推出 Gemini Flash Image 图像生成与编辑能力。",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/",
+          "verificationUrl": "https://www.reuters.com/world/asia-pacific/google-rolls-out-nano-banana-2-after-viral-success-ai-image-generation-tool-2026-02-26/"
+        },
+        {
+          "date": "2026-02-18",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "Google 发布 Lyria 3",
+          "summary": "推出新一代音乐生成模型。",
+          "url": "https://deepmind.google/models/model-cards/lyria-3/",
+          "verificationUrl": "https://www.theverge.com/ai-artificial-intelligence/880584/google-gemini-ai-music-maker-lyria-3-beta"
+        },
+        {
+          "date": "2025-11-20",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Google 发布 Nano Banana Pro",
+          "summary": "基于 Gemini 3 Pro Image 的图像生成与编辑模型。",
+          "url": "https://blog.google/innovation-and-ai/products/nano-banana-pro/",
+          "verificationUrl": "https://blog.google/innovation-and-ai/products/gemini/gemini-3-image-generation/"
+        },
+        {
+          "date": "2025-10-15",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Google 发布 Veo 3.1",
+          "summary": "更新镜头延展、角色一致性与图像参考视频生成。",
+          "url": "https://deepmind.google/models/veo/",
+          "verificationNote": "官方模型页记录该型号与能力；此处日期为公告日。"
+        },
+        {
+          "date": "2025-08-26",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Google 发布 Nano Banana 图像生成与编辑模型",
+          "summary": "Gemini 原生图像模型支持多轮图像编辑与人物一致性。",
+          "url": "https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/",
+          "verificationUrl": "https://techcrunch.com/2025/08/26/google-geminis-ai-image-model-gets-a-bananas-upgrade/"
+        },
+        {
+          "date": "2025-05-20",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Google 发布 Imagen 4",
+          "summary": "推出新一代图像生成模型，改善细节、文字渲染与速度。",
+          "url": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
+          "verificationUrl": "https://techcrunch.com/2025/05/20/imagen-4-is-googles-newest-ai-image-generator/"
+        },
+        {
+          "date": "2025-05-20",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Google 发布 Veo 3",
+          "summary": "加入原生音频生成，并与 Flow 影片创作工具一同公布。",
+          "url": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/"
+        },
+        {
+          "date": "2024-12-16",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Google 发布 Veo 2",
+          "summary": "升级视频生成质量、真实物理表现与镜头控制。",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/video-image-generation-update-december-2024/"
+        },
+        {
+          "date": "2024-12-11",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Google 发布 Gemini 2.0",
+          "summary": "面向 Agent 时代的模型系列，加入原生多模态输出与工具调用能力。",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-ai-update-december-2024/",
+          "verificationUrl": "https://www.reuters.com/technology/artificial-intelligence/google-launches-gemini-20-ai-model-2024-12-11/"
+        },
+        {
+          "date": "2024-05-14",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Google 公布 Imagen 3 并开放 ImageFX 私测",
+          "summary": "Google I/O 公布 Imagen 3，并先向 ImageFX 用户开放私测；8 月才逐步接入 Gemini。",
+          "url": "https://blog.google/innovation-and-ai/products/google-generative-ai-veo-imagen-3/",
+          "verificationNote": "此节点按模型公告记录；逐步开放时间另行处理。"
+        },
+        {
+          "date": "2024-05-14",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Google 公布 Veo 视频生成模型",
+          "summary": "Veo 首次公开展示，进入创作者私测预览。",
+          "url": "https://blog.google/innovation-and-ai/products/google-generative-ai-veo-imagen-3/"
+        },
+        {
+          "date": "2024-02-15",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Google 发布 Gemini 1.5",
+          "summary": "推出 Gemini 1.5 Pro 研究预览，扩展长上下文处理能力。",
+          "url": "https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024/",
+          "verificationNote": "以 Google 公告日期为准；产品/API 后续开放日期不同。"
+        },
+        {
+          "date": "2024-02-01",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Google 发布 Imagen 2",
+          "summary": "Google DeepMind 图像生成模型接入 ImageFX 与 Vertex AI。",
+          "url": "https://blog.google/technology/ai/google-imagen-2/",
+          "verificationNote": "此处记录模型公告；产品/API 推出时间另有差异。"
+        },
+        {
+          "date": "2023-12-06",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Google 发布 Gemini 1.0",
+          "summary": "Gemini 首代多模态模型公开发布，包含 Ultra、Pro 与 Nano。",
+          "url": "https://blog.google/innovation-and-ai/technology/ai/google-gemini-ai/",
+          "verificationUrl": "https://www.reuters.com/technology/google-launches-gemini-ai-model-bard-2023-12-06/"
+        },
+        {
+          "date": "2010",
+          "kind": "公司",
+          "title": "DeepMind 创立（后并入 Google DeepMind）",
+          "summary": "Google DeepMind 官方历史页面回顾 DeepMind 的研究起点。",
+          "url": "https://deepmind.google/about/",
+          "modelCategory": "llm"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "heygen",
+      "name": "HeyGen",
+      "description": "HeyGen 的通用视频生成、数字人和语音模型。",
+      "keywords": [
+        "HeyGen",
+        "HeyGen Video",
+        "HeyGen Voice",
+        "Avatar"
+      ],
+      "topicUrl": "https://www.heygen.com/models",
+      "domain": "heygen.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10",
+          "kind": "模型",
+          "title": "HeyGen 发布 HeyGen Voice",
+          "summary": "上线自研语音模型，支持文本转语音、语音转换与声音克隆。",
+          "url": "https://www.heygen.com/models/heygen-voice-1",
+          "modelCategory": "audio"
+        },
+        {
+          "date": "2026-09-30",
+          "kind": "模型",
+          "title": "HeyGen 发布 HeyGen Video 1",
+          "summary": "推出首个通用视频生成模型，可从文本、图像或参考视频生成带声音的场景。",
+          "url": "https://www.heygen.com/models/heygen-video-1",
+          "modelCategory": "video"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "description": "Hugging Face 社区的热门开源模型、数据集、工具与榜单变化。",
+      "keywords": [
+        "Hugging Face",
+        "HuggingFace"
+      ],
+      "aihotSlug": "hugging-face",
+      "topicUrl": "https://aihot.news/topics/hugging-face",
+      "domain": "huggingface.co",
+      "modelCategories": [
+        "llm"
+      ]
+    },
+    {
+      "id": "ideogram",
+      "name": "Ideogram",
+      "description": "Ideogram 图像生成与精准编辑模型，关注文字、版式和多轮修改。",
+      "keywords": [
+        "Ideogram"
+      ],
+      "topicUrl": "https://ideogram.ai/models/4.6/",
+      "domain": "ideogram.ai",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "image"
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "inworld",
+      "name": "Inworld AI",
+      "description": "Inworld 的实时 TTS 与语音智能体模型。",
+      "keywords": [
+        "Inworld",
+        "Realtime TTS-2"
+      ],
+      "topicUrl": "https://docs.inworld.ai/release-notes/tts",
+      "domain": "inworld.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-05-05",
+          "kind": "模型",
+          "title": "Inworld 发布 Realtime TTS-2",
+          "summary": "推出面向实时语音生成的第二代模型。",
+          "url": "https://inworld.ai/blog/realtime-tts-2",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "id": "lightricks",
+      "name": "Lightricks / LTX",
+      "description": "Lightricks 的 LTX 开放权重音视频模型与本地创作工具更新。",
+      "keywords": [
+        "Lightricks",
+        "LTX"
+      ],
+      "topicUrl": "https://github.com/Lightricks/LTX-2",
+      "domain": "ltx.io",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ]
+    },
+    {
+      "id": "luma",
+      "name": "Luma AI / Ray",
+      "description": "Luma 的 Ray 视频模型与 Dream Machine 创作工作流更新。",
+      "keywords": [
+        "Luma",
+        "Luma AI",
+        "Ray"
+      ],
+      "topicUrl": "https://lumalabs.ai/ray",
+      "domain": "lumalabs.ai",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "meta",
+      "name": "Meta / Llama",
+      "description": "Meta 的 Llama 与 Muse 系列模型、超级智能实验室与 Meta AI 产品。",
+      "keywords": [
+        "Meta",
+        "Llama",
+        "Muse"
+      ],
+      "aihotSlug": "meta",
+      "topicUrl": "https://aihot.news/topics/meta",
+      "domain": "meta.ai",
+      "modelCategories": [
+        "llm",
+        "image",
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09-08",
+          "kind": "助手",
+          "title": "Meta 推出 Muse 个人 AI 助手",
+          "summary": "面向用户的个人助手，与 Muse Image 和 Muse Video 媒体模型分开记录。",
+          "url": "https://ai.meta.com/tools/muse/"
+        },
+        {
+          "date": "2026-07-07",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Meta 发布 Muse Image 图像生成模型",
+          "summary": "Muse Image 正式开放使用；Meta 同日预览 Muse Video，后者按视频模型单独记录。",
+          "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"
+        },
+        {
+          "date": "2026-07-07",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Meta 预览 Muse Video 视频生成模型",
+          "summary": "Meta 公布首批媒体生成模型；Muse Video 当时为预览，尚未全面开放。",
+          "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"
+        },
+        {
+          "date": "2026-04-08",
+          "kind": "模型",
+          "title": "Meta 发布 Muse Spark",
+          "summary": "Muse Spark 是 Meta Superintelligence Labs 的模型；Muse 个人助手是另一项产品。",
+          "url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+          "modelCategory": "llm"
+        },
+        {
+          "date": "2025-04-05",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Meta 发布 Llama 4 Scout 与 Maverick，并预览 Behemoth",
+          "summary": "Scout 与 Maverick 开放下载；Behemoth 当时仍在训练，仅作预览，不记作正式发布。",
+          "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "verificationUrl": "https://techcrunch.com/2025/04/05/meta-releases-llama-4-a-new-crop-of-flagship-ai-models/"
+        },
+        {
+          "date": "2024-10-04",
+          "kind": "研究",
+          "modelCategory": "video",
+          "title": "Meta 公布 Movie Gen 视频生成研究",
+          "summary": "发布视频生成研究模型与技术报告，不代表公开产品上线。",
+          "url": "https://ai.meta.com/research/movie-gen/",
+          "verificationUrl": "https://www.axios.com/2024/10/04/meta-ai-video-movie-gen"
+        },
+        {
+          "date": "2024-07-23",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Meta 发布 Llama 3.1",
+          "summary": "扩展至 405B 参数旗舰型号，增加多语言与长上下文能力。",
+          "url": "https://ai.meta.com/blog/meta-llama-3-1/",
+          "verificationUrl": "https://ai.meta.com/resources/models-and-libraries/llama-downloads/"
+        },
+        {
+          "date": "2024-04-18",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Meta 发布 Llama 3",
+          "summary": "推出新一代开放语言模型，首批包含 8B 与 70B 型号。",
+          "url": "https://ai.meta.com/blog/meta-llama-3/",
+          "verificationUrl": "https://ai.meta.com/resources/models-and-libraries/llama-downloads/"
+        },
+        {
+          "date": "2023-11-16",
+          "kind": "研究",
+          "modelCategory": "image",
+          "title": "Meta 公布 Emu Edit 图像编辑研究",
+          "summary": "展示按文字指令进行局部与全局编辑的研究模型和方法。",
+          "url": "https://ai.meta.com/blog/emu-text-to-video-generation-image-editing-research/",
+          "verificationUrl": "https://arxiv.org/abs/2311.10089"
+        },
+        {
+          "date": "2023-09",
+          "kind": "研究",
+          "modelCategory": "image",
+          "title": "Meta 公布 Emu 图像生成模型",
+          "summary": "Meta Connect 期间公布首个基础图像生成模型 Emu；属于研究与产品技术预览。",
+          "url": "https://www.meta.com/blog/connect-2023-quest-3-ai-ray-ban-smart-glasses-metaverse/",
+          "verificationNote": "Meta 公告按月份记录，未将后续产品上线误记为模型首发。",
+          "verificationUrl": "https://apnews.com/article/b76de22d14efc9b9713a412caf150103"
+        },
+        {
+          "date": "2023-07-18",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Meta 发布 Llama 2",
+          "summary": "发布基础模型与对话微调版本，并开放研究和商业使用。",
+          "url": "https://ai.meta.com/blog/llama-2",
+          "verificationUrl": "https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/"
+        },
+        {
+          "date": "2023-02-24",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "Meta 发布 LLaMA 研究模型",
+          "summary": "面向研究社区发布 7B 至 65B 参数的基础语言模型。",
+          "url": "https://ai.meta.com/blog/large-language-model-llama-meta-ai/",
+          "verificationUrl": "https://ai.meta.com/research/publications/llama-open-and-efficient-foundation-language-models/"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "microsoft",
+      "name": "Microsoft / Copilot",
+      "description": "微软的 Copilot 系列产品、Azure AI 云服务，以及与 OpenAI 的合作动向。",
+      "keywords": [
+        "Microsoft",
+        "Copilot",
+        "Azure AI"
+      ],
+      "aihotSlug": "microsoft",
+      "topicUrl": "https://aihot.news/topics/microsoft",
+      "domain": "microsoft.com",
+      "modelCategories": [
+        "llm",
+        "image",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2025-10-13",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Microsoft 发布 MAI-Image-1",
+          "summary": "推出 Microsoft 自研图像生成模型；与第三方托管模型区分。",
+          "url": "https://microsoft.ai/news/introducing-mai-image-1-debuting-in-the-top-10-on-lmarena/",
+          "verificationUrl": "https://www.theverge.com/news/813789/microsoft-in-house-ai-image-generator-mai-image-1"
+        }
+      ]
+    },
+    {
+      "id": "midjourney",
+      "name": "Midjourney",
+      "description": "Midjourney 的图像模型、风格化创作与图像编辑，以及从图像生成视频的模型进展。",
+      "keywords": [
+        "Midjourney",
+        "MJ"
+      ],
+      "topicUrl": "https://updates.midjourney.com/",
+      "domain": "midjourney.com",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "image",
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-07-24",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V8.2",
+          "summary": "官方版本文档记录 V8.2 于 7 月 24 日发布。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+          "verificationNote": "官方版本文档可确认 V8.2 日期；较早版本使用月级日期并以历史汇编交叉核对。"
+        },
+        {
+          "date": "2026-04-14",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V8.1",
+          "summary": "V8 系列更新，改善速度、分辨率和风格表现。",
+          "url": "https://updates.midjourney.com/v8-1-alpha/",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        },
+        {
+          "date": "2026-03-17",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 开放 V8.0 Alpha 测试",
+          "summary": "V8.0 以 Alpha 形式开放测试，不代表正式 GA。",
+          "url": "https://updates.midjourney.com/v8-alpha/",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+          "verificationNote": "官方称为早期 Alpha，保留预览状态。"
+        },
+        {
+          "date": "2025-06-18",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Midjourney 发布 V1 Video 图生视频模型",
+          "summary": "Midjourney 首款视频模型，可将已有图像动画化并控制运动幅度；首发为图生视频，不是文生视频。",
+          "url": "https://updates.midjourney.com/introducing-our-v1-video-model/",
+          "verificationUrl": "https://techcrunch.com/2025/06/18/midjourney-launches-its-first-ai-video-generation-model-v1/",
+          "verificationNote": "官方公告与 TechCrunch 均确认 2025-06-18 首发。"
+        },
+        {
+          "date": "2025-04-03",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V7",
+          "summary": "推出新一代基础图像模型与个性化功能。",
+          "url": "https://updates.midjourney.com/v7-alpha/",
+          "verificationUrl": "https://techcrunch.com/2025/04/03/midjourney-releases-its-first-new-ai-image-model-in-nearly-a-year/"
+        },
+        {
+          "date": "2024-07-30",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V6.1",
+          "summary": "提升图像细节、人物与生成速度。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        },
+        {
+          "date": "2023-12-20",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V6",
+          "summary": "升级文本理解与图像内文字生成。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        },
+        {
+          "date": "2023-06-22",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V5.2",
+          "summary": "加入缩放扩图等创作能力。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        },
+        {
+          "date": "2023-05-03",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V5.1",
+          "summary": "更新默认风格和提示词跟随能力。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        },
+        {
+          "date": "2023-03",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V5",
+          "summary": "提升写实表现与提示词遵循能力。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+          "verificationNote": "官方文档保留旧版本；日期按独立版本史精确到月份。"
+        },
+        {
+          "date": "2022-11",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V4",
+          "summary": "推出新一代图像模型，提升构图与细节表现。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+          "verificationNote": "官方文档保留旧版本；日期按独立版本史精确到月份。"
+        },
+        {
+          "date": "2022-07",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V3",
+          "summary": "版本迭代提升提示词理解与图像表现。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+          "verificationNote": "官方文档保留旧版本；日期按独立版本史精确到月份。"
+        },
+        {
+          "date": "2022-04",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V2",
+          "summary": "早期版本迭代，改善图像生成质量。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+          "verificationNote": "官方文档保留旧版本；日期按独立版本史精确到月份。"
+        },
+        {
+          "date": "2022-02",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "Midjourney 发布 V1",
+          "summary": "早期图像生成模型版本，开启 Midjourney 版本迭代。",
+          "url": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+          "verificationNote": "官方文档保留 V1 至 V5 等旧版本功能；具体早期发布日期依据版本史整理，精确到月份。"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "minimax",
+      "name": "MiniMax",
+      "description": "MiniMax 的 M 系列大模型、语音与多模态能力，以及开源与商业化进展。",
+      "keywords": [
+        "MiniMax",
+        "海螺"
+      ],
+      "aihotSlug": "minimax",
+      "topicUrl": "https://aihot.news/topics/minimax",
+      "domain": "minimax.io",
+      "modelCategories": [
+        "llm",
+        "image",
+        "video",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-11",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "MiniMax 发布 H3-Image 图像模型",
+          "summary": "H3-Image 支持高分辨率图像生成与编辑；中文 IR 权重开放日期为 11 月 10 日，英文博客日期为 11 月 11 日。",
+          "url": "https://www.minimax.io/blog/minimax-h3-image",
+          "verificationUrl": "https://rits.shanghai.nyu.edu/ai/minimax-opens-h3-image-weights-with-a-1m-license-threshold/",
+          "verificationNote": "日期有一天差异，因此仅标月份；不要把权重开放与博客发布日期混为一谈。"
+        },
+        {
+          "date": "2026-10-19",
+          "kind": "模型",
+          "title": "MiniMax 发布 M3.1 Flash",
+          "summary": "MiniMax 官方发布大语言模型 M3.1 Flash。",
+          "url": "https://www.minimax.io/blog/minimax-m31f",
+          "modelCategory": "llm"
+        },
+        {
+          "date": "2026-08-13",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "MiniMax 开放 Music 3.0 权重",
+          "summary": "开放音乐模型权重；与 API 首次可用日期分开记录。",
+          "url": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model",
+          "verificationUrl": "https://rits.shanghai.nyu.edu/ai/minimax-opens-music-3-0-weights-no-territorial-carve-out-this-time/"
+        },
+        {
+          "date": "2026-08-03",
+          "kind": "模型",
+          "title": "MiniMax 开放 H3 视频模型",
+          "summary": "H3 权重开放；音乐 3.0、H3-Image 与 M 系列各自单列。",
+          "url": "https://www.minimax.io/news/minimax-h3-open-source",
+          "modelCategory": "video"
+        },
+        {
+          "date": "2026-07-31",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "MiniMax 发布 H3 音视频生成模型",
+          "summary": "H3 首次发布；开放权重在 8 月 3 日另有节点。",
+          "url": "https://www.minimax.io/blog/minimax-h3"
+        },
+        {
+          "date": "2026-07-16",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "MiniMax Music 3.0 API 开放",
+          "summary": "Music 3.0 通过 API 提供使用，模型权重开放是另一个日期。",
+          "url": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model",
+          "verificationUrl": "https://rits.shanghai.nyu.edu/ai/minimax-opens-music-3-0-weights-no-territorial-carve-out-this-time/"
+        },
+        {
+          "date": "2026-06-01",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "MiniMax 发布 M3",
+          "summary": "新一代开放权重大语言模型，强化编码、Agent 与原生多模态输入能力。",
+          "url": "https://www.minimax.io/blog/minimax-m3",
+          "verificationUrl": "https://www.minimax.io/news/minimax-global-announces-full-year-2025-financial-results"
+        },
+        {
+          "date": "2026-04-10",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "MiniMax 发布 Music 2.6",
+          "summary": "升级音乐生成模型系列。",
+          "url": "https://www.minimax.io/news/music-26",
+          "verificationUrl": "https://www.orcarouter.ai/blog/minimax-music-model-family"
+        },
+        {
+          "date": "2026-02-12",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "MiniMax 发布 M2.5",
+          "summary": "M2 系列新一代语言模型，强化编码、工具调用与办公任务。",
+          "url": "https://www.minimax.io/blog/minimax-m25",
+          "verificationUrl": "https://www.minimax.io/news/minimax-global-announces-full-year-2025-financial-results"
+        },
+        {
+          "date": "2026-01-28",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "MiniMax 发布 Music 2.5",
+          "summary": "更新音乐生成质量与歌曲创作能力。",
+          "url": "https://www.minimax.io/news/minimax-music-25",
+          "verificationUrl": "https://www.aibase.com/news/25078"
+        },
+        {
+          "date": "2026-01-23",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "MiniMax 发布 Speech 2.8",
+          "summary": "升级语音生成模型，增强自然度和表现力。",
+          "url": "https://www.minimax.io/news/minimax-speech-28",
+          "verificationUrl": "https://www.aibase.com/news/30000"
+        },
+        {
+          "date": "2025-12-23",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "MiniMax 发布 M2.1",
+          "summary": "M2 系列更新，重点改善多语言编程与复杂真实任务执行。",
+          "url": "https://www.minimax.io/news/minimax-m21?id=MiniMaxM2.1"
+        },
+        {
+          "date": "2025-10-29",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "MiniMax 发布 Music 2.0",
+          "summary": "推出新一代音乐生成模型。",
+          "url": "https://www.minimax.io/news/minimax-music-20",
+          "verificationUrl": "https://www.aibase.com/news/25078"
+        },
+        {
+          "date": "2025-10-28",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "MiniMax 发布 Hailuo 2.3",
+          "summary": "升级角色表演、运动稳定性和图像转视频能力。",
+          "url": "https://www.minimax.io/news/minimax-hailuo-23"
+        },
+        {
+          "date": "2025-10-27",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "MiniMax 发布并开源 M2",
+          "summary": "面向编码与 Agent 工作流的大语言模型；同日 MiniMax Agent 也由 M2 驱动上线。",
+          "url": "https://www.minimax.io/blog/minimax-m2-en-1748600000",
+          "verificationUrl": "https://news.bloomberglaw.com/tech-and-telecom-law/chinas-minimax-says-new-ai-model-cheaper-and-faster-than-claude"
+        },
+        {
+          "date": "2025-06-18",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "MiniMax 发布 Hailuo 02 视频模型",
+          "summary": "更新视频生成质量、运动表现与镜头控制。",
+          "url": "https://www.minimax.io/news/minimax-hailuo-02"
+        },
+        {
+          "date": "2025-06-16",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "MiniMax 发布并开源 M1 推理模型",
+          "summary": "M1 是 MiniMax 首个公开的混合注意力推理模型，支持长上下文。",
+          "url": "https://www.minimax.io/news/minimaxm1"
+        },
+        {
+          "date": "2025-04-02",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "MiniMax 发布 Speech-02 系列",
+          "summary": "推出新一代语音合成模型。",
+          "url": "https://www.minimax.io/news/speech-02-series",
+          "verificationUrl": "https://www.aibase.com/news/19000"
+        },
+        {
+          "date": "2022",
+          "kind": "公司",
+          "title": "MiniMax 创立",
+          "summary": "MiniMax 官方公司资料介绍公司与其多模态模型产品线。",
+          "url": "https://ir.minimax.io/corporate-information/company-profile",
+          "modelCategory": "llm"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "openai",
+      "name": "OpenAI / ChatGPT",
+      "description": "OpenAI 的 GPT 系列模型、ChatGPT 与 Sora 产品更新，以及公司战略与人事变化。",
+      "keywords": [
+        "OpenAI",
+        "ChatGPT",
+        "GPT",
+        "Sora"
+      ],
+      "aihotSlug": "openai",
+      "topicUrl": "https://aihot.news/topics/openai",
+      "domain": "openai.com",
+      "modelCategories": [
+        "llm",
+        "image",
+        "video",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-11-17",
+          "kind": "模型",
+          "title": "OpenAI 发布 GPT-6.2 Astra 与 GPT-6.2 Sol",
+          "summary": "官方 API 模型目录列出 GPT-6.2 系列，并保留 GPT-6.1 等型号。",
+          "url": "https://developers.openai.com/api/docs/models/all",
+          "modelCategory": "llm"
+        },
+        {
+          "date": "2026-11-04",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "OpenAI 发布 Images 2.6",
+          "summary": "推出图像生成与编辑更新，新增 GIF、SVG 输出与更精细的编辑控制。",
+          "url": "https://openai.com/index/introducing-images-2-6/",
+          "verificationUrl": "https://developers.openai.com/api/docs/changelog"
+        },
+        {
+          "date": "2026-09-08",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "OpenAI 发布 ChatGPT Images 2.5",
+          "summary": "更新图像生成与编辑模型，API 型号另行区分。",
+          "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+          "verificationUrl": "https://www.axios.com/2026/09/08/exclusive-hands-on-with-chatgpts-new-image-editor"
+        },
+        {
+          "date": "2025-09-30",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "OpenAI 发布 Sora 2",
+          "summary": "新一代视频生成模型支持同步对白与音效。",
+          "url": "https://openai.com/index/sora-2/"
+        },
+        {
+          "date": "2025-03-25",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "OpenAI 在 GPT-4o 中推出原生图像生成",
+          "summary": "将图像生成能力融入 GPT-4o 多模态模型。",
+          "url": "https://openai.com/index/introducing-4o-image-generation/",
+          "verificationUrl": "https://techcrunch.com/2025/03/25/chatgpts-image-generation-feature-gets-an-upgrade/"
+        },
+        {
+          "date": "2024-12-09",
+          "kind": "产品",
+          "modelCategory": "video",
+          "title": "OpenAI 向用户开放 Sora Turbo",
+          "summary": "Sora 从研究预览转为 ChatGPT 用户可用的独立视频创作体验。",
+          "url": "https://openai.com/index/sora-is-here/"
+        },
+        {
+          "date": "2024-02-15",
+          "kind": "研究",
+          "modelCategory": "video",
+          "title": "OpenAI 公布 Sora 文生视频研究模型",
+          "summary": "首次展示文字生成高质量视频的研究预览。",
+          "url": "https://openai.com/index/sora/"
+        },
+        {
+          "date": "2023-11-06",
+          "kind": "助手",
+          "title": "OpenAI 推出可自定义 GPTs",
+          "summary": "用户可以创建面向特定任务的 ChatGPT 助手。",
+          "url": "https://openai.com/index/introducing-gpts/"
+        },
+        {
+          "date": "2023-09-20",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "OpenAI 公布 DALL·E 3 图像模型",
+          "summary": "图像生成模型接入 ChatGPT，提升提示词理解与文字表现。",
+          "url": "https://openai.com/index/dall-e-3/",
+          "verificationUrl": "https://www.reuters.com/technology/openai-unveils-dall-e-3-latest-version-text-to-image-tool-2023-09-20/"
+        },
+        {
+          "date": "2022-04-06",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "OpenAI 发布 DALL·E 2",
+          "summary": "新一代文本生成图像模型开始研究预览。",
+          "url": "https://openai.com/index/dall-e-2/",
+          "verificationUrl": "https://www.reuters.com/technology/openai-launches-dall-e-2-ai-system-that-creates-images-from-text-2022-04-06/"
+        },
+        {
+          "date": "2015",
+          "kind": "公司",
+          "title": "OpenAI 成立",
+          "summary": "OpenAI 官方介绍其于 2015 年以非营利研究组织成立。",
+          "url": "https://openai.com/our-structure/",
+          "modelCategory": "llm"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "description": "OpenRouter 平台的新模型上架、价格变化与开发者调用量排行。",
+      "keywords": [
+        "OpenRouter"
+      ],
+      "aihotSlug": "openrouter",
+      "topicUrl": "https://aihot.news/topics/openrouter",
+      "domain": "openrouter.ai",
+      "modelCategories": [
+        "llm"
+      ]
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "description": "Pika 的视频、图像与音频生成模型和创作产品更新。",
+      "keywords": [
+        "Pika",
+        "Pika Labs"
+      ],
+      "topicUrl": "https://pika.art/blog",
+      "domain": "pika.art",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ]
+    },
+    {
+      "id": "pixverse",
+      "name": "PixVerse",
+      "description": "PixVerse 视频模型、参考生成与面向创作者的 AI 视频工作流更新。",
+      "keywords": [
+        "PixVerse",
+        "爱诗科技"
+      ],
+      "topicUrl": "https://pixverse.ai/en/blog",
+      "domain": "pixverse.ai",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-03-30",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "PixVerse 发布 V6 视频模型",
+          "summary": "强化镜头控制、多镜头生成、角色表演与原生音频。",
+          "url": "https://pixverse.ai/en/blog/pixverse-launches-v6-advancing-ai-video-generation"
+        },
+        {
+          "date": "2026-01-12",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "PixVerse 发布 R1 实时世界模型",
+          "summary": "推出实时交互式世界生成方向模型；日期按官方发布月份记录。",
+          "url": "https://pixverse.ai/en/blog/pixverse-launches-r1-real-time-world-model",
+          "verificationUrl": "https://bernama.com/en/news.php?id=2540204",
+          "verificationNote": "官方发布页支持 1 月 12 日；本轮未找到足够强的独立媒体来源。"
+        }
+      ]
+    },
+    {
+      "id": "recraft",
+      "name": "Recraft",
+      "description": "Recraft 面向设计工作的图像、矢量生成与编辑模型。",
+      "keywords": [
+        "Recraft"
+      ],
+      "topicUrl": "https://www.recraft.ai/blog-announcements",
+      "domain": "recraft.ai",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "image"
+      ]
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "description": "Runway 的视频生成模型、视频编辑能力与创作工作流更新。",
+      "keywords": [
+        "Runway",
+        "Gen-4",
+        "Gen-4.5"
+      ],
+      "topicUrl": "https://runway.com/research/introducing-runway-gen-4.5",
+      "domain": "runway.com",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2025-12-01",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Runway 发布 Gen-4.5",
+          "summary": "新一代视频模型改进动作质量、提示词遵循与画面保真度。",
+          "url": "https://runway.com/research/introducing-runway-gen-4.5"
+        },
+        {
+          "date": "2025-03-31",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Runway 发布 Gen-4",
+          "summary": "升级角色一致性、场景控制与创作工作流。",
+          "url": "https://runway.com/research/introducing-runway-gen-4",
+          "verificationUrl": "https://www.theverge.com/news/643128/runway-gen-4-ai-video-model"
+        },
+        {
+          "date": "2024-06-17",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Runway 发布 Gen-3 Alpha",
+          "summary": "推出新一代视频生成基础模型。",
+          "url": "https://runway.com/research/introducing-gen-3-alpha",
+          "verificationUrl": "https://time.com/7094939/runway-gen-3-alpha/"
+        },
+        {
+          "date": "2023",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "Runway 推出 Gen-1 与 Gen-2",
+          "summary": "视频生成模型从视频风格迁移发展到文本生成视频；按年份记录。",
+          "url": "https://runway.com/research/scale-speed-and-stepping-stones-to-gen-2",
+          "verificationUrl": "https://www.axios.com/2023/05/05/runway-generative-ai-chatgpt-video",
+          "verificationNote": "官方发展回顾按 2023 年叙述；不伪造具体日。"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "sandai",
+      "name": "Sand.ai",
+      "description": "Sand.ai 的视频生成研究与 MAGI 系列模型。",
+      "keywords": [
+        "Sand.ai",
+        "MAGI",
+        "MAGI-2"
+      ],
+      "topicUrl": "https://sand.ai/blog",
+      "domain": "sand.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-08-05",
+          "kind": "模型",
+          "title": "Sand.ai 发布 MAGI-2 Preview",
+          "summary": "公开统一音视频模型的研究预览版本，用于验证模型扩展路径。",
+          "url": "https://sand.ai/blog/magi-2-preview",
+          "modelCategory": "video"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "skyreels",
+      "name": "SkyReels",
+      "description": "SkyReels 的多模态视频生成、编辑与 API 能力更新。",
+      "keywords": [
+        "SkyReels",
+        "SkyReels V4"
+      ],
+      "topicUrl": "https://www.skyreels.ai/api-platform",
+      "domain": "skyreels.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026",
+          "kind": "型号现状",
+          "title": "SkyReels 官网已列出 V4",
+          "summary": "官方产品页当前标注 SkyReels V4 已上线；页面未公开具体发布日期。",
+          "url": "https://www.skyreels.ai/api-platform",
+          "modelCategory": "video"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "smallest-ai",
+      "name": "Smallest.ai",
+      "description": "Smallest.ai 的低延迟文本转语音模型与语音基础设施。",
+      "keywords": [
+        "Smallest.ai",
+        "Lightning"
+      ],
+      "topicUrl": "https://docs.smallest.ai/changelog/lightning-v-3-1",
+      "domain": "smallest.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-29",
+          "kind": "模型",
+          "title": "Smallest.ai 更新 Lightning v3.1 Pro checkpoint",
+          "summary": "10 月 26 日 checkpoint 先以 Preview 形式提供，后续进入稳定版。",
+          "url": "https://docs.smallest.ai/changelog/lightning-v-3-1",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "sonauto",
+      "name": "Sonauto / Melodia",
+      "description": "Sonauto 的音乐生成研究与 Melodia 系列状态更新。",
+      "keywords": [
+        "Sonauto",
+        "Melodia"
+      ],
+      "topicUrl": "https://blog.sonauto.ai/",
+      "domain": "sonauto.ai",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-04-01",
+          "kind": "产品",
+          "title": "Sonauto 暂停 Melodia v3 当前形态的发布",
+          "summary": "官方说明暂停当前版本计划；该型号不应标作正式发布。",
+          "url": "https://blog.sonauto.ai/2026/04/01/pausing-melodia-v3/",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "speechify",
+      "name": "Speechify",
+      "description": "Speechify 的文本转语音、声音生成与 Simba 模型。",
+      "keywords": [
+        "Speechify",
+        "Simba"
+      ],
+      "topicUrl": "https://speechify.com/blog/",
+      "domain": "speechify.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-21",
+          "kind": "模型",
+          "title": "Speechify 发布 Simba 3.5",
+          "summary": "更新 Simba 文本转语音模型与 API。",
+          "url": "https://speechify.com/blog/speechify-simba-3-5/",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "suno",
+      "name": "Suno",
+      "description": "Suno 的 AI 音乐模型与创作产品进展，节点按官方博客、发布日志和公司介绍整理。",
+      "keywords": [
+        "Suno",
+        "AI 音乐",
+        "音乐生成"
+      ],
+      "topicUrl": "https://suno.com/release-notes",
+      "domain": "suno.com",
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2024-05-30",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "Suno 向所有用户开放 v3.5",
+          "summary": "v3.5 先经历早期访问，再向所有用户开放；此处记录全面开放日期。",
+          "url": "https://suno.com/release-notes/v3-5-is-available-to-everyone",
+          "verificationUrl": "https://www.musicradar.com/news/suno-ai-music-generator-v35"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "utopai",
+      "name": "Utopai Studios",
+      "description": "Utopai X 与 PAI 为影视制作工作流开发的视频生成模型和制作平台。",
+      "keywords": [
+        "Utopai Studios",
+        "Utopai X",
+        "PAI"
+      ],
+      "topicUrl": "https://www.utopaistudios.com/en/blog/introducing-the-all-new-pai-and-utopai-x",
+      "domain": "utopaistudios.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09-30",
+          "kind": "模型",
+          "title": "Utopai Studios 推出 Utopai X",
+          "summary": "官方介绍新一代创作平台与 Utopai X 视频模型；公告未披露基础模型的具体来源。",
+          "url": "https://www.utopaistudios.com/en/blog/introducing-the-all-new-pai-and-utopai-x",
+          "modelCategory": "video"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "video-rebirth",
+      "name": "Video Rebirth",
+      "description": "基于公开视频模型的推理加速、适配和创作实现。",
+      "keywords": [
+        "Video Rebirth",
+        "HyperFlow H3"
+      ],
+      "topicUrl": "https://github.com/Video-Rebirth/hyperflow",
+      "domain": "github.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026",
+          "kind": "开源适配",
+          "title": "Video Rebirth 发布 MiniMax H3 的 HyperFlow LoRA 适配",
+          "summary": "这是社区适配器/LoRA 项目，不是独立基础模型发布。",
+          "url": "https://github.com/Video-Rebirth/hyperflow",
+          "modelCategory": "video"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "xai",
+      "name": "xAI / Grok",
+      "description": "马斯克旗下 xAI 的 Grok 模型更新、算力集群建设与 X 平台整合。",
+      "keywords": [
+        "xAI",
+        "Grok"
+      ],
+      "aihotSlug": "xai",
+      "topicUrl": "https://aihot.news/topics/xai",
+      "domain": "x.ai",
+      "modelCategories": [
+        "llm",
+        "image",
+        "video",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-08-11",
+          "kind": "Agent",
+          "title": "xAI 推出 AI 助手团队 Grok Bot",
+          "summary": "Grok Bot 以可执行实际工作的 AI 队友形式开放 Beta。",
+          "url": "https://x.ai/news/introducing-grok-bot"
+        },
+        {
+          "date": "2026-08-07",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "xAI 发布 Grok Imagine Image 2.0",
+          "summary": "推出图像生成与多图编辑能力升级。",
+          "url": "https://x.ai/news/grok-imagine-image-2",
+          "verificationUrl": "https://theaiengineering.com/releases/xai"
+        },
+        {
+          "date": "2025-11-17",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "xAI 更新 Grok 4.1",
+          "summary": "Grok 4.1 模型卡记录该版本于 2025 年 11 月发布。",
+          "url": "https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf",
+          "verificationUrl": "https://x.ai/news"
+        },
+        {
+          "date": "2025-07-09",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "xAI 发布 Grok 4",
+          "summary": "推出支持原生工具调用与实时搜索的模型，并同步开放订阅与 API 使用。",
+          "url": "https://x.ai/news/grok-4"
+        },
+        {
+          "date": "2025-02-19",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "xAI 发布 Grok 3 Beta",
+          "summary": "新一代推理模型进入 Beta 阶段。",
+          "url": "https://x.ai/blog/grok-3",
+          "verificationNote": "此节点标注 Beta 发布；API 开放时间另行区分。"
+        },
+        {
+          "date": "2024-12-09",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "xAI 发布 Aurora 图像生成模型",
+          "summary": "Grok 图像生成首次以 Aurora 名称发布；与后续 Imagine 系列区分。",
+          "url": "https://x.ai/news/grok-image-generation-release",
+          "verificationUrl": "https://www.tomsguide.com/ai/ai-image-video/xai-launches-and-then-pulls-aurora-image-generator-in-grok-heres-what-happened"
+        },
+        {
+          "date": "2024-08-13",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "xAI 发布 Grok-2 与 Grok-2 mini",
+          "summary": "推出新一代对话模型预览，改进推理、编程与视觉理解能力。",
+          "url": "https://x.ai/news/grok-2",
+          "verificationUrl": "https://www.axios.com/2024/08/13/elon-musk-xai-grok-2-chatgpt"
+        },
+        {
+          "date": "2024-03-28",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "xAI 发布 Grok-1.5",
+          "summary": "升级推理能力并将上下文长度提升至 128K。",
+          "url": "https://x.ai/news/grok-1.5"
+        },
+        {
+          "date": "2024-03-17",
+          "kind": "开源",
+          "modelCategory": "llm",
+          "title": "xAI 开放 Grok-1 权重与架构",
+          "summary": "公开 Grok-1 基础模型权重与网络架构；这是开放权重节点，不是 Grok 首次发布。",
+          "url": "https://x.ai/news/grok-os",
+          "verificationUrl": "https://github.com/xai-org/grok-1"
+        },
+        {
+          "date": "2023-11-03",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "xAI 公布 Grok-1 并开启早期测试",
+          "summary": "Grok 首代模型进入早期测试；官方资料将模型版本标为 2023 年 11 月发布。",
+          "url": "https://x.ai/news/grok",
+          "verificationUrl": "https://www.axios.com/2023/11/06/grok-elon-musk-ai-xai"
+        }
+      ]
+    },
+    {
+      "id": "bytedance",
+      "name": "字节跳动 / Seed 与即梦",
+      "description": "字节 Seed 团队的视频模型 Seedance、图像模型 Seedream，以及即梦等创作产品。",
+      "keywords": [
+        "ByteDance",
+        "字节跳动",
+        "Seed",
+        "Seedance",
+        "即梦",
+        "Dreamina"
+      ],
+      "topicUrl": "https://seed.bytedance.com/en/models/",
+      "domain": "seed.bytedance.com",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "image",
+        "video",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-11-09",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 Seedream 5.5",
+          "summary": "官方公告介绍了多轮编辑稳定性、原生透明图层与图像质量改进。",
+          "url": "https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5"
+        },
+        {
+          "date": "2026-07-31",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "字节跳动发布 Seedance 2.5",
+          "summary": "更新视频生成模型，支持多模态参考与更长时长创作。",
+          "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
+        },
+        {
+          "date": "2026-07-08",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 Seedream 5.0 Pro",
+          "summary": "推出具备更强推理和设计能力的图像生成模型。",
+          "url": "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro",
+          "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        },
+        {
+          "date": "2026-02-13",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 Seedream 5.0 Lite",
+          "summary": "面向图像创作的轻量系列更新；按官方公告月份记录。",
+          "url": "https://seed.bytedance.com/en/blog/deeper-thinking-more-accurate-generation-introducing-seedream-5-0-lite",
+          "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        },
+        {
+          "date": "2026-02-12",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "字节跳动发布 Seedance 2.0",
+          "summary": "推出统一多模态音视频生成模型。",
+          "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0"
+        },
+        {
+          "date": "2025-12-16",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "字节跳动发布 Seedance 1.5 Pro",
+          "summary": "推出具备音画联合生成能力的模型版本。",
+          "url": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro"
+        },
+        {
+          "date": "2025-11-28",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 Seedream 4.5",
+          "summary": "BytePlus 官方模型发布记录将版本标识为 seedream-4-5-251128；新一代较 4.0 改进编辑一致性、人像增强与小字生成。",
+          "url": "https://console.byteplus.com/ark/region:ap-southeast-1/docs/model-release-announcement-2025",
+          "verificationUrl": "https://vercel.com/ai-gateway/models/bytedance/seedream-4.5",
+          "verificationNote": "官方 ModelArk 年度公告与模型版本号交叉核实为 2025-11-28。"
+        },
+        {
+          "date": "2025-09-09",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 Seedream 4.0",
+          "summary": "统一文生图与图像编辑能力。",
+          "url": "https://seed.bytedance.com/en/blog/seedream-4-0-officially-released-beyond-drawing-into-imagination",
+          "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        },
+        {
+          "date": "2025-06-11",
+          "kind": "研究",
+          "modelCategory": "video",
+          "title": "字节跳动公布 Seedance 1.0 技术报告",
+          "summary": "公开音视频联合生成模型的技术报告；此节点记录研究发布，不代表面向公众的产品开放。",
+          "url": "https://seed.bytedance.com/en/blog/tech-report-of-seedance-1-0-is-now-publicly-available",
+          "verificationNote": "按官方文章列表所示技术报告日期记录。",
+          "verificationUrl": "https://arxiv.org/abs/2506.09113"
+        },
+        {
+          "date": "2025-06-06",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 SeedEdit 3.0",
+          "summary": "推出侧重图像编辑和主体一致性的模型。",
+          "url": "https://seed.bytedance.com/en/blog/bytedance-released-image-editing-model-seededit-3-0-enhanced-image-consistency-and-usability-rate",
+          "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        },
+        {
+          "date": "2025-04-16",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 Seedream 3.0",
+          "summary": "推出原生高分辨率中英双语图像生成模型。",
+          "url": "https://seed.bytedance.com/en/tech/seedream3_0",
+          "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        },
+        {
+          "date": "2024-12",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "字节跳动发布 Seedream 2.0",
+          "summary": "Seedream 图像生成模型进入产品平台；按官方回顾记录为 2024 年 12 月。",
+          "url": "https://seed.bytedance.com/en/blog/doubao-text-to-image-technical-report-released-full-disclosure-of-data-processing-pre-training-and-rlhf-workflow",
+          "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed",
+          "verificationNote": "官方回顾确认于 2024 年 12 月上线，按月份记录。"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "xiaomi-mimo",
+      "name": "小米 MiMo",
+      "description": "小米 MiMo 的大语言、多模态与音频模型系列。",
+      "keywords": [
+        "Xiaomi MiMo",
+        "MiMo-V2.6",
+        "MiMo TTS"
+      ],
+      "topicUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+      "domain": "mimo.mi.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "llm",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09-22",
+          "kind": "模型",
+          "title": "小米发布并开源 MiMo-V2.6",
+          "summary": "MiMo-V2.6 系列包含原生多模态 Pro 与 Flash 型号。",
+          "url": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+          "modelCategory": "llm"
+        },
+        {
+          "date": "2026-03-18",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "小米发布 MiMo-V2-Pro 与 V2-Omni",
+          "summary": "扩展 MiMo 系列的旗舰与多模态型号。",
+          "url": "https://mimo.mi.com/docs/en-US/updates/model",
+          "verificationUrl": "https://www.scmp.com/tech/big-tech/article/3300000/xiaomi-releases-mimo-v2-model-family"
+        },
+        {
+          "date": "2025-12",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "小米发布 MiMo-V2-Flash",
+          "summary": "公开 MiMo 大语言模型家族的高效版本；按月份记录。",
+          "url": "https://mimo.mi.com/docs/en-US/updates/model",
+          "verificationUrl": "https://technode.com/2025/12/17/xiaomi-releases-mimo-v2-flash-open-source-model/"
+        }
+      ]
+    },
+    {
+      "id": "kuaishou",
+      "name": "快手 / 可灵 Kling",
+      "description": "快手可灵 AI 视频模型与创作工具的版本演进。",
+      "keywords": [
+        "Kuaishou",
+        "快手",
+        "Kling",
+        "可灵"
+      ],
+      "topicUrl": "https://ir.kuaishou.com/zh-hans/news-releases",
+      "domain": "klingai.com",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "image",
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-11-18",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "快手发布 Kling Image 4.0 图像生成与编辑模型",
+          "summary": "Kling Image 4.0 是图像生成与编辑版本，与 Kling 4.0 视频模型分开记录。",
+          "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"
+        },
+        {
+          "date": "2026-10-15",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手上线 Kling 4.0 视频模型",
+          "summary": "模型于 10 月开始正式上线；与 9 月公布并限量测试的 4.0 Flash 区分。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/"
+        },
+        {
+          "date": "2026-02-05",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling 3.0 与 3.0 Omni",
+          "summary": "扩展多镜头叙事、原生音频及多模态参考能力。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be",
+          "verificationUrl": "https://www.bernama.com/en/news.php/?id=2520897"
+        },
+        {
+          "date": "2025-12-03",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling 2.6 音画同出模型",
+          "summary": "视频生成可同步产生画面与声音。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-video-26-model-simultaneous-audio-visual/",
+          "verificationUrl": "https://www.scmp.com/tech/big-tech/article/3335000/kuaishou-launches-kling-26-video-model-native-audio"
+        },
+        {
+          "date": "2025-12-01",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling O1 多模态视频模型",
+          "summary": "推出统一理解、生成与编辑的视频模型；同时公布 O1 图像模型。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-o1-launches-worlds-first-unified-multimodal-video-model-0/",
+          "verificationUrl": "https://www.theverge.com/ai-artificial-intelligence/832555/kling-o1-video-generation-editing-model"
+        },
+        {
+          "date": "2025-12-01",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "快手发布 Kling O1 Image",
+          "summary": "Kling O1 系列同时覆盖视频与图像生成、理解和编辑。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-o1-launches-worlds-first-unified-multimodal-video-model-0/"
+        },
+        {
+          "date": "2025-12-01",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "快手发布 Kling O1 Image 图像模型",
+          "summary": "Kling O1 多模态创作体系同时推出独立图像模型，支持从生成到细节编辑。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-o1-launches-worlds-first-unified-multimodal-video-model-0/",
+          "verificationUrl": "https://www.prnewswire.com/news-releases/kling-o1-launches-as-the-worlds-first-unified-multimodal-video-model-302630630.html"
+        },
+        {
+          "date": "2025-09-23",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling 2.5 Turbo",
+          "summary": "推出更快的视频生成型号。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-25-turbo-video-model-industry-leading",
+          "verificationUrl": "https://www.tomsguide.com/ai/i-tried-klings-new-2-5-turbo-ai-video-generator-its-a-giant-leap-forward-but-still-cant-do-this-one-thing"
+        },
+        {
+          "date": "2025-05",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling 2.1",
+          "summary": "更新视频生成质量、动作与镜头控制。",
+          "url": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/03/26/18-09-44/4Q25%20MP_EN_20260326.pdf",
+          "verificationUrl": "https://www.tomsguide.com/ai/ai-image-video/kling-2-1-is-here-and-its-set-to-rival-google-veo-3-and-runway-gen-4",
+          "verificationNote": "官方投资者材料可确认发布月份；具体日期仅见二手来源，故降为月级精度。"
+        },
+        {
+          "date": "2025-04-15",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling 2.0",
+          "summary": "升级视频生成与镜头表现，并同步推出 Kolors 2.0 图像型号。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-advances-20-era-empowering-everyone-tell-great-stories/",
+          "verificationUrl": "https://www.reuters.com/technology/artificial-intelligence/kuaishou-launches-kling-20-ai-video-model-2025-04-15/"
+        },
+        {
+          "date": "2025-04-15",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "快手升级 Kolors 2.0 图像生成与编辑模型",
+          "summary": "Kolors 2.0 加入局部重绘、扩图和风格转换等图像编辑能力；与同日的 Kling 视频模型分开记录。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-advances-20-era-empowering-everyone-tell-great-stories/",
+          "verificationUrl": "https://macaubusiness.com/kling-ai-2-0-empowers-all-to-tell-stories-with-ai/"
+        },
+        {
+          "date": "2024-12",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling 1.6",
+          "summary": "迭代视频生成质量与动作表现。",
+          "url": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/03/26/18-09-44/4Q25%20MP_EN_20260326.pdf",
+          "verificationUrl": "https://theaiengineering.com/releases/kuaishou",
+          "verificationNote": "投资者材料回顾早期版本序列；月份口径。"
+        },
+        {
+          "date": "2024-09",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手发布 Kling 1.5",
+          "summary": "升级视频清晰度、动态表现与语义响应能力。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-technology-announces-third-quarter-2024-unaudited",
+          "verificationNote": "快手季度公告确认 2024 年 9 月；采用月级日期。"
+        },
+        {
+          "date": "2024-07-06",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "快手公布 Kolors 图像生成模型",
+          "summary": "快手在 WAIC 发布会上展示自研图像生成模型 Kolors 与 Kling 视频模型。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-comprehensive-ai-models-reshaping-content-and/",
+          "verificationNote": "此处按模型展示/发布活动日期记录；同场公告日期为 7 月 8 日，存在发布会与新闻稿日期差异。"
+        },
+        {
+          "date": "2024-06",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "快手推出 Kling 视频生成模型",
+          "summary": "可灵进入公开测试并开启视频模型迭代。",
+          "url": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-proprietary-video-generation-model-kling/",
+          "verificationUrl": "https://www.bernama.com/en/news.php/?id=2520897",
+          "verificationNote": "官方和独立资料确认系列起点为 2024 年 6 月；日期按月份记录。"
+        }
+      ]
+    },
+    {
+      "id": "mureka",
+      "name": "昆仑万维 / Mureka",
+      "description": "昆仑万维 Mureka 音乐生成与歌曲 Remix 模型的更新。",
+      "keywords": [
+        "Mureka",
+        "昆仑万维",
+        "Kunlun"
+      ],
+      "topicUrl": "https://www.mureka.ai/blog_en.html",
+      "domain": "mureka.ai",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-07",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "Mureka 首次发布 V9.5",
+          "summary": "昆仑万维资料称 V9.5 于 2026 年 7 月推出；8 月 28 日是增强版更新。",
+          "url": "https://www.mureka.ai/blog_en/what-is-mureka.html",
+          "verificationUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+          "verificationNote": "具体首发日证据不足，仅标月份。"
+        },
+        {
+          "date": "2026-03",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "Mureka 发布 V9 音乐模型",
+          "summary": "Mureka 官方版本回顾确认 V9 代际；按月份记录。",
+          "url": "https://www.mureka.ai/blog_en/what-is-mureka.html",
+          "verificationUrl": "https://www.chinanews.com/cj/2026/03-28/10594432.shtml",
+          "verificationNote": "官方版本史确认 V9；未找到一致的精确发布日期，按月份记录。"
+        },
+        {
+          "date": "2026-01",
+          "kind": "模型",
+          "title": "Mureka 发布 V8 音乐模型",
+          "summary": "官方产品介绍回顾 V8、V9 与 V9.5 版本演进。",
+          "url": "https://www.mureka.ai/blog_en/what-is-mureka.html",
+          "modelCategory": "audio"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "zhipu",
+      "name": "智谱 GLM",
+      "description": "智谱 GLM 系列模型的发布与开源更新，以及编程、推理能力和商业化进展。",
+      "keywords": [
+        "智谱",
+        "GLM",
+        "Z.ai"
+      ],
+      "aihotSlug": "zhipu",
+      "topicUrl": "https://aihot.news/topics/zhipu",
+      "domain": "z.ai",
+      "modelCategories": [
+        "llm"
+      ],
+      "milestones": [
+        {
+          "date": "2026-08-14",
+          "kind": "模型",
+          "title": "智谱发布 GLM-5.3",
+          "summary": "GLM-5.3 与轻量 Flash 型号分开记录。",
+          "url": "https://z.ai/blog/glm-5.3",
+          "modelCategory": "llm"
+        },
+        {
+          "date": "2024-01",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "智谱发布 GLM-4",
+          "summary": "推出新一代通用模型与智能体能力。",
+          "url": "https://www.zhipuai.cn/en/about",
+          "verificationUrl": "https://www.scmp.com/tech/big-tech/article/3247030/chinas-zhipu-ai-launches-new-model-glm-4-openai-gpt-4-rival"
+        },
+        {
+          "date": "2023-03",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "智谱发布 ChatGLM-6B",
+          "summary": "推出可在消费级显卡运行的开源对话模型。",
+          "url": "https://github.com/THUDM/ChatGLM-6B",
+          "verificationUrl": "https://www.scmp.com/tech/tech-war/article/3214052/chinese-chatgpt-rivals-chatglm-and-ernie-bot-enter-race"
+        },
+        {
+          "date": "2022-09",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "智谱开源 GLM-130B",
+          "summary": "发布双语千亿参数模型 GLM-130B。",
+          "url": "https://github.com/THUDM/GLM-130B",
+          "verificationUrl": "https://www.reuters.com/technology/china-ai-startup-zhipu-releases-open-source-large-language-model-2022-09/"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "kimi",
+      "name": "月之暗面 / Kimi",
+      "description": "月之暗面的 Kimi 产品更新、K 系列开源模型与长文本技术进展。",
+      "keywords": [
+        "Kimi",
+        "月之暗面",
+        "Moonshot"
+      ],
+      "aihotSlug": "kimi",
+      "topicUrl": "https://aihot.news/topics/kimi",
+      "domain": "kimi.com",
+      "modelCategories": [
+        "llm",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-23",
+          "kind": "模型",
+          "title": "月之暗面发布 Kimi K3.1 Pro",
+          "summary": "官方公告列出 K3.1 Pro，并延续 K2.x 型号线。",
+          "url": "https://forum.moonshot.ai/t/kimi-k3-1-pro-has-launched-start-exploring-now/629",
+          "modelCategory": "llm"
+        },
+        {
+          "date": "2026-07",
+          "kind": "模型",
+          "title": "月之暗面发布 Kimi K3",
+          "summary": "K3 为 Kimi 系列新一代大语言模型。",
+          "url": "https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480",
+          "modelCategory": "llm",
+          "verificationNote": "官方论坛公告日期为 7 月 22 日；Reuters 报道记载的发布报道日期为 7 月 16/17 日，采用月份精度避免混淆公告与报道日期。",
+          "verificationUrl": "https://www.investing.com/news/stock-market-news/chinas-moonshot-unveils-worlds-largest-open-ai-model-closing-in-on-us-rivals-4797347"
+        },
+        {
+          "date": "2025-07-11",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "月之暗面发布 Kimi K2",
+          "summary": "推出开源混合专家模型，扩展编码与智能体能力。",
+          "url": "https://www.moonshot.ai/news/kimik2",
+          "verificationUrl": "https://www.bloomberg.com/news/articles/2025-07-11/china-s-moonshot-ai-releases-open-source-model-to-rival-us-tech"
+        },
+        {
+          "date": "2025-01-20",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "月之暗面发布 Kimi k1.5",
+          "summary": "发布推理模型研究成果，展示长思维链与多模态能力。",
+          "url": "https://www.kimi.com/en/blog/kimi-k1-5.html",
+          "verificationUrl": "https://www.reuters.com/technology/artificial-intelligence/chinas-moonshot-ai-releases-reasoning-model-rival-deepseek-2025-01-20/"
+        },
+        {
+          "date": "2023",
+          "kind": "公司",
+          "title": "月之暗面成立",
+          "summary": "Moonshot AI 官方资料将公司成立时间记为 2023 年春季。",
+          "url": "https://www.moonshot.ai/about",
+          "modelCategory": "llm"
+        }
+      ]
+    },
+    {
+      "id": "shengshu",
+      "name": "生数科技 / Vidu",
+      "description": "生数科技 Vidu 视频模型、参考生成与音视频能力更新。",
+      "keywords": [
+        "Shengshu",
+        "生数科技",
+        "Vidu"
+      ],
+      "topicUrl": "https://platform.vidu.com/models",
+      "domain": "vidu.com",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-07",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "生数科技发布 Vidu Q4 Preview",
+          "summary": "生数科技发布 Vidu Q4 预览版，重点展示更真实的人物表演；标记为 Preview，不作正式全面上线。",
+          "url": "https://www.globenewswire.com/news-release/2026/10/7/3376813/0/en/shengshu-technology-launches-vidu-q4-preview-a-next-generation-ai-video-model-built-for-lifelike-performances.html",
+          "verificationUrl": "https://imastudio.com/vidu-q4"
+        },
+        {
+          "date": "2025-10",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "生数科技发布 Vidu Q2",
+          "summary": "推出参考生视频模型，增强主体一致性与创作控制。",
+          "url": "https://www.prnewswire.com/news-releases/vidu-launches-q2-reference-to-video-pioneering-a-new-era-of-high-consistency-and-creative-control-302590002.html",
+          "verificationUrl": "https://theaiengineering.com/releases/shengshu-technology",
+          "verificationNote": "厂商新闻稿确认 2025 年 10 月；未将转载稿当成独立核验。"
+        },
+        {
+          "date": "2024-07",
+          "kind": "产品",
+          "modelCategory": "video",
+          "title": "生数科技推出 Vidu 视频生成产品",
+          "summary": "Vidu 面向用户开放视频生成服务；后续模型版本另列。",
+          "url": "https://www.prnewswire.com/news-releases/vidu-1-5-launch-marks-new-emergence-in-multimodal-ai-to-introduce-groundbreaking-consistency-controls-that-reshape-the-future-of-ai-video-production-302304364.html",
+          "verificationUrl": "https://theaiengineering.com/releases/shengshu-technology",
+          "verificationNote": "Vidu 1.5 官方稿回溯产品于 2024 年 7 月推出，按月份记录。"
+        }
+      ]
+    },
+    {
+      "id": "tencent",
+      "name": "腾讯混元",
+      "description": "腾讯混元的视频与图像生成模型、开放权重和创作能力更新。",
+      "keywords": [
+        "Tencent",
+        "腾讯",
+        "Hunyuan",
+        "混元"
+      ],
+      "topicUrl": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
+      "domain": "hunyuan.tencent.com",
+      "group": "公司与模型",
+      "aihotSlug": null,
+      "modelCategories": [
+        "llm",
+        "image",
+        "video"
+      ],
+      "milestones": [
+        {
+          "date": "2026-11-04",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "腾讯发布混元 Hy4",
+          "summary": "发布正式模型版本；权重开放时间与模型发布日期分开核对。",
+          "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+          "verificationUrl": "https://www.reuters.com/technology/artificial-intelligence/tencent-launches-hy4-ai-model-2026-11-04/"
+        },
+        {
+          "date": "2026-08-28",
+          "kind": "模型",
+          "title": "腾讯发布并开源混元 Hy4 Preview",
+          "summary": "语言模型预览版于 8 月 28 日发布并开放；与 HunyuanVideo 视频模型分开记录。",
+          "url": "https://www.tencent.com/zh-cn/tencent-releases-and-opens-sources-tencent-hy4-preview/",
+          "modelCategory": "llm",
+          "verificationUrl": "https://www.reuters.com/technology/artificial-intelligence/tencent-releases-open-source-hy4-preview-2026-08-28/"
+        },
+        {
+          "date": "2026-04",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "腾讯发布混元 Hy3 Preview",
+          "summary": "Hy3 预览版进入公开测试阶段；按官方公告年份和月份记录。",
+          "url": "https://www.tencent.com/wp-content/uploads/2026/10/c700_Joshua-PS-Publication-Announcement.pdf",
+          "verificationNote": "官方材料确认 Hy3 Preview 阶段；独立媒体未确认具体日，按月份记录。"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "stepfun",
+      "name": "阶跃星辰 / StepFun",
+      "description": "StepFun 的 Step 大语言模型与 StepAudio 音频模型。",
+      "keywords": [
+        "StepFun",
+        "阶跃星辰",
+        "Step 5",
+        "StepAudio"
+      ],
+      "topicUrl": "https://www.stepfun.com/about",
+      "domain": "stepfun.com",
+      "aihotSlug": null,
+      "modelCategories": [
+        "llm",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-09-20",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "阶跃星辰发布 Step 5 Preview",
+          "summary": "旗舰基础模型进入 Preview 阶段，面向 Agent、编程与专业知识工作。",
+          "url": "https://www.stepfun.com/news/step-5-preview",
+          "verificationUrl": "https://epoch.ai/models/step-5-preview",
+          "verificationNote": "官方公告日为 9 月 20 日；Epoch 页面记录的日期略早，采用官方新闻日期。"
+        },
+        {
+          "date": "2026-09-15",
+          "kind": "模型",
+          "title": "StepFun 发布 StepAudio 3",
+          "summary": "StepAudio 3 家族覆盖文本转语音、实时语音、语音识别和音乐生成。",
+          "url": "https://www.stepfun.com/news/stepaudio-3",
+          "modelCategory": "audio"
+        },
+        {
+          "date": "2026-04-16",
+          "kind": "模型",
+          "modelCategory": "audio",
+          "title": "阶跃星辰发布 StepAudio 2.5 TTS",
+          "summary": "推出新一代文本转语音模型。",
+          "url": "https://www.stepfun.com/news/stepaudio-2-5-tts",
+          "verificationUrl": "https://runtimewire.com/article/stepfun-stepaudio-2-5-tts"
+        }
+      ]
+    },
+    {
+      "group": "公司与模型",
+      "id": "qwen",
+      "name": "阿里巴巴 / 千问与通义万相",
+      "description": "阿里巴巴的千问大语言模型、Wan 通义万相视频模型，以及 HappyHorse 等 Model Studio 视频型号。",
+      "keywords": [
+        "Alibaba",
+        "阿里巴巴",
+        "Qwen",
+        "千问",
+        "通义千问",
+        "Wan",
+        "通义万相",
+        "HappyHorse"
+      ],
+      "aihotSlug": "qwen",
+      "topicUrl": "https://aihot.news/topics/qwen",
+      "domain": "qwen.ai",
+      "modelCategories": [
+        "llm",
+        "image",
+        "video",
+        "audio"
+      ],
+      "milestones": [
+        {
+          "date": "2026-10-21",
+          "kind": "模型",
+          "title": "阿里巴巴发布 Qwen-Audio-3.1-TTS-Plus",
+          "summary": "官方模型发布列表记录 Plus 版本于 10 月 21 日发布；其它 3.1 TTS 型号发布日期不同。",
+          "url": "https://help.aliyun.com/en/model-studio/models",
+          "modelCategory": "audio",
+          "verificationNote": "以型号专属发布日期为准，不再用通用模型目录更新时间代替。"
+        },
+        {
+          "date": "2026-08-06",
+          "kind": "预览",
+          "modelCategory": "video",
+          "title": "阿里巴巴开启 Wan 3.0 公测",
+          "summary": "官方公开视频宣布 Wan 3.0 Public Beta；公测与后续 API/商业可用日期分开记录。",
+          "url": "https://www.youtube.com/watch?v=dC5pu8zL2p8",
+          "verificationNote": "官方视频与二手版本整理交叉；目前尚无强独立媒体报道。"
+        },
+        {
+          "date": "2026-06-12",
+          "kind": "API 更新",
+          "modelCategory": "video",
+          "title": "阿里云 Model Studio 上线 Wan 2.7 T2V 与 R2V",
+          "summary": "Model Studio 新模型目录记录 Wan 2.7 文生视频与参考视频变体的可用日期；按服务目录日期记录，不推断模型首次亮相日。",
+          "url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/newly-released-models",
+          "verificationNote": "阿里云官方服务目录记录；未找到独立媒体对具体变体日期交叉确认。"
+        },
+        {
+          "date": "2026-04-25",
+          "kind": "API 更新",
+          "modelCategory": "video",
+          "title": "阿里云 Model Studio 上线 Wan 2.7 I2V",
+          "summary": "Model Studio 新模型目录记录 Wan 2.7 图生视频变体的服务日期；按 API 目录上线记录。",
+          "url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/newly-released-models",
+          "verificationNote": "阿里云官方服务目录记录；未找到独立媒体对具体变体日期交叉确认。"
+        },
+        {
+          "date": "2026-04-03",
+          "kind": "API 更新",
+          "modelCategory": "video",
+          "title": "阿里云 Model Studio 上线 Wan 2.7 VideoEdit",
+          "summary": "Model Studio 新模型目录记录 Wan 2.7 视频编辑变体的服务日期；与 T2V/R2V 型号分开记录。",
+          "url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/newly-released-models",
+          "verificationNote": "阿里云官方服务目录记录；未找到独立媒体对具体变体日期交叉确认。"
+        },
+        {
+          "date": "2025-12-31",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "阿里巴巴发布 Qwen-Image-2512",
+          "summary": "更新图像生成真实感、文字渲染与人物表现。",
+          "url": "https://qwen.ai/blog?id=qwen-image-2512",
+          "verificationUrl": "https://venturebeat.com/technology/open-source-qwen-image-2512-launches-to-compete-with-googles-nano-banana-pro-in-high-quality-ai-image-generation/"
+        },
+        {
+          "date": "2025-12-17",
+          "kind": "发布",
+          "modelCategory": "video",
+          "title": "阿里云发布 Wan 2.6",
+          "summary": "阿里云举行 Wan 2.6 全球发布活动；API 与地区可用时间可能不同。",
+          "url": "https://www.alibabacloud.com/en/events/wan-model-launch?_p_lc=1",
+          "verificationNote": "官方活动页核实；独立报道交叉仍待补。"
+        },
+        {
+          "date": "2025-11-11",
+          "kind": "发布",
+          "modelCategory": "video",
+          "title": "阿里云举办 Wan 2.5 Preview 发布活动",
+          "summary": "按阿里云官方 Preview 发布活动记为预览版发布；产品和 API 可用日期可能因区域而异。",
+          "url": "https://www.alibabacloud.com/en/events/wan2-5-preview-launch?_p_lc=1",
+          "verificationNote": "官方活动页；不要把 Preview 写成最终正式版。"
+        },
+        {
+          "date": "2025-09-24",
+          "kind": "预览",
+          "modelCategory": "video",
+          "title": "阿里巴巴预告 Wan 2.5 Preview",
+          "summary": "阿里云公布 Wan 2.5 即将推出；这是预告节点，不等同于模型服务开放。",
+          "url": "https://www.alibabacloud.com/vi/press-room/alibabacloudunveilsstrategicroadmaps?_p_lc=1",
+          "verificationNote": "官方预告来源；未找到足够强的独立媒体交叉。"
+        },
+        {
+          "date": "2025-08-19",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "阿里巴巴发布 Qwen-Image-Edit",
+          "summary": "基于 Qwen-Image 的图像编辑型号，支持指令式修改。",
+          "url": "https://qwenlm.github.io/blog/qwen-image-edit/",
+          "verificationUrl": "https://github.com/QwenLM/Qwen-Image"
+        },
+        {
+          "date": "2025-08-04",
+          "kind": "模型",
+          "modelCategory": "image",
+          "title": "阿里巴巴开源 Qwen-Image",
+          "summary": "通义千问团队推出并开放 20B 文生图基础模型，重点提升复杂文字渲染与图像编辑能力。",
+          "url": "https://qwenlm.github.io/blog/qwen-image/",
+          "verificationUrl": "https://github.com/QwenLM/Qwen-Image"
+        },
+        {
+          "date": "2025-07-29",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "阿里巴巴发布 Wan 2.2 视频模型",
+          "summary": "阿里巴巴公布 Wan 2.2；开放推理代码与权重的 GitHub 记录日期为 7 月 28 日。",
+          "url": "https://www.alibabacloud.com/en/press-room/alibaba-releases-wan2-2-to-uplift-cinematic?_p_lc=1",
+          "verificationUrl": "https://github.com/Wan-Video/Wan2.2",
+          "verificationNote": "区分 7 月 29 日官方公告与 7 月 28 日代码/权重可用记录。"
+        },
+        {
+          "date": "2025-04-29",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "阿里巴巴发布 Qwen3",
+          "summary": "推出覆盖多种尺寸与推理模式的 Qwen3 系列。",
+          "url": "https://qwenlm.github.io/blog/qwen3/",
+          "verificationNote": "模型发布以官方团队公告为准。"
+        },
+        {
+          "date": "2025-02-25",
+          "kind": "模型",
+          "modelCategory": "video",
+          "title": "阿里开放 Wan 2.1 视频模型权重",
+          "summary": "发布模型权重与推理代码，支持文生和图生视频。",
+          "url": "https://github.com/Wan-Video/Wan2.1",
+          "verificationUrl": "https://www.reuters.com/technology/artificial-intelligence/alibaba-releases-open-source-version-of-video-generating-ai-model-2025-02-25/"
+        },
+        {
+          "date": "2024-09-19",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "阿里巴巴发布 Qwen2.5",
+          "summary": "推出通用、代码与数学等多个 Qwen2.5 系列模型。",
+          "url": "https://qwenlm.github.io/blog/qwen2.5/",
+          "verificationNote": "按官方公告记录；不把后续托管平台上架日期混作发布日期。"
+        },
+        {
+          "date": "2024-06-07",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "阿里巴巴发布 Qwen2",
+          "summary": "Qwen2 系列开源发布，覆盖不同规模的基础与指令微调模型。",
+          "url": "https://qwenlm.github.io/blog/qwen2/",
+          "verificationNote": "采用 Qwen 团队公告日期；个别模型仓库时间戳可能相差一天。"
+        },
+        {
+          "date": "2024-02-04",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "阿里巴巴发布 Qwen1.5",
+          "summary": "Qwen 官方博客记录的发布日期为 2024 年 2 月 4 日，并开放多种尺寸模型。",
+          "url": "https://qwenlm.github.io/blog/qwen1.5/"
+        },
+        {
+          "date": "2023-08-03",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "阿里巴巴开源 Qwen-7B",
+          "summary": "Qwen 团队开放首批 Qwen-7B 权重与代码。",
+          "url": "https://github.com/QwenLM/Qwen"
+        },
+        {
+          "date": "2023-08",
+          "kind": "模型",
+          "modelCategory": "llm",
+          "title": "阿里巴巴发布 Qwen-VL 视觉语言模型",
+          "summary": "推出 Qwen-VL 与 Qwen-VL-Chat，扩展 Qwen 的图像理解能力；按月份记录。",
+          "url": "https://qwenlm.github.io/blog/qwen-vl/"
+        },
+        {
+          "date": "2023-04",
+          "kind": "模型",
+          "title": "阿里巴巴推出通义千问模型系列",
+          "summary": "阿里巴巴公布通义千问大语言模型系列；按官方回顾资料保留到月份精度。",
+          "url": "https://www.alibabacloud.com/tr/press-room/alibabacloudunveilsstrategicroadmaps",
+          "modelCategory": "llm"
+        }
+      ]
+    }
+  ],
+  "curatedCompanyMilestonesBeforeV49": {
+    "openai": [
+      {
+        "date": "2023-11-06",
+        "kind": "助手",
+        "title": "OpenAI 推出可自定义 GPTs",
+        "summary": "用户可以创建面向特定任务的 ChatGPT 助手。",
+        "url": "https://openai.com/index/introducing-gpts/"
+      },
+      {
+        "date": "2024-02-15",
+        "kind": "模型",
+        "title": "OpenAI 公布 Sora 视频生成模型",
+        "summary": "Sora 首次公开，展示由文字生成视频的研究成果。",
+        "url": "https://openai.com/index/sora/"
+      },
+      {
+        "date": "2024-12-09",
+        "kind": "模型",
+        "title": "OpenAI 发布 Sora Turbo",
+        "summary": "Sora 从研究预览迈向独立创作产品，支持更快的视频生成。",
+        "url": "https://openai.com/index/sora-is-here/"
+      },
+      {
+        "date": "2025-09-30",
+        "kind": "模型",
+        "title": "OpenAI 发布 Sora 2 音视频生成模型",
+        "summary": "加入同步对白与音效，并提升物理表现和可控性。",
+        "url": "https://openai.com/index/sora-2/"
+      }
+    ],
+    "bytedance": [
+      {
+        "date": "2025-12-16",
+        "kind": "模型",
+        "title": "字节跳动发布 Seedance 1.5 Pro",
+        "summary": "Seedance 1.5 Pro 采用音视频联合生成架构。",
+        "url": "https://seed.bytedance.com/en/blog_list/visual"
+      },
+      {
+        "date": "2026-02-12",
+        "kind": "模型",
+        "title": "字节跳动发布 Seedance 2.0",
+        "summary": "统一多模态音视频生成，支持文本、图像、音频与视频参考。",
+        "url": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0"
+      },
+      {
+        "date": "2026-07-31",
+        "kind": "模型",
+        "title": "字节跳动发布 Seedance 2.5",
+        "summary": "支持单次生成 30 秒音视频，并强化多模态参考和编辑控制。",
+        "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
+      },
+      {
+        "date": "2026-11-09",
+        "kind": "模型",
+        "title": "字节跳动发布 Seedream 5.5 图像生成模型",
+        "summary": "提升图像生成与连续编辑能力。",
+        "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5"
+      }
+    ],
+    "kuaishou": [
+      {
+        "date": "2026-11-18",
+        "kind": "模型",
+        "title": "快手发布 Kling Image 4.0 图像生成与编辑模型",
+        "summary": "支持原生 8K、文字渲染、多图参考与连续一致性创作。",
+        "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"
+      },
+      {
+        "date": "2026-10-15",
+        "kind": "模型",
+        "title": "快手上线可灵 Kling 4.0 视频模型",
+        "summary": "支持最长 30 秒单次生成、多模态参考和关键帧控制。",
+        "url": "https://ir.kuaishou.com/zh-hans/news-releases/news-release-details/kelingaixinyidaimoxingklin1g-40zhengshishangxian/"
+      }
+    ],
+    "tencent": [
+      {
+        "date": "2025-09-28",
+        "kind": "模型",
+        "title": "腾讯混元发布 HunyuanImage 3.0 图像生成模型",
+        "summary": "开放权重的原生多模态图像生成模型，支持指令理解与图像编辑。",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0"
+      },
+      {
+        "date": "2025-11-20",
+        "kind": "模型",
+        "title": "腾讯混元开放 HunyuanVideo 1.5 权重与推理代码",
+        "summary": "轻量级视频生成模型支持文生视频、图生视频与高分辨率放大。",
+        "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5"
+      }
+    ],
+    "shengshu": [
+      {
+        "date": "2026-10-07",
+        "kind": "模型",
+        "title": "生数科技发布 Vidu Q4（预览版）",
+        "summary": "官方公告确认 10 月 7 日发布；主打更自然的表演表现。",
+        "url": "https://www.globenewswire.com/news-release/2026/10/7/3376813/0/en/shengshu-technology-launches-vidu-q4-preview-a-next-generation-ai-video-model-built-for-lifelike-performances.html"
+      }
+    ],
+    "lightricks": [
+      {
+        "date": "2026-08-11",
+        "kind": "模型",
+        "title": "Lightricks 发布 LTX-2.5 音视频模型",
+        "summary": "开放权重的音视频生成模型，支持多镜头和同步音画。",
+        "url": "https://github.com/Lightricks/LTX-Video"
+      }
+    ],
+    "luma": [
+      {
+        "date": "2025-09-18",
+        "kind": "模型",
+        "title": "Luma 发布 Ray3 视频模型",
+        "summary": "加入推理式生成、原生 HDR 和快速草稿模式。",
+        "url": "https://lumalabs.ai/news/ray3"
+      },
+      {
+        "date": "2026-01-26",
+        "kind": "模型",
+        "title": "Luma 发布 Ray3.14",
+        "summary": "原生 1080p，生成速度提升并降低使用成本。",
+        "url": "https://lumalabs.ai/news/ray3_14"
+      },
+      {
+        "date": "2026-06",
+        "kind": "模型",
+        "title": "Luma 发布 Ray3.2",
+        "summary": "Luma 官方当前型号介绍将 Ray3.2 列为 2026 年 6 月发布的视频模型。",
+        "url": "https://lumalabs.ai/llm-info"
+      }
+    ],
+    "pika": [
+      {
+        "date": "2026-10-29",
+        "kind": "模型",
+        "title": "Pika 发布 Pika H3 Flex",
+        "summary": "基于 MiniMax H3 后训练，开放模型适配器与推理代码，面向创作迭代。",
+        "url": "https://pika.art/blog/pika-h3-flex"
+      }
+    ],
+    "runway": [
+      {
+        "date": "2025-12-01",
+        "kind": "模型",
+        "title": "Runway 发布 Gen-4.5 视频模型",
+        "summary": "重点提升动作质量、提示词遵循和画面保真度。",
+        "url": "https://runway.com/research/introducing-runway-gen-4.5"
+      }
+    ],
+    "pixverse": [
+      {
+        "date": "2026-03-30",
+        "kind": "模型",
+        "title": "PixVerse 发布 V6 视频模型",
+        "summary": "强化镜头控制、角色表演、多镜头生成与原生音频。",
+        "url": "https://pixverse.ai/en/blog/pixverse-launches-v6-advancing-ai-video-generation"
+      }
+    ],
+    "black-forest-labs": [
+      {
+        "date": "2025-11-25",
+        "kind": "模型",
+        "title": "Black Forest Labs 发布 FLUX.2 图像生成与编辑模型",
+        "summary": "支持多参考图编辑、文字渲染和最高 4MP 输出。",
+        "url": "https://bfl.ai/blog/flux-2"
+      },
+      {
+        "date": "2026-01-15",
+        "kind": "模型",
+        "title": "Black Forest Labs 推出 FLUX.2 Klein 快速图像模型",
+        "summary": "面向交互式创作与消费级硬件，兼顾图像生成和编辑。",
+        "url": "https://bfl.ai/blog/flux2-klein-towards-interactive-visual-intelligence"
+      }
+    ],
+    "midjourney": [
+      {
+        "date": "2026-07-24",
+        "kind": "模型",
+        "title": "Midjourney 发布 V8.2 图像模型",
+        "summary": "本次更新聚焦图像审美、画质和个性化。",
+        "url": "https://updates.midjourney.com/version-8-2/"
+      }
+    ],
+    "ideogram": [
+      {
+        "date": "2026-11-19",
+        "kind": "模型",
+        "title": "Ideogram 发布 4.6 图像生成与精准编辑模型",
+        "summary": "支持多轮精准编辑，并可生成最高 4K 图像。",
+        "url": "https://ideogram.ai/models/4.6/"
+      }
+    ],
+    "recraft": [
+      {
+        "date": "2026-05-14",
+        "kind": "模型",
+        "title": "Recraft 发布 V4.1 图像模型系列",
+        "summary": "推出主模型、Utility 与 Vector，分别面向创意图像、稳定生产和矢量创作。",
+        "url": "https://www.recraft.ai/blog/recraft-v4-1-more-beautiful-by-nature"
+      }
+    ],
+    "mureka": [
+      {
+        "date": "2026-08-28",
+        "kind": "模型",
+        "title": "Mureka 更新 V9.5 音乐生成模型",
+        "summary": "加强歌曲结构、编曲、人声表达和提示词控制。",
+        "url": "https://www.mureka.ai/blog_en/mureka-v9-5-model-changes.html"
+      },
+      {
+        "date": "2026-11-16",
+        "kind": "模型",
+        "title": "Mureka 发布 Remix V9.5 音乐模型",
+        "summary": "可从人声、伴奏或完整歌曲进行改编，并细调人声、歌词与编曲。",
+        "url": "https://www.mureka.ai/blog_en/mureka-remix-v9-5-is-here.html"
+      }
+    ],
+    "meta": [
+      {
+        "date": "2026-07-07",
+        "kind": "模型",
+        "title": "Meta 发布 Muse Image 图像生成模型",
+        "summary": "Meta Superintelligence Labs 发布媒体生成模型 Muse Image，并预览 Muse Video。",
+        "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"
+      },
+      {
+        "date": "2026-07-07",
+        "kind": "模型",
+        "title": "Meta 预览 Muse Video 视频生成模型",
+        "summary": "Meta Superintelligence Labs 发布首批媒体生成模型预览，Muse Video 支持原生音频。",
+        "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"
+      },
+      {
+        "date": "2026-09-08",
+        "kind": "助手",
+        "title": "Meta 推出 Muse 个人 AI 助手",
+        "summary": "面向用户的个人助手，与 Muse Image 和 Muse Video 媒体模型分开记录。",
+        "url": "https://ai.meta.com/tools/muse/"
+      }
+    ],
+    "xai": [
+      {
+        "date": "2026-08-11",
+        "kind": "智能体",
+        "title": "xAI 推出 AI 助手团队 Grok Bot",
+        "summary": "Grok Bot 以可执行实际工作的 AI 队友形式开放 Beta。",
+        "url": "https://x.ai/news/introducing-grok-bot"
+      },
+      {
+        "date": "2026-06-16",
+        "kind": "模型",
+        "title": "xAI 发布 Grok Imagine Video 1.5",
+        "summary": "提升动作、物理表现与同步音频，并开放 Imagine 接口。",
+        "url": "https://x.ai/news/grok-imagine-video-1-5"
+      },
+      {
+        "date": "2026-07-31",
+        "kind": "模型",
+        "title": "xAI 为 Grok Imagine Video 1.5 加入多参考与原生 1080p",
+        "summary": "支持文字、图像和语音参考的视频生成。",
+        "url": "https://x.ai/news/grok-imagine-video-1-5-references"
+      }
+    ],
+    "suno": [
+      {
+        "date": "2026-11-17",
+        "kind": "产品",
+        "title": "Suno 推出 Visuals 音乐视觉创作工具",
+        "summary": "可将歌曲生成音乐视频、歌词视频和短视频片段，并继续编辑与延长。",
+        "url": "https://suno.com/blog/introducing-visuals"
+      },
+      {
+        "date": "2026-09-09",
+        "kind": "模型",
+        "title": "Suno 发布 v6 音乐模型系列",
+        "summary": "推出 v6、v6-wild 与 v6-mini，分别面向稳定创作、灵感探索和快速生成。",
+        "url": "https://suno.com/blog/introducing-v6"
+      },
+      {
+        "date": "2026-03-26",
+        "kind": "模型",
+        "title": "Suno 发布 v5.5 并推出 Voices 与个性化功能",
+        "summary": "v5.5 加入 Voices、Custom Models 和 My Taste。",
+        "url": "https://suno.com/blog/v5-5"
+      },
+      {
+        "date": "2025-09-23",
+        "kind": "模型",
+        "title": "Suno 发布 v5 音乐模型",
+        "summary": "提升音质、人声自然度、音乐控制和风格理解。",
+        "url": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model"
+      },
+      {
+        "date": "2025-05-01",
+        "kind": "模型",
+        "title": "Suno 发布 v4.5",
+        "summary": "提升音乐表现力、风格组合与人声表现。",
+        "url": "https://suno.com/blog/introducing-v4-5"
+      },
+      {
+        "date": "2024-11-19",
+        "kind": "模型",
+        "title": "Suno 发布 v4",
+        "summary": "改进音质、歌词清晰度、歌曲结构，并升级 Covers 与 Personas。",
+        "url": "https://suno.com/blog/v4"
+      },
+      {
+        "date": "2024-03-21",
+        "kind": "模型",
+        "title": "Suno 发布 v3",
+        "summary": "推出新一代音乐生成模型。",
+        "url": "https://suno.com/blog/v3"
+      },
+      {
+        "date": "2022",
+        "kind": "公司",
+        "title": "Suno 成立",
+        "summary": "Suno 官方介绍页将公司成立年份记为 2022 年。",
+        "url": "https://suno.com/about"
+      }
+    ],
+    "qwen": [
+      {
+        "date": "2025-07-28",
+        "kind": "模型",
+        "modelCategory": "video",
+        "title": "阿里巴巴开放 Wan 2.2 视频模型权重",
+        "summary": "Wan 2.2 发布推理代码与权重，支持文生和图生视频。",
+        "url": "https://github.com/Wan-Video/Wan2.2"
+      },
+      {
+        "date": "2026-06-16",
+        "kind": "待核实",
+        "modelCategory": "video",
+        "title": "阿里云 Model Studio 目录出现 HappyHorse 1.1（开发方与首发日期待核）",
+        "summary": "目录可确认该型号曾被列出；目前不能据此认定阿里为开发方或推断首发日期。",
+        "url": "https://docs.modelstudio.console.alibabacloud.com/en/model-studio/newly-released-models"
+      },
+      {
+        "date": "2026-11",
+        "kind": "模型",
+        "modelCategory": "video",
+        "title": "阿里云 Model Studio 推出 Wan 3.0 视频模型",
+        "summary": "支持最长 30 秒生成、原生音画输出与多模态参考。",
+        "url": "https://modelstudio.console.alibabacloud.com/model-releases/wan3.0-video"
+      }
+    ]
+  }
+}

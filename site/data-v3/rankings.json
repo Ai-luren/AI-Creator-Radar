@@ -1,0 +1,449 @@
+{
+  "categories": [
+    {
+      "id": "image",
+      "name": "图像",
+      "icon": "image",
+      "description": "文生图与图像编辑分开评测；可读取的数据直接展示，其余保留原榜入口。",
+      "boards": [
+        {
+          "id": "t2i-aa",
+          "name": "文生图 · 快照榜 (FAI / AA)",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+          "embed": "https://artificialanalysis.ai/embed/text-to-image-leaderboard/leaderboard/text-to-image",
+          "note": "AA-Image-T2I v2.1",
+          "method": "盲测偏好投票，提供 Elo、样本量、置信区间与成本维度。",
+          "updatedAt": "随原站更新",
+          "snapshotId": "image"
+        },
+        {
+          "id": "t2i-arena",
+          "name": "文生图 · Arena 公开快照",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/image/text-to-image",
+          "embed": "https://arena.ai/leaderboard/image/text-to-image",
+          "note": "Arena 官方 leaderboard-dataset · CC BY 4.0",
+          "method": "相同提示词下匿名模型对战，由用户投票选择偏好；展示 Arena 人类偏好评分与置信区间。",
+          "updatedAt": "随官方榜单发布更新",
+          "snapshotId": "arena-text-to-image"
+        },
+        {
+          "id": "image-edit-arena",
+          "name": "图像编辑 · Arena 公开快照",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/image/image-edit/single-image",
+          "embed": "https://arena.ai/leaderboard/image/image-edit/single-image",
+          "note": "Arena 官方 leaderboard-dataset · CC BY 4.0",
+          "method": "匿名模型使用相同输入图和编辑要求进行对战；只展示 Arena 官方 overall 榜。",
+          "updatedAt": "随官方榜单发布更新",
+          "snapshotId": "arena-image-edit"
+        },
+        {
+          "id": "image-edit-aa",
+          "name": "图像编辑 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/image/leaderboard/editing",
+          "embed": "https://artificialanalysis.ai/image/leaderboard/editing",
+          "note": "AA-Image-Editing v2.1",
+          "method": "相同输入图与编辑指令下的盲测偏好比较。",
+          "updatedAt": "随原站更新"
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "name": "视频编辑",
+      "icon": "video",
+      "description": "用 Arena 官方发布的编辑榜单快照直接比较模型 Elo、投票样本与置信区间；同时保留 Artificial Analysis 原榜入口。",
+      "boards": [
+        {
+          "id": "t2v-aa",
+          "name": "文生视频 · 有声 · 快照榜",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "embed": "https://artificialanalysis.ai/embed/text-to-video-leaderboard/leaderboard/text-to-video",
+          "note": "AA-Video-T2V v2.1",
+          "method": "盲测偏好评测；可区分有音频与无音频任务。",
+          "updatedAt": "随原站更新",
+          "snapshotId": "video-text-audio"
+        },
+        {
+          "id": "t2v-aa-silent",
+          "snapshotId": "video-text-silent",
+          "name": "文生视频 · 无声 · 快照榜",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "note": "FAI.Fashion 公开快照 · AA-Video-T2V",
+          "method": "盲测偏好评测；此榜只统计无声视频结果，和有声模型分开呈现。",
+          "updatedAt": "随 FAI 快照更新"
+        },
+        {
+          "id": "i2v-aa",
+          "name": "图生视频 · 有声 · 快照榜",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+          "embed": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+          "note": "AA-Video-I2V v2.1",
+          "method": "以相同来源图像与任务进行盲测偏好比较。",
+          "updatedAt": "随原站更新",
+          "snapshotId": "video-image-audio"
+        },
+        {
+          "id": "i2v-aa-silent",
+          "snapshotId": "video-image-silent",
+          "name": "图生视频 · 无声 · 快照榜",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+          "note": "FAI.Fashion 公开快照 · AA-Video-I2V",
+          "method": "以相同输入图像进行盲测偏好比较；此榜只统计无声视频结果。",
+          "updatedAt": "随 FAI 快照更新"
+        },
+        {
+          "id": "t2v-arena",
+          "name": "文生视频 · Arena 公开快照",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/video/text-to-video",
+          "embed": "https://arena.ai/leaderboard/video/text-to-video",
+          "note": "Arena 官方 leaderboard-dataset · CC BY 4.0",
+          "method": "相同文本提示下匿名模型对战，按 Arena 官方人类偏好评分排序。",
+          "updatedAt": "随官方榜单发布更新",
+          "snapshotId": "arena-text-to-video"
+        },
+        {
+          "id": "i2v-arena",
+          "name": "图生视频 · Arena 公开快照",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/video/image-to-video",
+          "embed": "https://arena.ai/leaderboard/video/image-to-video",
+          "note": "Arena 官方 leaderboard-dataset · CC BY 4.0",
+          "method": "在相同参考图条件下匿名模型对战，按 Arena 官方人类偏好评分排序。",
+          "updatedAt": "随官方榜单发布更新",
+          "snapshotId": "arena-image-to-video"
+        },
+        {
+          "id": "video-edit-arena",
+          "name": "视频编辑 · Arena 公开快照",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/video/video-edit",
+          "embed": "https://arena.ai/leaderboard/video/video-edit",
+          "note": "Arena 官方 leaderboard-dataset · CC BY 4.0",
+          "method": "给定相同源视频与编辑要求后匿名对战，按 Arena 官方人类偏好评分排序。",
+          "updatedAt": "随官方榜单发布更新",
+          "snapshotId": "arena-video-edit"
+        },
+        {
+          "id": "video-edit-aa",
+          "name": "视频编辑 · Artificial Analysis",
+          "source": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/video/leaderboard/video-editing",
+          "embed": "https://artificialanalysis.ai/video/leaderboard/video-editing",
+          "note": "AA-Video-Editing v1.1",
+          "method": "以文字指令编辑源视频；可区分保留音频与无音频任务。",
+          "updatedAt": "随原站更新"
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "name": "音乐生成",
+      "icon": "music",
+      "description": "器乐与人声分开呈现。Artificial Analysis 的外站嵌入受限；本站提供 Project AURION 于 2026-11-12 核对的 AA Music Arena 公开分数快照及原始来源链接。",
+      "boards": [
+        {
+          "id": "instrumental",
+          "name": "器乐生成 · AA Music Arena",
+          "source": "Artificial Analysis Music Arena",
+          "url": "https://artificialanalysis.ai/music/leaderboard/instrumental",
+          "embed": "https://artificialanalysis.ai/embed/music-generation-leaderboard/leaderboard/instrumental",
+          "note": "AA-Music-Instrumental v1.1 · 10/19 条摘录；2026-11-12 读取",
+          "method": "盲测双曲目偏好投票；由验证过的私有评测员投票，使用 Bradley-Terry 最大似然估计计算 Elo，展示 95% 置信区间与样本数。器乐和人声榜分别拟合，不横向合并。",
+          "updatedAt": "官方实时页面；榜单分数会更新",
+          "displayMode": "embed",
+          "embedAllowed": false,
+          "methodUrl": "https://artificialanalysis.ai/methodology/music",
+          "snapshotId": "music-aa-instrumental-aurion-20261112"
+        },
+        {
+          "id": "vocal",
+          "name": "人声 / 歌曲生成 · AA Music Arena",
+          "source": "Artificial Analysis Music Arena",
+          "url": "https://artificialanalysis.ai/music/leaderboard/vocals",
+          "embed": "https://artificialanalysis.ai/embed/music-generation-leaderboard/leaderboard/vocals",
+          "note": "AA-Music-Vocal v1.1 · 4 条二手记录；2026-10；非完整榜",
+          "method": "盲测双曲目偏好投票；由验证过的私有评测员投票，使用 Bradley-Terry 最大似然估计计算 Elo，展示 95% 置信区间与样本数。器乐和人声榜分别拟合，不横向合并。",
+          "updatedAt": "官方实时页面；榜单分数会更新",
+          "displayMode": "embed",
+          "embedAllowed": false,
+          "methodUrl": "https://artificialanalysis.ai/methodology/music",
+          "snapshotId": "music-aa-vocal-aurion-202610"
+        }
+      ]
+    },
+    {
+      "id": "tts",
+      "name": "TTS 语音",
+      "icon": "audio",
+      "description": "TTS 人类偏好榜与开放权重模型快照分开呈现；厂商原生声音与统一参考声音是不同评测设置。",
+      "boards": [
+        {
+          "id": "tts-aa-provider",
+          "name": "TTS · 厂商原生声音 · Artificial Analysis",
+          "source": "Artificial Analysis Speech Arena",
+          "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/provider-voice?tab=leaderboard",
+          "embed": "https://artificialanalysis.ai/embed/text-to-speech-leaderboard/leaderboard/provider-voice",
+          "displayMode": "embed",
+      "embedAllowed": false,
+          "note": "Provider Voice Arena · All categories",
+          "method": "匿名双音频偏好比较：同一文本分别由两个模型生成，使用各自厂商提供的代表性声音；按用户投票估计 Elo，展示 95% 置信区间、样本数、发布日期与价格。",
+          "updatedAt": "官方实时页面；榜单分数会更新",
+          "methodUrl": "https://artificialanalysis.ai/methodology/text-to-speech"
+        },
+        {
+          "id": "tts-aa-controlled",
+          "name": "TTS · 统一参考声音 · Artificial Analysis",
+          "source": "Artificial Analysis Speech Arena",
+          "url": "https://artificialanalysis.ai/text-to-speech/leaderboard/controlled-voice?tab=leaderboard",
+          "embed": "https://artificialanalysis.ai/embed/text-to-speech-leaderboard/leaderboard/controlled-voice",
+          "displayMode": "embed",
+          "embedAllowed": false,
+          "note": "Controlled Voice Arena · 同一克隆参考声音",
+          "method": "用相同克隆参考声音比较 TTS，尽量隔离厂商自带音色差异；展示的是受支持语言范围内的偏好 Elo，需与 Provider Voice 分开解读。",
+          "updatedAt": "官方实时页面；榜单分数会更新",
+          "methodUrl": "https://artificialanalysis.ai/methodology/text-to-speech"
+        },
+        {
+          "id": "tts-open-benchmark",
+          "name": "开放 TTS 基准 · Hugging Face",
+          "source": "Hugging Face Open TTS Leaderboard",
+          "url": "https://huggingface.co/spaces/hf-audio/open_tts_leaderboard",
+          "embed": "https://hf-audio-open-tts-leaderboard.hf.space/",
+          "displayMode": "embed",
+          "embedAllowed": true,
+          "note": "公开权重模型多数据集基准；各项分数保留原始指标",
+          "method": "查看各数据集的 WER、RTFx、UTMOS、KOMOS 等指标；不同测试集和指标单独阅读，不合成一个总分。",
+          "updatedAt": "由来源页标注；不在本地复制分数"
+        }
+      ]
+    },
+    {
+      "id": "frontend",
+      "name": "网页生成",
+      "icon": "code",
+      "description": "展示 Arena WebDev 的人类偏好榜单；分数反映真实用户对生成网页结果的偏好，不是代码通过率。",
+      "boards": [
+        {
+          "id": "webdev",
+          "name": "文字生成网页 · Arena WebDev",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/code/webdev",
+          "embed": "https://arena.ai/leaderboard/code/webdev/frontend",
+          "note": "Arena Code Arena WebDev · 官方 leaderboard-dataset CC BY 4.0",
+          "method": "用户对匿名模型生成网页结果投票，按 Arena 偏好评分排序；WebDev 榜反映人类偏好，不代表代码正确率或任务通过率。",
+          "updatedAt": "随官方榜单发布更新",
+          "snapshotId": "arena-webdev",
+          "methodUrl": "https://arena.ai/blog/code-arena"
+        },
+        {
+          "id": "image-webdev",
+          "name": "截图 / 设计稿转网页 · Arena",
+          "source": "Arena AI",
+          "url": "https://arena.ai/leaderboard/code/image-to-webdev",
+          "embed": "https://arena.ai/leaderboard/code/image-to-webdev",
+          "note": "218,511 票 · 70 个模型",
+          "method": "查看 Arena 官方图像转网页任务榜及其评测说明；不将该任务分数并入文字生成网页榜。",
+          "updatedAt": "2026-11-20"
+        }
+      ]
+    },
+    {
+      "id": "coding",
+      "name": "编程能力",
+      "icon": "terminal",
+      "description": "综合编程、真实仓库修复、竞赛题与终端 Agent 分开看。",
+      "boards": [
+        {
+          "id": "benchlm-coding",
+          "name": "代码能力 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/coding",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=coding&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "BenchLM 官方代码能力互动榜；按其页面定义的代码任务与聚合口径展示。",
+          "updatedAt": "实时加载"
+        },
+        {
+          "id": "aihot-coding",
+          "name": "编程综合榜 · AI HOT",
+          "source": "AI HOT",
+          "url": "https://aihot.news/leaderboard",
+          "embed": "https://aihot.news/leaderboard",
+          "note": "47 项评测 · 13 家机构",
+          "method": "在内嵌页面顶部切换「编程」；它是 AI HOT 综合评测体系中的独立类别。",
+          "updatedAt": "2026-11-22"
+        },
+        {
+          "id": "swebench",
+          "name": "真实代码修复 · SWE-bench Verified",
+          "source": "SWE-bench",
+          "url": "https://www.swebench.com/verified",
+          "embed": "https://www.swebench.com/verified",
+          "note": "500 个人工验证任务",
+          "method": "真实 GitHub Issue 修复任务；可切换完整 Agent 榜与统一 mini-SWE-agent 设置。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "livecode",
+          "name": "竞赛编程 · LiveCodeBench",
+          "source": "LiveCodeBench",
+          "url": "https://livecodebench.github.io/leaderboard.html",
+          "embed": "https://livecodebench.github.io/leaderboard.html",
+          "note": "动态更新的竞赛题",
+          "method": "持续收集新竞赛题，减少训练数据污染；展示 Pass@1 与 Easy / Medium / Hard 分项。",
+          "updatedAt": "随原站更新"
+        },
+        {
+          "id": "terminal",
+          "name": "终端 Agent · Terminal-Bench 4.1",
+          "source": "Terminal-Bench",
+          "url": "https://www.tbench.ai/",
+          "embed": "https://www.tbench.ai/",
+          "note": "4.1 · Stanford / Harbor / Laude Institute",
+          "method": "测量 Agent 在终端环境完成任务的成功率，并展示成本、Token 与置信区间。",
+          "updatedAt": "随原站更新"
+        }
+      ]
+    },
+    {
+      "id": "llm",
+      "name": "大语言模型",
+      "icon": "brain",
+      "description": "大语言模型专项榜单分开呈现；保留中文综合评测来源，并补充可嵌入的国际评测榜。",
+      "boards": [
+        {
+          "id": "benchlm-overall",
+          "name": "综合能力 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/",
+          "embed": "https://benchlm.ai/embed/leaderboard?rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "BenchLM 官方综合互动榜；评分与任务构成以原榜说明为准。",
+          "updatedAt": "实时加载"
+        },
+        {
+          "id": "benchlm-reasoning",
+          "name": "推理 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/reasoning",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=reasoning&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "按推理任务子榜查看模型对比；不与其他任务分数合并。",
+          "updatedAt": "实时加载"
+        },
+        {
+          "id": "benchlm-knowledge",
+          "name": "知识 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/knowledge",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=knowledge&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "按知识类任务子榜查看模型表现。",
+          "updatedAt": "实时加载"
+        },
+        {
+          "id": "benchlm-math",
+          "name": "数学 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/math",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=math&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "按数学任务子榜查看模型表现。",
+          "updatedAt": "实时加载"
+        },
+        {
+          "id": "benchlm-multilingual",
+          "name": "多语言 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/multilingual",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=multilingual&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "按多语言任务子榜查看模型表现。",
+          "updatedAt": "实时加载"
+        },
+        {
+          "id": "benchlm-instruction",
+          "name": "指令遵循 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/instruction-following",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=instructionFollowing&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "按指令遵循任务子榜查看模型表现。",
+          "updatedAt": "实时加载"
+        },
+        {
+          "id": "aihot-overall",
+          "name": "综合能力榜 · AI HOT",
+          "source": "AI HOT",
+          "url": "https://aihot.news/leaderboard",
+          "note": "47 项评测 · 13 家机构",
+          "method": "编程、科研、专业办公、知识问答与真人盲选加权；保留来源页面查看分榜与方法。",
+          "updatedAt": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "id": "multimodal",
+      "name": "多模态",
+      "icon": "image",
+      "description": "按多模态理解任务查看互动评测，不与视频生成榜混为一类。",
+      "boards": [
+        {
+          "id": "benchlm-multimodal",
+          "name": "多模态理解 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/multimodal-grounded",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=multimodalGrounded&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "BenchLM 官方多模态理解互动榜；评测输入与评分口径以来源页说明为准。",
+          "updatedAt": "实时加载"
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "name": "智能体",
+      "icon": "terminal",
+      "description": "查看 Agent 任务榜；代码补全、真实仓库修复和终端任务仍按各自评测独立呈现。",
+      "boards": [
+        {
+          "id": "benchlm-agentic",
+          "name": "Agent 能力 · BenchLM",
+          "source": "BenchLM.ai",
+          "url": "https://benchlm.ai/agentic",
+          "embed": "https://benchlm.ai/embed/leaderboard?category=agentic&rows=25&theme=light",
+          "embedAllowed": true,
+          "displayMode": "embed",
+          "note": "官方实时嵌入 · 25 个模型",
+          "method": "BenchLM 官方 Agent 能力互动榜；具体任务集合和评分解释以原榜说明为准。",
+          "updatedAt": "实时加载"
+        }
+      ]
+    }
+  ]
+}

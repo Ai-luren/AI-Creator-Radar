@@ -1,9 +1,14 @@
-name: Collect AI intelligence and deploy Pages
+name: Monitor official AI model releases and deploy Pages
 
 on:
+  push:
+    branches: [main]
   schedule:
-    # 08:17, 12:17, 18:17, 22:17 Asia/Shanghai (UTC+8)
-    - cron: "17 0,4,10,14 * * *"
+    # 08:00, 10:00 and 15:00 China Standard Time (UTC+8).
+    # GitHub schedule events run on the default branch.
+    - cron: "0 0 * * *"
+    - cron: "0 2 * * *"
+    - cron: "0 7 * * *"
   workflow_dispatch:
 
 permissions:
@@ -16,45 +21,128 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  collect-and-deploy:
+  collect:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: github-pages
     steps:
-      - name: Checkout
+      - name: Checkout the triggering ref
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.ref }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Collect public feeds
-        run: python scripts/collect.py
+      - name: Test collectors
+        run: python -m unittest discover -s tests -v
 
-      - name: Persist collected data
+      - name: Collect official model updates
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_models.py
+
+      - name: Update company chronologies from official model sources
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_chronicle_updates.py
+
+      - name: Check official model resource links
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/check_model_resources.py
+
+      - name: Collect RSS and Awesome resources
+        if: github.event_name != 'schedule' || github.event.schedule == '0 2 * * *'
+        run: python scripts/collect_resources.py
+
+      - name: Collect public model leaderboard snapshot
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_rankings.py
+
+      - name: Collect Maomu model ranking boards
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_maomu_rankings.py
+
+      - name: Collect AIHOT selected items
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_aihot.py
+
+      - name: Collect AIHOT daily digest
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_briefings.py aihot
+
+      - name: Collect Juya daily digest
+        if: github.event_name != 'schedule' || github.event.schedule == '0 2 * * *'
+        run: python scripts/collect_briefings.py juya
+
+      - name: Collect Follow Builders public feeds
+        if: github.event_name != 'schedule' || github.event.schedule == '0 7 * * *'
+        run: python scripts/collect_follow_builders.py
+
+      - name: Collect AIPick video ideas
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_aipick.py
+
+      - name: Collect new model evaluation candidates
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/collect_model_evaluations.py
+
+      - name: Persist collected data to the triggering branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/data/news.json site/data/status.json site/data/sources.json
+          git add \
+            site/data/models.json \
+            site/data/model-updates.json \
+            site/data/model-monitor-status.json \
+            site/data/model-monitor-state.json \
+            site/data-v3/models.json \
+            site/data-v3/model-updates.json \
+            site/data-v3/model-monitor-status.json \
+            site/data-v3/model-monitor-state.json \
+            site/data-v3/topics.json \
+            site/data-v3/chronicle-updates-status.json \
+            site/data/reference-rankings.json \
+            site/data-v3/reference-rankings.json \
+            site/data-v4/aihot-items.json \
+            site/data-v4/aihot-daily.json \
+            site/data-v4/juya-daily.json \
+            site/data-v4/maomu-rankings.json \
+            site/data-v4/follow-builders.json \
+            site/data-v4/model-resource-status.json \
+            site/data-v4/aipick-data.json \
+            site/data-v4/model-evaluations.json \
+            site/data/feed-items.json \
+            site/data/awesome-repos.json \
+            site/data/resource-status.json \
+            site/data/resource-sources.json
           if ! git diff --cached --quiet; then
-            git commit -m "chore(data): refresh AI intelligence feed"
-            git push
+            git commit -m "chore(data): refresh models, rankings and resources"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           else
-            echo "No data changes to commit."
+            echo "No collected data changes."
           fi
 
       - name: Configure GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
 
+      - name: Publish the AI video creator workbench as the homepage
+        if: github.ref == 'refs/heads/main'
+        run: cp site/preview-v4.html site/index.html
+
       - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: collect
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

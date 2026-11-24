@@ -1,0 +1,140 @@
+{
+  "feeds": [
+    {
+      "id": "juya-daily",
+      "name": "橘鸦 AI 早报",
+      "type": "rss",
+      "url": "https://daily.juya.uk/rss.xml",
+      "website": "https://daily.juya.uk/",
+      "archiveUrl": "https://daily.juya.uk/archive/",
+      "category": "news",
+      "description": "每日 AI 行业早报。内容由 AI 辅助生成，阅读时回到原始来源核验。",
+      "active": true
+    },
+    {
+      "id": "goodcase",
+      "name": "GoodCase.ai",
+      "type": "rss",
+      "url": "https://goodcase.ai/feed.xml",
+      "website": "https://goodcase.ai/",
+      "apiUrl": "https://goodcase.ai/api/public/cases?category=video&take=20&locale=zh-CN",
+      "category": "cases",
+      "description": "AI 图像、视频、UI 案例，包含 Prompt 预览、创作者和原始来源。",
+      "active": true
+    }
+  ],
+  "repositories": [
+    {
+      "id": "goodcase-seedance",
+      "repo": "LearnPrompt/awesome-seedance",
+      "name": "Awesome Seedance",
+      "category": "video",
+      "description": "来源核验的 Seedance 2.5 / 2.0 案例库，包含跨模型复测、Prompt 模板与可安装 Skill。",
+      "highlights": [
+        "Seedance 2.5 / 2.0",
+        "1000+ 案例",
+        "跨模型复测",
+        "Skill"
+      ],
+      "liveUrl": "https://goodcase.ai/",
+      "readmePath": "README_zh.md",
+      "priority": 1
+    },
+    {
+      "id": "image-video-prompts",
+      "repo": "ai-boost/awesome-image-video-prompts",
+      "name": "Awesome Image & Video Prompts",
+      "category": "image-video",
+      "description": "图像与视频模型 Prompt，提供真实输出、完整提示词和原作者出处，并附视频编辑 Agent recipes。",
+      "highlights": [
+        "图像 + 视频",
+        "生成结果预览",
+        "原作者出处",
+        "中文 README"
+      ],
+      "liveUrl": "https://agentcraft.dev/en/prompts/",
+      "readmePath": "README_zh.md",
+      "priority": 2
+    },
+    {
+      "id": "lanshu-video-kit",
+      "repo": "cclank/lanshu-awesome-ai-video-kit",
+      "name": "岚书 AI Video Kit",
+      "category": "video",
+      "description": "AI 视频 Prompt 工程工具包，包含多模型提示词、Claude Skills、方法论 SOP 和官方端点监控。",
+      "highlights": [
+        "594+ Prompt（README 标注）",
+        "多模型",
+        "Claude Skills",
+        "方法论 SOP"
+      ],
+      "liveUrl": "https://lanshu-awesome-ai-video-kit.lank.workers.dev",
+      "readmePath": "README.md",
+      "priority": 3
+    },
+    {
+      "id": "zerolu-seedance",
+      "repo": "ZeroLu/awesome-seedance",
+      "name": "Awesome Seedance 2.0",
+      "category": "video",
+      "description": "Seedance 2.0 专项提示词，覆盖电影风格、商业广告、短剧、UGC、动画和视觉特效。",
+      "highlights": [
+        "Seedance 2.0",
+        "商业广告",
+        "短剧",
+        "UGC"
+      ],
+      "liveUrl": "",
+      "readmePath": "README-zh.md",
+      "priority": 4
+    },
+    {
+      "id": "ad-video-prompts",
+      "repo": "LichAmnesia/awesome-ad-video-prompts",
+      "name": "Awesome AI Video-Ad Prompts",
+      "category": "commercial",
+      "description": "商业视频广告 Prompt 集合，覆盖产品展示、UGC、前后对比、开箱、品牌和高端产品广告。",
+      "highlights": [
+        "52 条广告 Prompt（README 标注）",
+        "10 类广告形式",
+        "产品展示",
+        "品牌广告"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 5,
+      "licenseOverride": "CC-BY-4.0"
+    },
+    {
+      "id": "nanobanana-prompts",
+      "repo": "ZeroLu/awesome-nanobanana-pro",
+      "name": "Awesome Nano Banana Pro",
+      "category": "image",
+      "description": "Nano Banana Pro 图像生成与编辑提示词集合，适合寻找视觉风格、构图和图片工作流参考。",
+      "highlights": [
+        "Nano Banana Pro",
+        "图像生成",
+        "图像编辑"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 6
+    },
+    {
+      "id": "short-drama-skills",
+      "repo": "UnderleveledBuilder/awesome-short-drama-skills",
+      "name": "Awesome Short Drama Skills",
+      "category": "skills",
+      "description": "AI 短剧与漫剧 Skill 索引，覆盖小说改编、剧本、分镜、角色资产和视频生成提示词。",
+      "highlights": [
+        "117 个 Skill（README 标注）",
+        "剧本与分集",
+        "分镜",
+        "AI 漫剧"
+      ],
+      "liveUrl": "https://shortdramaskills.com",
+      "readmePath": "README.md",
+      "priority": 7
+    }
+  ]
+}

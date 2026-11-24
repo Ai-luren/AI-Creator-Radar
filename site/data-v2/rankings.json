@@ -1,0 +1,172 @@
+{
+  "video": [
+    {
+      "id": "lmarena-t2v",
+      "title": "文生视频 Arena",
+      "source": "LMArena",
+      "kind": "人类偏好",
+      "license": "CC BY 4.0",
+      "scope": "Text-to-Video",
+      "url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
+      "description": "基于公开发布的 Arena 历史数据集；适合观察真实用户偏好。本站保留来源与许可，不直接搬运榜单分数。"
+    },
+    {
+      "id": "lmarena-i2v",
+      "title": "图生视频 Arena",
+      "source": "LMArena",
+      "kind": "人类偏好",
+      "license": "CC BY 4.0",
+      "scope": "Image-to-Video",
+      "url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
+      "description": "图生视频独立子榜；与文生视频分开看，不能混成一个总分。"
+    },
+    {
+      "id": "aa-t2v",
+      "title": "文生视频模型榜",
+      "source": "Artificial Analysis",
+      "kind": "第三方评测",
+      "license": "原站查看",
+      "scope": "Text-to-Video",
+      "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+      "description": "独立评测维度，本站只提供原站入口，不复制受限原始分数。"
+    },
+    {
+      "id": "aa-i2v",
+      "title": "图生视频模型榜",
+      "source": "Artificial Analysis",
+      "kind": "第三方评测",
+      "license": "原站查看",
+      "scope": "Image-to-Video",
+      "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+      "description": "图生视频模型横向评测，建议与 LMArena 用户偏好榜分开判断。"
+    }
+  ],
+  "image": [
+    {
+      "id": "lmarena-t2i",
+      "title": "文生图 Arena",
+      "source": "LMArena",
+      "kind": "人类偏好",
+      "license": "CC BY 4.0",
+      "scope": "Text-to-Image",
+      "url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
+      "description": "公开数据集包含 text_to_image 子榜，可查看模型偏好与历史快照。"
+    },
+    {
+      "id": "lmarena-edit",
+      "title": "图片编辑 Arena",
+      "source": "LMArena",
+      "kind": "人类偏好",
+      "license": "CC BY 4.0",
+      "scope": "Image Editing",
+      "url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
+      "description": "图片编辑单独评测，不与文生图结果合并。"
+    },
+    {
+      "id": "aa-t2i",
+      "title": "文生图模型榜",
+      "source": "Artificial Analysis",
+      "kind": "第三方评测",
+      "license": "原站查看",
+      "scope": "Text-to-Image",
+      "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+      "description": "第三方图像生成评测入口，本站不复制受限分数。"
+    },
+    {
+      "id": "aa-edit",
+      "title": "图片编辑模型榜",
+      "source": "Artificial Analysis",
+      "kind": "第三方评测",
+      "license": "原站查看",
+      "scope": "Image Editing",
+      "url": "https://artificialanalysis.ai/image/leaderboard/editing",
+      "description": "专门观察图片编辑与多轮修改能力。"
+    }
+  ],
+  "llm": [
+    {
+      "id": "lmarena-text",
+      "title": "Text Arena 综合偏好榜",
+      "source": "LMArena",
+      "kind": "人类偏好",
+      "license": "CC BY 4.0",
+      "scope": "Text / Overall",
+      "url": "https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset",
+      "description": "公开数据集提供 text 与 text_style_control 等子榜，可按 overall、coding、math 分类查看。"
+    },
+    {
+      "id": "aihot-llm",
+      "title": "大语言模型综合榜",
+      "source": "AI HOT",
+      "kind": "综合评测",
+      "license": "原站查看",
+      "scope": "综合能力",
+      "url": "https://aihot.news/leaderboard",
+      "description": "中文模型评测入口；本工作台仅链接原站，不镜像或批量再分发其榜单数据。"
+    },
+    {
+      "id": "openrouter-rank",
+      "title": "模型使用与热度",
+      "source": "OpenRouter",
+      "kind": "使用热度",
+      "license": "原站查看",
+      "scope": "API Usage",
+      "url": "https://openrouter.ai/rankings",
+      "description": "反映平台使用趋势，不等同于模型能力或质量排名。"
+    },
+    {
+      "id": "aa-llm",
+      "title": "模型智能指数",
+      "source": "Artificial Analysis",
+      "kind": "第三方评测",
+      "license": "原站查看",
+      "scope": "Intelligence Index",
+      "url": "https://artificialanalysis.ai/leaderboards/models",
+      "description": "综合能力评测入口；本站不复制受限原始分数。"
+    }
+  ],
+  "music": [
+    {
+      "id": "aa-music-instrumental",
+      "title": "纯音乐生成榜",
+      "source": "Artificial Analysis",
+      "kind": "第三方评测",
+      "license": "原站查看",
+      "scope": "Instrumental",
+      "url": "https://artificialanalysis.ai/music/leaderboard/instrumental",
+      "description": "纯音乐生成能力单独评测。"
+    },
+    {
+      "id": "aa-music-vocals",
+      "title": "人声音乐生成榜",
+      "source": "Artificial Analysis",
+      "kind": "第三方评测",
+      "license": "原站查看",
+      "scope": "Vocals",
+      "url": "https://artificialanalysis.ai/music/leaderboard/vocals",
+      "description": "关注人声、歌曲结构与音乐生成质量。"
+    }
+  ],
+  "more": [
+    {
+      "id": "aihot-sources",
+      "title": "AI HOT 评测来源说明",
+      "source": "AI HOT",
+      "kind": "方法说明",
+      "license": "原站查看",
+      "scope": "Evaluation Sources",
+      "url": "https://aihot.news/leaderboard/sources",
+      "description": "查看其不同评测榜单的来源与口径。"
+    },
+    {
+      "id": "hf-trending",
+      "title": "Hugging Face Trending Models",
+      "source": "Hugging Face",
+      "kind": "社区热度",
+      "license": "原站查看",
+      "scope": "Open Models",
+      "url": "https://huggingface.co/models?sort=trending",
+      "description": "开源模型社区热度，不代表独立能力评测。"
+    }
+  ]
+}

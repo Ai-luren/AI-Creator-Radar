@@ -1,0 +1,328 @@
+[
+  {
+    "id": "seed-official",
+    "name": "字节跳动 Seed 官方动态",
+    "type": "html",
+    "url": "https://seed.bytedance.com/zh/",
+    "vendor": "字节跳动 Seed",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "seedance": [
+        "seedance"
+      ],
+      "seedream": [
+        "seedream"
+      ],
+      "seed-realtime": [
+        "seedrealtime"
+      ],
+      "seed-audio": [
+        "seed audio"
+      ]
+    }
+  },
+  {
+    "id": "kuaishou-ir",
+    "name": "Kling 官方 API 更新记录",
+    "type": "html",
+    "url": "https://kling.ai/document-api/updates/api",
+    "vendor": "Kling AI",
+    "official": true,
+    "active": true,
+    "requiredText": "Kling\\s+(?:Image\\s+)?(?:4\\.0|[0-9])",
+    "modelMatches": {
+      "kling-image": [
+        "kling image",
+        "kling-image"
+      ],
+      "kling": [
+        "kling 4.0",
+        "kling 3.0",
+        "kling video",
+        "kling"
+      ]
+    },
+    "updateType": "model-card",
+    "versionPatterns": {
+      "kling-image": "Kling\\s+Image\\s+([0-9]+(?:\\.[0-9]+)*)",
+      "kling": "Kling\\s+([0-9]+(?:\\.[0-9]+)*)"
+    }
+  },
+  {
+    "id": "deepmind-blog",
+    "name": "Google DeepMind 官方模型卡",
+    "type": "model-cards",
+    "url": "https://deepmind.google/models/model-cards/",
+    "vendor": "Google DeepMind",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "nano-banana": [
+        "nano banana"
+      ],
+      "lyria": [
+        "lyria"
+      ],
+      "veo": [
+        "veo"
+      ],
+      "gemini-omni-flash": [
+        "gemini omni flash",
+        "omni flash"
+      ]
+    },
+    "updateType": "model-card",
+    "versionPatterns": {
+      "nano-banana": "Nano\\s+Banana\\s+([0-9]+(?:\\.[0-9]+)*)",
+      "veo": "Veo\\s+([0-9]+(?:\\.[0-9]+)*)"
+    }
+  },
+  {
+    "id": "minimax-ir",
+    "name": "MiniMax 官方最新发布",
+    "type": "html",
+    "url": "https://ir.minimax.io/zh/news-events/new-releases",
+    "vendor": "MiniMax",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "minimax-h3-image": [
+        "h3-image",
+        "h3 image"
+      ],
+      "minimax-h3": [
+        "minimax h3",
+        "h3 video"
+      ],
+      "minimax-music": [
+        "minimax music",
+        "music 3.0"
+      ]
+    }
+  },
+  {
+    "id": "suno-release",
+    "name": "Suno 官方更新日志",
+    "type": "html",
+    "url": "https://suno.com/release-notes",
+    "vendor": "Suno",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "suno": [
+        "re:v\\d+(?:\\.\\d+)*"
+      ]
+    }
+  },
+  {
+    "id": "openai-news",
+    "name": "OpenAI 官方动态",
+    "type": "html",
+    "url": "https://openai.com/news/",
+    "vendor": "OpenAI",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "sora": [
+        "sora"
+      ]
+    }
+  },
+  {
+    "id": "vidu-api-updates",
+    "name": "Vidu 官方模型更新日志",
+    "type": "model-cards",
+    "url": "https://platform.vidu.com/docs/api-reference/updates",
+    "vendor": "生数科技 / Vidu",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "maxRowLength": 2500,
+    "modelMatches": {
+      "vidu": [
+        "vidu q4",
+        "viduq4",
+        "vidu q3"
+      ]
+    },
+    "versionPatterns": {
+      "vidu": "\\b(Q\\d+\\s+Preview)\\b"
+    }
+  },
+  {
+    "id": "qwen-image-updates",
+    "name": "通义千问图像模型官方发布",
+    "type": "html",
+    "url": "https://qwen.ai/blog?id=qwen-image-3.0",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "requiredText": "Qwen[- ]Image[- ]3\\.0|Qwen Image 3\\.0",
+    "updateType": "model-card",
+    "modelMatches": {
+      "qwen-image-3": [
+        "qwen-image-3.0",
+        "qwen image 3.0"
+      ]
+    },
+    "versionPatterns": {
+      "qwen-image-3": "Qwen[- ]Image[- ]([0-9]+(?:\\.[0-9]+)*)"
+    }
+  },
+  {
+    "id": "xai-model-updates",
+    "name": "xAI Imagine 官方模型更新",
+    "type": "html",
+    "url": "https://docs.x.ai/developers/release-notes",
+    "vendor": "xAI",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "grok-imagine-video": [
+        "grok-imagine-video",
+        "grok imagine video"
+      ],
+      "grok-imagine-image": [
+        "grok-imagine-image",
+        "grok imagine image"
+      ]
+    },
+    "versionPatterns": {
+      "grok-imagine-video": "Grok\\s+Imagine\\s+Video\\s+([0-9]+(?:\\.[0-9]+)*)",
+      "grok-imagine-image": "Grok\\s+Imagine\\s+Image\\s+([0-9]+(?:\\.[0-9]+)*)"
+    }
+  },
+  {
+    "id": "pika-h3-flex-updates",
+    "name": "Pika H3 Flex 官方发布",
+    "type": "html",
+    "url": "https://pika.art/blog/pika-h3-flex-research",
+    "vendor": "Pika",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "pika-h3-flex": [
+        "pika h3 flex"
+      ]
+    }
+  },
+  {
+    "id": "luma-ray-updates",
+    "name": "Luma Ray 官方更新指南",
+    "type": "html",
+    "url": "https://lumalabs.ai/learning-hub/ray314-user-guide",
+    "vendor": "Luma AI",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "ray3-14": [
+        "ray3.14",
+        "ray 3.14"
+      ]
+    },
+    "versionPatterns": {
+      "ray3-14": "Ray\\s*([0-9]+\\.[0-9]+)"
+    }
+  },
+  {
+    "id": "meta-models",
+    "name": "Meta Superintelligence Labs 官方模型发布",
+    "type": "html",
+    "url": "https://ai.meta.com/research/",
+    "vendor": "Meta Superintelligence Labs",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "muse-image": [
+        "muse image"
+      ],
+      "muse-video": [
+        "muse video"
+      ],
+      "muse-spark": [
+        "muse spark"
+      ]
+    }
+  },
+  {
+    "id": "qwen3-tts-releases",
+    "name": "Qwen3-TTS 官方发布与版本记录",
+    "type": "markdown-news",
+    "url": "https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/README.md",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "updateType": "model-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "qwen3-tts": [
+        "Qwen3-TTS"
+      ]
+    },
+    "section": "News",
+    "requiredText": "Qwen3-TTS"
+  },
+  {
+    "id": "claude-code-releases",
+    "name": "Claude Code 官方 GitHub Releases",
+    "type": "rss",
+    "url": "https://github.com/anthropics/claude-code/releases.atom",
+    "vendor": "Anthropic",
+    "official": true,
+    "active": true,
+    "updateType": "product-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "claude-code": [
+        "re:v?2\\.1\\.\\d+"
+      ]
+    },
+    "versionPatterns": {
+      "claude-code": "v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+    }
+  },
+  {
+    "id": "qwen-agent-releases",
+    "name": "Qwen-Agent 官方 GitHub Releases",
+    "type": "rss",
+    "url": "https://github.com/QwenLM/Qwen-Agent/releases.atom",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "updateType": "product-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "qwen-agent": [
+        "re:v?0\\.0\\.\\d+"
+      ]
+    },
+    "versionPatterns": {
+      "qwen-agent": "v?([0-9]+\\.[0-9]+(?:\\.[0-9]+)?)"
+    }
+  },
+  {
+    "id": "codex-cli-releases",
+    "name": "OpenAI Codex CLI 官方 GitHub Releases",
+    "type": "rss",
+    "url": "https://github.com/openai/codex/releases.atom",
+    "vendor": "OpenAI",
+    "official": true,
+    "active": true,
+    "updateType": "product-release",
+    "allowVersionOnly": true,
+    "modelMatches": {
+      "codex": [
+        "re:rust-v?\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.]+)?",
+        "re:v?\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.]+)?"
+      ]
+    },
+    "versionPatterns": {
+      "codex": "v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+    }
+  }
+]

@@ -1,116 +1,160 @@
-# AI Creator Radar
+# AI视频创作台
 
-面向 AI 视频创作者的轻量情报站：自动收集模型发布、AI 视频产品竞品动态、开源软件更新，并沉淀可复用的提示词模板。
+面向 AI 视频创作者的研究工作台：集中查看模型上新、厂商历史、能力榜单、官方案例与教程、创作资源和行业动态。
 
-**公开 RSS / Atom / GitHub Releases → GitHub Actions 定时采集 → JSON 历史归档 → GitHub Pages 静态网站。**
+核心原则：**优先复用已经存在的优质数据源，不重复建设新闻库和 Prompt 大全。**
 
-> 不调用 GPT、Claude、Gemini 或其他大模型 API；不需要 API Key；不产生模型 Token 费用。采集摘要直接使用信源提供的描述，不自动翻译、不生成 AI 观点。
+## 工作台模块
 
-## 在线网站
+- **模型动态 / 模型库**：关注常用视频、图片、语言和音乐模型；自动检查官方版本发布。
+- **模型排行榜**：FAI.Fashion 提供图像、视频和语音快照；Arena 官方 CC BY 4.0 数据集覆盖图像编辑、视频生成 / 编辑和网页生成等榜单；语言、代码、多模态与 Agent 榜单使用 BenchLM 官方实时嵌入。每个子榜显示来源、更新时间和评测方法。
+- **AI 早报**：集中查看 AIHOT 精选、橘鸦 AI 早报和 Follow Builders，分别按北京时间 08:00、10:00、15:00 同步。
+- **创作案例**：接入 GoodCase.ai RSS，展示案例封面、作者、摘要和 Prompt 预览；完整内容回到原站。
+- **Awesome 资源**：通过 GitHub API 同步精选开源仓库的描述、Star、Fork、更新时间和许可证。
+- **我的提示词**：人物设定、人物三视图、场景母图、多机位、分镜、单镜头视频、TVC、Seedance 2.5 结构化 Prompt。
+- **教程与 Skill**：优先保存模型厂商和平台官方指南、工作流与可安装 Skill。
+- **官方案例与教程**：按模型汇总厂商 Demo / 宣传片、官方教程和已核实的官方体验 / API 入口；不收录用户作品，不记录测试结果。
+- **创作平台 / 模型排行榜 / 我的收藏 / 偏好设置**：常用入口、个人收藏、编辑和备份。
 
-部署完成后访问：
+## 外部资源接入
 
-    https://ai-luren.github.io/AI-Creator-Radar/
+### RSS / Atom
 
-## 功能
+配置文件：config/resource-sources.json
 
-- **今日总览**：资讯数量、重点动态、最近更新。
-- **模型上新**：OpenAI、Google DeepMind、Qwen、Hugging Face、Anthropic / DeepSeek 等公开动态。
-- **竞品动态**：Higgsfield、Dreamina / 即梦、Kling、TapNow、LibTV、Flova、Updream、ShotLab、Runway、Pika、Luma。
-- **提示词库**：人物三视图、角色定妆、场景母图、多机位、分镜关键帧、图生视频、产品 TVC、一致性约束。
-- **工具软件**：常用 AI 创作与后期工具目录，并追踪 ComfyUI、Diffusers、yt-dlp 等公开版本更新。
-- **信源状态**：逐源显示成功、失败和最近一次采集时间；失败不会清空上次有效数据。
-- **收藏**：收藏保存在当前浏览器 localStorage，不需要账号或后端。
+当前接入：
+- 橘鸦 AI 早报：https://daily.juya.uk/rss.xml
+- GoodCase.ai：https://goodcase.ai/feed.xml
+
+采集器会提取标题、摘要、原始链接、发布时间、图片、作者和分类。GoodCase 还会把 RSS 中的 Prompt 预览单独拆出来。
+
+RSS 拉取失败时保留上次缓存，不会清空历史。某些站点会因网络线路或反爬策略出现临时连接失败，状态页会区分本次失败与已有缓存。
+
+### GoodCase 公共 API
+
+GoodCase 另提供无需 API Key 的公开 API，支持按分类和关键词检索案例，并提供完整 Prompt、原始来源、热度和复测字段。当前工作台先使用 RSS 作为轻量静态预览；后续可按需接入 API 搜索和案例详情。
+
+接口文档：https://goodcase.ai/connect
+
+### GitHub Awesome 仓库
+
+GitHub API 每日同步精选仓库的元数据：
+- LearnPrompt/awesome-seedance
+- ai-boost/awesome-image-video-prompts
+- cclank/lanshu-awesome-ai-video-kit
+- ZeroLu/awesome-seedance
+- LichAmnesia/awesome-ad-video-prompts
+- ZeroLu/awesome-nanobanana-pro
+- UnderleveledBuilder/awesome-short-drama-skills
+
+**不自动克隆整个仓库，也不默认复制仓库中的全部 Prompt。** 工作台只建立索引、显示仓库元数据和原始链接。若未来需要把具体 Prompt 导入个人库，先检查对应文件的 License、作者署名和内容来源。不同仓库的许可证并不相同。
 
 ## 自动更新
 
-GitHub Actions 默认按北京时间每天四次运行：
+GitHub Actions 在 `main` 分支推送时发布，并每日按北京时间 **08:00、10:00、15:00** 刷新可自动采集的数据。V4 页面直接作为网站首页；旧首页留在 `archive/` 以便回溯。
+1. **08:00** 更新官方模型发布与模型库、榜单快照、AIHOT 精选、新模型线索；将官方模型更新并入厂商发展史，并检查模型卡、API、演示和教程链接。
+2. **10:00** 更新 RSS / Atom 订阅、精选 GitHub 仓库元数据和橘鸦 AI 早报。
+3. **15:00** 更新 Follow Builders 公共动态。
+4. AIHOT 日报在 **08:00** 更新；其余资讯源依各自公开 Feed 与采集时间运行。
+5. 搜狗微信只保存搜索结果标题、摘要、账号和日期，不读取文章全文；遇到验证即停止并退避。
+6. 保留上次成功缓存；单一信源失败不会覆盖其他来源的数据，也不会把失败时间写成成功更新时间。
+7. 公司历史中的自动新增节点仅取厂商一手来源，明确标记为“待复核”；人工核验记录不会被采集器覆盖。
+8. 模型资料链接每日检查；受限、限流或网络失败的页面标为“无法确认”，不误报成失效。
+9. 官方账号的账号归属和粉丝数仍是人工公开主页快照，页面显示实际快照日期；不会伪装成每日采集。
+10. 只有 `main` 分支会发布 GitHub Pages；功能分支手动运行只更新该分支，不发布生产站点。
 
-| 北京时间 | UTC |
-|---|---|
-| 08:17 | 00:17 |
-| 12:17 | 04:17 |
-| 18:17 | 10:17 |
-| 22:17 | 14:17 |
+### 数据准确性边界
 
-GitHub Actions 的定时任务可能有排队延迟，并非秒级准点。也可以在仓库 Actions 页面手动运行 Collect AI intelligence and deploy Pages。
+- 采集优先使用厂商官方页面、官方 RSS / API、官方代码仓库或榜单发布方的原始数据，并尽量保留可回查的原始链接。
+- 行业资讯采用来源等级、同事件归并和重复内容去重；摘要与来源等级用于帮助筛选，不代表本站对内容真实性作了独立背书。方法参考 [AIHOT 开源项目](https://github.com/KKKKhazix/AIHOT)，不复用其品牌或将其数据当作本站事实。
+- 自动写入厂商发展史的模型事件会标注“待复核”；人工整理内容不会被自动采集覆盖。来源没有明确证据时，不自动补齐发布日期、能力结论或模型版本。
+- 榜单保留各自的评测来源、样本范围和更新时间；不同榜单不混成同一套绝对分数。非官方推断、账号粉丝数等无法可靠自动更新的数据，仍显示其快照日期或待核验状态。
+- 每日更新表示“在来源可访问时刷新公开快照”，不保证上游每天发布新内容，也不代表所有字段都是实时数据。社交账号粉丝数仍为人工快照。
 
-每次运行会：
-1. 并发读取启用的 RSS / Atom 信源。
-2. 解析标题、原文链接、发布时间和信源提供的摘要。
-3. 通过 URL 去重，合并同一文章的来源和标签。
-4. 按规则标记“重点 / 关注 / 一般”，不调用模型。
-5. 保留最近 60 天、最多 1,500 条记录；单个信源失败时保留上次成功数据。
-6. 更新 JSON 并部署 GitHub Pages。
+工作流文件：.github/workflows/update-site.yml
 
-## 部署说明
+## 个人数据与隐私
 
-仓库使用 GitHub Pages 的 **GitHub Actions** 发布方式。无需 Netlify、Vercel、数据库、服务器或外部定时服务。
-
-首次创建仓库后，在 GitHub：
-1. 打开 Settings → Pages。
-2. Build and deployment → Source 选择 GitHub Actions。
-3. 打开 Actions，允许运行 workflow。
-4. 手动执行一次 Collect AI intelligence and deploy Pages。
-5. 等待部署完成，网站地址为上面的 GitHub Pages URL。
-
-如果 workflow 无法提交采集后的 JSON，检查 Settings → Actions → General → Workflow permissions，允许 Read and write permissions。本仓库 workflow 只需要仓库内 contents: write、pages: write 和 id-token: write。
-
-## 目录结构
-
-    config/sources.json               RSS / Atom / GitHub Releases 信源配置
-    scripts/collect.py                纯 Python 标准库采集器
-    site/index.html                   无构建步骤的响应式静态网站
-    site/data/news.json               自动生成的资讯历史
-    site/data/status.json             每个信源的采集状态
-    site/data/sources.json            前端展示的信源清单
-    site/data/competitors.json        竞品观察名单
-    site/data/prompts.json            提示词模板
-    site/data/tools.json              软件与工具目录
-    .github/workflows/update-site.yml 定时采集与 Pages 部署
-    tests/test_collector.py           采集器单元测试
-
-## 修改信源
-
-编辑 config/sources.json，每条信源包含：
-
-- id：唯一 ID。
-- name：展示名称。
-- category：models、competitors、software 或 industry。
-- kind：official、media、discovery 或 github。
-- focus：关联模型厂商或竞品名称。
-- url：RSS / Atom 地址。
-- active：是否启用。
-- priority：配置排序优先级。
-
-建议优先添加官方 RSS / Atom。没有公开 RSS 的产品，暂时通过 Google News RSS 搜索发现线索，并在竞品卡片中保留官方入口；搜索结果不是官方声明，发布模型上新视频前请回到厂商公告核实。
+- 预置模型、教程、平台、订阅源和 Awesome 资源目录随静态网站发布。
+- 你在网页编辑模式新增的模型、提示词、图片、平台和收藏保存在当前浏览器 localStorage。
+- 个人新增内容不会自动写入 GitHub 仓库，也不会自动上传到服务器。
+- 建议定期在“偏好设置”导出个人配置备份。
+- 本项目不调用 GPT、Claude、Gemini 等大模型 API，不消耗模型 Token。
 
 ## 本地运行
 
-要求 Python 3.10+，不需要安装第三方包：
+要求 Python 3.10+，不需要第三方 Python 依赖：
 
     python3 -m unittest discover -s tests -v
-    python3 scripts/collect.py
-    python3 -m http.server 8080 --directory site
+    python3 scripts/collect_models.py --dry-run
+    python3 scripts/collect_resources.py
+    python3 scripts/collect_rankings.py --dry-run
+    python3 scripts/collect_maomu_rankings.py --dry-run
+    python3 scripts/collect_aihot.py
+    python3 scripts/collect_aipick.py
+    python3 scripts/collect_model_evaluations.py
+    python3 scripts/serve_local.py --port 8080
 
-打开 http://localhost:8080 预览。
+启动命令会自动打开 AI视频创作台；如果服务已经运行，再次启动会直接打开现有页面。也可以在 macOS Finder 中双击项目根目录的启动命令。直接双击 HTML 时，若本机服务已运行会自动跳转；若服务未运行，请先启动本机服务。
 
-只检查信源而不写入 JSON：
+本机预览页面与 JSON 响应均禁用浏览器缓存，刷新时会读取磁盘上的最新文件。AIHOT 榜单与主题摘要可由本机代理按需读取；GitHub Pages 显示 GitHub Actions 保存的快照，不依赖本机代理。
 
-    python3 scripts/collect.py --dry-run
+## 目录结构
 
-## 设计原则与边界
+    config/model-sources.json             官方模型监控信源
+    config/resource-sources.json          RSS 与 GitHub Awesome 资源配置
+    scripts/collect_models.py             官方模型发布采集器
+    scripts/collect_resources.py          RSS 与 GitHub 元数据采集器
+    scripts/collect_rankings.py            FAI.Fashion 与 Arena 榜单快照采集器
+    scripts/collect_maomu_rankings.py      猫目模型榜单公开页面采集器
+    scripts/serve_local.py                 本地静态网站与 AIHOT 榜单只读代理
+    scripts/collect_aihot.py               AIHOT 精选动态采集与本地快照更新
+    scripts/collect_follow_builders.py     Follow Builders 公共动态采集与本地快照更新
+    scripts/collect_aipick.py              AIPick 视频选题与热点采集器
+    scripts/collect_model_evaluations.py   新模型评测候选采集器（AIPick + 搜狗微信摘要）
+    site/index.html                       AI视频创作台发布首页
+    site/preview-v2.html                  V2 预览页面（读取 site/data-v2/）
+    site/preview-v3.html                  V3 预览页面（保留基线，读取 site/data-v3/）
+    site/preview-v4.html                  V4 工作台源页面
+    site/data/models.json                 模型目录
+    site/data/model-updates.json          模型发布历史
+    site/data/model-monitor-status.json   模型信源状态
+    site/data/reference-rankings.json     生产页读取的外部榜单快照
+    site/data/feed-items.json             RSS 内容缓存
+    site/data/resource-sources.json       浏览器展示的订阅源目录
+    site/data/resource-status.json        RSS / GitHub 同步状态
+    site/data/awesome-repos.json           Awesome 仓库元数据
+    site/data/prompts.json                个人初始提示词模板
+    site/data/tutorials.json              官方教程和 Skill
+    site/data-v4/model-practice.json       V4 官方模型演示案例与体验 / API 入口
+    site/data/platforms.json              常用创作平台
+    site/data-v2/                         V2 预览专用静态数据
+    site/data-v3/                         V3 基础静态数据（模型、榜单、主题与早报）
+    site/data-v3/reference-rankings.json  V3 / V4 共用的外部榜单快照
+    site/data-v4/social-accounts.json      官方社媒账号、公开粉丝快照与宣传动态
+    site/data-v4/aihot-items.json          AIHOT 最近 24 小时精选动态快照
+    site/data-v4/follow-builders.json      Follow Builders 公开动态、播客与博客快照
+    site/data-v4/maomu-rankings.json       猫目四类模型榜单及各来源子榜数据
+    site/data-v4/aipick-data.json          AIPick 最近 7 天选题与热点快照
+    site/data-v4/model-evaluations.json   近期视频 / 图像模型评测候选快照
+    site/data-v4/platforms.json            V4 创作导航（含国内外社交媒体分类）
+    tests/                                采集器单元测试
+    archive/legacy-news/                  旧版泛资讯数据，仅供回滚参考
 
-- 采集公开 RSS / Atom 内容和公开 GitHub Releases；不绕过登录、付费墙、验证码或访问控制。
-- 不抓取私人社媒内容；X / 微信等需要登录或付费 API 的内容不在零 Token 首版范围。
-- 不调用 LLM，所以不会自动生成中文翻译或编辑性总结。外文内容保留原文标题和来源摘要。
-- 关键词优先级只是可解释的规则标签，不等同于人工判断。
-- 竞品动态的覆盖率取决于公开信源；没有 RSS 的产品可能漏掉站内公告，建议人工核实官方更新页。
-- 收藏仅保存在本地浏览器；清理浏览器数据会清除收藏。
+## 当前页面与数据范围
 
-## 关于 AIHOT
-
-本项目参考了 https://github.com/KKKKhazix/AIHOT 所体现的“围绕行业信源建立个人情报站”的思路，但没有复制其代码、提示词、品牌或 Logo。AIHOT 的完整引擎包含数据库和大模型精选流程；本项目选择更轻的 RSS + 静态 JSON 方案，以免引入模型 Token 和服务器成本。
+- `site/index.html` 与 `site/preview-v4.html` 是同一工作台页面；GitHub Actions 发布前会将 V4 源页面复制到首页。
+- 模型、榜单、主题与早报暂时沿用 `site/data-v3/`；社媒账号和创作导航使用 `site/data-v4/`。
+- V4 榜单按类别和子榜展示：猫目四类子榜、FAI.Fashion 与 Arena 数据在本地绘制；BenchLM 通过官方嵌入加载，其余无法本地展示的榜单保留原站入口。各榜单保留独立分数口径、来源与更新时间。
+- 猫目榜单采集器读取猫目公开页面已渲染的表格，保留猫目标注的来源评分口径、更新时间和子榜；包含语言模型、图片生成、视频生成、多模态理解四类。重复的同机构同名条目在单个子榜内去重，不合并不同评测来源的分数。
+- AIHOT 精选已作为 AI 早报中的一个栏目；失败时显示 `site/data-v4/aihot-items.json`。运行 `python3 scripts/collect_aihot.py` 可手动刷新快照。采集参考 AIHOT 开源项目的来源等级、原始出处保留与事件去重方法；本站不调用 AIHOT 的品牌或 Logo。
+- 厂商发展史每日并入官方模型更新；新自动节点标记“待复核”，与人工核验的历史记录分开统计。
+- 模型资料中的官方链接每日检查可访问状态；检查不会自动改写模型说明或 API 地址。
+- Follow Builders 使用项目公开 JSON Feed，不需要用户配置 API Key；运行 `python3 scripts/collect_follow_builders.py` 可手动刷新。
+- “模型上新与宣传”页以厂商正式模型发布为主记录，关联已收录的官方宣传视频；另列模型厂商与模型聚合平台的官方视频原帖。搜索结果和未核验链接不作为视频原帖展示。评测候选采集器及其历史数据仍保留，但不再作为该页面的内容来源。
+- 当前社媒监控覆盖模型厂商与模型聚合平台共 22 个品牌：即梦 AI、可灵 AI、Higgsfield、MiniMax（海螺 AI）、Wan、Vidu、Google DeepMind（Gemini Omni / Veo）、HappyHorse、PixVerse（拍我 AI），以及 Seko AI、Flova AI、Pollo AI、LibTV、TapNow、YouArt、Krea、Pexo AI、Updream、ShotLab、RunningHub、Renoise、OiiOii；统一展示抖音、B站、小红书、X、Instagram、TikTok、YouTube，共 154 个平台位。Higgsfield 归入模型聚合平台；其余新增条目也归入聚合平台。国内筛选显示抖音、B站、小红书；海外筛选显示 X、Instagram、TikTok、YouTube。Wan 与 HappyHorse 分开，Omni 与 Veo 共用 Google DeepMind 社媒账号以避免重复统计。没有可确认官方主页的位置显示“暂无”，来源、备注和其他互动指标折叠在卡片详情中。
+- 粉丝 / 订阅数是人工公开主页快照，不是实时数据；每个账号保留实际快照日期。1 万以上显示“万”，不足 1 万显示原始数值；无账号不记为 0。粉丝数尚未自动采集，也不生成虚假的增长曲线。
+- 微博与 LinkedIn 不在当前覆盖范围；已移除或恢复的账号历史保存在 `social-accounts.json` 的 `archive` 字段中。创作导航另含国内外社交媒体与社区入口。
 
 ## License
 
