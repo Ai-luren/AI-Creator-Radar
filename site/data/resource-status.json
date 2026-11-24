@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-22T03:37:26Z",
+  "checkedAt": "2026-11-24T09:52:34Z",
   "feedCount": 2,
-  "feedSuccess": 1,
-  "feedFailed": 1,
+  "feedSuccess": 2,
+  "feedFailed": 0,
   "repositoryCount": 7,
   "repositorySuccess": 7,
   "feeds": [
@@ -13,8 +13,8 @@
       "website": "https://goodcase.ai/",
       "archiveUrl": null,
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
-      "lastSuccessAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
+      "lastSuccessAt": "2026-11-24T09:52:34Z",
       "itemCount": 50,
       "error": null
     },
@@ -24,11 +24,11 @@
       "url": "https://daily.juya.uk/rss.xml",
       "website": "https://daily.juya.uk/",
       "archiveUrl": "https://daily.juya.uk/archive/",
-      "status": "error",
-      "checkedAt": "2026-11-22T03:37:26Z",
-      "lastSuccessAt": "2026-11-22T03:34:27Z",
+      "status": "ok",
+      "checkedAt": "2026-11-24T09:52:34Z",
+      "lastSuccessAt": "2026-11-24T09:52:34Z",
       "itemCount": 10,
-      "error": "TimeoutError: The read operation timed out"
+      "error": null
     }
   ],
   "repositories": [
@@ -36,49 +36,49 @@
       "id": "goodcase-seedance",
       "repo": "LearnPrompt/awesome-seedance",
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
       "error": null
     },
     {
       "id": "ad-video-prompts",
       "repo": "LichAmnesia/awesome-ad-video-prompts",
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
       "error": null
     },
     {
       "id": "short-drama-skills",
       "repo": "UnderleveledBuilder/awesome-short-drama-skills",
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
       "error": null
     },
     {
       "id": "nanobanana-prompts",
       "repo": "ZeroLu/awesome-nanobanana-pro",
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
       "error": null
     },
     {
       "id": "zerolu-seedance",
       "repo": "ZeroLu/awesome-seedance",
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
       "error": null
     },
     {
       "id": "image-video-prompts",
       "repo": "ai-boost/awesome-image-video-prompts",
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
       "error": null
     },
     {
       "id": "lanshu-video-kit",
       "repo": "cclank/lanshu-awesome-ai-video-kit",
       "status": "ok",
-      "checkedAt": "2026-11-22T03:37:26Z",
+      "checkedAt": "2026-11-24T09:52:34Z",
       "error": null
     }
   ]

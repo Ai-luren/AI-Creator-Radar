@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T09:41:41Z",
+  "generatedAt": "2026-11-24T09:52:23Z",
   "items": [
     {
       "id": "ab398ce00903a3bc47",
@@ -13,12 +13,15 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "5fdd743e62a38dec96",
@@ -32,12 +35,15 @@
       "publishedAt": "2026-11-24T06:48:20Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.173.0"
+      "modelVersion": "0.173.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "efe8350e6f16937b73",
@@ -51,12 +57,15 @@
       "publishedAt": "2026-11-24T01:51:10Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.174.0"
+      "modelVersion": "0.174.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "824283cf95f0a1c656",
@@ -70,12 +79,15 @@
       "publishedAt": "2026-11-24T00:06:41Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.172.0"
+      "modelVersion": "0.172.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "a9972b90c90a609222",
@@ -89,12 +101,15 @@
       "publishedAt": "2026-11-23T21:34:41Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.331"
+      "modelVersion": "2.1.331",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "9281e402e80ec3c67a",
@@ -108,12 +123,15 @@
       "publishedAt": "2026-11-23T19:43:27Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.171.0"
+      "modelVersion": "0.171.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "470a905d1d5de2eab0",
@@ -127,12 +145,15 @@
       "publishedAt": "2026-11-23T18:07:33Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.172.0"
+      "modelVersion": "0.172.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "35bb80cc66121b0f72",
@@ -146,12 +167,15 @@
       "publishedAt": "2026-11-21T00:40:17Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.173.0"
+      "modelVersion": "0.173.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "codex-cli-release-20261121-0173-alpha4",
@@ -210,12 +234,15 @@
       "publishedAt": "2026-11-20T22:32:56Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.330"
+      "modelVersion": "2.1.330",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "faf08ecbdbee6dd26a",
@@ -229,12 +256,15 @@
       "publishedAt": "2026-11-20T22:28:53Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.173.0"
+      "modelVersion": "0.173.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "9291232aee04814878",
@@ -248,12 +278,15 @@
       "publishedAt": "2026-11-20T20:50:10Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.173.0"
+      "modelVersion": "0.173.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "b208e8b7c729510690",
@@ -267,12 +300,15 @@
       "publishedAt": "2026-11-20T02:54:54Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.173.0"
+      "modelVersion": "0.173.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "f3d370a5121afbf2b7",
@@ -286,12 +322,15 @@
       "publishedAt": "2026-11-19T22:14:41Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.329"
+      "modelVersion": "2.1.329",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "2776fbf561bb314e08",
@@ -305,12 +344,15 @@
       "publishedAt": "2026-11-19T15:49:51Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.172.0"
+      "modelVersion": "0.172.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "1590e3f6387642d1f8",
@@ -324,12 +366,15 @@
       "publishedAt": "2026-11-19T01:14:04Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.328"
+      "modelVersion": "2.1.328",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "kling-video-4-api",
@@ -342,7 +387,10 @@
       "summary": "Kling 官方 API 更新日志：Kling 4.0 文生视频、图生视频与 Omni Video API 新增 4K 分辨率参数，并支持 1080p / 4K HDR 输出。",
       "sourceName": "Kling AI API 更新日志",
       "official": true,
-      "updateType": "api-update"
+      "updateType": "api-update",
+      "sourceNames": [
+        "Kling AI API 更新日志"
+      ]
     },
     {
       "id": "gemini-4-neon-card-20261118",
@@ -377,12 +425,15 @@
       "publishedAt": "2026-11-17T23:17:45Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.327"
+      "modelVersion": "2.1.327",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "kling-image-4",
@@ -397,7 +448,10 @@
       "official": true,
       "updateType": "model-release",
       "promoVideoUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
-      "promoVideoNote": "厂商发布页内含官方演示视频；页面时间线展示视频缩略图与播放入口。"
+      "promoVideoNote": "厂商发布页内含官方演示视频；页面时间线展示视频缩略图与播放入口。",
+      "sourceNames": [
+        "Kling AI 官方博客"
+      ]
     },
     {
       "id": "4e2b4f1543d148003d",
@@ -411,12 +465,15 @@
       "publishedAt": "2026-11-16T22:11:05Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.326"
+      "modelVersion": "2.1.326",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "seedance-25-20261116",
@@ -451,12 +508,15 @@
       "publishedAt": "2026-11-16T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "seed-official",
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "字节跳动 Seed 官方动态"
+      ]
     },
     {
       "id": "e58a3ce1f17ad846ca",
@@ -470,12 +530,15 @@
       "publishedAt": "2026-11-13T20:40:01Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.325"
+      "modelVersion": "2.1.325",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "8427d4fee9a7d1b919",
@@ -489,12 +552,15 @@
       "publishedAt": "2026-11-12T22:12:13Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.323"
+      "modelVersion": "2.1.323",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "dbc58eacee5d52ba9f",
@@ -508,12 +574,15 @@
       "publishedAt": "2026-11-10T02:29:43Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.322"
+      "modelVersion": "2.1.322",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "minimax-h3-image-20261110",
@@ -548,12 +617,15 @@
       "publishedAt": "2026-11-09T19:22:30Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "2.1.321"
+      "modelVersion": "2.1.321",
+      "sourceNames": [
+        "Claude Code 官方 GitHub Releases"
+      ]
     },
     {
       "id": "seedream-55-20261109",
@@ -588,12 +660,15 @@
       "publishedAt": "2026-11-09T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "seed-official",
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "字节跳动 Seed 官方动态"
+      ]
     },
     {
       "id": "7f5d917745d3dc6294",
@@ -607,12 +682,15 @@
       "publishedAt": "2026-10-29T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "pika-h3-flex-updates",
       "sourceName": "Pika H3 Flex 官方发布",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Pika H3 Flex 官方发布"
+      ]
     },
     {
       "id": "kling-40-20261017",
@@ -647,7 +725,7 @@
       "publishedAt": "2026-10-12T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "meta-models",
       "sourceName": "Meta Superintelligence Labs 官方模型发布",
       "official": true,
@@ -669,12 +747,15 @@
       "publishedAt": "2026-10-07T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": "Q4 preview"
+      "modelVersion": "Q4 preview",
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "nano-banana-21-card-20261006",
@@ -714,7 +795,10 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": "2.1"
+      "modelVersion": "2.1",
+      "sourceNames": [
+        "Google DeepMind 官方模型卡"
+      ]
     },
     {
       "id": "7ecefc6567b5334dd9",
@@ -728,12 +812,15 @@
       "publishedAt": "2026-09-09T15:10:20Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "suno-v6-20260909",
@@ -786,12 +873,15 @@
       "publishedAt": "2026-09-02T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "meta-models",
       "sourceName": "Meta Superintelligence Labs 官方模型发布",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Meta Superintelligence Labs 官方模型发布"
+      ]
     },
     {
       "id": "f00844eefbcfd2cecd",
@@ -810,7 +900,10 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google DeepMind 官方模型卡"
+      ]
     },
     {
       "id": "minimax-music-30-20260813",
@@ -885,12 +978,15 @@
       "publishedAt": "2026-08-05T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "seed-official",
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "字节跳动 Seed 官方动态"
+      ]
     },
     {
       "id": "minimax-h3-20260803",
@@ -925,12 +1021,15 @@
       "publishedAt": "2026-08-03T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "minimax-ir",
       "sourceName": "MiniMax 官方最新发布",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "MiniMax 官方最新发布"
+      ]
     },
     {
       "id": "adf03d8b2d8515c7fb",
@@ -949,7 +1048,10 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google DeepMind 官方模型卡"
+      ]
     },
     {
       "id": "ba19aa886843d052ed",
@@ -963,12 +1065,15 @@
       "publishedAt": "2026-07-09T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "meta-models",
       "sourceName": "Meta Superintelligence Labs 官方模型发布",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Meta Superintelligence Labs 官方模型发布"
+      ]
     },
     {
       "id": "seedream-5-pro-2026-07-08",
@@ -1120,7 +1225,10 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": "3.1"
+      "modelVersion": "3.1",
+      "sourceNames": [
+        "Google DeepMind 官方模型卡"
+      ]
     },
     {
       "id": "729b5981c11c6f6a04",
@@ -1134,12 +1242,15 @@
       "publishedAt": "2026-03-26T17:21:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "nano-banana-2-2026-02-26",
@@ -1176,7 +1287,10 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google DeepMind 官方模型卡"
+      ]
     },
     {
       "id": "seedance-2-2026-02-12",
@@ -1230,12 +1344,15 @@
       "publishedAt": "2026-01-22T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen3-tts-releases",
       "sourceName": "Qwen3-TTS 官方发布与版本记录",
       "official": true,
       "updateType": "model-release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen3-TTS 官方发布与版本记录"
+      ]
     },
     {
       "id": "veo-31-vertical-2026-01-13",
@@ -1272,7 +1389,10 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": "3"
+      "modelVersion": "3",
+      "sourceNames": [
+        "Google DeepMind 官方模型卡"
+      ]
     },
     {
       "id": "cde87921a4e22a4cb6",
@@ -1286,12 +1406,15 @@
       "publishedAt": "2025-10-21T18:15:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "438533b2a7fab7e7ef",
@@ -1305,12 +1428,15 @@
       "publishedAt": "2025-09-23T18:17:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "f3422f24bec5627d5e",
@@ -1324,12 +1450,15 @@
       "publishedAt": "2025-05-29T09:36:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.26"
+      "modelVersion": "0.0.26",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "ba156e90d696d1e8ff",
@@ -1343,12 +1472,15 @@
       "publishedAt": "2025-05-22T10:29:30Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.25"
+      "modelVersion": "0.0.25",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "e75091a707f3a3dc95",
@@ -1362,12 +1494,15 @@
       "publishedAt": "2025-05-19T11:19:10Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.24"
+      "modelVersion": "0.0.24",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "28a99181e3265f7c0e",
@@ -1381,12 +1516,15 @@
       "publishedAt": "2025-05-16T04:48:21Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.23"
+      "modelVersion": "0.0.23",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "f3fa51a6cbd04433d1",
@@ -1400,12 +1538,15 @@
       "publishedAt": "2025-05-08T13:21:46Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.22"
+      "modelVersion": "0.0.22",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "a35def1fe9be1fd39b",
@@ -1419,12 +1560,15 @@
       "publishedAt": "2025-05-01T18:36:04Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.21"
+      "modelVersion": "0.0.21",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "329aa6d24a27a11754",
@@ -1438,12 +1582,15 @@
       "publishedAt": "2025-05-01T16:15:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "ad6ee51e83076c4e8b",
@@ -1457,12 +1604,15 @@
       "publishedAt": "2025-04-28T17:42:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.20"
+      "modelVersion": "0.0.20",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "542986987b6a275339",
@@ -1476,12 +1626,15 @@
       "publishedAt": "2025-04-01T08:51:47Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.18"
+      "modelVersion": "0.0.18",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "f11d4a00f8f98a4203",
@@ -1495,12 +1648,15 @@
       "publishedAt": "2025-03-30T12:47:02Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.17"
+      "modelVersion": "0.0.17",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "c382e3cee863cf2a7e",
@@ -1514,12 +1670,15 @@
       "publishedAt": "2025-03-18T09:06:32Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.0.16"
+      "modelVersion": "0.0.16",
+      "sourceNames": [
+        "Qwen-Agent 官方 GitHub Releases"
+      ]
     },
     {
       "id": "3b64d61d968ff69479",
@@ -1533,12 +1692,15 @@
       "publishedAt": "2024-12-06T00:15:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-24T09:41:41Z",
+      "lastSeenAt": "2026-11-24T09:52:23Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     }
   ]
 }

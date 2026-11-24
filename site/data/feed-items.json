@@ -1,6 +1,381 @@
 {
-  "generatedAt": "2026-11-22T03:37:26Z",
+  "generatedAt": "2026-11-24T09:52:34Z",
   "items": [
+    {
+      "id": "cda0ff1d99a419ef2597",
+      "sourceId": "juya-daily",
+      "sourceName": "橘鸦 AI 早报",
+      "category": "news",
+      "title": "2026-11-24",
+      "summary": "智谱发布旗舰模型 GLM 5.4；OpenAI 在 ChatGPT 上线日常对话版 GPT 6.2 Sol；Antigravity 重置所有用户 Gemini 配额并向付费 Pro 开放 Carbon；Qoder 独家上线匿名模型 HungerG，免费试用 7 天；ChatGPT 宣布 12 月 23 日下线 GPT 5.6 Sol 与 Terra；Ope…",
+      "promptPreview": null,
+      "publishedAt": "2026-11-24T00:59:51Z",
+      "url": "https://daily.juya.uk/issues/2026-11-24/",
+      "imageUrl": null,
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "020fc8e4238e337102be",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "复古胶片人像提示词",
+      "summary": "使用 Nano Banana 2 (Pro) 生成原始风格复古胶片人像的详细提示词。画面呈现一位手持白玫瑰的女性，沐浴在黄金时刻的光影中。",
+      "promptPreview": "A raw-style photo with a vintage film effect and added grain. The woman stands relaxed, leaning her back against a wall during golden hour. In both hands, she holds a bouquet of hu",
+      "publishedAt": "2026-11-23T22:06:08Z",
+      "url": "https://goodcase.ai/cases/case-059b579f33f6",
+      "imageUrl": "https://goodcase.ai/cases/case-059b579f33f6/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "fa7d11fcf80a07b6db28",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "Kling 4.0 vs MiniMax H3 写实人像对比",
+      "summary": "同一条英文人像提示词对比 Kling image 4.0 与 MiniMax H3 Image，正文完整，附两张示例图。paid_partnership=false。Carl 批准即使疑似推广批次也可收。",
+      "promptPreview": "Create an ultra-realistic 8K editorial portrait photograph of a beautiful young European woman with a natural, effortless appearance, standing outdoors in a softly blurred urban garden or street setti",
+      "publishedAt": "2026-11-23T22:06:07Z",
+      "url": "https://goodcase.ai/cases/kling-4-0-vs-minimax-h3-5af075ab7310",
+      "imageUrl": "https://goodcase.ai/cases/kling-4-0-vs-minimax-h3-5af075ab7310/opengraph-image",
+      "creator": "saniaspeaks_",
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "3e94cfc470dfbeaffba2",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "低饱和度星球宇航员场景",
+      "summary": "营造氛围的提示词，描绘广阔寂静的低饱和度灰色星球，远处有一位微小的宇航员在行走。",
+      "promptPreview": "A vast, silent, desaturated grey planet, cracked dry ground, a huge pale moon in a hazy sky, a tiny astronaut walking in the distance, slow push-in.",
+      "publishedAt": "2026-11-23T22:06:06Z",
+      "url": "https://goodcase.ai/cases/case-f3eeec6e32d5",
+      "imageUrl": "https://goodcase.ai/cases/case-f3eeec6e32d5/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "099f974eb60d850bf6f8",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "Superbike Showroom",
+      "summary": "复制完整建站 Prompt 到 AI 编程工具（Cursor、v0、Claude 等）生成「Superbike Showroom」对应的页面区块，替换文案、品牌与素材链接即可复用。 MotionSites 免费 Prompt 案例；站点不公开创作者，归属挂 MotionSites。",
+      "promptPreview": "# HalvenMotos — Superbike Paint Carousel Hero: exact recreation prompt Build a single-file, one-screen hero for a fictional superbike maker called **HalvenMotos**. A huge white word, **RIDE OUT**, stands behind one large, sharp motorcycle …",
+      "publishedAt": "2026-11-23T22:06:05Z",
+      "url": "https://goodcase.ai/cases/superbike-showroom",
+      "imageUrl": "https://goodcase.ai/cases/superbike-showroom/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "93edffb580986db5baf1",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "Rain Gear",
+      "summary": "复制完整建站 Prompt 到 AI 编程工具（Cursor、v0、Claude 等）生成「Rain Gear」对应的页面区块，替换文案、品牌与素材链接即可复用。 MotionSites 免费 Prompt 案例；站点不公开创作者，归属挂 MotionSites。",
+      "promptPreview": "# MONS — Unmask Trail Hero: full recreation brief Build a single-file, one-screen product hero for a fictional techwear brand, **MONS** (a rain-shell system). A hooded model in a smoked visor and face mask stands in front of a giant black …",
+      "publishedAt": "2026-11-23T22:06:04Z",
+      "url": "https://goodcase.ai/cases/rain-gear",
+      "imageUrl": "https://goodcase.ai/cases/rain-gear/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "9591e7f6a18e1ea07d83",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "Print Gallery",
+      "summary": "复制完整建站 Prompt 到 AI 编程工具（Cursor、v0、Claude 等）生成「Print Gallery」对应的页面区块，替换文案、品牌与素材链接即可复用。 MotionSites 免费 Prompt 案例；站点不公开创作者，归属挂 MotionSites。",
+      "promptPreview": "# Zestwell — Citrus Season: recreation prompt Give me the superdetailed exact prompt to recreate this page exactly as it is, including the correct asset URL, all elements, animations, and fonts. --- Build a single-file web page (one index.…",
+      "publishedAt": "2026-11-23T22:06:02Z",
+      "url": "https://goodcase.ai/cases/print-gallery",
+      "imageUrl": "https://goodcase.ai/cases/print-gallery/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "16dd5d01028db37d8e24",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "汽水瓶",
+      "summary": "复制完整建站 Prompt 到 AI 编程工具（Cursor、v0、Claude 等）生成「Soda Bottles」对应的页面区块，替换文案、品牌与素材链接即可复用。 MotionSites 免费 Prompt 案例；站点不公开创作者，归属挂 MotionSites。",
+      "promptPreview": "# SUNFIZZ — exact recreation prompt Build a single-file, scroll-driven product website for **SUNFIZZ**, a fictional sparkling fruit soda in glass bottles. All products are real-time 3D bottles rendered with Three.js r160 on one full-screen…",
+      "publishedAt": "2026-11-23T22:06:01Z",
+      "url": "https://goodcase.ai/cases/soda-bottles",
+      "imageUrl": "https://goodcase.ai/cases/soda-bottles/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "eb1277e2fb9b1e13311a",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "图书馆",
+      "summary": "复制完整建站 Prompt 到 AI 编程工具（Cursor、v0、Claude 等）生成「Book Library」对应的页面区块，替换文案、品牌与素材链接即可复用。 MotionSites 免费 Prompt 案例；站点不公开创作者，归属挂 MotionSites。",
+      "promptPreview": "# FOLIO ROOM: interactive 3D book-orbit hero for a digital design-book library Build a single-file, fully responsive, **highly interactive hero** for an invented digital library of design books, **\"Folio Room\"**. The page is one 100vh scre…",
+      "publishedAt": "2026-11-23T22:05:59Z",
+      "url": "https://goodcase.ai/cases/book-library",
+      "imageUrl": "https://goodcase.ai/cases/book-library/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "636a1bec0d4b2077ac91",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "Container Portfolio",
+      "summary": "复制完整建站 Prompt 到 AI 编程工具（Cursor、v0、Claude 等）生成「Container Portfolio」对应的页面区块，替换文案、品牌与素材链接即可复用。 MotionSites 免费 Prompt 案例；站点不公开创作者，归属挂 MotionSites。",
+      "promptPreview": "# Prompt: \"Nadia's Depot\" — container-crane portfolio hero Build a single-file, one-screen portfolio hero (`index.html`, no build step) for a fictional product designer called **Nadia**. The page is a shipping depot: a pile of chunky 3D co…",
+      "publishedAt": "2026-11-23T22:05:58Z",
+      "url": "https://goodcase.ai/cases/container-portfolio",
+      "imageUrl": "https://goodcase.ai/cases/container-portfolio/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "cfe8f1e7d3da71f7abc6",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "谷底仰望夜间山脊野火",
+      "summary": "用一个独立的…呈现从谷底仰望的夜间山火，火势沿山脊蔓延，画面具有电影感和照片般的真实感。",
+      "promptPreview": "GPT-6.2 Astra Ultra: Create a cinematic, photorealistic view of a wildfire burning along a mountain ridge at night, seen from the valley floor, in a self-contained HTML file. Generate the scene entir…",
+      "publishedAt": "2026-11-23T22:05:57Z",
+      "url": "https://goodcase.ai/cases/diegocabezas01-gpt-6-2-astra-ai-f47a790368e8",
+      "imageUrl": "https://goodcase.ai/cases/diegocabezas01-gpt-6-2-astra-ai-f47a790368e8/opengraph-image",
+      "creator": "GPT-6.2 Astra Ultra",
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "692648bc23cf07f50fb5",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "黄昏像素风潜艇鱼雷猎杀航母",
+      "summary": "Claude Fable 5.2 到底是怎么把一整款潜艇游戏塞进 190 KB 的？！😭 你从潜望镜里发现一艘航空母舰，发射一枚鱼雷，然后眼看着它……",
+      "promptPreview": "PROMPT Build \"Dusk Depths\", a submarine hunting game, as one self-contained HTML file: WebGL2, no engine, no libraries, no image or audio assets (Google Fonts only). Everything is procedural. All in…",
+      "publishedAt": "2026-11-23T22:05:56Z",
+      "url": "https://goodcase.ai/cases/claude-fable-5-2-build-dusk-depths-a-submarine-hunting-game-as-one-self-contained-html-file-3d722758f907",
+      "imageUrl": "https://goodcase.ai/cases/claude-fable-5-2-build-dusk-depths-a-submarine-hunting-game-as-one-self-contained-html-file-3d722758f907/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "0eb5157d4a8c4c04a25f",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "宝蓝针织衫女孩的棚拍双肖像",
+      "summary": "参考图片中的同一位漂亮年轻女性，分别制作两张图片，准确保留她的五官、漂亮的…",
+      "promptPreview": "Create two separate pictures of the same beautiful young woman from the reference image, maintaining her exact facial features, beautiful green eyes, natural skin tone, and long brown wavy hair style…",
+      "publishedAt": "2026-11-23T22:05:55Z",
+      "url": "https://goodcase.ai/cases/gpt-image-create-two-separate-pictures-of-the-same-beautiful-young-woman-from-the-referen-ae2695706735",
+      "imageUrl": "https://goodcase.ai/cases/gpt-image-create-two-separate-pictures-of-the-same-beautiful-young-woman-from-the-referen-ae2695706735/opengraph-image",
+      "creator": "ChatGPT 上的 GPT image 提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "d03864e8277251696356",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "陶土拱门框中的罗马斗兽场旅人",
+      "summary": "创作一幅极具美感的超现实主义建筑旅行艺术作品，以 LANDMARK NAME, CITY, COUNTRY 为主题。1. 标志性构…",
+      "promptPreview": "Create an exceptionally beautiful surrealist architectural travel artwork featuring LANDMARK NAME, CITY, COUNTRY. 1. THE SIGNATURE COMPOSITION Create a monumental architectural arch or doorway as t…",
+      "publishedAt": "2026-11-23T22:05:54Z",
+      "url": "https://goodcase.ai/cases/gpt-image-2-6-create-an-exceptionally-beautiful-surrealist-architectural-travel-artwork-featu-498cbf9815de",
+      "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-create-an-exceptionally-beautiful-surrealist-architectural-travel-artwork-featu-498cbf9815de/opengraph-image",
+      "creator": "GPT image 2.6 提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "e2e18bcec00495cd27e7",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "烛火废墟礼拜堂中的双角魔后",
+      "summary": "Kling Image 4.0 发布了！它和其他顶尖图像模型相比表现如何？共测试了 16 个模型，提示词见下方 👇",
+      "promptPreview": "PROMPT: FILM LOOK TEST / Lilith Create one continuous photorealistic 1:1 square film still of Lilith. Lilith is the only character in the frame. One tall demon queen with pale skin, great curved hor…",
+      "publishedAt": "2026-11-23T22:05:53Z",
+      "url": "https://goodcase.ai/cases/kling-film-look-test-lilith-f4ed15d0130b",
+      "imageUrl": "https://goodcase.ai/cases/kling-film-look-test-lilith-f4ed15d0130b/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "1eb2ed980764e94bd5d0",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "落日霓虹下靠在跑车上的罪恶都市主角",
+      "summary": "GTA VI VICE CITY | 电影感角色改造 将上传的参考照片中的人物变成…",
+      "promptPreview": "GTA VI VICE CITY | CINEMATIC CHARACTER TRANSFORMATION Transform the person in the uploaded reference photograph into an extraordinary, ultra-detailed Grand Theft Auto VI-inspired Vice City cinematic…",
+      "publishedAt": "2026-11-23T22:05:52Z",
+      "url": "https://goodcase.ai/cases/gpt-image-2-5-transform-the-person-in-the-uploaded-reference-photograph-into-an-extraordinary-d8b9868ab1a3",
+      "imageUrl": "https://goodcase.ai/cases/gpt-image-2-5-transform-the-person-in-the-uploaded-reference-photograph-into-an-extraordinary-d8b9868ab1a3/opengraph-image",
+      "creator": "GTA VI 来了 🤯 GPT Image 2.5 提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "adfb63ed9c2c27ef0f86",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "用 Three.js 在单个 HTML 文件中制作一辆逼真的汽车。",
+      "summary": "Inkling 2 Mini 在 DeepSWE 1.1 上超过了 Qwen 4 27B，于是我用一张 RTX 4060（8GB 显存）和 16GB DDR4 内存跑了一下。只用一条提示词：\"在单个…",
+      "promptPreview": "\"Create a realistic car in a single HTML file using Three.js. Make sure everything is detailed. Can use CDN.\" Setup:• Unsloth Inkling-2-Mini-UD-Q3_K_XL.gguf - Medium reasoning - 24k context + Q8 KV …",
+      "publishedAt": "2026-11-23T22:05:52Z",
+      "url": "https://goodcase.ai/cases/inkling-2-mini-create-a-realistic-car-in-a-single-html-file-using-three-js-590060889593",
+      "imageUrl": "https://goodcase.ai/cases/inkling-2-mini-create-a-realistic-car-in-a-single-html-file-using-three-js-590060889593/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "cf10d8e6a3712504027a",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "一位身穿浅粉色碎花迷你连衣裙的年轻美女优雅起舞，舞姿……",
+      "summary": "一位身穿浅粉色碎花迷你连衣裙的年轻美女在阳光洒满的花园露台上起舞，舞姿优雅而充满活力。她的动作……",
+      "promptPreview": "A beautiful young woman in a light pink floral mini dress dances gracefully and energetically in a sunlit garden terrace. She moves naturally in perfect rhythm with the music, starting with a playful…",
+      "publishedAt": "2026-11-23T22:05:51Z",
+      "url": "https://goodcase.ai/cases/pixverse-a-beautiful-young-woman-in-a-light-pink-floral-mini-dress-dances-gracefully-and-d63234254086",
+      "imageUrl": "https://goodcase.ai/cases/pixverse-a-beautiful-young-woman-in-a-light-pink-floral-mini-dress-dances-gracefully-and-d63234254086/opengraph-image",
+      "creator": "10秒舞蹈视频提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "7ff16aa95a8d7be05b57",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "宣礼塔古城的摄影与几何抽象对照",
+      "summary": "说真的，这种设计让人看多久都不腻。在 @openart_ai 上用 GPT Image 2.6 创作。提示词：根据我上传的图片，制作一张高品质的…",
+      "promptPreview": "From the image I uploaded, create a premium artistic poster in a vertical 3:4 aspect ratio, divided precisely into two equal halves (50/50). Top Half: Preserve the original subject, composition, tex…",
+      "publishedAt": "2026-11-23T22:05:50Z",
+      "url": "https://goodcase.ai/cases/gpt-image-2-6-from-the-image-i-uploaded-create-a-premium-artistic-poster-in-a-vertical-3-4-a-f0e20dcd9dca",
+      "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-from-the-image-i-uploaded-create-a-premium-artistic-poster-in-a-vertical-3-4-a-f0e20dcd9dca/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "4c5fb476c1edf45634d2",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "冰晶蓝龙在乡野喷火后对镜自照",
+      "summary": "🐉 一条好奇的小龙发现了一面镜子，竟然爱上了镜中的自己！😂💙🪞 A Dragon’s Life | 第 3 集 使用 Seedance 2.5 制作 ✨ 提示词见下方 👇",
+      "promptPreview": "Create a 30-second ultra-realistic cinematic fantasy video, 16:9 widescreen, with consistent characters, natural motion, detailed facial expressions, realistic physics, smooth cinematic camera moveme…",
+      "publishedAt": "2026-11-23T22:05:49Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-ultra-realistic-cinematic-fantasy-video-16-9-widescreen-wi-4916aa2713af",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-ultra-realistic-cinematic-fantasy-video-16-9-widescreen-wi-4916aa2713af/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "797cdce6db73806b56ed",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "波拉波拉泻湖水上飞机降落对比",
+      "summary": "我给 4 个前沿模型发了完全相同的一句话提示词，并把结果放在 OutputBench 上并排对比 \"超写实的水上飞机飞越 Bora Bora，降…",
+      "promptPreview": "I gave 4 frontier models the exact same one-sentence prompt and put the results side by side on OutputBench \"Ultra-realistic seaplane flying over Bora Bora, landing on the water, and letting passeng…",
+      "publishedAt": "2026-11-23T22:05:47Z",
+      "url": "https://goodcase.ai/cases/eliadele-claude-opus-5-5-claude-fable-5-2-gpt-6-2-astra-gemini-4-neon-ai-781cd76b35b5",
+      "imageUrl": "https://goodcase.ai/cases/eliadele-claude-opus-5-5-claude-fable-5-2-gpt-6-2-astra-gemini-4-neon-ai-781cd76b35b5/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "dce803649236de4c0369",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "侧光近景中她从闭眼到含泪对视",
+      "summary": "Seedance 再卷也只是暂时领先 Muse 只要认真深耕视频生成，超过它是迟早的事，Muse生的视频，真实感太强了，人的毛孔都清晰可见，没有普通AI视频中 磨皮感和涂抹感 唯一可惜的是长视频，muse的人物和场景的一致性都很差劲，但是在短片段中，muse就是比seedance强 真的希望扎克伯格可以深耕视频生成领域…",
+      "promptPreview": "生成一条 15 秒、9:16 竖屏、写实电影质感的人物微表情视频。以输入参考图中的成年东亚女性为主体，沿用参考图的脸型、五官比例、黑色发丝、侧脸光影和肩颈构图。深色头发松松束在脑后，几缕细碎的头发自然垂在额头和脸颊旁。妆面清淡，嘴唇有自然的血色，眼下、鼻翼和脸颊保留真实肤质。画面从头顶附近取到锁骨上方，面部占据画面主体，深灰近黑的背景轻度虚化。用一束暖白色的侧上方窗光擦过额头、鼻梁和一侧脸颊，另…",
+      "publishedAt": "2026-11-23T22:05:46Z",
+      "url": "https://goodcase.ai/cases/seedance-15-9-16-441779df73c2",
+      "imageUrl": "https://goodcase.ai/cases/seedance-15-9-16-441779df73c2/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "25ee1f87518ca6b4c2ed",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "小女孩买下圣诞雪球，卖家由落寞到兴旺",
+      "summary": "使用 seedance 2.5 制作 提示词 👇 制作一部精美暖心的圣诞主题 3D 动画短片，采用受 Pixar 启发的高品质电影风格，竖…",
+      "promptPreview": "Create a beautiful, heartwarming Christmas-themed 3D animated short film in a high-quality Pixar-inspired cinematic style, vertical 9:16 format. Scene 1 – A Little Girl's Discovery: A cute little to…",
+      "publishedAt": "2026-11-23T22:05:45Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-a-beautiful-heartwarming-christmas-themed-3d-animated-short-film-in-a-h-2e7a32e460d5",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-beautiful-heartwarming-christmas-themed-3d-animated-short-film-in-a-h-2e7a32e460d5/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "b7e11b34dc93522fb360",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "雾中哥特墓园里的黑袍少女与赤晶箭",
+      "summary": "堕落天使 在 @ElevenLabs 上使用 Seedance 2.5 @ElevenCreative #ElevenLabsAmbassador 提示词 女主角：一位美丽的24岁年轻女性 @Image 2，肤色白皙…",
+      "promptPreview": "THE FALLEN ANGEL Seedance 2.5 on @ElevenLabs @ElevenCreative #ElevenLabsAmbassador prompt Female Lead: A beautiful 24-year-old young woman @Image 2, with pale fair skin, delicate facial features, …",
+      "publishedAt": "2026-11-23T22:05:38Z",
+      "url": "https://goodcase.ai/cases/just-sharon7-seedance-2-5-ai-030a28e5ff04",
+      "imageUrl": "https://goodcase.ai/cases/just-sharon7-seedance-2-5-ai-030a28e5ff04/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
+    {
+      "id": "bfac87b8b79735738bfe",
+      "sourceId": "juya-daily",
+      "sourceName": "橘鸦 AI 早报",
+      "category": "news",
+      "title": "2026-11-23",
+      "summary": "OpenAI 公开内部指标 Perplexity，提议设共同开发限制；蚂蚁集团开源医疗模型 LingSante 3.1 Flash 与 air VL；马斯克披露 Tesla Reality View 技术细节；Elon Musk 预警 AI 行业明年严重资金短缺；OpenRouter 终止 3 家供应商合作，移除 125 个端点的 ZDR 资格；甲骨文称与…",
+      "promptPreview": null,
+      "publishedAt": "2026-11-23T01:14:09Z",
+      "url": "https://daily.juya.uk/issues/2026-11-23/",
+      "imageUrl": null,
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-24T09:52:34Z"
+    },
     {
       "id": "b1a22f30dc97ec64be9b",
       "sourceId": "juya-daily",
@@ -14,7 +389,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "8aa82ebef44913e20e71",
@@ -29,7 +404,7 @@
       "imageUrl": "https://goodcase.ai/cases/minimax-h3-image-44fec2af68ec/opengraph-image",
       "creator": "aiwithaly",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "b3dab4082878e720f790",
@@ -44,7 +419,7 @@
       "imageUrl": "https://goodcase.ai/cases/nano-banana-pro-1fe68dfb7f5e/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "1277af4436b637560fb7",
@@ -59,7 +434,7 @@
       "imageUrl": "https://goodcase.ai/cases/sydney-sweeney-nano-banana-pro-bb23bf3714df/opengraph-image",
       "creator": "用于生成 Sydney Sweeney 肖像的图像提示词",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "aa3276d4de05c678f125",
@@ -74,7 +449,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "bbe5604ba6b302e3f981",
@@ -89,7 +464,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-use-image-1-as-the-only-character-reference-99f4b178234b/opengraph-image",
       "creator": "踩着节拍，跳出自己的街头主场💃 使用 Seedance 2.5 制作。提示词",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "d9844b6cd719d6f8d2b6",
@@ -104,7 +479,7 @@
       "imageUrl": "https://goodcase.ai/cases/guillecasaus-nano-banana-pro-ai-4b87739e79a5/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "c879a442e37297e9b9c1",
@@ -119,7 +494,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-ultra-realistic-30-second-live-action-revenge-comedy-scene-inside-a-l-49de4eecabdf/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "d47c51de6984fd842128",
@@ -134,7 +509,7 @@
       "imageUrl": "https://goodcase.ai/cases/just-sharon7-gpt-image-2-6-ai-7d53a7d588d8/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "62b788898b12a199f1e7",
@@ -149,7 +524,7 @@
       "imageUrl": "https://goodcase.ai/cases/artificialanlys-seedance-2-5-ai-751009cb25af/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "31726b82ecf4fcf28f78",
@@ -164,7 +539,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-cinematic-dark-fantasy-battle-16-9-50s-built-in-4-shots-12-13s-each-4b8303bc6bc1/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "0750ba698783dfc00a88",
@@ -179,7 +554,7 @@
       "imageUrl": "https://goodcase.ai/cases/zentrixhq-seedance-2-5-ai-169918cdd005/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "744382fe751652f49af1",
@@ -194,7 +569,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "7ed85ce57441631a8e82",
@@ -209,7 +584,7 @@
       "imageUrl": "https://goodcase.ai/cases/case-cd6bc6a1a5cd/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "c9d833f0bc857100df1e",
@@ -224,7 +599,7 @@
       "imageUrl": "https://goodcase.ai/cases/nano-banana-pro-create-a-new-image-identical-to-the-attached-reference-100-realistic-featuring-1c9b7a27874d/opengraph-image",
       "creator": "Nano Banana pro 提示词",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "26a1fad797ae0af2f307",
@@ -239,7 +614,7 @@
       "imageUrl": "https://goodcase.ai/cases/huahuansfw1-gpt-image-ai-9dd789c16c5b/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "5d6c41eda0074c797018",
@@ -254,7 +629,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-exactly-30-second-photorealistic-hollywood-action-sequence-16-9-wid-5b683f1de532/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "0e70fc10274e1e5d37be",
@@ -269,7 +644,7 @@
       "imageUrl": "https://goodcase.ai/cases/weeleey6-seedance-ai-129273eb22ad/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "540fd62e6100e5d8b92a",
@@ -284,7 +659,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-10-second-16-9-widescreen-cinematic-luxury-automotive-fashion-video-i-9b5b96c185ca/opengraph-image",
       "creator": "改装独到。造型也独到。用 Seedance 2.5 制作。提示词",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "bee2cd52852e3dc21712",
@@ -299,7 +674,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-exactly-30-second-16-9-hyper-realistic-hollywood-action-sequence-60-a5c1cc2c227a/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "84ae9e6703d800118432",
@@ -314,7 +689,7 @@
       "imageUrl": "https://goodcase.ai/cases/nano-banana-pro-place-her-in-this-background-holding-this-product-578b827c1e5b/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "92be870a34ab4bd5bf2e",
@@ -329,7 +704,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-cinematic-quality-mandatory-applies-to-every-shot-of-this-video-d1dab8446932/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "984291512b33cc075abc",
@@ -344,7 +719,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-a-funny-and-heartwarming-3d-animated-comedy-featuring-a-beautiful-young-pregnan-e17face1bf16/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "ce2f2b49032fa94d22f2",
@@ -359,7 +734,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "562e3af0b5630e25c64c",
@@ -374,7 +749,7 @@
       "imageUrl": "https://goodcase.ai/cases/15-gpt-6-2-astra-sol-287f9da5702d/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "125c1ac12c03f68ec769",
@@ -389,7 +764,7 @@
       "imageUrl": "https://goodcase.ai/cases/nawalsehar-seedance-2-5-ai-7148aec54b52/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "74c9814526056c551673",
@@ -404,7 +779,7 @@
       "imageUrl": "https://goodcase.ai/cases/kling-1-4cfa1d40da27/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "7e37ce7a7fe66a371ca5",
@@ -419,7 +794,7 @@
       "imageUrl": "https://goodcase.ai/cases/minimax-h3-character-lock-lucia-caminos-from-gta-vi-8088e8117730/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "64b71e85372a0e78fa7f",
@@ -434,7 +809,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-ultra-photorealistic-cinematic-30-second-korean-street-fashion-lifes-4c505edaba21/opengraph-image",
       "creator": "梦幻韩系穿搭，为日常街头增添柔和的粉彩色调。使用 Seedance 2.5 制作。提示词",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "e16d33f03f26bfe4dd38",
@@ -449,7 +824,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-title-the-wrong-target-0ce4f0cea1e6/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "a5f8d016abcdbef1bdef",
@@ -464,7 +839,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "32b7ec98fc4eb2f3e4e7",
@@ -479,7 +854,7 @@
       "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-create-an-exceptionally-sophisticated-contemporary-architectural-art-poster-fe-591729dad2d4/opengraph-image",
       "creator": "GPT image 2.6 提示词",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "d2f951b775b19b815d8d",
@@ -719,7 +1094,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "4e44dcfa9cfa0a4eaf51",
@@ -854,7 +1229,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "770d7bbb1ebbe53357c8",
@@ -869,7 +1244,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-24T09:52:34Z"
     },
     {
       "id": "dbdb185807968b5d6d7b",

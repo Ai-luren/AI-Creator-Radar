@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-11-24T09:44:20Z",
+  "checkedAt": "2026-11-24T09:52:33Z",
   "practiceUpdatedAt": "2026-11-24",
   "total": 72,
   "counts": {
-    "available": 70,
-    "restricted": 2
+    "available": 69,
+    "restricted": 3
   },
   "results": [
     {
@@ -348,8 +348,8 @@
           "kind": "官方教程"
         }
       ],
-      "status": "available",
-      "httpStatus": 206,
+      "status": "restricted",
+      "httpStatus": 403,
       "finalUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
       "errorType": ""
     },
@@ -685,7 +685,7 @@
       ],
       "status": "available",
       "httpStatus": 200,
-      "finalUrl": "https://klingai.com/",
+      "finalUrl": "https://kling.ai/",
       "errorType": ""
     },
     {
@@ -1114,7 +1114,7 @@
         }
       ],
       "status": "available",
-      "httpStatus": 206,
+      "httpStatus": 200,
       "finalUrl": "https://tob.youchuan.cn/docs/guides",
       "errorType": ""
     },
@@ -1253,7 +1253,7 @@
       ],
       "status": "available",
       "httpStatus": 200,
-      "finalUrl": "https://www.vidu.cn/vidu-q4",
+      "finalUrl": "https://www.vidu.com/vidu-q4",
       "errorType": ""
     },
     {

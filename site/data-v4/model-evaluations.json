@@ -1,6 +1,6 @@
 {
   "schema": "ai-creator-radar-model-evaluations/1",
-  "generatedAt": "2026-11-22T09:44:29Z",
+  "generatedAt": "2026-11-24T09:53:46Z",
   "sourceNotes": {
     "aipick": "AIPick 近 7 天精选中的公开评测候选；保留其来源与原始链接。",
     "sogou": "搜狗微信搜索只读取搜索结果页的标题、摘要、公众号名和发布时间；不抓正文；遇到验证页停止并退避 24 小时。"
@@ -8,14 +8,16 @@
   "status": {
     "aipick": {
       "status": "ok",
-      "checkedAt": "2026-11-22T08:08:09+00:00",
-      "candidateCount": 1
+      "checkedAt": "2026-11-24T09:53:44+00:00",
+      "candidateCount": 0
     },
     "sogou": {
       "status": "ok",
-      "checkedAt": "2026-11-22T09:44:29Z",
+      "checkedAt": "2026-11-24T09:53:46Z",
       "searchesThisRun": 3,
-      "warnings": [],
+      "warnings": [
+        "本轮达到 3 次搜狗查询上限，剩余模型下次再查"
+      ],
       "blockedUntil": null
     }
   },
@@ -23,52 +25,71 @@
     {
       "id": "kling-image",
       "modelId": "kling-image",
-      "name": "Kling Image 4.0",
+      "name": "Kling Image Kling Image 4.0 / Kling Image 3.0 Omni / Kling Image O1",
       "vendor": "Kling AI",
       "category": "image",
       "releasedAt": "2026-11-17T00:00:00Z",
       "releaseTitle": "Kling Image 4.0 正式发布：原生 8K 与一致图像组",
       "aliases": [
-        "Kling Image 4.0",
+        "Kling Image Kling Image 4.0 / Kling Image 3.0 Omni / Kling Image O1",
         "Kling Image",
+        "Kling Image 4.0",
         "Kling Image 4.0 正式发布：原生 8K 与一致图像组"
       ],
-      "query": "Kling Image 4.0 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%204.0%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-22T09:44:29Z"
+      "query": "Kling Image Kling Image 4.0 / Kling Image 3.0 Omni / Kling Image O1 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%20Kling%20Image%204.0%20/%20Kling%20Image%203.0%20Omni%20/%20Kling%20Image%20O1%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-24T09:53:46Z"
+    },
+    {
+      "id": "seedance",
+      "modelId": "seedance",
+      "name": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "vendor": "字节跳动 Seed",
+      "category": "video",
+      "releasedAt": "2026-11-16T00:00:00Z",
+      "releaseTitle": "一镜成片，随心参考：Seedance 2.5 正式发布",
+      "aliases": [
+        "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+        "Seedance",
+        "一镜成片，随心参考：Seedance 2.5 正式发布"
+      ],
+      "query": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-24T09:53:46Z"
     },
     {
       "id": "minimax-h3-image",
       "modelId": "minimax-h3-image",
-      "name": "MiniMax H3-Image",
+      "name": "MiniMax H3-Image MiniMax H3-Image / MiniMax H3-Image Highspeed",
       "vendor": "MiniMax",
       "category": "image",
-      "releasedAt": "2026-11-11T00:00:00Z",
+      "releasedAt": "2026-11-10T00:00:00Z",
       "releaseTitle": "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代",
       "aliases": [
+        "MiniMax H3-Image MiniMax H3-Image / MiniMax H3-Image Highspeed",
         "MiniMax H3-Image",
         "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代"
       ],
-      "query": "MiniMax H3-Image 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=MiniMax%20H3-Image%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-22T09:44:29Z"
+      "query": "MiniMax H3-Image MiniMax H3-Image / MiniMax H3-Image Highspeed 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=MiniMax%20H3-Image%20MiniMax%20H3-Image%20/%20MiniMax%20H3-Image%20Highspeed%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-24T09:53:46Z"
     },
     {
       "id": "seedream",
       "modelId": "seedream",
-      "name": "Seedream 5.5",
+      "name": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5",
       "vendor": "字节跳动 Seed",
       "category": "image",
       "releasedAt": "2026-11-09T00:00:00Z",
       "releaseTitle": "生成更真实，百轮编辑更稳定：Seedream 5.5 发布",
       "aliases": [
-        "Seedream 5.5",
+        "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5",
         "Seedream",
-        "生成更真实，百轮编辑更稳定：Seedream 5.5 发布"
+        "生成更真实，百轮编辑更稳定：Seedream 5.5 发布",
+        "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布"
       ],
-      "query": "Seedream 5.5 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%205.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-22T09:44:29Z"
+      "query": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%20Seedream%203.0%20/%20Seedream%204.0%20/%20Seedream%204.5%20/%20Seedream%205.0%20Pro%20/%20Seedream%205.0%20Lite%20/%20Seedream%205.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
     }
   ],
   "items": [
@@ -509,20 +530,20 @@
     }
   ],
   "searchState": {
-    "lastRunAt": "2026-11-22T09:44:29Z",
+    "lastRunAt": "2026-11-24T09:53:46Z",
     "queries": {
       "kling-image": {
-        "lastSearchedAt": "2026-11-22T09:44:29Z",
+        "lastSearchedAt": "2026-11-24T09:53:46Z",
         "status": "ok",
-        "resultCount": 10,
-        "candidateCount": 9,
+        "resultCount": 0,
+        "candidateCount": 0,
         "error": null
       },
       "minimax-h3-image": {
-        "lastSearchedAt": "2026-11-22T09:44:29Z",
+        "lastSearchedAt": "2026-11-24T09:53:46Z",
         "status": "ok",
-        "resultCount": 10,
-        "candidateCount": 9,
+        "resultCount": 0,
+        "candidateCount": 0,
         "error": null
       },
       "seedream": {
@@ -530,6 +551,13 @@
         "status": "ok",
         "resultCount": 10,
         "candidateCount": 10,
+        "error": null
+      },
+      "seedance": {
+        "lastSearchedAt": "2026-11-24T09:53:46Z",
+        "status": "ok",
+        "resultCount": 0,
+        "candidateCount": 0,
         "error": null
       }
     }
