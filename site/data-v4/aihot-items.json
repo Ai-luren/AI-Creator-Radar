@@ -6,15 +6,38 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-24T09:53:33+00:00",
-  "etag": "W/\"v1-items-96836ae17b1757b1\"",
+  "fetchedAt": "2026-11-24T12:52:13+00:00",
+  "etag": "W/\"v1-items-01c3aa07217b0971\"",
   "schemaVersion": 1,
   "page": {
-    "count": 16,
+    "count": 17,
     "hasMore": false,
     "nextCursor": null
   },
   "items": [
+    {
+      "id": "yz5va6l60tfkmdampmsiz0jq2",
+      "title": "ChinaTalk 分析美国算力租赁新规或使中国前沿算力推迟约六个月",
+      "originalTitle": null,
+      "summary": "ChinaTalk 的 Quinn Ennis 分析美国 BIS 于 11 月 16 日发布的算力租赁临时最终规则（11 月 19 日生效）：向提供中国公司超过约 760 块 H100 等值算力的海外数据中心供应芯片需申请许可，并覆盖印尼、马来西亚、新加坡、泰国、巴西的先进 AI 芯片出口，同时关闭 Foundry Due-Diligence 漏洞。作者用自建算力模型量化新规效果，给出执行力度与延迟月数的区间估算，为判断政策影响提供可参照框架。",
+      "source": {
+        "name": "ChinaTalk（RSS）"
+      },
+      "links": {
+        "aihot": "https://aihot.news/items/yz5va6l60tfkmdampmsiz0jq2",
+        "original": "https://www.chinatalk.media/p/the-remote-access-rule-will-slow"
+      },
+      "publishedAt": "2026-11-24T10:58:57.000Z",
+      "discoveredAt": "2026-11-24T11:57:35.116Z",
+      "category": "industry",
+      "score": 80,
+      "selected": true,
+      "reason": "作者用自建算力模型量化新规效果，给出执行力度与延迟月数的区间估算，为判断政策影响提供可参照框架。",
+      "attribution": {
+        "name": "AIHOT",
+        "url": "https://aihot.news/items/yz5va6l60tfkmdampmsiz0jq2"
+      }
+    },
     {
       "id": "jb7ohptrc5ctyx9maoimz2hn0",
       "title": "卡兹克分享两个优化用户体验和产品动效的 Prompt",

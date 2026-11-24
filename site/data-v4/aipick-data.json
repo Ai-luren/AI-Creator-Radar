@@ -6,12 +6,81 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-24T09:53:44+00:00",
+  "fetchedAt": "2026-11-24T12:52:36+00:00",
   "etags": {
-    "items": "W/\"v1-items-cc935c13a135a7d0\"",
-    "hotTopics": "W/\"v1-hot-427992df165a1632\""
+    "items": "W/\"v1-items-80bb345b9c086ce3\"",
+    "hotTopics": "W/\"v1-hot-8a2761f95efd241c\""
   },
   "items": [
+    {
+      "id": "jy2cj99y7ee90sn3vgxn4pbh5",
+      "title": "博主分享 Seedance 高密度作画动漫提示词",
+      "originalTitle": "If your anime generations feel too safe, steal this prompt. 💀🔥 This one is designed to make Seedance WORK: high-density sakuga, violent direction changes, environmental choreography, graphic impact frames and a massive supernatural payoff. Basically 15 seconds with the animation budget set to unlimited. Full prompt below — break it 👇 An adult black-haired exorcist with a curvy athletic physique, fitted white ceremonial uniform, red gloves and a paper talisman wrapped around one arm enters a subway station where every passenger suddenly freezes and turns toward her at once, shadow curses tear from their bodies and flood the platform, she tears the talisman loose, transforms it into a long red ribbon-blade and spins through the swarm, using pillars, train doors and overhead rails as anchors for impossible changes of direction while a massive faceless curse rises from the tunnel and swallows an incoming train whole; she lets herself be dragged toward its mouth, wraps the ribbon around",
+      "summary": "博主 Charaspower 分享了一段面向 Seedance 的动漫视频提示词，用于生成约 15 秒的高密度作画动作片段。提示词描述黑发驱魔师在地铁站遭遇乘客冻结、影子诅咒涌出，她用符纸化成的红色缎带刀借立柱、车门和头顶栏杆完成高速变向，最终击溃隧道中吞下列车的无面诅咒。提示词还指定了荧光灯与瓷砖墙场景、红白冲击帧、快速特写反应镜头和结尾诅咒如纸般坍缩、乘客恢复原状。",
+      "source": {
+        "name": "X · Charaspower"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/jy2cj99y7ee90sn3vgxn4pbh5",
+        "original": "https://x.com/CharaspowerAI/status/2125197835620561115"
+      },
+      "publishedAt": "2026-11-24T12:00:22.000Z",
+      "discoveredAt": "2026-11-24T12:39:15.537Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "原文给出可直接复用的 Seedance 完整提示词，适合照着跑一遍，对比默认生成与高密度作画提示词下的画面差异。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/jy2cj99y7ee90sn3vgxn4pbh5"
+      }
+    },
+    {
+      "id": "qruhwjlmqmlmg7x4rvad0nsnr",
+      "title": "字节 Personal Agent 小豆开启邀请制公测，打通抖音、飞书与手机本地上下文",
+      "originalTitle": "小豆今天终于开启邀请制公测了！ 其实我内测用了一段时间，和大家聊聊我平时最常用的几个玩法。 小豆最厉害的地方还是上下文： 它终于把自己生态里的上下文几乎全打通了，包括抖音、飞书，以及手机本地的能力。 结合起来能玩出不少新花样： 平时在抖音收藏过一堆美食视频，有的博主一口气推好几家店，真到了附近想去找，根本翻不动视频。 现在小豆能直接帮你找出来，结合抖音本地生活把视频里的店铺做成卡片展示，点开就能消费。 你还可以让它定期汇总收藏的美食店，到了某个地方直接问「附近有什么我收藏的好吃的」，秒列清单。 而且它能直接帮你打电话问排不排队、还要等几桌，对我们 i 人很友好。 打通抖音后，它既能帮着做内容，也能管你的日常兴趣： 分析你的抖音账号数据，拆解你收藏的参考视频是怎么做的，下次做类似内容时直接提取点子复用 根据你平时刷剧、综艺、游戏的喜好主动推动态。 比如前阵子英雄联盟全球总决赛，每天早上不用自己去搜，小豆直接把比分推给我 记 Todo 和日程：微信或其他聊天软件聊完事，直接截个图丢给小豆说一句「记一下日程」，它会同时同步到手机系统日历和飞书日历，省事很多。 可以直接连 Apple 健康做分析，补上了国区用不了 Apple Intelligence 健康分析的遗憾。 平时随手记一下今天生病了、在吃什么药或补剂，它也会结合健康数据一起分析。 飞书一接进来，上面所有场景就彻底串起来了： 收藏的美食店、想玩的游戏、追的剧，直接建多维表格自动整理；抖音数据复盘和选题建议，也能自动沉淀成飞书文档成体系管理。 我之前一直说「上下文就是一切」。 字节终于在 Personal Agent 上接上了自己庞大的生态，拿到独有上下文后，跑出来的场景确实不一样。 不过内测用下来也有两个需要改的地方（可能这也是现在还用邀请制的原因）： 对话调教偏冗长，经常给一大段文案。字一多，连我们这种每天看内容的人都不想看，更别说普通用户了。 主动推送太频繁，还没摸清你真正想要什么，就推一堆当下不感兴趣的内容，有点增加信息负担。 好在最近看他们已经在陆续改这些问题了。",
+      "summary": "字节 Personal Agent 小豆开启邀请制公测，博主内测后称其已打通抖音、飞书和手机本地能力。它能从抖音收藏的美食视频里找出店铺并做成卡片，截图即可记日程并同步手机日历和飞书日历，还能连 Apple 健康做分析。博主也指出对话偏冗长、主动推送太频繁两个问题。",
+      "source": {
+        "name": "X · 歸藏"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/qruhwjlmqmlmg7x4rvad0nsnr",
+        "original": "https://x.com/op7418/status/2125163207304139041"
+      },
+      "publishedAt": "2026-11-24T09:42:46.000Z",
+      "discoveredAt": "2026-11-24T12:36:15.978Z",
+      "category": "ai-products",
+      "score": 72,
+      "selected": true,
+      "reason": "博主内测实测字节 Personal Agent 小豆，展示抖音收藏美食转卡片、截图记日程同步飞书日历等玩法，也点出回复冗长和推送过频两个问题。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/qruhwjlmqmlmg7x4rvad0nsnr"
+      }
+    },
+    {
+      "id": "ihcroe1unrlf8wlu36nf7vwy2",
+      "title": "智谱 GLM-5.4 上线，向编程套餐用户开放并新增视觉能力",
+      "originalTitle": "智谱 GLM-5.4 上线，写代码也能看 11 月 24 日｜硅基快报 智谱 GLM-5.4 向编程套餐用户开放，新增视觉能力，有周配额的用户额度增加五成。自变量机器人发布 WALL-OSS-1.0，公开了整理桌面的实机演示和 312 项实机任务的厂商测试结果。Anthropic 推出 Claude Ship，新加入的修复和审批功能处于测试阶段，审批范围由团队规则决定。 如果代码交给 AI 审查，你希望哪类改动一定由人审批？ #硅基快报 #人工智能 #智谱GLM #具身智能 #ClaudeShip",
+      "summary": "智谱 GLM-5.4 上线并向编程套餐用户开放，新增视觉能力，按周配额的用户额度比上一版增加五成，按量接口和模型权重后续开放。官方还展示了用代码做三维互动场景。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ihcroe1unrlf8wlu36nf7vwy2",
+        "original": "https://www.douyin.com/video/7711528779461570722"
+      },
+      "publishedAt": "2026-11-24T00:30:11.000Z",
+      "discoveredAt": "2026-11-24T12:15:16.473Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出 GLM-5.4 新增视觉能力、编程套餐周配额增加五成的具体变化，适合做版本更新速览并演示写代码看图的用法。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/ihcroe1unrlf8wlu36nf7vwy2"
+      }
+    },
     {
       "id": "q34wgl5ccic9wjfjm3jd0aeag",
       "title": "我用 GLM-5.4 从黎曼证明中拆出 89 条引理并写成论文",
@@ -632,75 +701,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/cedm06rh3b3hsg7n0n036w9lw"
       }
-    },
-    {
-      "id": "ahe9jmzw0vhzf8q1x4feynakl",
-      "title": "Higgsfield 公开 AI K-pop 偶像动作短片 ORIGINS EP. 01: ZARA 及全部提示词与素材",
-      "originalTitle": "The next Higgsfield Selected is ORIGINS EP. 01: ZARA by @joeysnoisygroup A 7-minute action film about an AI K-pop idol searching for her origins. The entire project is open source. All prompts and assets are public. Here's the full workflow: https://t.co/ZEbMMDa7mc",
-      "summary": "Higgsfield 发布 Selected 项目 ORIGINS EP. 01: ZARA，这是一支由 @joeysnoisygroup 制作的 7 分钟动作短片，讲述一位 AI K-pop 偶像寻找自己身世的故事。该项目完全开源，所有提示词和素材均已公开，官方还给出了完整工作流链接。",
-      "source": {
-        "name": "X · Higgsfield"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ahe9jmzw0vhzf8q1x4feynakl",
-        "original": "https://x.com/higgsfield_ai/status/2124926392924012996"
-      },
-      "publishedAt": "2026-11-23T18:01:45.000Z",
-      "discoveredAt": "2026-11-23T19:50:18.687Z",
-      "category": "ai-products",
-      "score": 62,
-      "selected": true,
-      "reason": "官方公开了一支 7 分钟 AI 动作短片和全部提示词与素材，适合拆解其工作流，讲清从提示词到成片的制作步骤。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ahe9jmzw0vhzf8q1x4feynakl"
-      }
-    },
-    {
-      "id": "vm0ayobrnmi5vtnf06dbznrvk",
-      "title": "创作者用 Claude Code 在实拍前先剪出 AI 数字人视频草稿",
-      "originalTitle": "With Claude Code... I edit my videos BEFORE I film them. Once I like the video with my AI avatar... THEN, I film the video and have Claude Code replace the avatar with real footage. AI is not just changing post production, it's changing pre production.",
-      "summary": "Riley Brown 用 Claude Code 在实拍前先剪视频：他把脚本写在 Claude Code 的 artifact 里，用紫色引用块标注想象中的画面，再让 Claude Code 生成带 3D 数字人的草稿视频。",
-      "source": {
-        "name": "TikTok · Riley Brown"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/vm0ayobrnmi5vtnf06dbznrvk",
-        "original": "https://www.tiktok.com/@rileybrown.ai/video/7711425865669791007"
-      },
-      "publishedAt": "2026-11-23T17:51:12.000Z",
-      "discoveredAt": "2026-11-23T19:18:15.103Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者用 Claude Code 先做带 3D 数字人的视频草稿，再实拍替换，可拆解这套先剪辑后拍摄的完整流程。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/vm0ayobrnmi5vtnf06dbznrvk"
-      }
-    },
-    {
-      "id": "o6uv00pw8mdcgu39l0gmci5sm",
-      "title": "Rourke Heath 演示用 Artlist MCP 接入 Claude 自动完成视频音效设计",
-      "originalTitle": "Automate sound design on every video! 🔥 Tool - Artlist Connecting the Artlist MCP to Claude gives it access to Artlist’s huge sound effects library, so it can build a full soundscape for any video in a single request. Paired with Seedance 2.5 video generation on Artlist, creators can go from idea to fully sound-designed video in a fraction of the time. A powerful workflow for filmmakers, editors and content creators who want rich, professional audio. #Artlist #AISoundDesign #ClaudeAI #Seedance #CreativeAI",
-      "summary": "Rourke Heath 演示了把 Artlist MCP 接入 Claude 后，Claude 可调用 Artlist 音效库为视频一次性生成完整音效设计。流程是先在 Claude 中上传视频创意和图片参考、让它生成 Seedance 2.5 提示词，再到 Artlist 用 Seedance 2.5 生成视频，最后把视频上传给 Claude 完成整段音效设计。",
-      "source": {
-        "name": "TikTok · Rourke Heath"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/o6uv00pw8mdcgu39l0gmci5sm",
-        "original": "https://www.tiktok.com/@rourke.heath/video/7711417250028342550"
-      },
-      "publishedAt": "2026-11-23T17:17:31.000Z",
-      "discoveredAt": "2026-11-23T19:16:15.690Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者演示了把 Artlist MCP 接入 Claude 后，上传视频即可一次性生成完整音效设计，适合按步骤录屏复现这条工作流。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/o6uv00pw8mdcgu39l0gmci5sm"
-      }
     }
   ],
   "hotTopics": [
@@ -721,7 +721,7 @@
       "participantCount": 10,
       "sourceNames": [
         "公众号 · 智东西",
-        "抖音 · 热点搜「ERNIE 5.5 Flash Preview」",
+        "抖音 · 热点搜「GLM-5.4」",
         "Simon Willison 原创实测",
         "The Decoder",
         "公众号 · AI产品黄叔",
@@ -733,6 +733,54 @@
     },
     {
       "rank": 2,
+      "id": "jlc8ji64faje47ur4chv1kuij",
+      "title": "百度以 Apache 2.0 开源文心 ERNIE 5.5 Flash Preview 权重",
+      "source": {
+        "name": "X · 百度文心"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/jlc8ji64faje47ur4chv1kuij",
+        "original": "https://x.com/Baidu_ERNIE/status/2125072735336546546",
+        "story": "https://aipick.news/story/2f08e193-00f9-4bab-b733-dc57b24492bc"
+      },
+      "sourceCount": 4,
+      "signalCount": 0,
+      "participantCount": 4,
+      "sourceNames": [
+        "量子位",
+        "X · 百度",
+        "X · 百度文心",
+        "vLLM 官方博客"
+      ],
+      "latestAt": "2026-11-24T06:22:28.000Z"
+    },
+    {
+      "rank": 3,
+      "id": "y377ujp3hlcyf4gl2g73qiz9e",
+      "title": "Anthropic 推出 Claude Ship 自动处理 PR",
+      "source": {
+        "name": "Claude 产品动态"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/y377ujp3hlcyf4gl2g73qiz9e",
+        "original": "https://claude.com/resources/articles/introducing-claude-ship",
+        "story": "https://aipick.news/story/41a15b03-07e9-491e-a57d-49b30512ae40"
+      },
+      "sourceCount": 6,
+      "signalCount": 0,
+      "participantCount": 6,
+      "sourceNames": [
+        "The Decoder",
+        "TechCrunch · AI",
+        "X · Boris Cherny",
+        "X · Addy Osmani",
+        "The Verge · AI",
+        "Claude 产品动态"
+      ],
+      "latestAt": "2026-11-24T11:26:23.000Z"
+    },
+    {
+      "rank": 4,
       "id": "stj4g02adlfn28w0atm7bvkdi",
       "title": "OpenAI 提议以困惑度设共享安全上限，微软公布可比数据",
       "source": {
@@ -759,29 +807,32 @@
       "latestAt": "2026-11-23T18:42:38.000Z"
     },
     {
-      "rank": 3,
-      "id": "jlc8ji64faje47ur4chv1kuij",
-      "title": "百度以 Apache 2.0 开源文心 ERNIE 5.5 Flash Preview 权重",
+      "rank": 5,
+      "id": "a8ch7qfq809afvld671n74qan",
+      "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
       "source": {
-        "name": "X · 百度文心"
+        "name": "抖音 · 热点搜「Claude Ship」"
       },
       "links": {
-        "aihot": "https://aipick.news/items/jlc8ji64faje47ur4chv1kuij",
-        "original": "https://x.com/Baidu_ERNIE/status/2125072735336546546",
-        "story": "https://aipick.news/story/2f08e193-00f9-4bab-b733-dc57b24492bc"
+        "aihot": "https://aipick.news/items/a8ch7qfq809afvld671n74qan",
+        "original": "https://www.douyin.com/video/7711209260121591076",
+        "story": "https://aipick.news/story/4c790184-a881-40da-9a04-fa9997a5cc8c"
       },
-      "sourceCount": 3,
+      "sourceCount": 6,
       "signalCount": 0,
-      "participantCount": 3,
+      "participantCount": 6,
       "sourceNames": [
-        "量子位",
-        "X · 百度",
-        "X · 百度文心"
+        "抖音 · 晓辉博士",
+        "X · 宝玉",
+        "公众号 · APPSO",
+        "公众号 · 差评X.PIN",
+        "抖音 · 热点搜「Claude Ship」",
+        "Gary Marcus：The Road to AI We Can Trust"
       ],
-      "latestAt": "2026-11-24T06:22:28.000Z"
+      "latestAt": "2026-11-24T10:38:27.000Z"
     },
     {
-      "rank": 4,
+      "rank": 6,
       "id": "k6d4k411z180s7zicd3y106ta",
       "title": "英伟达董事会撤回辞职决定，恢复黄仁勋职务",
       "source": {
@@ -804,56 +855,6 @@
         "公众号 · APPSO"
       ],
       "latestAt": "2026-11-23T22:09:26.000Z"
-    },
-    {
-      "rank": 5,
-      "id": "a8ch7qfq809afvld671n74qan",
-      "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
-      "source": {
-        "name": "抖音 · 热点搜「Claude Ship」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/a8ch7qfq809afvld671n74qan",
-        "original": "https://www.douyin.com/video/7711209260121591076",
-        "story": "https://aipick.news/story/4c790184-a881-40da-9a04-fa9997a5cc8c"
-      },
-      "sourceCount": 7,
-      "signalCount": 0,
-      "participantCount": 7,
-      "sourceNames": [
-        "X · 宝玉",
-        "公众号 · APPSO",
-        "公众号 · 差评X.PIN",
-        "抖音 · 热点搜「Claude Ship」",
-        "Gary Marcus：The Road to AI We Can Trust",
-        "The Decoder",
-        "公众号 · 新智元"
-      ],
-      "latestAt": "2026-11-24T04:16:19.000Z"
-    },
-    {
-      "rank": 6,
-      "id": "y377ujp3hlcyf4gl2g73qiz9e",
-      "title": "Anthropic 推出 Claude Ship 自动处理 PR",
-      "source": {
-        "name": "Claude 产品动态"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/y377ujp3hlcyf4gl2g73qiz9e",
-        "original": "https://claude.com/resources/articles/introducing-claude-ship",
-        "story": "https://aipick.news/story/41a15b03-07e9-491e-a57d-49b30512ae40"
-      },
-      "sourceCount": 5,
-      "signalCount": 0,
-      "participantCount": 5,
-      "sourceNames": [
-        "TechCrunch · AI",
-        "X · Boris Cherny",
-        "X · Addy Osmani",
-        "The Verge · AI",
-        "Claude 产品动态"
-      ],
-      "latestAt": "2026-11-23T22:05:50.000Z"
     },
     {
       "rank": 7,
