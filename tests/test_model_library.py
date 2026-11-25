@@ -118,11 +118,14 @@ class ModelLibrarySchemaTests(unittest.TestCase):
         production = json.loads((ROOT / "site/data/models.json").read_text())
         self.assertEqual(self.models, production)
 
-    def test_composite_sort_uses_each_category_board_once_and_surfaces_top_ten(self):
+    def test_model_library_shows_source_coverage_without_composite_rank(self):
         html = (ROOT / "site/preview-v4.html").read_text()
         self.assertNotIn("data-model-rank-board", html)
-        self.assertIn("function modelCompositeFor", html)
-        self.assertIn("综合参考第", html)
+        self.assertIn("items.forEach(function(m){m._boardRefs=modelRanksFor(m,boards)})", html)
+        self.assertIn("榜单覆盖只统计可查的来源原榜数量，不计算或混合分数", html)
+        self.assertIn("可查原榜", html)
+        self.assertNotIn("function modelCompositeFor", html)
+        self.assertNotIn("综合参考第", html)
 
     def test_music_and_tts_categories_use_existing_reference_snapshots(self):
         html = (ROOT / "site/preview-v4.html").read_text()
