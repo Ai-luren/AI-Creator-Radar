@@ -2,14 +2,14 @@
 
 面向 AI 视频创作者的研究工作台：追踪模型上新，查看按任务拆分的能力参考榜，并集中查找官方案例、教程、行业简报和创作资源。
 
-<p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="工作台把官方模型发布、来源原榜和创作资源按来源整理，并保留可回查的证据。">
+<p>
+  <strong><a href="https://ai-luren.github.io/AI-Creator-Radar/">打开线上工作台 ↗</a></strong> ·
+  <a href="site/ranking-rules.html">榜单规则</a> ·
+  <a href="docs/leaderboard-methodology-audit-2026-11-25.md">方法审核记录</a>
 </p>
 
 <p align="center">
-  <a href="https://ai-luren.github.io/AI-Creator-Radar/">打开线上工作台</a> ·
-  <a href="site/ranking-rules.html">查看榜单规则</a> ·
-  <a href="docs/leaderboard-methodology-audit-2026-11-25.md">阅读方法审核记录</a>
+  <img src="./assets/readme/hero.svg" width="100%" alt="AI 视频创作台的能力榜单页面：侧栏导航、分类页签、榜单来源快照和保留原始名次的排行表。">
 </p>
 
 ## 工作台内容
