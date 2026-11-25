@@ -24,13 +24,11 @@
 
 主榜沿用各评测来源自己的任务、分数和名次，不把不同机构或任务池的分数相加，也不把偏好榜解释成市场使用量或创作者采用率。
 
-| 类型 | 主榜来源 | 当前口径 |
-| --- | --- | --- |
-| 图片 | Arena | 文生图用户偏好 |
-| 视频 | Artificial Analysis | 有声文生与有声图生分开显示，各自保留独立名次 |
-| 音乐 | Artificial Analysis | 含人声整曲榜 |
-| 语音合成 | Artificial Analysis | 全量 Provider Voice，包含 ElevenLabs |
-| 编程 | Arena Code | 用户偏好，不等同于单元测试通过率 |
+- **图片 · Arena**：文生图用户偏好。
+- **视频 · Artificial Analysis**：有声文生和有声图生分开显示，各自保留独立名次。
+- **音乐 · Artificial Analysis**：含人声整曲榜。
+- **语音合成 · Artificial Analysis**：全量 Provider Voice 榜，包含 ElevenLabs。
+- **编程 · Arena Code**：用户偏好榜，不等同于单元测试通过率。
 
 候选筛选不会重排来源名次；视频榜从原榜前 20 名中按基础模型资格、身份核实和家族去重规则筛出最多 10 项。榜单快照日期、区间、样本量和排除理由可在页面中查看。详细口径见[榜单规则](site/ranking-rules.html)。
 
