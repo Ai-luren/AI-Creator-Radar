@@ -1,0 +1,988 @@
+{
+  "schema": "ai-creator-radar-primary-leaderboard-snapshots/1",
+  "capturedAt": "2026-11-25T11:32:52Z",
+  "note": "只保存主榜展示所需的原榜快照字段。优先以各 board 的 capturedAt 作为该榜数据时间；文件级 lastUpdatedAt 仅表示快照文件最近编辑时间。Elo、Arena Score、排名区间和样本量均保留来源口径，不跨榜直接合成。",
+  "boards": [
+    {
+      "id": "aa-video-t2v-audio-20261125",
+      "name": "AA-Video-T2V v2.1 · 有声文生视频",
+      "kind": "video",
+      "task": "text-to-video",
+      "audioMode": "audio",
+      "version": "AA-Video-T2V v2.1",
+      "sourceCheckedAt": "2026-11-25T11:55Z",
+      "snapshotScope": "官方原榜前 20 名；页面主榜按资格过滤后最多展示 10 个型号",
+      "excludedReferences": [],
+      "source": {
+        "id": "artificial-analysis",
+        "name": "Artificial Analysis",
+        "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+        "kind": "independent",
+        "description": "有声文生视频盲测偏好榜。AA 明确将有声、无声、文生、图生分别放入独立 Elo 池；榜单样本数不是独立评审人数。"
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "rankRange": [
+            1,
+            3
+          ],
+          "name": "Wan 3.0",
+          "provider": "Alibaba",
+          "elo": 1175,
+          "ciLow": 1163,
+          "ciHigh": 1187,
+          "comparisons": 9201,
+          "releasedAt": "2026-08"
+        },
+        {
+          "rank": 2,
+          "rankRange": [
+            1,
+            3
+          ],
+          "name": "Utopai X",
+          "provider": "Utopai Studios",
+          "elo": 1173,
+          "ciLow": 1161,
+          "ciHigh": 1185,
+          "comparisons": 8573,
+          "releasedAt": "2026-09",
+          "excludeReason": "MiniMax 官方将 Utopai X 列在基于 H3 的生态/社区模型中；主榜比较基础模型时不与 H3 重复占位。"
+        },
+        {
+          "rank": 3,
+          "rankRange": [
+            2,
+            5
+          ],
+          "name": "MiniMax H3 (768p)",
+          "provider": "MiniMax",
+          "elo": 1164,
+          "ciLow": 1152,
+          "ciHigh": 1176,
+          "comparisons": 9362,
+          "releasedAt": "2026-07"
+        },
+        {
+          "rank": 4,
+          "rankRange": [
+            3,
+            9
+          ],
+          "name": "Hyperflow H3",
+          "provider": "Video Rebirth",
+          "elo": 1156,
+          "ciLow": 1143,
+          "ciHigh": 1169,
+          "comparisons": 5994,
+          "releasedAt": "2026-09",
+          "excludeReason": "第三方 H3 命名端点，未核实为独立基础模型；身份未核实前不进入基础模型主榜。"
+        },
+        {
+          "rank": 5,
+          "rankRange": [
+            3,
+            9
+          ],
+          "name": "Dreamina Seedance 2.5",
+          "provider": "ByteDance Seed",
+          "elo": 1154,
+          "ciLow": 1142,
+          "ciHigh": 1166,
+          "comparisons": 9260,
+          "releasedAt": "2026-07"
+        },
+        {
+          "rank": 6,
+          "rankRange": [
+            4,
+            10
+          ],
+          "name": "Gemini Omni Flash 1.2",
+          "provider": "Google",
+          "elo": 1152,
+          "ciLow": 1139,
+          "ciHigh": 1165,
+          "comparisons": 6698,
+          "releasedAt": "2026-11"
+        },
+        {
+          "rank": 7,
+          "rankRange": [
+            4,
+            11
+          ],
+          "name": "MAGI-2",
+          "provider": "Sand.ai",
+          "elo": 1150,
+          "ciLow": 1137,
+          "ciHigh": 1163,
+          "comparisons": 5441,
+          "releasedAt": "2026-11"
+        },
+        {
+          "rank": 8,
+          "rankRange": [
+            4,
+            11
+          ],
+          "name": "FLUX 3 Max",
+          "provider": "Fal",
+          "elo": 1150,
+          "ciLow": 1137,
+          "ciHigh": 1163,
+          "comparisons": 5655,
+          "releasedAt": "2026-10",
+          "excludeReason": "fal 将 FLUX 3 Max 描述为基于 FLUX 3 的 post-training 变体；主榜按底模家族保留 Black Forest Labs 的 FLUX 3。"
+        },
+        {
+          "rank": 9,
+          "rankRange": [
+            4,
+            10
+          ],
+          "name": "HeyGen Video 1",
+          "provider": "HeyGen",
+          "elo": 1150,
+          "ciLow": 1138,
+          "ciHigh": 1162,
+          "comparisons": 8325,
+          "releasedAt": "2026-10",
+          "excludeReason": "MiniMax 官方将其列在基于 H3 的生态/社区模型中；主榜比较基础模型时不与 H3 重复占位。"
+        },
+        {
+          "rank": 10,
+          "rankRange": [
+            5,
+            13
+          ],
+          "name": "MiniMax H3 Max",
+          "provider": "Fal",
+          "elo": 1145,
+          "ciLow": 1132,
+          "ciHigh": 1158,
+          "comparisons": 5660,
+          "releasedAt": "2026-08",
+          "excludeReason": "Fal 提供的 H3 Max 变体；属于 H3 衍生端点，不与 MiniMax H3 基础模型重复占位。"
+        },
+        {
+          "rank": 11,
+          "rankRange": [
+            9,
+            14
+          ],
+          "name": "FLUX 3",
+          "provider": "Black Forest Labs",
+          "elo": 1138,
+          "ciLow": 1126,
+          "ciHigh": 1150,
+          "comparisons": 8347,
+          "releasedAt": "2026-07"
+        },
+        {
+          "rank": 12,
+          "rankRange": [
+            10,
+            15
+          ],
+          "name": "SkyReels V4",
+          "provider": "Skywork AI",
+          "elo": 1136,
+          "ciLow": 1123,
+          "ciHigh": 1149,
+          "comparisons": 6636,
+          "releasedAt": "2026-03"
+        },
+        {
+          "rank": 13,
+          "rankRange": [
+            10,
+            15
+          ],
+          "name": "Dreamina Seedance 2.0",
+          "provider": "ByteDance Seed",
+          "elo": 1135,
+          "ciLow": 1123,
+          "ciHigh": 1147,
+          "comparisons": 8302,
+          "releasedAt": "2026-03",
+          "excludeReason": "与 Seedance 2.5 为同一厂商家族，主榜只保留较新版本。"
+        },
+        {
+          "rank": 14,
+          "rankRange": [
+            11,
+            17
+          ],
+          "name": "P-Video-2-Pro",
+          "provider": "Pruna AI",
+          "elo": 1129,
+          "ciLow": 1116,
+          "ciHigh": 1142,
+          "comparisons": 5216,
+          "releasedAt": "2026-09",
+          "excludeReason": "Pruna 官方说明 P-Video-2-Pro 基于 MiniMax H3；属于 H3 衍生端点，主榜不与 MiniMax H3 重复占位。"
+        },
+        {
+          "rank": 15,
+          "rankRange": [
+            13,
+            17
+          ],
+          "name": "Gemini Omni Flash 1.1",
+          "provider": "Google",
+          "elo": 1124,
+          "ciLow": 1112,
+          "ciHigh": 1136,
+          "comparisons": 9643,
+          "releasedAt": "2026-08",
+          "excludeReason": "与 Gemini Omni Flash 1.2 为同一厂商家族，主榜只保留较新版本。"
+        },
+        {
+          "rank": 16,
+          "rankRange": [
+            13,
+            17
+          ],
+          "name": "Pika H3 Flex",
+          "provider": "Pika Art",
+          "elo": 1123,
+          "ciLow": 1110,
+          "ciHigh": 1136,
+          "comparisons": 6211,
+          "releasedAt": "2026-10",
+          "excludeReason": "MiniMax 官方将其列在基于 H3 的生态/社区模型中；主榜比较基础模型时不与 H3 重复占位。"
+        },
+        {
+          "rank": 17,
+          "rankRange": [
+            13,
+            17
+          ],
+          "name": "Dreamina Seedance 2.5 Flash (720p)",
+          "provider": "ByteDance Seed",
+          "elo": 1122,
+          "ciLow": 1107,
+          "ciHigh": 1137,
+          "comparisons": 3356,
+          "releasedAt": "2026-11",
+          "excludeReason": "与 Seedance 2.5 为同一厂商家族的速度档，主榜按家族只保留标准版本。"
+        },
+        {
+          "rank": 18,
+          "rankRange": [
+            18,
+            18
+          ],
+          "name": "Agnes-Video-2.5",
+          "provider": "Sapiens AI",
+          "elo": 1066,
+          "ciLow": 1054,
+          "ciHigh": 1078,
+          "comparisons": 7076,
+          "releasedAt": "2026-08"
+        },
+        {
+          "rank": 19,
+          "rankRange": [
+            19,
+            21
+          ],
+          "name": "Grok Imagine Video 1.5",
+          "provider": "SpaceXAI",
+          "elo": 1051,
+          "ciLow": 1039,
+          "ciHigh": 1063,
+          "comparisons": 7221,
+          "releasedAt": "2026-05"
+        },
+        {
+          "rank": 20,
+          "rankRange": [
+            19,
+            22
+          ],
+          "name": "HappyHorse-1.1",
+          "provider": "Alibaba-ATH",
+          "elo": 1047,
+          "ciLow": 1035,
+          "ciHigh": 1059,
+          "comparisons": 8606,
+          "releasedAt": "2026-06"
+        }
+      ],
+      "capturedAt": "2026-11-25T11:55:21Z"
+    },
+    {
+      "id": "aa-video-i2v-audio-20261125",
+      "name": "AA-Video-I2V v2.1 · 有声图生视频",
+      "kind": "video",
+      "task": "image-to-video",
+      "audioMode": "audio",
+      "version": "AA-Video-I2V v2.1",
+      "capturedAt": "2026-11-25T11:55:21Z",
+      "sourceCheckedAt": "2026-11-25T11:55Z",
+      "snapshotScope": "官方原榜前 20 名；页面主榜按资格过滤后最多展示 10 个型号",
+      "excludedReferences": [],
+      "source": {
+        "id": "artificial-analysis",
+        "name": "Artificial Analysis",
+        "url": "https://artificialanalysis.ai/video/leaderboard/image-to-video",
+        "kind": "independent",
+        "description": "以参考图生成有声视频的盲测偏好榜；与有声文生、无声文生/图生及视频编辑各自使用独立 Elo 池。榜单样本数不是独立评审人数。"
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "rankRange": [
+            1,
+            3
+          ],
+          "name": "MAGI-2",
+          "provider": "Sand.ai",
+          "elo": 1163,
+          "ciLow": 1149,
+          "ciHigh": 1177,
+          "comparisons": 5943,
+          "releasedAt": "2026-11"
+        },
+        {
+          "rank": 2,
+          "rankRange": [
+            1,
+            3
+          ],
+          "name": "Dreamina Seedance 2.5",
+          "provider": "ByteDance Seed",
+          "elo": 1158,
+          "ciLow": 1144,
+          "ciHigh": 1172,
+          "comparisons": 7384,
+          "releasedAt": "2026-07"
+        },
+        {
+          "rank": 3,
+          "rankRange": [
+            2,
+            5
+          ],
+          "name": "Utopai X",
+          "provider": "Utopai Studios",
+          "elo": 1148,
+          "ciLow": 1135,
+          "ciHigh": 1161,
+          "comparisons": 7777,
+          "releasedAt": "2026-09",
+          "excludeReason": "MiniMax 官方将 Utopai X 列在基于 H3 的生态/社区模型中；基础模型主榜不与 MiniMax H3 重复占位。"
+        },
+        {
+          "rank": 4,
+          "rankRange": [
+            2,
+            7
+          ],
+          "name": "Boreal-H3",
+          "provider": "Creatify",
+          "elo": 1145,
+          "ciLow": 1129,
+          "ciHigh": 1161,
+          "comparisons": 3628,
+          "releasedAt": "2026-10",
+          "excludeReason": "MiniMax 官方将 Boreal-H3 列为基于 H3 的生态模型；基础模型主榜不与 MiniMax H3 重复占位。"
+        },
+        {
+          "rank": 5,
+          "rankRange": [
+            3,
+            7
+          ],
+          "name": "Dreamina Seedance 2.0",
+          "provider": "ByteDance Seed",
+          "elo": 1140,
+          "ciLow": 1127,
+          "ciHigh": 1153,
+          "comparisons": 7464,
+          "releasedAt": "2026-03",
+          "excludeReason": "与 Seedance 2.5 属同一厂商家族，主榜按家族只保留较新版本。"
+        },
+        {
+          "rank": 6,
+          "rankRange": [
+            4,
+            8
+          ],
+          "name": "MiniMax H3 (768p)",
+          "provider": "MiniMax",
+          "elo": 1135,
+          "ciLow": 1122,
+          "ciHigh": 1148,
+          "comparisons": 7354,
+          "releasedAt": "2026-07"
+        },
+        {
+          "rank": 7,
+          "rankRange": [
+            3,
+            9
+          ],
+          "name": "Dreamina Seedance 2.5 Flash (720p)",
+          "provider": "ByteDance Seed",
+          "elo": 1135,
+          "ciLow": 1119,
+          "ciHigh": 1151,
+          "comparisons": 3396,
+          "releasedAt": "2026-11",
+          "excludeReason": "与 Seedance 2.5 属同一家族的速度档，主榜按家族只保留标准版本。"
+        },
+        {
+          "rank": 8,
+          "rankRange": [
+            7,
+            13
+          ],
+          "name": "SkyReels V4",
+          "provider": "Skywork AI",
+          "elo": 1123,
+          "ciLow": 1109,
+          "ciHigh": 1137,
+          "comparisons": 5873,
+          "releasedAt": "2026-03"
+        },
+        {
+          "rank": 9,
+          "rankRange": [
+            7,
+            13
+          ],
+          "name": "HeyGen Video 1",
+          "provider": "HeyGen",
+          "elo": 1123,
+          "ciLow": 1110,
+          "ciHigh": 1136,
+          "comparisons": 7343,
+          "releasedAt": "2026-10",
+          "excludeReason": "MiniMax 官方将 HeyGen Video 1 列在基于 H3 的生态/社区模型中；基础模型主榜不与 MiniMax H3 重复占位。"
+        },
+        {
+          "rank": 10,
+          "rankRange": [
+            7,
+            14
+          ],
+          "name": "Hyperflow H3",
+          "provider": "Video Rebirth",
+          "elo": 1120,
+          "ciLow": 1107,
+          "ciHigh": 1133,
+          "comparisons": 7644,
+          "releasedAt": "2026-09",
+          "excludeReason": "第三方 H3 命名端点，尚未核实为独立基础模型；身份未核实前不进入基础模型主榜。"
+        },
+        {
+          "rank": 11,
+          "rankRange": [
+            8,
+            14
+          ],
+          "name": "P-Video-2-Pro",
+          "provider": "Pruna AI",
+          "elo": 1118,
+          "ciLow": 1104,
+          "ciHigh": 1132,
+          "comparisons": 5216,
+          "releasedAt": "2026-09",
+          "excludeReason": "Pruna 官方说明 P-Video-2-Pro 基于 MiniMax H3；主榜不与 MiniMax H3 重复占位。"
+        },
+        {
+          "rank": 12,
+          "rankRange": [
+            8,
+            14
+          ],
+          "name": "MiniMax H3 Max",
+          "provider": "Fal",
+          "elo": 1117,
+          "ciLow": 1104,
+          "ciHigh": 1130,
+          "comparisons": 7460,
+          "releasedAt": "2026-08",
+          "excludeReason": "Fal 提供的 H3 衍生端点；基础模型主榜不与 MiniMax H3 重复占位。"
+        },
+        {
+          "rank": 13,
+          "rankRange": [
+            8,
+            14
+          ],
+          "name": "Pika H3 Flex",
+          "provider": "Pika Art",
+          "elo": 1116,
+          "ciLow": 1102,
+          "ciHigh": 1130,
+          "comparisons": 5370,
+          "releasedAt": "2026-10",
+          "excludeReason": "MiniMax 官方将 Pika H3 Flex 列在基于 H3 的生态/社区模型中；基础模型主榜不与 MiniMax H3 重复占位。"
+        },
+        {
+          "rank": 14,
+          "rankRange": [
+            10,
+            15
+          ],
+          "name": "Wan 3.0",
+          "provider": "Alibaba",
+          "elo": 1110,
+          "ciLow": 1097,
+          "ciHigh": 1123,
+          "comparisons": 7537,
+          "releasedAt": "2026-08"
+        },
+        {
+          "rank": 15,
+          "rankRange": [
+            14,
+            16
+          ],
+          "name": "HiDream-O1-Video-1.0",
+          "provider": "HiDream",
+          "elo": 1100,
+          "ciLow": 1087,
+          "ciHigh": 1113,
+          "comparisons": 7732,
+          "releasedAt": "2026-08"
+        },
+        {
+          "rank": 16,
+          "rankRange": [
+            14,
+            17
+          ],
+          "name": "Agnes-Video-2.5",
+          "provider": "Sapiens AI",
+          "elo": 1100,
+          "ciLow": 1086,
+          "ciHigh": 1114,
+          "comparisons": 5046,
+          "releasedAt": "2026-08"
+        },
+        {
+          "rank": 17,
+          "rankRange": [
+            16,
+            17
+          ],
+          "name": "Gemini Omni Flash 1.2",
+          "provider": "Google",
+          "elo": 1086,
+          "ciLow": 1072,
+          "ciHigh": 1100,
+          "comparisons": 5826,
+          "releasedAt": "2026-11"
+        },
+        {
+          "rank": 18,
+          "rankRange": [
+            18,
+            19
+          ],
+          "name": "FLUX 3",
+          "provider": "Black Forest Labs",
+          "elo": 1070,
+          "ciLow": 1057,
+          "ciHigh": 1083,
+          "comparisons": 7619,
+          "releasedAt": "2026-07"
+        },
+        {
+          "rank": 19,
+          "rankRange": [
+            18,
+            20
+          ],
+          "name": "FLUX 3 Max",
+          "provider": "Fal",
+          "elo": 1065,
+          "ciLow": 1052,
+          "ciHigh": 1078,
+          "comparisons": 7618,
+          "releasedAt": "2026-10",
+          "excludeReason": "fal 将 FLUX 3 Max 描述为基于 FLUX 3 的 post-training 变体；主榜按底模家族只保留 Black Forest Labs 的 FLUX 3。"
+        },
+        {
+          "rank": 20,
+          "rankRange": [
+            19,
+            22
+          ],
+          "name": "PixVerse V6 Max",
+          "provider": "PixVerse",
+          "elo": 1052,
+          "ciLow": 1036,
+          "ciHigh": 1068,
+          "comparisons": 3629,
+          "releasedAt": "2026-10"
+        }
+      ]
+    },
+    {
+      "id": "aa-music-vocal-20261125",
+      "name": "AA-Music-Vocal v1.1 · 含人声音乐",
+      "kind": "music",
+      "task": "music-generation-vocal",
+      "version": "AA-Music-Vocal v1.1",
+      "sourceCheckedAt": "2026-11-25",
+      "snapshotScope": "官方人声音乐榜全部 14 个型号；主榜显示前 10",
+      "source": {
+        "id": "artificial-analysis",
+        "name": "Artificial Analysis",
+        "url": "https://artificialanalysis.ai/music/leaderboard/vocals",
+        "kind": "independent",
+        "description": "对相同提示下生成的音乐样本进行盲听偏好比较，使用 Elo 排序；该榜仅代表含人声音乐任务。"
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "rankRange": [
+            1,
+            2
+          ],
+          "name": "ACE Music v1",
+          "provider": "ACE Studio",
+          "elo": 1160,
+          "ciLow": 1140,
+          "ciHigh": 1180,
+          "comparisons": 2128
+        },
+        {
+          "rank": 2,
+          "rankRange": [
+            1,
+            3
+          ],
+          "name": "Suno v6",
+          "provider": "Suno",
+          "elo": 1145,
+          "ciLow": 1127,
+          "ciHigh": 1163,
+          "comparisons": 3073
+        },
+        {
+          "rank": 3,
+          "rankRange": [
+            2,
+            3
+          ],
+          "name": "Suno v6-mini",
+          "provider": "Suno",
+          "elo": 1133,
+          "ciLow": 1115,
+          "ciHigh": 1151,
+          "comparisons": 3179
+        },
+        {
+          "rank": 4,
+          "rankRange": [
+            4,
+            4
+          ],
+          "name": "Mureka V9.5",
+          "provider": "Mureka",
+          "elo": 1101,
+          "ciLow": 1083,
+          "ciHigh": 1119,
+          "comparisons": 3148
+        },
+        {
+          "rank": 5,
+          "rankRange": [
+            5,
+            6
+          ],
+          "name": "Mureka V9",
+          "provider": "Mureka",
+          "elo": 1063,
+          "ciLow": 1045,
+          "ciHigh": 1081,
+          "comparisons": 3125
+        },
+        {
+          "rank": 6,
+          "rankRange": [
+            5,
+            7
+          ],
+          "name": "Lyria 3.5",
+          "provider": "Google",
+          "elo": 1050,
+          "ciLow": 1032,
+          "ciHigh": 1068,
+          "comparisons": 3209
+        },
+        {
+          "rank": 7,
+          "rankRange": [
+            5,
+            7
+          ],
+          "name": "Lyria 3 Pro",
+          "provider": "Google",
+          "elo": 1048,
+          "ciLow": 1030,
+          "ciHigh": 1066,
+          "comparisons": 3197
+        },
+        {
+          "rank": 8,
+          "rankRange": [
+            8,
+            9
+          ],
+          "name": "Eleven Music v2.5",
+          "provider": "ElevenLabs",
+          "elo": 1017,
+          "ciLow": 999,
+          "ciHigh": 1035,
+          "comparisons": 3253
+        },
+        {
+          "rank": 9,
+          "rankRange": [
+            8,
+            13
+          ],
+          "name": "Eleven Music v2",
+          "provider": "ElevenLabs",
+          "elo": 1001,
+          "ciLow": 983,
+          "ciHigh": 1019,
+          "comparisons": 3308
+        },
+        {
+          "rank": 10,
+          "rankRange": [
+            9,
+            13
+          ],
+          "name": "MiniMax Music 3.0",
+          "provider": "MiniMax",
+          "elo": 1000,
+          "comparisons": 3344
+        },
+        {
+          "rank": 11,
+          "rankRange": [
+            9,
+            13
+          ],
+          "name": "Eleven Music",
+          "provider": "ElevenLabs",
+          "elo": 999,
+          "ciLow": 981,
+          "ciHigh": 1017,
+          "comparisons": 3252
+        },
+        {
+          "rank": 12,
+          "rankRange": [
+            9,
+            13
+          ],
+          "name": "MiniMax Music 2.6",
+          "provider": "MiniMax",
+          "elo": 998,
+          "ciLow": 980,
+          "ciHigh": 1016,
+          "comparisons": 3238
+        },
+        {
+          "rank": 13,
+          "rankRange": [
+            10,
+            13
+          ],
+          "name": "MiniMax Music 2.5+",
+          "provider": "MiniMax",
+          "elo": 991,
+          "ciLow": 973,
+          "ciHigh": 1009,
+          "comparisons": 3367
+        },
+        {
+          "rank": 14,
+          "rankRange": [
+            14,
+            14
+          ],
+          "name": "Melodia v3",
+          "provider": "Sonauto",
+          "elo": 965,
+          "ciLow": 947,
+          "ciHigh": 983,
+          "comparisons": 3326
+        }
+      ],
+      "capturedAt": "2026-11-25T11:32:52Z"
+    },
+    {
+      "id": "aa-speech-provider-voice-full-20261125",
+      "name": "AA Provider Voice · 全量 TTS",
+      "kind": "speech",
+      "task": "text-to-speech",
+      "version": "AA Speech Arena Provider Voice · All models",
+      "sourceCheckedAt": "2026-11-25",
+      "snapshotScope": "官方全量榜前 10；不同于开放权重筛选榜",
+      "source": {
+        "id": "artificial-analysis",
+        "name": "Artificial Analysis",
+        "url": "https://artificialanalysis.ai/embed/text-to-speech-leaderboard/leaderboard/provider-voice",
+        "kind": "independent",
+        "description": "Provider Voice Arena，全量模型、各厂商原生声音；Accent=All、Category=All。基于 crowdsourced preferences，不代表受控语音克隆任务。"
+      },
+      "rows": [
+        {
+          "rank": 1,
+          "rankRange": [
+            1,
+            2
+          ],
+          "name": "Eleven v4 Turbo",
+          "provider": "ElevenLabs",
+          "elo": 1345,
+          "ciLow": 1330,
+          "ciHigh": 1360,
+          "comparisons": 2694,
+          "releasedAt": "2026-09"
+        },
+        {
+          "rank": 2,
+          "rankRange": [
+            1,
+            2
+          ],
+          "name": "Eleven v4",
+          "provider": "ElevenLabs",
+          "elo": 1342,
+          "ciLow": 1328,
+          "ciHigh": 1356,
+          "comparisons": 2980,
+          "releasedAt": "2026-09"
+        },
+        {
+          "rank": 3,
+          "rankRange": [
+            3,
+            4
+          ],
+          "name": "StepAudio 3 TTS",
+          "provider": "StepFun",
+          "elo": 1315,
+          "ciLow": 1298,
+          "ciHigh": 1332,
+          "comparisons": 1906,
+          "releasedAt": "2026-11"
+        },
+        {
+          "rank": 4,
+          "rankRange": [
+            4,
+            6
+          ],
+          "name": "Qwen-Audio-3.1-TTS-Plus",
+          "provider": "Alibaba",
+          "elo": 1299,
+          "ciLow": 1285,
+          "ciHigh": 1313,
+          "comparisons": 2781,
+          "releasedAt": "2026-09"
+        },
+        {
+          "rank": 5,
+          "rankRange": [
+            4,
+            7
+          ],
+          "name": "Sonic 3.6",
+          "provider": "Cartesia",
+          "elo": 1296,
+          "ciLow": 1283,
+          "ciHigh": 1309,
+          "comparisons": 3687,
+          "releasedAt": "2026-08"
+        },
+        {
+          "rank": 6,
+          "rankRange": [
+            4,
+            9
+          ],
+          "name": "Simba 3.5",
+          "provider": "SpeechifyAI",
+          "elo": 1292,
+          "ciLow": 1276,
+          "ciHigh": 1308,
+          "comparisons": 2037,
+          "releasedAt": "2026-11"
+        },
+        {
+          "rank": 7,
+          "rankRange": [
+            5,
+            9
+          ],
+          "name": "Gemini 3.8 Flash TTS",
+          "provider": "Google",
+          "elo": 1285,
+          "ciLow": 1273,
+          "ciHigh": 1297,
+          "comparisons": 3950,
+          "releasedAt": "2026-09"
+        },
+        {
+          "rank": 8,
+          "rankRange": [
+            6,
+            10
+          ],
+          "name": "Lightning V3.1 Pro (Oct 2026)",
+          "provider": "Smallest.ai",
+          "elo": 1279,
+          "ciLow": 1265,
+          "ciHigh": 1293,
+          "comparisons": 2345,
+          "releasedAt": "2026-10"
+        },
+        {
+          "rank": 9,
+          "rankRange": [
+            6,
+            12
+          ],
+          "name": "Fish Audio Drama 3",
+          "provider": "Fish Audio",
+          "elo": 1277,
+          "ciLow": 1261,
+          "ciHigh": 1293,
+          "comparisons": 2024,
+          "releasedAt": "2026-10"
+        },
+        {
+          "rank": 10,
+          "rankRange": [
+            8,
+            12
+          ],
+          "name": "Realtime TTS-2",
+          "provider": "Inworld",
+          "elo": 1269,
+          "ciLow": 1256,
+          "ciHigh": 1282,
+          "comparisons": 3065,
+          "releasedAt": "2026-08"
+        }
+      ],
+      "capturedAt": "2026-11-25T11:32:52Z"
+    }
+  ],
+  "lastUpdatedAt": "2026-11-25T11:55:21Z"
+}
