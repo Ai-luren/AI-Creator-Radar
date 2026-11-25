@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-11-24",
-  "scope": "模型厂商与模型聚合平台官方社媒监控；所有品牌在 7 个统一平台栏位对齐，海外筛选包含 X、Instagram、TikTok、YouTube。暂无代表截至核验时未发现可确认的官方主页。",
-  "methodology": "账号归属优先依据厂商官网、官方 GitHub、官方 Linktree、官方帮助中心或可交叉验证的品牌主页。模型厂商与聚合平台统一展示抖音、B站、小红书、X、Instagram、TikTok、YouTube；海外平台筛选显示 X、Instagram、TikTok、YouTube。粉丝数 / 订阅数是公开页面快照，1 万以上统一显示为“万”，不足 1 万显示原始数字；已确认官方账号但页面未返回粉丝数时标为“未读取”；未发现可确认官方账号时标为“暂无”。账号核验依据按品牌集中折叠；粉丝快照日期在数字旁标出。宣传动态只将具体原帖链接计为已链接；搜索页等非原帖来源标为待补。",
+  "scope": "模型厂商与模型聚合平台官方社媒监控；所有品牌在 8 个统一平台栏位对齐，海外筛选包含 X、Instagram、TikTok、YouTube、Facebook。暂无代表截至核验时未发现可确认的官方主页。",
+  "methodology": "账号归属优先依据厂商官网、官方 GitHub、官方 Linktree、官方帮助中心或可交叉验证的品牌主页。模型厂商与聚合平台统一展示抖音、B站、小红书、X、Instagram、TikTok、YouTube、Facebook；海外平台筛选显示 X、Instagram、TikTok、YouTube、Facebook。粉丝数 / 订阅数是公开页面快照，1 万以上统一显示为“万”，不足 1 万显示原始数字；已确认官方账号但页面未返回粉丝数时标为“未读取”；未发现可确认官方账号时标为“暂无”。账号核验依据按品牌集中折叠；粉丝快照日期在数字旁标出。宣传动态只将具体原帖链接计为已链接；搜索页等非原帖来源标为待补。 动态活跃情况与粉丝快照分开记录；“暂无近期作品”不等同于账号不存在或粉丝为零。",
   "brands": [
     {
       "id": "jimeng",
@@ -57,9 +57,9 @@
           "url": "https://x.com/dreamina_ai",
           "status": "verified",
           "verification": "Dreamina 官方活动页要求参与者在 X、Instagram 或 TikTok 标记 @Dreamina_AI",
-          "followers": 31000,
-          "followersDisplay": "3.1万",
-          "snapshotLabel": "2026-11-24 · X 公开主页快照",
+          "followers": 93200,
+          "followersDisplay": "9.32万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://x.com/dreamina_ai",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "1,167 条帖子"
@@ -96,9 +96,9 @@
           "url": "https://www.youtube.com/@Dreaminaofficial",
           "status": "verified",
           "verification": "YouTube 频道简介使用 Dreamina 品牌合作邮箱 dreaminamarketing@bytedance.com，且发布 Dreamina 官方产品视频。",
-          "followers": 3650,
-          "followersDisplay": "3650",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "followers": 3670,
+          "followersDisplay": "3670",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "sourceUrl": "https://www.youtube.com/@Dreaminaofficial",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "99 个视频"
@@ -185,9 +185,9 @@
           "url": "https://www.instagram.com/klingai_official/",
           "status": "verified",
           "verification": "Kling AI 官方 Linktree 直接链接",
-          "followers": 658000,
-          "followersDisplay": "65.8万",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
+          "followers": 375300,
+          "followersDisplay": "37.53万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.instagram.com/klingai_official/",
           "extraMetric": "2,252 篇帖子",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -213,7 +213,7 @@
           "verification": "Kling AI 官方 Linktree 直接链接",
           "followers": 776000,
           "followersDisplay": "77.6万",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "sourceUrl": "https://www.youtube.com/@Kling_ai",
           "extraMetric": "477 个视频",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -313,25 +313,46 @@
           "url": "https://www.tiktok.com/@higgsfield.ai90",
           "status": "verified",
           "verification": "Higgsfield 官方帮助中心直接列出 @higgsfield.ai90；未把未列入官网的同名账号合并。",
-          "followers": 547,
-          "followersDisplay": "547",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "followers": 548,
+          "followersDisplay": "548",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://higgsfield.ai/creator-hub/help-center/getting-started/official-higgsfield-platforms",
           "extraMetric": "1805个赞",
-          "note": "官方账号主页快照为 548 粉丝；@higgsfield.ai_video 未出现在 Higgsfield 官方账号清单，暂不作为官方主页计入。"
+          "note": "官方帮助中心列出 @higgsfield.ai90，账号归属确认；动态日期仅记录用户观察，年份待核。",
+          "activityLabel": "最近可见作品：4月4日（用户观察，年份待核）"
         },
         {
           "platform": "YouTube",
-          "handle": "@HiggsfieldAI",
+          "handle": "@HiggsfieldAI + @HiggsfieldAnimation + @higgsfield.creators + @HiggsfieldMarketing",
           "url": "https://www.youtube.com/@HiggsfieldAI",
           "status": "verified",
-          "verification": "Higgsfield 官方帮助中心列出的官方账号",
-          "followers": 547000,
-          "followersDisplay": "54.7万",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "verification": "四个频道主页均指向 higgsfield.ai，简介分别说明为 Higgsfield 官方、动画、创作者和营销频道；按官方矩阵合计。",
+          "followers": 584855,
+          "followersDisplay": "58.5万",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "sourceUrl": "https://www.youtube.com/@HiggsfieldAI",
-          "extraMetric": "431 个视频",
-          "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
+          "extraMetric": "4 个 YouTube 频道合计",
+          "note": "主页显示值：54.7万、2.37万、855、1.33万；合计 584,855，按平台约数记录。频道受众可能重叠，合计仅供参考。",
+          "relatedPages": [
+            {
+              "handle": "@HiggsfieldAnimation",
+              "url": "https://www.youtube.com/@HiggsfieldAnimation",
+              "followers": 23700,
+              "followersDisplay": "2.37万"
+            },
+            {
+              "handle": "@higgsfield.creators",
+              "url": "https://www.youtube.com/@higgsfield.creators",
+              "followers": 855,
+              "followersDisplay": "855"
+            },
+            {
+              "handle": "@HiggsfieldMarketing",
+              "url": "https://www.youtube.com/@HiggsfieldMarketing",
+              "followers": 13300,
+              "followersDisplay": "1.33万"
+            }
+          ]
         },
         {
           "platform": "Facebook",
@@ -417,9 +438,9 @@
           "url": "https://www.instagram.com/hailuoai_official/",
           "status": "verified",
           "verification": "官方 Instagram 品牌页；主页名称为 MiniMax Design (H3)，与 Hailuo / MiniMax 视频产品一致。",
-          "followers": 426000,
-          "followersDisplay": "42.6万",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
+          "followers": 78800,
+          "followersDisplay": "7.88万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.instagram.com/hailuoai_official/",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "7,700 篇帖子"
@@ -444,8 +465,8 @@
           "status": "verified",
           "verification": "官方频道简介称 Hailuo AI 是 MiniMax 的 AI 视频生成器，发布 Hailuo 与 MiniMax H3 产品内容。",
           "followers": 20700,
-          "followersDisplay": "2.1万",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "followersDisplay": "2.07万",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "sourceUrl": "https://www.youtube.com/@Hailuoai_MiniMax",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "135 个视频"
@@ -460,121 +481,6 @@
           "followersDisplay": "暂无",
           "snapshotLabel": "暂无已核实主页",
           "note": "",
-          "extraMetric": ""
-        }
-      ],
-      "category": "模型厂商"
-    },
-    {
-      "id": "wan",
-      "name": "Wan（通义万相）",
-      "company": "阿里巴巴 / 阿里云",
-      "region": "中国 / 全球",
-      "focus": "Wan 视频生成 / 图像生成",
-      "officialSite": "https://wan.video/",
-      "logoKey": "alibabacloud",
-      "note": "Wan 与 HappyHorse 同属阿里体系，但有独立品牌账号和内容，分别监控。",
-      "accounts": [
-        {
-          "platform": "抖音",
-          "handle": "万相Wan",
-          "url": "https://www.douyin.com/user/MS4wLjABAAAAp0AHghl7bwAMnWqkACwoak3WNbd8qNkBdATpA1DFyfEKHgUivA4cPFZV15g7WDXW",
-          "status": "verified",
-          "verification": "认证账号，主体为杭州通义实验室科技有限公司，简介指明万相 Wan 大模型。",
-          "followers": 14000,
-          "followersDisplay": "1.4万",
-          "snapshotLabel": "2026-11-24 · 抖音 公开主页快照",
-          "note": "粉丝数直接读取自抖音公开主页，平台显示值为约数。；平台主页显示约数，按页面精度换算。",
-          "extraMetric": "",
-          "sourceUrl": "https://www.douyin.com/user/MS4wLjABAAAAp0AHghl7bwAMnWqkACwoak3WNbd8qNkBdATpA1DFyfEKHgUivA4cPFZV15g7WDXW"
-        },
-        {
-          "platform": "B站",
-          "handle": "通义万相",
-          "url": "https://space.bilibili.com/3493094144084383",
-          "status": "verified",
-          "verification": "B站用户搜索结果账号简介标注“通义万相官方账号”，主页内容持续发布通义万相官方模型动态。",
-          "followers": 12000,
-          "followersDisplay": "1.2万",
-          "snapshotLabel": "2026-11-24 · B站 公开主页快照",
-          "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
-          "extraMetric": "68 个视频",
-          "sourceUrl": "https://space.bilibili.com/3493094144084383"
-        },
-        {
-          "platform": "小红书",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号",
-          "note": "",
-          "extraMetric": ""
-        },
-        {
-          "platform": "X",
-          "handle": "@Alibaba_Wan",
-          "url": "https://x.com/Alibaba_Wan",
-          "status": "verified",
-          "verification": "Wan 官方 GitHub 组织简介直接链接 @Alibaba_Wan；X 主页注明 Wan Team from Tongyi Lab。",
-          "followers": 32000,
-          "followersDisplay": "3.2万",
-          "snapshotLabel": "2026-11-24 · X 公开主页快照",
-          "sourceUrl": "https://x.com/Alibaba_Wan",
-          "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
-          "extraMetric": "700 条帖子"
-        },
-        {
-          "platform": "Instagram",
-          "handle": "@alibaba.wan",
-          "url": "https://www.instagram.com/alibaba.wan/",
-          "status": "verified",
-          "verification": "用户提供的 Alibaba Wan Instagram 主页链接与粉丝数。",
-          "followers": 703,
-          "followersDisplay": "703",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
-          "note": "按公开主页粉丝数记录；平台数字会动态变化。",
-          "extraMetric": "",
-          "sourceUrl": "https://www.instagram.com/alibaba.wan/"
-        },
-        {
-          "platform": "TikTok",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号",
-          "note": "",
-          "extraMetric": ""
-        },
-        {
-          "platform": "YouTube",
-          "handle": "@Alibaba_Wan",
-          "url": "https://www.youtube.com/@Alibaba_Wan",
-          "status": "verified",
-          "verification": "频道简介注明 Wan Team from Tongyi Lab, Alibaba Group。",
-          "followers": 1250,
-          "followersDisplay": "1250",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
-          "sourceUrl": "https://www.youtube.com/@Alibaba_Wan",
-          "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
-          "extraMetric": "7 个视频"
-        },
-        {
-          "platform": "Facebook",
-          "handle": "Wan Alibaba",
-          "url": "https://www.facebook.com/profile.php?id=61573565825808",
-          "status": "verified",
-          "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
-          "followers": 0,
-          "followersDisplay": "0",
-          "snapshotLabel": "2026-11-23 · 用户核对的 Facebook 页面",
-          "sourceUrl": "https://www.facebook.com/profile.php?id=61573565825808",
-          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。",
           "extraMetric": ""
         }
       ],
@@ -662,8 +568,8 @@
           "status": "verified",
           "verification": "Vidu 官方网站资源指向 @vidu_ai；主页简介自称 Vidu world generation model。",
           "followers": 39600,
-          "followersDisplay": "4万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "followersDisplay": "3.96万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@vidu_ai",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "34.47万获赞"
@@ -675,8 +581,8 @@
           "status": "verified",
           "verification": "频道简介指向 vidu.com，频道名为 Vidu AI Official。",
           "followers": 78300,
-          "followersDisplay": "7.8万",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "followersDisplay": "7.83万",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "sourceUrl": "https://www.youtube.com/@Vidu-AI",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "348 个视频"
@@ -685,127 +591,15 @@
           "platform": "Facebook",
           "handle": "Vidu AI",
           "url": "https://www.facebook.com/profile.php?id=61573012344072",
-          "status": "verified",
-          "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
-          "followers": 0,
-          "followersDisplay": "0",
-          "snapshotLabel": "2026-11-23 · 用户核对的 Facebook 页面",
+          "status": "review",
+          "verification": "Facebook 页面显示“添加好友 / 好友”，是个人资料页而非公共主页；没有可读取的粉丝字段，不能把好友数当粉丝数。",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "主页类型待核验",
           "sourceUrl": "https://www.facebook.com/profile.php?id=61573012344072",
-          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。",
-          "extraMetric": ""
-        }
-      ],
-      "category": "模型厂商"
-    },
-    {
-      "id": "google-video",
-      "name": "Google Gemini",
-      "company": "Google",
-      "region": "海外",
-      "focus": "Gemini / Veo 视频生成",
-      "officialSite": "https://gemini.google/",
-      "logoKey": "google",
-      "note": "以 Google Gemini 官方账号为监控主线，关注 Gemini 视频生成与 Veo 宣传；各平台使用 Gemini 自有品牌主页。",
-      "accounts": [
-        {
-          "platform": "抖音",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号",
-          "note": "",
-          "extraMetric": ""
-        },
-        {
-          "platform": "B站",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号",
-          "note": "",
-          "extraMetric": ""
-        },
-        {
-          "platform": "小红书",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号",
-          "note": "",
-          "extraMetric": ""
-        },
-        {
-          "platform": "X",
-          "handle": "@GeminiApp",
-          "url": "https://x.com/GeminiApp",
-          "status": "verified",
-          "verification": "X 已认证主页名称为 Google Gemini，简介链接至 gemini.google.com。",
-          "followers": 630000,
-          "followersDisplay": "63万",
-          "snapshotLabel": "2026-11-24 · X 公开主页快照",
-          "sourceUrl": "https://x.com/GeminiApp",
-          "note": "从 Google DeepMind 账号切换为 Gemini 官方产品账号；主页粉丝数于 2026-11-23 读取。；平台主页显示约数，按页面精度换算。",
-          "extraMetric": "1.5万条帖子"
-        },
-        {
-          "platform": "Instagram",
-          "handle": "@googlegemini",
-          "url": "https://www.instagram.com/googlegemini/",
-          "status": "verified",
-          "verification": "主页名称为 Google Gemini，简介链接至 gemini.google.com；主页合集含 Create Videos。",
-          "followers": 1734000,
-          "followersDisplay": "173.4万",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
-          "sourceUrl": "https://www.instagram.com/googlegemini/",
-          "note": "从 Google DeepMind 账号切换为 Gemini 官方产品账号；主页粉丝数于 2026-11-23 读取。；平台主页显示约数，按页面精度换算。",
-          "extraMetric": "1034 篇帖子 · 41关注"
-        },
-        {
-          "platform": "TikTok",
-          "handle": "@googlegemini",
-          "url": "https://www.tiktok.com/@googlegemini",
-          "status": "verified",
-          "verification": "TikTok 主页带认证标识，简介链接至 gemini.google.com；主页含 Video Gen 内容。",
-          "followers": 2000000,
-          "followersDisplay": "200万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
-          "note": "登录后的 TikTok 主页显示 2M 粉丝；账号用于 Gemini 与视频生成宣传。；平台主页显示约数，按页面精度换算。",
-          "extraMetric": "3010万赞",
-          "sourceUrl": "https://www.tiktok.com/@googlegemini"
-        },
-        {
-          "platform": "YouTube",
-          "handle": "@GoogleGemini",
-          "url": "https://www.youtube.com/@GoogleGemini",
-          "status": "verified",
-          "verification": "YouTube 已验证频道名称为 Google Gemini，频道简介为 “A new kind of help from Google”，链接至 gemini.google。",
-          "followers": 48100,
-          "followersDisplay": "4.8万",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
-          "sourceUrl": "https://www.youtube.com/@GoogleGemini",
-          "note": "频道页展示 Gemini 视频演示与功能宣传；订阅数于 2026-11-23 读取。；平台主页显示约数，按页面精度换算。",
-          "extraMetric": "61 个视频"
-        },
-        {
-          "platform": "Facebook",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "本轮尚未收录可确认的 Facebook 官方主页；“暂无”表示账号库暂无已核实记录，不代表确认没有账号。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无已核实主页",
-          "note": "",
-          "extraMetric": ""
+          "note": "用户观察该账号暂无 Reels；账号是否为 Vidu 官方公共主页待核验。",
+          "extraMetric": "0个Reels作品（用户观察）",
+          "activityLabel": "0个Reels作品（用户观察）"
         }
       ],
       "category": "模型厂商"
@@ -817,7 +611,7 @@
       "region": "中国 / 全球",
       "focus": "HappyHorse 视频生成",
       "officialSite": "https://happyhorse.com/",
-      "logoKey": "alibabacloud",
+      "logoKey": "happyhorse",
       "note": "与 Wan 分开跟踪：HappyHorse 有独立官方 X 和 YouTube 品牌频道。",
       "accounts": [
         {
@@ -877,9 +671,9 @@
           "url": "https://www.instagram.com/happyhorseai/",
           "status": "verified",
           "verification": "用户提供的 HappyHorse Instagram 官方主页链接与粉丝数。",
-          "followers": 12000,
-          "followersDisplay": "1.2万",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
+          "followers": 37300,
+          "followersDisplay": "3.73万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "note": "按公开主页粉丝数记录；平台数字会动态变化。；平台主页显示约数，按页面精度换算。",
           "extraMetric": "",
           "sourceUrl": "https://www.instagram.com/happyhorseai/"
@@ -903,9 +697,9 @@
           "url": "https://www.youtube.com/channel/UC0D5HJhKrS92nNqn5w_tKsQ",
           "status": "verified",
           "verification": "HappyHorse 官方 X 主页简介直接链接该 YouTube 频道。",
-          "followers": 85100,
+          "followers": 85000,
           "followersDisplay": "8.5万",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "sourceUrl": "https://www.youtube.com/channel/UC0D5HJhKrS92nNqn5w_tKsQ",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "114 个视频"
@@ -1007,8 +801,8 @@
           "status": "verified",
           "verification": "PixVerse 官方 GitHub 组织直接链接该 TikTok 账号。",
           "followers": 643600,
-          "followersDisplay": "64.4万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "followersDisplay": "64.36万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@pixverse",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "300万获赞"
@@ -1019,9 +813,9 @@
           "url": "https://www.youtube.com/@PixVerse_Official",
           "status": "verified",
           "verification": "PixVerse 官方 Linktree 及 GitHub 组织直接链接该 YouTube 频道；频道简介列出 business@pixverse.ai。",
-          "followers": 18800,
-          "followersDisplay": "1.9万",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "followers": 18900,
+          "followersDisplay": "1.89万",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "sourceUrl": "https://www.youtube.com/@PixVerse_Official",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "521 个视频"
@@ -1032,25 +826,26 @@
           "url": "https://www.facebook.com/profile.php?id=61574528115706",
           "status": "verified",
           "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
-          "followers": 2041,
-          "followersDisplay": "2041",
-          "snapshotLabel": "2026-11-24 · Facebook 公开主页快照",
+          "followers": 2042,
+          "followersDisplay": "2042",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
           "sourceUrl": "https://www.facebook.com/profile.php?id=61574528115706",
-          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。",
-          "extraMetric": ""
+          "note": "Ego Lite 直接主页读取显示 2042 粉丝。 Reels数量由用户观察提供，未作为粉丝数。",
+          "extraMetric": "0个Reels视频（用户观察）",
+          "activityLabel": "0个Reels视频（用户观察）"
         }
       ],
       "category": "模型厂商"
     },
     {
       "id": "seko-ai",
-      "name": "Seko AI",
+      "name": "Seko",
       "company": "商汤科技",
-      "region": "中国",
+      "region": "中国 / 海外",
       "focus": "AI 视频生成 / 短片创作",
       "category": "模型聚合平台",
-      "officialSite": "https://seko.sensetime.com",
-      "note": "Seko AI 是商汤旗下视频创作 Agent；社媒账号需以官网链接为准。",
+      "officialSite": "https://seko.sensetime.com/",
+      "note": "商汤旗下 AI 视频创作平台；海外产品与社媒使用 SekoTV 品牌。",
       "accounts": [
         {
           "platform": "抖音",
@@ -1088,53 +883,81 @@
         },
         {
           "platform": "X",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号"
+          "handle": "@Sekotv_official",
+          "url": "https://x.com/Sekotv_official",
+          "status": "verified",
+          "followers": 18,
+          "followersDisplay": "18",
+          "snapshotLabel": "2026-11-24 · X 用户提供快照",
+          "verification": "商汤科技官方账号的 Seko 引导帖列出该主页；直接主页当前未返回可读取的公开资料。",
+          "sourceUrl": "https://x.com/Sekotv_official",
+          "note": "粉丝数由用户从公开主页提供，记录为 18。"
         },
         {
           "platform": "Instagram",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号"
+          "handle": "@sekotv_official",
+          "url": "https://www.instagram.com/sekotv_official/",
+          "status": "verified",
+          "followers": 848,
+          "followersDisplay": "848",
+          "snapshotLabel": "2026-11-24 · Instagram 用户提供快照",
+          "verification": "商汤科技官方账号的 Seko 引导帖列出该主页；直接主页当前未返回可读取的公开资料。",
+          "sourceUrl": "https://www.instagram.com/sekotv_official/",
+          "note": "粉丝数由用户从公开主页提供，记录为 848。"
         },
         {
           "platform": "TikTok",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号"
+          "handle": "@sekotv_official + @sekotvdrama",
+          "url": "https://www.tiktok.com/@sekotv_official",
+          "status": "verified",
+          "followers": 2171,
+          "followersDisplay": "2171",
+          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "verification": "两个 TikTok 简介均链接至 sekotv.com；按用户要求合并统计。",
+          "sourceUrl": "https://www.sekotv.com/",
+          "relatedPages": [
+            {
+              "handle": "@sekotv_official",
+              "url": "https://www.tiktok.com/@sekotv_official",
+              "followers": 1070,
+              "followersDisplay": "1070"
+            },
+            {
+              "handle": "@sekotvdrama",
+              "url": "https://www.tiktok.com/@sekotvdrama",
+              "followers": 1101,
+              "followersDisplay": "1101"
+            }
+          ],
+          "note": "主页分别显示 1,070 与 1,101 粉丝；合计 2,171。受众可能重叠，合计仅供参考。"
         },
         {
           "platform": "YouTube",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无官方账号"
+          "handle": "@Sekotv_official",
+          "url": "https://www.youtube.com/@Sekotv_official",
+          "status": "verified",
+          "followers": 35,
+          "followersDisplay": "35",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
+          "verification": "频道名为 Sekotv_official，简介链接 sekotv.com，持续发布 SekoTV 官方产品视频。",
+          "sourceUrl": "https://www.youtube.com/@Sekotv_official",
+          "note": "公开频道当前显示 35 位订阅者、57 个视频。"
         },
         {
           "platform": "Facebook",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "本轮尚未收录可确认的 Facebook 官方主页；“暂无”表示账号库暂无已核实记录，不代表确认没有账号。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无已核实主页",
-          "note": "",
-          "extraMetric": ""
+          "handle": "Sekotv",
+          "url": "https://www.facebook.com/sekotvofficial",
+          "status": "verified",
+          "verification": "Facebook 主页名称为 Sekotv，简介链接至 sekotv.com；主页直接显示粉丝数。",
+          "followers": 745,
+          "followersDisplay": "745",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
+          "note": "Ego Lite 直接主页读取显示 745 位粉丝。",
+          "extraMetric": "",
+          "sourceUrl": "https://www.facebook.com/sekotvofficial"
         }
-      ]
+      ],
+      "logoKey": "seko"
     },
     {
       "id": "flova-ai",
@@ -1182,16 +1005,24 @@
         },
         {
           "platform": "X",
-          "handle": "@Flovaai",
+          "handle": "@Flovaai + @Flovaai_Japan",
           "url": "https://x.com/Flovaai",
           "status": "verified",
-          "followers": 6444,
-          "followersDisplay": "6444",
-          "snapshotLabel": "2026-11-24 · X 公开主页快照",
-          "verification": "用户提供的 Flova AI X 主页链接与粉丝数。",
-          "sourceUrl": "https://x.com/Flovaai",
-          "note": "按公开主页粉丝数记录；平台数字会动态变化。",
-          "extraMetric": ""
+          "followers": 12637,
+          "followersDisplay": "1.3万",
+          "snapshotLabel": "2026-11-25 · X 公开主页快照",
+          "verification": "两个 X 主页均链接 flova.ai，主页互相关注；一个为官方账号，一个为日本账号，按用户要求合并统计。",
+          "sourceUrl": "https://flova.ai/",
+          "note": "2026-11-25 主页分别显示 6,454 与 6,183 关注者，合计 12,637。受众可能重叠，合计仅供参考。",
+          "extraMetric": "2 个 X 主页合并统计",
+          "relatedPages": [
+            {
+              "handle": "@Flovaai_Japan",
+              "url": "https://x.com/Flovaai_Japan",
+              "followers": 6183,
+              "followersDisplay": "6183"
+            }
+          ]
         },
         {
           "platform": "Instagram",
@@ -1210,9 +1041,9 @@
           "handle": "@flova.ai",
           "url": "https://www.tiktok.com/@flova.ai",
           "status": "verified",
-          "followers": 1475,
-          "followersDisplay": "1475",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "followers": 1478,
+          "followersDisplay": "1478",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "用户提供的 Flova AI TikTok 主页链接与粉丝数。",
           "sourceUrl": "https://www.tiktok.com/@flova.ai",
           "note": "按公开主页粉丝数记录；平台数字会动态变化。",
@@ -1225,7 +1056,7 @@
           "status": "verified",
           "followers": 3150,
           "followersDisplay": "3150",
-          "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
           "verification": "账号链接由品牌官网或官方活动页直接列出。",
           "sourceUrl": "https://www.youtube.com/@FlovaAI",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -1312,8 +1143,8 @@
           "url": "https://www.tiktok.com/@itspolloai",
           "status": "verified",
           "followers": 28800,
-          "followersDisplay": "2.9万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "followersDisplay": "2.88万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "账号链接由品牌官网或官方活动页直接列出。",
           "sourceUrl": "https://www.tiktok.com/@itspolloai",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -1332,28 +1163,22 @@
         },
         {
           "platform": "Facebook",
-          "handle": "Pollo AI",
+          "handle": "Pollo AI（5个主页合计）",
           "url": "https://www.facebook.com/itspolloai",
           "status": "verified",
-          "verification": "用户提供并核对的 5 个 Pollo AI Facebook 主页；卡片粉丝数为这 5 个主页的合计。",
-          "followers": 1165,
-          "followersDisplay": "1165",
-          "snapshotLabel": "2026-11-24 · Facebook 公开主页快照",
+          "verification": "Ego Lite 直接打开主账号与地区主页，主页名称及 Pollo AI 产品链接 / 创作者账号说明可交叉对应；合并主主页、法国、巴西、德国及此前已收录的官方创作者主页。",
+          "followers": 127442,
+          "followersDisplay": "12.7万",
+          "snapshotLabel": "2026-11-25 · Facebook 矩阵主页快照",
           "sourceUrl": "https://www.facebook.com/itspolloai",
-          "note": "按用户提供的页面粉丝数合计；地区主页与创作者主页可能存在受众重叠，合计值仅作传播覆盖参考。",
-          "extraMetric": "",
+          "note": "按 5 个主页直接显示值合计约 127,442：主账号 1,165、法国 9.2万、巴西 1.5万、德国 3,277、官方创作者账号 1.6万。平台约数已按显示值换算，受众可能重叠，合计仅供参考。",
+          "extraMetric": "5个Facebook主页合并统计",
           "relatedPages": [
             {
               "handle": "Pollo AI France",
               "url": "https://www.facebook.com/profile.php?id=61583706905412",
               "followers": 92000,
               "followersDisplay": "9.2万"
-            },
-            {
-              "handle": "Pollo AI",
-              "url": "https://www.facebook.com/itspolloai",
-              "followers": 1161,
-              "followersDisplay": "1161"
             },
             {
               "handle": "Pollo AI Brasil",
@@ -1364,14 +1189,14 @@
             {
               "handle": "Pollo AI Deutschland",
               "url": "https://www.facebook.com/profile.php?id=61587704986548",
-              "followers": 3108,
-              "followersDisplay": "3108"
+              "followers": 3277,
+              "followersDisplay": "3277"
             },
             {
               "handle": "Pollo AICreators",
               "url": "https://www.facebook.com/profile.php?id=61584889944485",
-              "followers": 11000,
-              "followersDisplay": "1.1万"
+              "followers": 16000,
+              "followersDisplay": "1.6万"
             }
           ]
         }
@@ -1557,8 +1382,8 @@
           "url": "https://www.tiktok.com/@tapnow.ai",
           "status": "verified",
           "followers": 28400,
-          "followersDisplay": "2.8万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "followersDisplay": "2.84万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "账号链接由品牌官网或官方活动页直接列出。",
           "sourceUrl": "https://www.tiktok.com/@tapnow.ai",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -1577,15 +1402,16 @@
         },
         {
           "platform": "Facebook",
-          "handle": "暂无",
-          "url": "",
-          "status": "none",
-          "verification": "本轮尚未收录可确认的 Facebook 官方主页；“暂无”表示账号库暂无已核实记录，不代表确认没有账号。",
-          "followers": null,
-          "followersDisplay": "暂无",
-          "snapshotLabel": "暂无已核实主页",
-          "note": "",
-          "extraMetric": ""
+          "handle": "TapNow",
+          "url": "https://www.facebook.com/profile.php?id=61585063283281",
+          "status": "verified",
+          "verification": "Facebook 主页显示名称 TapNow，类型为应用公共主页；用户确认该页为 TapNow 官方主页。",
+          "followers": 2406,
+          "followersDisplay": "2406",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
+          "note": "Ego Lite 直接主页读取显示 2,406 位粉丝；比用户先前提供的 2,405 多 1。",
+          "extraMetric": "",
+          "sourceUrl": "https://www.facebook.com/profile.php?id=61585063283281"
         }
       ]
     },
@@ -1651,24 +1477,33 @@
         },
         {
           "platform": "Instagram",
-          "handle": "@youart.official",
+          "handle": "@youart.official + @youart.creators",
           "url": "https://www.instagram.com/youart.official/",
           "status": "verified",
-          "followers": 5894,
-          "followersDisplay": "5894",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
-          "verification": "账号链接由品牌官网或官方活动页直接列出。",
+          "followers": 261894,
+          "followersDisplay": "26.2万",
+          "snapshotLabel": "2026-11-25 · Instagram 主页快照（含用户提供数值）",
+          "verification": "YouArt 官方主页列出 @youart.creators；按用户要求合并两个账号粉丝数。",
           "sourceUrl": "https://www.instagram.com/youart.official/",
-          "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
+          "note": "主账号原快照 5,894；@youart.creators 粉丝数 25.6万由用户提供；合计按显示值换算为 261,894。受众可能重叠，合计仅供参考。",
+          "relatedPages": [
+            {
+              "handle": "@youart.creators",
+              "url": "https://www.instagram.com/youart.creators/",
+              "followers": 256000,
+              "followersDisplay": "25.6万"
+            }
+          ],
+          "extraMetric": "2 个 Instagram 主页合并统计"
         },
         {
           "platform": "TikTok",
           "handle": "@youart_official1",
           "url": "https://www.tiktok.com/@youart_official1",
           "status": "verified",
-          "followers": 2646,
-          "followersDisplay": "2646",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "followers": 2649,
+          "followersDisplay": "2649",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "主页链接由用户提供，账号名与 YouArt 品牌相符。",
           "sourceUrl": "https://www.tiktok.com/@youart_official1",
           "note": "按用户提供的公开主页粉丝数记录；平台数字会动态变化。",
@@ -1767,16 +1602,30 @@
         },
         {
           "platform": "TikTok",
-          "handle": "@krea_ai",
+          "handle": "@krea.pov + @krea_ai",
           "url": "https://www.tiktok.com/@krea_ai",
           "status": "verified",
-          "followers": 54100,
-          "followersDisplay": "5.4万",
+          "followers": 76000,
+          "followersDisplay": "7.6万",
           "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
-          "verification": "用户提供的 Krea 官方 TikTok 主页链接与粉丝数。",
-          "sourceUrl": "https://www.tiktok.com/@krea_ai",
-          "note": "按公开主页粉丝数记录；平台数字会动态变化。；平台主页显示约数，按页面精度换算。",
-          "extraMetric": ""
+          "verification": "两个 TikTok 主页均链接至 krea.ai 品牌官网；按用户要求合并统计。",
+          "sourceUrl": "https://www.krea.ai/",
+          "note": "主页分别显示 21.9K 与 54.1K 粉丝；平台显示约数，合计约 7.6 万。受众可能重叠，合计仅供参考。",
+          "extraMetric": "",
+          "relatedPages": [
+            {
+              "handle": "@krea.pov",
+              "url": "https://www.tiktok.com/@krea.pov",
+              "followers": 21900,
+              "followersDisplay": "2.19万"
+            },
+            {
+              "handle": "@krea_ai",
+              "url": "https://www.tiktok.com/@krea_ai",
+              "followers": 54100,
+              "followersDisplay": "5.41万"
+            }
+          ]
         },
         {
           "platform": "YouTube",
@@ -1796,12 +1645,13 @@
           "url": "https://www.facebook.com/profile.php?id=61591312084746",
           "status": "verified",
           "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
-          "followers": 740,
-          "followersDisplay": "740",
-          "snapshotLabel": "2026-11-24 · Facebook 公开主页快照",
+          "followers": 741,
+          "followersDisplay": "741",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
           "sourceUrl": "https://www.facebook.com/profile.php?id=61591312084746",
-          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。",
-          "extraMetric": ""
+          "note": "Ego Lite 直接主页读取显示 741 粉丝。 Reels数量由用户观察提供，未作为粉丝数。",
+          "extraMetric": "0个Reels视频（用户观察）",
+          "activityLabel": "0个Reels视频（用户观察）"
         }
       ]
     },
@@ -1859,9 +1709,9 @@
           "handle": "@pexoai_official",
           "url": "https://www.instagram.com/pexoai_official/",
           "status": "verified",
-          "followers": 107,
-          "followersDisplay": "107",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
+          "followers": 230,
+          "followersDisplay": "230",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "账号链接由品牌官网或官方活动页直接列出。",
           "sourceUrl": "https://www.instagram.com/pexoai_official/",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -1898,10 +1748,11 @@
           "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
           "followers": 1,
           "followersDisplay": "1",
-          "snapshotLabel": "2026-11-23 · 用户核对的 Facebook 页面",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
           "sourceUrl": "https://www.facebook.com/profile.php?id=61589800971837",
-          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。",
-          "extraMetric": ""
+          "note": "Ego Lite 直接主页读取显示 1 粉丝。 Reels数量由用户观察提供，未作为粉丝数。",
+          "extraMetric": "暂无Reels作品（用户观察：1位粉丝）",
+          "activityLabel": "暂无Reels作品（用户观察：1位粉丝）"
         }
       ]
     },
@@ -2192,11 +2043,12 @@
           "status": "verified",
           "followers": 101,
           "followersDisplay": "101",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
-          "verification": "用户提供的 RunningHub TikTok 主页链接与粉丝数。",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
+          "verification": "用户提供的 RunningHub TikTok 主页链接与粉丝数。；近期作品日期由用户观察提供，未独立复核。",
           "sourceUrl": "https://www.tiktok.com/@runninghub_ai",
           "note": "按公开主页粉丝数记录；平台数字会动态变化。",
-          "extraMetric": ""
+          "extraMetric": "",
+          "activityLabel": "暂无近期作品（用户观察：最近可见日期 2025-06-20）"
         },
         {
           "platform": "YouTube",
@@ -2274,9 +2126,9 @@
           "handle": "@renoiseai",
           "url": "https://x.com/renoiseai",
           "status": "verified",
-          "followers": 22000,
-          "followersDisplay": "2.2万",
-          "snapshotLabel": "2026-11-24 · X 公开主页快照",
+          "followers": 732,
+          "followersDisplay": "732",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "Renoise 官方创作者计划明确列出该账号为作品发布时需标记的官方账号。",
           "sourceUrl": "https://x.com/renoiseai",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -2319,16 +2171,17 @@
         },
         {
           "platform": "Facebook",
-          "handle": "Renoise office",
-          "url": "https://www.facebook.com/profile.php?id=61595755297425",
+          "handle": "Renoise",
+          "url": "https://www.facebook.com/profile.php?id=61577499841922",
           "status": "verified",
-          "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
-          "followers": 10,
-          "followersDisplay": "10",
-          "snapshotLabel": "2026-11-24 · Facebook 公开主页快照",
-          "sourceUrl": "https://www.facebook.com/profile.php?id=61595755297425",
-          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。",
-          "extraMetric": ""
+          "verification": "Facebook 主页名称为 Renoise，说明为 “Don’t make videos — program them”；用户提供此官方主页，主页直接显示粉丝数。",
+          "followers": 5194,
+          "followersDisplay": "5194",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
+          "sourceUrl": "https://www.facebook.com/profile.php?id=61577499841922",
+          "note": "Ego Lite 直接主页读取显示 5,194 位粉丝；比用户先前观察的 5,193 多 1。",
+          "extraMetric": "0个Reels作品（用户观察）",
+          "activityLabel": "0个Reels作品（用户观察）"
         }
       ]
     },
@@ -2397,9 +2250,9 @@
           "handle": "@oiioii_ai",
           "url": "https://www.instagram.com/oiioii_ai/",
           "status": "verified",
-          "followers": 32000,
-          "followersDisplay": "3.2万",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
+          "followers": 105,
+          "followersDisplay": "105",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "账号链接由品牌官网或官方活动页直接列出。",
           "sourceUrl": "https://www.instagram.com/oiioii_ai/",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -2415,7 +2268,8 @@
           "verification": "用户提供的 OiiOii AI TikTok 主页链接与粉丝数。",
           "sourceUrl": "https://www.tiktok.com/@oiioii_ai",
           "note": "按公开主页粉丝数记录；平台数字会动态变化。",
-          "extraMetric": ""
+          "extraMetric": "",
+          "activityLabel": "暂无已发布视频（本轮公开主页未显示作品）"
         },
         {
           "platform": "YouTube",
@@ -2496,9 +2350,9 @@
           "url": "https://x.com/openart_ai",
           "status": "verified",
           "verification": "官网链接的官方账号；主页显示 8 万关注者。",
-          "followers": 80000,
-          "followersDisplay": "8万",
-          "snapshotLabel": "2026-11-24 · X 公开主页快照",
+          "followers": 6285,
+          "followersDisplay": "6285",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://x.com/openart_ai",
           "note": "粉丝数按官方公开主页当前显示值记录；平台可能显示约数。",
           "extraMetric": ""
@@ -2634,13 +2488,14 @@
           "handle": "@leonardo_ai",
           "url": "https://www.tiktok.com/@leonardo_ai",
           "status": "verified",
-          "verification": "Leonardo 官方帮助中心列出的官方账号；主页显示 44 粉丝，未见公开视频。",
+          "verification": "Leonardo 官方帮助中心列出的官方账号；主页显示 44 粉丝，未见公开视频。；近期作品日期由用户观察提供，未独立复核。",
           "followers": 44,
           "followersDisplay": "44",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@leonardo_ai",
           "note": "粉丝数按官方公开主页当前显示值记录；平台可能显示约数。",
-          "extraMetric": ""
+          "extraMetric": "",
+          "activityLabel": "暂无近期作品（用户观察：最后可见日期 2024-12-24）"
         },
         {
           "platform": "YouTube",
@@ -2672,12 +2527,12 @@
     },
     {
       "id": "adobe-firefly-video",
-      "name": "Adobe Firefly Video",
+      "name": "Adobe Firefly",
       "company": "Adobe",
       "region": "海外",
-      "focus": "Firefly 视频生成",
+      "focus": "图像生成 / 视频生成 / 音频创作",
       "officialSite": "https://www.adobe.com/products/firefly/features/ai-video-generator.html",
-      "note": "模型厂商。Adobe Firefly 官方 Instagram、TikTok、YouTube 发布视频生成产品内容、演示与教程。",
+      "note": "监控 Adobe Firefly 官方产品账号、创作者演示、功能更新与内容生态。",
       "category": "模型厂商",
       "accounts": [
         {
@@ -2733,13 +2588,21 @@
           "handle": "@adobefirefly",
           "url": "https://www.instagram.com/adobefirefly/",
           "status": "verified",
-          "verification": "Adobe Firefly 官方社媒资料列出的账号；主页发布产品内容与 Reels。",
-          "followers": 316000,
-          "followersDisplay": "31.6万",
-          "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
+          "verification": "主账号 @adobefirefly 为 Adobe Firefly 官方账号；新增 @firefly.creators 主页简介写明作品由 @adobefirefly 创作，且被主账号关注。两个主页分开记录，未合并粉丝数。",
+          "followers": 135600,
+          "followersDisplay": "13.56万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.instagram.com/adobefirefly/",
-          "note": "粉丝数按官方公开主页当前显示值记录；平台可能显示约数。",
-          "extraMetric": ""
+          "note": "主账号粉丝数保持原快照；关联创作者主页 @firefly.creators 于 2026-11-25 公开显示 612 粉丝，未合并。；平台显示约数，按页面精度换算。",
+          "extraMetric": "",
+          "relatedPages": [
+            {
+              "handle": "@firefly.creators",
+              "url": "https://www.instagram.com/firefly.creators/",
+              "followers": 612,
+              "followersDisplay": "612"
+            }
+          ]
         },
         {
           "platform": "TikTok",
@@ -2781,6 +2644,335 @@
           "extraMetric": ""
         }
       ]
+    },
+    {
+      "id": "google-flow",
+      "name": "Google Flow",
+      "company": "Google",
+      "region": "海外",
+      "focus": "AI 视频创作与产品动态",
+      "officialSite": "https://flow.google/",
+      "logoKey": "flow",
+      "note": "聚焦 Flow 产品更新和创作案例；不合并 Google 母公司的泛内容账号。",
+      "category": "模型厂商",
+      "accounts": [
+        {
+          "platform": "抖音",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "截至 2026-11-24 未找到 Google Flow 专属官方主页；未将 Google 母公司账号计作 Flow 账号。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无可确认主页",
+          "note": "Google 官方产品说明列出的 Flow 专属社媒账号以 X、Instagram 为主。"
+        },
+        {
+          "platform": "B站",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "截至 2026-11-24 未找到 Google Flow 专属官方主页；未将 Google 母公司账号计作 Flow 账号。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无可确认主页",
+          "note": "Google 官方产品说明列出的 Flow 专属社媒账号以 X、Instagram 为主。"
+        },
+        {
+          "platform": "小红书",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "截至 2026-11-24 未找到 Google Flow 专属官方主页；未将 Google 母公司账号计作 Flow 账号。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无可确认主页",
+          "note": "Google 官方产品说明列出的 Flow 专属社媒账号以 X、Instagram 为主。"
+        },
+        {
+          "platform": "X",
+          "handle": "@FlowbyGoogle",
+          "url": "https://x.com/FlowbyGoogle",
+          "status": "verified",
+          "verification": "主页名称为 Google Flow，简介明确写明 Google Flow AI creative studio，并链接 flow.google。",
+          "followers": 78000,
+          "followersDisplay": "7.8万",
+          "snapshotLabel": "2026-11-24 · X 公开主页快照",
+          "note": "X 主页显示约 7.8 万关注者。",
+          "sourceUrl": "https://x.com/FlowbyGoogle"
+        },
+        {
+          "platform": "Instagram",
+          "handle": "@googleflow",
+          "url": "https://www.instagram.com/googleflow/",
+          "status": "verified",
+          "verification": "Google Flow 官方 YouTube 产品介绍在视频说明中直接列出 @googleflow。",
+          "followers": 158000,
+          "followersDisplay": "15.8万",
+          "snapshotLabel": "2026-11-24 · Instagram 用户提供快照",
+          "note": "粉丝数按用户提供的 Instagram 主页截图记录为 15.8 万；平台显示约数。",
+          "sourceUrl": "https://www.instagram.com/googleflow/"
+        },
+        {
+          "platform": "TikTok",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "截至 2026-11-24 未找到 Google Flow 专属官方主页；未将 Google 母公司账号计作 Flow 账号。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无可确认主页",
+          "note": "Google 官方产品说明列出的 Flow 专属社媒账号以 X、Instagram 为主。"
+        },
+        {
+          "platform": "YouTube",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "截至 2026-11-24 未找到 Google Flow 专属官方主页；未将 Google 母公司账号计作 Flow 账号。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无可确认主页",
+          "note": "Google 官方产品说明列出的 Flow 专属社媒账号以 X、Instagram 为主。"
+        },
+        {
+          "platform": "Facebook",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "截至 2026-11-24 未找到 Google Flow 专属官方主页；未将 Google 母公司账号计作 Flow 账号。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无可确认主页",
+          "note": "Google 官方产品说明列出的 Flow 专属社媒账号以 X、Instagram 为主。"
+        }
+      ]
+    },
+    {
+      "id": "pika",
+      "name": "Pika",
+      "company": "Mellis, Inc.",
+      "region": "海外",
+      "focus": "视频 / 图像 / 声音生成与创作平台",
+      "officialSite": "https://pika.art/",
+      "note": "官方账号重点发布 Pika 视频模型、创作功能和成片案例；官网当前列出 X、Instagram、YouTube、Facebook。",
+      "accounts": [
+        {
+          "platform": "抖音",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "2026-11-25：核对官网公开社媒入口及抖音品牌检索，未找到可确认的官方主页。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无已核实主页",
+          "sourceUrl": "https://pika.art/"
+        },
+        {
+          "platform": "B站",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "2026-11-25：核对官网公开社媒入口及 B 站品牌检索，结果为用户教程/作品，未找到可确认的官方主页。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无已核实主页",
+          "sourceUrl": "https://pika.art/"
+        },
+        {
+          "platform": "小红书",
+          "handle": "Pika AIvideo（候选）",
+          "url": "https://www.xiaohongshu.com/user/profile/7027752781",
+          "status": "review",
+          "verification": "第三方资料曾指向该候选主页；Pika 官网未链接此账号，本轮主页未返回可核验资料，暂不能确认官方归属。",
+          "followers": null,
+          "followersDisplay": "待核验",
+          "snapshotLabel": "待核验",
+          "sourceUrl": "https://pika.art/",
+          "note": "候选账号未作为官方账号或粉丝快照计入。"
+        },
+        {
+          "platform": "X",
+          "handle": "@pika_labs",
+          "url": "https://x.com/pika_labs",
+          "status": "verified",
+          "verification": "Pika 官网直接链接至 @pika_labs；主页名称、简介及官网链接与品牌一致。",
+          "followers": 152000,
+          "followersDisplay": "15.2万",
+          "snapshotLabel": "2026-11-25 · X 公开主页快照",
+          "sourceUrl": "https://pika.art/",
+          "note": "主页显示约数；内容包含模型演示与产品宣传。",
+          "extraMetric": "3387 条帖子"
+        },
+        {
+          "platform": "Instagram",
+          "handle": "@pika_labs",
+          "url": "https://www.instagram.com/pika_labs/",
+          "status": "verified",
+          "verification": "Pika 官网直接链接至 @pika_labs；主页名称、品牌简介和 Linktree 与官网相符。",
+          "followers": 114000,
+          "followersDisplay": "11.4万",
+          "snapshotLabel": "2026-11-25 · Instagram 公开主页快照",
+          "sourceUrl": "https://pika.art/",
+          "note": "主页显示约数。",
+          "extraMetric": "169 篇帖子"
+        },
+        {
+          "platform": "TikTok",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "2026-11-25：官网未列 TikTok；打开 @pika_labs 候选主页显示账号不存在，未找到可确认的官方主页。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无已核实主页",
+          "sourceUrl": "https://pika.art/"
+        },
+        {
+          "platform": "YouTube",
+          "handle": "@Pika_Labs",
+          "url": "https://www.youtube.com/@pika_labs",
+          "status": "verified",
+          "verification": "Pika 官网直接链接至该 YouTube 频道；频道简介链接 pika.art。",
+          "followers": 14600,
+          "followersDisplay": "1.46万",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
+          "sourceUrl": "https://pika.art/",
+          "note": "主页显示约数；频道有模型发布、创作演示与工作流视频。",
+          "extraMetric": "104 个视频"
+        },
+        {
+          "platform": "Facebook",
+          "handle": "Pika_Labs",
+          "url": "https://www.facebook.com/pikalabs",
+          "status": "verified",
+          "verification": "Pika 官网直接链接至该 Facebook 主页；主页显示 pika.art 与 @pika_labs。",
+          "followers": 991,
+          "followersDisplay": "991",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
+          "sourceUrl": "https://pika.art/",
+          "note": "粉丝数直接读取公开主页。"
+        }
+      ],
+      "category": "模型厂商"
+    },
+    {
+      "id": "runway",
+      "name": "Runway",
+      "company": "Runway AI, Inc.",
+      "region": "海外",
+      "focus": "视频生成模型 / 视频创作与编辑",
+      "officialSite": "https://runway.com/",
+      "note": "官方账号包含模型发布、Runway Academy 教程、AI Festival 与创作者成片；Instagram 另有官方创作者作品账号。",
+      "accounts": [
+        {
+          "platform": "抖音",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "2026-11-25：核对 Runway 官网社媒入口及抖音品牌检索，未找到可确认的官方主页。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无已核实主页",
+          "sourceUrl": "https://runway.com/"
+        },
+        {
+          "platform": "B站",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "2026-11-25：核对 Runway 官网社媒入口及B站品牌检索，未找到可确认的官方主页。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无已核实主页",
+          "sourceUrl": "https://runway.com/"
+        },
+        {
+          "platform": "小红书",
+          "handle": "暂无",
+          "url": "",
+          "status": "none",
+          "verification": "2026-11-25：核对 Runway 官网社媒入口及小红书品牌检索，未找到可确认的官方主页。",
+          "followers": null,
+          "followersDisplay": "暂无",
+          "snapshotLabel": "暂无已核实主页",
+          "sourceUrl": "https://runway.com/"
+        },
+        {
+          "platform": "X",
+          "handle": "@runwayml",
+          "url": "https://x.com/runwayml",
+          "status": "verified",
+          "verification": "Runway 官网直接链接该 X 主页；账号简介与品牌官网互相印证。",
+          "followers": 44200,
+          "followersDisplay": "4.42万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
+          "sourceUrl": "https://runway.com/",
+          "note": "主页显示约数；持续发布产品与视频创作内容。",
+          "extraMetric": "362 正在关注"
+        },
+        {
+          "platform": "Instagram",
+          "handle": "@runwayapp",
+          "url": "https://www.instagram.com/runwayapp/",
+          "status": "verified",
+          "verification": "Runway 官网直接链接 @runwayapp；简介指向 Runway 官方网站。另有 Runway 官网 rewards 页直接链接并确认 @runway.creators 为官方创作者作品频道。",
+          "followers": 726046,
+          "followersDisplay": "72.6万",
+          "snapshotLabel": "2026-11-25 · Instagram 公开主页快照",
+          "sourceUrl": "https://runway.com/",
+          "note": "主账号显示约 72.2 万粉丝；合计官方创作者社区账号 @runway.creators 的 4046 粉丝，受众可能重叠，合计仅供参考。",
+          "extraMetric": "810 篇帖子",
+          "relatedPages": [
+            {
+              "handle": "@runway.creators",
+              "url": "https://www.instagram.com/runway.creators/",
+              "followers": 4046,
+              "followersDisplay": "4046"
+            }
+          ]
+        },
+        {
+          "platform": "TikTok",
+          "handle": "@runwayml",
+          "url": "https://www.tiktok.com/@runwayml",
+          "status": "verified",
+          "verification": "主页品牌名为 Runway、账号名为 runwayml，简介指向 runway.ai；与 Runway 官方品牌及其他已核验账号一致。",
+          "followers": 44100,
+          "followersDisplay": "4.41万",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
+          "sourceUrl": "https://runway.com/",
+          "note": "主页显示约数。",
+          "extraMetric": "390.6K 获赞"
+        },
+        {
+          "platform": "YouTube",
+          "handle": "@RunwayML",
+          "url": "https://www.youtube.com/@RunwayML",
+          "status": "verified",
+          "verification": "Runway 官网直接链接该频道；频道简介链接 runway.com。",
+          "followers": 141000,
+          "followersDisplay": "14.1万",
+          "snapshotLabel": "2026-11-25 · YouTube 公开主页快照",
+          "sourceUrl": "https://runway.com/",
+          "note": "主页显示约数；包含 Runway Academy 教程、模型发布、案例和 AI Festival 内容。",
+          "extraMetric": "209 个视频"
+        },
+        {
+          "platform": "Facebook",
+          "handle": "Runway",
+          "url": "https://www.facebook.com/runwayml",
+          "status": "verified",
+          "verification": "主页简介、Runway 品牌及 runwayml.com 链接互相印证；公开主页明确显示粉丝数。",
+          "followers": 12000,
+          "followersDisplay": "1.2万",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
+          "sourceUrl": "https://runway.com/",
+          "note": "粉丝按主页明确标注的 1.2 万位粉丝记录；187 万心情未计入。",
+          "extraMetric": "187 万心情"
+        }
+      ],
+      "category": "模型厂商"
     }
   ],
   "posts": [
@@ -3247,6 +3439,121 @@
             "extraMetric": ""
           }
         ]
+      },
+      {
+        "id": "google-video",
+        "name": "Google Gemini",
+        "company": "Google",
+        "region": "海外",
+        "focus": "Gemini / Veo 视频生成",
+        "officialSite": "https://gemini.google/",
+        "logoKey": "google",
+        "note": "以 Google Gemini 官方账号为监控主线，关注 Gemini 视频生成与 Veo 宣传；各平台使用 Gemini 自有品牌主页。",
+        "accounts": [
+          {
+            "platform": "抖音",
+            "handle": "暂无",
+            "url": "",
+            "status": "none",
+            "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
+            "followers": null,
+            "followersDisplay": "暂无",
+            "snapshotLabel": "暂无官方账号",
+            "note": "",
+            "extraMetric": ""
+          },
+          {
+            "platform": "B站",
+            "handle": "暂无",
+            "url": "",
+            "status": "none",
+            "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
+            "followers": null,
+            "followersDisplay": "暂无",
+            "snapshotLabel": "暂无官方账号",
+            "note": "",
+            "extraMetric": ""
+          },
+          {
+            "platform": "小红书",
+            "handle": "暂无",
+            "url": "",
+            "status": "none",
+            "verification": "截至 2026-11-23 未发现可确认的官方主页；不以搜索结果中的同名账号代替。",
+            "followers": null,
+            "followersDisplay": "暂无",
+            "snapshotLabel": "暂无官方账号",
+            "note": "",
+            "extraMetric": ""
+          },
+          {
+            "platform": "X",
+            "handle": "@GeminiApp",
+            "url": "https://x.com/GeminiApp",
+            "status": "verified",
+            "verification": "X 已认证主页名称为 Google Gemini，简介链接至 gemini.google.com。",
+            "followers": 630000,
+            "followersDisplay": "63万",
+            "snapshotLabel": "2026-11-24 · X 公开主页快照",
+            "sourceUrl": "https://x.com/GeminiApp",
+            "note": "从 Google DeepMind 账号切换为 Gemini 官方产品账号；主页粉丝数于 2026-11-23 读取。；平台主页显示约数，按页面精度换算。",
+            "extraMetric": "1.5万条帖子"
+          },
+          {
+            "platform": "Instagram",
+            "handle": "@googlegemini",
+            "url": "https://www.instagram.com/googlegemini/",
+            "status": "verified",
+            "verification": "主页名称为 Google Gemini，简介链接至 gemini.google.com；主页合集含 Create Videos。",
+            "followers": 1734000,
+            "followersDisplay": "173.4万",
+            "snapshotLabel": "2026-11-24 · Instagram 公开主页快照",
+            "sourceUrl": "https://www.instagram.com/googlegemini/",
+            "note": "从 Google DeepMind 账号切换为 Gemini 官方产品账号；主页粉丝数于 2026-11-23 读取。；平台主页显示约数，按页面精度换算。",
+            "extraMetric": "1034 篇帖子 · 41关注"
+          },
+          {
+            "platform": "TikTok",
+            "handle": "@googlegemini",
+            "url": "https://www.tiktok.com/@googlegemini",
+            "status": "verified",
+            "verification": "TikTok 主页带认证标识，简介链接至 gemini.google.com；主页含 Video Gen 内容。",
+            "followers": 2000000,
+            "followersDisplay": "200万",
+            "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+            "note": "登录后的 TikTok 主页显示 2M 粉丝；账号用于 Gemini 与视频生成宣传。；平台主页显示约数，按页面精度换算。",
+            "extraMetric": "3010万赞",
+            "sourceUrl": "https://www.tiktok.com/@googlegemini"
+          },
+          {
+            "platform": "YouTube",
+            "handle": "@GoogleGemini",
+            "url": "https://www.youtube.com/@GoogleGemini",
+            "status": "verified",
+            "verification": "YouTube 已验证频道名称为 Google Gemini，频道简介为 “A new kind of help from Google”，链接至 gemini.google。",
+            "followers": 48100,
+            "followersDisplay": "4.8万",
+            "snapshotLabel": "2026-11-24 · YouTube 公开主页快照",
+            "sourceUrl": "https://www.youtube.com/@GoogleGemini",
+            "note": "频道页展示 Gemini 视频演示与功能宣传；订阅数于 2026-11-23 读取。；平台主页显示约数，按页面精度换算。",
+            "extraMetric": "61 个视频"
+          },
+          {
+            "platform": "Facebook",
+            "handle": "暂无",
+            "url": "",
+            "status": "none",
+            "verification": "本轮尚未收录可确认的 Facebook 官方主页；“暂无”表示账号库暂无已核实记录，不代表确认没有账号。",
+            "followers": null,
+            "followersDisplay": "暂无",
+            "snapshotLabel": "暂无已核实主页",
+            "note": "",
+            "extraMetric": ""
+          }
+        ],
+        "category": "模型厂商",
+        "archivedAt": "2026-11-24",
+        "archiveReason": "按用户要求，停止追踪内容较杂的 Google Gemini 社媒账号，改为追踪 Google Flow；原快照保留供回溯。"
       }
     ],
     "posts": [
@@ -3479,6 +3786,26 @@
         },
         "reason": "用户要求海外平台只展示 X、Instagram、TikTok",
         "archivedAt": "2026-11-23"
+      },
+      {
+        "brandId": "renoise",
+        "brand": "Renoise",
+        "account": {
+          "platform": "Facebook",
+          "handle": "Renoise office",
+          "url": "https://www.facebook.com/profile.php?id=61595755297425",
+          "status": "verified",
+          "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
+          "followers": 10,
+          "followersDisplay": "10",
+          "snapshotLabel": "2026-11-24 · Facebook 公开主页快照",
+          "sourceUrl": "https://www.facebook.com/profile.php?id=61595755297425",
+          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。 Reels数量由用户观察提供，未作为粉丝数。",
+          "extraMetric": "0个Reels作品（用户观察）",
+          "activityLabel": "0个Reels作品（用户观察）"
+        },
+        "reason": "用户提供并核验了 Renoise 主主页链接；旧记录指向 Renoise office（10 位粉丝），由新主页替代。",
+        "archivedAt": "2026-11-25"
       }
     ]
   },
