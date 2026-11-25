@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">AI 视频创作台：从公开来源到创作者参考</title>
+  <desc id="desc">用来源标记呈现模型发布、原始评测榜与创作资源，并保留可回查的出处。</desc>
+  <rect width="1200" height="360" rx="24" fill="#f5f5f7"/>
+  <rect x="1" y="1" width="1198" height="358" rx="23" fill="none" stroke="#e3e3e8" stroke-width="2"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+    <g transform="translate(54 48)">
+      <rect x="0" y="0" width="34" height="4" rx="2" fill="#2676df"/>
+      <text x="0" y="30" fill="#2676df" font-size="17" font-weight="750" letter-spacing="1.5">AI CREATOR RADAR · V4</text>
+      <text x="0" y="94" fill="#1d1d1f" font-size="48" font-weight="760" letter-spacing="-1.8">先看来源，再看结论</text>
+      <text x="0" y="137" fill="#4d535c" font-size="22" font-weight="500">模型上新、任务评测与创作资源</text>
+      <text x="0" y="170" fill="#4d535c" font-size="22" font-weight="500">按来源和时间整理，保留原始口径。</text>
+      <line x1="0" y1="206" x2="468" y2="206" stroke="#d7dbe0" stroke-width="1.5"/>
+
+      <g transform="translate(0 234)">
+        <circle cx="7" cy="7" r="5" fill="#2676df"/>
+        <text x="22" y="13" fill="#313740" font-size="18" font-weight="650">模型动态</text>
+        <circle cx="170" cy="7" r="5" fill="#18734f"/>
+        <text x="185" y="13" fill="#313740" font-size="18" font-weight="650">来源原榜</text>
+        <circle cx="338" cy="7" r="5" fill="#d47755"/>
+        <text x="353" y="13" fill="#313740" font-size="18" font-weight="650">创作资源</text>
+      </g>
+      <text x="0" y="280" fill="#73777d" font-size="16" letter-spacing=".5">官方来源 / 原榜口径 / 创作资源</text>
+    </g>
+
+    <g transform="translate(568 32)">
+      <rect width="578" height="296" rx="20" fill="#202b38"/>
+      <text x="24" y="34" fill="#aab9cb" font-size="14" font-weight="700" letter-spacing="1.25">SOURCE → EVIDENCE → RADAR</text>
+      <g transform="translate(20 54)">
+        <rect width="538" height="62" rx="12" fill="#2a3745" stroke="#39495a"/>
+        <rect x="0" y="0" width="4" height="62" rx="2" fill="#6ea3f4"/>
+        <text x="19" y="25" fill="#9ab9e9" font-size="14" font-weight="700" letter-spacing=".6">01 / OFFICIAL</text>
+        <text x="177" y="27" fill="#f7f8fa" font-size="21" font-weight="700">官方模型发布</text>
+        <text x="177" y="49" fill="#c1cad4" font-size="16">具体版本 · 发布日期 · 一手来源</text>
+      </g>
+      <g transform="translate(20 126)">
+        <rect width="538" height="62" rx="12" fill="#2a3745" stroke="#39495a"/>
+        <rect x="0" y="0" width="4" height="62" rx="2" fill="#5fbd95"/>
+        <text x="19" y="25" fill="#91d5b5" font-size="14" font-weight="700" letter-spacing=".6">02 / LEADERBOARDS</text>
+        <text x="203" y="27" fill="#f7f8fa" font-size="21" font-weight="700">按任务查看原榜</text>
+        <text x="203" y="49" fill="#c1cad4" font-size="16">名次、区间与样本口径分开保留</text>
+      </g>
+      <g transform="translate(20 198)">
+        <rect width="538" height="62" rx="12" fill="#2a3745" stroke="#39495a"/>
+        <rect x="0" y="0" width="4" height="62" rx="2" fill="#e89a75"/>
+        <text x="19" y="25" fill="#efb294" font-size="14" font-weight="700" letter-spacing=".6">03 / CREATOR TOOLS</text>
+        <text x="203" y="27" fill="#f7f8fa" font-size="21" font-weight="700">简报、教程与工具</text>
+        <text x="203" y="49" fill="#c1cad4" font-size="16">RSS / GitHub · 原始链接可回查</text>
+      </g>
+      <text x="24" y="282" fill="#d6dde5" font-size="15">偏好分数用于比较评测任务，不代表市场采用率。</text>
+    </g>
+  </g>
+</svg>
