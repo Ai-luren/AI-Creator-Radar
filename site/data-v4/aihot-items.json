@@ -82,7 +82,13 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/f1380j6hyrxn0rnz6666nu3b8"
-      }
+      },
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "suno",
+          "matchedName": "Suno"
+        }
+      ]
     },
     {
       "id": "zto0pspydy8330r0bvwqb6j5z",
@@ -243,7 +249,20 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/gl6fl6hsisrt26tg83li0j4gk"
-      }
+      },
+      "modelMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "modelVersionId": "gpt-6-2-sol",
+          "matchedName": "GPT-6.2 Sol"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "matchedName": "GPT-6.2 Sol"
+        }
+      ]
     },
     {
       "id": "vlxrimiuixb91iodhjh5hxmte",
@@ -266,7 +285,13 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/vlxrimiuixb91iodhjh5hxmte"
-      }
+      },
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
+        }
+      ]
     },
     {
       "id": "tl8v9gto8rd3e4x40xfbljj13",
@@ -358,7 +383,13 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/qkxvs90ewfu3k430sdefndv56"
-      }
+      },
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
+        }
+      ]
     },
     {
       "id": "gp8e9a8oitha0rbip8pzntuff",

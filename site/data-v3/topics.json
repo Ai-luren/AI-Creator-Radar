@@ -23,7 +23,25 @@
         "auditId": "v48-anthropic-0014",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.anthropic.com/news/models"
+        "verificationUrl": "https://www.anthropic.com/news/models",
+        "modelMentions": [
+          {
+            "modelFamilyId": "claude",
+            "modelVersionId": "claude-fable-5-2",
+            "matchedName": "Claude Fable 5.2"
+          },
+          {
+            "modelFamilyId": "claude",
+            "modelVersionId": "claude-mythos-5-2",
+            "matchedName": "Claude Mythos 5.2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "claude",
+            "matchedName": "Claude Mythos 5.2"
+          }
+        ]
       },
       {
         "date": "2026-10-07",
@@ -34,7 +52,20 @@
         "auditId": "v48-anthropic-0035",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.anthropic.com/news/models"
+        "verificationUrl": "https://www.anthropic.com/news/models",
+        "modelMentions": [
+          {
+            "modelFamilyId": "claude",
+            "modelVersionId": "claude-haiku-5-5",
+            "matchedName": "Claude Haiku 5.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "claude",
+            "matchedName": "Claude Haiku 5.5"
+          }
+        ]
       },
       {
         "date": "2026-09-28",
@@ -45,7 +76,20 @@
         "auditId": "v48-anthropic-0043",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.anthropic.com/claude/sonnet"
+        "verificationUrl": "https://www.anthropic.com/claude/sonnet",
+        "modelMentions": [
+          {
+            "modelFamilyId": "claude",
+            "modelVersionId": "claude-sonnet-5-5",
+            "matchedName": "Claude Sonnet 5.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "claude",
+            "matchedName": "Claude Sonnet 5.5"
+          }
+        ]
       },
       {
         "date": "2026-09-22",
@@ -56,7 +100,20 @@
         "auditId": "v48-anthropic-0046",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.anthropic.com/news/models"
+        "verificationUrl": "https://www.anthropic.com/news/models",
+        "modelMentions": [
+          {
+            "modelFamilyId": "claude",
+            "modelVersionId": "claude-opus-5-5",
+            "matchedName": "Claude Opus 5.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "claude",
+            "matchedName": "Claude Opus 5.5"
+          }
+        ]
       },
       {
         "date": "2026-09",
@@ -411,7 +468,14 @@
         "auditId": "v48-deepseek-0056",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://api-docs.deepseek.com/news/news260910/"
+        "verificationUrl": "https://api-docs.deepseek.com/news/news260910/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "recraft",
+            "modelVersionId": "v4-1",
+            "matchedName": "V4.1"
+          }
+        ]
       },
       {
         "date": "2026-08-21",
@@ -425,7 +489,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://api-docs.deepseek.com/news/news260821/"
+        "verificationUrl": "https://api-docs.deepseek.com/news/news260821/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "recraft",
+            "modelVersionId": "v4-1",
+            "matchedName": "V4.1"
+          }
+        ]
       },
       {
         "date": "2026-08-13",
@@ -519,7 +590,13 @@
         "auditId": "v48-deepseek-0343",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://api-docs.deepseek.com/zh-cn/updates/；https://github.com/deepseek-ai/DeepSeek-R1"
+        "verificationUrl": "https://api-docs.deepseek.com/zh-cn/updates/；https://github.com/deepseek-ai/DeepSeek-R1",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "llama",
+            "matchedName": "Llama"
+          }
+        ]
       },
       {
         "date": "2024-12-26",
@@ -566,7 +643,14 @@
         "auditId": "v48-deepseek-0383",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://github.com/deepseek-ai/DeepSeek-V2.5"
+        "verificationUrl": "https://github.com/deepseek-ai/DeepSeek-V2.5",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-music",
+            "modelVersionId": "v2-5",
+            "matchedName": "v2.5"
+          }
+        ]
       },
       {
         "date": "2024-06-17",
@@ -636,7 +720,25 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://elevenlabs.io/docs/changelog/2026/9/28"
+        "verificationUrl": "https://elevenlabs.io/docs/changelog/2026/9/28",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-v4",
+            "matchedName": "Eleven v4"
+          },
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-v4-turbo",
+            "matchedName": "Eleven v4 Turbo"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "matchedName": "Eleven v4 Turbo"
+          }
+        ]
       },
       {
         "date": "2026-09-11",
@@ -650,7 +752,14 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://elevenlabs.io/docs/changelog"
+        "verificationUrl": "https://elevenlabs.io/docs/changelog",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-music",
+            "modelVersionId": "v2-5",
+            "matchedName": "v2.5"
+          }
+        ]
       },
       {
         "date": "2025-08-05",
@@ -678,7 +787,14 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://techcrunch.com/2025/06/03/elevenlabs-unveils-new-ai-model-with-more-expressive-speech/"
+        "verificationUrl": "https://techcrunch.com/2025/06/03/elevenlabs-unveils-new-ai-model-with-more-expressive-speech/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-v3",
+            "matchedName": "Eleven v3"
+          }
+        ]
       },
       {
         "date": "2024-12-18",
@@ -692,7 +808,14 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://elevenlabs.io/docs/changelog/2024/12/19"
+        "verificationUrl": "https://elevenlabs.io/docs/changelog/2024/12/19",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-music",
+            "modelVersionId": "v2-5",
+            "matchedName": "v2.5"
+          }
+        ]
       },
       {
         "date": "2023-11-09",
@@ -720,7 +843,14 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://elevenlabs.io/blog/elevenlabs-comes-out-of-beta-and-releases-eleven-multilingual-v2-a-foundational-ai-speech-model-for-nearly-30-languages"
+        "verificationUrl": "https://elevenlabs.io/blog/elevenlabs-comes-out-of-beta-and-releases-eleven-multilingual-v2-a-foundational-ai-speech-model-for-nearly-30-languages",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-multilingual-v2",
+            "matchedName": "Eleven Multilingual v2"
+          }
+        ]
       },
       {
         "date": "2023-04-27",
@@ -773,7 +903,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "llm"
+        "modelCategory": "llm",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-neon",
+            "matchedName": "Gemini 4 Neon"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "matchedName": "Gemini 4 Neon"
+          }
+        ]
       },
       {
         "date": "2026-11-18",
@@ -784,7 +927,20 @@
         "auditId": "v48-google-0005",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://deepmind.google/models/model-cards/"
+        "verificationUrl": "https://deepmind.google/models/model-cards/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-neon",
+            "matchedName": "Gemini 4 Neon"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "matchedName": "Gemini 4 Neon"
+          }
+        ]
       },
       {
         "date": "2026-11-12",
@@ -795,7 +951,25 @@
         "auditId": "v48-google-0009",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://deepmind.google/models/model-cards/"
+        "verificationUrl": "https://deepmind.google/models/model-cards/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-carbon",
+            "matchedName": "Gemini 4 Carbon"
+          },
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-hydrogen",
+            "matchedName": "Gemini 4 Hydrogen"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "matchedName": "Gemini 4 Carbon"
+          }
+        ]
       },
       {
         "date": "2026-10-27",
@@ -821,7 +995,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "image"
+        "modelCategory": "image",
+        "modelMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2-1",
+            "matchedName": "Nano Banana 2.1"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "matchedName": "Nano Banana 2"
+          }
+        ]
       },
       {
         "date": "2026-10-06",
@@ -836,7 +1023,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "image"
+        "modelCategory": "image",
+        "modelMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2-1",
+            "matchedName": "Nano Banana 2.1"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "matchedName": "Nano Banana 2"
+          }
+        ]
       },
       {
         "date": "2026-09-30",
@@ -847,7 +1047,20 @@
         "auditId": "v48-google-0038",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/?authuser=31"
+        "verificationUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/?authuser=31",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-argon",
+            "matchedName": "Gemini 4 Argon"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "matchedName": "Gemini 4 Argon"
+          }
+        ]
       },
       {
         "date": "2026-09-02",
@@ -861,7 +1074,29 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://deepmind.google/models/model-cards/"
+        "verificationUrl": "https://deepmind.google/models/model-cards/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-3-8-flash",
+            "matchedName": "Gemini 3.8 Flash"
+          },
+          {
+            "modelFamilyId": "gemini-tts",
+            "modelVersionId": "gemini-3-8-flash-tts",
+            "matchedName": "Gemini 3.8 Flash TTS"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "matchedName": "Gemini 3.8 Flash"
+          },
+          {
+            "modelFamilyId": "gemini-tts",
+            "matchedName": "Gemini 3.8 Flash TTS"
+          }
+        ]
       },
       {
         "date": "2026-08-27",
@@ -876,7 +1111,13 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini-omni-flash",
+            "matchedName": "Gemini Omni Flash"
+          }
+        ]
       },
       {
         "date": "2026-08-27",
@@ -890,7 +1131,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/"
+        "verificationUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/new-creative-controls-google-flow/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini-omni-flash",
+            "matchedName": "Gemini Omni 1.1 Flash"
+          }
+        ]
       },
       {
         "date": "2026-08-13",
@@ -915,7 +1162,20 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://blog.google/innovation-and-ai/products/gemini-app/better-tracks-lyria-gemini/"
+        "verificationUrl": "https://blog.google/innovation-and-ai/products/gemini-app/better-tracks-lyria-gemini/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "modelVersionId": "lyria-3-5",
+            "matchedName": "Lyria 3.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "matchedName": "Lyria 3.5"
+          }
+        ]
       },
       {
         "date": "2026-07-29",
@@ -930,7 +1190,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "music"
+        "modelCategory": "music",
+        "modelMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "modelVersionId": "lyria-3-5",
+            "matchedName": "Lyria 3.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "matchedName": "Lyria 3.5"
+          }
+        ]
       },
       {
         "date": "2026-07-21",
@@ -956,7 +1229,24 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2-lite",
+            "matchedName": "Nano Banana 2 Lite"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini-omni-flash",
+            "matchedName": "Gemini Omni Flash"
+          },
+          {
+            "modelFamilyId": "nano-banana",
+            "matchedName": "Nano Banana 2 Lite"
+          }
+        ]
       },
       {
         "date": "2026-05-19",
@@ -972,7 +1262,13 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
+        "verificationUrl": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini-omni-flash",
+            "matchedName": "Gemini Omni Flash"
+          }
+        ]
       },
       {
         "date": "2026-05-19",
@@ -987,7 +1283,24 @@
           "image",
           "audio"
         ],
-        "verificationUrl": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/"
+        "verificationUrl": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2-lite",
+            "matchedName": "Nano Banana 2 Lite"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini-omni-flash",
+            "matchedName": "Gemini Omni Flash"
+          },
+          {
+            "modelFamilyId": "nano-banana",
+            "matchedName": "Nano Banana 2 Lite"
+          }
+        ]
       },
       {
         "date": "2026-04-08",
@@ -1002,7 +1315,14 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1-lite",
+            "matchedName": "Veo 3.1 Lite"
+          }
+        ]
       },
       {
         "date": "2026-04-08",
@@ -1017,7 +1337,14 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1-lite",
+            "matchedName": "Veo 3.1 Lite"
+          }
+        ]
       },
       {
         "date": "2026-04-02",
@@ -1045,7 +1372,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-nano-banana-2/"
+        "verificationUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-nano-banana-2/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2",
+            "matchedName": "Nano Banana 2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "matchedName": "Nano Banana 2"
+          }
+        ]
       },
       {
         "date": "2026-02-19",
@@ -1073,7 +1413,20 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://www.theverge.com/ai-artificial-intelligence/880584/google-gemini-ai-music-maker-lyria-3-beta"
+        "verificationUrl": "https://www.theverge.com/ai-artificial-intelligence/880584/google-gemini-ai-music-maker-lyria-3-beta",
+        "modelMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "modelVersionId": "lyria-3-5",
+            "matchedName": "Lyria 3.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "matchedName": "Lyria 3.5"
+          }
+        ]
       },
       {
         "date": "2026-01-13",
@@ -1088,7 +1441,14 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1",
+            "matchedName": "Veo 3.1"
+          }
+        ]
       },
       {
         "date": "2026-01-13",
@@ -1103,7 +1463,14 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3",
+            "matchedName": "Veo 3"
+          }
+        ]
       },
       {
         "date": "2025-12-17",
@@ -1131,7 +1498,30 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://blog.google/innovation-and-ai/products/gemini/gemini-3-image-generation/"
+        "verificationUrl": "https://blog.google/innovation-and-ai/products/gemini/gemini-3-image-generation/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "agnes-image-25-flash",
+            "modelVersionId": "2-5-flash",
+            "matchedName": "2.5 Flash"
+          },
+          {
+            "modelFamilyId": "agnes-video-25",
+            "modelVersionId": "2-5-flash",
+            "matchedName": "2.5 Flash"
+          },
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2",
+            "matchedName": "Nano Banana 2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "matchedName": "Nano Banana 2"
+          }
+        ]
       },
       {
         "date": "2025-11-18",
@@ -1171,7 +1561,24 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://deepmind.google/models/veo/"
+        "verificationUrl": "https://deepmind.google/models/veo/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1",
+            "matchedName": "Veo 3.1"
+          },
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1-fast",
+            "matchedName": "Veo 3.1 Fast"
+          },
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1-lite",
+            "matchedName": "Veo 3.1 Lite"
+          }
+        ]
       },
       {
         "date": "2025-08-05",
@@ -1233,7 +1640,19 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://deepmind.google/models/veo/"
+        "verificationUrl": "https://deepmind.google/models/veo/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-2",
+            "matchedName": "Veo 2"
+          },
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3",
+            "matchedName": "Veo 3"
+          }
+        ]
       },
       {
         "date": "2025-05-20",
@@ -1262,6 +1681,19 @@
           "image",
           "video",
           "audio"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3",
+            "matchedName": "Veo 3"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "matchedName": "Lyria"
+          }
         ]
       },
       {
@@ -1301,7 +1733,14 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://deepmind.google/models/veo/"
+        "verificationUrl": "https://deepmind.google/models/veo/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-2",
+            "matchedName": "Veo 2"
+          }
+        ]
       },
       {
         "date": "2024-12-11",
@@ -1339,6 +1778,18 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-2",
+            "matchedName": "Veo 2"
+          },
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3",
+            "matchedName": "Veo 3"
+          }
         ]
       },
       {
@@ -1501,7 +1952,20 @@
         "auditId": "v48-meta-0030",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://durabilitycurve.com/chart/"
+        "verificationUrl": "https://durabilitycurve.com/chart/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "muse",
+            "modelVersionId": "muse-spark-1-3",
+            "matchedName": "Muse Spark 1.3"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark 1.3"
+          }
+        ]
       },
       {
         "date": "2026-10-12",
@@ -1516,7 +1980,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "muse",
+            "modelVersionId": "muse-spark-1-3",
+            "matchedName": "Muse Spark 1.3"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark 1.3"
+          }
+        ]
       },
       {
         "date": "2026-09-08",
@@ -1527,7 +2004,13 @@
         "auditId": "v48-meta-0060",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/"
+        "verificationUrl": "https://about.fb.com/news/2026/09/the-biggest-news-from-connect-2026/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark"
+          }
+        ]
       },
       {
         "date": "2026-09-02",
@@ -1542,7 +2025,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "llm"
+        "modelCategory": "llm",
+        "modelMentions": [
+          {
+            "modelFamilyId": "muse",
+            "modelVersionId": "muse-spark-1-3",
+            "matchedName": "Muse Spark 1.3"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark 1.3"
+          }
+        ]
       },
       {
         "date": "2026-09-02",
@@ -1557,7 +2053,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "muse",
+            "modelVersionId": "muse-spark-1-2",
+            "matchedName": "Muse Spark 1.2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark"
+          }
+        ]
       },
       {
         "date": "2026-08-10",
@@ -1567,7 +2076,13 @@
         "url": "https://ai.meta.com/research/publications/muse-glimmer-30b-an-on-device-agentic-model",
         "auditId": "v48-meta-0085",
         "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24"
+        "verificationDate": "2026-11-24",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark"
+          }
+        ]
       },
       {
         "date": "2026-08-05",
@@ -1582,7 +2097,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "llm"
+        "modelCategory": "llm",
+        "modelMentions": [
+          {
+            "modelFamilyId": "muse",
+            "modelVersionId": "muse-spark-1-2",
+            "matchedName": "Muse Spark 1.2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark"
+          }
+        ]
       },
       {
         "date": "2026-07-09",
@@ -1597,7 +2125,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "muse",
+            "modelVersionId": "muse-spark-1-1",
+            "matchedName": "Muse Spark 1.1"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark"
+          }
+        ]
       },
       {
         "date": "2026-07-07",
@@ -1612,7 +2153,13 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://ai.meta.com/results/"
+        "verificationUrl": "https://ai.meta.com/results/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse-video",
+            "matchedName": "Muse Video"
+          }
+        ]
       },
       {
         "date": "2026-07-07",
@@ -1627,7 +2174,17 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://ai.meta.com/results/"
+        "verificationUrl": "https://ai.meta.com/results/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse-image",
+            "matchedName": "Muse Image"
+          },
+          {
+            "modelFamilyId": "muse-video",
+            "matchedName": "Muse Video"
+          }
+        ]
       },
       {
         "date": "2026-04-08",
@@ -1642,7 +2199,13 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "llm"
+        "modelCategory": "llm",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark"
+          }
+        ]
       },
       {
         "date": "2026-04-08",
@@ -1657,7 +2220,13 @@
           "image",
           "audio"
         ],
-        "verificationUrl": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"
+        "verificationUrl": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "muse",
+            "matchedName": "Muse Spark"
+          }
+        ]
       },
       {
         "date": "2026-03-27",
@@ -1727,7 +2296,20 @@
         "auditId": "v48-meta-0317",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://techcrunch.com/2025/04/05/meta-releases-llama-4-a-new-crop-of-flagship-ai-models/"
+        "verificationUrl": "https://techcrunch.com/2025/04/05/meta-releases-llama-4-a-new-crop-of-flagship-ai-models/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "llama",
+            "modelVersionId": "llama-4-scout",
+            "matchedName": "Llama 4 Scout"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "llama",
+            "matchedName": "Llama"
+          }
+        ]
       },
       {
         "date": "2024-10-04",
@@ -1754,6 +2336,12 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "image"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "llama",
+            "matchedName": "Llama"
+          }
         ]
       },
       {
@@ -1793,7 +2381,13 @@
         "auditId": "v48-meta-0395",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://ai.meta.com/resources/models-and-libraries/llama-downloads/"
+        "verificationUrl": "https://ai.meta.com/resources/models-and-libraries/llama-downloads/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "llama",
+            "matchedName": "Llama"
+          }
+        ]
       },
       {
         "date": "2024-04-18",
@@ -1804,7 +2398,13 @@
         "auditId": "v48-meta-0417",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://ai.meta.com/resources/models-and-libraries/llama-downloads/"
+        "verificationUrl": "https://ai.meta.com/resources/models-and-libraries/llama-downloads/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "llama",
+            "matchedName": "Llama"
+          }
+        ]
       },
       {
         "date": "2023-11-16",
@@ -1843,7 +2443,13 @@
         "auditId": "v48-meta-0461",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/"
+        "verificationUrl": "https://ai.meta.com/research/publications/llama-2-open-foundation-and-fine-tuned-chat-models/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "llama",
+            "matchedName": "Llama"
+          }
+        ]
       },
       {
         "date": "2023-04-05",
@@ -1868,7 +2474,13 @@
         "auditId": "v48-meta-0481",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://ai.meta.com/research/publications/llama-open-and-efficient-foundation-language-models/"
+        "verificationUrl": "https://ai.meta.com/research/publications/llama-open-and-efficient-foundation-language-models/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "llama",
+            "matchedName": "Llama"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -1902,7 +2514,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://updates.midjourney.com/edit-model-for-v8/"
+        "verificationUrl": "https://updates.midjourney.com/edit-model-for-v8/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2026-04-14",
@@ -1916,7 +2534,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2026-03-17",
@@ -1930,7 +2554,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2025-06-18",
@@ -1945,7 +2575,13 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://techcrunch.com/2025/06/18/midjourney-launches-its-first-ai-video-generation-model-v1/"
+        "verificationUrl": "https://techcrunch.com/2025/06/18/midjourney-launches-its-first-ai-video-generation-model-v1/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2024-07-30",
@@ -1959,7 +2595,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2023-12-20",
@@ -1973,7 +2615,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2023-05-04",
@@ -1987,7 +2635,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2023-03",
@@ -2001,7 +2655,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       },
       {
         "date": "2022-11",
@@ -2015,7 +2675,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/midjourney"
+        "verificationUrl": "https://theaiengineering.com/releases/midjourney",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "matchedName": "Midjourney"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -2052,7 +2718,24 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "image"
+        "modelCategory": "image",
+        "modelMentions": [
+          {
+            "modelFamilyId": "minimax-h3-image",
+            "modelVersionId": "minimax-h3-image",
+            "matchedName": "MiniMax H3-Image"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "minimax-h3",
+            "matchedName": "MiniMax H3"
+          },
+          {
+            "modelFamilyId": "minimax-h3-image",
+            "matchedName": "MiniMax H3-Image"
+          }
+        ]
       },
       {
         "date": "2026-10-19",
@@ -2092,7 +2775,13 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://huggingface.co/MiniMaxAI/MiniMax-Music3"
+        "verificationUrl": "https://huggingface.co/MiniMaxAI/MiniMax-Music3",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "minimax-music",
+            "matchedName": "MiniMax Music 3.0"
+          }
+        ]
       },
       {
         "date": "2026-08-03",
@@ -2107,7 +2796,13 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "minimax-h3",
+            "matchedName": "MiniMax H3"
+          }
+        ]
       },
       {
         "date": "2026-08-03",
@@ -2122,7 +2817,13 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "music"
+        "modelCategory": "music",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "minimax-music",
+            "matchedName": "MiniMax Music 3.0"
+          }
+        ]
       },
       {
         "date": "2026-07-31",
@@ -2138,7 +2839,17 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://www.minimax.io/news/minimax-h3-open-source"
+        "verificationUrl": "https://www.minimax.io/news/minimax-h3-open-source",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "hailuo",
+            "matchedName": "Hailuo"
+          },
+          {
+            "modelFamilyId": "minimax-h3",
+            "matchedName": "MiniMax H3"
+          }
+        ]
       },
       {
         "date": "2026-05-27",
@@ -2266,7 +2977,25 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://www.minimax.io/news/minimax-and-veed-hailuo-23-for-pro-level-ai-video"
+        "verificationUrl": "https://www.minimax.io/news/minimax-and-veed-hailuo-23-for-pro-level-ai-video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "hailuo",
+            "modelVersionId": "2-3",
+            "matchedName": "Hailuo 2.3"
+          },
+          {
+            "modelFamilyId": "hailuo",
+            "modelVersionId": "hailuo-2-3-fast",
+            "matchedName": "Hailuo 2.3 Fast"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "hailuo",
+            "matchedName": "Hailuo"
+          }
+        ]
       },
       {
         "date": "2025-10-27",
@@ -2277,7 +3006,14 @@
         "auditId": "v48-minimax-0231",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.minimax.io/news/minimax-m2"
+        "verificationUrl": "https://www.minimax.io/news/minimax-m2",
+        "modelMentions": [
+          {
+            "modelFamilyId": "minimax-llm",
+            "modelVersionId": "minimax-m2",
+            "matchedName": "MiniMax M2"
+          }
+        ]
       },
       {
         "date": "2025-09-11",
@@ -2291,7 +3027,13 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://www.minimax.io/news/minimax-music-20"
+        "verificationUrl": "https://www.minimax.io/news/minimax-music-20",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "minimax-music",
+            "matchedName": "MiniMax Music"
+          }
+        ]
       },
       {
         "date": "2025-08-07",
@@ -2330,7 +3072,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://minimax.cn/news/minimax-hailuo-02"
+        "verificationUrl": "https://minimax.cn/news/minimax-hailuo-02",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "hailuo",
+            "matchedName": "Hailuo"
+          }
+        ]
       },
       {
         "date": "2025-06-16",
@@ -2430,7 +3178,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://www.minimax.io/news/video-generation-api"
+        "verificationUrl": "https://www.minimax.io/news/video-generation-api",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "hailuo",
+            "matchedName": "Hailuo"
+          }
+        ]
       },
       {
         "date": "2024-04-17",
@@ -2520,7 +3274,25 @@
         "auditId": "v48-openai-0006",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-6-2-astra",
+            "matchedName": "GPT-6.2 Astra"
+          },
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-6-2-sol",
+            "matchedName": "GPT-6.2 Sol"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "matchedName": "GPT-6.2 Sol"
+          }
+        ]
       },
       {
         "date": "2026-11-05",
@@ -2545,7 +3317,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://developers.openai.com/api/docs/models"
+        "verificationUrl": "https://developers.openai.com/api/docs/models",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "matchedName": "GPT-Image-2.6"
+          }
+        ]
       },
       {
         "date": "2026-10-30",
@@ -2565,7 +3343,20 @@
         "url": "https://developers.openai.com/api/docs/changelog",
         "auditId": "v48-openai-0022",
         "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24"
+        "verificationDate": "2026-11-24",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-6-1-terra",
+            "matchedName": "GPT-6.1 Terra"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "matchedName": "GPT-6.1 Terra"
+          }
+        ]
       },
       {
         "date": "2026-10-15",
@@ -2612,7 +3403,25 @@
         "auditId": "v48-openai-chatgpt-0041",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://openai.com/research/index/release/"
+        "verificationUrl": "https://openai.com/research/index/release/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-6-1",
+            "matchedName": "GPT-6.1"
+          },
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-6-1-terra",
+            "matchedName": "GPT-6.1 Terra"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "matchedName": "GPT-6.1 Terra"
+          }
+        ]
       },
       {
         "date": "2026-09-22",
@@ -2623,7 +3432,13 @@
         "auditId": "v48-openai-chatgpt-0045",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://openai.com/research/index/release/"
+        "verificationUrl": "https://openai.com/research/index/release/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "matchedName": "GPT-6 Sol"
+          }
+        ]
       },
       {
         "date": "2026-09-08",
@@ -2637,7 +3452,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://deploymentsafety.openai.com/chatgpt-images-2-5/new-safety-challenges"
+        "verificationUrl": "https://deploymentsafety.openai.com/chatgpt-images-2-5/new-safety-challenges",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-2-5-sunburst",
+            "matchedName": "GPT Image 2.5 Sunburst"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "matchedName": "GPT Image"
+          }
+        ]
       },
       {
         "date": "2026-09-03",
@@ -2662,7 +3490,14 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://developers.openai.com/api/docs/guides/audio"
+        "verificationUrl": "https://developers.openai.com/api/docs/guides/audio",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5",
+            "matchedName": "GPT-5"
+          }
+        ]
       },
       {
         "date": "2026-04-23",
@@ -2673,7 +3508,19 @@
         "auditId": "v48-openai-0138",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5-5",
+            "matchedName": "GPT-5.5"
+          },
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5-5-pro",
+            "matchedName": "GPT-5.5 Pro"
+          }
+        ]
       },
       {
         "date": "2026-04-21",
@@ -2687,7 +3534,25 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://developers.openai.com/api/docs/models/all"
+        "verificationUrl": "https://developers.openai.com/api/docs/models/all",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-1-5",
+            "matchedName": "GPT Image 1.5"
+          },
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-2",
+            "matchedName": "GPT Image 2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "matchedName": "GPT Image"
+          }
+        ]
       },
       {
         "date": "2026-03-05",
@@ -2723,7 +3588,14 @@
         "auditId": "v48-openai-0179",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5-2",
+            "matchedName": "GPT-5.2"
+          }
+        ]
       },
       {
         "date": "2026-02-02",
@@ -2748,7 +3620,25 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://community.openai.com/t/gpt-image-1-5-rolling-out-in-the-api-and-chatgpt/1369443"
+        "verificationUrl": "https://community.openai.com/t/gpt-image-1-5-rolling-out-in-the-api-and-chatgpt/1369443",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-1-5",
+            "matchedName": "GPT Image 1.5"
+          },
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-2",
+            "matchedName": "GPT Image 2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "matchedName": "GPT Image"
+          }
+        ]
       },
       {
         "date": "2025-12-11",
@@ -2759,7 +3649,14 @@
         "auditId": "v48-openai-0205",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/changelog"
+        "verificationUrl": "https://developers.openai.com/api/docs/changelog",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5-2",
+            "matchedName": "GPT-5.2"
+          }
+        ]
       },
       {
         "date": "2025-11-19",
@@ -2770,7 +3667,14 @@
         "auditId": "v48-openai-0218",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5-1",
+            "matchedName": "GPT-5.1"
+          }
+        ]
       },
       {
         "date": "2025-11-12",
@@ -2781,7 +3685,14 @@
         "auditId": "v48-openai-0224",
         "verificationStatus": "确认错误：已纠正",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/changelog"
+        "verificationUrl": "https://developers.openai.com/api/docs/changelog",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5-1",
+            "matchedName": "GPT-5.1"
+          }
+        ]
       },
       {
         "date": "2025-10-21",
@@ -2817,7 +3728,14 @@
         "auditId": "v48-openai-0248",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/changelog"
+        "verificationUrl": "https://developers.openai.com/api/docs/changelog",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5",
+            "matchedName": "GPT-5"
+          }
+        ]
       },
       {
         "date": "2025-08-07",
@@ -2828,7 +3746,14 @@
         "auditId": "v48-openai-0258",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5",
+            "matchedName": "GPT-5"
+          }
+        ]
       },
       {
         "date": "2025-08-07",
@@ -2839,7 +3764,14 @@
         "auditId": "v49-openai-gpt-5-nano",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-nano"
+        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-nano",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5",
+            "matchedName": "GPT-5"
+          }
+        ]
       },
       {
         "date": "2025-08-07",
@@ -2850,7 +3782,14 @@
         "auditId": "v49-openai-gpt-5-mini",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-mini"
+        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-mini",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5",
+            "matchedName": "GPT-5"
+          }
+        ]
       },
       {
         "date": "2025-08-07",
@@ -2861,7 +3800,14 @@
         "auditId": "v49-openai-gpt-5-pro",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-5",
+            "matchedName": "GPT-5"
+          }
+        ]
       },
       {
         "date": "2025-08-05",
@@ -2907,6 +3853,24 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-4o",
+            "matchedName": "GPT-4o"
+          },
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-1",
+            "matchedName": "GPT Image 1"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "matchedName": "GPT Image"
+          }
         ]
       },
       {
@@ -3023,7 +3987,14 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://openai.com/index/spring-update/"
+        "verificationUrl": "https://openai.com/index/spring-update/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt",
+            "modelVersionId": "gpt-4o",
+            "matchedName": "GPT-4o"
+          }
+        ]
       },
       {
         "date": "2023-11-06",
@@ -3153,7 +4124,20 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://pixverse.ai/en/model/pixverse-r2"
+        "verificationUrl": "https://pixverse.ai/en/model/pixverse-r2",
+        "modelMentions": [
+          {
+            "modelFamilyId": "pixverse-world",
+            "modelVersionId": "pixverse-r2",
+            "matchedName": "PixVerse R2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "matchedName": "PixVerse"
+          }
+        ]
       },
       {
         "date": "2026-04-07",
@@ -3167,7 +4151,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0"
+        "verificationUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "matchedName": "PixVerse"
+          }
+        ]
       },
       {
         "date": "2026-03-30",
@@ -3182,7 +4172,13 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://pixverse.ai/zh/blog/pixverse-launches-v6-advancing-ai-video-generation"
+        "verificationUrl": "https://pixverse.ai/zh/blog/pixverse-launches-v6-advancing-ai-video-generation",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "matchedName": "PixVerse"
+          }
+        ]
       },
       {
         "date": "2026-01-12",
@@ -3196,7 +4192,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://bernama.com/en/news.php?id=2540204"
+        "verificationUrl": "https://bernama.com/en/news.php?id=2540204",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "matchedName": "PixVerse"
+          }
+        ]
       },
       {
         "date": "2024-01",
@@ -3210,7 +4212,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://pixverse.ai/en/ai-info-page"
+        "verificationUrl": "https://pixverse.ai/en/ai-info-page",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "matchedName": "PixVerse"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -3244,7 +4252,13 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://help.suno.com/en/articles/13924801"
+        "verificationUrl": "https://help.suno.com/en/articles/13924801",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
+        ]
       },
       {
         "date": "2026-09-09",
@@ -3259,7 +4273,13 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "music"
+        "modelCategory": "music",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
+        ]
       },
       {
         "date": "2026-09-09",
@@ -3287,6 +4307,12 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "audio"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
         ]
       },
       {
@@ -3330,6 +4356,12 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "audio"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
         ]
       },
       {
@@ -3359,7 +4391,13 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://suno.com/release-notes"
+        "verificationUrl": "https://suno.com/release-notes",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
+        ]
       },
       {
         "date": "2024-12-06",
@@ -3374,7 +4412,13 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "music"
+        "modelCategory": "music",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
+        ]
       },
       {
         "date": "2024-11-19",
@@ -3387,6 +4431,12 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "audio"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
         ]
       },
       {
@@ -3401,7 +4451,13 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://www.musicradar.com/news/suno-ai-music-generator-v35"
+        "verificationUrl": "https://www.musicradar.com/news/suno-ai-music-generator-v35",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
+        ]
       },
       {
         "date": "2024-03-21",
@@ -3414,6 +4470,12 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "audio"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "suno",
+            "matchedName": "Suno"
+          }
         ]
       }
     ],
@@ -3450,7 +4512,13 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://docs.x.ai/developers/release-notes"
+        "verificationUrl": "https://docs.x.ai/developers/release-notes",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2026-09-21",
@@ -3461,7 +4529,13 @@
         "auditId": "v48-xai-0048",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://docs.x.ai/developers/release-notes"
+        "verificationUrl": "https://docs.x.ai/developers/release-notes",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok 4.7"
+          }
+        ]
       },
       {
         "date": "2026-08-12",
@@ -3472,7 +4546,13 @@
         "auditId": "v48-xai-0084",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://docs.x.ai/developers/release-notes"
+        "verificationUrl": "https://docs.x.ai/developers/release-notes",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok 4.5"
+          }
+        ]
       },
       {
         "date": "2026-08-11",
@@ -3483,7 +4563,13 @@
         "auditId": "v48-xai-0083",
         "verificationStatus": "确认错误：已纠正",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://docs.x.ai/developers/release-notes"
+        "verificationUrl": "https://docs.x.ai/developers/release-notes",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2026-08-07",
@@ -3497,7 +4583,24 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/xai"
+        "verificationUrl": "https://theaiengineering.com/releases/xai",
+        "modelMentions": [
+          {
+            "modelFamilyId": "grok-imagine-image",
+            "modelVersionId": "grok-imagine-image-2-0",
+            "matchedName": "Grok Imagine Image 2.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-imagine-image",
+            "matchedName": "Grok Imagine Image"
+          },
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2026-06-16",
@@ -3511,6 +4614,28 @@
         "modelCategory": [
           "video",
           "audio"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "grok-imagine-video",
+            "modelVersionId": "grok-imagine-video-1-5",
+            "matchedName": "Grok Imagine Video 1.5"
+          },
+          {
+            "modelFamilyId": "heygen-video",
+            "modelVersionId": "video-1",
+            "matchedName": "Video 1"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-imagine-video",
+            "matchedName": "Grok Imagine Video"
+          },
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
         ]
       },
       {
@@ -3522,7 +4647,13 @@
         "auditId": "v48-xai-0217",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://docs.x.ai/developers/release-notes"
+        "verificationUrl": "https://docs.x.ai/developers/release-notes",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2025-11-17",
@@ -3533,7 +4664,13 @@
         "auditId": "v48-xai-0223",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf"
+        "verificationUrl": "https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2025-08-28",
@@ -3544,7 +4681,13 @@
         "auditId": "v48-xai-0252",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://x.ai/company"
+        "verificationUrl": "https://x.ai/company",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2025-07-09",
@@ -3554,7 +4697,13 @@
         "url": "https://x.ai/news/grok-4",
         "auditId": "v48-xai-0272",
         "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24"
+        "verificationDate": "2026-11-24",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2025-02-19",
@@ -3565,7 +4714,13 @@
         "auditId": "v48-xai-0334",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://x.ai/news"
+        "verificationUrl": "https://x.ai/news",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2024-12-09",
@@ -3579,7 +4734,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://www.tomsguide.com/ai/ai-image-video/xai-launches-and-then-pulls-aurora-image-generator-in-grok-heres-what-happened"
+        "verificationUrl": "https://www.tomsguide.com/ai/ai-image-video/xai-launches-and-then-pulls-aurora-image-generator-in-grok-heres-what-happened",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2024-08-13",
@@ -3590,7 +4751,13 @@
         "auditId": "v48-xai-0387",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.axios.com/2024/08/13/elon-musk-xai-grok-2-chatgpt"
+        "verificationUrl": "https://www.axios.com/2024/08/13/elon-musk-xai-grok-2-chatgpt",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2024-03-17",
@@ -3601,7 +4768,13 @@
         "auditId": "v48-xai-0422",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://github.com/xai-org/grok-1"
+        "verificationUrl": "https://github.com/xai-org/grok-1",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       },
       {
         "date": "2023-11-03",
@@ -3612,7 +4785,13 @@
         "auditId": "v48-xai-0446",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.axios.com/2023/11/06/grok-elon-musk-ai-xai"
+        "verificationUrl": "https://www.axios.com/2023/11/06/grok-elon-musk-ai-xai",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "grok-llm",
+            "matchedName": "Grok"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -3652,7 +4831,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "modelVersionId": "seedance-2-5",
+            "matchedName": "Seedance 2.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          }
+        ]
       },
       {
         "date": "2026-11-09",
@@ -3666,7 +4858,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://seed.bytedance.com/en/blog_list/visual"
+        "verificationUrl": "https://seed.bytedance.com/en/blog_list/visual",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-5-5",
+            "matchedName": "Seedream 5.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream 5.5"
+          }
+        ]
       },
       {
         "date": "2026-09",
@@ -3680,7 +4885,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://docs.volcengine.com/docs/ark/agent-plan-personal-feature-release?lang=zh"
+        "verificationUrl": "https://docs.volcengine.com/docs/ark/agent-plan-personal-feature-release?lang=zh",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream"
+          }
+        ]
       },
       {
         "date": "2026-08-05",
@@ -3695,7 +4906,13 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://seed.bytedance.com/zh/SeedRealtime"
+        "verificationUrl": "https://seed.bytedance.com/zh/SeedRealtime",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seed-realtime",
+            "matchedName": "SeedRealtime"
+          }
+        ]
       },
       {
         "date": "2026-07-20",
@@ -3710,7 +4927,20 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://seed.bytedance.com/en/models"
+        "verificationUrl": "https://seed.bytedance.com/en/models",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seed-audio",
+            "modelVersionId": "seed-audio-1-0",
+            "matchedName": "Seed Audio 1.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seed-audio",
+            "matchedName": "Seed Audio"
+          }
+        ]
       },
       {
         "date": "2026-07-08",
@@ -3725,7 +4955,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "image"
+        "modelCategory": "image",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-5-0-pro",
+            "matchedName": "Seedream 5.0 Pro"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream"
+          }
+        ]
       },
       {
         "date": "2026-07-08",
@@ -3739,7 +4982,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-5-0-pro",
+            "matchedName": "Seedream 5.0 Pro"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream"
+          }
+        ]
       },
       {
         "date": "2026-06-23",
@@ -3790,7 +5046,20 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://seed.bytedance.com/en/seed_model_portfolio"
+        "verificationUrl": "https://seed.bytedance.com/en/seed_model_portfolio",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "modelVersionId": "seedance-2-0",
+            "matchedName": "Seedance 2.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          }
+        ]
       },
       {
         "date": "2026-02-13",
@@ -3804,7 +5073,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-5-0-lite",
+            "matchedName": "Seedream 5.0 Lite"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream"
+          }
+        ]
       },
       {
         "date": "2026-02-12",
@@ -3820,7 +5102,20 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://seed.bytedance.com/en/blog_list/visual"
+        "verificationUrl": "https://seed.bytedance.com/en/blog_list/visual",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "modelVersionId": "seedance-2-0",
+            "matchedName": "Seedance 2.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          }
+        ]
       },
       {
         "date": "2025-12-16",
@@ -3834,7 +5129,20 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro"
+        "verificationUrl": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "modelVersionId": "seedance-1-5-pro",
+            "matchedName": "Seedance 1.5 Pro"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          }
+        ]
       },
       {
         "date": "2025-10-23",
@@ -3862,7 +5170,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-4-0",
+            "matchedName": "Seedream 4.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream"
+          }
+        ]
       },
       {
         "date": "2025-06-25",
@@ -3876,7 +5197,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://seed.bytedance.com/zh/seed_model_portfolio"
+        "verificationUrl": "https://seed.bytedance.com/zh/seed_model_portfolio",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          }
+        ]
       },
       {
         "date": "2025-06-11",
@@ -3891,7 +5218,13 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://seed.bytedance.com/en/public_papers/seedance-1-0-exploring-the-boundaries-of-video-generation-models"
+        "verificationUrl": "https://seed.bytedance.com/en/public_papers/seedance-1-0-exploring-the-boundaries-of-video-generation-models",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          }
+        ]
       },
       {
         "date": "2025-06-06",
@@ -3919,7 +5252,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-3-0",
+            "matchedName": "Seedream 3.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream"
+          }
+        ]
       },
       {
         "date": "2025-01-22",
@@ -3934,7 +5280,17 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://seed.bytedance.com/zh/seed_model_portfolio"
+        "verificationUrl": "https://seed.bytedance.com/zh/seed_model_portfolio",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          },
+          {
+            "modelFamilyId": "seedream",
+            "matchedName": "Seedream"
+          }
+        ]
       },
       {
         "date": "2024-05",
@@ -3981,7 +5337,24 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://kling.ai/quickstart/kling-image-4-user-guide"
+        "verificationUrl": "https://kling.ai/quickstart/kling-image-4-user-guide",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling-image",
+            "modelVersionId": "kling-image-4-0",
+            "matchedName": "Kling Image 4.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          },
+          {
+            "modelFamilyId": "kling-image",
+            "matchedName": "Kling Image"
+          }
+        ]
       },
       {
         "date": "2026-10-17",
@@ -3996,7 +5369,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-4-0",
+            "matchedName": "Kling 4.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2026-10-15",
@@ -4010,7 +5396,20 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/"
+        "verificationUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-4-0",
+            "matchedName": "Kling 4.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2026-09-30",
@@ -4024,7 +5423,20 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://kling.ai/blog/kling-4-ai-video-model"
+        "verificationUrl": "https://kling.ai/blog/kling-4-ai-video-model",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-4-0",
+            "matchedName": "Kling 4.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2026-03-04",
@@ -4038,7 +5450,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://kling.ai/quickstart/motion-control-user-guide"
+        "verificationUrl": "https://kling.ai/quickstart/motion-control-user-guide",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2025-12-03",
@@ -4054,7 +5472,13 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://kling.ai/document-api/updates/api"
+        "verificationUrl": "https://kling.ai/document-api/updates/api",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2025-12-01",
@@ -4069,7 +5493,20 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://kling.ai/quickstart/klingai-video-o1-user-guide"
+        "verificationUrl": "https://kling.ai/quickstart/klingai-video-o1-user-guide",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-o1",
+            "matchedName": "Kling O1"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling O1"
+          }
+        ]
       },
       {
         "date": "2025-05",
@@ -4083,7 +5520,20 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://kling.ai/release-note/release-notes/2025052696"
+        "verificationUrl": "https://kling.ai/release-note/release-notes/2025052696",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-2-1",
+            "matchedName": "Kling 2.1"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2025-04-15",
@@ -4098,7 +5548,13 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://kling.ai/release-note/release-notes/2025041522"
+        "verificationUrl": "https://kling.ai/release-note/release-notes/2025041522",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2025-04-15",
@@ -4113,7 +5569,13 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://kling.ai/release-note/release-notes/2025041522"
+        "verificationUrl": "https://kling.ai/release-note/release-notes/2025041522",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2024-12",
@@ -4127,7 +5589,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-technology-announces-fourth-quarter-and-full-year-2024"
+        "verificationUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-technology-announces-fourth-quarter-and-full-year-2024",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2024-09",
@@ -4141,7 +5609,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://kling.ai/document-api/updates/api"
+        "verificationUrl": "https://kling.ai/document-api/updates/api",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       },
       {
         "date": "2024-07-06",
@@ -4169,7 +5643,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/11/19/17-01-24/3Q26%20Kuaishou%20MP_EN_FINAL.pdf"
+        "verificationUrl": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/11/19/17-01-24/3Q26%20Kuaishou%20MP_EN_FINAL.pdf",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -4202,6 +5682,12 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "audio"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "matchedName": "Mureka"
+          }
         ]
       },
       {
@@ -4216,7 +5702,20 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://www.stcn.com/article/detail/3617814.html"
+        "verificationUrl": "https://www.stcn.com/article/detail/3617814.html",
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v8",
+            "matchedName": "Mureka V8"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "matchedName": "Mureka V8"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -4247,7 +5746,20 @@
         "auditId": "v48-zhipu-0071",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://z.ai/blog/glm-5.3"
+        "verificationUrl": "https://z.ai/blog/glm-5.3",
+        "modelMentions": [
+          {
+            "modelFamilyId": "glm",
+            "modelVersionId": "5-3",
+            "matchedName": "GLM-5.3"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "glm",
+            "matchedName": "GLM-5.3"
+          }
+        ]
       },
       {
         "date": "2026-08-14",
@@ -4258,7 +5770,25 @@
         "auditId": "v48-zhipu-0077",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://z.ai/blog/glm-5.2；https://z.ai/blog/glm-5.3-flash"
+        "verificationUrl": "https://z.ai/blog/glm-5.2；https://z.ai/blog/glm-5.3-flash",
+        "modelMentions": [
+          {
+            "modelFamilyId": "glm",
+            "modelVersionId": "5-2",
+            "matchedName": "GLM-5.2"
+          },
+          {
+            "modelFamilyId": "glm",
+            "modelVersionId": "5-3",
+            "matchedName": "GLM-5.3"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "glm",
+            "matchedName": "GLM-5.2"
+          }
+        ]
       },
       {
         "date": "2026-06-16",
@@ -4268,7 +5798,20 @@
         "url": "https://z.ai/blog/glm-5.2",
         "auditId": "v48-zhipu-0118",
         "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24"
+        "verificationDate": "2026-11-24",
+        "modelMentions": [
+          {
+            "modelFamilyId": "glm",
+            "modelVersionId": "5-2",
+            "matchedName": "GLM-5.2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "glm",
+            "matchedName": "GLM-5.2"
+          }
+        ]
       },
       {
         "date": "2026-04-07",
@@ -4483,7 +6026,20 @@
         "auditId": "v48-kimi-0023",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.ai/blog/"
+        "verificationUrl": "https://www.kimi.ai/blog/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "modelVersionId": "k3-1-pro",
+            "matchedName": "K3.1 Pro"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi K3"
+          }
+        ]
       },
       {
         "date": "2026-09-11",
@@ -4494,7 +6050,13 @@
         "auditId": "v48-kimi-0053",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.com/en/help/kimi-code/models"
+        "verificationUrl": "https://www.kimi.com/en/help/kimi-code/models",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2026-07-16",
@@ -4505,7 +6067,13 @@
         "auditId": "v48-kimi-0102",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.ai/blog/"
+        "verificationUrl": "https://www.kimi.ai/blog/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi K3"
+          }
+        ]
       },
       {
         "date": "2026-06-12",
@@ -4516,7 +6084,20 @@
         "auditId": "v48-kimi-0120",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.com/code/docs/kimi-code/whats-new.html"
+        "verificationUrl": "https://www.kimi.com/code/docs/kimi-code/whats-new.html",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "modelVersionId": "k2-7",
+            "matchedName": "K2.7"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2026-04-20",
@@ -4527,7 +6108,13 @@
         "auditId": "v48-kimi-0141",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.ai/blog/"
+        "verificationUrl": "https://www.kimi.ai/blog/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi K2.6"
+          }
+        ]
       },
       {
         "date": "2026-01-27",
@@ -4538,7 +6125,13 @@
         "auditId": "v48-kimi-0188",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.ai/blog/"
+        "verificationUrl": "https://www.kimi.ai/blog/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2025-11-06",
@@ -4549,7 +6142,13 @@
         "auditId": "v48-kimi-0226",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://platform.kimi.ai/blog/posts/changelog"
+        "verificationUrl": "https://platform.kimi.ai/blog/posts/changelog",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2025-09-26",
@@ -4560,7 +6159,13 @@
         "auditId": "v48-kimi-0243",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.ai/blog/"
+        "verificationUrl": "https://www.kimi.ai/blog/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2025-07-11",
@@ -4571,7 +6176,13 @@
         "auditId": "v48-kimi-0271",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.ai/blog/"
+        "verificationUrl": "https://www.kimi.ai/blog/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2025-06-17",
@@ -4582,7 +6193,13 @@
         "auditId": "v48-kimi-0283",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://github.com/MoonshotAI/Kimi-Dev"
+        "verificationUrl": "https://github.com/MoonshotAI/Kimi-Dev",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2025-04-10",
@@ -4596,7 +6213,13 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://github.com/MoonshotAI/Kimi-VL"
+        "verificationUrl": "https://github.com/MoonshotAI/Kimi-VL",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       },
       {
         "date": "2025-01-20",
@@ -4607,7 +6230,13 @@
         "auditId": "v48-kimi-0342",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.kimi.ai/blog/"
+        "verificationUrl": "https://www.kimi.ai/blog/",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kimi",
+            "matchedName": "Kimi"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -4642,7 +6271,20 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:44:12Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q4-preview",
+            "matchedName": "Vidu Q4 Preview"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       },
       {
         "date": "2026-10-07",
@@ -4658,7 +6300,20 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://platform.vidu.com/models"
+        "verificationUrl": "https://platform.vidu.com/models",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q4-preview",
+            "matchedName": "Vidu Q4 Preview"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       },
       {
         "date": "2026-09-15",
@@ -4673,7 +6328,13 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/models"
+        "verificationUrl": "https://platform.vidu.com/models",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       },
       {
         "date": "2025-12-23",
@@ -4702,7 +6363,20 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/models"
+        "verificationUrl": "https://platform.vidu.com/models",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2",
+            "matchedName": "Vidu Q2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       },
       {
         "date": "2025-09-30",
@@ -4717,7 +6391,20 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/docs/model-map"
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2",
+            "matchedName": "Vidu Q2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       },
       {
         "date": "2025-04-21",
@@ -4731,7 +6418,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/docs/model-map"
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       },
       {
         "date": "2025-01-15",
@@ -4745,7 +6438,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/docs/model-map"
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       },
       {
         "date": "2024-11-13",
@@ -4759,7 +6458,13 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/docs/model-map"
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "matchedName": "Vidu"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "v49",
@@ -4843,7 +6548,20 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://huggingface.co/tencent/HunyuanImage-3.0"
+        "verificationUrl": "https://huggingface.co/tencent/HunyuanImage-3.0",
+        "modelMentions": [
+          {
+            "modelFamilyId": "hunyuan-image",
+            "modelVersionId": "hunyuanimage-3-0",
+            "matchedName": "HunyuanImage 3.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "hunyuan-image",
+            "matchedName": "HunyuanImage 3.0"
+          }
+        ]
       },
       {
         "date": "2025-07-26",
@@ -4968,6 +6686,12 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "audio"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen-audio-tts",
+            "matchedName": "Qwen-Audio-3.1-TTS-Flash"
+          }
         ]
       },
       {
@@ -5007,7 +6731,20 @@
         "auditId": "v48-qwen-0051",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.aliyun.com/en/model-studio/compatibility-with-openai-responses-api"
+        "verificationUrl": "https://help.aliyun.com/en/model-studio/compatibility-with-openai-responses-api",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen3-8",
+            "matchedName": "Qwen3.8"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "matchedName": "Qwen3.8"
+          }
+        ]
       },
       {
         "date": "2026-08-26",
@@ -5018,7 +6755,20 @@
         "auditId": "v48-qwen-0069",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://github.com/QwenLM/Qwen3.8-Flash-Next/blob/main/README.md"
+        "verificationUrl": "https://github.com/QwenLM/Qwen3.8-Flash-Next/blob/main/README.md",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen3-8",
+            "matchedName": "Qwen3.8"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "matchedName": "Qwen3.8"
+          }
+        ]
       },
       {
         "date": "2026-08-26",
@@ -5032,7 +6782,20 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://help.aliyun.com/en/model-studio/text-generation-model/"
+        "verificationUrl": "https://help.aliyun.com/en/model-studio/text-generation-model/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen3-8",
+            "matchedName": "Qwen3.8"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "matchedName": "Qwen3.8"
+          }
+        ]
       },
       {
         "date": "2026-08-24",
@@ -5046,7 +6809,20 @@
         "modelCategory": [
           "video"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/wan3-video-generation-guide"
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/wan3-video-generation-guide",
+        "modelMentions": [
+          {
+            "modelFamilyId": "wan",
+            "modelVersionId": "wan-3-0",
+            "matchedName": "Wan 3.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "wan",
+            "matchedName": "Wan 3.0"
+          }
+        ]
       },
       {
         "date": "2026-08-12",
@@ -5057,7 +6833,20 @@
         "auditId": "v48-qwen-0082",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://github.com/QwenLM/Qwen3.8"
+        "verificationUrl": "https://github.com/QwenLM/Qwen3.8",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen3-8",
+            "matchedName": "Qwen3.8"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "matchedName": "Qwen3.8"
+          }
+        ]
       },
       {
         "date": "2026-08-06",
@@ -5070,6 +6859,19 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "wan",
+            "modelVersionId": "wan-3-0",
+            "matchedName": "Wan 3.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "wan",
+            "matchedName": "Wan 3.0"
+          }
         ]
       },
       {
@@ -5095,7 +6897,20 @@
         "url": "https://qwen.ai/blog?id=qwen3.8",
         "auditId": "v48-qwen-0091",
         "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24"
+        "verificationDate": "2026-11-24",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen3-8",
+            "matchedName": "Qwen3.8"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "matchedName": "Qwen3.8"
+          }
+        ]
       },
       {
         "date": "2026-08",
@@ -5169,7 +6984,20 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model"
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
+        "modelMentions": [
+          {
+            "modelFamilyId": "wan",
+            "modelVersionId": "wan-2-7",
+            "matchedName": "Wan 2.7"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "wan",
+            "matchedName": "Wan 2.7"
+          }
+        ]
       },
       {
         "date": "2026-04-02",
@@ -5180,7 +7008,20 @@
         "auditId": "v48-qwen-0151",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.youtube.com/watch?v=EEmkoty4_24"
+        "verificationUrl": "https://www.youtube.com/watch?v=EEmkoty4_24",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen3-6",
+            "matchedName": "Qwen3.6"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "matchedName": "Qwen3.6"
+          }
+        ]
       },
       {
         "date": "2026-04-01",
@@ -5196,7 +7037,25 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/wan-image-generation-and-editing-api-reference"
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/wan-image-generation-and-editing-api-reference",
+        "modelMentions": [
+          {
+            "modelFamilyId": "wan",
+            "modelVersionId": "wan-2-7",
+            "matchedName": "Wan 2.7"
+          },
+          {
+            "modelFamilyId": "wan-image",
+            "modelVersionId": "wan-2-7-image",
+            "matchedName": "Wan 2.7 Image"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "wan",
+            "matchedName": "Wan 2.7"
+          }
+        ]
       },
       {
         "date": "2026-02-16",
@@ -5207,7 +7066,20 @@
         "auditId": "v48-qwen-0172",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://github.com/QwenLM/Qwen3.8"
+        "verificationUrl": "https://github.com/QwenLM/Qwen3.8",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen3-5",
+            "matchedName": "Qwen3.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "matchedName": "Qwen3.5"
+          }
+        ]
       },
       {
         "date": "2025-12-31",
@@ -5245,6 +7117,13 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "wan",
+            "modelVersionId": "wan-2-5-preview",
+            "matchedName": "Wan 2.5 Preview"
+          }
         ]
       },
       {
@@ -5286,6 +7165,19 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "wan",
+            "modelVersionId": "wan-2-2",
+            "matchedName": "Wan 2.2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "wan",
+            "matchedName": "Wan 2.2"
+          }
         ]
       },
       {
@@ -5691,7 +7583,13 @@
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:44:12Z",
-        "modelCategory": "video"
+        "modelCategory": "video",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "minimax-h3",
+            "matchedName": "MiniMax H3"
+          }
+        ]
       }
     ],
     "chronicleSourceVersion": "official-feed-sync",

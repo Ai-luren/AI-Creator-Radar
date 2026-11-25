@@ -2,7 +2,7 @@
   "source": "橘鸦 AI 早报",
   "sourceUrl": "https://daily.juya.uk/issues/2026-11-24/",
   "title": "AI 早报 2026-11-24",
-  "fetchedAt": "2026-11-24T12:52:30Z",
+  "fetchedAt": "2026-11-25T06:17:58Z",
   "items": [
     {
       "category": "要闻",
@@ -21,6 +21,19 @@
         {
           "label": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ",
           "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ"
+        }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "glm",
+          "modelVersionId": "5-4",
+          "matchedName": "GLM-5.4"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "glm",
+          "matchedName": "GLM-5.4"
         }
       ]
     },
@@ -45,6 +58,19 @@
         {
           "label": "https://x.com/ChatGPT/status/2124942186425069836",
           "url": "https://x.com/ChatGPT/status/2124942186425069836"
+        }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "modelVersionId": "gpt-6-2-sol",
+          "matchedName": "GPT-6.2 Sol"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "matchedName": "GPT-6.2 Sol"
         }
       ]
     },
@@ -149,6 +175,24 @@
         {
           "label": "https://x.com/_mohansolo/status/2124917777630961911",
           "url": "https://x.com/_mohansolo/status/2124917777630961911"
+        }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-hydrogen",
+          "matchedName": "Gemini 4 Hydrogen"
+        },
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-neon",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Hydrogen"
         }
       ]
     },
@@ -437,6 +481,19 @@
         {
           "label": "https://x.com/OpenRouter/status/2124925631012209137",
           "url": "https://x.com/OpenRouter/status/2124925631012209137"
+        }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-neon",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Neon"
         }
       ]
     },

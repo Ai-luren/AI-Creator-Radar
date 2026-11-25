@@ -232,7 +232,9 @@
         "图像生成",
         "图像编辑",
         "官方宣传片"
-      ]
+      ],
+      "modelFamilyId": "seedream",
+      "modelVersionId": "seedream-5-5"
     },
     {
       "id": "minimax-h3-image",
@@ -249,7 +251,9 @@
         "4K",
         "参考图",
         "图像编辑"
-      ]
+      ],
+      "modelFamilyId": "minimax-h3-image",
+      "modelVersionId": "minimax-h3-image"
     },
     {
       "id": "gpt-image-26",
@@ -265,7 +269,9 @@
         "图像生成",
         "图像编辑",
         "官方案例"
-      ]
+      ],
+      "modelFamilyId": "gpt",
+      "modelLinkStatus": "family-only"
     },
     {
       "id": "nano-banana-21",
@@ -282,7 +288,9 @@
         "多轮编辑",
         "4K",
         "官方演示"
-      ]
+      ],
+      "modelFamilyId": "nano-banana",
+      "modelVersionId": "nano-banana-2-1"
     },
     {
       "id": "midjourney-v82",
@@ -299,7 +307,9 @@
         "个性化",
         "官方版本说明"
       ],
-      "apiUrl": "https://tob.youchuan.cn/docs/guides"
+      "apiUrl": "https://tob.youchuan.cn/docs/guides",
+      "modelFamilyId": "midjourney",
+      "modelVersionId": "midjourney-v8-2"
     },
     {
       "id": "kling-image-40",
@@ -313,7 +323,9 @@
       "tags": [
         "开放平台教程",
         "提示词指南"
-      ]
+      ],
+      "modelFamilyId": "kling-image",
+      "modelVersionId": "kling-image-4-0"
     },
     {
       "id": "seedance-25",
@@ -329,7 +341,9 @@
         "30 秒叙事",
         "音视频联合生成",
         "官方展示"
-      ]
+      ],
+      "modelFamilyId": "seedance",
+      "modelVersionId": "seedance-2-5"
     },
     {
       "id": "wan-30",
@@ -345,7 +359,9 @@
         "文生视频",
         "图生视频",
         "官方指南"
-      ]
+      ],
+      "modelFamilyId": "wan",
+      "modelVersionId": "wan-3-0"
     },
     {
       "id": "minimax-h3-video",
@@ -361,7 +377,9 @@
         "视频生成",
         "官方案例",
         "提示词示例"
-      ]
+      ],
+      "modelFamilyId": "minimax-h3",
+      "modelVersionId": "h3"
     },
     {
       "id": "kling-40",
@@ -377,7 +395,9 @@
         "开放平台教程",
         "提示词指南",
         "官方宣传片"
-      ]
+      ],
+      "modelFamilyId": "kling",
+      "modelVersionId": "kling-4-0"
     },
     {
       "id": "seed-audio-10",
@@ -393,7 +413,9 @@
         "音频生成",
         "官方模型介绍",
         "接口文档"
-      ]
+      ],
+      "modelFamilyId": "seed-audio",
+      "modelVersionId": "seed-audio-1-0"
     },
     {
       "id": "minimax-speech-28",
@@ -408,7 +430,8 @@
       "tags": [
         "语音合成",
         "实时双向通信接口"
-      ]
+      ],
+      "modelLinkStatus": "unresolved"
     },
     {
       "id": "eleven-v4",
@@ -424,7 +447,9 @@
         "文本转语音",
         "v4 Turbo",
         "官方发布"
-      ]
+      ],
+      "modelFamilyId": "eleven-tts",
+      "modelVersionId": "eleven-v4"
     },
     {
       "id": "mureka-95",
@@ -440,7 +465,9 @@
         "音乐生成",
         "官方示例",
         "接口型号待核实"
-      ]
+      ],
+      "modelFamilyId": "mureka",
+      "modelVersionId": "mureka-v9-5"
     },
     {
       "id": "eleven-music-v25",
@@ -456,7 +483,9 @@
         "音乐生成",
         "music_v2_5",
         "官方样例"
-      ]
+      ],
+      "modelFamilyId": "eleven-music",
+      "modelVersionId": "v2-5"
     },
     {
       "id": "vidu-q4-preview",
@@ -473,7 +502,9 @@
         "接口编号： viduq4-preview",
         "音画同步",
         "官方开放平台"
-      ]
+      ],
+      "modelFamilyId": "vidu",
+      "modelVersionId": "vidu-q4-preview"
     },
     {
       "id": "gemini-omni-12-flash",
@@ -490,7 +521,9 @@
         "原生音频",
         "对话式编辑",
         "正式可用"
-      ]
+      ],
+      "modelFamilyId": "gemini-omni-flash",
+      "modelVersionId": "gemini-omni-flash-1-2"
     },
     {
       "id": "suno-v6",
@@ -507,7 +540,9 @@
         "v6-wild",
         "v6-mini",
         "官方接口入口"
-      ]
+      ],
+      "modelFamilyId": "suno",
+      "modelVersionId": "suno-v6"
     }
   ]
 }

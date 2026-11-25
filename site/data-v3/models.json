@@ -357,10 +357,10 @@
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "受限提供；Mythos 需申请",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://claude.ai/",
-        "releaseUrl": "https://www.anthropic.com/news",
+        "releaseUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
         "modelCardUrl": "https://www.anthropic.com/news/models",
         "id": "claude-fable-5-2",
         "name": "Claude Fable 5.2",
@@ -433,14 +433,27 @@
           }
         ],
         "status": "已发布",
-        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。"
+        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。",
+        "releaseDate": "2026-11-09",
+        "releaseEvidence": {
+          "eventId": "anthropic-fable-mythos-52-20261109-claude-fable-5-2",
+          "publishedAt": "2026-11-09",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "sourceName": "Anthropic 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "同一底层模型的两个版本，面向高难度技术工作；Fable 面向广泛使用，Mythos 通过网络安全与生命科学验证项目提供。",
+          "access": "受限提供；Mythos 需申请",
+          "category": "llm",
+          "modelName": "Claude Fable 5.2"
+        }
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "受限提供；Mythos 需申请",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://claude.ai/",
-        "releaseUrl": "https://www.anthropic.com/news",
+        "releaseUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
         "modelCardUrl": "https://www.anthropic.com/news/models",
         "id": "claude-mythos-5-2",
         "name": "Claude Mythos 5.2",
@@ -457,7 +470,20 @@
           }
         ],
         "status": "已发布",
-        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。"
+        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。",
+        "releaseDate": "2026-11-09",
+        "releaseEvidence": {
+          "eventId": "anthropic-fable-mythos-52-20261109-claude-mythos-5-2",
+          "publishedAt": "2026-11-09",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "sourceName": "Anthropic 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "同一底层模型的两个版本，面向高难度技术工作；Fable 面向广泛使用，Mythos 通过网络安全与生命科学验证项目提供。",
+          "access": "受限提供；Mythos 需申请",
+          "category": "llm",
+          "modelName": "Claude Mythos 5.2"
+        }
       }
     ],
     "legacyIds": [
@@ -2427,10 +2453,10 @@
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "以官方模型页所列渠道为准",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
-        "releaseUrl": "https://blog.google/products/gemini/",
+        "releaseUrl": "https://deepmind.google/models/model-cards/gemini-4-neon/",
         "modelCardUrl": "https://deepmind.google/models/model-cards/",
         "id": "gemini-4-neon",
         "name": "Gemini 4 Neon",
@@ -2503,7 +2529,20 @@
           }
         ],
         "status": "已发布",
-        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。"
+        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。",
+        "releaseDate": "2026-11-18",
+        "releaseEvidence": {
+          "eventId": "google-gemini-4-neon-20261118-gemini-4-neon",
+          "publishedAt": "2026-11-18",
+          "sourceUrl": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "sourceName": "Google DeepMind 模型卡",
+          "evidenceType": "official-model-card",
+          "verifiedAt": "2026-11-25",
+          "summary": "Google DeepMind 于 11 月 18 日发布模型卡，列为 Gemini 4 系列新型号。",
+          "access": "以官方模型页所列渠道为准",
+          "category": "llm",
+          "modelName": "Gemini 4 Neon"
+        }
       }
     ],
     "legacyIds": [
@@ -5186,10 +5225,10 @@
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "通过 OpenAI API 提供",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/news/",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
         "modelCardUrl": "https://developers.openai.com/api/docs/models/all",
         "id": "gpt-6-2-astra",
         "name": "GPT-6.2 Astra",
@@ -5262,14 +5301,27 @@
           }
         ],
         "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。",
+        "releaseDate": "2026-11-17",
+        "releaseEvidence": {
+          "eventId": "openai-gpt-62-astra-sol-20261117-gpt-6-2-astra",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "sourceName": "OpenAI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "Astra 面向复杂推理与专业工作，Sol 侧重速度、成本和多步骤日常任务；两款同时进入 API。",
+          "access": "通过 OpenAI API 提供",
+          "category": "llm",
+          "modelName": "GPT-6.2 Astra"
+        }
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "通过 OpenAI API 提供",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/news/",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
         "modelCardUrl": "https://developers.openai.com/api/docs/models/all",
         "id": "gpt-6-2-sol",
         "name": "GPT-6.2 Sol",
@@ -5335,7 +5387,20 @@
           }
         ],
         "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。",
+        "releaseDate": "2026-11-17",
+        "releaseEvidence": {
+          "eventId": "openai-gpt-62-astra-sol-20261117-gpt-6-2-sol",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "sourceName": "OpenAI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "Astra 面向复杂推理与专业工作，Sol 侧重速度、成本和多步骤日常任务；两款同时进入 API。",
+          "access": "通过 OpenAI API 提供",
+          "category": "llm",
+          "modelName": "GPT-6.2 Sol"
+        }
       },
       {
         "id": "gpt-5-3-codex",
@@ -7714,19 +7779,47 @@
     "category": "llm",
     "watched": true,
     "homepage": "https://z.ai/",
-    "releaseUrl": "https://z.ai/blog/glm-5.3",
+    "releaseUrl": "https://z.ai/blog/glm-5.4",
     "modelCardUrl": "https://autoclaw.z.ai/en/changelog/",
-    "version": "5.3 / 5.3 Flash / 5.2",
+    "version": "5.4 / 5.3 / 5.3 Flash / 5.2",
     "aliases": [
       "GLM",
       "GLM-5.3",
       "GLM-5.3 Flash",
-      "GLM-5.2"
+      "GLM-5.2",
+      "GLM-5.4"
     ],
     "region": "中国",
     "access": "多版本许可各异",
     "note": "智谱 GLM 系列；Flash 是轻量变体，按对应型号页区分权重开放状态。",
     "versions": [
+      {
+        "region": "中国",
+        "access": "权重计划开源，尚未发布",
+        "homepage": "https://z.ai/",
+        "releaseUrl": "https://z.ai/blog/glm-5.4",
+        "id": "5-4",
+        "name": "5.4",
+        "legacyIds": [
+          "glm"
+        ],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-23",
+        "note": "官方称模型 API 将在安全评估后开放，模型权重将在安全加固后开源。",
+        "releaseEvidence": {
+          "eventId": "zai-glm-54-20261123-5-4",
+          "publishedAt": "2026-11-23",
+          "sourceUrl": "https://z.ai/blog/glm-5.4",
+          "sourceName": "Z.ai 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "首个采用 Loop Transformer 的旗舰模型，强化编码与通用任务；官方称权重会在安全加固后开源。",
+          "access": "权重计划开源，尚未发布",
+          "category": "llm",
+          "modelName": "GLM-5.4"
+        }
+      },
       {
         "region": "中国",
         "access": "开源权重",
@@ -8396,7 +8489,9 @@
         "rank": 87,
         "detailUrl": "https://maomu.com/models/zai--glm45v?entry=arena%3Aarena-text%3A224"
       }
-    ]
+    ],
+    "versionUpdatedAt": "2026-11-23",
+    "versionSourceUrl": "https://z.ai/blog/glm-5.4"
   },
   {
     "id": "kimi",
@@ -13191,7 +13286,7 @@
     "versions": [
       {
         "region": "中国",
-        "access": "闭源",
+        "access": "Kling 创作平台可用；API 面向企业与开发者",
         "homepage": "https://kling.ai/",
         "releaseUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
         "modelCardUrl": "https://kling.ai/document-api/updates/api",
@@ -13223,8 +13318,21 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "版本待核对",
-        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。"
+        "status": "已发布",
+        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
+        "releaseDate": "2026-11-18",
+        "releaseEvidence": {
+          "eventId": "kling-image-40-20261118-kling-image-4-0",
+          "publishedAt": "2026-11-18",
+          "sourceUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+          "sourceName": "Kling AI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "支持原生 8K、复杂文字排版和单次生成最多 10 张风格一致的系列图。",
+          "access": "Kling 创作平台可用；API 面向企业与开发者",
+          "category": "image",
+          "modelName": "Kling Image 4.0"
+        }
       },
       {
         "region": "中国",
@@ -14306,10 +14414,24 @@
             "detailUrl": null
           }
         ],
-        "status": "型号映射待核验",
+        "status": "已发布",
         "region": "中国",
-        "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "access": "开源权重",
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseDate": "2026-11-11",
+        "releaseUrl": "https://ir.minimax.io/news-events/new-releases",
+        "releaseEvidence": {
+          "eventId": "minimax-h3-image-20261111-minimax-h3-image",
+          "publishedAt": "2026-11-11",
+          "sourceUrl": "https://ir.minimax.io/news-events/new-releases",
+          "sourceName": "MiniMax 官方发布页",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "开源权重图像模型，支持文生图、参考图生成和图像编辑；官方介绍支持 4K 生成。",
+          "access": "开源权重",
+          "category": "image",
+          "modelName": "MiniMax H3-Image"
+        }
       },
       {
         "id": "minimax-h3-image-highspeed",
@@ -16192,10 +16314,10 @@
       },
       {
         "region": "中国",
-        "access": "闭源",
+        "access": "官方产品渠道提供",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://seed.bytedance.com/zh/models",
-        "releaseUrl": "https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5/",
+        "releaseUrl": "https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
         "modelCardUrl": "https://seed.bytedance.com/en/models",
         "id": "seedream-5-5",
         "name": "Seedream 5.5",
@@ -16226,7 +16348,20 @@
           }
         ],
         "status": "已发布",
-        "note": "支持多轮稳定编辑、原生透明素材与更清晰的中文文字渲染。"
+        "note": "支持多轮稳定编辑、原生透明素材与更清晰的中文文字渲染。",
+        "releaseDate": "2026-11-09",
+        "releaseEvidence": {
+          "eventId": "bytedance-seedream-55-20261109-seedream-5-5",
+          "publishedAt": "2026-11-09",
+          "sourceUrl": "https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+          "sourceName": "Seed 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "提升图像真实感和多轮编辑稳定性，官方称未编辑区域可保持像素级稳定，支持连续精修。",
+          "access": "官方产品渠道提供",
+          "category": "image",
+          "modelName": "Seedream 5.5"
+        }
       }
     ],
     "legacyIds": [
@@ -20018,18 +20153,46 @@
   },
   {
     "id": "magi-2",
-    "name": "MAGI-2 Preview",
+    "name": "MAGI-2 系列",
     "vendor": "Sand.ai",
     "category": "video",
     "watched": false,
     "homepage": "https://sand.ai/",
     "releaseUrl": "https://sand.ai/blog/magi-2-preview",
     "modelCardUrl": "https://github.com/SandAI-org/MAGI-2-preview",
-    "version": "Preview",
+    "version": "MAGI-2 / Preview",
     "region": "海外",
     "access": "开源权重",
-    "note": "Sand.ai 的统一音视频研究预览模型；官方将其称为中间研究发布，不代表正式产品版。",
+    "note": "MAGI-2 Preview（2026 年 8 月）与全规模 MAGI-2（2026-11-24）是不同版本，分别保留来源与榜单关联。",
     "versions": [
+      {
+        "id": "magi-2",
+        "name": "MAGI-2",
+        "region": "海外",
+        "access": "权重计划开源，尚未发布",
+        "homepage": "https://sand.ai/",
+        "releaseUrl": "https://sand.ai/blog/magi-2/",
+        "modelCardUrl": "https://github.com/SandAI-org/MAGI-2",
+        "legacyIds": [
+          "magi-2"
+        ],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-24",
+        "note": "Sand.ai 于 2026-11-24 发布的全规模旗舰视频生成模型；与 2026 年 8 月的 MAGI-2 Preview 分开记录。",
+        "releaseEvidence": {
+          "eventId": "sandai-magi-2-20261124-magi-2",
+          "publishedAt": "2026-11-24",
+          "sourceUrl": "https://sand.ai/blog/magi-2/",
+          "sourceName": "Sand.ai 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "480B 总参数、约 28B 激活参数；支持原生音视频生成，最高 1080p、30 秒。官方称模型权重后续开源，当前公告未提供权重。",
+          "access": "权重计划开源，尚未发布",
+          "category": "video",
+          "modelName": "MAGI-2"
+        }
+      },
       {
         "region": "海外",
         "access": "开源权重",
@@ -20065,7 +20228,8 @@
       "magi-2"
     ],
     "aliases": [
-      "MAGI-2 Preview"
+      "MAGI-2 Preview",
+      "MAGI-2"
     ],
     "leaderboardAliases": [
       {

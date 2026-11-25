@@ -29,7 +29,20 @@
       "imageUrl": "https://goodcase.ai/cases/case-059b579f33f6/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "modelVersionId": "nano-banana-2",
+          "matchedName": "Nano Banana 2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "matchedName": "Nano Banana 2"
+        }
+      ]
     },
     {
       "id": "fa7d11fcf80a07b6db28",
@@ -44,7 +57,33 @@
       "imageUrl": "https://goodcase.ai/cases/kling-4-0-vs-minimax-h3-5af075ab7310/opengraph-image",
       "creator": "saniaspeaks_",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling",
+          "modelVersionId": "kling-4-0",
+          "matchedName": "Kling 4.0"
+        },
+        {
+          "modelFamilyId": "kling-image",
+          "modelVersionId": "kling-image-4-0",
+          "matchedName": "Kling Image 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "kling-image",
+          "matchedName": "Kling Image"
+        },
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
     },
     {
       "id": "3e94cfc470dfbeaffba2",
@@ -179,7 +218,20 @@
       "imageUrl": "https://goodcase.ai/cases/claude-fable-5-2-build-dusk-depths-a-submarine-hunting-game-as-one-self-contained-html-file-3d722758f907/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-fable-5-2",
+          "matchedName": "Claude Fable 5.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Fable 5.2"
+        }
+      ]
     },
     {
       "id": "0eb5157d4a8c4c04a25f",
@@ -224,7 +276,24 @@
       "imageUrl": "https://goodcase.ai/cases/kling-film-look-test-lilith-f4ed15d0130b/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling-image",
+          "modelVersionId": "kling-image-4-0",
+          "matchedName": "Kling Image 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "kling-image",
+          "matchedName": "Kling Image"
+        }
+      ]
     },
     {
       "id": "1eb2ed980764e94bd5d0",
@@ -284,7 +353,13 @@
       "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-from-the-image-i-uploaded-create-a-premium-artistic-poster-in-a-vertical-3-4-a-f0e20dcd9dca/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt-image",
+          "matchedName": "GPT Image"
+        }
+      ]
     },
     {
       "id": "4c5fb476c1edf45634d2",
@@ -299,7 +374,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-ultra-realistic-cinematic-fantasy-video-16-9-widescreen-wi-4916aa2713af/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "797cdce6db73806b56ed",
@@ -329,7 +417,13 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-15-9-16-441779df73c2/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "25ee1f87518ca6b4c2ed",
@@ -344,7 +438,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-beautiful-heartwarming-christmas-themed-3d-animated-short-film-in-a-h-2e7a32e460d5/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "b7e11b34dc93522fb360",
@@ -359,7 +466,20 @@
       "imageUrl": "https://goodcase.ai/cases/just-sharon7-seedance-2-5-ai-030a28e5ff04/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "bfac87b8b79735738bfe",
@@ -389,7 +509,13 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
+        }
+      ]
     },
     {
       "id": "8aa82ebef44913e20e71",
@@ -404,7 +530,17 @@
       "imageUrl": "https://goodcase.ai/cases/minimax-h3-image-44fec2af68ec/opengraph-image",
       "creator": "aiwithaly",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "hailuo",
+          "matchedName": "Hailuo"
+        },
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
     },
     {
       "id": "b3dab4082878e720f790",
@@ -419,7 +555,13 @@
       "imageUrl": "https://goodcase.ai/cases/nano-banana-pro-1fe68dfb7f5e/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "matchedName": "Nano Banana Pro"
+        }
+      ]
     },
     {
       "id": "1277af4436b637560fb7",
@@ -434,7 +576,13 @@
       "imageUrl": "https://goodcase.ai/cases/sydney-sweeney-nano-banana-pro-bb23bf3714df/opengraph-image",
       "creator": "用于生成 Sydney Sweeney 肖像的图像提示词",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "matchedName": "Nano Banana Pro"
+        }
+      ]
     },
     {
       "id": "aa3276d4de05c678f125",
@@ -494,7 +642,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-ultra-realistic-30-second-live-action-revenge-comedy-scene-inside-a-l-49de4eecabdf/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "d47c51de6984fd842128",
@@ -509,7 +670,13 @@
       "imageUrl": "https://goodcase.ai/cases/just-sharon7-gpt-image-2-6-ai-7d53a7d588d8/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt-image",
+          "matchedName": "GPT Image"
+        }
+      ]
     },
     {
       "id": "62b788898b12a199f1e7",
@@ -539,7 +706,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-cinematic-dark-fantasy-battle-16-9-50s-built-in-4-shots-12-13s-each-4b8303bc6bc1/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "0750ba698783dfc00a88",
@@ -554,7 +734,20 @@
       "imageUrl": "https://goodcase.ai/cases/zentrixhq-seedance-2-5-ai-169918cdd005/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "744382fe751652f49af1",
@@ -629,7 +822,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-exactly-30-second-photorealistic-hollywood-action-sequence-16-9-wid-5b683f1de532/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "0e70fc10274e1e5d37be",
@@ -674,7 +880,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-exactly-30-second-16-9-hyper-realistic-hollywood-action-sequence-60-a5c1cc2c227a/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "84ae9e6703d800118432",
@@ -704,7 +923,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-cinematic-quality-mandatory-applies-to-every-shot-of-this-video-d1dab8446932/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "984291512b33cc075abc",
@@ -719,7 +951,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-a-funny-and-heartwarming-3d-animated-comedy-featuring-a-beautiful-young-pregnan-e17face1bf16/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "ce2f2b49032fa94d22f2",
@@ -734,7 +979,20 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-neon",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ]
     },
     {
       "id": "562e3af0b5630e25c64c",
@@ -779,7 +1037,24 @@
       "imageUrl": "https://goodcase.ai/cases/kling-1-4cfa1d40da27/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling-image",
+          "modelVersionId": "kling-image-4-0",
+          "matchedName": "Kling Image 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "kling-image",
+          "matchedName": "Kling Image"
+        }
+      ]
     },
     {
       "id": "7e37ce7a7fe66a371ca5",
@@ -794,7 +1069,17 @@
       "imageUrl": "https://goodcase.ai/cases/minimax-h3-character-lock-lucia-caminos-from-gta-vi-8088e8117730/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "hailuo",
+          "matchedName": "Hailuo"
+        },
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
     },
     {
       "id": "64b71e85372a0e78fa7f",
@@ -824,7 +1109,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-title-the-wrong-target-0ce4f0cea1e6/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "a5f8d016abcdbef1bdef",
@@ -839,7 +1137,17 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "kling-image",
+          "matchedName": "Kling Image"
+        }
+      ]
     },
     {
       "id": "32b7ec98fc4eb2f3e4e7",
@@ -914,7 +1222,34 @@
       "imageUrl": "https://goodcase.ai/cases/antibokeh-seedance-2-5-ai-849354f68113/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "heygen-video",
+          "modelVersionId": "video-1",
+          "matchedName": "Video 1"
+        },
+        {
+          "modelFamilyId": "kling",
+          "modelVersionId": "kling-4-0",
+          "matchedName": "Kling 4.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "c21e915ab8cfc70906dc",
@@ -929,7 +1264,13 @@
       "imageUrl": "https://goodcase.ai/cases/aiwithaayat-minimax-h3-ai-05bdb966b8d3/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
     },
     {
       "id": "11517461fd1ffc48fe30",
@@ -974,7 +1315,20 @@
       "imageUrl": "https://goodcase.ai/cases/navi-ai2-seedance-2-5-ai-3b447d219b5b/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "1957df52b70b08a52871",
@@ -989,7 +1343,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-ultra-photorealistic-live-action-cinematic-travel-vlog-featuring-the-a9d2686f9f11/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "3a895561a7aded376add",
@@ -1019,7 +1386,20 @@
       "imageUrl": "https://goodcase.ai/cases/just-sharon7-seedance-2-5-ai-4035feeff33e/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "13e3b362a896ecdd988d",
@@ -1034,7 +1414,20 @@
       "imageUrl": "https://goodcase.ai/cases/wan-3-0-cinematic-action-video-of-a-fierce-blonde-female-warrior-in-a-sleek-black-tacti-c38fcfc616fd/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "wan",
+          "modelVersionId": "wan-3-0",
+          "matchedName": "Wan 3.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "wan",
+          "matchedName": "Wan 3.0"
+        }
+      ]
     },
     {
       "id": "75d771753da8c39c1821",
@@ -1049,7 +1442,13 @@
       "imageUrl": "https://goodcase.ai/cases/minimax-h3-15-second-romantic-2d-hand-drawn-watercolor-animation-of-a-young-couple-falling-5ab4a354bd84/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
     },
     {
       "id": "ab90dadfe68e1a311eb6",
@@ -1094,7 +1493,30 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "fish-audio-s2",
+          "modelVersionId": "s2-1",
+          "matchedName": "S2.1"
+        },
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen4-max",
+          "matchedName": "Qwen4 Max"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "4e44dcfa9cfa0a4eaf51",
@@ -1154,7 +1576,13 @@
       "imageUrl": "https://goodcase.ai/cases/michaelrabone-midjourney-v8-2-ai-c2272392d788/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "midjourney",
+          "matchedName": "Midjourney"
+        }
+      ]
     },
     {
       "id": "69ad18c45f5420142f67",
@@ -1169,7 +1597,20 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-main-girl-black-haired-student-850fb2e4f990/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "2174d6338e815b0aeadc",
@@ -1184,7 +1625,24 @@
       "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-generated-in-15-sec-2k-resolution-9-16-6e4c8312689a/opengraph-image",
       "creator": "这是目前最便宜的图像模型，非常适合 AI 网红。左",
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "modelVersionId": "seedream-5-5",
+          "matchedName": "Seedream 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt-image",
+          "matchedName": "GPT Image"
+        },
+        {
+          "modelFamilyId": "seedream",
+          "matchedName": "Seedream 5.5"
+        }
+      ]
     },
     {
       "id": "ef92388eb69eec5330ed",
@@ -1199,7 +1657,13 @@
       "imageUrl": "https://goodcase.ai/cases/saniaspeaks-minimax-h3-image-ai-eb7ea6c2f758/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:37:26Z"
+      "discoveredAt": "2026-11-22T03:37:26Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
     },
     {
       "id": "6a23cad3a78aa445e3ef",
@@ -1244,7 +1708,13 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-24T12:51:21Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
+        }
+      ]
     },
     {
       "id": "dbdb185807968b5d6d7b",
@@ -1274,7 +1744,39 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-22T03:34:27Z"
+      "discoveredAt": "2026-11-22T03:34:27Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "agnes-image-25-flash",
+          "modelVersionId": "2-5-flash",
+          "matchedName": "2.5 Flash"
+        },
+        {
+          "modelFamilyId": "agnes-video-25",
+          "modelVersionId": "2-5-flash",
+          "matchedName": "2.5 Flash"
+        },
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-hydrogen",
+          "matchedName": "Gemini 4 Hydrogen"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Hydrogen"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     }
   ]
 }
