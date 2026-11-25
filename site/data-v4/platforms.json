@@ -17,6 +17,29 @@
         "label": "海外站",
         "url": "https://dreamina.capcut.com/"
       }
+    ],
+    "creatorPrograms": {
+      "domestic": {
+        "programName": "即梦片场 / 即梦AI成长计划",
+        "type": "项目扶持与创作者激励",
+        "label": "查看招募与规则",
+        "url": "https://jimeng.jianying.com/ai-tool/activity-detail/2026-809-dreamina-weekly-challenge",
+        "sourceUrl": "https://jimeng.jianying.com/ai-tool/activity-detail/2026-809-dreamina-weekly-challenge",
+        "note": "官方招募页显示项目扶持及创作者成长权益；当前页面活动期至 2026-12-30，按页面规则报名。"
+      },
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "seedance",
+        "matchedName": "Seedance"
+      },
+      {
+        "modelFamilyId": "seedream",
+        "matchedName": "Seedream"
+      }
     ]
   },
   {
@@ -31,7 +54,19 @@
     ],
     "note": "Gemini 图像创作入口；Nano Banana 系列型号查看模型库。",
     "primaryLabel": "海外站",
-    "relatedLinks": []
+    "relatedLinks": [],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "nano-banana",
+        "matchedName": "Nano Banana"
+      }
+    ]
   },
   {
     "id": "gpt-image",
@@ -45,7 +80,19 @@
     ],
     "note": "ChatGPT 图像创作入口；GPT Image 系列型号查看模型库。",
     "primaryLabel": "打开官网",
-    "relatedLinks": []
+    "relatedLinks": [],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "gpt-image",
+        "matchedName": "GPT Image"
+      }
+    ]
   },
   {
     "id": "midjourney",
@@ -64,7 +111,19 @@
         "url": "https://www.midjourney.com/"
       }
     ],
-    "primaryLabel": "国内站"
+    "primaryLabel": "国内站",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "midjourney",
+        "matchedName": "Midjourney"
+      }
+    ]
   },
   {
     "id": "pixverse-platform",
@@ -83,7 +142,26 @@
         "url": "https://app.pixverse.ai/"
       }
     ],
-    "primaryLabel": "国内站"
+    "primaryLabel": "国内站",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "PixVerse Creative Partner Program (CPP)",
+        "type": "CPP",
+        "label": "CPP 申请",
+        "url": "https://docs.pixverse.ai/PixVerse-CCP-21a3e99bf350800cb3efd9b245ae2dc4",
+        "sourceUrl": "https://pixverse.ai/zh/help-center/creator-programs",
+        "note": "官方将 CPP 定义为全球计划；此入口国内外通用。联盟分佣与 Earn 活动是另外的计划，未混入 CPP。"
+      },
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "pixverse-v6",
+        "matchedName": "PixVerse"
+      }
+    ]
   },
   {
     "id": "kling-platform",
@@ -101,6 +179,18 @@
       {
         "label": "海外站",
         "url": "https://klingai.com/"
+      }
+    ],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "kling",
+        "matchedName": "Kling"
       }
     ]
   },
@@ -121,7 +211,60 @@
         "label": "海外站",
         "url": "https://www.vidu.com/"
       }
+    ],
+    "creatorPrograms": {
+      "domestic": {
+        "programName": "Vidu 创作者计划",
+        "type": "创作者计划",
+        "label": "创作者申请",
+        "url": "https://go.vidu.com/zh/artist-program",
+        "sourceUrl": "https://go.vidu.com/zh/artist-program",
+        "note": "官方中文计划页含创作者报名入口。"
+      },
+      "overseas": {
+        "programName": "Vidu Creative Partner Program",
+        "type": "CPP / Creator Program",
+        "label": "Creator application",
+        "url": "https://go.vidu.com/artist-program",
+        "sourceUrl": "https://go.vidu.com/artist-program",
+        "note": "官方英文计划页含申请入口。"
+      },
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "vidu",
+        "matchedName": "Vidu"
+      }
     ]
+  },
+  {
+    "id": "runway",
+    "name": "Runway",
+    "type": "AI 视频创作平台",
+    "url": "https://app.runwayml.com/",
+    "status": "常用",
+    "logoKey": "runway",
+    "categories": [
+      "video"
+    ],
+    "note": "Runway 官方视频创作与编辑平台；主站没有国内版，使用海外入口。",
+    "primaryLabel": "海外站",
+    "relatedLinks": [],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "Runway Creative Partners Program",
+        "type": "CPP",
+        "label": "CPP 申请",
+        "url": "https://runway.com/creative-partners-program#apply",
+        "sourceUrl": "https://runway.com/creative-partners-program/",
+        "note": "Runway 官方公开申请页，面向精选艺术家、团队与创作者，提供新工具和模型体验、合作机会及活动。独立于 Runway Rewards 推荐佣金计划。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "wan-platform",
@@ -140,21 +283,47 @@
         "label": "海外站",
         "url": "https://wan.video/"
       }
-    ]
+    ],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "google-flow",
     "name": "Flow",
-    "type": "视频创作平台",
+    "type": "图像与视频创作平台",
     "url": "https://flow.google/",
     "status": "常用",
     "logoKey": "flow",
     "categories": [
+      "image",
       "video"
     ],
-    "note": "Google 官方视频创作与编辑平台；可体验 Gemini Omni Flash 1.2、Veo 等模型。",
+    "note": "Google 官方图像与视频创作平台；可体验 Nano Banana、Gemini Omni、Veo 等模型。",
     "primaryLabel": "海外站",
-    "relatedLinks": []
+    "relatedLinks": [],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "Google Flow Sessions",
+        "type": "艺术家驻留 / 合作计划",
+        "label": "查看计划与申请",
+        "url": "https://labs.google/fx/en/tools/flow",
+        "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-and-flow-music-session-artists/",
+        "note": "Google 官方艺术家合作计划，按 cohort 招募，适合带项目提案的创作者；不属于常开 CPP。"
+      },
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "nano-banana",
+        "matchedName": "Nano Banana"
+      }
+    ]
   },
   {
     "id": "suno-platform",
@@ -166,7 +335,26 @@
     "categories": [
       "music"
     ],
-    "note": "歌曲、人声与音乐生成。"
+    "note": "歌曲、人声与音乐生成。",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": {
+        "programName": "Suno Spark",
+        "type": "独立音乐人资助计划",
+        "label": "查看申请",
+        "url": "https://suno.com/spark",
+        "sourceUrl": "https://about.suno.com/spark-terms",
+        "note": "面向独立歌手、词曲作者或制作人；官方条款将中国列入不适用地区。"
+      },
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "suno",
+        "matchedName": "Suno"
+      }
+    ]
   },
   {
     "id": "minimax-music",
@@ -185,7 +373,20 @@
         "label": "海外站",
         "url": "https://www.minimax.io/audio/music"
       }
-    ]
+    ],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "MiniMax / Hailuo 创作者合作申请",
+        "type": "创作者合作申请（用户提供入口）",
+        "label": "打开申请表",
+        "url": "https://forms.gle/Su4hNQpfpJ9ED9RA7",
+        "sourceUrl": "https://www.youtube.com/@Hailuoai_MiniMax",
+        "note": "表单来自你提供的 MiniMax/Hailuo 官方账号截图；暂未找到可独立核验地区范围的公开说明，先列为全球待确认入口。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "mureka-platform",
@@ -197,7 +398,19 @@
     "categories": [
       "music"
     ],
-    "note": "AI 歌曲与音乐生成工具。"
+    "note": "AI 歌曲与音乐生成工具。",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "mureka",
+        "matchedName": "Mureka"
+      }
+    ]
   },
   {
     "id": "udio",
@@ -209,7 +422,13 @@
     "categories": [
       "music"
     ],
-    "note": "AI 音乐创作与歌曲生成。"
+    "note": "AI 音乐创作与歌曲生成。",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "chatgpt",
@@ -227,7 +446,13 @@
         "label": "Codex",
         "url": "https://openai.com/codex/"
       }
-    ]
+    ],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "claude",
@@ -245,7 +470,13 @@
         "label": "Claude Code",
         "url": "https://claude.com/product/claude-code"
       }
-    ]
+    ],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "gemini",
@@ -257,7 +488,13 @@
     "categories": [
       "text"
     ],
-    "note": "Google 多模态 AI 助手与模型体验入口。"
+    "note": "Google 多模态 AI 助手与模型体验入口。",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "deepseek-chat",
@@ -269,7 +506,13 @@
     "categories": [
       "text"
     ],
-    "note": "推理、文本与代码任务。"
+    "note": "推理、文本与代码任务。",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "qwen-chat",
@@ -281,7 +524,27 @@
     "categories": [
       "text"
     ],
-    "note": "阿里巴巴通义系列模型体验入口。"
+    "note": "阿里巴巴通义系列模型体验入口。",
+    "creatorPrograms": {
+      "domestic": {
+        "programName": "阿里云 Agent 创客",
+        "type": "开发者 / Agent 创作者计划",
+        "label": "查看申请",
+        "url": "https://www.aliyun.com/benefit/aihands-on/image",
+        "sourceUrl": "https://www.aliyun.com/benefit/aihands-on/image",
+        "note": "面向构建 Agent 的技术创作者，不是通用视频内容 CPP。"
+      },
+      "overseas": null,
+      "global": {
+        "programName": "Qwen Ambassador Program",
+        "type": "开发者 / 社区大使计划",
+        "label": "Ambassador application",
+        "url": "https://qwen.ai/ambassador",
+        "sourceUrl": "https://qwen.ai/ambassador",
+        "note": "全球计划，侧重开源开发、案例与社区活动，不是通用内容创作者 CPP。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "kimi",
@@ -293,7 +556,26 @@
     "categories": [
       "text"
     ],
-    "note": "长文本、搜索与资料整理。"
+    "note": "长文本、搜索与资料整理。",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "Kimi Ambassador Program / Kimi 全球大使计划",
+        "type": "创作者 / 社区大使计划",
+        "label": "大使计划申请",
+        "url": "https://www.kimi.com/zh-cn/lp/kimi-ambassador",
+        "sourceUrl": "https://www.kimi.com/zh-cn/lp/kimi-ambassador",
+        "note": "官方面向全球招募创作者、分享者与社区组织者；非专门 CPP。"
+      },
+      "checkedAt": "2026-11-25"
+    },
+    "modelFamilyMentions": [
+      {
+        "modelFamilyId": "kimi",
+        "matchedName": "Kimi"
+      }
+    ]
   },
   {
     "id": "doubao",
@@ -305,7 +587,13 @@
     "categories": [
       "text"
     ],
-    "note": "字节跳动 AI 助手与多模态能力入口。"
+    "note": "字节跳动 AI 助手与多模态能力入口。",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "higgsfield",
@@ -318,7 +606,20 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "Higgsfield Creator Partnership Program",
+        "type": "CPP",
+        "label": "CPP 申请",
+        "url": "https://higgsfield.ai/creator-partnership-program",
+        "sourceUrl": "https://higgsfield.ai/creator-partnership-program",
+        "note": "官方面向全球 AI 创作者开放申请。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "renoise",
@@ -331,7 +632,20 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "Renoise Creator Program",
+        "type": "CPP",
+        "label": "CPP 申请",
+        "url": "https://creator.renoise.ai/",
+        "sourceUrl": "https://creator.renoise.ai/",
+        "note": "申请表要求选择国家或地区，采用同一全球入口。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "pollo",
@@ -344,20 +658,53 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "Pollo AI Creative Partner Program",
+        "type": "CPP",
+        "label": "CPP 申请",
+        "url": "https://pollo.ai/creative-partner-program",
+        "sourceUrl": "https://pollo.ai/creative-partner-program",
+        "note": "官方全球创作者合作计划；联盟分佣另行区分。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "tapnow",
     "name": "TapNow",
     "type": "Agent 创作平台",
-    "url": "https://www.tapnow.ai/",
+    "url": "https://tapnow.media/",
     "status": "常用",
     "logo": "",
-    "note": "文本、图片、音频和视频模型编排；重点关注 Agent、分镜和创作画布。",
+    "note": "TapNow 官方创作平台；国内入口使用 tapnow.media，海外入口使用 app.tapnow.ai。",
     "categories": [
       "aggregate"
     ],
-    "logoKey": "tapnow"
+    "logoKey": "tapnow",
+    "primaryLabel": "国内站",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://app.tapnow.ai/"
+      }
+    ],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": {
+        "programName": "TapNow Creator Level Program",
+        "type": "创作者等级与奖励规则",
+        "label": "查看成长规则",
+        "url": "https://app.tapnow.ai/creator-program/growth",
+        "sourceUrl": "https://app.tapnow.ai/creator-program/growth",
+        "note": "官方按作品与赛事积分升级的成长规则，不是 CPP；规则页注明有效至 2027-06-30。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "flova",
@@ -370,7 +717,27 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "",
+    "creatorPrograms": {
+      "domestic": {
+        "programName": "Flova 精选作者团",
+        "type": "内容创作者招募 / CPE 激励",
+        "label": "查看招募与规则",
+        "url": "https://www.flova.ai/zh-CN/activity/excellent-creator-recruitment-program/",
+        "sourceUrl": "https://www.flova.ai/zh-CN/activity/excellent-creator-recruitment-program/",
+        "note": "官方中文招募页；规则注明 9 月试行版本，需以当期 Brief 和页面更新为准。"
+      },
+      "overseas": null,
+      "global": {
+        "programName": "Flova Skill Creator Program",
+        "type": "全球技能创作者计划",
+        "label": "Skill Creator application",
+        "url": "https://www.flova.ai/en/activity/flova-skill-creator-program/",
+        "sourceUrl": "https://www.flova.ai/en/activity/flova-skill-creator-program/",
+        "note": "全球计划，但须先创建并发布 Skill 与演示视频；并非通用 CPP。"
+      },
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "libtv",
@@ -383,7 +750,13 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "updream",
@@ -396,7 +769,13 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "id": "pexo",
@@ -409,7 +788,13 @@
     "categories": [
       "aggregate"
     ],
-    "logoKey": ""
+    "logoKey": "",
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   },
   {
     "name": "抖音",
@@ -501,5 +886,31 @@
     "type": "海外视频社区",
     "note": "官方发布会、产品演示、教程、测评与创作者访谈。",
     "status": "常用"
+  },
+  {
+    "id": "seko-platform",
+    "name": "Seko",
+    "type": "模型聚合 / AI 视频创作平台",
+    "url": "https://seko.sensetime.com/",
+    "status": "常用",
+    "logo": "",
+    "note": "商汤旗下 AI 视频创作平台；国内使用 Seko，海外使用 SekoTV。",
+    "categories": [
+      "aggregate"
+    ],
+    "logoKey": "seko",
+    "primaryLabel": "国内站",
+    "relatedLinks": [
+      {
+        "label": "海外站",
+        "url": "https://www.sekotv.com/"
+      }
+    ],
+    "creatorPrograms": {
+      "domestic": null,
+      "overseas": null,
+      "global": null,
+      "checkedAt": "2026-11-25"
+    }
   }
 ]

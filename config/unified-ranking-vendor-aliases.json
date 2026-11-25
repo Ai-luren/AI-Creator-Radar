@@ -1,0 +1,53 @@
+{
+  "schema": "ai-creator-radar-ranking-vendor-aliases/1",
+  "aliases": [
+    {
+      "canonicalId": "microsoft",
+      "displayName": "Microsoft",
+      "names": ["Microsoft", "Microsoft AI"],
+      "sourceUrl": "https://learn.microsoft.com/azure/foundry/foundry-models/how-to/use-foundry-models-mai-image",
+      "note": "Microsoft Learn identifies MAI Image as developed by Microsoft AI and offered through Microsoft Foundry."
+    },
+    {
+      "canonicalId": "bytedance",
+      "displayName": "ByteDance",
+      "names": ["ByteDance", "ByteDance Seed"],
+      "sourceUrl": "https://seed.bytedance.com/en/",
+      "note": "The official Seed site identifies itself as ByteDance Seed."
+    },
+    {
+      "canonicalId": "spacex-ai",
+      "displayName": "SpaceXAI",
+      "names": ["xAI", "SpaceXAI"],
+      "sourceUrl": "https://new.spacex.com/updates",
+      "note": "SpaceX announced acquisition of xAI; only exact matching model names use this provider alias."
+    },
+    {
+      "canonicalId": "black-forest-labs",
+      "displayName": "Black Forest Labs",
+      "names": ["BFL", "Black Forest Labs"],
+      "sourceUrl": "https://github.com/black-forest-labs/flux",
+      "note": "The official FLUX repository is published by Black Forest Labs and uses BFL API naming."
+    },
+    {
+      "canonicalId": "skywork-ai",
+      "displayName": "Skywork AI",
+      "names": ["Skywork AI", "SkyReels", "skyreel"],
+      "sourceUrl": "https://www.skyreels.ai/api-platform",
+      "note": "The SkyReels official platform links former SkyReels support to Skywork; exact model names are still required."
+    },
+    {
+      "canonicalId": "kuaishou",
+      "displayName": "Kuaishou",
+      "names": ["Kuaishou", "Kling"],
+      "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-comprehensive-ai-models-reshaping-content-and",
+      "note": "Kuaishou's official investor site identifies Kling as a Kuaishou AI model."
+    }
+  ],
+  "unresolvedNames": [
+    {
+      "name": "aorizon",
+      "note": "Not mapped to Alibaba-ATH without a primary source establishing vendor identity."
+    }
+  ]
+}

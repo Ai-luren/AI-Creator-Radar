@@ -1,5 +1,7 @@
 # 模型库结构与榜单排序 Implementation Plan
 
+> 状态：本计划中标记完成的模型库结构化工作属于已完成历史任务。原任务里的“禁止推送、部署或改 CI”仅限制该任务当时的范围；后续跨模块引用和发布视图流程见 [`docs/model-data-contract.md`](../../model-data-contract.md) 与 [`docs/model-release-digest-guide.md`](../../model-release-digest-guide.md)。保留本计划作为实施记录，不作为当前日更清单。
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** 统一模型库为厂商、模型家族、结构化版本三层，并让用户按一个具体评测子榜查看排序。

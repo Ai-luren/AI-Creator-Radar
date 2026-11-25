@@ -16,6 +16,7 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 
 - Use stable kebab-case IDs for model and source records.
 - Keep public source URLs and model/version facts tied to official vendor pages or official repositories.
+- Treat `site/data/models.json` as the canonical model family/version registry; follow [`docs/model-data-contract.md`](docs/model-data-contract.md) for cross-module IDs, provenance, and generated release views.
 - State model-weight access and license limits per specific model; do not generalize a family's license.
 - Preserve user-authored data and existing uncommitted changes. Do not commit temporary files, caches, credentials, or personal configuration.
 
@@ -29,6 +30,7 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Validate edited JSON with `python3 -m json.tool <file>`.
 - Run `python3 -m unittest discover -s tests -v` for collector changes.
 - Run `python3 scripts/collect_models.py --dry-run` to inspect official model-source collection without writing data.
+- After model collection, run `python3 scripts/build_model_release_digest.py`, `python3 scripts/link_model_records.py`, and `python3 scripts/validate_model_links.py` to regenerate the 30-day view and verify shared references.
 
 ## Cleanup
 

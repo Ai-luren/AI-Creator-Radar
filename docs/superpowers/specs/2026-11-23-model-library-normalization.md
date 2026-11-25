@@ -1,5 +1,7 @@
 # 模型库统一规范
 
+> 状态：原模型库规范已完成。其原始任务范围和“禁止改 CI”约束只适用于当时那一轮；后续批准的跨模块模型引用与日更生成规则以 [`docs/model-data-contract.md`](../../model-data-contract.md) 和 [`docs/model-release-digest-guide.md`](../../model-release-digest-guide.md) 为准。本文件保留作实施历史，不作为后续日更的操作清单。
+
 ## 目标
 
 把模型库改为一致的“厂商 → 模型家族 → 版本/变体”结构，补齐已核实的重点型号，并允许按选定的具体评测子榜排序。

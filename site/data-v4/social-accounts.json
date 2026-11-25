@@ -2996,7 +2996,20 @@
       "note": "官方账号宣传 4K 画质、色彩格式与限时价格。",
       "sortKey": "2026-11-19",
       "verificationStatus": "verified-direct-link",
-      "relatedModelId": "seedance"
+      "relatedModelId": "seedance",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "jimeng-seedream-55",
@@ -3018,7 +3031,20 @@
       "note": "账号认证为 Dreamina 官方账号；互动数字为采集时快照。",
       "sortKey": "2026-11-19",
       "verificationStatus": "verified-direct-link",
-      "relatedModelId": "seedream"
+      "relatedModelId": "seedream",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "modelVersionId": "seedream-5-5",
+          "matchedName": "Seedream 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "matchedName": "Seedream 5.5"
+        }
+      ]
     },
     {
       "id": "jimeng-bilibili-marketing-studio",

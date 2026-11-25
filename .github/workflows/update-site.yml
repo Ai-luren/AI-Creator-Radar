@@ -4,11 +4,10 @@ on:
   push:
     branches: [main]
   schedule:
-    # 08:00, 10:00 and 15:00 China Standard Time (UTC+8).
+    # 08:00 and 10:00 China Standard Time (UTC+8).
     # GitHub schedule events run on the default branch.
     - cron: "0 0 * * *"
     - cron: "0 2 * * *"
-    - cron: "0 7 * * *"
   workflow_dispatch:
 
 permissions:
@@ -42,6 +41,10 @@ jobs:
         if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_models.py
 
+      - name: Build the 30-day release view from canonical model versions
+        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        run: python scripts/build_model_release_digest.py
+
       - name: Update company chronologies from official model sources
         if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_chronicle_updates.py
@@ -74,10 +77,6 @@ jobs:
         if: github.event_name != 'schedule' || github.event.schedule == '0 2 * * *'
         run: python scripts/collect_briefings.py juya
 
-      - name: Collect Follow Builders public feeds
-        if: github.event_name != 'schedule' || github.event.schedule == '0 7 * * *'
-        run: python scripts/collect_follow_builders.py
-
       - name: Collect AIPick video ideas
         if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_aipick.py
@@ -85,6 +84,12 @@ jobs:
       - name: Collect new model evaluation candidates
         if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
         run: python scripts/collect_model_evaluations.py
+
+      - name: Link exact model mentions across radar data
+        run: python scripts/link_model_records.py
+
+      - name: Validate shared model references
+        run: python scripts/validate_model_links.py
 
       - name: Persist collected data to the triggering branch
         run: |
@@ -99,6 +104,7 @@ jobs:
             site/data-v3/model-updates.json \
             site/data-v3/model-monitor-status.json \
             site/data-v3/model-monitor-state.json \
+            site/data-v4/model-releases-30d.json \
             site/data-v3/topics.json \
             site/data-v3/chronicle-updates-status.json \
             site/data/reference-rankings.json \
@@ -107,10 +113,11 @@ jobs:
             site/data-v4/aihot-daily.json \
             site/data-v4/juya-daily.json \
             site/data-v4/maomu-rankings.json \
-            site/data-v4/follow-builders.json \
             site/data-v4/model-resource-status.json \
             site/data-v4/aipick-data.json \
             site/data-v4/model-evaluations.json \
+            site/data-v4/social-accounts.json \
+            site/data-v4/platforms.json \
             site/data/feed-items.json \
             site/data/awesome-repos.json \
             site/data/resource-status.json \
