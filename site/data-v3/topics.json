@@ -5692,6 +5692,21 @@
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:44:12Z",
         "modelCategory": "video"
+      },
+      {
+        "date": "2026-10-29",
+        "kind": "模型卡更新",
+        "title": "Introducing Pika H3 Flex",
+        "summary": "Our post-trained MiniMax H3 model, built for creative iteration — up to 12 references, five separate audio stems, finishing at up to 4K, and open weights.",
+        "url": "https://pika.art/icons.svg?v=2fd5c0f1",
+        "sourceId": "pika-h3-flex-updates",
+        "sourceName": "Pika H3 Flex 官方发布",
+        "sourceUpdateId": "8eda5a42fcf10f678f",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "collectedAt": "2026-11-25T05:03:21Z",
+        "modelCategory": "video"
       }
     ],
     "chronicleSourceVersion": "official-feed-sync",

@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-24T12:51:16Z",
+  "checkedAt": "2026-11-25T05:03:21Z",
   "sourceFile": "site/data-v3/model-updates.json",
-  "officialUpdatesConsidered": 42,
-  "added": 0,
+  "officialUpdatesConsidered": 43,
+  "added": 1,
   "updated": 0,
   "unmatchedVendors": [],
   "policy": "仅追加官方来源采集记录；未人工复核的节点会明确标记，不覆盖人工审核节点。"

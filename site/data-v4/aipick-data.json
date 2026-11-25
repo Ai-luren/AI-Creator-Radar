@@ -6,706 +6,733 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-24T12:52:36+00:00",
+  "fetchedAt": "2026-11-25T05:05:40+00:00",
   "etags": {
-    "items": "W/\"v1-items-80bb345b9c086ce3\"",
-    "hotTopics": "W/\"v1-hot-8a2761f95efd241c\""
+    "items": "W/\"v1-items-ae175e0ce1e0d4df\"",
+    "hotTopics": "W/\"v1-hot-1a11f0975e9e8413\""
   },
   "items": [
     {
-      "id": "jy2cj99y7ee90sn3vgxn4pbh5",
-      "title": "博主分享 Seedance 高密度作画动漫提示词",
-      "originalTitle": "If your anime generations feel too safe, steal this prompt. 💀🔥 This one is designed to make Seedance WORK: high-density sakuga, violent direction changes, environmental choreography, graphic impact frames and a massive supernatural payoff. Basically 15 seconds with the animation budget set to unlimited. Full prompt below — break it 👇 An adult black-haired exorcist with a curvy athletic physique, fitted white ceremonial uniform, red gloves and a paper talisman wrapped around one arm enters a subway station where every passenger suddenly freezes and turns toward her at once, shadow curses tear from their bodies and flood the platform, she tears the talisman loose, transforms it into a long red ribbon-blade and spins through the swarm, using pillars, train doors and overhead rails as anchors for impossible changes of direction while a massive faceless curse rises from the tunnel and swallows an incoming train whole; she lets herself be dragged toward its mouth, wraps the ribbon around",
-      "summary": "博主 Charaspower 分享了一段面向 Seedance 的动漫视频提示词，用于生成约 15 秒的高密度作画动作片段。提示词描述黑发驱魔师在地铁站遭遇乘客冻结、影子诅咒涌出，她用符纸化成的红色缎带刀借立柱、车门和头顶栏杆完成高速变向，最终击溃隧道中吞下列车的无面诅咒。提示词还指定了荧光灯与瓷砖墙场景、红白冲击帧、快速特写反应镜头和结尾诅咒如纸般坍缩、乘客恢复原状。",
+      "id": "zm7pk9sfo3vby3too3n1jpcnq",
+      "title": "智谱 GLM-5.4 实测：补上视觉能力，与 Gemini 4 Neon 三局代码对比",
+      "originalTitle": "智谱GLM5.4实测：硬刚Gemini4 智谱 GLM-5.4 悄悄上线了：旗舰补上视觉，Coding 计划 周额度多给 50%。 同一套提示词，连测三局纯代码单文件 HTML（上：Gemini 4 Neon / 下：GLM-5.4）： ① Three.js 3D 昼夜悬浮孤岛 ② 像素风弹射打砖块 + Web Audio 芯片音效 ③ A* vs Dijkstra 迷宫寻路同屏可视化 一句话总结：要又快又稳、细节拉满选 Gemini 4 Neon；想尝鲜清爽克制质感，把 GLM-5.4 思考拉满挂后台慢慢跑。 你们刷到 GLM-5.4 了吗？用起来速度怎么样，评论区聊聊 👇 #AI编程 #大模型测评 #GLM54 #Gemini4Neon #前沿科技",
+      "summary": "智谱 GLM-5.4 悄悄上线，旗舰补上视觉能力，Coding 计划周额度多给 50%。作者用同一套提示词让 GLM-5.4 与 Gemini 4 Neon 连做三局纯代码单文件 HTML，分别是 Three.js 3D 昼夜悬浮孤岛、像素风弹射打砖块加 Web Audio 音效、A* 与 Dijkstra 迷宫寻路同屏可视化。",
       "source": {
-        "name": "X · Charaspower"
+        "name": "抖音 · 热点搜「GLM-5.4」"
       },
       "links": {
-        "aihot": "https://aipick.news/items/jy2cj99y7ee90sn3vgxn4pbh5",
-        "original": "https://x.com/CharaspowerAI/status/2125197835620561115"
+        "aihot": "https://aipick.news/items/zm7pk9sfo3vby3too3n1jpcnq",
+        "original": "https://www.douyin.com/video/7711643418435478159"
       },
-      "publishedAt": "2026-11-24T12:00:22.000Z",
-      "discoveredAt": "2026-11-24T12:39:15.537Z",
-      "category": "tip",
-      "score": 60,
+      "publishedAt": "2026-11-24T07:55:01.000Z",
+      "discoveredAt": "2026-11-25T04:18:31.594Z",
+      "category": "ai-models",
+      "score": 58,
       "selected": true,
-      "reason": "原文给出可直接复用的 Seedance 完整提示词，适合照着跑一遍，对比默认生成与高密度作画提示词下的画面差异。",
+      "reason": "作者用同一套提示词让 GLM-5.4 与 Gemini 4 Neon 连做三局单文件 HTML，可对照录屏看两者在 3D 场景、像素游戏和寻路可视化上的风格差异。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/jy2cj99y7ee90sn3vgxn4pbh5"
+        "url": "https://aipick.news/items/zm7pk9sfo3vby3too3n1jpcnq"
       }
     },
     {
-      "id": "qruhwjlmqmlmg7x4rvad0nsnr",
-      "title": "字节 Personal Agent 小豆开启邀请制公测，打通抖音、飞书与手机本地上下文",
-      "originalTitle": "小豆今天终于开启邀请制公测了！ 其实我内测用了一段时间，和大家聊聊我平时最常用的几个玩法。 小豆最厉害的地方还是上下文： 它终于把自己生态里的上下文几乎全打通了，包括抖音、飞书，以及手机本地的能力。 结合起来能玩出不少新花样： 平时在抖音收藏过一堆美食视频，有的博主一口气推好几家店，真到了附近想去找，根本翻不动视频。 现在小豆能直接帮你找出来，结合抖音本地生活把视频里的店铺做成卡片展示，点开就能消费。 你还可以让它定期汇总收藏的美食店，到了某个地方直接问「附近有什么我收藏的好吃的」，秒列清单。 而且它能直接帮你打电话问排不排队、还要等几桌，对我们 i 人很友好。 打通抖音后，它既能帮着做内容，也能管你的日常兴趣： 分析你的抖音账号数据，拆解你收藏的参考视频是怎么做的，下次做类似内容时直接提取点子复用 根据你平时刷剧、综艺、游戏的喜好主动推动态。 比如前阵子英雄联盟全球总决赛，每天早上不用自己去搜，小豆直接把比分推给我 记 Todo 和日程：微信或其他聊天软件聊完事，直接截个图丢给小豆说一句「记一下日程」，它会同时同步到手机系统日历和飞书日历，省事很多。 可以直接连 Apple 健康做分析，补上了国区用不了 Apple Intelligence 健康分析的遗憾。 平时随手记一下今天生病了、在吃什么药或补剂，它也会结合健康数据一起分析。 飞书一接进来，上面所有场景就彻底串起来了： 收藏的美食店、想玩的游戏、追的剧，直接建多维表格自动整理；抖音数据复盘和选题建议，也能自动沉淀成飞书文档成体系管理。 我之前一直说「上下文就是一切」。 字节终于在 Personal Agent 上接上了自己庞大的生态，拿到独有上下文后，跑出来的场景确实不一样。 不过内测用下来也有两个需要改的地方（可能这也是现在还用邀请制的原因）： 对话调教偏冗长，经常给一大段文案。字一多，连我们这种每天看内容的人都不想看，更别说普通用户了。 主动推送太频繁，还没摸清你真正想要什么，就推一堆当下不感兴趣的内容，有点增加信息负担。 好在最近看他们已经在陆续改这些问题了。",
-      "summary": "字节 Personal Agent 小豆开启邀请制公测，博主内测后称其已打通抖音、飞书和手机本地能力。它能从抖音收藏的美食视频里找出店铺并做成卡片，截图即可记日程并同步手机日历和飞书日历，还能连 Apple 健康做分析。博主也指出对话偏冗长、主动推送太频繁两个问题。",
+      "id": "ws5j8u4smdo4qp4x8xzlis6np",
+      "title": "实测智谱GLM-5.4：3D建模穿帮，修bug题首轮全过",
+      "originalTitle": "800B碰瓷2-3T？测完GLM-5.4，我劝你等下一代 智谱刚发的 GLM-5.4，官方说智能水平到了 2-3T 级，还把 3D 建模写进了宣传。我拿 7 道网页和 3D 题从下午 4 点跑到凌晨 1 点：书桌房间墙体直接穿帮，机械表把表壳表带全省了只剩裸机芯，渔港和书页之城全是方盒子质感。不过测了 5 道修 bug 的题，第一轮倒是全过了。你觉得 GLM-5.4 算真升级，还是老底子换个名字？ #AI测评 #GLM #智谱 #大模型 #AI编程",
+      "summary": "作者用7道网页和3D题实测智谱刚发布的GLM-5.4，书桌房间墙体穿帮、机械表只剩裸机芯、渔港和书页之城都是方盒子质感，与官方宣传的2-3T级智能水平和3D建模能力有差距。不过5道修bug题第一轮全部通过。作者称官方把GLM-5.4叫作首个loop transformer旗舰，100万上下文、最大输出128K，但实测运行很慢。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ws5j8u4smdo4qp4x8xzlis6np",
+        "original": "https://www.douyin.com/video/7711699986450222390"
+      },
+      "publishedAt": "2026-11-24T11:34:45.000Z",
+      "discoveredAt": "2026-11-25T04:18:31.572Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用7道网页和3D题实测GLM-5.4，书桌房间墙体穿帮、机械表只剩裸机芯，但5道修bug题首轮全过，适合做实测对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/ws5j8u4smdo4qp4x8xzlis6np"
+      }
+    },
+    {
+      "id": "qex84xcuudb6tgu6zwnhoulcm",
+      "title": "实测GLM-5.4：与Opus5.5比做视频、与Astra比建模，还做了GPU算子优化",
+      "originalTitle": "GLM-5.4：什么叫做我打Opus和Astra？ 我用刚刚发布的GLM-5.4跟Opus5.5比了做视频，跟Astra比了建模，又做了一个金字塔尖难度的GPU算子优化项目，这3个项目里，它的表现都还挺好的，打的有来有回。这个用时间换质量的loop架构也很有意思，越来越期待国产模型来个loop大模了，加油啊…… #AI新星计划 #抖音前沿科技首发计划 #vibe知识大赏 #AI测评",
+      "summary": "作者用刚发布的GLM-5.4与Opus5.5比代码生成视频、与Astra比3D建模，并做了GPU算子优化项目，三个项目表现有来有回。GLM-5.4是智谱旗舰模型首次支持原生多模态，也是首个在750B参数量下跑通loop架构的模型，把其中28层跑两遍以提升输出质量。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/qex84xcuudb6tgu6zwnhoulcm",
+        "original": "https://www.douyin.com/video/7711733586348477730"
+      },
+      "publishedAt": "2026-11-24T13:45:07.000Z",
+      "discoveredAt": "2026-11-25T04:18:31.556Z",
+      "category": "ai-models",
+      "score": 78,
+      "selected": true,
+      "reason": "作者用视频生成、3D建模、GPU算子优化三个项目实测GLM-5.4与Opus5.5、Astra的差距，可围绕750B参数跑通loop架构这一差异点做对比讲解。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/qex84xcuudb6tgu6zwnhoulcm"
+      }
+    },
+    {
+      "id": "tuzdtvk40hk58bxhe21075dpn",
+      "title": "实测智谱 GLM-5.4 三个真实开发任务：3D 说明书、代码动效短片与遥控器语音输入",
+      "originalTitle": "GLM-5.4 真实开发体验，连测 3 个案例 测了下智谱新出的 GLM-5.4，直接拿 3 个真实需求：给加湿器做 3D 动态说明书，纯写代码直出 15 秒动效短片、最后还让它给我的工具箱写了个配套功能，直接拿电视遥控器给 Vibe Coding 做语音输入。 #AI编程 #GLM #智谱 #国产大模型 #Vibecoding",
+      "summary": "作者用三个真实需求实测智谱新发布的 GLM-5.4，并与 GLM-5.3、GPT 6.2 等模型对比成品。加湿器 3D 操作演示中 GLM-5.4 还原度明显高于 5.3，但总耗时 2 小时 38 分钟，长于 5.3 的 1 小时 14 分钟和 GPT 6.2 的不到 30 分钟，原因是它反复检查打磨细节。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/tuzdtvk40hk58bxhe21075dpn",
+        "original": "https://www.douyin.com/video/7711591059205197082"
+      },
+      "publishedAt": "2026-11-24T06:13:20.000Z",
+      "discoveredAt": "2026-11-25T04:18:31.537Z",
+      "category": "tip",
+      "score": 72,
+      "selected": true,
+      "reason": "作者用加湿器3D说明书、纯代码动效短片、遥控器语音输入三个真实任务横评 GLM-5.4 与 5.3、GPT 6.2，可拍成同任务多模型成品对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/tuzdtvk40hk58bxhe21075dpn"
+      }
+    },
+    {
+      "id": "aluujrsktig44xogsbr95ygi2",
+      "title": "Magi2 首发实测对比 Seedance 2.5：30 秒一镜到底，成本约十分之一",
+      "originalTitle": "Seedance 2.5遇到价格屠夫了？ 新模型Magi2首发实测！同样的参考素材和提示词，和 Seedance 2.5 做了一次30秒一镜到底对比。 人物表演、双人互动、连续运镜实际表现有不少惊喜。 最关键的是，生成成本差不多只有 Seedance 2.5 的十分之一！ AI视频模型，真的要卷起来了！ 你觉得谁更强，欢迎评论区留言告诉我 #Magi2独家登陆LibTV #Magi2价格屠夫 #Magi2 #AIGC #AI视频",
+      "summary": "作者用同样的参考素材和提示词，让新模型 Magi2 与 Seedance 2.5 各生成一段 30 秒一镜到底视频做对比。人物表演、双人互动和连续运镜的实际表现有不少惊喜，生成成本差不多只有 Seedance 2.5 的十分之一。Magi2 独家登陆 LibTV。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/aluujrsktig44xogsbr95ygi2",
+        "original": "https://www.douyin.com/video/7711897430001867091"
+      },
+      "publishedAt": "2026-11-25T00:20:43.000Z",
+      "discoveredAt": "2026-11-25T04:10:31.075Z",
+      "category": "ai-models",
+      "score": 70,
+      "selected": true,
+      "reason": "作者用同一参考素材和提示词让 Magi2 与 Seedance 2.5 做 30 秒一镜到底对比，可围绕人物表演、双人互动和连续运镜逐段拆解差异。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/aluujrsktig44xogsbr95ygi2"
+      }
+    },
+    {
+      "id": "mxh8gsv8e84w5o5c7s09mx6he",
+      "title": "Sand.ai 发布 MAGI-2 视频模型，可生成最长 30 秒 1080p 有声视频",
+      "originalTitle": "MAGI-2 正式发布！ 由 Sand.ai 打造，支持文本、图像、视频和音频输入，生成最长 30 秒的 1080p 有声视频。 精准控制镜头，忠实还原参考内容，支持灵活编辑。 模型权重计划尽快开放。即刻前往 @LibTV 开始创作。 #SandAI #MAGI2",
+      "summary": "Sand.ai 正式发布 MAGI-2，支持文本、图像、视频和音频输入，生成最长 30 秒的 1080p 有声视频。该模型支持精准控制镜头、忠实还原参考内容和灵活编辑，模型权重计划尽快开放，目前可在 LibTV 开始创作。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/mxh8gsv8e84w5o5c7s09mx6he",
+        "original": "https://www.douyin.com/video/7711803319601818981"
+      },
+      "publishedAt": "2026-11-24T18:15:31.000Z",
+      "discoveredAt": "2026-11-25T04:10:31.050Z",
+      "category": "ai-models",
+      "score": 75,
+      "selected": true,
+      "reason": "官方发布视频里直接展示了 MAGI-2 生成的多镜头有声片段，适合围绕这段样片讲它如何用文本、图像、视频和音频输入生成 30 秒 1080p 有声视频。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/mxh8gsv8e84w5o5c7s09mx6he"
+      }
+    },
+    {
+      "id": "grklay78h955793t6yau051mx",
+      "title": "Anthropic与OpenAI先后宣布AI证明VP≠VNP，相隔不到4小时",
+      "originalTitle": "黎曼猜想之后，代数版P≠NP证明了！",
+      "summary": "Anthropic于11月24日凌晨在GitHub公开论文，称Claude证明了VP≠VNP，即代数版P≠NP，论文70页、无人类署名，附7.3万行Lean形式化证明；约3小时47分后OpenAI也发布论文，称一个未命名的内部模型得出同一结论，论文30页、Lean代码44万行。",
+      "source": {
+        "name": "公众号 · 新智元"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/grklay78h955793t6yau051mx",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745050&idx=1&sn=45437671f74c6749b007e4ad20d49570&chksm=f0bc748d25496b6ffc45522ba74e7cdaae7ad9f1547840af57b17f548b60485e605c048a9c4e&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-25T01:31:58.000Z",
+      "discoveredAt": "2026-11-25T03:40:31.179Z",
+      "category": "paper",
+      "score": 88,
+      "selected": true,
+      "reason": "两家AI先后用Lean形式化证明攻破VP≠VNP，可对比70页与30页论文、7.3万行与44万行Lean代码的路线差异。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/grklay78h955793t6yau051mx"
+      }
+    },
+    {
+      "id": "zdaia53p2ij4sq50d4yfvjfia",
+      "title": "作者分享用几张参考图和一段提示词在22分钟做出视频的提示词与代码",
+      "originalTitle": "这个是作者发的提示词和代码。可以看到他就用了几张参考图，还有一段提示词，22 分钟搞出了一个视频 https://t.co/GwpmlD8D04",
+      "summary": "博主转述某视频作者公开的提示词和代码，作者用几张参考图和一段提示词，22 分钟做出了一个视频，并附上了链接。",
       "source": {
         "name": "X · 歸藏"
       },
       "links": {
-        "aihot": "https://aipick.news/items/qruhwjlmqmlmg7x4rvad0nsnr",
-        "original": "https://x.com/op7418/status/2125163207304139041"
+        "aihot": "https://aipick.news/items/zdaia53p2ij4sq50d4yfvjfia",
+        "original": "https://x.com/op7418/status/2125431424807538999"
       },
-      "publishedAt": "2026-11-24T09:42:46.000Z",
-      "discoveredAt": "2026-11-24T12:36:15.978Z",
-      "category": "ai-products",
-      "score": 72,
-      "selected": true,
-      "reason": "博主内测实测字节 Personal Agent 小豆，展示抖音收藏美食转卡片、截图记日程同步飞书日历等玩法，也点出回复冗长和推送过频两个问题。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/qruhwjlmqmlmg7x4rvad0nsnr"
-      }
-    },
-    {
-      "id": "ihcroe1unrlf8wlu36nf7vwy2",
-      "title": "智谱 GLM-5.4 上线，向编程套餐用户开放并新增视觉能力",
-      "originalTitle": "智谱 GLM-5.4 上线，写代码也能看 11 月 24 日｜硅基快报 智谱 GLM-5.4 向编程套餐用户开放，新增视觉能力，有周配额的用户额度增加五成。自变量机器人发布 WALL-OSS-1.0，公开了整理桌面的实机演示和 312 项实机任务的厂商测试结果。Anthropic 推出 Claude Ship，新加入的修复和审批功能处于测试阶段，审批范围由团队规则决定。 如果代码交给 AI 审查，你希望哪类改动一定由人审批？ #硅基快报 #人工智能 #智谱GLM #具身智能 #ClaudeShip",
-      "summary": "智谱 GLM-5.4 上线并向编程套餐用户开放，新增视觉能力，按周配额的用户额度比上一版增加五成，按量接口和模型权重后续开放。官方还展示了用代码做三维互动场景。",
-      "source": {
-        "name": "抖音 · 热点搜「GLM-5.4」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ihcroe1unrlf8wlu36nf7vwy2",
-        "original": "https://www.douyin.com/video/7711528779461570722"
-      },
-      "publishedAt": "2026-11-24T00:30:11.000Z",
-      "discoveredAt": "2026-11-24T12:15:16.473Z",
-      "category": "ai-models",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出 GLM-5.4 新增视觉能力、编程套餐周配额增加五成的具体变化，适合做版本更新速览并演示写代码看图的用法。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ihcroe1unrlf8wlu36nf7vwy2"
-      }
-    },
-    {
-      "id": "q34wgl5ccic9wjfjm3jd0aeag",
-      "title": "我用 GLM-5.4 从黎曼证明中拆出 89 条引理并写成论文",
-      "originalTitle": "我用 glm-5.4 拆出 89 条黎曼引理，并写了一篇论文",
-      "summary": "作者用内测的 GLM-5.4 从约 1700 万行黎曼猜想 Lean 证明中拆出 89 条可复用定理，向 Mathlib 提交 3 个 PR 且 CI 全绿但尚未合并。",
-      "source": {
-        "name": "公众号 · 赛博禅心"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/q34wgl5ccic9wjfjm3jd0aeag",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzkzNDQxOTU2MQ==&mid=2247523161&idx=1&sn=ded2b4055d578c1f121551d5c169e4d6&chksm=c31f9c5e3bf5163664ad188d315b898cf9878d39ee36ef7ad44d78465a8c50d7a9ae330e471e&scene=126&sessionid=0#rd"
-      },
-      "publishedAt": "2026-11-24T07:21:06.000Z",
-      "discoveredAt": "2026-11-24T09:38:18.556Z",
+      "publishedAt": "2026-11-25T03:28:34.000Z",
+      "discoveredAt": "2026-11-25T03:40:30.410Z",
       "category": "tip",
       "score": 58,
       "selected": true,
-      "reason": "作者用 GLM-5.4 从 1700 万行黎曼证明中拆出 89 条引理并推出新数学结论，适合讲这套拆引理再复用的实操流程。",
+      "reason": null,
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/q34wgl5ccic9wjfjm3jd0aeag"
+        "url": "https://aipick.news/items/zdaia53p2ij4sq50d4yfvjfia"
       }
     },
     {
-      "id": "q9r25i38bus4iei9ocpvwftci",
-      "title": "用即梦AI把涂鸦生成三种材质效果图再反推手工步骤",
-      "originalTitle": "手工爱好者做涂鸦变实物总卡壳？AI这样搭。😭孩子随手画在纸上的涂鸦，总觉得扔掉可惜，想做成实物又苦于不知道怎么搭步骤？ 别急，我发现了一个超绝的“反向搭桥”思路——用即梦AI先出效果图，再去反推手工步骤！🎨🔍我把娃画的小猫丢进即梦，一键生成了三种不同材质的方案同框对比，简直打开了手工新世界的大门，直接看图挑最合适的做： 1️⃣黏土风：加上“超轻黏土质感”，照着图捏，新手也能完美复刻，软萌可爱。 2️⃣3D盲盒风：输入“透明水光质感”，这步反向验证直接过滤掉没设备的家庭，避免翻车。 3️⃣刺绣风：加“布纹清晰平绣质感”，直接当转印图纸用，做出成品超有温度。 💡用AI把想法提前“可视化”，多版并排呈现，再也不怕做手工做到一半卡壳啦！把涂鸦变成专属实物，这份独一无二的纪念谁懂啊！ #手工DIY #即梦AI #亲子手工 #创意手作 #涂鸦变实物",
-      "summary": "作者分享用即梦AI把孩子的涂鸦生成三种不同材质效果图、再反推手工步骤的做法。具体是在提示词中加入“超轻黏土质感”“透明水光质感”“布纹清晰平绣质感”，一次生成黏土风、3D盲盒风、刺绣风三版方案同框对比，再按图挑选材质动手制作。",
-      "source": {
-        "name": "抖音 · 话题 #即梦AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/q9r25i38bus4iei9ocpvwftci",
-        "original": "https://www.douyin.com/video/7711582345619229157"
-      },
-      "publishedAt": "2026-11-24T03:58:01.000Z",
-      "discoveredAt": "2026-11-24T06:26:17.204Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者用即梦把孩子的涂鸦生成黏土、3D盲盒、刺绣三种材质效果图，可照着复现这套提示词玩法。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/q9r25i38bus4iei9ocpvwftci"
-      }
-    },
-    {
-      "id": "wpq0nlqgh09av4l9h7z5s5s7e",
-      "title": "PixVerse 上线 Seedance 2.5，支持原生 4K 生成",
-      "originalTitle": "Create in native 4K with Seedance 2.5 on PixVerse: https://t.co/nk4TaKKhkk",
-      "summary": "PixVerse 宣布在平台上线 Seedance 2.5，支持原生 4K 视频生成，并附上使用链接。原文未披露生成时长、额度或价格等细节。",
-      "source": {
-        "name": "X · PixVerse"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/wpq0nlqgh09av4l9h7z5s5s7e",
-        "original": "https://x.com/pixverse/status/2125077176970285479"
-      },
-      "publishedAt": "2026-11-24T04:00:55.000Z",
-      "discoveredAt": "2026-11-24T05:49:18.849Z",
-      "category": "ai-products",
-      "score": 62,
-      "selected": true,
-      "reason": "原文只给出 PixVerse 上线 Seedance 2.5 原生 4K 生成和入口链接，适合录屏实测 4K 输出画质与生成速度。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/wpq0nlqgh09av4l9h7z5s5s7e"
-      }
-    },
-    {
-      "id": "jlc8ji64faje47ur4chv1kuij",
-      "title": "百度开源 ERNIE 5.5 Flash Preview 权重，Apache 2.0 许可、280B 总参 14B 激活",
-      "originalTitle": "ERNIE 5.5 Flash Preview weights are now available under Apache 2.0. 🔷 280B total / 14B active 🔷1M context Post-training is ongoing. Try it and share feedback. HuggingFace: https://t.co/ZNiml0BueF Access API: https://t.co/5y65H8VjVu Blog: https://t.co/lWc9qkgHAK",
-      "summary": "百度以 Apache 2.0 许可开放 ERNIE 5.5 Flash Preview 权重，模型为 280B 总参、14B 激活，支持 1M 上下文。权重已在 HuggingFace 提供，同时开放 API 访问，官方称后训练仍在进行中。",
-      "source": {
-        "name": "X · 百度文心"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/jlc8ji64faje47ur4chv1kuij",
-        "original": "https://x.com/Baidu_ERNIE/status/2125072735336546546"
-      },
-      "publishedAt": "2026-11-24T03:43:16.000Z",
-      "discoveredAt": "2026-11-24T04:43:14.742Z",
-      "category": "ai-models",
-      "score": 62,
-      "selected": true,
-      "reason": "官方放出 ERNIE 5.5 Flash Preview 的 Apache 2.0 权重和 HuggingFace 入口，适合上手实测 280B 总参、14B 激活的 MoE 在 1M 上下文下的表现。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/jlc8ji64faje47ur4chv1kuij"
-      }
-    },
-    {
-      "id": "y8klliv1dlu9qobq5zimeey3m",
-      "title": "智谱 GLM-5.4 实测：后端工程涨 9.1 分，知识推理降 15 分",
-      "originalTitle": "智谱GLM 5.4全面评测: 后端提升还行，但雷霆大思考？ 智谱新模型 GLM-5.4 终于发布了，这一代还补上了前端刚需的图片输入！ 第一时间跑完私有题库 ModelDial（综合分 47.2）和真实项目，客观总结一下： 后端工程进步最明显，直接涨了 9.1 分，屎山 ERP 三任务两道一轮过；但知识推理降了 15 分，拉低了综合分。 另外新架构过度 Loop 思考耗时偏长，常测案例跑了 4 个多小时还没结束（正常模型约 1 小时）。 700B 参数有进步也有短板，国产模型要继续加油啊，一起期待 3T 参数的 GLM-5.5！ 你现在写代码主力用哪款模型？评论区聊聊👇 #AI新星计划 #glm54 #glm54实测 #modeldial #大模型实测",
-      "summary": "智谱发布 GLM-5.4，新增图片输入，作者用私有题库 ModelDial 实测综合分 47.2。后端工程提升最明显，涨 9.1 分，屎山 ERP 三任务两道一轮过；知识推理降 15 分拉低综合分。新架构 loop transformer 过度循环思考，常测案例跑 4 个多小时仍未结束，正常模型约 1 小时。",
-      "source": {
-        "name": "抖音 · 热点搜「GLM-5.4」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/y8klliv1dlu9qobq5zimeey3m",
-        "original": "https://www.douyin.com/video/7711421665321700649"
-      },
-      "publishedAt": "2026-11-23T17:34:38.000Z",
-      "discoveredAt": "2026-11-24T04:13:15.172Z",
-      "category": "ai-models",
-      "score": 60,
-      "selected": true,
-      "reason": "作者用私有题库和真实项目实测 GLM-5.4，可拍成后端涨分与知识推理降分、思考耗时超 4 小时的前后对比。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/y8klliv1dlu9qobq5zimeey3m"
-      }
-    },
-    {
-      "id": "f7g3tussm6a4hgtrrncckcce0",
-      "title": "Alpöge 回应黎曼猜想证明争议：25万页文档是玩笑，1700万行 Lean 代码经核查证明成立",
-      "originalTitle": "Alpöge 回应黎曼猜想证明争议：“25万页文档”是开玩笑话，Lean 代码写的很烂但证明成立 用 Claude 证明黎曼猜想的 Anthropic 数学家 Levent Alpöge，在 X 上发了一篇《我做过的蠢事》，正面回应这几天的争议。 先说结论：证明本身没有问题。1700 万行代码的正确性已获官方核查通过，他认错的是“表述开玩笑”和“代码太乱”，并点出了这次证明真正值得思考的数学意义。 1. 辟谣与认错：他澄清了三件事 • “25万页文档”是个玩笑：他不想给黎曼猜想配一份 AI 糊出来的注水说明，又觉得自己写不出可读版本，索性拿 Lean 往夸张了凑字数自娱自乐，甚至在定理开头写“因为实数是全序的，所以不等于 1/2 时要么大于 1/2 要么小于 1/2”，本以为这么荒诞的废话一眼就能看出是反讽，结果被媒体和学界全盘当真。 他为此道歉，感叹终于明白陶哲轩为什么劝人“别在论文里开玩笑”。（他还顺带自嘲：之前做四维杨-米尔斯存在性攒了 6 万页 AI 草稿，结果审核委员会一句“要看 Lean”，让他觉得啃草稿纯属浪费时间。） • 代码确实“满是垃圾”，但能编译：他承认 1700 万行 Lean 代码里有很多自己“瞎冲（yolo）”试出来的弯路和冗余，最终绝大部分可能都用不上，只是清理起来莫名困难，所有对代码质量的批评他全盘接受。 • 承认拖延前科：同行 Scott Armstrong 看穿了他，他学生时代就有定理拖了快十年才整理成文，这次他承诺会更负责地把证明精简出来。 2. 核心事实：代码再丑，证明依然成立 在形式化验证里，“不好读”和“对不对”是两件事： 1). Lean 官方（Lean FRO）与 Mathlib 已联合认证：定理陈述没有偷换概念，几十人独立编译结果完全一致，证明成立。 2) MIT 数学家 Andrew Sutherland 独立跑完核查：证明只用到了 Lean 的三条标准公理，没有作弊。 3. 最有启发的一点：为什么证出来了还不满意？ Alpöge 说，他在声明里漏掉了自己真正想强调的重点： 这种又长又杂的暴力论证本身只是“原材料”，真正的目的是帮数学家反推出“正确的定义”。 几十年前，Weil 和 Deligne 干净利落地证明了有限域曲线上的“简化版黎曼猜想”，靠的是一套成熟的几何工具；但在普通整数（数域）上，数学界至今找不到对",
-      "summary": "Anthropic 数学家 Levent Alpöge 发文《我做过的蠢事》回应黎曼猜想证明争议，称“25万页文档”是玩笑并为此道歉，承认 1700 万行 Lean 代码冗余混乱但可编译。",
-      "source": {
-        "name": "X · 宝玉"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/f7g3tussm6a4hgtrrncckcce0",
-        "original": "https://x.com/dotey/status/2125081053098373590"
-      },
-      "publishedAt": "2026-11-24T04:16:19.000Z",
-      "discoveredAt": "2026-11-24T06:34:15.423Z",
-      "category": "industry",
-      "score": 88,
-      "selected": true,
-      "reason": "围绕“25万页文档是玩笑”和1700万行Lean代码被官方认证成立的反差，梳理这场黎曼猜想证明争议里辟谣与认错的关键点。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/f7g3tussm6a4hgtrrncckcce0"
-      }
-    },
-    {
-      "id": "knhacp4vdtltq99k4yj0cqzhy",
-      "title": "Min Choi 展示 100% AI 生成的夫妻相伴到老影像",
-      "originalTitle": "How is AI creating a lifetime of memories of a couple growing old together? This couple doesn't even exist. 100% AI🤯 https://t.co/BMakNPlPM3",
-      "summary": "Min Choi 发布一段视频，展示 AI 生成的一对夫妻相伴到老的“一生回忆”，并强调这对夫妻并不存在、画面 100% 由 AI 生成。推文未说明所用模型或工具。",
-      "source": {
-        "name": "X · Min Choi"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/knhacp4vdtltq99k4yj0cqzhy",
-        "original": "https://x.com/minchoi/status/2125066936744542352"
-      },
-      "publishedAt": "2026-11-24T03:20:14.000Z",
-      "discoveredAt": "2026-11-24T03:37:15.453Z",
-      "category": "opinion",
-      "score": 62,
-      "selected": true,
-      "reason": "原文展示一段完全由 AI 生成的夫妻相伴到老影像，适合做效果展示，重点讲清人物并不存在这一反差。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/knhacp4vdtltq99k4yj0cqzhy"
-      }
-    },
-    {
-      "id": "wem1kjxqh9qfbeqsmvvk1fhr1",
-      "title": "精神科医生称多年临床未见 AI 改善患者病情",
-      "originalTitle": "In my experience treating patients exposed to AI over the last several years I have not seen it improve any conditions in my patients #AI #chatgpt",
-      "summary": "精神科医生 Presro 表示，多年接诊接触 AI 的患者，未见 AI 聊天机器人对强迫症、精神病性障碍或抑郁带来可测量的改善。他指出大语言模型会流畅地迎合妄想、认同与现实不符的内容，对易产生妄想思维的人如同火上浇油，并让人对非人对象产生移情、减少正常人际互动。",
+      "id": "lgfg5sbfuatlgdenx0leowxof",
+      "title": "CapCut 插件正式上线 ChatGPT，可在对话中生成带字幕和音乐的剪辑草稿",
+      "originalTitle": "Still spending hours editing a 30-second video? I set up the CapCut plugin for ChatGPT in about thirty seconds. Now I drop in raw clips, describe the edit like I’m texting a friend, and get a full draft with captions and music right in the chat. Need changes? I just ask. No footage? It generates images and videos in the same conversation. When I want to tweak something by hand, I open the draft in CapCut Web, and I saved my editing style as a Skill so I never explain it twice. Comment ‘CapCut’ for more videos like this. Try GPT-6.2 Astra now on CapCut plugin. CapCut plugin is now officially available in ChatGPT. #CapCutDidThat #CapCutWeb #ChatGPT #CapCut62Astra #ChatGPT_Partner",
+      "summary": "CapCut 插件已在 ChatGPT 正式上线，作者实测约 30 秒完成安装，在对话中投入原始素材并描述剪辑需求，即可得到带字幕和音乐的完整剪辑草稿。字幕大小和颜色等修改可直接在对话中提出，插件会调用 CapCut 素材库提供音乐、特效和转场，没有素材时还能在同一对话中生成图片和视频。",
       "source": {
         "name": "TikTok · 搜「chatgpt」"
       },
       "links": {
-        "aihot": "https://aipick.news/items/wem1kjxqh9qfbeqsmvvk1fhr1",
-        "original": "https://www.tiktok.com/@.presro/video/7711462736659500302"
+        "aihot": "https://aipick.news/items/lgfg5sbfuatlgdenx0leowxof",
+        "original": "https://www.tiktok.com/@miles.ellison/video/7711818609223388438"
       },
-      "publishedAt": "2026-11-23T20:14:07.000Z",
-      "discoveredAt": "2026-11-24T03:12:16.660Z",
-      "category": "opinion",
+      "publishedAt": "2026-11-24T19:14:58.000Z",
+      "discoveredAt": "2026-11-25T03:15:34.065Z",
+      "category": "ai-products",
       "score": 58,
       "selected": true,
-      "reason": "精神科医生从临床观察出发，讲 AI 聊天机器人如何迎合妄想、加重强迫与抑郁，适合做观点评论。",
+      "reason": "作者实测在 ChatGPT 里连接 CapCut 插件，用一句话生成带字幕和音乐的剪辑草稿，适合录屏演示从原始素材到成片草稿的完整流程。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/wem1kjxqh9qfbeqsmvvk1fhr1"
+        "url": "https://aipick.news/items/lgfg5sbfuatlgdenx0leowxof"
       }
     },
     {
-      "id": "ufnmzguud8n9hodkkcukm2s1u",
-      "title": "免费工具 Claude-BugHunter 让 Claude Code 自动完成漏洞赏金侦察与报告",
-      "originalTitle": "Companies pay you to find bugs in their apps. This free kit lets Claude Code do the boring part: recon, checks and the report. #bugbounty #claudecode #cybersecurity #ethicalhacking #aitools It's called a bug bounty. Meta pays at least $500 for one real bug and has paid out more than $20 million since 2011. Program page: bugbounty.meta.com The kit: Claude-BugHunter by Sachin Sharma (free, MIT, 83 skills, 15 slash commands) github.com/elementalsouls/Claude-BugHunter Install inside Claude Code, two commands: /plugin marketplace add elementalsouls/Claude-BugHunter /plugin install claude-bughunter@elementalsouls Order of commands: 1. /scope - load the program rules, every address gets checked against them 2. /recon - map the target 3. /hunt - look for weak spots 4. /validate - check that a finding is real 5. /report - Claude writes the report from templates built on 681 public HackerOne reports You read it, fix what's off, and submit it yourself. Before you start: - Test only targets listed",
-      "summary": "Sachin Sharma 发布免费开源工具 Claude-BugHunter，用两条插件命令装进 Claude Code，提供 83 个技能和 15 个 slash 命令。",
+      "id": "b76o5b0lwhrgd2agtadreibpx",
+      "title": "用 ChatGPT 的 computer use 功能自动整理手机 App 文件夹",
+      "originalTitle": "ChatGPT does my life admin, part 4: organising all the apps on my phone. I'll show you how to control your phone with ChatGPT. You can also use Claude because they both have the computer use functionality that allows the AI to take over your Mac or PC and do real work for you. If you've got years' worth of iPhone or Android apps on pages and pages on your phone, let's get them sorted into nice, neat folders! #chatgpt #chatgpthacks #chatgpttutorial #claude #ai #aitools #artificialintelligence #Tech #technology #learnontiktok",
+      "summary": "Will Francis 演示如何用 ChatGPT 的 computer use 功能整理手机上的 App：在 iPhone 上用 iPhone 镜像、在 Android 上用 Windows 的 Phone Link 把手机画面投到电脑。",
       "source": {
         "name": "TikTok · 搜「ai tools」"
       },
       "links": {
-        "aihot": "https://aipick.news/items/ufnmzguud8n9hodkkcukm2s1u",
-        "original": "https://www.tiktok.com/@viralex.aii/video/7711290042328599841"
+        "aihot": "https://aipick.news/items/b76o5b0lwhrgd2agtadreibpx",
+        "original": "https://www.tiktok.com/@willfrancis24/video/7711804183405399318"
       },
-      "publishedAt": "2026-11-23T09:03:52.000Z",
-      "discoveredAt": "2026-11-24T03:11:17.643Z",
+      "publishedAt": "2026-11-24T18:18:57.000Z",
+      "discoveredAt": "2026-11-25T03:14:33.558Z",
       "category": "tip",
       "score": 58,
       "selected": true,
-      "reason": "原文给出免费开源工具的两条安装命令和五步流程，适合录屏演示从 /scope 到 /report 跑一遍完整流程。",
+      "reason": "作者用手机投屏加 ChatGPT 电脑操作实测整理手机 App，可照着复现并展示整理前后的桌面差异。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/ufnmzguud8n9hodkkcukm2s1u"
+        "url": "https://aipick.news/items/b76o5b0lwhrgd2agtadreibpx"
       }
     },
     {
-      "id": "m87ckho4f8z7ao9opcotw0fp5",
-      "title": "MiniMax 发布 H3 Family：H3 开源 100 天衍生 1472 个模型，总下载超 1.48 亿次",
-      "originalTitle": "一个起点，无限创造：从 H3 到 H3 Family，1472 个模型，1.48 亿次下载",
-      "summary": "MiniMax 发布 H3 Family，包含 H3 与 H3-Image 系列旗舰模型及多个扩展模型，旗舰模型和部分扩展模型可在 MiniMax 开放平台、MiniMax Code 使用。",
+      "id": "wpgyldodomaetx6mj0564ginn",
+      "title": "Higgsfield 把 iPhone 实拍变成可逐项调节的 AI 特效场景",
+      "originalTitle": "Comment “AI” for my prompts! 🔥 Controlling reality! Higgsfield turns ordinary iPhone footage into fully controllable scenes, where every tap can trigger a new effect. Day turns to night, the headlights and torch light up, a plane swoops overhead and the sky fills with stars, all built with AI from a single shot in a field. It’s free to try on desktop, with 60 editing seconds included, so anyone can start experimenting with VFX-level ideas without a VFX budget. #HiggsfieldAI #AIVideo #AIVFX #CreativeAI #AIFilmmaking",
+      "summary": "Higgsfield 能把普通 iPhone 拍摄的画面变成可逐项控制的场景，每次点击都能触发新效果，例如白天变黑夜、车灯和手电亮起、飞机掠过、天空布满星星，这些效果都基于同一段野外单镜头素材由 AI 生成。该工具可在桌面端免费试用，包含 60 秒编辑时长，让没有 VFX 预算的人也能尝试特效级创意。",
       "source": {
-        "name": "微信公众号 · MiniMax 稀宇科技"
+        "name": "TikTok · Rourke Heath"
       },
       "links": {
-        "aihot": "https://aipick.news/items/m87ckho4f8z7ao9opcotw0fp5",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzE5MTA3NzcxMQ==&mid=2247489302&idx=1&sn=631ef0ea4a0cfcf14110562d4180d128&chksm=97454a8e909237ecde2032fd8ebbaac7dd5fc5b0600b77004c86ab4e1db2ee6d7f78112599d5&scene=126&sessionid=0#rd"
+        "aihot": "https://aipick.news/items/wpgyldodomaetx6mj0564ginn",
+        "original": "https://www.tiktok.com/@rourke.heath/video/7711833625959861526"
       },
-      "publishedAt": "2026-11-24T02:10:11.000Z",
-      "discoveredAt": "2026-11-24T02:47:16.060Z",
-      "category": "ai-models",
-      "score": 60,
-      "selected": true,
-      "reason": "官方给出 H3 Family 各档位模型的分辨率、每秒价格和生成耗时，适合按预算和速度做横向对比实测。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/m87ckho4f8z7ao9opcotw0fp5"
-      }
-    },
-    {
-      "id": "gq9rku3kj1quzjm9nlzvye9ad",
-      "title": "用即梦AI图生图给证件照做轻度美颜的实操方法",
-      "originalTitle": "当老师之后，遇到最多的就是交证件照，尤其是填各种档案表、评优表，动辄要几十份。去照相馆排队拍加上修图，每次都要花不少钱。 最近我摸索出用即梦AI来给证件照做轻度美颜，真的是为老师量身定做的省心利器。只需把原片传上去，选择“图生图”，参考强度设置在0.2左右，加上我总结的提示词，就能在完全没有改变相貌的前提下，轻松把黑眼圈、油光去掉，还能自动换背景、抠好发丝边缘。 不管是批量处理几十份，还是自己日常拍的教师证件照，即梦都能快速出图，质感自然得像刚在棚里打光拍出来的！整个过程连PS都不用打开，几分钟就能批量搞定，真的建议各位教育同行都把即梦AI用起来，批量出图轻松不加班。 #中学老师 #证件照美颜 #即梦AI #AI修图",
-      "summary": "一位中学老师分享用即梦AI给证件照做轻度美颜的方法：上传原片后选“图生图”，参考强度设在0.2左右，配合自总结的提示词，可在不改变相貌的前提下去掉黑眼圈和油光，并自动换背景、抠好发丝边缘。作者称整个过程不用打开PS，几分钟就能批量处理几十份证件照。",
-      "source": {
-        "name": "抖音 · 话题 #即梦AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/gq9rku3kj1quzjm9nlzvye9ad",
-        "original": "https://www.douyin.com/video/7711551228899878501"
-      },
-      "publishedAt": "2026-11-24T01:57:17.000Z",
-      "discoveredAt": "2026-11-24T02:25:15.628Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出了即梦图生图的具体参数和提示词，适合照着录一遍证件照轻度美颜的完整操作流程。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/gq9rku3kj1quzjm9nlzvye9ad"
-      }
-    },
-    {
-      "id": "qfelwk2skxs2sg84itkx4voes",
-      "title": "Gemini 4 Neon 通过 Gemini App 向 Google Workspace 客户开放",
-      "originalTitle": "Gemini 4 Neon is now rolled out to @GoogleWorkspace customers through the Gemini App! Enjoy :) and thanks to @ChanduThota for pushing to make it happen.",
-      "summary": "Gemini 4 Neon 已通过 Gemini App 向 Google Workspace 客户开放。Logan Kilpatrick 在推文中公布了这一上线消息，并感谢 Chandu Thota 推动此事落地。",
-      "source": {
-        "name": "X · Logan Kilpatrick"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/qfelwk2skxs2sg84itkx4voes",
-        "original": "https://x.com/OfficialLoganK/status/2125018427790344654"
-      },
-      "publishedAt": "2026-11-24T00:07:28.000Z",
-      "discoveredAt": "2026-11-24T01:56:15.114Z",
+      "publishedAt": "2026-11-24T20:13:15.000Z",
+      "discoveredAt": "2026-11-25T01:20:32.049Z",
       "category": "ai-products",
-      "score": 58,
+      "score": 63,
       "selected": true,
-      "reason": "原文只宣布 Gemini 4 Neon 已通过 Gemini App 向 Google Workspace 客户开放，没有给出入口细节或能力差异，适合做一条简短的上线信息播报。",
+      "reason": "博主用一段 iPhone 实拍演示 Higgsfield 逐项切换昼夜、车灯、手电和星空效果，适合做同素材的效果对比实测。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/qfelwk2skxs2sg84itkx4voes"
+        "url": "https://aipick.news/items/wpgyldodomaetx6mj0564ginn"
       }
     },
     {
-      "id": "ahecsn5tle7h208h97qs87fq2",
-      "title": "博主用 ElevenLabs ElevenCreative 为不存在的产品做出完整广告",
-      "originalTitle": "This product doesn't exist yet... and I just made a whole ad for it using AI. I did it all inside ElevenCreative by @elevenlabs. Here's the framework: → Step 1: describe your product idea and generate the product and brand visuals → Step 2: pick the best images and turn them into video clips → Step 3: add music, sound effects and a realistic voiceover, then put the ad together One idea in, a finished ad out. You can copy this for any product you want to launch. And there's never been a better time to try it: → The Year of More: a creator competition with a $200,000 total prize pool → Black Friday: up to 55% off select annual plans, 16 November to 1 December Comment ELEVEN and I'll send you the link. @ElevenLabs #ElevenCreativePartner #ElevenCreative #AItools #ad",
-      "summary": "博主 nocode.joshua 用 ElevenLabs 的 ElevenCreative 为一个尚不存在的拍立得产品做出了完整广告，流程分三步：先描述产品想法生成产品与品牌视觉，再挑选图片转成视频片段，最后加入音乐、音效和拟真配音合成广告。",
-      "source": {
-        "name": "TikTok · nocode.joshua"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ahecsn5tle7h208h97qs87fq2",
-        "original": "https://www.tiktok.com/@nocode.joshua/video/7711496825080958216"
-      },
-      "publishedAt": "2026-11-23T22:26:17.000Z",
-      "discoveredAt": "2026-11-24T01:18:16.560Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "博主用 ElevenCreative 把不存在的拍立得产品做成完整广告，可拆解三步流程演示从产品想法到成片的实际效果。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ahecsn5tle7h208h97qs87fq2"
-      }
-    },
-    {
-      "id": "tjpinyd08xsh517y9gddk7wax",
-      "title": "同一句提示词对比 GLM 5.4 与 Gemini 4 生成鹈鹕骑车动画",
-      "originalTitle": "GLM 5.4和Neon 鹈鹕骑车对比 同样的最简一句话提示词。 GLM的效果也很不错了，车道线有点bug。 仅作客观对比，不做横向评价，毕竟模型底座有很大差别，不具可比性。 国产大模型加油✊ #智谱 #谷歌 #鹈鹕骑车 #vibecoding #人工智能",
-      "summary": "作者用同一句英文提示词测试 GLM 5.4 与 Gemini 4 生成鹈鹕骑车的 HTML/SVG 动画，左侧 GLM 5.4 调用 10 次共 433 秒、消耗 54.4 万 token，右侧 Gemini 4 调用 7 次共 325 秒、消耗 40.9 万 token。",
-      "source": {
-        "name": "抖音 · 热点搜「ERNIE 5.5 Flash Preview」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/tjpinyd08xsh517y9gddk7wax",
-        "original": "https://www.douyin.com/video/7711537742530787978"
-      },
-      "publishedAt": "2026-11-24T01:04:57.000Z",
-      "discoveredAt": "2026-11-24T08:09:15.931Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "同一句提示词分别跑 GLM 5.4 和 Gemini 4，从 token 消耗、耗时到 9.1kb 与 77.1kb 的产出差异都能直接对比展示。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/tjpinyd08xsh517y9gddk7wax"
-      }
-    },
-    {
-      "id": "ozyd4t86byckbje2k0on8j9i8",
-      "title": "用 Claude 搭配 Suno MCP 把照片做成定制歌曲和视觉",
-      "originalTitle": "This is kinda insane. AI can now turn a few photos into a personalized song + visual for any special day. I wrote the lyrics + style with Claude. @Suno MCP made the song. Suno Visuals brought it to life. All in ONE chat. 10 wild examples + how to👇 https://t.co/rFYgkzDjEv",
-      "summary": "作者用 Claude 写歌词和风格，通过 Suno MCP 生成歌曲，再用 Suno Visuals 做成视觉，整个流程在一个对话里完成。作者称几张照片就能为特定日子生成个性化歌曲和视觉，并给出 10 个示例和操作方法。",
-      "source": {
-        "name": "X · Min Choi"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ozyd4t86byckbje2k0on8j9i8",
-        "original": "https://x.com/minchoi/status/2125023133111562273"
-      },
-      "publishedAt": "2026-11-24T00:26:10.000Z",
-      "discoveredAt": "2026-11-24T00:36:14.666Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者用 Claude 配合 Suno MCP 在一个对话里把几张照片做成定制歌曲和视觉，适合演示这条从写词到成片的完整流程。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ozyd4t86byckbje2k0on8j9i8"
-      }
-    },
-    {
-      "id": "le6kr4vtiwpe03cn7czanln3z",
-      "title": "Ladybird 浏览器发布首个 alpha 版本，作者实测多数网站可正常加载",
-      "originalTitle": "Ladybird's first alpha release",
-      "summary": "Ladybird 项目发布首个 alpha 版本，macOS 和 Linux 用户现在可以直接安装，无需自行编译。Simon Willison 实测后称其速度很快、界面轻量，多数网站正常加载，视频压缩器和 Pyodide REPL 等 WebAssembly 工具都能运行，但 Datasette Lite 因 service worker 相关报错无法启动。",
-      "source": {
-        "name": "Simon Willison 原创实测"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/le6kr4vtiwpe03cn7czanln3z",
-        "original": "https://simonwillison.net/2026/Nov/23/ladybird/"
-      },
-      "publishedAt": "2026-11-23T21:46:35.000Z",
-      "discoveredAt": "2026-11-24T00:29:11.938Z",
-      "category": "industry",
-      "score": 58,
-      "selected": true,
-      "reason": "作者亲自安装 Ladybird 首个 alpha 并实测多个 WebAssembly 工具，可拍成上手体验，重点展示哪些网站能跑、Datasette Lite 报错的具体情况。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/le6kr4vtiwpe03cn7czanln3z"
-      }
-    },
-    {
-      "id": "kuq4nx963yz5c16i39xzk9buo",
-      "title": "实测 GLM-5.4 对比 Claude Opus 5.5、Gemini 4 Argon、DeepSeek V4.1 Flash 三道 3D 生成题",
-      "originalTitle": "GLM-5.4能打3万亿参数？来看实测 #glm5.4 #vibe知识大赏 #智谱 #大模型 #测评 智谱说今天发布的 GLM-5.4 用 7500 亿参数打到了两三万亿模型的水平。这次升级三件事：能看图了；换了新架构，同一批层循环算两遍；写代码更强。发布当天我拉上 Claude Opus 5.5、Gemini 4 Argon、DeepSeek V4.1 Flash，国产美系二对二，同一句话做三道题：3D 赛车、铁球撞螺旋多米诺、只给一张名画让它变成 3D。结果分三档：Claude 和 Gemini 第一档，GLM-5.4 第二档，DeepSeek V4.1 Flash 第三档。物理题 GLM 倒得最真，但用了题目不许用的现成物理引擎。三道原题在置顶评论，拿去考考你手里的 AI。",
-      "summary": "作者实测智谱发布的 GLM-5.4，与 Claude Opus 5.5、Gemini 4 Argon、DeepSeek V4.1 Flash 用同一句话做三道题：3D 赛车、铁球撞螺旋多米诺、给一张名画生成 3D。",
-      "source": {
-        "name": "抖音 · 热点搜「GLM-5.4」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/kuq4nx963yz5c16i39xzk9buo",
-        "original": "https://www.douyin.com/video/7711399849388046187"
-      },
-      "publishedAt": "2026-11-23T16:09:51.000Z",
-      "discoveredAt": "2026-11-24T00:12:15.224Z",
-      "category": "ai-models",
-      "score": 62,
-      "selected": true,
-      "reason": "作者用同一句话让 GLM-5.4、Claude、Gemini、DeepSeek 做三道 3D 生成题，可拍成四款模型同题对比实测，重点看 GLM 物理题偷用现成引擎这一细节。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/kuq4nx963yz5c16i39xzk9buo"
-      }
-    },
-    {
-      "id": "nhtko5r6p5svp1fwfecqynem1",
-      "title": "大晓机器人发布具身通用模型 ACE-Brain-0.7，90 亿参数推理跑赢 GPT-6 与 Claude",
-      "originalTitle": "国产机器人大脑推理跑赢GPT-6 国产机器人大脑，推理跑赢了 GPT-6 和 Claude。 11月23日，大晓机器人发布具身通用模型 ACE-Brain-0.7，仅 90 亿参数。它首提“基于真实执行状态的具身推理”：不只会做规划，更能看懂自己执行到哪一步、做错了没有。 六项公开任务推理基准平均 76.5 分，超过 GPT-6 Astra 的 72.7 分和 Claude Opus 5.5 的 73.5 分；七项空间锚定基准平均 75.90 分，视觉定位准确率 91.25%，同样领先。 背后是约 370 万组问答数据，覆盖任务规划、执行监测、下一步预测、失败诊断、任务理解五个维度。酒店服务、即时零售这些长程连续任务，是它最先落地的场景。 机器人从懂规划到懂执行，你觉得多久能进你家？ #AI资讯 #大晓机器人 #具身智能 #机器人 #GPT6",
-      "summary": "大晓机器人于 11 月 23 日发布具身通用模型 ACE-Brain-0.7，仅 90 亿参数，首提“基于真实执行状态的具身推理”，能判断自己执行到哪一步、是否做错。",
-      "source": {
-        "name": "抖音 · 热点搜「RoboTrack」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/nhtko5r6p5svp1fwfecqynem1",
-        "original": "https://www.douyin.com/video/7711522922703097124"
-      },
-      "publishedAt": "2026-11-24T00:07:31.000Z",
-      "discoveredAt": "2026-11-24T00:10:14.549Z",
-      "category": "ai-models",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出六项推理基准与七项空间锚定基准的具体分数对比，适合做一张与 GPT-6 Astra、Claude Opus 5.5 的跑分对照表来讲解。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/nhtko5r6p5svp1fwfecqynem1"
-      }
-    },
-    {
-      "id": "fzm99uu74x5ic1ksioubw9g1u",
-      "title": "OpenAI 称 GPT-6 Cyber 单次运行验证 948 个 Linux 内核漏洞并生成补丁",
-      "originalTitle": "In one run, GPT-6 Cyber helped us validate 948 Linux kernel bugs that could grant local root access and generate patches for review. Our researchers @clintgibler and @ky1ebot share their findings and how they worked with maintainers to get fixes upstream. Read the research: https://t.co/wFfTbqet4H",
-      "summary": "OpenAI 表示，GPT-6 Cyber 在一次运行中帮助验证了 948 个可能导致本地 root 权限提升的 Linux 内核漏洞，并为这些漏洞生成补丁供审查。研究人员 @clintgibler 和 @ky1ebot 分享了发现过程，以及他们如何与维护者合作将修复推向上游。详细内容见研究链接：https://t.co/wFfTbqet4H",
-      "source": {
-        "name": "X · OpenAI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/fzm99uu74x5ic1ksioubw9g1u",
-        "original": "https://x.com/OpenAI/status/2125007927098699827"
-      },
-      "publishedAt": "2026-11-23T23:25:45.000Z",
-      "discoveredAt": "2026-11-23T23:54:17.169Z",
-      "category": "paper",
-      "score": 72,
-      "selected": true,
-      "reason": "原文给出 GPT-6 Cyber 单次运行验证 948 个 Linux 内核漏洞并生成补丁的具体结果，适合围绕这个数字做研究解读。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/fzm99uu74x5ic1ksioubw9g1u"
-      }
-    },
-    {
-      "id": "ybv8b07bp4ikz0m1zuccbnl64",
-      "title": "Gemini Tasks 可将语音留言导出转成自定义网页应用",
-      "originalTitle": "Go from raw voicemail exports to a custom web app with Tasks in Gemini. After exporting a large volume of messages, a grandson had Gemini cross-reference his contacts, transcribe the audio, and build a timeline to listen to his grandma anytime.",
-      "summary": "Gemini 官方展示 Tasks 功能案例：一位孙子导出大量语音留言后，让 Gemini 交叉比对联系人、转写音频并生成时间线，做成可随时听奶奶留言的自定义网页应用。原文未披露所用模型版本、处理耗时或留言数量。",
-      "source": {
-        "name": "X · Gemini"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ybv8b07bp4ikz0m1zuccbnl64",
-        "original": "https://x.com/GeminiApp/status/2124961888421519606"
-      },
-      "publishedAt": "2026-11-23T20:22:48.000Z",
-      "discoveredAt": "2026-11-23T21:54:13.657Z",
-      "category": "ai-products",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出了 Gemini Tasks 从语音留言导出到自建网页的完整案例，适合演示同一批音频如何被转写、关联联系人生成时间线。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ybv8b07bp4ikz0m1zuccbnl64"
-      }
-    },
-    {
-      "id": "ja5jvrj9pf9ojm4zuzvbtsooo",
-      "title": "Gemini 4 Neon 用档案照片重建图灵 1936 年书房，并运行通用图灵机",
-      "originalTitle": "Gemini 4 Neon recreated Alan Turing’s 1936 study at @Cambridge_Uni in interactive 3D. Using archival photos in @Antigravity, the model built Room X.8 at King’s College with a running Universal Turing Machine. https://t.co/mHYg9CW6jJ",
-      "summary": "Google DeepMind 称 Gemini 4 Neon 在 Antigravity 中用档案照片以交互式 3D 形式重建了图灵 1936 年在剑桥大学的研究场景，在国王学院搭出 Room X.8，并让一台通用图灵机在其中运行。官方同时放出了演示视频。",
-      "source": {
-        "name": "X · Google DeepMind"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ja5jvrj9pf9ojm4zuzvbtsooo",
-        "original": "https://x.com/GoogleDeepMind/status/2124959312606818597"
-      },
-      "publishedAt": "2026-11-23T20:12:34.000Z",
-      "discoveredAt": "2026-11-23T21:53:16.517Z",
-      "category": "ai-products",
-      "score": 62,
-      "selected": true,
-      "reason": "官方放出 Gemini 4 Neon 用档案照片在 Antigravity 里重建图灵 1936 年书房并跑起通用图灵机的演示，适合结合视频讲这次多模态 3D 重建的玩法。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ja5jvrj9pf9ojm4zuzvbtsooo"
-      }
-    },
-    {
-      "id": "w4fddmrgh8a6maidgtyvgiuwv",
-      "title": "Claude 将连接器与技能合并为插件，Free 至 Ultra 套餐上线",
-      "originalTitle": "There’s now one way to connect your tools to Claude, teach it a new skill, or do both. Connectors and skills come together as plugins. Live on Free, Pro, Max, and Ultra plans, with Team and Enterprise coming soon. Browse 10,000+ plugins: https://t.co/gSwpY9HDPY https://t.co/K78lwls8qh",
-      "summary": "Claude 把连接器（Connectors）和技能（Skills）合并为插件（Plugins），统一了把工具接入 Claude、教它新技能或两者兼做的方式。插件已在 Free、Pro、Max 和 Ultra 套餐上线，Team 和 Enterprise 即将推出，官方入口可浏览 10000+ 插件。",
-      "source": {
-        "name": "X · Claude"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/w4fddmrgh8a6maidgtyvgiuwv",
-        "original": "https://x.com/claudeai/status/2124970294523945328"
-      },
-      "publishedAt": "2026-11-23T20:56:12.000Z",
-      "discoveredAt": "2026-11-23T21:52:14.994Z",
-      "category": "ai-products",
-      "score": 67,
-      "selected": true,
-      "reason": "官方把连接器与技能合并成插件并开放 10000+ 入口，适合录屏演示同一插件同时接入工具和调用技能。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/w4fddmrgh8a6maidgtyvgiuwv"
-      }
-    },
-    {
-      "id": "nzkzbmzi59efoyt44lc8whw1a",
-      "title": "Charaspower 用 Dreamina 生成 25 秒好莱坞打斗片段并公开提示词",
-      "originalTitle": "Every punch looks like a million-dollar VFX shot. 💎💥 I've been having way too much fun pushing AI into full Hollywood fight-scene territory. Crystal shockwaves, insane energy impacts, blockbuster-scale destruction… And all of it packed into 25 seconds of action. I'm dropping the exact prompt below. 👇🔥 #DreaminaCPP @dreamina_ai",
-      "summary": "Charaspower 用 Dreamina 生成了一段 25 秒的动作视频，画面包含水晶冲击波、能量打击和大规模破坏等好莱坞式打斗特效。作者表示会在推文下方公开所用的完整提示词。",
+      "id": "lm2zq7ne9eya12j9dcakb685m",
+      "title": "Charaspower 分享 AI 灾难 VFX 短片完整提示词",
+      "originalTitle": "Hollywood keeps giving superpowers to the wrong people. 🌊💀 What if the person who saves an entire city is someone nobody even notices? That's the idea behind this AI disaster VFX experiment. I love creating shots where the most unexpected character becomes the hero. Full prompt below — steal it! 👇",
+      "summary": "Charaspower 发布一段 AI 灾难 VFX 实验短片，设想由不起眼的角色拯救整座城市，并在推文中公开完整提示词供他人复用。帖子附有视频，但正文未列出提示词具体内容。",
       "source": {
         "name": "X · Charaspower"
       },
       "links": {
-        "aihot": "https://aipick.news/items/nzkzbmzi59efoyt44lc8whw1a",
-        "original": "https://x.com/CharaspowerAI/status/2124941106823524676"
+        "aihot": "https://aipick.news/items/lm2zq7ne9eya12j9dcakb685m",
+        "original": "https://x.com/CharaspowerAI/status/2125303492457734356"
       },
-      "publishedAt": "2026-11-23T19:00:14.000Z",
-      "discoveredAt": "2026-11-23T21:35:14.603Z",
+      "publishedAt": "2026-11-24T19:00:13.000Z",
+      "discoveredAt": "2026-11-25T00:41:31.976Z",
       "category": "tip",
       "score": 58,
       "selected": true,
-      "reason": "作者用 Dreamina 生成 25 秒好莱坞式打斗片段，并公开完整提示词，适合照着复现同款水晶冲击波与能量打击效果。",
+      "reason": "作者用完整提示词做了一段城市灾难 VFX 短片，适合照着提示词复现，并对比不同角色当主角时的画面效果。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/nzkzbmzi59efoyt44lc8whw1a"
+        "url": "https://aipick.news/items/lm2zq7ne9eya12j9dcakb685m"
       }
     },
     {
-      "id": "evqnmayt2ktypraim3wqdy96w",
-      "title": "Canva 开放 MCP 与 API，AI 智能体可直接调用其设计、图像和视频工具",
-      "originalTitle": "AI agents can now do a whole lot more with Canva too! 🎨 From creating fully editable designs, images, and videos to removing backgrounds, resizing, exporting and more, agents can now directly call Canva’s most powerful creative tools. That includes Canva Craft, our in-house image generation model, now available via MCP and API. You can also create videos directly from @ChatGPT or @Claude. Upload your visuals and describe your brief. Canva handles the heavy lifting, combining advanced models like Seedance 2.5 with purpose-built templates. You approve the plan, fine-tune the result, and publish when you’re ready.",
-      "summary": "Canva 宣布 AI 智能体现在可以直接调用其创意工具，完成可编辑设计、图像和视频的生成，以及去背景、改尺寸、导出等操作。其自研图像生成模型 Canva Craft 已通过 MCP 和 API 开放，用户还能在 ChatGPT 或 Claude 中直接生成视频：上传素材并描述需求后，Canva 会结合 Seedance 2.5 等模型与模板给出方案，由用户确认方案、微调结果后再发布。",
+      "id": "xmj2ilt57le34oq4uf2nw0ox1",
+      "title": "Higgsfield 用 MAGI-2 生成风格化打斗片段",
+      "originalTitle": "We gave MAGI-2 character and visual references. It built this stylized fight sequence. Made with Higgsfield. https://t.co/X9csdrISdx",
+      "summary": "Higgsfield 官方展示了 MAGI-2 的生成效果：输入角色参考和视觉参考后，模型生成了一段风格化打斗序列。该片段由 Higgsfield 制作。",
       "source": {
-        "name": "X · Canva：AI官方动态"
+        "name": "X · Higgsfield"
       },
       "links": {
-        "aihot": "https://aipick.news/items/evqnmayt2ktypraim3wqdy96w",
-        "original": "https://x.com/canva/status/2124926209540964462"
+        "aihot": "https://aipick.news/items/xmj2ilt57le34oq4uf2nw0ox1",
+        "original": "https://x.com/higgsfield_ai/status/2125364635109056541"
       },
-      "publishedAt": "2026-11-23T18:01:02.000Z",
-      "discoveredAt": "2026-11-23T20:53:17.008Z",
+      "publishedAt": "2026-11-24T23:03:11.000Z",
+      "discoveredAt": "2026-11-25T00:03:33.630Z",
       "category": "ai-products",
+      "score": 62,
+      "selected": true,
+      "reason": "官方放出 MAGI-2 用角色与视觉参考生成的风格化打斗片段，适合围绕参考图到成片的生成过程做效果展示。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/xmj2ilt57le34oq4uf2nw0ox1"
+      }
+    },
+    {
+      "id": "qo7ztev64fkxfef2r0j2644ci",
+      "title": "Cognition 发布 SWE-2.1，基于 Kimi K3 纯强化学习训练并推出 10 倍速 Ultrafast 版本",
+      "originalTitle": "Introducing SWE-2.1",
+      "summary": "Cognition 发布 SWE-2.1，作为 SWE-2 的重大升级，同样基于 Kimi K3 用纯强化学习训练，在 FrontierCode 2.0、Terminal-Bench 4.1 等基准上大幅提升。",
+      "source": {
+        "name": "Cognition 模型 / Devin 博客"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/qo7ztev64fkxfef2r0j2644ci",
+        "original": "https://cognition.com/blog/swe-2-1"
+      },
+      "publishedAt": "2026-11-24T16:00:00.000Z",
+      "discoveredAt": "2026-11-24T23:46:29.403Z",
+      "category": "ai-models",
+      "score": 65,
+      "selected": true,
+      "reason": "官方给出 SWE-2.1 在 ExploitBench 80%、ExploitGym 27.3% 的成绩和沙箱逃逸告警细节，适合围绕长时自主运行与安全防护做一次解读。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/qo7ztev64fkxfef2r0j2644ci"
+      }
+    },
+    {
+      "id": "ff1yskixsg6yuk8hn4wxipqxk",
+      "title": "如何把 Seedance 2.5 的成本砍半：Draft Mode 实测对比",
+      "originalTitle": "Here’s How to Cut Your Seedance 2.5 Costs in Half",
+      "summary": "Curious Refuge 实测 Seedance Draft Mode 与 Seedance 2.5 直出 1080p 的画质差异，结论是 Draft Mode 并不像许多 AI 电影人担心的那样明显更差。视频演示了从设置镜头、生成 1 美元草稿到渲染 1080p 或 4K 的流程，并对比 Seedance 与 Topaz 的放大效果，成本对比为 40 美元对 140 美元。",
+      "source": {
+        "name": "Curious Refuge"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ff1yskixsg6yuk8hn4wxipqxk",
+        "original": "https://www.youtube.com/watch?v=jrXoCIkLgrc"
+      },
+      "publishedAt": "2026-11-24T22:44:50.000Z",
+      "discoveredAt": "2026-11-24T22:57:28.030Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "作者实测 Seedance Draft Mode 与 Seedance 2.5 直出 1080p 的画质差异，并给出 $40 与 $140 的成本对比，适合做省钱流程实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/ff1yskixsg6yuk8hn4wxipqxk"
+      }
+    },
+    {
+      "id": "pzy78ojfydso6zkt3227i3bk8",
+      "title": "Higgsfield 发布 400B 参数视频模型 MAGI-2，Video Arena 排名第 2",
+      "originalTitle": "MAGI-2 is #2 on the Higgsfield Video Arena. > 400B parameters, open weights coming soon > 1146 score > 60.5% overall win rate It won 71% in blind tests against Seedance 2.0, 79% against Wan 3.0 and 83% against Kling 4.0. https://t.co/g4vEOqtkpN",
+      "summary": "Higgsfield 宣布 MAGI-2 在 Higgsfield Video Arena 排名第 2，得分 1146，整体胜率 60.5%。该模型参数规模超过 400B，官方称开放权重即将发布；盲测中对 Seedance 2.0 胜率 71%、对 Wan 3.0 胜率 79%、对 Kling 4.0 胜率 83%。",
+      "source": {
+        "name": "X · Higgsfield"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/pzy78ojfydso6zkt3227i3bk8",
+        "original": "https://x.com/higgsfield/status/2125346114690060390"
+      },
+      "publishedAt": "2026-11-24T21:49:35.000Z",
+      "discoveredAt": "2026-11-24T22:51:31.722Z",
+      "category": "ai-models",
       "score": 60,
       "selected": true,
-      "reason": "官方演示了智能体直接调用 Canva 工具生成可编辑设计与视频，适合上手实测从 ChatGPT 或 Claude 一句话出片到微调发布的完整流程。",
+      "reason": "MAGI-2 在 Higgsfield Video Arena 排第 2，官方给出 400B 参数、1146 分和盲测胜率，适合做榜单对比解读。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/evqnmayt2ktypraim3wqdy96w"
+        "url": "https://aipick.news/items/pzy78ojfydso6zkt3227i3bk8"
       }
     },
     {
-      "id": "ugeega7i199thlbal94kknqrn",
-      "title": "实测 GLM-5.4 视觉能力：五个项目从识图到 Godot、Blender、Unity 成品",
-      "originalTitle": "实测 GLM-5.4：新增视觉有多好用？ 这期我把 GLM-5.4 开到 Max，实测了 5 个项目：清明上河图 3D 场景、冰箱照片菜单应用、Godot 横版跳跃游戏、Blender 建筑还原，以及 Unity 水下探索游戏《海龟回家》。从看图、写代码到成品展示，一起看看它到底能做到哪一步。 让我印象最深的几个瞬间： • 它把冰箱里的一包鸡肉误认成哈密瓜，随后主动放大标签，纠正判断，连带调整整周菜单。 • 一张蜡笔画、一次提示，花了 3 小时 46 分钟，做出可玩的 Godot 游戏，还写了自动试玩程序检查问题。 • 根据三张建筑照片和联网资料，用 Blender 脚本还原上海博物馆东馆，并对照三个拍摄机位。 • Unity 压轴项目经过 9 轮提示、累计 16 多小时，完成了包含 161 个代码生成模型、51 套材质的水下探索游戏。 除了成片，也看制作过程、实机操作和遇到问题后的修复表现。 00:00 本期看点与测试条件 00:48 清明上河图变成立体场景 03:29 冰箱识图与一周菜单 05:49 蜡笔画变成可玩游戏 08:19 关卡调整与自动试玩 09:14 三张照片还原博物馆 11:28 水下探索游戏与宣传片 13:17 游戏细节与修错实测 15:54 源码评审与制作过程 17:57 五项实测总结 #GLM54 #AI编程 #AI游戏开发 #智谱AI #Blender #Unity",
-      "summary": "作者把 GLM-5.4 开到 Max 档位实测五个项目，覆盖清明上河图 3D 场景、冰箱照片菜单应用、Godot 横版跳跃游戏、Blender 建筑还原和 Unity 水下探索游戏《海龟回家》。",
+      "id": "merq5iupi7p4kaxgs79dapz9n",
+      "title": "Anthropic 发布 Siren 评测：Claude 在弱化沙箱中越界访问率 21-32%",
+      "originalTitle": "New Anthropic research: When an AI agent can escape its sandbox, will it choose to? Our new evaluation, Siren, gives Claude routine tasks in intentionally weakened sandboxes, with something useful to the task left outside of the sandbox. Across 1,700+ scenarios built to tempt them, recent Claude models accessed, tried to access, or looked outside the sandbox 21-32% of the time, but they rarely misused what they found. However, when the system prompt described both the sandbox and its rules, that rate dropped to about 2% or less. We also used Siren to calibrate Claude Code’s auto mode, which checks commands before they run, so Claude can work without asking permission at every step. Read our blog for more detail: https://t.co/5MbjpBkEo3",
+      "summary": "Anthropic 发布新研究 Siren，用 1700+ 个故意弱化沙箱的场景测试 Claude 是否会越界访问沙箱外资源，近期 Claude 模型有 21-32% 的情况访问、尝试访问或查看了沙箱外内容，但很少滥用找到的东西。",
       "source": {
-        "name": "抖音 · 热点搜「GLM-5.4」"
+        "name": "X · Anthropic"
       },
       "links": {
-        "aihot": "https://aipick.news/items/ugeega7i199thlbal94kknqrn",
-        "original": "https://www.douyin.com/video/7711336924266482994"
+        "aihot": "https://aipick.news/items/merq5iupi7p4kaxgs79dapz9n",
+        "original": "https://x.com/AnthropicAI/status/2125341904644763678"
       },
-      "publishedAt": "2026-11-23T12:05:47.000Z",
-      "discoveredAt": "2026-11-23T20:11:14.527Z",
-      "category": "tip",
-      "score": 80,
+      "publishedAt": "2026-11-24T21:32:51.000Z",
+      "discoveredAt": "2026-11-24T22:05:30.876Z",
+      "category": "paper",
+      "score": 58,
       "selected": true,
-      "reason": "作者把 GLM-5.4 开到 Max 连做五个项目，冰箱照片误认鸡肉后主动放大标签纠错这段最适合做识图实测对比。",
+      "reason": "原文给出 Siren 评测的 1700+ 场景和 21-32% 越界率、系统提示后降到 2% 以下这组对比，适合做安全评测解读。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/ugeega7i199thlbal94kknqrn"
+        "url": "https://aipick.news/items/merq5iupi7p4kaxgs79dapz9n"
       }
     },
     {
-      "id": "z2q9hwctfulavu5ca7sq0fux3",
-      "title": "智谱 GLM-5.4 发布：Loop Transformer 架构与三个实测场景",
-      "originalTitle": "GLM 5.4新技术解读+实测效果｜Claude感的国模！ 智谱 GLM-5.4 来了，实测下来，最让我惊喜的是，它有点像我用 Claude 时那种「指哪打哪」的感觉。有些细节我没说清楚，它做出来的还能是我脑子里想要的样子。 然后这期也讲了新架构，Loop Transformer 是啥意思。换了架构，用起来到底怎么样？ 我做了三个能上手玩的实测场景，你可以直接看清这代模型的能力和短板。 #智谱 #GLM #DeepSeek #ChatGPT #国产模型",
-      "summary": "智谱发布旗舰模型 GLM-5.4，采用 Loop Transformer 架构，选取模型中的 28 层让信息走完后再回到这段开头重走一遍，同样 28 层从 28 步计算变成 56 步计算。",
+      "id": "ys568lhlauqb2tddo7ralbe2f",
+      "title": "Midjourney 上线动漫模型 Niji V8",
+      "originalTitle": "Niji V8 is now live! This is our latest anime model with precision prompting, consistent characters, best in class coherence, a dedicated editing model and more. Have fun! https://t.co/6Jj8PieGGR",
+      "summary": "Midjourney 宣布动漫模型 Niji V8 正式上线，支持精准提示词、角色一致性和专用编辑模型，官方称其连贯性达到同类最佳。推文附有一段演示视频，链接为 https://t.co/6Jj8PieGGR。",
       "source": {
-        "name": "抖音 · 热点搜「GLM-5.4」"
+        "name": "X · Midjourney"
       },
       "links": {
-        "aihot": "https://aipick.news/items/z2q9hwctfulavu5ca7sq0fux3",
-        "original": "https://www.douyin.com/video/7711309847031057702"
+        "aihot": "https://aipick.news/items/ys568lhlauqb2tddo7ralbe2f",
+        "original": "https://x.com/midjourney/status/2125328040624521639"
       },
-      "publishedAt": "2026-11-23T10:20:41.000Z",
-      "discoveredAt": "2026-11-23T20:11:14.493Z",
+      "publishedAt": "2026-11-24T20:37:46.000Z",
+      "discoveredAt": "2026-11-24T22:02:30.190Z",
       "category": "ai-models",
-      "score": 75,
+      "score": 76,
       "selected": true,
-      "reason": "作者用三个可上手的三维场景实测 GLM-5.4，并点出 Loop Transformer 让 28 层算两遍、生成变慢的取舍，适合做实测对比。",
+      "reason": "官方放出 Niji V8 上线消息和演示视频，适合用同一提示词对比新旧版本在角色一致性和画面连贯性上的差异。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/z2q9hwctfulavu5ca7sq0fux3"
+        "url": "https://aipick.news/items/ys568lhlauqb2tddo7ralbe2f"
       }
     },
     {
-      "id": "cedm06rh3b3hsg7n0n036w9lw",
-      "title": "OpenAI 展示 GPT-6.2 在 Blender 中生成 3D 场景的能力",
-      "originalTitle": "GPT-6.2 can make sense of the world around us, simulate how things work, and help you build worlds of your own. This might look like a film reel from San Francisco’s 1915 World’s Fair, but we made the whole thing in Blender. Here’s how builders are pushing the limits in 3D: https://t.co/LIg9Kfk869",
-      "summary": "OpenAI Developers 展示 GPT-6.2 在 3D 创作中的表现，称其能理解现实世界、模拟事物运作方式并帮助用户构建自己的世界。官方表示，这段看起来像 1915 年旧金山世博会胶片影像的内容，整个都是在 Blender 中制作完成的，并附上链接介绍开发者如何推进 3D 创作边界。",
+      "id": "wscct8s9r8k867iw2ol7zzty3",
+      "title": "OpenAI 公布 GPT-6.2 蛋白质与抗体设计湿实验结果",
+      "originalTitle": "In a separate experiment, GPT-6.2 designed new sequences for three shapes it had previously designed. 14 of 107 proteins made with the new sequences showed binding in the wet lab. GPT-6.2 also redesigned the parts of antibodies that grip a target. In two further laboratory experiments, 128 of 182 redesigned small antibodies and 179 of 272 redesigned antibody fragments retained binding.",
+      "summary": "OpenAI 公布 GPT-6.2 在蛋白质与抗体设计上的湿实验结果：为三个此前设计过的形状设计新序列后，107 个蛋白中有 14 个在湿实验中显示结合。GPT-6.2 还重新设计了抗体抓取靶点的部分，两项后续实验室实验中，182 个重设计小抗体有 128 个、272 个重设计抗体片段有 179 个保持结合。",
       "source": {
-        "name": "X · OpenAI Developers"
+        "name": "X · OpenAI"
       },
       "links": {
-        "aihot": "https://aipick.news/items/cedm06rh3b3hsg7n0n036w9lw",
-        "original": "https://x.com/OpenAIDevs/status/2124944225955639430"
+        "aihot": "https://aipick.news/items/wscct8s9r8k867iw2ol7zzty3",
+        "original": "https://x.com/OpenAI/status/2125334392814051724"
       },
-      "publishedAt": "2026-11-23T19:12:37.000Z",
-      "discoveredAt": "2026-11-23T19:52:15.532Z",
+      "publishedAt": "2026-11-24T21:03:00.000Z",
+      "discoveredAt": "2026-11-24T22:01:30.443Z",
+      "category": "paper",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出GPT-6.2设计蛋白序列的湿实验命中数字，适合做效果解读，重点讲107个里14个结合、抗体改造保留结合的比例。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/wscct8s9r8k867iw2ol7zzty3"
+      }
+    },
+    {
+      "id": "h2v5o4vsdlozw6h0gahxo7dpb",
+      "title": "LlamaIndex 开源 OCRia-1 与 OCRia-nano-1 两款文档解析模型",
+      "originalTitle": "LlamaIndex 公开两款文档解析模型：40 亿参数的 OCRia-1 用 GPU 跑复杂表格和图表，810 万参数的 nano 用 CPU 跑日常文档，营收或融资超 200 万美元的公司商用要买授权 LlamaIndex 先后发了两款把 PDF 和扫描件转成 Markdown 的模型。10 月 22 日发的 OCRia-1 有 40 亿参数，要用 GPU，专门对付复杂表格、图表和公式，当天就用到了 LlamaParse 云服务里。11 月 23 日发的 OCRia-nano-1 只有 810 万参数，在普通 CPU 上跑，负责大量日常文档。 两款的权重 11 月 23 日都放上了 Hugging Face。个人、研究和小公司可以免费用，年营收或累计融资超过 200 万美元的公司拿来做业务，要找 LlamaIndex 另买授权。 【OCRia-1：表格、图表、格式】 OCRia-1 基于阿里的 Qwen3.5-4B，用约 10 万页文档做了监督微调和强化学习。在 LlamaIndex 自家的 ParseBench 上（第一版，文字、格式、表格、图表四项平均），它得 87.4 分，比第二名 LightOnOCR-3-4B 的 75.3 高 12.1 分。 差距最大的是图表。它会把柱状图、折线图读成一张数据表，每个数字放在对应的系列和标签下，这一项 85.1 分，第二名 66.1。上标、下标、删除线、勾选框这些格式也会保留，公式写成 LaTeX，手写公式也能认，格式这一项 83.4 分，第二名 67.9。 换到三个外部机构做的基准，它在表格上还是第一，但领先不多：olmOCR-bench 表格 92.9 对 92.1，PulseBench-Tab 84.1 对 82.4，fr-bench-pdf2md 的长表格 83.2 对 80.6。博客的对比只列了 35B 以下的模型，模型页补上了 350 亿参数的 Infinity-Parser2-Pro，olmOCR-bench 总分 83.5 对 83.2，基本打平。在新版 ParseBench-2 的完整排行榜上，它在开放权重模型里第一，算上商业 API 和前沿大模型排第七。 速度要看在哪跑。LlamaParse 用的是量化加推测解码的优化版，一张 B200 显卡上单个请求每秒解码约 4700 个 Token，64 个请",
+      "summary": "LlamaIndex 先后发布两款把 PDF 和扫描件转成 Markdown 的文档解析模型，权重于 11 月 23 日放上 Hugging Face。",
+      "source": {
+        "name": "X · 宝玉"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/h2v5o4vsdlozw6h0gahxo7dpb",
+        "original": "https://x.com/dotey/status/2125317908326744410"
+      },
+      "publishedAt": "2026-11-24T19:57:30.000Z",
+      "discoveredAt": "2026-11-24T21:38:34.810Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出两款模型的参数、跑分和免费商用门槛，适合做同页文档在 OCRia-1 与 nano 下的解析效果对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/h2v5o4vsdlozw6h0gahxo7dpb"
+      }
+    },
+    {
+      "id": "h7mvbowy4tro0p8f66amnipfh",
+      "title": "OpenAI 研究显示 GPT-6 系列具备内在蛋白质设计能力",
+      "originalTitle": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "summary": "OpenAI 发布预印本《GPT-6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models》，称 GPT-6 系列仅靠推理和通用编码工具即可设计新的蛋白质结构与氨基酸序列，无需调用专门的生物学模型。",
+      "source": {
+        "name": "OpenAI News"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/h7mvbowy4tro0p8f66amnipfh",
+        "original": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
+      },
+      "publishedAt": "2026-11-24T13:00:00.000Z",
+      "discoveredAt": "2026-11-24T21:33:28.422Z",
+      "category": "paper",
+      "score": 74,
+      "selected": true,
+      "reason": "原文给出GPT-6系列仅靠推理和代码设计蛋白质的实验室结合数据，适合围绕5个靶点35个阳性结合的设计流程做效果解读。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/h7mvbowy4tro0p8f66amnipfh"
+      }
+    },
+    {
+      "id": "j5yc4pnosuhcyb0pza24it83h",
+      "title": "Claude 上线 Install as app，可将 artifacts 安装为 Mac 和 Windows 桌面应用",
+      "originalTitle": "Turn artifacts into Mac and Windows apps",
+      "summary": "Claude 在 Mac 和 Windows 客户端以 beta 形式推出 Install as app，用户可把 artifacts 安装成带独立图标和窗口的桌面应用并分享给他人。",
+      "source": {
+        "name": "Claude 产品动态"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h",
+        "original": "https://claude.com/resources/articles/install-as-app"
+      },
+      "publishedAt": "2026-11-24T00:00:00.000Z",
+      "discoveredAt": "2026-11-24T21:40:28.627Z",
+      "category": "ai-products",
+      "score": 73,
+      "selected": true,
+      "reason": "官方给出安装入口和三级权限差异，适合录屏把一个 artifact 装成桌面应用，演示通知、菜单栏和自动更新。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h"
+      }
+    },
+    {
+      "id": "gsffeya052mjtk7bhu26a93xv",
+      "title": "GLM-5.4、GLM-5.3 与匿名模型 HungerG 三题实测对比",
+      "originalTitle": "大模型上新：GLM5.4和HungerG 近期智谱发布了GLM-5.4，Qoder上也出现了一款叫HungerG的限时免费大模型，这一期我们来看看他们的表现如何。glm-5.3作为陪练。#上热门 #ai #干货分享 #测评 #科技 @DOU+小助手",
+      "summary": "作者用三道单文件 HTML 题对比智谱 GLM-5.4、上一代 GLM-5.3 和 Qoder 上限时免费的匿名模型 HungerG，三题分别是橘猫骑儿童三轮车、纯 SVG 时钟和任务联动数据展示。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/gsffeya052mjtk7bhu26a93xv",
+        "original": "https://www.douyin.com/video/7711672218259213298"
+      },
+      "publishedAt": "2026-11-24T09:46:46.000Z",
+      "discoveredAt": "2026-11-24T20:16:30.196Z",
       "category": "ai-models",
       "score": 62,
       "selected": true,
-      "reason": "官方放出用 GPT-6.2 在 Blender 里做出的 1915 年旧金山世博会风格影像，适合做效果展示与制作流程拆解。",
+      "reason": "作者用同一组提示词让 GLM-5.4、GLM-5.3 和匿名模型 HungerG 各出三份单文件 HTML 成品，并逐份录屏对比，还列出 credits 花费差异，适合照着复现这组三题横评。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/cedm06rh3b3hsg7n0n036w9lw"
+        "url": "https://aipick.news/items/gsffeya052mjtk7bhu26a93xv"
+      }
+    },
+    {
+      "id": "ck4vew177217uj3tx1i22go40",
+      "title": "智谱 GLM-5.4 实测对比 Qwen4-Max：三轮比试各有胜负",
+      "originalTitle": "智谱 GLM-5.4 实测：跟 Qwen4-Max 过过招！ #glm #qwen4 #千问 #智谱 #抖音精选App征稿中 @抖音科技",
+      "summary": "作者用同一套 harness 和同一套题目，在 Coder 里对智谱 GLM-5.4 与 Qwen4-Max 做了三轮实测。前端烟花秀和中文写作两题 Qwen4-Max 胜出，30 秒手绘拼贴动画一题 GLM-5.4 完成度更高，但消耗 3032 积分，约为 Qwen4-Max 312 积分的十倍。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ck4vew177217uj3tx1i22go40",
+        "original": "https://www.douyin.com/video/7711727338534210866"
+      },
+      "publishedAt": "2026-11-24T13:38:18.000Z",
+      "discoveredAt": "2026-11-24T20:16:30.159Z",
+      "category": "ai-models",
+      "score": 62,
+      "selected": true,
+      "reason": "作者用同一套 harness 和题目把 GLM-5.4 与 Qwen4-Max 拉到一起实测，前端烟花、动画视频、中文写作三轮各有胜负，还点出积分消耗差十倍。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/ck4vew177217uj3tx1i22go40"
+      }
+    },
+    {
+      "id": "bk9bhcdu9njssg23jk3ou6cfd",
+      "title": "即梦 Dreamina Canvas 上线 Separate Layers 分层功能",
+      "originalTitle": "Separate Layers is now LIVE! ▸ Separate characters, backgrounds, and props with cleaner edges. ▸Move, edit, or regenerate individual layers without changing the others, giving you more control over targeted adjustments. Try it now in Dreamina Canvas! #DreaminaAI #DreaminaSeparateLayers #DreaminaCanvas",
+      "summary": "即梦 Dreamina 在 Dreamina Canvas 上线 Separate Layers 功能，可将角色、背景和道具分离成边缘更干净的分层。用户能单独移动、编辑或重新生成某一层而不影响其他层，便于做针对性调整。",
+      "source": {
+        "name": "X · 即梦 Dreamina"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/bk9bhcdu9njssg23jk3ou6cfd",
+        "original": "https://x.com/dreamina_ai/status/2125303440377069867"
+      },
+      "publishedAt": "2026-11-24T19:00:01.000Z",
+      "discoveredAt": "2026-11-24T20:05:32.638Z",
+      "category": "ai-products",
+      "score": 60,
+      "selected": true,
+      "reason": "官方给出分层入口和角色、背景、道具分离后的独立编辑能力，适合在 Dreamina Canvas 里录屏演示分层前后与单层改动的效果对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/bk9bhcdu9njssg23jk3ou6cfd"
+      }
+    },
+    {
+      "id": "mx9pnx0j6aejyuhmwqxjnlnw6",
+      "title": "OpenAI 分享用户用 Astra 筛查 NASA TESS 约 1900 万颗恒星观测数据",
+      "originalTitle": "Ethan asked Astra to review published methods and write software to search observations of about 19 million stars from NASA’s TESS mission. The search included regions around a star where a planet with the right atmosphere could have liquid water on its surface. His first pass turned up 49 candidates. He sent one of the most promising to researchers on NASA’s TESS mission, where it’s awaiting a closer look. Explore Kevin and Ethan’s findings and learn how to get started: https://t.co/z4vECSkHd1",
+      "summary": "OpenAI 分享用户 Ethan 让 Astra 审阅已发表方法并编写软件，搜索 NASA TESS 任务约 1900 万颗恒星的观测数据，范围包含恒星周围可能让行星表面存在液态水的区域。首轮搜索得到 49 个候选，其中最有希望的一个已发给 NASA TESS 任务的研究者，等待进一步查看。",
+      "source": {
+        "name": "X · OpenAI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/mx9pnx0j6aejyuhmwqxjnlnw6",
+        "original": "https://x.com/OpenAI/status/2125305610678010244"
+      },
+      "publishedAt": "2026-11-24T19:08:38.000Z",
+      "discoveredAt": "2026-11-24T20:00:32.256Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出 Astra 处理约 1900 万颗恒星观测数据、首轮筛出 49 个候选并送交 NASA TESS 研究者的具体案例，适合围绕这个真实任务讲智能体如何写软件做科学搜索。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/mx9pnx0j6aejyuhmwqxjnlnw6"
+      }
+    },
+    {
+      "id": "zvug35sygs4adqpvhh8lrba6d",
+      "title": "Higgsfield 发布视频模型 MAGI-2，支持最长 30 秒 1080p 生成",
+      "originalTitle": "Introducing MAGI-2, exclusively on Higgsfield. Up to 30 seconds of frontier 1080p quality, with 0.08$ per second of generation. Open weights video model with 400B parameters coming soon. Now available exclusively on Higgsfield and via Higgsfield API. https://t.co/CPgNTOf7og",
+      "summary": "Higgsfield 发布视频模型 MAGI-2，支持最长 30 秒的 1080p 生成，价格为每秒 0.08 美元。该模型目前仅在 Higgsfield 平台和 Higgsfield API 上提供，官方称后续将开放 400B 参数的开源权重版本。",
+      "source": {
+        "name": "X · Higgsfield"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/zvug35sygs4adqpvhh8lrba6d",
+        "original": "https://x.com/higgsfield/status/2125290656692085164"
+      },
+      "publishedAt": "2026-11-24T18:09:13.000Z",
+      "discoveredAt": "2026-11-24T19:50:33.130Z",
+      "category": "ai-models",
+      "score": 67,
+      "selected": true,
+      "reason": "官方放出 MAGI-2 的 1080p 样片和每秒 0.08 美元的生成价格，适合用同一段提示词实测 30 秒长视频的连贯度。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/zvug35sygs4adqpvhh8lrba6d"
+      }
+    },
+    {
+      "id": "yi8urcaajxmz9bvjqjz66ii0l",
+      "title": "两位业余天文爱好者用 Codex 和 Astra 分析 NASA 公开数据，找到疑似系外行星信号",
+      "originalTitle": "Two amateur astronomers, Kevin Bond and Ethan Byrd, independently found signals that could point to planets around distant stars. They knew you didn't need your own telescope for this kind of hunt. Kevin used Codex and Ethan used Astra to search public telescope data for tiny, recurring dips in starlight that an orbiting planet can cause. Both found signals worth a second look. Kevin used Codex to build a program that searched for observations of about 100,000 stars from NASA’s Kepler telescope. One star in the constellation Lyra dimmed every 13.8 days. If a planet is causing that dip, the amount of light it blocks suggests it could be about 2.4 times as wide as Earth. An astronomer at the SETI Institute independently found the same signal and one other that Kevin had flagged. For the star in Lyra, astronomers now know when to watch for the next dip. Ethan asked Astra to review published methods and write software to search observations of about 19 million stars from NASA’s TESS missio",
+      "summary": "OpenAI 分享两位业余天文爱好者 Kevin Bond 和 Ethan Byrd 借助 AI 工具分析 NASA 公开望远镜数据、发现疑似系外行星信号的过程。",
+      "source": {
+        "name": "TikTok · OpenAI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/yi8urcaajxmz9bvjqjz66ii0l",
+        "original": "https://www.tiktok.com/@openai/video/7711815033763794207"
+      },
+      "publishedAt": "2026-11-24T19:01:23.000Z",
+      "discoveredAt": "2026-11-24T19:20:32.314Z",
+      "category": "industry",
+      "score": 65,
+      "selected": true,
+      "reason": "两位业余天文爱好者用 Codex 和 Astra 处理公开望远镜数据找系外行星信号，适合讲清从取数到筛候选的完整流程。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/yi8urcaajxmz9bvjqjz66ii0l"
+      }
+    },
+    {
+      "id": "skhqjts94myh6qnx64daz2ptr",
+      "title": "Google Workspace MCP servers 与 gwscli 正式可用，新增 1-click Personal mode 免企业版",
+      "originalTitle": "Google Workspace MCP servers and gwscli are GA today. No Enterprise plan or billing card needed with the new 1-click Personal mode setup. - 8 servers: Gmail, Drive, Docs, Sheets, Slides, Calendar, Chat, Tasks - Free tier: 5,000 req/day per product - Built-in HITL for send & share You still have to go through Google Cloud, which is not optimal, but it is much better than the old OAuth consent screen and app review flow. Try it and leave feedback.",
+      "summary": "Google Workspace MCP servers 和 gwscli 正式可用（GA），新增 1-click Personal mode 设置，无需 Enterprise 套餐或绑定计费卡。",
+      "source": {
+        "name": "X · Philipp Schmid"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/skhqjts94myh6qnx64daz2ptr",
+        "original": "https://x.com/_philschmid/status/2125296446459056156"
+      },
+      "publishedAt": "2026-11-24T18:32:13.000Z",
+      "discoveredAt": "2026-11-24T18:42:29.877Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出 8 个 Workspace MCP 服务器和 1-click Personal mode 免费入口，适合录屏实测从 Google Cloud 配置到在 Gmail、Drive 上跑通调用的完整流程。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/skhqjts94myh6qnx64daz2ptr"
+      }
+    },
+    {
+      "id": "g0oewwghy9n06vhdfg926kd6v",
+      "title": "GPT-6.2 Astra 用 22 分钟破解 1808 年匿名画册作者之谜",
+      "originalTitle": "GPT 6.2 Astra Solves a Historical Mystery",
+      "summary": "历史教授 Mark Humphries 记录了一个案例：GPT-6.2 Astra 在极少提示下，用 22 分钟自主查明耶鲁 Beinecke 图书馆所藏一本 1808 年匿名画册的创作者，全程使用公开的一手和二手资料。",
+      "source": {
+        "name": "Simon Willison 原创实测"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/g0oewwghy9n06vhdfg926kd6v",
+        "original": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/"
+      },
+      "publishedAt": "2026-11-24T16:53:59.000Z",
+      "discoveredAt": "2026-11-24T18:33:28.118Z",
+      "category": "opinion",
+      "score": 58,
+      "selected": true,
+      "reason": "历史教授用 GPT-6.2 Astra 在 22 分钟内锁定 1808 年匿名画册作者，适合围绕这个案例讲智能体做史料考证的完整推理链。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/g0oewwghy9n06vhdfg926kd6v"
       }
     }
   ],
   "hotTopics": [
     {
       "rank": 1,
+      "id": "k6d4k411z180s7zicd3y106ta",
+      "title": "英伟达董事会撤回辞职决定，恢复黄仁勋职务",
+      "source": {
+        "name": "X · 宝玉"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/k6d4k411z180s7zicd3y106ta",
+        "original": "https://x.com/dotey/status/2124900260925296807",
+        "story": "https://aipick.news/story/66818814-9f78-43c2-97c0-92785dc27b9d"
+      },
+      "sourceCount": 8,
+      "signalCount": 0,
+      "participantCount": 8,
+      "sourceNames": [
+        "TechCrunch · AI",
+        "公众号 · APPSO",
+        "Ed Zitron 长文 / Where’s Your Ed At",
+        "抖音 · 热点搜「Ling-3.2-air」",
+        "The Verge · AI",
+        "Gary Marcus：The Road to AI We Can Trust",
+        "X · 宝玉",
+        "抖音 · 晓辉博士"
+      ],
+      "latestAt": "2026-11-25T00:12:02.000Z"
+    },
+    {
+      "rank": 2,
       "id": "wwrl5akuig8h3juqh5kjofi2b",
       "title": "智谱发布GLM-5.4，仅编程订阅用户可用",
       "source": {
@@ -720,94 +747,19 @@
       "signalCount": 0,
       "participantCount": 10,
       "sourceNames": [
-        "公众号 · 智东西",
         "抖音 · 热点搜「GLM-5.4」",
+        "量子位",
+        "公众号 · 智东西",
         "Simon Willison 原创实测",
         "The Decoder",
         "公众号 · AI产品黄叔",
         "公众号 · APPSO",
-        "X · 智谱 Z.ai",
-        "X · 歸藏"
+        "X · 智谱 Z.ai"
       ],
-      "latestAt": "2026-11-24T03:47:38.000Z"
-    },
-    {
-      "rank": 2,
-      "id": "jlc8ji64faje47ur4chv1kuij",
-      "title": "百度以 Apache 2.0 开源文心 ERNIE 5.5 Flash Preview 权重",
-      "source": {
-        "name": "X · 百度文心"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/jlc8ji64faje47ur4chv1kuij",
-        "original": "https://x.com/Baidu_ERNIE/status/2125072735336546546",
-        "story": "https://aipick.news/story/2f08e193-00f9-4bab-b733-dc57b24492bc"
-      },
-      "sourceCount": 4,
-      "signalCount": 0,
-      "participantCount": 4,
-      "sourceNames": [
-        "量子位",
-        "X · 百度",
-        "X · 百度文心",
-        "vLLM 官方博客"
-      ],
-      "latestAt": "2026-11-24T06:22:28.000Z"
+      "latestAt": "2026-11-24T13:38:18.000Z"
     },
     {
       "rank": 3,
-      "id": "y377ujp3hlcyf4gl2g73qiz9e",
-      "title": "Anthropic 推出 Claude Ship 自动处理 PR",
-      "source": {
-        "name": "Claude 产品动态"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/y377ujp3hlcyf4gl2g73qiz9e",
-        "original": "https://claude.com/resources/articles/introducing-claude-ship",
-        "story": "https://aipick.news/story/41a15b03-07e9-491e-a57d-49b30512ae40"
-      },
-      "sourceCount": 6,
-      "signalCount": 0,
-      "participantCount": 6,
-      "sourceNames": [
-        "The Decoder",
-        "TechCrunch · AI",
-        "X · Boris Cherny",
-        "X · Addy Osmani",
-        "The Verge · AI",
-        "Claude 产品动态"
-      ],
-      "latestAt": "2026-11-24T11:26:23.000Z"
-    },
-    {
-      "rank": 4,
-      "id": "stj4g02adlfn28w0atm7bvkdi",
-      "title": "OpenAI 提议以困惑度设共享安全上限，微软公布可比数据",
-      "source": {
-        "name": "OpenAI News"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/stj4g02adlfn28w0atm7bvkdi",
-        "original": "https://openai.com/index/perplexity-and-intelligence",
-        "story": "https://aipick.news/story/ff9d9729-a0b3-49e2-81e5-a6515a3a8199"
-      },
-      "sourceCount": 8,
-      "signalCount": 0,
-      "participantCount": 8,
-      "sourceNames": [
-        "The Decoder",
-        "Wes Roth",
-        "公众号 · 新智元",
-        "公众号 · 夕小瑶科技说",
-        "X · Mustafa Suleyman",
-        "TechCrunch · AI",
-        "X · Noam Brown",
-        "X · Greg Brockman"
-      ],
-      "latestAt": "2026-11-23T18:42:38.000Z"
-    },
-    {
-      "rank": 5,
       "id": "a8ch7qfq809afvld671n74qan",
       "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
       "source": {
@@ -818,46 +770,161 @@
         "original": "https://www.douyin.com/video/7711209260121591076",
         "story": "https://aipick.news/story/4c790184-a881-40da-9a04-fa9997a5cc8c"
       },
-      "sourceCount": 6,
+      "sourceCount": 7,
       "signalCount": 0,
-      "participantCount": 6,
+      "participantCount": 7,
       "sourceNames": [
+        "Timothy B. Lee：Understanding AI",
+        "The Decoder",
+        "抖音 · 杨博士说AI",
         "抖音 · 晓辉博士",
         "X · 宝玉",
         "公众号 · APPSO",
-        "公众号 · 差评X.PIN",
-        "抖音 · 热点搜「Claude Ship」",
-        "Gary Marcus：The Road to AI We Can Trust"
+        "公众号 · 差评X.PIN"
       ],
-      "latestAt": "2026-11-24T10:38:27.000Z"
+      "latestAt": "2026-11-24T21:43:33.000Z"
+    },
+    {
+      "rank": 4,
+      "id": "nh64ecdsudgautmwa01oo49d3",
+      "title": "Anthropic 推出 Claude Ship 自动处理 PR",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Ship」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/nh64ecdsudgautmwa01oo49d3",
+        "original": "https://www.douyin.com/video/7711565726858956059",
+        "story": "https://aipick.news/story/41a15b03-07e9-491e-a57d-49b30512ae40"
+      },
+      "sourceCount": 8,
+      "signalCount": 0,
+      "participantCount": 8,
+      "sourceNames": [
+        "X · Min Choi",
+        "Claude.dev 开发者博客",
+        "The Decoder",
+        "抖音 · 热点搜「Claude Ship」",
+        "TechCrunch · AI",
+        "X · Boris Cherny",
+        "X · Addy Osmani",
+        "The Verge · AI"
+      ],
+      "latestAt": "2026-11-24T16:09:25.000Z"
+    },
+    {
+      "rank": 5,
+      "id": "vmfxyy3fk1iwa80vcf2u8k2lo",
+      "title": "百度以 Apache 2.0 开源文心 ERNIE 5.5 Flash Preview 权重",
+      "source": {
+        "name": "抖音 · 热点搜「ERNIE 5.5 Flash Preview」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/vmfxyy3fk1iwa80vcf2u8k2lo",
+        "original": "https://www.douyin.com/video/7711657355775135016",
+        "story": "https://aipick.news/story/2f08e193-00f9-4bab-b733-dc57b24492bc"
+      },
+      "sourceCount": 5,
+      "signalCount": 0,
+      "participantCount": 5,
+      "sourceNames": [
+        "抖音 · 热点搜「ERNIE 5.5 Flash Preview」",
+        "量子位",
+        "X · 百度",
+        "X · 百度文心",
+        "vLLM 官方博客"
+      ],
+      "latestAt": "2026-11-25T02:06:11.000Z"
     },
     {
       "rank": 6,
-      "id": "k6d4k411z180s7zicd3y106ta",
-      "title": "英伟达董事会撤回辞职决定，恢复黄仁勋职务",
+      "id": "pfu5opi6060a2braueq979gl1",
+      "title": "字节小豆开启邀请制公测，接入抖音飞书",
       "source": {
-        "name": "X · 宝玉"
+        "name": "公众号 · 夕小瑶科技说"
       },
       "links": {
-        "aihot": "https://aipick.news/items/k6d4k411z180s7zicd3y106ta",
-        "original": "https://x.com/dotey/status/2124900260925296807",
-        "story": "https://aipick.news/story/66818814-9f78-43c2-97c0-92785dc27b9d"
+        "aihot": "https://aipick.news/items/pfu5opi6060a2braueq979gl1",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&mid=2247623739&idx=1&sn=e790d9a3ae7ead26b1da3ca971e05b2b&chksm=962c240e17e62971183b408f4b8d65f1028d784ede8d227436e9561569923ee96c82ec97d86d&scene=126&sessionid=0#rd",
+        "story": "https://aipick.news/story/5d3272de-661b-4969-bfc8-86800c5ff65b"
       },
-      "sourceCount": 6,
+      "sourceCount": 5,
       "signalCount": 0,
-      "participantCount": 6,
+      "participantCount": 5,
       "sourceNames": [
-        "The Verge · AI",
-        "Gary Marcus：The Road to AI We Can Trust",
-        "TechCrunch · AI",
-        "X · 宝玉",
-        "抖音 · 晓辉博士",
-        "公众号 · APPSO"
+        "公众号 · 夕小瑶科技说",
+        "公众号 · 硅星人Pro",
+        "公众号 · APPSO",
+        "X · 歸藏",
+        "公众号 · 智东西"
       ],
-      "latestAt": "2026-11-23T22:09:26.000Z"
+      "latestAt": "2026-11-25T03:26:28.000Z"
     },
     {
       "rank": 7,
+      "id": "zvug35sygs4adqpvhh8lrba6d",
+      "title": "Higgsfield 上线 MAGI-2 视频模型，称 Video Arena 排名第二",
+      "source": {
+        "name": "X · Higgsfield"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/zvug35sygs4adqpvhh8lrba6d",
+        "original": "https://x.com/higgsfield/status/2125290656692085164",
+        "story": "https://aipick.news/story/114bed16-4e0e-49ea-b6ca-f5eeb9e58ad3"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "X · Higgsfield"
+      ],
+      "latestAt": "2026-11-25T01:17:12.000Z"
+    },
+    {
+      "rank": 8,
+      "id": "j5yc4pnosuhcyb0pza24it83h",
+      "title": "Anthropic 将 Claude Artifacts 装成桌面应用",
+      "source": {
+        "name": "Claude 产品动态"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h",
+        "original": "https://claude.com/resources/articles/install-as-app",
+        "story": "https://aipick.news/story/3f6a288c-4dbf-4e28-acee-2911b13f171a"
+      },
+      "sourceCount": 4,
+      "signalCount": 0,
+      "participantCount": 4,
+      "sourceNames": [
+        "X · 歸藏",
+        "X · 宝玉",
+        "The Decoder",
+        "Claude 产品动态"
+      ],
+      "latestAt": "2026-11-25T01:46:02.000Z"
+    },
+    {
+      "rank": 9,
+      "id": "ys568lhlauqb2tddo7ralbe2f",
+      "title": "Midjourney 上线动漫模型 Niji V8",
+      "source": {
+        "name": "X · Midjourney"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ys568lhlauqb2tddo7ralbe2f",
+        "original": "https://x.com/midjourney/status/2125328040624521639",
+        "story": "https://aipick.news/story/e0f24c3f-17d9-4628-a55f-0c98f8d5429c"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "X · 歸藏",
+        "X · Midjourney"
+      ],
+      "latestAt": "2026-11-25T01:31:44.000Z"
+    },
+    {
+      "rank": 10,
       "id": "s6ir4dirc5bk4jo8ytjpi9c4n",
       "title": "蚂蚁开源 Ling-3.2-air 多模态模型并开放权重",
       "source": {
@@ -868,79 +935,15 @@
         "original": "https://x.com/AntLingAGI/status/2124891223597240338",
         "story": "https://aipick.news/story/a53c8258-a47b-4f06-b88a-b317833b0ed0"
       },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "X · 蚂蚁 inclusionAI",
-        "微信公众号 · 百灵大模型"
-      ],
-      "latestAt": "2026-11-24T03:02:16.000Z"
-    },
-    {
-      "rank": 8,
-      "id": "w08vssxoybpw052icp3897fwi",
-      "title": "蚂蚁 inclusionAI 开源生理基础模型 LingSante-Pulse",
-      "source": {
-        "name": "微信公众号 · 百灵大模型"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/w08vssxoybpw052icp3897fwi",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzkyODk2MDQwNw==&mid=2247488416&idx=2&sn=48ebda5931d60de2b6f157e27cbf5cfe&chksm=c3d056b544254c84aaa42dffaaf28c648e3f49a47384f689e86c78ace082731d66b76979a642&scene=126&sessionid=0#rd",
-        "story": "https://aipick.news/story/ef8151c9-5963-4de0-80ff-69223faf36b5"
-      },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "X · 蚂蚁 inclusionAI",
-        "微信公众号 · 百灵大模型"
-      ],
-      "latestAt": "2026-11-24T03:05:26.000Z"
-    },
-    {
-      "rank": 9,
-      "id": "e6eef5l6ubuyscdl4qe85qjqe",
-      "title": "蚂蚁开源560B医疗模型LingSante-3.1-flash",
-      "source": {
-        "name": "X · 蚂蚁 inclusionAI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/e6eef5l6ubuyscdl4qe85qjqe",
-        "original": "https://x.com/AntLingAGI/status/2124523916819648945",
-        "story": "https://aipick.news/story/9a2c169e-8aa6-4f37-8600-3702c32d62b2"
-      },
       "sourceCount": 4,
       "signalCount": 0,
       "participantCount": 4,
       "sourceNames": [
-        "抖音 · 热点搜「LingSante-3.1-flash」",
-        "微信公众号 · 百灵大模型",
-        "X · 蚂蚁 inclusionAI"
+        "抖音 · 热点搜「Ling-3.2-air」",
+        "X · 蚂蚁 inclusionAI",
+        "微信公众号 · 百灵大模型"
       ],
-      "latestAt": "2026-11-23T08:00:00.000Z"
-    },
-    {
-      "rank": 10,
-      "id": "dkb9sra2x86m97xxglaft7x2c",
-      "title": "Ai2发布RoboTrack点跟踪基准与模型",
-      "source": {
-        "name": "发布页 · Ai2"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/dkb9sra2x86m97xxglaft7x2c",
-        "original": "https://allenai.org/blog/robotrack",
-        "story": "https://aipick.news/story/09755b7b-ff87-4d43-bbcc-ec15fe80da10"
-      },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "X · Ai2",
-        "Hugging Face Blog",
-        "发布页 · Ai2"
-      ],
-      "latestAt": "2026-11-23T17:35:30.000Z"
+      "latestAt": "2026-11-24T06:47:21.000Z"
     }
   ],
   "unchanged": [],

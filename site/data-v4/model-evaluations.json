@@ -1,6 +1,6 @@
 {
   "schema": "ai-creator-radar-model-evaluations/1",
-  "generatedAt": "2026-11-24T12:52:38Z",
+  "generatedAt": "2026-11-25T05:05:43Z",
   "sourceNotes": {
     "aipick": "AIPick 近 7 天精选中的公开评测候选；保留其来源与原始链接。",
     "sogou": "搜狗微信搜索只读取搜索结果页的标题、摘要、公众号名和发布时间；不抓正文；遇到验证页停止并退避 24 小时。"
@@ -8,13 +8,13 @@
   "status": {
     "aipick": {
       "status": "ok",
-      "checkedAt": "2026-11-24T12:52:36+00:00",
-      "candidateCount": 0
+      "checkedAt": "2026-11-25T05:05:40+00:00",
+      "candidateCount": 2
     },
     "sogou": {
       "status": "ok",
-      "checkedAt": "2026-11-24T12:52:38Z",
-      "searchesThisRun": 1,
+      "checkedAt": "2026-11-25T05:05:43Z",
+      "searchesThisRun": 0,
       "warnings": [],
       "blockedUntil": null
     }
@@ -84,11 +84,40 @@
         "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布"
       ],
       "query": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%20Seedream%203.0%20/%20Seedream%204.0%20/%20Seedream%204.5%20/%20Seedream%205.0%20Pro%20/%20Seedream%205.0%20Lite%20/%20Seedream%205.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-24T12:52:38Z"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%20Seedream%203.0%20/%20Seedream%204.0%20/%20Seedream%204.5%20/%20Seedream%205.0%20Pro%20/%20Seedream%205.0%20Lite%20/%20Seedream%205.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
     }
   ],
   "items": [
+    {
+      "id": "aipick-aluujrsktig44xogsbr95ygi2",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "Magi2 首发实测对比 Seedance 2.5：30 秒一镜到底，成本约十分之一",
+      "summary": "作者用同样的参考素材和提示词，让新模型 Magi2 与 Seedance 2.5 各生成一段 30 秒一镜到底视频做对比。人物表演、双人互动和连续运镜的实际表现有不少惊喜，生成成本差不多只有 Seedance 2.5 的十分之一。Magi2 独家登陆 LibTV。",
+      "sourceType": "aipick",
+      "sourceName": "抖音 · 热点搜「MAGI-2」",
+      "publishedAt": "2026-11-25T00:20:43Z",
+      "url": "https://www.douyin.com/video/7711897430001867091",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-25T05:05:43Z"
+    },
+    {
+      "id": "aipick-ff1yskixsg6yuk8hn4wxipqxk",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "如何把 Seedance 2.5 的成本砍半：Draft Mode 实测对比",
+      "summary": "Curious Refuge 实测 Seedance Draft Mode 与 Seedance 2.5 直出 1080p 的画质差异，结论是 Draft Mode 并不像许多 AI 电影人担心的那样明显更差。视频演示了从设置镜头、生成 1 美元草稿到渲染 1080p 或 4K 的流程，并对比 Seedance 与 Topaz 的放大效果，成本对比为 40 美元对 140 美元。",
+      "sourceType": "aipick",
+      "sourceName": "Curious Refuge",
+      "publishedAt": "2026-11-24T22:44:50Z",
+      "url": "https://www.youtube.com/watch?v=jrXoCIkLgrc",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-25T05:05:43Z"
+    },
     {
       "id": "aipick-zmkkw8kt6nfuidtj6wi3v4di6",
       "targetId": "seedream",
@@ -526,7 +555,7 @@
     }
   ],
   "searchState": {
-    "lastRunAt": "2026-11-24T12:52:38Z",
+    "lastRunAt": "2026-11-25T05:05:43Z",
     "queries": {
       "kling-image": {
         "lastSearchedAt": "2026-11-24T09:53:46Z",

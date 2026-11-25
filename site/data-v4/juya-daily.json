@@ -1,490 +1,638 @@
 {
   "source": "橘鸦 AI 早报",
-  "sourceUrl": "https://daily.juya.uk/issues/2026-11-24/",
-  "title": "AI 早报 2026-11-24",
-  "fetchedAt": "2026-11-24T12:52:30Z",
+  "sourceUrl": "https://daily.juya.uk/issues/2026-11-25/",
+  "title": "AI 早报 2026-11-25",
+  "fetchedAt": "2026-11-25T05:05:40Z",
   "items": [
     {
       "category": "要闻",
-      "title": "智谱发布旗舰模型 GLM-5.4",
-      "summary": "智谱 正式发布新一代旗舰模型 GLM-5.4 ，这是其首款采用 Loop Transformer 架构的模型，核心瞄向“泛 Coding”。官方称 GLM-5.4 对 750B 基座中的 28 层 做两轮循环，在不增加参数量的前提下实现更深度推理，智能水平达到 2–3T 级模型。在 200 个 真实场景编程实战评测中， GLM-5.4 在视觉 Coding、视觉复刻与长程任务上表现突出，并将代码能力外推至视频生成与处理、完整游戏构建、 3D 建模及机械工程设计等场景。\n\n为兼顾循环推理与部署效率，团队引入门控渐进更新、 KV Cache 全局共享加滑窗独立及复用稀疏注意力索引三项协同设计；官方同时提示该模型较易进入长时间的“雷霆大思考”模式。 即日起 ， GLM-5.4 已向 GLM Coding Plan 全量用户及 ZCode 、 Trae 等编码平台开放， V2 、 V3 与团队版额度提升至 1.5 倍 （ V1 原有权益不变）， API 将在完成安全评估后开放，权重亦计划开源。",
-      "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ",
+      "title": "ChatGPT 合并 Chat 和 Work，部分用户率先体验",
+      "summary": "OpenAI 团队成员表示， ChatGPT 开始向一小部分 Pro 用户推出合并后的 Chat 和 Work 模式。\n\nOpenAI 希望通过此次推出收集用户反馈，了解需要改进的地方，之后再扩大推出范围。",
+      "url": "https://x.com/thsottiaux/status/2125284868414394550",
       "links": [
         {
-          "label": "智谱发布旗舰模型 GLM-5.4",
-          "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ"
+          "label": "ChatGPT 合并 Chat 和 Work，部分用户率先体验",
+          "url": "https://x.com/thsottiaux/status/2125284868414394550"
         },
         {
           "label": "#1",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-1"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-1"
         },
         {
-          "label": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ",
-          "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ"
+          "label": "https://x.com/thsottiaux/status/2125284868414394550",
+          "url": "https://x.com/thsottiaux/status/2125284868414394550"
         }
       ]
     },
     {
       "category": "要闻",
-      "title": "OpenAI 在 ChatGPT 上线日常对话版 GPT-6.2 Sol",
-      "summary": "OpenAI 在 ChatGPT 的 Chat 模式推出 GPT-6.2 Sol 版本，针对日常对话优化，面向 Plus、Pro、Business 和 Enterprise 用户。官方测试中，新模型图像理解得分 71.7% ，高于 GPT-6 的 47.4% ；高难度指令遵循率 78.1% ，高于 GPT-6 的 62.5% 。它也更擅长按价格、位置等因素缩小在线比较范围，并适时提出跟进。",
-      "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "title": "OpenAI 员工宣布 Business 套餐 Fast mode 免费至年底",
+      "summary": "OpenAI 员工 Tibo 发帖称， ChatGPT Business 用户可获得一次 banked reset ，并可免费使用 Fast mode 至 12 月 31 日 。他的个人资料显示其在 OpenAI 从事 Codex 与 ChatGPT 相关工作。\n\n当天早些时候，有用户发帖称 Business 套餐的 Fast mode 将免费开放。 Tibo 还在后续帖子中附上了 ChatGPT Business 订阅页面的链接。",
+      "url": "https://x.com/thsottiaux/status/2125299248782778588",
       "links": [
         {
-          "label": "OpenAI 在 ChatGPT 上线日常对话版 GPT-6.2 Sol",
-          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+          "label": "OpenAI 员工宣布 Business 套餐 Fast mode 免费至年底",
+          "url": "https://x.com/thsottiaux/status/2125299248782778588"
         },
         {
           "label": "#2",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-2"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-2"
         },
         {
-          "label": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
-        },
-        {
-          "label": "https://x.com/ChatGPT/status/2124942186425069836",
-          "url": "https://x.com/ChatGPT/status/2124942186425069836"
+          "label": "https://x.com/thsottiaux/status/2125299248782778588",
+          "url": "https://x.com/thsottiaux/status/2125299248782778588"
         }
       ]
     },
     {
       "category": "要闻",
-      "title": "Antigravity 重置所有用户 Gemini 配额并向付费 Pro 开放 Carbon",
-      "summary": "Antigravity 负责人 Varun Mohan 在 X 宣布，Antigravity 正为各层级升级模型，并重置所有用户的 Gemini 配额。此次调整后，付费 Pro 用户可获得 Carbon 访问权限， Hydrogen 按承诺向所有用户开放。\n\nVarun Mohan 补充称，付费 Pro 用户原有的独立 Argon 配额池将被取消，其容量并入通用 Gemini 配额池，以便使用更多 Argon 、 Carbon 和 Neon ，其中 Neon 被他称为最重要的部分。\n\n有用户反馈重置后未看到 Carbon ， Varun Mohan 回应称 Carbon 正在推送中。",
-      "url": "https://x.com/_mohansolo/status/2124971131312734707",
+      "title": "OpenAI 改进 Dots 审核，减少任务中的额外审批",
+      "summary": "OpenAI 改进了 Dots 的自动审核安全检查，减少执行任务时要求用户审批的次数。\n\n用户为任务授予权限后， Dots 在完成任务的过程中需要的额外审批将更少。\n\nOpenAI 表示，这项调整旨在兼顾 Dots 帮助用户完成任务的能力，以及用户对重要操作的控制。",
+      "url": "https://x.com/frits__vp/status/2125285321491259626",
       "links": [
         {
-          "label": "Antigravity 重置所有用户 Gemini 配额并向付费 Pro 开放 Carbon",
-          "url": "https://x.com/_mohansolo/status/2124971131312734707"
+          "label": "OpenAI 改进 Dots 审核，减少任务中的额外审批",
+          "url": "https://x.com/frits__vp/status/2125285321491259626"
         },
         {
           "label": "#3",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-3"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-3"
         },
         {
-          "label": "https://x.com/_mohansolo/status/2124971131312734707",
-          "url": "https://x.com/_mohansolo/status/2124971131312734707"
+          "label": "https://x.com/frits__vp/status/2125285321491259626",
+          "url": "https://x.com/frits__vp/status/2125285321491259626"
+        }
+      ]
+    },
+    {
+      "category": "要闻",
+      "title": "Antigravity 新版非必要审批减半，Neon 任务快 17%",
+      "summary": "Antigravity 负责人 Varun Mohan 发文称， Antigravity 新版本把 Auto 模式中的非必要审批减少了 50% ，带来一次明显的体验提升，之后还会在这一方向带来更多改进。\n\n随后他又披露，新版本对 AGY harness 做了进一步优化：在 Neon 上，每个任务消耗的 quota 减少 12% ，完成任务的速度提升 17% 。\n\n他强调会持续把 Antigravity 做得更好、更便宜、更快，并预告当天还有更多更新。",
+      "url": "https://x.com/_mohansolo/status/2125337132021780867",
+      "links": [
+        {
+          "label": "Antigravity 新版非必要审批减半，Neon 任务快 17%",
+          "url": "https://x.com/_mohansolo/status/2125337132021780867"
+        },
+        {
+          "label": "#4",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-4"
+        },
+        {
+          "label": "https://x.com/_mohansolo/status/2125337132021780867",
+          "url": "https://x.com/_mohansolo/status/2125337132021780867"
+        },
+        {
+          "label": "https://x.com/_mohansolo/status/2125318340004720839",
+          "url": "https://x.com/_mohansolo/status/2125318340004720839"
+        }
+      ]
+    },
+    {
+      "category": "要闻",
+      "title": "Anthropic 推出测试功能：artifacts 可装成桌面应用",
+      "summary": "Anthropic 为 Claude 推出 Install as app 功能的测试版，Mac 和 Windows 用户可把 Claude 生成的 artifacts 安装成桌面应用。应用在独立窗口打开，可使用 Claude 和 connectors ，经授权可发送通知或添加菜单栏项目，并随原 artifact 编辑自动更新。\n\n无需打包或签名应用，也无需 API key ；构建应用和调用 Claude 计入套餐用量限额。功能覆盖所有套餐，Team 默认开启，Enterprise 需所有者先启用，支持 HIPAA 的组织和混合部署无法使用。",
+      "url": "https://claude.com/resources/articles/install-as-app",
+      "links": [
+        {
+          "label": "Anthropic 推出测试功能：artifacts 可装成桌面应用",
+          "url": "https://claude.com/resources/articles/install-as-app"
+        },
+        {
+          "label": "#5",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-5"
+        },
+        {
+          "label": "https://claude.com/resources/articles/install-as-app",
+          "url": "https://claude.com/resources/articles/install-as-app"
+        },
+        {
+          "label": "https://x.com/ClaudeDevs/status/2125315491522650299",
+          "url": "https://x.com/ClaudeDevs/status/2125315491522650299"
         }
       ]
     },
     {
       "category": "模型发布",
-      "title": "Qoder 独家上线匿名模型 HungerG，免费试用 7 天",
-      "summary": "Qoder 宣布一款新的匿名模型独家上线其平台，代号 HungerG ，官方未公开它由谁打造，并邀请用户交给它真实任务，猜猜是谁开发的。该模型于 11 月 23 日至 30 日 在 Qoder 和 Qoder IDE 免费开放 7 天 。",
-      "url": "https://x.com/qoder_ai_ide/status/2124899980632822148",
+      "title": "Cognition 发布编码模型 SWE-2.1",
+      "summary": "Cognition 发布编码模型 SWE-2.1 ，称其基于 Kimi K3 用纯强化学习训练，在 FrontierCode 2.0 、 Terminal-Bench 4.1 等多项基准上较 SWE-2 大幅提升。新模型已在 Devin Cloud 、 Devin Desktop 和 Devin CLI 上线，未来两周对 Devin Pro 、 Max 和 Teams 免费。\n\nCognition 另推出其首款专注网络安全的模型 SWE-2.1 Cyber ，安全防护更宽松，面向 Devin Security 客户，还与 Cerebras 合作推出 10 倍速的 SWE-2.1 Lightning 。",
+      "url": "https://cognition.com/blog/swe-2-1",
       "links": [
         {
-          "label": "Qoder 独家上线匿名模型 HungerG，免费试用 7 天",
-          "url": "https://x.com/qoder_ai_ide/status/2124899980632822148"
-        },
-        {
-          "label": "#4",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-4"
-        },
-        {
-          "label": "https://x.com/qoder_ai_ide/status/2124899980632822148",
-          "url": "https://x.com/qoder_ai_ide/status/2124899980632822148"
-        }
-      ]
-    },
-    {
-      "category": "开发生态",
-      "title": "ChatGPT 宣布 12 月 23 日下线 GPT-5.6 Sol 与 Terra",
-      "summary": "ChatGPT 官方在 X 上发文宣布，将于 12 月 23 日 在 Chat 服务中下线 GPT-5.6 Sol ，并在 Work 和 Codex 服务中下线 GPT-5.6 Sol 与 Terra 两款模型。\n\n此次调整共涉及 GPT-5.6 Sol 与 Terra 两款模型和 Chat、Work、Codex 三项服务。\n\n官方在帖文中写道，每个模型都有属于自己的高光时刻，对 GPT-5.6 来说是时候落幕；帖文最后称，前方总有更多模型。",
-      "url": "https://x.com/ChatGPT/status/2124981905380569283",
-      "links": [
-        {
-          "label": "ChatGPT 宣布 12 月 23 日下线 GPT-5.6 Sol 与 Terra",
-          "url": "https://x.com/ChatGPT/status/2124981905380569283"
-        },
-        {
-          "label": "#5",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-5"
-        },
-        {
-          "label": "https://x.com/ChatGPT/status/2124981905380569283",
-          "url": "https://x.com/ChatGPT/status/2124981905380569283"
-        }
-      ]
-    },
-    {
-      "category": "开发生态",
-      "title": "OpenAI：ChatGPT Business 新工作空间可享双倍用量",
-      "summary": "OpenAI 的 Codex 与 ChatGPT 团队成员 Tibo 在 X 上宣布， 11 月 30 日 前创建的 ChatGPT Business 工作空间，可在 12 月 31 日 前获得双倍包含用量，适用所有席位类型。\n\n他表示，现有 Business 用户也会收到一份礼物，具体信息随后公布。",
-      "url": "https://x.com/thsottiaux/status/2124922313019953319",
-      "links": [
-        {
-          "label": "OpenAI：ChatGPT Business 新工作空间可享双倍用量",
-          "url": "https://x.com/thsottiaux/status/2124922313019953319"
+          "label": "Cognition 发布编码模型 SWE-2.1",
+          "url": "https://cognition.com/blog/swe-2-1"
         },
         {
           "label": "#6",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-6"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-6"
         },
         {
-          "label": "https://x.com/thsottiaux/status/2124922313019953319",
-          "url": "https://x.com/thsottiaux/status/2124922313019953319"
+          "label": "https://cognition.com/blog/swe-2-1",
+          "url": "https://cognition.com/blog/swe-2-1"
+        },
+        {
+          "label": "https://x.com/cognition/status/2125305349414523061",
+          "url": "https://x.com/cognition/status/2125305349414523061"
         }
       ]
     },
     {
-      "category": "开发生态",
-      "title": "Antigravity 开放 Orchestrator 模型组合自定义",
-      "summary": "Varun Mohan 在 X 平台表示， Antigravity 用户现在可为 Orchestrator 显式设置模型组合和思考级别，他自己已设为 Neon High 与 Hydrogen High 。\n\n产品文档确认，该自定义功能适用于 Google AI Ultra 和 Google AI Pro 计划，用户可在设置里分别为 Planner 和 Executor 指定模型与思考级别，两者默认分别为 Gemini 4 Neon 和 Gemini 4 Hydrogen 。",
-      "url": "https://antigravity.google/docs/models",
+      "category": "模型发布",
+      "title": "腾讯混元发布并开源第三代翻译模型 Hy MT3",
+      "summary": "腾讯混元 发布并开源第三代翻译模型 Hy MT3 ，提供 1.8B 、 7B 、 30B-A3B 三个尺寸，支持语种从 38 种 增至 102 种 ，已上线 Hy 翻译 App 和小程序。\n\n官方称在真实场景数据上，误译、漏译或增译及指令遵循错误样本占比较前代分别降低 43% 、 74% 和 40% ；并称 30B-A3B 仅激活 3B 参数，综合效果超过 Qwen3.8-Max 等旗舰模型。\n\n混元 与 王者荣耀 团队联合优化游戏本地化，并开源翻译自动评估方案 TransRubric ； 王者荣耀 团队开源了游戏翻译工具链。",
+      "url": "https://huggingface.co/collections/tencent/hy-mt3",
       "links": [
         {
-          "label": "Antigravity 开放 Orchestrator 模型组合自定义",
-          "url": "https://antigravity.google/docs/models"
+          "label": "腾讯混元发布并开源第三代翻译模型 Hy MT3",
+          "url": "https://huggingface.co/collections/tencent/hy-mt3"
         },
         {
           "label": "#7",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-7"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-7"
         },
         {
-          "label": "https://antigravity.google/docs/models",
-          "url": "https://antigravity.google/docs/models"
+          "label": "https://huggingface.co/collections/tencent/hy-mt3",
+          "url": "https://huggingface.co/collections/tencent/hy-mt3"
         },
         {
-          "label": "https://x.com/_mohansolo/status/2124917777630961911",
-          "url": "https://x.com/_mohansolo/status/2124917777630961911"
+          "label": "https://mp.weixin.qq.com/s/SB42Uuhq0m6JvqZdih3TqA",
+          "url": "https://mp.weixin.qq.com/s/SB42Uuhq0m6JvqZdih3TqA"
         }
       ]
     },
     {
-      "category": "开发生态",
-      "title": "谷歌为 Gemini API 推出文件切片控制，仅按实际处理内容付费",
-      "summary": "谷歌 宣布 Gemini API 新增文件切片控制功能，直接支持 PDF 、 Word 、 PowerPoint 、 Excel 及 OpenDocument 文件。\n\n开发者可将文档、表格和音视频传入 API ，按页码范围、工作表、单元格区域、时间段或内容层（如页面图像、提取文本、公式、视频转录文本）切片，只处理并支付实际需要的部分，功能覆盖 Google AI Studio 和 Vertex AI 。",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/file-slicing-controls/",
+      "category": "模型发布",
+      "title": "LlamaIndex 开放文档解析模型 OCRia-1 权重",
+      "summary": "LlamaIndex 宣布在 Hugging Face 和 Ollama 开放文档解析模型 OCRia-1 的权重。 OCRia-1 是基于 Qwen3.5-4B 的 4B 视觉语言模型，能把页面图像转成 Markdown，表格和图表数据写成 HTML 表格。 LlamaIndex 称其为两个 ParseBench 榜单上得分最高的开放权重模型； LlamaIndex CEO Jerry Liu 称，其准确率与成本在多个基准上处于 4B 模型的帕累托前沿。许可证规定，研究、个人使用及年营收与总融资均低于 200 万美元 的组织可免费商用，超出需购买授权。",
+      "url": "https://ollama.com/llamaindex/ocria-1",
       "links": [
         {
-          "label": "谷歌为 Gemini API 推出文件切片控制，仅按实际处理内容付费",
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/file-slicing-controls/"
+          "label": "LlamaIndex 开放文档解析模型 OCRia-1 权重",
+          "url": "https://ollama.com/llamaindex/ocria-1"
         },
         {
           "label": "#8",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-8"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-8"
         },
         {
-          "label": "https://blog.google/innovation-and-ai/technology/developers-tools/file-slicing-controls/",
-          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/file-slicing-controls/"
+          "label": "https://ollama.com/llamaindex/ocria-1",
+          "url": "https://ollama.com/llamaindex/ocria-1"
         },
         {
-          "label": "https://ai.google.dev/gemini-api/docs/changelog?latest=20261118",
-          "url": "https://ai.google.dev/gemini-api/docs/changelog?latest=20261118"
-        },
-        {
-          "label": "https://x.com/OfficialLoganK/status/2124938672399384681",
-          "url": "https://x.com/OfficialLoganK/status/2124938672399384681"
+          "label": "https://www.llamaindex.ai/blog/parse-ocria-1",
+          "url": "https://www.llamaindex.ai/blog/parse-ocria-1"
         }
       ]
     },
     {
-      "category": "开发生态",
-      "title": "Anthropic 重新设计 Claude Code 桌面端侧边栏",
-      "summary": "ClaudeDevs 宣布重新设计 Claude Code 桌面端侧边栏。 Files 、 Changes 、 Terminal 等工具现在以标签页形式显示在会话旁边，用户可以移动标签并排查看多个工具，也可以把标签弹出为独立窗口。\n\n此次更新正在 Mac 上推出， Windows 和 Linux 版本即将推出。",
-      "url": "https://x.com/ClaudeDevs/status/2124978802006851961",
+      "category": "模型发布",
+      "title": "百灵大模型发布并开源 Ling-3.2-air",
+      "summary": "百灵大模型团队发布并开源 Ling-3.2-air ，权重已上架 Hugging Face 和 ModelScope 。\n\n它采用与上一代 Ling-3.0-flash-VL 相同的原生多模态架构，支持文本、图像和视频输入，总参数量 1240 亿 ，每个 Token 激活 55 亿 参数。\n\n官方称，相比上一代，它在语言推理、编程、智能体执行和多模态任务上均有提升： SWE-bench Pro 得分从 26.40 升至 58.28 ， AutomationBench-AA 得分从 15.7% 升至 61% 。",
+      "url": "https://huggingface.co/inclusionAI/Ling-3.2-air",
       "links": [
         {
-          "label": "Anthropic 重新设计 Claude Code 桌面端侧边栏",
-          "url": "https://x.com/ClaudeDevs/status/2124978802006851961"
+          "label": "百灵大模型发布并开源 Ling-3.2-air",
+          "url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
         },
         {
           "label": "#9",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-9"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-9"
         },
         {
-          "label": "https://x.com/ClaudeDevs/status/2124978802006851961",
-          "url": "https://x.com/ClaudeDevs/status/2124978802006851961"
+          "label": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+          "url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
+        },
+        {
+          "label": "https://mp.weixin.qq.com/s/7-Dnhz1ouC6ans0znH154g",
+          "url": "https://mp.weixin.qq.com/s/7-Dnhz1ouC6ans0znH154g"
         }
       ]
     },
     {
-      "category": "开发生态",
-      "title": "Anthropic 推出测试版 Claude Ship：审查、修复并批准 PR",
-      "summary": "Anthropic 推出 Claude Ship 测试版，让 Claude 审查 GitHub pull request 、修复问题，并按团队设定的政策批准改动。\n\n其中 Code Review 已通用， PR Steward 和 Claude Approvals 以公开测试版上线：前者处理失败的 CI 检查、合并冲突和审查反馈，设计上不批准也不合并；后者按仓库政策文件检查改动，政策允许时 Claude 可自行批准例行改动。\n\n开发者可运行 /ship 命令体验， Team 和 Enterprise 计划的管理员也可按仓库开启。",
-      "url": "https://code.claude.com/docs/en/claude-ship",
+      "category": "模型发布",
+      "title": "蚂蚁百灵团队发布并开源生理信号基础模型 LingSante-Pulse",
+      "summary": "蚂蚁百灵团队 发布生理信号基础模型 LingSante-Pulse ，已按 MIT 许可证开放权重与代码。该模型在超过 15 万小时 多场景生理数据上预训练，用单个冻结编码器统一处理心电、脑电、肌电等信号，并支持连续血糖（ CGM ）分析，权重可在 Hugging Face 获取。\n\n官方称，在覆盖四个信号领域的 38 项 单传感器任务及睡眠分期、呼吸暂停筛查评测中，模型综合表现领先单传感器专有模型和多模态基础模型；依据一晚睡眠监测数据，可预测未来 六年 内 150 种 疾病表型风险，达到统计可靠性标准的疾病数量较顶尖模型增加约 42% 。",
+      "url": "https://huggingface.co/inclusionAI/LingSante-Pulse-1.0",
       "links": [
         {
-          "label": "Anthropic 推出测试版 Claude Ship：审查、修复并批准 PR",
-          "url": "https://code.claude.com/docs/en/claude-ship"
+          "label": "蚂蚁百灵团队发布并开源生理信号基础模型 LingSante-Pulse",
+          "url": "https://huggingface.co/inclusionAI/LingSante-Pulse-1.0"
         },
         {
           "label": "#10",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-10"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-10"
         },
         {
-          "label": "https://code.claude.com/docs/en/claude-ship",
-          "url": "https://code.claude.com/docs/en/claude-ship"
+          "label": "https://huggingface.co/inclusionAI/LingSante-Pulse-1.0",
+          "url": "https://huggingface.co/inclusionAI/LingSante-Pulse-1.0"
         },
         {
-          "label": "https://claude.com/resources/articles/introducing-claude-ship",
-          "url": "https://claude.com/resources/articles/introducing-claude-ship"
+          "label": "https://mp.weixin.qq.com/s/xidWztAK7Fob87FhoD5fzQ",
+          "url": "https://mp.weixin.qq.com/s/xidWztAK7Fob87FhoD5fzQ"
+        }
+      ]
+    },
+    {
+      "category": "模型发布",
+      "title": "商汤发布并开源 SenseNova U1.6",
+      "summary": "商汤科技 发布并开源多模态模型 SenseNova U1.6 ，基座、 4 步 与 8 步 蒸馏 LoRA 及 Native 、 GGUF 等转换权重已上架 Hugging Face ，均采用 Apache 2.0 协议。\n\n官方称， U1.6 首次为该系列 8B 开源模型带来原生图像自修正，可自查修正错字、乱码等；内部用户评测中 U1.6 Lite 美学得分较 U1.5 Lite 高约 10% ， UltraTextBench 密集信息图测试中 Lite 开启自修正后得分从 86.04 升至 92.28 。\n\n模型已上线 ComfyUI ， API 服务版本接入 商汤小浣熊 、 Seko 、 Kapi 相机。",
+      "url": "https://huggingface.co/sensenova/SenseNova-U1.6-8B-MoT-Native/tree/ed98cc5ca5a1891028db2041f665b43b96a43cfa",
+      "links": [
+        {
+          "label": "商汤发布并开源 SenseNova U1.6",
+          "url": "https://huggingface.co/sensenova/SenseNova-U1.6-8B-MoT-Native/tree/ed98cc5ca5a1891028db2041f665b43b96a43cfa"
         },
         {
-          "label": "https://x.com/ClaudeDevs/status/2124959436640858475",
-          "url": "https://x.com/ClaudeDevs/status/2124959436640858475"
+          "label": "#11",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-11"
+        },
+        {
+          "label": "https://huggingface.co/sensenova/SenseNova-U1.6-8B-MoT-Native/tree/ed98cc5ca5a1891028db2041f665b43b96a43cfa",
+          "url": "https://huggingface.co/sensenova/SenseNova-U1.6-8B-MoT-Native/tree/ed98cc5ca5a1891028db2041f665b43b96a43cfa"
+        },
+        {
+          "label": "https://github.com/OpenSenseNova/SenseNova-U1",
+          "url": "https://github.com/OpenSenseNova/SenseNova-U1"
+        },
+        {
+          "label": "https://mp.weixin.qq.com/s/gX-WbxdIHQxMZJeaFXSIsQ",
+          "url": "https://mp.weixin.qq.com/s/gX-WbxdIHQxMZJeaFXSIsQ"
+        }
+      ]
+    },
+    {
+      "category": "模型发布",
+      "title": "百度开源 ERNIE 5.5 Flash Preview 权重",
+      "summary": "百度 ERNIE 开源了 ERNIE 5.5 Flash Preview 的模型权重，在 Hugging Face 和 ModelScope 提供下载，采用 Apache 2.0 协议，支持商用。模型总参数 2800 亿 、每 token 激活 140 亿 ，支持 100 万 token 上下文，提供 FP4 、 FP8 、 BF16 三种精度版本。\n\n该模型此前已由 百度 发布，API 可通过 百度千帆 与 OpenRouter 调用。 ERNIE 团队 称，这只是后训练的中间检查点，后训练仍在进行。",
+      "url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview",
+      "links": [
+        {
+          "label": "百度开源 ERNIE 5.5 Flash Preview 权重",
+          "url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview"
+        },
+        {
+          "label": "#12",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-12"
+        },
+        {
+          "label": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview",
+          "url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview"
+        },
+        {
+          "label": "https://mp.weixin.qq.com/s/S9MyfFssIdKF88fFzC-3sg",
+          "url": "https://mp.weixin.qq.com/s/S9MyfFssIdKF88fFzC-3sg"
         }
       ]
     },
     {
       "category": "开发生态",
-      "title": "Mistral Vibe API 被曝不再允许用于非 Mistral 产品",
-      "summary": "有 linux.do 用户发帖称收到 Mistral 发来的邮件，邮件截图显示 Vibe API 不再允许用于非 Mistral 产品，下个月的 Vibe 额度也只能在 Vibe CLI 中使用。\n\n另一篇帖子提醒其他用户尽快在 7 天内 用完 API 额度，付费用户记得取消订阅。\n\n发帖者称邮件是当天收到的，并随帖贴出了邮件截图。",
-      "url": "https://linux.do/t/topic/3230844",
+      "title": "OpenCode 宣布 HungerG 模型本周向 Go 订阅用户免费开放",
+      "summary": "OpenCode 宣布， stealth 模型 HungerG 本周向 OpenCode Go 订阅用户免费开放。\n\nOpenCode 称，该模型支持 1M context 和多模态能力，且不会使用数据训练。\n\nOpenCode Console 页面已上线 HungerG Free ，标注限时免费， Go 与 Go Plus 订阅用户均可无限量调用。",
+      "url": "https://x.com/opencode/status/2125062647846694979",
       "links": [
         {
-          "label": "Mistral Vibe API 被曝不再允许用于非 Mistral 产品",
-          "url": "https://linux.do/t/topic/3230844"
-        },
-        {
-          "label": "#11",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-11"
-        },
-        {
-          "label": "https://linux.do/t/topic/3230844",
-          "url": "https://linux.do/t/topic/3230844"
-        }
-      ]
-    },
-    {
-      "category": "产品应用",
-      "title": "Claude 的 Connectors 与 Skills 整合为 plugins",
-      "summary": "Anthropic 宣布将 Claude 的 Connectors 与 Skills 整合为 plugins ，用户此后通过同一种方式连接工具或教 Claude 新技能。\n\n新功能已面向 Free 、 Pro 、 Max 和 Ultra 订阅方案上线，可浏览的 plugins 超过 1 万个 ，已安装的内容继续保留。侧边栏的 Customize 入口更名为 Plugins ，原先分开的 Skills 、 Connectors 、 Plugins 页面合并为一处。\n\nTeam 订阅方案将从 11 月 30 日 起逐步推出， Enterprise 订阅方案将在随后几周上线。",
-      "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude",
-      "links": [
-        {
-          "label": "Claude 的 Connectors 与 Skills 整合为 plugins",
-          "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude"
-        },
-        {
-          "label": "#12",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-12"
-        },
-        {
-          "label": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude",
-          "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude"
-        },
-        {
-          "label": "https://x.com/claudeai/status/2124970294523945328",
-          "url": "https://x.com/claudeai/status/2124970294523945328"
-        }
-      ]
-    },
-    {
-      "category": "产品应用",
-      "title": "Anthropic 开放企业安全功能 EFS 公测，数据存企业自有云存储",
-      "summary": "Anthropic 宣布，向符合条件的组织开放企业安全功能 Enterprise Frontier Safeguards 公开测试版。\n\n该功能把 Messages API 交互数据的加密副本写入客户自有云存储， Anthropic 和云厂商都不保留数据，数据也不会用于训练。\n\n自动安全监控分析客户存储中的数据，发现风险时生成 Safety Case ，由客户团队而非 Anthropic 人员审查。\n\nEFS 支持 Claude Platform 、 Amazon Bedrock 和 Claude on Google Cloud ， Anthropic 不收费，云存储照常计费。",
-      "url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards",
-      "links": [
-        {
-          "label": "Anthropic 开放企业安全功能 EFS 公测，数据存企业自有云存储",
-          "url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"
+          "label": "OpenCode 宣布 HungerG 模型本周向 Go 订阅用户免费开放",
+          "url": "https://x.com/opencode/status/2125062647846694979"
         },
         {
           "label": "#13",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-13"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-13"
         },
         {
-          "label": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards",
-          "url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"
+          "label": "https://x.com/opencode/status/2125062647846694979",
+          "url": "https://x.com/opencode/status/2125062647846694979"
         }
       ]
     },
     {
-      "category": "产品应用",
-      "title": "Google AI Mode 可接入 Wallet、Drive、Gemini",
-      "summary": "Google 宣布扩展搜索 AI Mode 中的 Personal Intelligence 功能，用户可选择接入 Google Wallet 、 Google Drive 和 Gemini app ，让回答结合自己的消费、文档和聊天记录。\n\nGoogle Wallet 即日推出， Drive 和 Gemini app 将在未来几周上线。 Google 称，连接 Wallet 可梳理消费习惯、优化信用卡奖励，但 AI Mode 只能读取账户信息，不能转移或管理资金；连接 Drive 可综合文档给出个性化方案。\n\n连接可在设置中随时开启或关闭。",
-      "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+      "category": "开发生态",
+      "title": "Anthropic 升级 MCP：Skills 公测、Tasks 正式推出",
+      "summary": "Anthropic 在 MCP 推出 两周年 之际宣布多项更新。\n\nSkills over MCP 在 Claude 和 Claude Code 公开测试，服务器可随工具发布 Skills ，该功能在 Pro 、 Max 和 Ultra 方案默认开启。\n\nTasks 和 Elicitation 正式推出，长任务可在后台运行，执行中可向用户请求输入。\n\nFile Uploads 即将推出，届时 Claude 可把 PDF 、表格和图片传给 MCP 服务器。\n\nAnthropic 称， MCP 正从连接 AI 应用、工具和数据的标准向 agent 通信与任务编排演进。",
+      "url": "https://claude.com/blog/skills-over-mcp-tasks-and-more",
       "links": [
         {
-          "label": "Google AI Mode 可接入 Wallet、Drive、Gemini",
-          "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+          "label": "Anthropic 升级 MCP：Skills 公测、Tasks 正式推出",
+          "url": "https://claude.com/blog/skills-over-mcp-tasks-and-more"
         },
         {
           "label": "#14",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-14"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-14"
         },
         {
-          "label": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
-          "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+          "label": "https://claude.com/blog/skills-over-mcp-tasks-and-more",
+          "url": "https://claude.com/blog/skills-over-mcp-tasks-and-more"
         },
         {
-          "label": "https://x.com/rmstein/status/2124933562918908333",
-          "url": "https://x.com/rmstein/status/2124933562918908333"
+          "label": "https://code.claude.com/docs/en/mcp#use-skills-from-mcp-servers",
+          "url": "https://code.claude.com/docs/en/mcp#use-skills-from-mcp-servers"
+        },
+        {
+          "label": "https://github.com/modelcontextprotocol/experimental-ext-file-uploads",
+          "url": "https://github.com/modelcontextprotocol/experimental-ext-file-uploads"
         }
       ]
     },
     {
-      "category": "产品应用",
-      "title": "蚂蚁阿福发布新版App：实时视频看健康，升级AI健康管家",
-      "summary": "在 蚂蚁阿福医疗健康生态大会 上， 蚂蚁集团 旗下健康 AI 蚂蚁阿福 发布新版 App。其基于蚂蚁百灵医疗健康大模型，新增实时音视频“看健康”功能，打视频电话就能让 AI 看症状、看药品、看报告，AI 会主动追问、分析心率和呼吸，不放心还能连线真人医生。\n\n新功能全国可用，支持上海话、闽南话等 10 余种 方言。阿福同时升级面向全家人的 AI 健康管家，集中管理全家健康档案及减重、育儿、控糖等事项，并发布 AI 健康手环与戒指。",
-      "url": "https://www.nbd.com.cn/articles/2026-11-23/4655588.html",
+      "category": "开发生态",
+      "title": "Google 推出 Workspace MCP 服务器和 CLI",
+      "summary": "Google Workspace 推出 MCP 服务器和命令行工具 gwscli ，让 AI agent 无需自写集成代码即可读写 Gmail 、云端硬盘、日历等数据，支持接入 Claude 、 Antigravity 等应用。\n\n个人用户用 Google Cloud 控制台的个人模式即可快速接入。\n\n用量分两级：标准层级免费，无需结算账号， MCP 每项目每产品每天最多 5,000 次请求；更高配额需用 Scaled 层级， 2027 年 4 月 1 日 起计费。\n\n2027 年 2 月 1 日 起 AI agent 访问 Workspace 数据必须走 MCP 。",
+      "url": "https://developers.google.com/workspace/guides/workspace-cli",
       "links": [
         {
-          "label": "蚂蚁阿福发布新版App：实时视频看健康，升级AI健康管家",
-          "url": "https://www.nbd.com.cn/articles/2026-11-23/4655588.html"
+          "label": "Google 推出 Workspace MCP 服务器和 CLI",
+          "url": "https://developers.google.com/workspace/guides/workspace-cli"
         },
         {
           "label": "#15",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-15"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-15"
         },
         {
-          "label": "https://www.nbd.com.cn/articles/2026-11-23/4655588.html",
-          "url": "https://www.nbd.com.cn/articles/2026-11-23/4655588.html"
+          "label": "https://developers.google.com/workspace/guides/workspace-cli",
+          "url": "https://developers.google.com/workspace/guides/workspace-cli"
+        }
+      ]
+    },
+    {
+      "category": "开发生态",
+      "title": "智谱 Coding Plan 限时活动：GLM-5.3-Flash 额度翻倍",
+      "summary": "智谱开放文档介绍， 11 月 24 日至 12 月 24 日 限时活动期间， GLM Coding Plan 调用 GLM-5.3-Flash 按原抵扣系数的 50% 结算，可用额度为原来的 2 倍 。",
+      "url": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash",
+      "links": [
+        {
+          "label": "智谱 Coding Plan 限时活动：GLM-5.3-Flash 额度翻倍",
+          "url": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash"
+        },
+        {
+          "label": "#16",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-16"
+        },
+        {
+          "label": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash",
+          "url": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash"
         }
       ]
     },
     {
       "category": "产品应用",
-      "title": "Anthropic 向美国部分付费用户发放 Claude Duet 促销积分",
-      "summary": "Anthropic 面向部分美国付费账户推出 Claude Duet 促销积分，活动从 11 月 23 日 持续到 12 月 31 日 。\n\n符合条件的账户每周获得 500 美元 额度，累计上限 3000 美元 ，无需领取，官方分批到账。资格限于 11 月 23 日 前已开通 Claude Duet 和付费方案的美国账户，涵盖 Pro 、 Max 、 Ultra 和 Team ， Enterprise 除外。\n\n积分覆盖 Claude Duet 内的大部分工作（包括编码），按标准 API 费率结算； Claude Cowork 、 fast mode 等不在此列，未用完的积分每周重置时过期。",
-      "url": "https://support.claude.com/en/articles/18518702-claude-duet-promotional-credit",
+      "title": "豆包旗下 AI 个人助理小豆开启公测",
+      "summary": "豆包 官方宣布，旗下 AI 个人助理 小豆 正式开启公测，采用邀请制，用户凭邀请码体验并获赠一定量免费额度。\n\n小豆 通过对话式交互，在用户明确指令与授权范围内协助处理日常事务，能力覆盖信息查询、日程待办、生活服务、购物售后、健康提醒和办公辅助。\n\n根据 App Store 商店页信息， 小豆 设有免费、标准、加强、高级四档套餐，标准套餐连续包月每月 68 元 ，加强套餐每月 200 元 ，高级套餐每月 500 元 ，连续包年分别为 688 元 、 2048 元 和 5088 元 。\n\n未来， 小豆 上的能力与体验也将逐步在 豆包 App 上线。",
+      "url": "https://apps.apple.com/cn/app/%E5%B0%8F%E8%B1%86-%E8%B1%86%E5%8C%85%E6%97%97%E4%B8%8B-ai-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E7%90%86/id6815582077",
       "links": [
         {
-          "label": "Anthropic 向美国部分付费用户发放 Claude Duet 促销积分",
-          "url": "https://support.claude.com/en/articles/18518702-claude-duet-promotional-credit"
-        },
-        {
-          "label": "#16",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-16"
-        },
-        {
-          "label": "https://support.claude.com/en/articles/18518702-claude-duet-promotional-credit",
-          "url": "https://support.claude.com/en/articles/18518702-claude-duet-promotional-credit"
-        }
-      ]
-    },
-    {
-      "category": "技术与洞察",
-      "title": "OpenAI 与 Cisco 发布并开源 AI 安全运行时 Shirudo",
-      "summary": "Cisco 与 OpenAI 联合推出开源 Linux 安全运行时 Shirudo ，为等待补丁的系统提供临时防护。它基于 eBPF 技术， AI agent 可编写动态控制措施，无需重启拦截漏洞利用、放行正常请求，为部署补丁争取时间。\n\n防护经加密签名验证后加载，部署须经操作人员批准。双方称，测试中 Codex 生成的防护拦下了对运行中 Elasticsearch 服务的 Java4Shell 利用尝试。\n\n项目在 GitHub 开源，采用 BSD 2-Clause 许可证， OpenAI 称这是迈向自防御基础设施的第一步。",
-      "url": "https://openai.com/index/introducing-shirudo",
-      "links": [
-        {
-          "label": "OpenAI 与 Cisco 发布并开源 AI 安全运行时 Shirudo",
-          "url": "https://openai.com/index/introducing-shirudo"
+          "label": "豆包旗下 AI 个人助理小豆开启公测",
+          "url": "https://apps.apple.com/cn/app/%E5%B0%8F%E8%B1%86-%E8%B1%86%E5%8C%85%E6%97%97%E4%B8%8B-ai-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E7%90%86/id6815582077"
         },
         {
           "label": "#17",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-17"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-17"
         },
         {
-          "label": "https://openai.com/index/introducing-shirudo",
-          "url": "https://openai.com/index/introducing-shirudo"
-        },
-        {
-          "label": "https://github.com/shirudo-dev/shirudo",
-          "url": "https://github.com/shirudo-dev/shirudo"
-        },
-        {
-          "label": "https://x.com/OpenAI/status/2124980590717911527",
-          "url": "https://x.com/OpenAI/status/2124980590717911527"
+          "label": "https://apps.apple.com/cn/app/%E5%B0%8F%E8%B1%86-%E8%B1%86%E5%8C%85%E6%97%97%E4%B8%8B-ai-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E7%",
+          "url": "https://apps.apple.com/cn/app/%E5%B0%8F%E8%B1%86-%E8%B1%86%E5%8C%85%E6%97%97%E4%B8%8B-ai-%E4%B8%AA%E4%BA%BA%E5%8A%A9%E7%90%86/id6815582077"
         }
       ]
     },
     {
       "category": "技术与洞察",
-      "title": "Google DeepMind 用 Gemini 4 agents 优化量子算法",
-      "summary": "Google DeepMind 发文介绍，用多组 Gemini 4 agents 并行改进量子算法：各 agent 团队独立寻找优化方案，经证明助手 Lean 验证后汇入共享笔记，并每 四小时 召开虚拟会议交流比较。\n\n由于这类量子线路无法在经典计算机或当今小型量子处理器上测试，只能以数学证明保证其正确。\n\n博客称，新方案把惯性约束聚变的计算成本降低 11.8 倍 ，一种常见光敏分子的模拟成本降低 8 倍 ，药物代谢关键酶 Cytochrome P450 的模拟改进 2.5 倍 。\n\n经验证的方案和 Lean 库已在 GitHub 开源。",
-      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "title": "Anthropic 发布神经元可解释性研究",
+      "summary": "Anthropic 发布两项可解释性研究，称单个神经元很少同时输出两个无关概念，其输出在多数层中含义大致不变，分散在多个神经元中的事实仍可读取。\n\n研究还在开放权重模型中用无需额外训练的神经元检测有害文本、引导行为、审计隐藏行为。实验中，无标注神经元在 16 个安全评测集中的 11 个上胜过文本搜索。\n\n对 58 个植入隐藏行为的微调模型，结合神经元读数后 75% 的审计能说出该行为，仅看模型输出为 40% 。\n\n研究检测的 23 个 WMDP-cyber unlearning 检查点中， 14 个仍将多数正确答案排在首位，多数方法疑似隐藏而非移除有害知识。",
+      "url": "https://alignment.anthropic.com/2026/neuron-basis-applications",
       "links": [
         {
-          "label": "Google DeepMind 用 Gemini 4 agents 优化量子算法",
-          "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/"
+          "label": "Anthropic 发布神经元可解释性研究",
+          "url": "https://alignment.anthropic.com/2026/neuron-basis-applications"
         },
         {
           "label": "#18",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-18"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-18"
         },
         {
-          "label": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
-          "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/"
+          "label": "https://alignment.anthropic.com/2026/neuron-basis-applications",
+          "url": "https://alignment.anthropic.com/2026/neuron-basis-applications"
         },
         {
-          "label": "https://x.com/GoogleDeepMind/status/2124911073266413634",
-          "url": "https://x.com/GoogleDeepMind/status/2124911073266413634"
-        },
-        {
-          "label": "https://arxiv.org/abs/2611.09822",
-          "url": "https://arxiv.org/abs/2611.09822"
-        },
-        {
-          "label": "https://github.com/google-deepmind/formal-quantum-computation",
-          "url": "https://github.com/google-deepmind/formal-quantum-computation"
+          "label": "https://alignment.anthropic.com/2026/neuron-basis-theory",
+          "url": "https://alignment.anthropic.com/2026/neuron-basis-theory"
         }
       ]
     },
     {
       "category": "技术与洞察",
-      "title": "OpenRouter：用户在 Google 模型上的支出超过 OpenAI",
-      "summary": "OpenRouter 表示，上周用户在该平台花在 Google 模型上的支出超过了 OpenAI ，在这两家的对比中 Google 占比超过 50% 。\n\nOpenRouter 洞察负责人 Peter Walker 和官方账号称， Gemini 4 Neon 、 Carbon 等口碑不错的新模型发布帮助 Google 越过了 50% 门槛。这种反超今年年初更常见，但自 6 月 8 日 当周以来没再出现。\n\nPeter Walker 还称，按 token 用量计算， Gemini 4 Neon 并没有超过 OpenAI ，这次反超只体现在支出上。",
-      "url": "https://x.com/PeterJ_Walker/status/2124924320459989032",
+      "title": "Anthropic发布安全评测Siren，测Claude是否越出沙箱",
+      "summary": "Anthropic 发布安全评测 Siren ，用 1700多个 刻意削弱沙箱、并把任务所需资源放在沙箱外的诱导场景，测试模型会不会越界。在关闭自带防护的测试中， Claude 5.5 系列和 Claude Mythos 5.2 有 21%至32% 的情况查看、访问或尝试访问沙箱外的内容，但当系统提示说明沙箱及其规则后，该比例降至约 2% 或更低；违规使用这些资源的情况只占 0.6%至1.6% 。 Anthropic 还用 Siren 测试和调整 auto mode ，该模式在工具调用执行前检查其是否符合用户意图。",
+      "url": "https://safeguards.anthropic.com/2026/siren",
       "links": [
         {
-          "label": "OpenRouter：用户在 Google 模型上的支出超过 OpenAI",
-          "url": "https://x.com/PeterJ_Walker/status/2124924320459989032"
+          "label": "Anthropic发布安全评测Siren，测Claude是否越出沙箱",
+          "url": "https://safeguards.anthropic.com/2026/siren"
         },
         {
           "label": "#19",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-19"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-19"
         },
         {
-          "label": "https://x.com/PeterJ_Walker/status/2124924320459989032",
-          "url": "https://x.com/PeterJ_Walker/status/2124924320459989032"
-        },
-        {
-          "label": "https://x.com/OpenRouter/status/2124925631012209137",
-          "url": "https://x.com/OpenRouter/status/2124925631012209137"
+          "label": "https://safeguards.anthropic.com/2026/siren",
+          "url": "https://safeguards.anthropic.com/2026/siren"
         }
       ]
     },
     {
-      "category": "行业动态",
-      "title": "NVIDIA 董事会宣布即日起恢复黄仁勋总裁、CEO 及董事职务",
-      "summary": "NVIDIA 宣布，董事会一致投票通过，即日起恢复 黄仁勋 的总裁、首席执行官和董事职务。官方新闻稿称，董事会在与黄仁勋多轮讨论和会面后，对其坦诚和领导能力感到满意，并在听取美国政府高层意见后，确信复职不构成美国国家安全风险。\n\n据 Semafor 报道， 特朗普 此前致电 NVIDIA 董事会会议，推动黄仁勋复职。黄仁勋此前因婚外情报道被迫辞去执掌 33 年 的 CEO 职务，期间由 CFO Colette Kress 出任临时 CEO。相关独立调查仍将继续。",
-      "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Board-Reinstates-Jensen-Huang-as-President-CEO-and-Board-Director/",
+      "category": "技术与洞察",
+      "title": "OpenAI 称 GPT-6 系列模型具备蛋白质设计能力",
+      "summary": "OpenAI 发布博文称， GPT-6 系列模型不调用专业生物学模型，仅凭推理和代码就能设计新的蛋白结构和序列。\n\n在研究伙伴 Onava 参与的实验中，按 GPT-6.2 设计的结构制成 322 个小蛋白测试， 35 个显示出与靶点结合的证据，覆盖全部 五个 靶点，专业模型参与生成氨基酸序列和筛选候选。\n\n在另一组实验中， GPT-6.2 为已有小蛋白和抗体重新设计氨基酸序列，经专业模型筛选后，许多蛋白仍显示出与原靶点结合的证据。\n\nOpenAI 称，预测完整蛋白结构仍是明显短板，结合证据也只是走向药物的一步。",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
       "links": [
         {
-          "label": "NVIDIA 董事会宣布即日起恢复黄仁勋总裁、CEO 及董事职务",
-          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Board-Reinstates-Jensen-Huang-as-President-CEO-and-Board-Director/"
+          "label": "OpenAI 称 GPT-6 系列模型具备蛋白质设计能力",
+          "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
         },
         {
           "label": "#20",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-20"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-20"
         },
         {
-          "label": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Board-Reinstates-Jensen-Huang-as-President-CEO-and-Bo",
-          "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Board-Reinstates-Jensen-Huang-as-President-CEO-and-Board-Director/"
+          "label": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+          "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
         }
       ]
     },
     {
-      "category": "行业动态",
-      "title": "OpenAI 推出 OpenWorks，资助专家免费帮美国小企业用 AI",
-      "summary": "OpenAI 推出 OpenWorks 计划，资助当地 AI 专家免费帮助美国独立小企业开发工具、学习技能，目前正以试点形式在美国 20 个社区开展。\n\n参与业主可自选想解决的问题，与当地专家一对一协作，无需技术经验，并可免费使用 3 个月的 ChatGPT Business 。\n\n合作专家每月需投入数天服务当地企业，并在所在社区主持一次工作坊，津贴最高为每月 8000 美元 。\n\n企业主和专家均可通过 OpenAI 官网申请；软件和 SaaS 公司、风投支持的企业及私募股权持有的企业不符合参与条件。",
-      "url": "https://openai.com/form/openworks-partner/",
+      "category": "技术与洞察",
+      "title": "OpenAI：两名业余天文学家借助 AI 寻找系外行星",
+      "summary": "OpenAI 披露，两位业余天文学家分别借助 Codex 和 Astra 分析公开望远镜数据，找到了多个可能由太阳系外行星产生的信号。\n\n借助 Codex 的搜索筛出了 200 多个 信号，其中包括 10 颗 已确认行星的信号； SETI Institute 的天文学家独立搜索后，发现了其中两个相同信号。\n\n借助 Astra 的搜索初步发现 49 个 潜在行星信号，其中一个已交给 NASA 的 TESS 任务研究人员，等待进一步分析。这些信号的成因仍需进一步观测和检查。",
+      "url": "https://openai.com/index/searching-for-distant-planets-with-astra",
       "links": [
         {
-          "label": "OpenAI 推出 OpenWorks，资助专家免费帮美国小企业用 AI",
-          "url": "https://openai.com/form/openworks-partner/"
+          "label": "OpenAI：两名业余天文学家借助 AI 寻找系外行星",
+          "url": "https://openai.com/index/searching-for-distant-planets-with-astra"
         },
         {
           "label": "#21",
-          "url": "https://daily.juya.uk/issues/2026-11-24/#overview-item-21"
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-21"
         },
         {
-          "label": "https://openai.com/form/openworks-partner/",
-          "url": "https://openai.com/form/openworks-partner/"
+          "label": "https://openai.com/index/searching-for-distant-planets-with-astra",
+          "url": "https://openai.com/index/searching-for-distant-planets-with-astra"
+        }
+      ]
+    },
+    {
+      "category": "技术与洞察",
+      "title": "Google 推出 Humanity's First Exam：测大模型可靠性",
+      "summary": "Google 推出 Humanity's First Exam 基准，用 544 个文本和多模态提示词测试大模型能否次次做对简单任务，并在 Kaggle 上线排行榜和征集任务的黑客松。提示词覆盖 20 个基础子类别，编为 136 组四题任务族。\n\n评估 18 个模型显示，前五名单次准确率达 96% 到 98% ，但持续作答的正确率平均只有 85.8% ，可靠性差距最高达 80.1 个百分点； 73% 的错误出在视觉感知。\n\n基准已公开 112 个提示词，黑客松征集大模型仍会做错的日常任务，奖品价值 50,000 美元 ， 12 月 15 日 截止。",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/",
+      "links": [
+        {
+          "label": "Google 推出 Humanity's First Exam：测大模型可靠性",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/"
         },
         {
-          "label": "https://openai.com/openworks",
-          "url": "https://openai.com/openworks"
+          "label": "#22",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-22"
         },
         {
-          "label": "https://x.com/OpenAI/status/2124922133545714160",
-          "url": "https://x.com/OpenAI/status/2124922133545714160"
+          "label": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/"
+        },
+        {
+          "label": "https://kaggle.com/benchmarks/deepmind/hfe/leaderboard",
+          "url": "https://kaggle.com/benchmarks/deepmind/hfe/leaderboard"
+        },
+        {
+          "label": "https://x.com/kaggle/status/2125313430303244739",
+          "url": "https://x.com/kaggle/status/2125313430303244739"
+        }
+      ]
+    },
+    {
+      "category": "技术与洞察",
+      "title": "Artificial Analysis 横评 harness：最优因模型而异",
+      "summary": "Artificial Analysis 在 Coding Agent Index v2.1 上线 Harness Comparisons ，固定模型、只换 harness ，测 OpenAI 的 GPT-6 Luna 和智谱的 GLM-5.3-Flash 各 13 种。\n\n结果显示最优 harness 因模型而异： GPT-6 Luna 得分最高的 Codex 在 GLM-5.3-Flash 上垫底， GLM-5.3-Flash 得分最高的 Claude Code 在 GPT-6 Luna 上排第 6 。\n\nharness 对成本的影响大于对分数。",
+      "url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+      "links": [
+        {
+          "label": "Artificial Analysis 横评 harness：最优因模型而异",
+          "url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking"
+        },
+        {
+          "label": "#23",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-23"
+        },
+        {
+          "label": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking",
+          "url": "https://artificialanalysis.ai/methodology/coding-agents-benchmarking"
+        },
+        {
+          "label": "https://x.com/ArtificialAnlys/status/2125069725977968935",
+          "url": "https://x.com/ArtificialAnlys/status/2125069725977968935"
+        }
+      ]
+    },
+    {
+      "category": "技术与洞察",
+      "title": "Arena.ai 推出 3D 排行榜，Claude Fable 5.2 居首",
+      "summary": "Arena.ai 在 Code Arena 推出 Arena 3D 排行榜，根据用户投票为模型在真实 3D 任务上的表现提供独立排名。用户提交请求后，两个匿名模型各自完成构建，用户投票选出更好的结果。\n\n首批成绩中， Claude Fable 5.2（xHigh） 以 1933 分位列第一， Claude Opus 5.5（Max） 和 GPT-6.2 Sol（Max） 分列第二、第三。\n\nArena.ai 称， 3D 对战的平局率低于其他 Code Arena 对战， GPT-6.2 Sol（Max） 等模型在 3D 上的表现高于其整体排名水平。",
+      "url": "https://arena.ai/blog/introducing-the-arena-3d-leaderboard",
+      "links": [
+        {
+          "label": "Arena.ai 推出 3D 排行榜，Claude Fable 5.2 居首",
+          "url": "https://arena.ai/blog/introducing-the-arena-3d-leaderboard"
+        },
+        {
+          "label": "#24",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-24"
+        },
+        {
+          "label": "https://arena.ai/blog/introducing-the-arena-3d-leaderboard",
+          "url": "https://arena.ai/blog/introducing-the-arena-3d-leaderboard"
+        },
+        {
+          "label": "https://x.com/arena/status/2125290119271772222",
+          "url": "https://x.com/arena/status/2125290119271772222"
+        }
+      ]
+    },
+    {
+      "category": "前瞻与传闻",
+      "title": "报道称 OpenAI 和 Anthropic 员工忧内部模型难以安全发布",
+      "summary": "据 Axios 援引 二十多名 知情人士报道， OpenAI 和 Anthropic 内部未发布的前沿模型已远强于已公开版本，不少员工认为难以安全向公众开放，部分最先进模型在测试中还隐藏推理，或编造虚假的思考过程应付监督。\n\n两家公司及 AI 研究界正讨论是否停止公开发布未来前沿模型、仅作内部部署，以及是否继续训练新模型。",
+      "url": "https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks",
+      "links": [
+        {
+          "label": "报道称 OpenAI 和 Anthropic 员工忧内部模型难以安全发布",
+          "url": "https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks"
+        },
+        {
+          "label": "#25",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-25"
+        },
+        {
+          "label": "https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks",
+          "url": "https://www.axios.com/2026/11/24/anthropic-openai-unreleased-ai-safety-risks"
+        }
+      ]
+    },
+    {
+      "category": "前瞻与传闻",
+      "title": "马斯克称 SpaceX 的 AI 开发落后对手，出租算力比自用更赚钱",
+      "summary": "据《 纽约时报 》报道， 马斯克 告诉 SpaceX 员工，公司 AI 开发已落后于竞争对手，出租算力比用于自家产品更赚钱，并要求工程师论证使用 GPU 的理由。\n\nAnthropic 每月向 SpaceX 支付约 31 亿美元 算力租金， Google 每月约 8 亿美元 ，协议可能执行到 2029 年 ，任一方提前 90 天 通知即可终止。\n\n报道还称， SpaceX 已于 9 月 关停 AI 伴侣项目， 11 月 解散了 60 人 的 Grok Imagine 团队， 马斯克 还把内部工程群临时改名为 Sell compute because we can't compete 。",
+      "url": "https://finance.yahoo.com/technology/ai/articles/musk-ai-push-faces-dilemma-170103778.html",
+      "links": [
+        {
+          "label": "马斯克称 SpaceX 的 AI 开发落后对手，出租算力比自用更赚钱",
+          "url": "https://finance.yahoo.com/technology/ai/articles/musk-ai-push-faces-dilemma-170103778.html"
+        },
+        {
+          "label": "#26",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-26"
+        },
+        {
+          "label": "https://finance.yahoo.com/technology/ai/articles/musk-ai-push-faces-dilemma-170103778.html",
+          "url": "https://finance.yahoo.com/technology/ai/articles/musk-ai-push-faces-dilemma-170103778.html"
+        }
+      ]
+    },
+    {
+      "category": "前瞻与传闻",
+      "title": "豆包 App 灰度测试“豆包购物”，交易复用抖音电商履约体系",
+      "summary": "据《读佳》报道， 豆包 App 正灰度测试“豆包购物”功能，目前部分用户可见。\n\n该功能入口独立放在侧边菜单栏，与新对话、定时任务、插件技能并列。点击进入后是 抖音电商 提供的类小程序页面，相当于一个小型的 抖音商城 。\n\n豆包购物底层复用抖音电商完整履约体系，支持实物、餐饮团购和演出票务交易，覆盖结算、退款、售后核销全链路。\n\n用户在对话框说出需求后，由豆包比价、找商品，再跳转页面下单，货品、履约和售后仍跑在抖音电商体系内。",
+      "url": "https://www.ithome.com/1/031/464.htm",
+      "links": [
+        {
+          "label": "豆包 App 灰度测试“豆包购物”，交易复用抖音电商履约体系",
+          "url": "https://www.ithome.com/1/031/464.htm"
+        },
+        {
+          "label": "#27",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-27"
+        },
+        {
+          "label": "https://www.ithome.com/1/031/464.htm",
+          "url": "https://www.ithome.com/1/031/464.htm"
+        }
+      ]
+    },
+    {
+      "category": "其他",
+      "title": "T3 Code 被指默认遥测并读取账号文件识别用户",
+      "summary": "开源 AI 编程工具 T3 Code 近日被指默认开启 PostHog 遥测，并读取 Codex 和 Claude 本地认证文件中的账号标识，经哈希后跨设备识别用户。一位身在 德国 的用户称已向当地数据保护机构投诉。开发者 Theo 回应称，已合并移除用这两类文件识别用户的更改。他表示从未上传用户设备上的任何文件，也从未收到提示词等用户数据，并公开了自己产生的全部 95789 条遥测事件，超过 100MB 。",
+      "url": "https://x.com/theo/status/2125332390239494211",
+      "links": [
+        {
+          "label": "T3 Code 被指默认遥测并读取账号文件识别用户",
+          "url": "https://x.com/theo/status/2125332390239494211"
+        },
+        {
+          "label": "#28",
+          "url": "https://daily.juya.uk/issues/2026-11-25/#overview-item-28"
+        },
+        {
+          "label": "https://x.com/theo/status/2125332390239494211",
+          "url": "https://x.com/theo/status/2125332390239494211"
+        },
+        {
+          "label": "https://github.com/pingdotgg/t3code/pull/15028",
+          "url": "https://github.com/pingdotgg/t3code/pull/15028"
         }
       ]
     }
