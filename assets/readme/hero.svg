@@ -1,54 +1,100 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-  <title id="title">AI 视频创作台：从公开来源到创作者参考</title>
-  <desc id="desc">用来源标记呈现模型发布、原始评测榜与创作资源，并保留可回查的出处。</desc>
-  <rect width="1200" height="360" rx="24" fill="#f5f5f7"/>
-  <rect x="1" y="1" width="1198" height="358" rx="23" fill="none" stroke="#e3e3e8" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
+  <title id="title">AI 视频创作台能力榜单工作台</title>
+  <desc id="desc">仿照实际工作台页面构图，包含侧栏导航、视频榜单页签、Artificial Analysis 来源快照与原榜排名表。</desc>
+  <rect width="1200" height="450" rx="22" fill="#f5f5f7"/>
+  <rect x="16" y="16" width="1168" height="418" rx="16" fill="#ffffff" stroke="#e3e3e8" stroke-width="2"/>
+
+  <!-- Sidebar -->
+  <path d="M232 17v416" stroke="#e3e3e8" stroke-width="2"/>
+  <rect x="36" y="35" width="30" height="30" rx="9" fill="#1d1d1f"/>
+  <text x="51" y="56" text-anchor="middle" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="12" font-weight="750">AI</text>
+  <text x="77" y="56" fill="#1d1d1f" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="17" font-weight="740">AI 视频创作台</text>
+  <path d="M36 79h178" stroke="#e3e3e8"/>
 
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
-    <g transform="translate(54 48)">
-      <rect x="0" y="0" width="34" height="4" rx="2" fill="#2676df"/>
-      <text x="0" y="30" fill="#2676df" font-size="17" font-weight="750" letter-spacing="1.5">AI CREATOR RADAR · V4</text>
-      <text x="0" y="94" fill="#1d1d1f" font-size="48" font-weight="760" letter-spacing="-1.8">先看来源，再看结论</text>
-      <text x="0" y="137" fill="#4d535c" font-size="22" font-weight="500">模型上新、任务评测与创作资源</text>
-      <text x="0" y="170" fill="#4d535c" font-size="22" font-weight="500">按来源和时间整理，保留原始口径。</text>
-      <line x1="0" y1="206" x2="468" y2="206" stroke="#d7dbe0" stroke-width="1.5"/>
+    <text x="38" y="104" fill="#9aa5af" font-size="11" font-weight="750" letter-spacing=".6">发现</text>
+    <text x="50" y="130" fill="#53616e" font-size="14">近期上新</text>
+    <text x="50" y="157" fill="#53616e" font-size="14">行业简报</text>
+    <text x="50" y="184" fill="#53616e" font-size="14">官方账号监控</text>
 
-      <g transform="translate(0 234)">
-        <circle cx="7" cy="7" r="5" fill="#2676df"/>
-        <text x="22" y="13" fill="#313740" font-size="18" font-weight="650">模型动态</text>
-        <circle cx="170" cy="7" r="5" fill="#18734f"/>
-        <text x="185" y="13" fill="#313740" font-size="18" font-weight="650">来源原榜</text>
-        <circle cx="338" cy="7" r="5" fill="#d47755"/>
-        <text x="353" y="13" fill="#313740" font-size="18" font-weight="650">创作资源</text>
-      </g>
-      <text x="0" y="280" fill="#73777d" font-size="16" letter-spacing=".5">官方来源 / 原榜口径 / 创作资源</text>
-    </g>
+    <text x="38" y="219" fill="#9aa5af" font-size="11" font-weight="750" letter-spacing=".6">研究</text>
+    <text x="50" y="245" fill="#53616e" font-size="14">模型库</text>
+    <text x="50" y="272" fill="#53616e" font-size="14">模型资料</text>
+    <rect x="30" y="282" width="186" height="31" rx="9" fill="#eaf2fb"/>
+    <rect x="30" y="282" width="3" height="31" rx="1.5" fill="#2676df"/>
+    <text x="50" y="302" fill="#246bc4" font-size="14" font-weight="720">能力榜单</text>
 
-    <g transform="translate(568 32)">
-      <rect width="578" height="296" rx="20" fill="#202b38"/>
-      <text x="24" y="34" fill="#aab9cb" font-size="14" font-weight="700" letter-spacing="1.25">SOURCE → EVIDENCE → RADAR</text>
-      <g transform="translate(20 54)">
-        <rect width="538" height="62" rx="12" fill="#2a3745" stroke="#39495a"/>
-        <rect x="0" y="0" width="4" height="62" rx="2" fill="#6ea3f4"/>
-        <text x="19" y="25" fill="#9ab9e9" font-size="14" font-weight="700" letter-spacing=".6">01 / OFFICIAL</text>
-        <text x="177" y="27" fill="#f7f8fa" font-size="21" font-weight="700">官方模型发布</text>
-        <text x="177" y="49" fill="#c1cad4" font-size="16">具体版本 · 发布日期 · 一手来源</text>
-      </g>
-      <g transform="translate(20 126)">
-        <rect width="538" height="62" rx="12" fill="#2a3745" stroke="#39495a"/>
-        <rect x="0" y="0" width="4" height="62" rx="2" fill="#5fbd95"/>
-        <text x="19" y="25" fill="#91d5b5" font-size="14" font-weight="700" letter-spacing=".6">02 / LEADERBOARDS</text>
-        <text x="203" y="27" fill="#f7f8fa" font-size="21" font-weight="700">按任务查看原榜</text>
-        <text x="203" y="49" fill="#c1cad4" font-size="16">名次、区间与样本口径分开保留</text>
-      </g>
-      <g transform="translate(20 198)">
-        <rect width="538" height="62" rx="12" fill="#2a3745" stroke="#39495a"/>
-        <rect x="0" y="0" width="4" height="62" rx="2" fill="#e89a75"/>
-        <text x="19" y="25" fill="#efb294" font-size="14" font-weight="700" letter-spacing=".6">03 / CREATOR TOOLS</text>
-        <text x="203" y="27" fill="#f7f8fa" font-size="21" font-weight="700">简报、教程与工具</text>
-        <text x="203" y="49" fill="#c1cad4" font-size="16">RSS / GitHub · 原始链接可回查</text>
-      </g>
-      <text x="24" y="282" fill="#d6dde5" font-size="15">偏好分数用于比较评测任务，不代表市场采用率。</text>
-    </g>
+    <text x="38" y="342" fill="#9aa5af" font-size="11" font-weight="750" letter-spacing=".6">创作</text>
+    <text x="50" y="369" fill="#53616e" font-size="14">创作导航</text>
+  </g>
+
+  <!-- Top bar -->
+  <rect x="234" y="18" width="948" height="46" fill="#ffffff"/>
+  <path d="M234 64h948" stroke="#e3e3e8"/>
+  <text x="258" y="47" fill="#6e6e73" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="13">AI 视频创作台</text>
+  <text x="357" y="47" fill="#b1bac2" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="13">/</text>
+  <text x="372" y="47" fill="#1d1d1f" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="13" font-weight="700">能力榜单</text>
+  <rect x="913" y="29" width="237" height="27" rx="14" fill="#ffffff" stroke="#e3e3e8"/>
+  <circle cx="930" cy="42.5" r="5" fill="none" stroke="#8b929b" stroke-width="1.5"/>
+  <path d="m934 46 4 4" stroke="#8b929b" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="945" y="47" fill="#8b929b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif" font-size="11">搜索模型、官方宣传与资源…</text>
+
+  <!-- Main content -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+    <text x="260" y="99" fill="#1d1d1f" font-size="26" font-weight="760" letter-spacing="-.5">创作者能力参考榜</text>
+    <text x="260" y="122" fill="#6e6e73" font-size="13">每类最多展示 10 个合资格候选；来源名次与任务口径保持不变。</text>
+
+    <!-- Category tabs: common left edge and baseline -->
+    <rect x="260" y="139" width="65" height="30" rx="9" fill="#ffffff" stroke="#e3e3e8"/>
+    <text x="292.5" y="159" text-anchor="middle" fill="#53616e" font-size="13">图片</text>
+    <rect x="331" y="139" width="65" height="30" rx="9" fill="#eaf2fb" stroke="#cfe0f6"/>
+    <text x="363.5" y="159" text-anchor="middle" fill="#246bc4" font-size="13" font-weight="700">视频</text>
+    <rect x="402" y="139" width="86" height="30" rx="9" fill="#ffffff" stroke="#e3e3e8"/>
+    <text x="445" y="159" text-anchor="middle" fill="#53616e" font-size="13">音乐生成</text>
+    <rect x="494" y="139" width="94" height="30" rx="9" fill="#ffffff" stroke="#e3e3e8"/>
+    <text x="541" y="159" text-anchor="middle" fill="#53616e" font-size="13">语音合成</text>
+    <rect x="594" y="139" width="65" height="30" rx="9" fill="#ffffff" stroke="#e3e3e8"/>
+    <text x="626.5" y="159" text-anchor="middle" fill="#53616e" font-size="13">编程</text>
+
+    <!-- Video task tabs -->
+    <rect x="260" y="179" width="144" height="27" rx="8" fill="#2676df"/>
+    <text x="332" y="197" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">有声文生视频</text>
+    <rect x="410" y="179" width="144" height="27" rx="8" fill="#ffffff" stroke="#e3e3e8"/>
+    <text x="482" y="197" text-anchor="middle" fill="#53616e" font-size="12">有声图生视频</text>
+
+    <!-- Source snapshot header -->
+    <rect x="260" y="216" width="900" height="44" rx="10" fill="#f7f9fb" stroke="#e3e3e8"/>
+    <circle cx="278" cy="238" r="4" fill="#2676df"/>
+    <text x="290" y="243" fill="#1d1d1f" font-size="14" font-weight="720">AA 有声文生视频</text>
+    <text x="449" y="243" fill="#6e6e73" font-size="12">盲测偏好 · AA Elo</text>
+    <text x="920" y="243" fill="#6e6e73" font-size="11">数据快照 2026-11-25</text>
+    <text x="1128" y="243" text-anchor="end" fill="#2676df" font-size="11" font-weight="650">查看原榜 ↗</text>
+
+    <!-- Ranking table with fixed column anchors -->
+    <text x="280" y="282" fill="#73777d" font-size="11" font-weight="700">来源名次</text>
+    <text x="390" y="282" fill="#73777d" font-size="11" font-weight="700">模型 / 厂商</text>
+    <text x="810" y="282" fill="#73777d" font-size="11" font-weight="700">AA Elo · 95% CI</text>
+    <text x="1038" y="282" fill="#73777d" font-size="11" font-weight="700">评测样本</text>
+    <path d="M260 292h900" stroke="#e3e3e8"/>
+
+    <text x="280" y="316" fill="#53616e" font-size="12" font-weight="650">#1</text>
+    <text x="390" y="314" fill="#1d1d1f" font-size="14" font-weight="700">Wan 3.0</text>
+    <text x="390" y="328" fill="#73777d" font-size="10">Alibaba</text>
+    <text x="810" y="320" fill="#1d1d1f" font-size="13" font-weight="700">1175 · 1163–1187</text>
+    <text x="1038" y="320" fill="#1d1d1f" font-size="12">9,201</text>
+    <path d="M260 337h900" stroke="#eef0f2"/>
+
+    <text x="280" y="359" fill="#53616e" font-size="12" font-weight="650">#3</text>
+    <text x="390" y="357" fill="#1d1d1f" font-size="14" font-weight="700">MiniMax H3 (768p)</text>
+    <text x="390" y="371" fill="#73777d" font-size="10">MiniMax</text>
+    <text x="810" y="363" fill="#1d1d1f" font-size="13" font-weight="700">1164 · 1152–1176</text>
+    <text x="1038" y="363" fill="#1d1d1f" font-size="12">9,362</text>
+    <path d="M260 380h900" stroke="#eef0f2"/>
+
+    <text x="280" y="400" fill="#53616e" font-size="12" font-weight="650">#5</text>
+    <text x="390" y="398" fill="#1d1d1f" font-size="14" font-weight="700">Dreamina Seedance 2.5</text>
+    <text x="390" y="412" fill="#73777d" font-size="10">ByteDance Seed</text>
+    <text x="810" y="404" fill="#1d1d1f" font-size="13" font-weight="700">1154 · 1142–1166</text>
+    <text x="1038" y="404" fill="#1d1d1f" font-size="12">9,260</text>
   </g>
 </svg>
