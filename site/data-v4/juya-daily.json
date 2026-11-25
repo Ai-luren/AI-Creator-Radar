@@ -2,7 +2,7 @@
   "source": "橘鸦 AI 早报",
   "sourceUrl": "https://daily.juya.uk/issues/2026-11-25/",
   "title": "AI 早报 2026-11-25",
-  "fetchedAt": "2026-11-25T10:37:57Z",
+  "fetchedAt": "2026-11-25T12:50:46Z",
   "items": [
     {
       "category": "要闻",
@@ -134,6 +134,12 @@
           "label": "https://x.com/cognition/status/2125305349414523061",
           "url": "https://x.com/cognition/status/2125305349414523061"
         }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kimi",
+          "matchedName": "Kimi K3"
+        }
       ]
     },
     {
@@ -158,6 +164,19 @@
           "label": "https://mp.weixin.qq.com/s/SB42Uuhq0m6JvqZdih3TqA",
           "url": "https://mp.weixin.qq.com/s/SB42Uuhq0m6JvqZdih3TqA"
         }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-8",
+          "matchedName": "Qwen3.8"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
       ]
     },
     {
@@ -181,6 +200,19 @@
         {
           "label": "https://www.llamaindex.ai/blog/parse-ocria-1",
           "url": "https://www.llamaindex.ai/blog/parse-ocria-1"
+        }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
         }
       ]
     },
@@ -370,6 +402,19 @@
           "label": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash",
           "url": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash"
         }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "glm",
+          "modelVersionId": "5-3",
+          "matchedName": "GLM-5.3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "glm",
+          "matchedName": "GLM-5.3"
+        }
       ]
     },
     {
@@ -433,6 +478,19 @@
         {
           "label": "https://safeguards.anthropic.com/2026/siren",
           "url": "https://safeguards.anthropic.com/2026/siren"
+        }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-mythos-5-2",
+          "matchedName": "Claude Mythos 5.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Mythos 5.2"
         }
       ]
     },
@@ -526,6 +584,19 @@
           "label": "https://x.com/ArtificialAnlys/status/2125069725977968935",
           "url": "https://x.com/ArtificialAnlys/status/2125069725977968935"
         }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "glm",
+          "modelVersionId": "5-3",
+          "matchedName": "GLM-5.3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "glm",
+          "matchedName": "GLM-5.3"
+        }
       ]
     },
     {
@@ -549,6 +620,33 @@
         {
           "label": "https://x.com/arena/status/2125290119271772222",
           "url": "https://x.com/arena/status/2125290119271772222"
+        }
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-fable-5-2",
+          "matchedName": "Claude Fable 5.2"
+        },
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-opus-5-5",
+          "matchedName": "Claude Opus 5.5"
+        },
+        {
+          "modelFamilyId": "gpt",
+          "modelVersionId": "gpt-6-2-sol",
+          "matchedName": "GPT-6.2 Sol"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Opus 5.5"
+        },
+        {
+          "modelFamilyId": "gpt",
+          "matchedName": "GPT-6.2 Sol"
         }
       ]
     },
@@ -589,6 +687,12 @@
         {
           "label": "https://finance.yahoo.com/technology/ai/articles/musk-ai-push-faces-dilemma-170103778.html",
           "url": "https://finance.yahoo.com/technology/ai/articles/musk-ai-push-faces-dilemma-170103778.html"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
         }
       ]
     },

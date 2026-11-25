@@ -1,6 +1,6 @@
 {
   "schema": "ai-creator-radar-model-evaluations/1",
-  "generatedAt": "2026-11-25T07:13:08Z",
+  "generatedAt": "2026-11-25T12:50:47Z",
   "sourceNotes": {
     "aipick": "AIPick 近 7 天精选中的公开评测候选；保留其来源与原始链接。",
     "sogou": "搜狗微信搜索只读取搜索结果页的标题、摘要、公众号名和发布时间；不抓正文；遇到验证页停止并退避 24 小时。"
@@ -8,14 +8,16 @@
   "status": {
     "aipick": {
       "status": "ok",
-      "checkedAt": "2026-11-25T07:13:06+00:00",
-      "candidateCount": 2
+      "checkedAt": "2026-11-25T12:50:47+00:00",
+      "candidateCount": 3
     },
     "sogou": {
       "status": "ok",
-      "checkedAt": "2026-11-25T07:13:08Z",
-      "searchesThisRun": 0,
-      "warnings": [],
+      "checkedAt": "2026-11-25T12:50:47Z",
+      "searchesThisRun": 3,
+      "warnings": [
+        "本轮达到 3 次搜狗查询上限，剩余模型下次再查"
+      ],
       "blockedUntil": null
     }
   },
@@ -35,7 +37,8 @@
         "Kling Image 4.0 正式发布：原生 8K 与一致图像组"
       ],
       "query": "Kling Image Kling Image 4.0 / Kling Image 3.0 Omni / Kling Image O1 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%20Kling%20Image%204.0%20/%20Kling%20Image%203.0%20Omni%20/%20Kling%20Image%20O1%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%20Kling%20Image%204.0%20/%20Kling%20Image%203.0%20Omni%20/%20Kling%20Image%20O1%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-25T12:50:47Z"
     },
     {
       "id": "seedance",
@@ -51,7 +54,8 @@
         "一镜成片，随心参考：Seedance 2.5 正式发布"
       ],
       "query": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-25T12:50:47Z"
     },
     {
       "id": "minimax-h3-image",
@@ -67,7 +71,8 @@
         "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代"
       ],
       "query": "MiniMax H3-Image MiniMax H3-Image / MiniMax H3-Image Highspeed 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=MiniMax%20H3-Image%20MiniMax%20H3-Image%20/%20MiniMax%20H3-Image%20Highspeed%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=MiniMax%20H3-Image%20MiniMax%20H3-Image%20/%20MiniMax%20H3-Image%20Highspeed%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-25T12:50:47Z"
     },
     {
       "id": "seedream",
@@ -89,6 +94,110 @@
   ],
   "items": [
     {
+      "id": "aipick-bshpw56c5p8m3x9ggdec4t29w",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "magi-2 发布实测对比 seedance2.5 与 wan3.0",
+      "summary": "作者实测新发布的 magi-2 视频模型，认为其画面质感基本与 seedance2.5 一致，人脸呈现偏向性也相同，但人物质感偶尔有噪点，类似 seedance2.5flash。",
+      "sourceType": "aipick",
+      "sourceName": "抖音 · 热点搜「MAGI-2」",
+      "publishedAt": "2026-11-25T07:14:26Z",
+      "url": "https://www.douyin.com/video/7712004045754587219",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-25T12:50:47Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "aipick-gomuy0fpze4zzpd2wmprnkar9",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "magi-2 与 wan3.0 同提示词实测对比，价格仅为 seedance2.5 十分之一",
+      "summary": "创作者用同一套提示词、未抽卡条件下对比新模型 magi-2 与 wan3.0 的生成效果，magi-2 在提示词遵循度上完成度很高，但部分细节出现一致性穿帮，场景偏脏、对比度偏高。作者称 magi-2 价格仅为 seedance2.5 的十分之一，会进入其制作模型选型范围，并认为这一价格利好短剧类作者。",
+      "sourceType": "aipick",
+      "sourceName": "抖音 · 热点搜「MAGI-2」",
+      "publishedAt": "2026-11-25T06:25:06Z",
+      "url": "https://www.douyin.com/video/7711991247149272360",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-25T12:50:47Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
       "id": "aipick-aluujrsktig44xogsbr95ygi2",
       "targetId": "seedance",
       "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
@@ -101,7 +210,35 @@
       "url": "https://www.douyin.com/video/7711897430001867091",
       "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
       "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
-      "collectedAt": "2026-11-25T07:13:08Z"
+      "collectedAt": "2026-11-25T12:50:47Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "aipick-ff1yskixsg6yuk8hn4wxipqxk",
@@ -116,7 +253,35 @@
       "url": "https://www.youtube.com/watch?v=jrXoCIkLgrc",
       "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
       "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
-      "collectedAt": "2026-11-25T07:13:08Z"
+      "collectedAt": "2026-11-25T07:13:08Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "aipick-zmkkw8kt6nfuidtj6wi3v4di6",
@@ -1015,17 +1180,17 @@
     }
   ],
   "searchState": {
-    "lastRunAt": "2026-11-25T07:13:08Z",
+    "lastRunAt": "2026-11-25T12:50:47Z",
     "queries": {
       "kling-image": {
-        "lastSearchedAt": "2026-11-24T09:53:46Z",
+        "lastSearchedAt": "2026-11-25T12:50:47Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,
         "error": null
       },
       "minimax-h3-image": {
-        "lastSearchedAt": "2026-11-24T09:53:46Z",
+        "lastSearchedAt": "2026-11-25T12:50:47Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,
@@ -1039,7 +1204,7 @@
         "error": null
       },
       "seedance": {
-        "lastSearchedAt": "2026-11-24T09:53:46Z",
+        "lastSearchedAt": "2026-11-25T12:50:47Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,

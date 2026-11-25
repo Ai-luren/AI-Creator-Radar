@@ -2,7 +2,7 @@
   "source": "AIHOT 日报",
   "sourceUrl": "https://aihot.news/daily",
   "title": "AI 日报：今日 AI 新闻与人工智能最新消息（2026 年 11 月 25 日 · 星期三）",
-  "fetchedAt": "2026-11-25T07:13:04Z",
+  "fetchedAt": "2026-11-25T12:50:43Z",
   "items": [
     {
       "category": "头条",
@@ -65,6 +65,12 @@
         {
           "label": "原文",
           "url": "https://cognition.com/blog/swe-2-1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kimi",
+          "matchedName": "Kimi K3"
         }
       ]
     },
@@ -136,6 +142,12 @@
         {
           "label": "原文",
           "url": "https://mp.weixin.qq.com/s/Maoz76fZdGNaB7tlIVxWWQ"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "suno",
+          "matchedName": "Suno"
         }
       ]
     },

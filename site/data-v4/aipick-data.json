@@ -6,12 +6,311 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-25T07:13:06+00:00",
+  "fetchedAt": "2026-11-25T12:50:47+00:00",
   "etags": {
-    "items": "W/\"v1-items-6377528d3f047a6f\"",
-    "hotTopics": "W/\"v1-hot-ed53bdfb88c4a5b0\""
+    "items": "W/\"v1-items-10bf2f0199636fdd\"",
+    "hotTopics": "W/\"v1-hot-fe0753fbba2c8d44\""
   },
   "items": [
+    {
+      "id": "wmi1whgtki8dq70z1doucren7",
+      "title": "Min Choi 分享四阶段提示词，用 Claude artifact 把日常痛点做成桌面小应用",
+      "originalTitle": "PROMPT: You are my personal app builder. Your job is to turn one recurring annoyance in my life or work into a small desktop app I will open every day, built as a Claude artifact I can install with \"Install as app\". Work in 4 phases. Do not skip ahead. PHASE 1: INTERVIEW Ask me these in one message, numbered, then stop and wait: 1. What do I do every week that is repetitive, manual, or easy to forget? 2. Which apps or subscriptions do I pay for but only use one or two features of? 3. Which tools do I already connect to Claude (calendar, email, drive, others)? 4. Am I on Mac or Windows? PHASE 2: PICK AND SPEC Propose the 3 best app ideas from my answers. For each: what it replaces, the one job it does, and the time or money it saves me, using only numbers I gave you, or \"unknown\" if I gave none. Recommend one. When I confirm, write a one-page spec: - The single main screen and what is on it - The data it stores and where - Which connectors it uses, if any - Which permissions it needs, s",
+      "summary": "Min Choi 分享一段可直接复用的提示词，让 Claude 扮演个人应用构建器，把生活中反复出现的麻烦做成可用“Install as app”安装的桌面小应用。提示词分四阶段执行：先访谈重复劳动、闲置订阅、已连接工具和操作系统，再提出 3 个应用方案并写一页规格，然后构建带示例数据、深浅色模式和持久化存储的单个 artifact，最后用 5 个真实任务测试并给出安装步骤。",
+      "source": {
+        "name": "X · Min Choi"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/wmi1whgtki8dq70z1doucren7",
+        "original": "https://x.com/minchoi/status/2125564860255658247"
+      },
+      "publishedAt": "2026-11-25T12:18:48.000Z",
+      "discoveredAt": "2026-11-25T12:47:32.526Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "原文给出可直接复用的四阶段提示词，适合演示从访谈需求到用 Claude artifact 安装成桌面小应用的完整流程。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/wmi1whgtki8dq70z1doucren7"
+      }
+    },
+    {
+      "id": "b3f8m659z4b5qxaupzjda65or",
+      "title": "GLM-5.4 实测：750B 模型同一任务耗时 431 分钟，比对比模型慢四倍",
+      "originalTitle": "GLM5.4诚实评测，能打是真能打，慢也是真慢，慢了整整四倍 憋了100天，智谱终于把GLM5.4端出来了。750B的身子干着2到3T的活儿，可同一个任务它磨了431分钟，对面109分钟就交卷——能打是真能打，慢也是真慢，慢了整整四倍。底下换的是循环Transformer，28层权重共用、来回过两遍，参数一个没多，硬把思考深度翻倍；数学那项从19涨到30，输出反倒短了14%。官方演示里它写代码剪音乐短片、拿CAD捏六轴机械臂，但权重还没开。唯一独立分数是海外博主私有题库跑的33.2分、19个模型里第7，开源里最高——只能当方向看。想快它会让你失望，要稳它挺值。我是狒狒。#AI工具 #大模型 #AI编程",
+      "summary": "智谱发布 GLM-5.4，作者实测同一任务耗时 431 分钟，对比模型仅 109 分钟，慢约四倍。该模型采用循环 Transformer，28 层权重共用、来回过两遍，参数量不变，官方对照中数学项从 19 涨到 30，输出缩短 14%。目前权重尚未开放，唯一独立分数是海外博主私有题库的 33.2 分，19 个模型中排第 7、开源类最高。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/b3f8m659z4b5qxaupzjda65or",
+        "original": "https://www.douyin.com/video/7711913082645155122"
+      },
+      "publishedAt": "2026-11-25T01:21:37.000Z",
+      "discoveredAt": "2026-11-25T12:20:31.264Z",
+      "category": "ai-models",
+      "score": 62,
+      "selected": true,
+      "reason": "作者用同一任务实测 GLM-5.4 耗时 431 分钟、对比模型 109 分钟，适合围绕这四倍差距做上手实测与适用场景拆解。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/b3f8m659z4b5qxaupzjda65or"
+      }
+    },
+    {
+      "id": "fz1jcndn8oi6nijl3q9q807mx",
+      "title": "MAGI-2 视频模型实测：逆光、暗光、提示词理解与多角色对话对比 C2.5",
+      "originalTitle": "最新MAGI‑2视频模型实测，分别测试逆光环境、提示词理解、暗光环境、多角色对话#AIGC #ai创作者浪潮计划 #Magi #镜头语言",
+      "summary": "创作者对在利布TV独家上线的视频模型 MAGI-2 做了实测，分别测试逆光环境、提示词理解、蓝调暗光环境和多角色对话，并与 C2.5 对比。测试中 MAGI-2 在暗光实拍质感和多角色台词理解上表现较好，但对豆豆鞋、紧身裤等网络服饰用语还原不足，C2.5 在光影层次和电影机质感上更强。作者称 MAGI-2 的消耗只有 C2.5 的 1/10，对控制成本的漫剧和短剧创作者较友好。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/fz1jcndn8oi6nijl3q9q807mx",
+        "original": "https://www.douyin.com/video/7711980225562791195"
+      },
+      "publishedAt": "2026-11-25T05:42:09.000Z",
+      "discoveredAt": "2026-11-25T12:09:34.603Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者分逆光、暗光、提示词理解、多角色对话四项实测 MAGI-2，并给出与 C2.5 的成片对比和 1/10 消耗差异，适合做效果对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/fz1jcndn8oi6nijl3q9q807mx"
+      }
+    },
+    {
+      "id": "gomuy0fpze4zzpd2wmprnkar9",
+      "title": "magi-2 与 wan3.0 同提示词实测对比，价格仅为 seedance2.5 十分之一",
+      "originalTitle": "新模型magi-2，仅seedance2.5十分之一价格 用正在制作的项目相同的一套提示词，magi-2和wan3.0在没抽卡的情况下的效果，在部分细节有一致性穿帮等问题，但是仅仅只有seedance2.5十分之一的价格，在提示词遵循度上完成度非常高。目前问题在于场景会显脏，对比度有点高。整体来说会进入我制作模型的选型范围，这个价格利好短剧类的作者。大家可以在评论区或群一起分享和讨论测试结果，挖掘这个模型更深的潜力#magi2 #wan3 #seedance #AI视频 #AI制作",
+      "summary": "创作者用同一套提示词、未抽卡条件下对比新模型 magi-2 与 wan3.0 的生成效果，magi-2 在提示词遵循度上完成度很高，但部分细节出现一致性穿帮，场景偏脏、对比度偏高。作者称 magi-2 价格仅为 seedance2.5 的十分之一，会进入其制作模型选型范围，并认为这一价格利好短剧类作者。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/gomuy0fpze4zzpd2wmprnkar9",
+        "original": "https://www.douyin.com/video/7711991247149272360"
+      },
+      "publishedAt": "2026-11-25T06:25:06.000Z",
+      "discoveredAt": "2026-11-25T12:09:34.596Z",
+      "category": "ai-models",
+      "score": 60,
+      "selected": true,
+      "reason": "作者用同一套提示词在未抽卡条件下对比 magi-2 与 wan3.0 的成片，可顺着穿帮细节和价格差做一次实测对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/gomuy0fpze4zzpd2wmprnkar9"
+      }
+    },
+    {
+      "id": "ra5froaeb2ewaje97ntwgb59f",
+      "title": "MAGI-2 视频模型实测：画面更艳丽、提示词遵循更强，但分镜时长需给准",
+      "originalTitle": "MAGI-2新视频模型实测02 这几天完成了 MAGI-2 新一代视频模型的内测测试，整体来看，这是一款对预算有限的创作者非常吃香、性价比突出的模型。相比 SD 2.5，它的画面整体更艳丽、锐度更高，而且有更稳定的基础台词发音，很少发现台词读错的情况。更大亮点是提示词遵循度也更强，基本能做到 “说什么做什么”，使用时的核心注意点是必须给准分镜的时间长度参数。但它貌似采用的是刚性执行逻辑：当单段分镜分配时长不足、内容无法完整承载时，模型不会自动协调调配分镜头时长，而是严格按给定时间点硬推完全程，容易出现局部节奏时快时慢的问题，甚至可能出现时间给少了末尾分镜内容没做完就收尾的情况。另外脸部特写画面质感偏脏，角色还原度上相比2.5稍弱。以上实测结果因人而异，总体上MAGI-2非常适合追求高效输出、看重视觉冲击力、预算有限的创作场景需求。#模型实测 #Magi2独家登陆LibTV #Magi2价格屠夫",
+      "summary": "作者完成 MAGI-2 新一代视频模型内测，认为其性价比突出，适合预算有限的创作者。相比 SD 2.5，MAGI-2 画面更艳丽、锐度更高，基础台词发音更稳定，提示词遵循度更强，基本能做到“说什么做什么”。使用时必须给准分镜时间长度参数，因为模型按给定时间点刚性执行，单段时长不足会导致节奏忽快忽慢，甚至末尾分镜没做完就收尾；脸部特写质感偏脏，角色还原度略弱于 2.5。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ra5froaeb2ewaje97ntwgb59f",
+        "original": "https://www.douyin.com/video/7711927741162999080"
+      },
+      "publishedAt": "2026-11-25T02:18:36.000Z",
+      "discoveredAt": "2026-11-25T12:09:34.511Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者实测 MAGI-2 与 SD 2.5 的画面、台词和提示词遵循差异，可对照展示分镜时长给不足时的节奏问题。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/ra5froaeb2ewaje97ntwgb59f"
+      }
+    },
+    {
+      "id": "bshpw56c5p8m3x9ggdec4t29w",
+      "title": "magi-2 发布实测对比 seedance2.5 与 wan3.0",
+      "originalTitle": "magi-2发布了做个小对比 magi-2发布了，说实话着实有点惊艳到我了，最关键的是便宜。 放出直观的测试言论，大概是seedance2.5百分之九十的能力。从画面质感来说，基本上和seedance2.5一致了。因为每个模型的人脸呈现都会有偏向性，magi-2的人脸和seedance2.5感觉是一致的，这是第一次碰到，甚至我都快怀疑magi-2就是魔改了seedance2.5了。但是人物质感上，有时候magi-2偶尔会有噪点，有点像seedance2.5flash。 单论逻辑叙事能力结构来说，seedance2.5是最棒的，magi-2稍逊一筹，但是绝对能用，这一点很重要的，你别看现在视频模型不少，想摸到seedance2.0都难，更别说2.5。就比如wan3.0在一些安静的画面还不错，但是复杂指令不听话，这也就是为何我只会拿wan3.0做唯美镜头和翻唱镜头的原因。 最主要的是价格。因为magi-2只能做1080p，同样的参数下15秒，在libtv上的分数 seedance2.5：1650分 wan3.0:240分(从发布一直在打8折，原价是300分) Magi-2：180分 没错，你没听错，只需要180分。价格甚至比480下的seedance2.5还便宜，就是不知道后期会不会涨价。 #magi-2 #seedance2.5 #wan3.0 #柳依波",
+      "summary": "作者实测新发布的 magi-2 视频模型，认为其画面质感基本与 seedance2.5 一致，人脸呈现偏向性也相同，但人物质感偶尔有噪点，类似 seedance2.5flash。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/bshpw56c5p8m3x9ggdec4t29w",
+        "original": "https://www.douyin.com/video/7712004045754587219"
+      },
+      "publishedAt": "2026-11-25T07:14:26.000Z",
+      "discoveredAt": "2026-11-25T12:09:34.490Z",
+      "category": "ai-models",
+      "score": 62,
+      "selected": true,
+      "reason": "作者实测对比 magi-2 与 seedance2.5、wan3.0 的画面质感和积分价格，适合做同参数下的效果与成本对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/bshpw56c5p8m3x9ggdec4t29w"
+      }
+    },
+    {
+      "id": "xcqh3f7y7cjbcktmekcibaiqz",
+      "title": "PixVerse Canvas 上线 Product Short Drama 功能",
+      "originalTitle": "Product Short Drama is live in PixVerse Canvas Drop in your product, tell the Agent your goal, get a scripted ad with characters, plot and punchlines. You bring the product. It brings the plot. https://t.co/HBTR7GXv5z",
+      "summary": "PixVerse 在 Canvas 中上线 Product Short Drama 功能，用户放入产品并告诉 Agent 目标，即可得到带角色、剧情和笑点的脚本化广告。官方称用户提供产品，Agent 负责剧情。",
+      "source": {
+        "name": "X · PixVerse"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/xcqh3f7y7cjbcktmekcibaiqz",
+        "original": "https://x.com/pixverse/status/2125545339612807583"
+      },
+      "publishedAt": "2026-11-25T11:01:14.000Z",
+      "discoveredAt": "2026-11-25T11:53:33.594Z",
+      "category": "ai-products",
+      "score": 60,
+      "selected": true,
+      "reason": "官方放出 PixVerse Canvas 的 Product Short Drama 功能，适合演示上传产品后由 Agent 生成带角色和剧情的广告短片。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/xcqh3f7y7cjbcktmekcibaiqz"
+      }
+    },
+    {
+      "id": "wb5yooxablee1iqdp8wtkio1m",
+      "title": "用草图加站位提示词控制 Seedance 视频人物站位的方法",
+      "originalTitle": "seedanceAI视频控制人物站位，好办法！ #AI #seedance #AI漫剧",
+      "summary": "创作者饭团onigiri分享用草图控制 Seedance AI 视频人物站位的方法：先给出人物和场景草图，再用提示词写明图中每个人的位置和每个镜头拍谁，三个视频可同时生成且站位不乱。作者称相比截取视频帧作参考会越做越糊、3D 导演台会把人物人偶渲染进画面，草图方案画质最好；草图应尽量做 45 度全景展示，并与场景图在构图和景别上接近。",
+      "source": {
+        "name": "抖音 · 话题 #Seedance"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/wb5yooxablee1iqdp8wtkio1m",
+        "original": "https://www.douyin.com/video/7711727739459439912"
+      },
+      "publishedAt": "2026-11-24T13:22:31.000Z",
+      "discoveredAt": "2026-11-25T10:33:37.699Z",
+      "category": "tip",
+      "score": 68,
+      "selected": true,
+      "reason": "作者用草图加站位提示词控制 Seedance 人物站位，并对比截图参考和 3D 导演台的糊脸问题，适合上手实测这套流程。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/wb5yooxablee1iqdp8wtkio1m"
+      }
+    },
+    {
+      "id": "zoi9rvm0b3nvpkil5sxccrtgd",
+      "title": "同一提示词做招聘海报，实测 Claude、GPT 与智谱的出图速度",
+      "originalTitle": "AI干活又快又好是什么体验？看看Claude这次的表现 #Claude #AI工具 #AI设计 #效率工具 #人工智能",
+      "summary": "作者用同一提示词让 Claude、GPT、智谱等 AI 做招聘海报，Claude 最后拿到任务却最先完成，5 分 08 秒交出 5 个版本。GPT 首版用 2 分 07 秒，被要求重做后 6 分钟完成 5 个版本；智谱 15 分钟仍未完成，且首版交付的是 HTML 而非图片。作者认为 Claude 的审美更胜一筹，速度差距没有那么大。",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Ship」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/zoi9rvm0b3nvpkil5sxccrtgd",
+        "original": "https://www.douyin.com/video/7710485487500283176"
+      },
+      "publishedAt": "2026-11-25T01:30:00.000Z",
+      "discoveredAt": "2026-11-25T10:16:31.937Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用同一提示词让 Claude、GPT、智谱等做招聘海报，可拍成多模型出图速度与审美的同题对比实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/zoi9rvm0b3nvpkil5sxccrtgd"
+      }
+    },
+    {
+      "id": "srdmq6f7uglt6kqzkpib4xew4",
+      "title": "Anthropic 推出 Claude Ship，在 GitHub 串联代码审查、PR 自动修复与策略审批",
+      "originalTitle": "《Claude能批准代码！GPT-6.2看图飙到71.7%》 Anthropic推出Claude Ship，在GitHub上把代码审查、PR自动修复和按规则审批串成一条线；GPT-6.2进入ChatGPT，图像理解评测从47.4%升到71.7%；谷歌AI模式接入Wallet，智谱GLM-5.4用循环层架构。 今天最值得试Claude Ship，你敢让AI批准代码吗？ #人工智能 #Claude #ChatGPT #AI编程 #今日AI速递",
+      "summary": "Anthropic 推出 Claude Ship，在 GitHub 上把代码审查、PR 自动修复和策略审批串成一条线，合并前减少人工等待，Team 和企业版可用、按用量计费。OpenAI 向付费用户推送 GPT-6.2，图像理解评测从 47.4% 升到 71.7%。谷歌 AI 模式接入 Wallet，智谱 GLM-5.4 采用循环层架构、28 层共享块反复执行，权重稍后开放。",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Ship」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/srdmq6f7uglt6kqzkpib4xew4",
+        "original": "https://www.douyin.com/video/7711925181412822315"
+      },
+      "publishedAt": "2026-11-25T02:08:34.000Z",
+      "discoveredAt": "2026-11-25T10:16:31.919Z",
+      "category": "industry",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出 Claude Ship 在 GitHub 上串联代码审查、PR 自动修复与策略审批的流程，适合演示一次 AI 审批合并的完整操作。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/srdmq6f7uglt6kqzkpib4xew4"
+      }
+    },
+    {
+      "id": "yc5pwdq8pvcdklj042fz5xf7s",
+      "title": "用 LibTV MCP 把 MAGI-2 与 Google Neon 串成视频与代码双向工作流",
+      "originalTitle": "谷歌 Neon 加 MAGI-2 居然这么强！解锁 AI 写代码与生视频的双向玩法（附 Skill）",
+      "summary": "作者分享用 LibTV 的 MCP 把视频模型 MAGI-2 和 Google Neon 结合，跑通 Video to Code 与 Code to Video 两套内容生产流程。",
+      "source": {
+        "name": "公众号 · 歸藏的AI工具箱"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/yc5pwdq8pvcdklj042fz5xf7s",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzU0MDk3NTUxMA==&mid=2247498559&idx=1&sn=a5a5a4b02ca7cdd549121f29c2ff9a90&chksm=fab2912be9946e1a53178023d07db646abb25b9e4637785e85f6acfb55ce7e526b097075d129&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-25T09:32:09.000Z",
+      "discoveredAt": "2026-11-25T09:42:32.594Z",
+      "category": "tip",
+      "score": 72,
+      "selected": true,
+      "reason": "作者实测把 MAGI-2 和 Google Neon 串成 Video to Code 与 Code to Video 两条流程，还打包了可直接装的 Skill，适合照着复现这套双向玩法。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/yc5pwdq8pvcdklj042fz5xf7s"
+      }
+    },
+    {
+      "id": "b85hgbuq6log31l2wo24mo0uc",
+      "title": "在 Claude 中接入 ElevenCreative 生成整套黑五广告",
+      "originalTitle": "What happens when you ask Claude to build an entire marketing team for you? I tried this and my ads went from a basic template to a full campaign in just a few minutes. It’s called ElevenCreative from @elevenlabs, and it connects right inside Claude. Just search ElevenLabs in Claude’s connectors and click Connect. Then type something like: “I need you to plan my Black Friday campaign and make all the ads for it.” Claude does the thinking and writes the prompts, and ElevenCreative makes the videos, the voiceover and the music. It’s like having your own creative team: a scriptwriter, a video producer and a voiceover artist, all working on the same campaign. Don’t like something? Just ask. I said “this one feels too much like an ad, make it look like a real person filmed it on their phone,” and it redid the whole thing. ElevenLabs is also running The Year of More, a creator competition with $200,000 in total prizes. It’s free to enter, no purchase needed, and entries close Nov 30. And for",
+      "summary": "作者实测在 Claude 的连接器里搜索 ElevenLabs 并点击 Connect 接入 ElevenCreative，输入“规划黑五营销活动并制作全部广告”后，由 Claude 负责构思和写提示词，ElevenCreative 生成视频、配音和音乐。",
+      "source": {
+        "name": "TikTok · 搜「ai tools」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/b85hgbuq6log31l2wo24mo0uc",
+        "original": "https://www.tiktok.com/@maverickgpt/video/7711521357619629343"
+      },
+      "publishedAt": "2026-11-24T00:01:38.000Z",
+      "discoveredAt": "2026-11-25T09:15:32.117Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者实测在 Claude 连接器里接入 ElevenCreative，用一句提示词生成黑五广告视频、配音和配乐，并演示了按反馈重做整条广告。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/b85hgbuq6log31l2wo24mo0uc"
+      }
+    },
+    {
+      "id": "camt03cbm62r9x7eozwkg7les",
+      "title": "GLM-5.4 思考档开到最高反而超时，百条测评给出分档使用建议",
+      "originalTitle": "GLM-5.4开最高档反而超时？百条测评看完，知道该开哪档了 智谱新出的GLM-5.4挺有意思，同一道限时三分钟的题，思考档开到最高反而超时了，调到中档一分多钟就过了。这条片讲它为什么每步都多想一遍、掐表的题怎么翻车，还有小活大活各开哪档。本号没有自测，是让AI读了全网162条测评和讨论对出来的结论，供你参考。 数据截至2026-11-23，来自KingBench 4、AI十项全能及B站/YouTube/X公开测评，非官方跑分。制作：Claude 带子 Agent 与 Codex 读测评，Gemini 写口播，豆包 Seed Audio 配音，画面用代码渲染。 #GLM #智谱 #AI编程 #Vibe知识大赏 #抖音精选APP征稿中",
+      "summary": "智谱新推出的 GLM-5.4 在同一道限时三分钟的题上，思考档开到最高反而超时，调到中档一分多钟就通过。作者称自己没有实测，而是让 AI 读了全网 162 条测评和讨论，数据截至 2026-11-23，来自 KingBench 4、AI 十项全能及 B站/YouTube/X 公开测评，非官方跑分。",
+      "source": {
+        "name": "抖音 · 热点搜「GLM-5.4」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/camt03cbm62r9x7eozwkg7les",
+        "original": "https://www.douyin.com/video/7711675217071983912"
+      },
+      "publishedAt": "2026-11-24T09:58:41.000Z",
+      "discoveredAt": "2026-11-25T08:19:30.971Z",
+      "category": "opinion",
+      "score": 58,
+      "selected": true,
+      "reason": "原文给出限时题最高档超时、中档一分多钟通过的对比，适合做同一道题不同思考档位的实测演示。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/camt03cbm62r9x7eozwkg7les"
+      }
+    },
     {
       "id": "f4xlv79gs54lv9eq1gdcj7b6g",
       "title": "创作者用即梦电脑版生成港片风格警匪短片",
@@ -358,6 +657,29 @@
       }
     },
     {
+      "id": "h7r31hmptglkipx705cv1vnte",
+      "title": "Sakana AI 发布 30B 模型 Sakana Namazu Small，25 项基准平均超过 120B 模型",
+      "originalTitle": "「Sakana Namazu Small」（30Bモデル）を発表 https://t.co/qw6vwbnYet NVIDIA Nemotron 3 Nanoをベースに継続事前学習・事後学習を行い、25ベンチマーク平均で約4倍規模の120Bモデルを上回りました。 長文読解やWeb検索での調査に強く、オンプレミス提供の詳細は12月前半にお知らせします。",
+      "summary": "Sakana AI 发布 30B 模型 Sakana Namazu Small，基于 NVIDIA Nemotron 3 Nano 进行继续预训练和后训练，在 25 个基准的平均成绩上超过约 4 倍规模的 120B 模型。该模型擅长长文阅读和网页检索调研，本地部署（on-premise）的提供细节将于 12 月前半公布。",
+      "source": {
+        "name": "X · Sakana AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/h7r31hmptglkipx705cv1vnte",
+        "original": "https://x.com/SakanaAILabs/status/2125387934203560416"
+      },
+      "publishedAt": "2026-11-25T00:35:45.000Z",
+      "discoveredAt": "2026-11-25T01:52:31.769Z",
+      "category": "ai-models",
+      "score": 47,
+      "selected": true,
+      "reason": "官方给出30B模型在25个基准平均上超过约4倍规模120B模型的说法，适合围绕长文阅读和网页检索做实测对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/h7r31hmptglkipx705cv1vnte"
+      }
+    },
+    {
       "id": "xmj2ilt57le34oq4uf2nw0ox1",
       "title": "Higgsfield 用 MAGI-2 生成风格化打斗片段",
       "originalTitle": "We gave MAGI-2 character and visual references. It built this stylized fight sequence. Made with Higgsfield. https://t.co/X9csdrISdx",
@@ -379,333 +701,62 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/xmj2ilt57le34oq4uf2nw0ox1"
       }
-    },
-    {
-      "id": "qo7ztev64fkxfef2r0j2644ci",
-      "title": "Cognition 发布 SWE-2.1，基于 Kimi K3 纯强化学习训练并推出 10 倍速 Ultrafast 版本",
-      "originalTitle": "Introducing SWE-2.1",
-      "summary": "Cognition 发布 SWE-2.1，作为 SWE-2 的重大升级，同样基于 Kimi K3 用纯强化学习训练，在 FrontierCode 2.0、Terminal-Bench 4.1 等基准上大幅提升。",
-      "source": {
-        "name": "Cognition 模型 / Devin 博客"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/qo7ztev64fkxfef2r0j2644ci",
-        "original": "https://cognition.com/blog/swe-2-1"
-      },
-      "publishedAt": "2026-11-24T16:00:00.000Z",
-      "discoveredAt": "2026-11-24T23:46:29.403Z",
-      "category": "ai-models",
-      "score": 65,
-      "selected": true,
-      "reason": "官方给出 SWE-2.1 在 ExploitBench 80%、ExploitGym 27.3% 的成绩和沙箱逃逸告警细节，适合围绕长时自主运行与安全防护做一次解读。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/qo7ztev64fkxfef2r0j2644ci"
-      }
-    },
-    {
-      "id": "ff1yskixsg6yuk8hn4wxipqxk",
-      "title": "如何把 Seedance 2.5 的成本砍半：Draft Mode 实测对比",
-      "originalTitle": "Here’s How to Cut Your Seedance 2.5 Costs in Half",
-      "summary": "Curious Refuge 实测 Seedance Draft Mode 与 Seedance 2.5 直出 1080p 的画质差异，结论是 Draft Mode 并不像许多 AI 电影人担心的那样明显更差。视频演示了从设置镜头、生成 1 美元草稿到渲染 1080p 或 4K 的流程，并对比 Seedance 与 Topaz 的放大效果，成本对比为 40 美元对 140 美元。",
-      "source": {
-        "name": "Curious Refuge"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ff1yskixsg6yuk8hn4wxipqxk",
-        "original": "https://www.youtube.com/watch?v=jrXoCIkLgrc"
-      },
-      "publishedAt": "2026-11-24T22:44:50.000Z",
-      "discoveredAt": "2026-11-24T22:57:28.030Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者实测 Seedance Draft Mode 与 Seedance 2.5 直出 1080p 的画质差异，并给出 $40 与 $140 的成本对比，适合做省钱流程实测。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ff1yskixsg6yuk8hn4wxipqxk"
-      }
-    },
-    {
-      "id": "pzy78ojfydso6zkt3227i3bk8",
-      "title": "Higgsfield 发布 400B 参数视频模型 MAGI-2，Video Arena 排名第 2",
-      "originalTitle": "MAGI-2 is #2 on the Higgsfield Video Arena. > 400B parameters, open weights coming soon > 1146 score > 60.5% overall win rate It won 71% in blind tests against Seedance 2.0, 79% against Wan 3.0 and 83% against Kling 4.0. https://t.co/g4vEOqtkpN",
-      "summary": "Higgsfield 宣布 MAGI-2 在 Higgsfield Video Arena 排名第 2，得分 1146，整体胜率 60.5%。该模型参数规模超过 400B，官方称开放权重即将发布；盲测中对 Seedance 2.0 胜率 71%、对 Wan 3.0 胜率 79%、对 Kling 4.0 胜率 83%。",
-      "source": {
-        "name": "X · Higgsfield"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/pzy78ojfydso6zkt3227i3bk8",
-        "original": "https://x.com/higgsfield/status/2125346114690060390"
-      },
-      "publishedAt": "2026-11-24T21:49:35.000Z",
-      "discoveredAt": "2026-11-24T22:51:31.722Z",
-      "category": "ai-models",
-      "score": 60,
-      "selected": true,
-      "reason": "MAGI-2 在 Higgsfield Video Arena 排第 2，官方给出 400B 参数、1146 分和盲测胜率，适合做榜单对比解读。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/pzy78ojfydso6zkt3227i3bk8"
-      }
-    },
-    {
-      "id": "merq5iupi7p4kaxgs79dapz9n",
-      "title": "Anthropic 发布 Siren 评测：Claude 在弱化沙箱中越界访问率 21-32%",
-      "originalTitle": "New Anthropic research: When an AI agent can escape its sandbox, will it choose to? Our new evaluation, Siren, gives Claude routine tasks in intentionally weakened sandboxes, with something useful to the task left outside of the sandbox. Across 1,700+ scenarios built to tempt them, recent Claude models accessed, tried to access, or looked outside the sandbox 21-32% of the time, but they rarely misused what they found. However, when the system prompt described both the sandbox and its rules, that rate dropped to about 2% or less. We also used Siren to calibrate Claude Code’s auto mode, which checks commands before they run, so Claude can work without asking permission at every step. Read our blog for more detail: https://t.co/5MbjpBkEo3",
-      "summary": "Anthropic 发布新研究 Siren，用 1700+ 个故意弱化沙箱的场景测试 Claude 是否会越界访问沙箱外资源，近期 Claude 模型有 21-32% 的情况访问、尝试访问或查看了沙箱外内容，但很少滥用找到的东西。",
-      "source": {
-        "name": "X · Anthropic"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/merq5iupi7p4kaxgs79dapz9n",
-        "original": "https://x.com/AnthropicAI/status/2125341904644763678"
-      },
-      "publishedAt": "2026-11-24T21:32:51.000Z",
-      "discoveredAt": "2026-11-24T22:05:30.876Z",
-      "category": "paper",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出 Siren 评测的 1700+ 场景和 21-32% 越界率、系统提示后降到 2% 以下这组对比，适合做安全评测解读。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/merq5iupi7p4kaxgs79dapz9n"
-      }
-    },
-    {
-      "id": "ys568lhlauqb2tddo7ralbe2f",
-      "title": "Midjourney 上线动漫模型 Niji V8",
-      "originalTitle": "Niji V8 is now live! This is our latest anime model with precision prompting, consistent characters, best in class coherence, a dedicated editing model and more. Have fun! https://t.co/6Jj8PieGGR",
-      "summary": "Midjourney 宣布动漫模型 Niji V8 正式上线，支持精准提示词、角色一致性和专用编辑模型，官方称其连贯性达到同类最佳。推文附有一段演示视频，链接为 https://t.co/6Jj8PieGGR。",
-      "source": {
-        "name": "X · Midjourney"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ys568lhlauqb2tddo7ralbe2f",
-        "original": "https://x.com/midjourney/status/2125328040624521639"
-      },
-      "publishedAt": "2026-11-24T20:37:46.000Z",
-      "discoveredAt": "2026-11-24T22:02:30.190Z",
-      "category": "ai-models",
-      "score": 76,
-      "selected": true,
-      "reason": "官方放出 Niji V8 上线消息和演示视频，适合用同一提示词对比新旧版本在角色一致性和画面连贯性上的差异。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ys568lhlauqb2tddo7ralbe2f"
-      }
-    },
-    {
-      "id": "wscct8s9r8k867iw2ol7zzty3",
-      "title": "OpenAI 公布 GPT-6.2 蛋白质与抗体设计湿实验结果",
-      "originalTitle": "In a separate experiment, GPT-6.2 designed new sequences for three shapes it had previously designed. 14 of 107 proteins made with the new sequences showed binding in the wet lab. GPT-6.2 also redesigned the parts of antibodies that grip a target. In two further laboratory experiments, 128 of 182 redesigned small antibodies and 179 of 272 redesigned antibody fragments retained binding.",
-      "summary": "OpenAI 公布 GPT-6.2 在蛋白质与抗体设计上的湿实验结果：为三个此前设计过的形状设计新序列后，107 个蛋白中有 14 个在湿实验中显示结合。GPT-6.2 还重新设计了抗体抓取靶点的部分，两项后续实验室实验中，182 个重设计小抗体有 128 个、272 个重设计抗体片段有 179 个保持结合。",
-      "source": {
-        "name": "X · OpenAI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/wscct8s9r8k867iw2ol7zzty3",
-        "original": "https://x.com/OpenAI/status/2125334392814051724"
-      },
-      "publishedAt": "2026-11-24T21:03:00.000Z",
-      "discoveredAt": "2026-11-24T22:01:30.443Z",
-      "category": "paper",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出GPT-6.2设计蛋白序列的湿实验命中数字，适合做效果解读，重点讲107个里14个结合、抗体改造保留结合的比例。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/wscct8s9r8k867iw2ol7zzty3"
-      }
-    },
-    {
-      "id": "h2v5o4vsdlozw6h0gahxo7dpb",
-      "title": "LlamaIndex 开源 OCRia-1 与 OCRia-nano-1 两款文档解析模型",
-      "originalTitle": "LlamaIndex 公开两款文档解析模型：40 亿参数的 OCRia-1 用 GPU 跑复杂表格和图表，810 万参数的 nano 用 CPU 跑日常文档，营收或融资超 200 万美元的公司商用要买授权 LlamaIndex 先后发了两款把 PDF 和扫描件转成 Markdown 的模型。10 月 22 日发的 OCRia-1 有 40 亿参数，要用 GPU，专门对付复杂表格、图表和公式，当天就用到了 LlamaParse 云服务里。11 月 23 日发的 OCRia-nano-1 只有 810 万参数，在普通 CPU 上跑，负责大量日常文档。 两款的权重 11 月 23 日都放上了 Hugging Face。个人、研究和小公司可以免费用，年营收或累计融资超过 200 万美元的公司拿来做业务，要找 LlamaIndex 另买授权。 【OCRia-1：表格、图表、格式】 OCRia-1 基于阿里的 Qwen3.5-4B，用约 10 万页文档做了监督微调和强化学习。在 LlamaIndex 自家的 ParseBench 上（第一版，文字、格式、表格、图表四项平均），它得 87.4 分，比第二名 LightOnOCR-3-4B 的 75.3 高 12.1 分。 差距最大的是图表。它会把柱状图、折线图读成一张数据表，每个数字放在对应的系列和标签下，这一项 85.1 分，第二名 66.1。上标、下标、删除线、勾选框这些格式也会保留，公式写成 LaTeX，手写公式也能认，格式这一项 83.4 分，第二名 67.9。 换到三个外部机构做的基准，它在表格上还是第一，但领先不多：olmOCR-bench 表格 92.9 对 92.1，PulseBench-Tab 84.1 对 82.4，fr-bench-pdf2md 的长表格 83.2 对 80.6。博客的对比只列了 35B 以下的模型，模型页补上了 350 亿参数的 Infinity-Parser2-Pro，olmOCR-bench 总分 83.5 对 83.2，基本打平。在新版 ParseBench-2 的完整排行榜上，它在开放权重模型里第一，算上商业 API 和前沿大模型排第七。 速度要看在哪跑。LlamaParse 用的是量化加推测解码的优化版，一张 B200 显卡上单个请求每秒解码约 4700 个 Token，64 个请",
-      "summary": "LlamaIndex 先后发布两款把 PDF 和扫描件转成 Markdown 的文档解析模型，权重于 11 月 23 日放上 Hugging Face。",
-      "source": {
-        "name": "X · 宝玉"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/h2v5o4vsdlozw6h0gahxo7dpb",
-        "original": "https://x.com/dotey/status/2125317908326744410"
-      },
-      "publishedAt": "2026-11-24T19:57:30.000Z",
-      "discoveredAt": "2026-11-24T21:38:34.810Z",
-      "category": "ai-models",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出两款模型的参数、跑分和免费商用门槛，适合做同页文档在 OCRia-1 与 nano 下的解析效果对比。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/h2v5o4vsdlozw6h0gahxo7dpb"
-      }
-    },
-    {
-      "id": "h7mvbowy4tro0p8f66amnipfh",
-      "title": "OpenAI 研究显示 GPT-6 系列具备内在蛋白质设计能力",
-      "originalTitle": "GPT-6 models demonstrate intrinsic protein-design capabilities",
-      "summary": "OpenAI 发布预印本《GPT-6 as a Universal Foundation Model for Protein Biology: Beyond Specialized Models》，称 GPT-6 系列仅靠推理和通用编码工具即可设计新的蛋白质结构与氨基酸序列，无需调用专门的生物学模型。",
-      "source": {
-        "name": "OpenAI News"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/h7mvbowy4tro0p8f66amnipfh",
-        "original": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
-      },
-      "publishedAt": "2026-11-24T13:00:00.000Z",
-      "discoveredAt": "2026-11-24T21:33:28.422Z",
-      "category": "paper",
-      "score": 74,
-      "selected": true,
-      "reason": "原文给出GPT-6系列仅靠推理和代码设计蛋白质的实验室结合数据，适合围绕5个靶点35个阳性结合的设计流程做效果解读。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/h7mvbowy4tro0p8f66amnipfh"
-      }
-    },
-    {
-      "id": "j5yc4pnosuhcyb0pza24it83h",
-      "title": "Claude 上线 Install as app，可将 artifacts 安装为 Mac 和 Windows 桌面应用",
-      "originalTitle": "Turn artifacts into Mac and Windows apps",
-      "summary": "Claude 在 Mac 和 Windows 客户端以 beta 形式推出 Install as app，用户可把 artifacts 安装成带独立图标和窗口的桌面应用并分享给他人。",
-      "source": {
-        "name": "Claude 产品动态"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h",
-        "original": "https://claude.com/resources/articles/install-as-app"
-      },
-      "publishedAt": "2026-11-24T00:00:00.000Z",
-      "discoveredAt": "2026-11-24T21:40:28.627Z",
-      "category": "ai-products",
-      "score": 73,
-      "selected": true,
-      "reason": "官方给出安装入口和三级权限差异，适合录屏把一个 artifact 装成桌面应用，演示通知、菜单栏和自动更新。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h"
-      }
-    },
-    {
-      "id": "gsffeya052mjtk7bhu26a93xv",
-      "title": "GLM-5.4、GLM-5.3 与匿名模型 HungerG 三题实测对比",
-      "originalTitle": "大模型上新：GLM5.4和HungerG 近期智谱发布了GLM-5.4，Qoder上也出现了一款叫HungerG的限时免费大模型，这一期我们来看看他们的表现如何。glm-5.3作为陪练。#上热门 #ai #干货分享 #测评 #科技 @DOU+小助手",
-      "summary": "作者用三道单文件 HTML 题对比智谱 GLM-5.4、上一代 GLM-5.3 和 Qoder 上限时免费的匿名模型 HungerG，三题分别是橘猫骑儿童三轮车、纯 SVG 时钟和任务联动数据展示。",
-      "source": {
-        "name": "抖音 · 热点搜「GLM-5.4」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/gsffeya052mjtk7bhu26a93xv",
-        "original": "https://www.douyin.com/video/7711672218259213298"
-      },
-      "publishedAt": "2026-11-24T09:46:46.000Z",
-      "discoveredAt": "2026-11-24T20:16:30.196Z",
-      "category": "ai-models",
-      "score": 62,
-      "selected": true,
-      "reason": "作者用同一组提示词让 GLM-5.4、GLM-5.3 和匿名模型 HungerG 各出三份单文件 HTML 成品，并逐份录屏对比，还列出 credits 花费差异，适合照着复现这组三题横评。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/gsffeya052mjtk7bhu26a93xv"
-      }
-    },
-    {
-      "id": "ck4vew177217uj3tx1i22go40",
-      "title": "智谱 GLM-5.4 实测对比 Qwen4-Max：三轮比试各有胜负",
-      "originalTitle": "智谱 GLM-5.4 实测：跟 Qwen4-Max 过过招！ #glm #qwen4 #千问 #智谱 #抖音精选App征稿中 @抖音科技",
-      "summary": "作者用同一套 harness 和同一套题目，在 Coder 里对智谱 GLM-5.4 与 Qwen4-Max 做了三轮实测。前端烟花秀和中文写作两题 Qwen4-Max 胜出，30 秒手绘拼贴动画一题 GLM-5.4 完成度更高，但消耗 3032 积分，约为 Qwen4-Max 312 积分的十倍。",
-      "source": {
-        "name": "抖音 · 热点搜「GLM-5.4」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ck4vew177217uj3tx1i22go40",
-        "original": "https://www.douyin.com/video/7711727338534210866"
-      },
-      "publishedAt": "2026-11-24T13:38:18.000Z",
-      "discoveredAt": "2026-11-24T20:16:30.159Z",
-      "category": "ai-models",
-      "score": 62,
-      "selected": true,
-      "reason": "作者用同一套 harness 和题目把 GLM-5.4 与 Qwen4-Max 拉到一起实测，前端烟花、动画视频、中文写作三轮各有胜负，还点出积分消耗差十倍。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ck4vew177217uj3tx1i22go40"
-      }
-    },
-    {
-      "id": "bk9bhcdu9njssg23jk3ou6cfd",
-      "title": "即梦 Dreamina Canvas 上线 Separate Layers 分层功能",
-      "originalTitle": "Separate Layers is now LIVE! ▸ Separate characters, backgrounds, and props with cleaner edges. ▸Move, edit, or regenerate individual layers without changing the others, giving you more control over targeted adjustments. Try it now in Dreamina Canvas! #DreaminaAI #DreaminaSeparateLayers #DreaminaCanvas",
-      "summary": "即梦 Dreamina 在 Dreamina Canvas 上线 Separate Layers 功能，可将角色、背景和道具分离成边缘更干净的分层。用户能单独移动、编辑或重新生成某一层而不影响其他层，便于做针对性调整。",
-      "source": {
-        "name": "X · 即梦 Dreamina"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/bk9bhcdu9njssg23jk3ou6cfd",
-        "original": "https://x.com/dreamina_ai/status/2125303440377069867"
-      },
-      "publishedAt": "2026-11-24T19:00:01.000Z",
-      "discoveredAt": "2026-11-24T20:05:32.638Z",
-      "category": "ai-products",
-      "score": 60,
-      "selected": true,
-      "reason": "官方给出分层入口和角色、背景、道具分离后的独立编辑能力，适合在 Dreamina Canvas 里录屏演示分层前后与单层改动的效果对比。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/bk9bhcdu9njssg23jk3ou6cfd"
-      }
-    },
-    {
-      "id": "mx9pnx0j6aejyuhmwqxjnlnw6",
-      "title": "OpenAI 分享用户用 Astra 筛查 NASA TESS 约 1900 万颗恒星观测数据",
-      "originalTitle": "Ethan asked Astra to review published methods and write software to search observations of about 19 million stars from NASA’s TESS mission. The search included regions around a star where a planet with the right atmosphere could have liquid water on its surface. His first pass turned up 49 candidates. He sent one of the most promising to researchers on NASA’s TESS mission, where it’s awaiting a closer look. Explore Kevin and Ethan’s findings and learn how to get started: https://t.co/z4vECSkHd1",
-      "summary": "OpenAI 分享用户 Ethan 让 Astra 审阅已发表方法并编写软件，搜索 NASA TESS 任务约 1900 万颗恒星的观测数据，范围包含恒星周围可能让行星表面存在液态水的区域。首轮搜索得到 49 个候选，其中最有希望的一个已发给 NASA TESS 任务的研究者，等待进一步查看。",
-      "source": {
-        "name": "X · OpenAI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/mx9pnx0j6aejyuhmwqxjnlnw6",
-        "original": "https://x.com/OpenAI/status/2125305610678010244"
-      },
-      "publishedAt": "2026-11-24T19:08:38.000Z",
-      "discoveredAt": "2026-11-24T20:00:32.256Z",
-      "category": "ai-products",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出 Astra 处理约 1900 万颗恒星观测数据、首轮筛出 49 个候选并送交 NASA TESS 研究者的具体案例，适合围绕这个真实任务讲智能体如何写软件做科学搜索。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/mx9pnx0j6aejyuhmwqxjnlnw6"
-      }
-    },
-    {
-      "id": "zvug35sygs4adqpvhh8lrba6d",
-      "title": "Higgsfield 发布视频模型 MAGI-2，支持最长 30 秒 1080p 生成",
-      "originalTitle": "Introducing MAGI-2, exclusively on Higgsfield. Up to 30 seconds of frontier 1080p quality, with 0.08$ per second of generation. Open weights video model with 400B parameters coming soon. Now available exclusively on Higgsfield and via Higgsfield API. https://t.co/CPgNTOf7og",
-      "summary": "Higgsfield 发布视频模型 MAGI-2，支持最长 30 秒的 1080p 生成，价格为每秒 0.08 美元。该模型目前仅在 Higgsfield 平台和 Higgsfield API 上提供，官方称后续将开放 400B 参数的开源权重版本。",
-      "source": {
-        "name": "X · Higgsfield"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/zvug35sygs4adqpvhh8lrba6d",
-        "original": "https://x.com/higgsfield/status/2125290656692085164"
-      },
-      "publishedAt": "2026-11-24T18:09:13.000Z",
-      "discoveredAt": "2026-11-24T19:50:33.130Z",
-      "category": "ai-models",
-      "score": 67,
-      "selected": true,
-      "reason": "官方放出 MAGI-2 的 1080p 样片和每秒 0.08 美元的生成价格，适合用同一段提示词实测 30 秒长视频的连贯度。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/zvug35sygs4adqpvhh8lrba6d"
-      }
     }
   ],
   "hotTopics": [
     {
       "rank": 1,
+      "id": "mxh8gsv8e84w5o5c7s09mx6he",
+      "title": "Sand.ai发布MAGI-2视频模型，称将开源",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/mxh8gsv8e84w5o5c7s09mx6he",
+        "original": "https://www.douyin.com/video/7711803319601818981",
+        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
+      },
+      "sourceCount": 5,
+      "signalCount": 0,
+      "participantCount": 5,
+      "sourceNames": [
+        "公众号 · 智东西",
+        "公众号 · 新智元",
+        "抖音 · 热点搜「MAGI-2」",
+        "公众号 · APPSO",
+        "公众号 · 数字生命卡兹克"
+      ],
+      "latestAt": "2026-11-25T07:40:18.000Z"
+    },
+    {
+      "rank": 2,
+      "id": "nh64ecdsudgautmwa01oo49d3",
+      "title": "Anthropic 推出 Claude Ship 自动处理 PR",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Ship」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/nh64ecdsudgautmwa01oo49d3",
+        "original": "https://www.douyin.com/video/7711565726858956059",
+        "story": "https://aipick.news/story/41a15b03-07e9-491e-a57d-49b30512ae40"
+      },
+      "sourceCount": 9,
+      "signalCount": 0,
+      "participantCount": 9,
+      "sourceNames": [
+        "公众号 · 新智元",
+        "X · Min Choi",
+        "Claude.dev 开发者博客",
+        "The Decoder",
+        "抖音 · 热点搜「Claude Ship」",
+        "TechCrunch · AI",
+        "X · Boris Cherny",
+        "X · Addy Osmani"
+      ],
+      "latestAt": "2026-11-25T07:34:17.000Z"
+    },
+    {
+      "rank": 3,
       "id": "k6d4k411z180s7zicd3y106ta",
       "title": "英伟达董事会撤回辞职决定，恢复黄仁勋职务",
       "source": {
@@ -732,7 +783,52 @@
       "latestAt": "2026-11-25T00:12:02.000Z"
     },
     {
-      "rank": 2,
+      "rank": 4,
+      "id": "zvug35sygs4adqpvhh8lrba6d",
+      "title": "Higgsfield 上线 MAGI-2，创作者实测褒贬不一",
+      "source": {
+        "name": "X · Higgsfield"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/zvug35sygs4adqpvhh8lrba6d",
+        "original": "https://x.com/higgsfield/status/2125290656692085164",
+        "story": "https://aipick.news/story/114bed16-4e0e-49ea-b6ca-f5eeb9e58ad3"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "抖音 · 热点搜「MAGI-2」",
+        "X · Higgsfield"
+      ],
+      "latestAt": "2026-11-25T06:25:06.000Z"
+    },
+    {
+      "rank": 5,
+      "id": "vmfxyy3fk1iwa80vcf2u8k2lo",
+      "title": "百度以 Apache 2.0 开源文心 ERNIE 5.5 Flash Preview 权重",
+      "source": {
+        "name": "抖音 · 热点搜「ERNIE 5.5 Flash Preview」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/vmfxyy3fk1iwa80vcf2u8k2lo",
+        "original": "https://www.douyin.com/video/7711657355775135016",
+        "story": "https://aipick.news/story/2f08e193-00f9-4bab-b733-dc57b24492bc"
+      },
+      "sourceCount": 5,
+      "signalCount": 0,
+      "participantCount": 5,
+      "sourceNames": [
+        "抖音 · 热点搜「ERNIE 5.5 Flash Preview」",
+        "量子位",
+        "X · 百度",
+        "X · 百度文心",
+        "vLLM 官方博客"
+      ],
+      "latestAt": "2026-11-25T05:46:27.000Z"
+    },
+    {
+      "rank": 6,
       "id": "a8ch7qfq809afvld671n74qan",
       "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
       "source": {
@@ -758,60 +854,33 @@
       "latestAt": "2026-11-24T21:43:33.000Z"
     },
     {
-      "rank": 3,
-      "id": "nh64ecdsudgautmwa01oo49d3",
-      "title": "Anthropic 推出 Claude Ship 自动处理 PR",
+      "rank": 7,
+      "id": "j5yc4pnosuhcyb0pza24it83h",
+      "title": "Anthropic 将 Claude Artifacts 装成桌面应用",
       "source": {
-        "name": "抖音 · 热点搜「Claude Ship」"
+        "name": "Claude 产品动态"
       },
       "links": {
-        "aihot": "https://aipick.news/items/nh64ecdsudgautmwa01oo49d3",
-        "original": "https://www.douyin.com/video/7711565726858956059",
-        "story": "https://aipick.news/story/41a15b03-07e9-491e-a57d-49b30512ae40"
-      },
-      "sourceCount": 8,
-      "signalCount": 0,
-      "participantCount": 8,
-      "sourceNames": [
-        "X · Min Choi",
-        "Claude.dev 开发者博客",
-        "The Decoder",
-        "抖音 · 热点搜「Claude Ship」",
-        "TechCrunch · AI",
-        "X · Boris Cherny",
-        "X · Addy Osmani",
-        "The Verge · AI"
-      ],
-      "latestAt": "2026-11-24T16:09:25.000Z"
-    },
-    {
-      "rank": 4,
-      "id": "vmfxyy3fk1iwa80vcf2u8k2lo",
-      "title": "百度以 Apache 2.0 开源文心 ERNIE 5.5 Flash Preview 权重",
-      "source": {
-        "name": "抖音 · 热点搜「ERNIE 5.5 Flash Preview」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/vmfxyy3fk1iwa80vcf2u8k2lo",
-        "original": "https://www.douyin.com/video/7711657355775135016",
-        "story": "https://aipick.news/story/2f08e193-00f9-4bab-b733-dc57b24492bc"
+        "aihot": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h",
+        "original": "https://claude.com/resources/articles/install-as-app",
+        "story": "https://aipick.news/story/3f6a288c-4dbf-4e28-acee-2911b13f171a"
       },
       "sourceCount": 5,
       "signalCount": 0,
       "participantCount": 5,
       "sourceNames": [
-        "抖音 · 热点搜「ERNIE 5.5 Flash Preview」",
-        "量子位",
-        "X · 百度",
-        "X · 百度文心",
-        "vLLM 官方博客"
+        "抖音 · 热点搜「Claude Ship」",
+        "X · 歸藏",
+        "X · 宝玉",
+        "The Decoder",
+        "Claude 产品动态"
       ],
-      "latestAt": "2026-11-25T02:06:11.000Z"
+      "latestAt": "2026-11-25T02:12:33.000Z"
     },
     {
-      "rank": 5,
+      "rank": 8,
       "id": "wwrl5akuig8h3juqh5kjofi2b",
-      "title": "智谱发布GLM-5.4，仅编程订阅用户可用",
+      "title": "智谱发布GLM-5.4：循环架构旗舰仅订阅可用",
       "source": {
         "name": "X · 智谱 Z.ai"
       },
@@ -820,23 +889,21 @@
         "original": "https://x.com/Zai_org/status/2124811995912286352",
         "story": "https://aipick.news/story/ef5478a9-9855-4b55-9e96-dc775bea008a"
       },
-      "sourceCount": 8,
+      "sourceCount": 6,
       "signalCount": 0,
-      "participantCount": 8,
+      "participantCount": 6,
       "sourceNames": [
         "抖音 · 热点搜「GLM-5.4」",
         "量子位",
         "公众号 · 智东西",
         "Simon Willison 原创实测",
         "The Decoder",
-        "公众号 · AI产品黄叔",
-        "公众号 · APPSO",
-        "X · 智谱 Z.ai"
+        "公众号 · AI产品黄叔"
       ],
-      "latestAt": "2026-11-24T13:38:18.000Z"
+      "latestAt": "2026-11-25T01:21:37.000Z"
     },
     {
-      "rank": 6,
+      "rank": 9,
       "id": "pfu5opi6060a2braueq979gl1",
       "title": "字节小豆开启邀请制公测，接入抖音飞书",
       "source": {
@@ -860,27 +927,7 @@
       "latestAt": "2026-11-25T03:26:28.000Z"
     },
     {
-      "rank": 7,
-      "id": "zvug35sygs4adqpvhh8lrba6d",
-      "title": "Higgsfield 上线 MAGI-2 视频模型，称 Video Arena 排名第二",
-      "source": {
-        "name": "X · Higgsfield"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/zvug35sygs4adqpvhh8lrba6d",
-        "original": "https://x.com/higgsfield/status/2125290656692085164",
-        "story": "https://aipick.news/story/114bed16-4e0e-49ea-b6ca-f5eeb9e58ad3"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "X · Higgsfield"
-      ],
-      "latestAt": "2026-11-25T01:17:12.000Z"
-    },
-    {
-      "rank": 8,
+      "rank": 10,
       "id": "ys568lhlauqb2tddo7ralbe2f",
       "title": "Midjourney 上线动漫模型 Niji V8",
       "source": {
@@ -899,51 +946,6 @@
         "X · Midjourney"
       ],
       "latestAt": "2026-11-25T01:31:44.000Z"
-    },
-    {
-      "rank": 9,
-      "id": "j5yc4pnosuhcyb0pza24it83h",
-      "title": "Anthropic 将 Claude Artifacts 装成桌面应用",
-      "source": {
-        "name": "Claude 产品动态"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h",
-        "original": "https://claude.com/resources/articles/install-as-app",
-        "story": "https://aipick.news/story/3f6a288c-4dbf-4e28-acee-2911b13f171a"
-      },
-      "sourceCount": 4,
-      "signalCount": 0,
-      "participantCount": 4,
-      "sourceNames": [
-        "X · 歸藏",
-        "X · 宝玉",
-        "The Decoder",
-        "Claude 产品动态"
-      ],
-      "latestAt": "2026-11-25T01:46:02.000Z"
-    },
-    {
-      "rank": 10,
-      "id": "n97e1mvufwqjtign9vep323us",
-      "title": "Claude Code 新增 MCP 服务器技能加载",
-      "source": {
-        "name": "Claude Code：GitHub Releases"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/n97e1mvufwqjtign9vep323us",
-        "original": "https://github.com/anthropics/claude-code/releases/tag/v2.1.332",
-        "story": "https://aipick.news/story/2f19dcb9-380a-4d7e-82ff-96c2cb28921c"
-      },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "X · 宝玉",
-        "Claude Code：GitHub Releases",
-        "X · Boris Cherny"
-      ],
-      "latestAt": "2026-11-25T02:49:50.000Z"
     }
   ],
   "unchanged": [],
