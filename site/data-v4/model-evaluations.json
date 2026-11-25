@@ -1,6 +1,6 @@
 {
   "schema": "ai-creator-radar-model-evaluations/1",
-  "generatedAt": "2026-11-25T05:11:57Z",
+  "generatedAt": "2026-11-25T05:18:49Z",
   "sourceNotes": {
     "aipick": "AIPick 近 7 天精选中的公开评测候选；保留其来源与原始链接。",
     "sogou": "搜狗微信搜索只读取搜索结果页的标题、摘要、公众号名和发布时间；不抓正文；遇到验证页停止并退避 24 小时。"
@@ -8,12 +8,12 @@
   "status": {
     "aipick": {
       "status": "ok",
-      "checkedAt": "2026-11-25T05:11:56+00:00",
+      "checkedAt": "2026-11-25T05:18:47+00:00",
       "candidateCount": 2
     },
     "sogou": {
       "status": "ok",
-      "checkedAt": "2026-11-25T05:11:57Z",
+      "checkedAt": "2026-11-25T05:18:49Z",
       "searchesThisRun": 0,
       "warnings": [],
       "blockedUntil": null
@@ -101,7 +101,7 @@
       "url": "https://www.douyin.com/video/7711897430001867091",
       "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
       "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
-      "collectedAt": "2026-11-25T05:11:57Z"
+      "collectedAt": "2026-11-25T05:18:49Z"
     },
     {
       "id": "aipick-ff1yskixsg6yuk8hn4wxipqxk",
@@ -116,7 +116,7 @@
       "url": "https://www.youtube.com/watch?v=jrXoCIkLgrc",
       "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
       "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
-      "collectedAt": "2026-11-25T05:11:57Z"
+      "collectedAt": "2026-11-25T05:18:49Z"
     },
     {
       "id": "aipick-zmkkw8kt6nfuidtj6wi3v4di6",
@@ -555,7 +555,7 @@
     }
   ],
   "searchState": {
-    "lastRunAt": "2026-11-25T05:11:57Z",
+    "lastRunAt": "2026-11-25T05:18:49Z",
     "queries": {
       "kling-image": {
         "lastSearchedAt": "2026-11-24T09:53:46Z",
