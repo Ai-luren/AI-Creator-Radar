@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24",
+  "updatedAt": "2026-11-25",
   "scope": "模型厂商与模型聚合平台官方社媒监控；所有品牌在 8 个统一平台栏位对齐，海外筛选包含 X、Instagram、TikTok、YouTube、Facebook。暂无代表截至核验时未发现可确认的官方主页。",
   "methodology": "账号归属优先依据厂商官网、官方 GitHub、官方 Linktree、官方帮助中心或可交叉验证的品牌主页。模型厂商与聚合平台统一展示抖音、B站、小红书、X、Instagram、TikTok、YouTube、Facebook；海外平台筛选显示 X、Instagram、TikTok、YouTube、Facebook。粉丝数 / 订阅数是公开页面快照，1 万以上统一显示为“万”，不足 1 万显示原始数字；已确认官方账号但页面未返回粉丝数时标为“未读取”；未发现可确认官方账号时标为“暂无”。账号核验依据按品牌集中折叠；粉丝快照日期在数字旁标出。宣传动态只将具体原帖链接计为已链接；搜索页等非原帖来源标为待补。 动态活跃情况与粉丝快照分开记录；“暂无近期作品”不等同于账号不存在或粉丝为零。",
   "brands": [
@@ -85,7 +85,7 @@
           "verification": "Dreamina 官网直接链接；官方活动页也要求标记 @Dreamina_AI",
           "followers": 93200,
           "followersDisplay": "9.3万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@dreamina_ai",
           "note": "主页显示 93.2K 粉丝；按平台约数换算为 9.32 万。",
           "extraMetric": "75.25万获赞"
@@ -200,7 +200,7 @@
           "verification": "Kling AI 官方 Linktree 直接链接",
           "followers": 375300,
           "followersDisplay": "37.5万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@klingai_official",
           "extraMetric": "300万获赞",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -224,11 +224,11 @@
           "url": "https://www.facebook.com/profile.php?id=61560465162639",
           "status": "verified",
           "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
-          "followers": 49,
-          "followersDisplay": "49",
-          "snapshotLabel": "2026-11-23 · 用户核对的 Facebook 页面",
+          "followers": null,
+          "followersDisplay": "未读取",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照（未显示粉丝数）",
           "sourceUrl": "https://www.facebook.com/profile.php?id=61560465162639",
-          "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。",
+          "note": "主页仅显示49位好友，没有明确显示粉丝数；未将好友数计为粉丝。",
           "extraMetric": ""
         }
       ],
@@ -453,7 +453,7 @@
           "verification": "Hailuo AI 品牌 TikTok 主页，内容与官网 / 官方视频频道一致。",
           "followers": 78800,
           "followersDisplay": "7.9万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@hailuoai_official",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。",
           "extraMetric": "75.16万获赞"
@@ -686,7 +686,7 @@
           "verification": "用户提供的 HappyHorse TikTok 官方主页链接与粉丝数。",
           "followers": 37200,
           "followersDisplay": "3.7万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "note": "按公开主页粉丝数记录；平台数字会动态变化。；平台主页显示约数，按页面精度换算。",
           "extraMetric": "",
           "sourceUrl": "https://www.tiktok.com/@happyhorseai"
@@ -1167,11 +1167,11 @@
           "url": "https://www.facebook.com/itspolloai",
           "status": "verified",
           "verification": "Ego Lite 直接打开主账号与地区主页，主页名称及 Pollo AI 产品链接 / 创作者账号说明可交叉对应；合并主主页、法国、巴西、德国及此前已收录的官方创作者主页。",
-          "followers": 127442,
-          "followersDisplay": "12.7万",
-          "snapshotLabel": "2026-11-25 · Facebook 矩阵主页快照",
+          "followers": 128711,
+          "followersDisplay": "12.9万",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
           "sourceUrl": "https://www.facebook.com/itspolloai",
-          "note": "按 5 个主页直接显示值合计约 127,442：主账号 1,165、法国 9.2万、巴西 1.5万、德国 3,277、官方创作者账号 1.6万。平台约数已按显示值换算，受众可能重叠，合计仅供参考。",
+          "note": "按5个已核验主页显示值合计约128,711：主账号1,166、法国9.2万、巴西1.5万、德国3,545、官方创作者账号1.7万。受众可能重叠，合计仅供参考。",
           "extraMetric": "5个Facebook主页合并统计",
           "relatedPages": [
             {
@@ -1189,14 +1189,14 @@
             {
               "handle": "Pollo AI Deutschland",
               "url": "https://www.facebook.com/profile.php?id=61587704986548",
-              "followers": 3277,
-              "followersDisplay": "3277"
+              "followers": 3545,
+              "followersDisplay": "3545"
             },
             {
               "handle": "Pollo AICreators",
               "url": "https://www.facebook.com/profile.php?id=61584889944485",
-              "followers": 16000,
-              "followersDisplay": "1.6万"
+              "followers": 17000,
+              "followersDisplay": "1.7万"
             }
           ]
         }
@@ -1723,7 +1723,7 @@
           "status": "verified",
           "followers": 230,
           "followersDisplay": "230",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "账号链接由品牌官网或官方活动页直接列出。",
           "sourceUrl": "https://www.tiktok.com/@pexoai_official",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -2152,7 +2152,7 @@
           "status": "verified",
           "followers": 730,
           "followersDisplay": "730",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "Renoise 官方创作者计划明确列出该账号为作品发布时需标记的官方账号。",
           "sourceUrl": "https://www.tiktok.com/@renoiseai",
           "note": "粉丝 / 订阅数直接读取自官方公开主页，按平台显示值换算；公开主页可能显示约数。"
@@ -2264,7 +2264,7 @@
           "status": "verified",
           "followers": 105,
           "followersDisplay": "105",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "verification": "用户提供的 OiiOii AI TikTok 主页链接与粉丝数。",
           "sourceUrl": "https://www.tiktok.com/@oiioii_ai",
           "note": "按公开主页粉丝数记录；平台数字会动态变化。",
@@ -2378,7 +2378,7 @@
           "verification": "OpenArt 官方频道关联该账号；主页显示 6059 粉丝。",
           "followers": 6176,
           "followersDisplay": "6176",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@openart_ai",
           "note": "粉丝数按官方公开主页当前显示值记录；平台可能显示约数。",
           "extraMetric": ""
@@ -2612,7 +2612,7 @@
           "verification": "Adobe Firefly 官方社媒资料列出的账号；主页显示 13.5 万粉丝并发布产品视频。",
           "followers": 135300,
           "followersDisplay": "13.5万",
-          "snapshotLabel": "2026-11-24 · TikTok 公开主页快照",
+          "snapshotLabel": "2026-11-25 · TikTok 公开主页快照",
           "sourceUrl": "https://www.tiktok.com/@adobefirefly",
           "note": "粉丝数按官方公开主页当前显示值记录；平台可能显示约数。",
           "extraMetric": "300万获赞"
@@ -2638,7 +2638,7 @@
           "verification": "用户在已登录 Facebook 中确认该主页及页面显示的粉丝数；本次按用户提供记录。",
           "followers": 23000,
           "followersDisplay": "2.3万",
-          "snapshotLabel": "2026-11-24 · Facebook 公开主页快照",
+          "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
           "sourceUrl": "https://www.facebook.com/profile.php?id=61572807974281&sk=reels_tab",
           "note": "粉丝数由用户从 Facebook 主页读取；尚未独立抓取复核。；平台主页显示约数，按页面精度换算。",
           "extraMetric": ""
@@ -2968,7 +2968,7 @@
           "followersDisplay": "1.2万",
           "snapshotLabel": "2026-11-25 · Facebook 公开主页快照",
           "sourceUrl": "https://runway.com/",
-          "note": "粉丝按主页明确标注的 1.2 万位粉丝记录；187 万心情未计入。",
+          "note": "粉丝按主页明确标注的 1.2 万位粉丝记录；187 万心情未计入。；平台显示约数，按页面精度换算。",
           "extraMetric": "187 万心情"
         }
       ],
