@@ -6,10 +6,10 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-25T05:56:17+00:00",
+  "fetchedAt": "2026-11-25T06:03:31+00:00",
   "etags": {
     "items": "W/\"v1-items-ae175e0ce1e0d4df\"",
-    "hotTopics": "W/\"v1-hot-dddf175229b142d0\""
+    "hotTopics": "W/\"v1-hot-38481806edaf36fa\""
   },
   "items": [
     {
@@ -733,33 +733,6 @@
     },
     {
       "rank": 2,
-      "id": "wwrl5akuig8h3juqh5kjofi2b",
-      "title": "智谱发布GLM-5.4，仅编程订阅用户可用",
-      "source": {
-        "name": "X · 智谱 Z.ai"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/wwrl5akuig8h3juqh5kjofi2b",
-        "original": "https://x.com/Zai_org/status/2124811995912286352",
-        "story": "https://aipick.news/story/ef5478a9-9855-4b55-9e96-dc775bea008a"
-      },
-      "sourceCount": 10,
-      "signalCount": 0,
-      "participantCount": 10,
-      "sourceNames": [
-        "抖音 · 热点搜「GLM-5.4」",
-        "量子位",
-        "公众号 · 智东西",
-        "Simon Willison 原创实测",
-        "The Decoder",
-        "公众号 · AI产品黄叔",
-        "公众号 · APPSO",
-        "X · 智谱 Z.ai"
-      ],
-      "latestAt": "2026-11-24T13:38:18.000Z"
-    },
-    {
-      "rank": 3,
       "id": "a8ch7qfq809afvld671n74qan",
       "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
       "source": {
@@ -785,7 +758,7 @@
       "latestAt": "2026-11-24T21:43:33.000Z"
     },
     {
-      "rank": 4,
+      "rank": 3,
       "id": "nh64ecdsudgautmwa01oo49d3",
       "title": "Anthropic 推出 Claude Ship 自动处理 PR",
       "source": {
@@ -812,7 +785,7 @@
       "latestAt": "2026-11-24T16:09:25.000Z"
     },
     {
-      "rank": 5,
+      "rank": 4,
       "id": "vmfxyy3fk1iwa80vcf2u8k2lo",
       "title": "百度以 Apache 2.0 开源文心 ERNIE 5.5 Flash Preview 权重",
       "source": {
@@ -834,6 +807,33 @@
         "vLLM 官方博客"
       ],
       "latestAt": "2026-11-25T02:06:11.000Z"
+    },
+    {
+      "rank": 5,
+      "id": "wwrl5akuig8h3juqh5kjofi2b",
+      "title": "智谱发布GLM-5.4，仅编程订阅用户可用",
+      "source": {
+        "name": "X · 智谱 Z.ai"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/wwrl5akuig8h3juqh5kjofi2b",
+        "original": "https://x.com/Zai_org/status/2124811995912286352",
+        "story": "https://aipick.news/story/ef5478a9-9855-4b55-9e96-dc775bea008a"
+      },
+      "sourceCount": 9,
+      "signalCount": 0,
+      "participantCount": 9,
+      "sourceNames": [
+        "抖音 · 热点搜「GLM-5.4」",
+        "量子位",
+        "公众号 · 智东西",
+        "Simon Willison 原创实测",
+        "The Decoder",
+        "公众号 · AI产品黄叔",
+        "公众号 · APPSO",
+        "X · 智谱 Z.ai"
+      ],
+      "latestAt": "2026-11-24T13:38:18.000Z"
     },
     {
       "rank": 6,
