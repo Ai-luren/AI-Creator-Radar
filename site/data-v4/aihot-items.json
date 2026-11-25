@@ -6,13 +6,13 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-25T05:50:40+00:00",
-  "etag": "W/\"v1-items-77b004309f4d56bf\"",
+  "fetchedAt": "2026-11-25T07:13:04+00:00",
+  "etag": "W/\"v1-items-f14aae909619f9df\"",
   "schemaVersion": 1,
   "page": {
     "count": 20,
-    "hasMore": true,
-    "nextCursor": "it3.eyJhIjoxNzk1NTIxNDU1MTE2LCJpIjoieXo1dmE2bDYwdGZrbWRhbXBtc2l6MGpxMiIsImMiOiJjMDlkODMzNGQ0M2MifQ"
+    "hasMore": false,
+    "nextCursor": null
   },
   "items": [
     {
@@ -475,6 +475,5 @@
         "url": "https://aihot.news/items/yz5va6l60tfkmdampmsiz0jq2"
       }
     }
-  ],
-  "checkedAt": "2026-11-25T06:03:29+00:00"
+  ]
 }
