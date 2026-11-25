@@ -6,10 +6,10 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-25T05:50:41+00:00",
+  "fetchedAt": "2026-11-25T05:56:17+00:00",
   "etags": {
     "items": "W/\"v1-items-ae175e0ce1e0d4df\"",
-    "hotTopics": "W/\"v1-hot-1a11f0975e9e8413\""
+    "hotTopics": "W/\"v1-hot-dddf175229b142d0\""
   },
   "items": [
     {
@@ -925,30 +925,29 @@
     },
     {
       "rank": 10,
-      "id": "s6ir4dirc5bk4jo8ytjpi9c4n",
-      "title": "蚂蚁开源 Ling-3.2-air 多模态模型并开放权重",
+      "id": "n97e1mvufwqjtign9vep323us",
+      "title": "Claude Code 新增 MCP 服务器技能加载",
       "source": {
-        "name": "X · 蚂蚁 inclusionAI"
+        "name": "Claude Code：GitHub Releases"
       },
       "links": {
-        "aihot": "https://aipick.news/items/s6ir4dirc5bk4jo8ytjpi9c4n",
-        "original": "https://x.com/AntLingAGI/status/2124891223597240338",
-        "story": "https://aipick.news/story/a53c8258-a47b-4f06-b88a-b317833b0ed0"
+        "aihot": "https://aipick.news/items/n97e1mvufwqjtign9vep323us",
+        "original": "https://github.com/anthropics/claude-code/releases/tag/v2.1.332",
+        "story": "https://aipick.news/story/2f19dcb9-380a-4d7e-82ff-96c2cb28921c"
       },
-      "sourceCount": 4,
+      "sourceCount": 3,
       "signalCount": 0,
-      "participantCount": 4,
+      "participantCount": 3,
       "sourceNames": [
-        "抖音 · 热点搜「Ling-3.2-air」",
-        "X · 蚂蚁 inclusionAI",
-        "微信公众号 · 百灵大模型"
+        "X · 宝玉",
+        "Claude Code：GitHub Releases",
+        "X · Boris Cherny"
       ],
-      "latestAt": "2026-11-24T06:47:21.000Z"
+      "latestAt": "2026-11-25T02:49:50.000Z"
     }
   ],
   "unchanged": [
-    "items",
-    "hotTopics"
+    "items"
   ],
   "errors": []
 }
