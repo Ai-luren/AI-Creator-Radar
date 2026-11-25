@@ -1,11 +1,10 @@
 {
-  "checkedAt": "2026-11-25T05:17:42Z",
+  "checkedAt": "2026-11-25T05:49:39Z",
   "practiceUpdatedAt": "2026-11-24",
   "total": 72,
   "counts": {
-    "available": 68,
-    "restricted": 3,
-    "unknown": 1
+    "available": 69,
+    "restricted": 3
   },
   "results": [
     {
@@ -495,10 +494,10 @@
           "kind": "官方教程"
         }
       ],
-      "status": "unknown",
-      "httpStatus": null,
+      "status": "available",
+      "httpStatus": 200,
       "finalUrl": "https://flova.tv/zh-CN/skill/",
-      "errorType": "URLError"
+      "errorType": ""
     },
     {
       "url": "https://help.aliyun.com/zh/model-studio/wan3-0-video",

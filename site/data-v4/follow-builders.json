@@ -6,7 +6,7 @@
     "podcasts": "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-podcasts.json",
     "blogs": "https://raw.githubusercontent.com/zarazhangrui/follow-builders/main/feed-blogs.json"
   },
-  "fetchedAt": "2026-11-25T05:18:47+00:00",
+  "fetchedAt": "2026-11-25T05:50:41+00:00",
   "sourceGeneratedAt": {
     "builders": "2026-11-24T06:30:02.996Z",
     "podcasts": "2026-11-24T06:30:05.159Z",
@@ -27,27 +27,12 @@
       "textZh": "大多数优秀的组织在面临一场不会摧毁它们的生存危机时，都会变得更加卑鄙和流血。\n\n他们已经看到了失败可能是什么样子，并准备好发动战争以确保这种情况永远不会发生。\n\n我在 Meta 一次又一次地感受到了这一点。 \n\n英伟达现在不会再犹豫了。",
       "bioZh": "普通合伙人@SPC，联合创始人@Bevel_Health |例如：Early Eng @facebook、CTO @Dropbox、Board @Flipkart |乐观主义者、建设者、爸爸",
       "profileZh": "普通合伙人@SPC，联合创始人@Bevel_Health |例如：Early Eng @facebook、CTO @Dropbox、Board @Flipkart |乐观主义者、建设者、爸爸"
-    },
-    {
-      "id": "2125102190196859156",
-      "name": "Madhu Guru",
-      "handle": "realmadhuguru",
-      "bio": "Sr Director, AI at Meta; Prev: Google - Led Gemini, Veo, Nano Banana.",
-      "text": "Part of the disconnect is that the name “data” massively undersells what it truly represents in model development.\n\nPeople who are not close to model development think of data as this  inert commodity you buy and shovel into a model, like coal.\n\nIn reality great data encodes incredibly high value knowledge, taste and expertise, often articulated and structured in ways that did not exist previously. \n\nThis makes it one of THE fundamental building blocks for creating increasingly capable intelligence across domains. \n\nData will continue to be incredibly central to the intelligence industry .",
-      "publishedAt": "2026-11-24T05:40:19Z",
-      "url": "https://x.com/realmadhuguru/status/2125102190196859156",
-      "likes": 16,
-      "reposts": 1,
-      "replies": 1,
-      "textZh": "部分脱节在于“数据”这个名字大大低估了它在模型开发中真正代表的含义。\n\n不熟悉模型开发的人认为数据是您购买并铲入模型中的惰性商品，就像煤炭一样。\n\n事实上，大数据编码了令人难以置信的高价值知识、品味和专业知识，通常以以前不存在的方式表达和结构化。 \n\n这使其成为跨领域创建能力日益增强的智能的基本构建模块之一。 \n\n数据将继续成为情报行业的核心。",
-      "bioZh": "Meta 人工智能高级总监；上一篇：Google - Led Gemini、Veo、Nano Banana。",
-      "profileZh": "Meta 人工智能高级总监；上一篇：Google - Led Gemini、Veo、Nano Banana。"
     }
   ],
   "podcasts": [],
   "blogs": [],
   "counts": {
-    "builders": 2,
+    "builders": 1,
     "podcasts": 0,
     "blogs": 0
   }
