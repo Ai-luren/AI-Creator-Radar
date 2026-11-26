@@ -225,7 +225,7 @@ test('combined news merges only primary identities and preserves every report',(
 });
 test('overview exposes all modules without duplicating raw daily feeds',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
- assert.match(markup,/重点 AI 资讯/);assert.match(markup,/探索工作台/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
+ assert.match(markup,/重点 AI 资讯/);assert.match(markup,/快捷入口/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
  assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds','social','models','rankings','topics','practice','opportunities','platforms'])assert.ok(markup.includes('data-view="'+view+'"'),view);
  run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
@@ -240,7 +240,7 @@ test('briefing category and practice links keep full resources accessible',async
 });
 
 test('social views separate actual verified homepages, search entries and posts',async()=>{
- const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-brand-record/);assert.match(node('content').innerHTML,/已核验主页/);assert.equal(run("socialAccountState({status:'verified-search'})"),'官方搜索入口');
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-matrix/);assert.match(node('content').innerHTML,/social-brand-record/);assert.match(node('content').innerHTML,/粉丝合计/);assert.match(node('content').innerHTML,/已核验主页/);assert.equal(run("socialAccountState({status:'verified-search'})"),'官方搜索入口');
  run("setView('social',{socialView:'platforms',socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-platform-record/);assert.doesNotMatch(node('content').innerHTML,/social-brand-record/);
  run("setView('social',{socialView:'posts',socialRegion:'all'})");assert.match(node('content').innerHTML,/social-post-row/);assert.match(node('content').innerHTML,/原帖发布时间不等于模型首发日期/);
 });
@@ -269,4 +269,6 @@ test('Scribe variants form one reviewed batch with two preserved versions',()=>{
  const {run}=setup();const fixtures=['Scribe v3','Scribe v3 Live'].map((modelName,i)=>({id:'asr-'+i,modelFamilyId:'eleven-scribe',modelVersionId:'asr-'+i,modelName,category:'audio',vendor:'ElevenLabs',publishedAt:'2026-11-09'}));const events=JSON.parse(run('JSON.stringify(releaseEvents('+JSON.stringify(fixtures)+'))'));assert.equal(events.length,1);assert.equal(events[0].versions.length,2);assert.equal(events[0].modelName,'Scribe v3 系列');
 });
 
-test('shared summary grid is used by official accounts and opportunities',async()=>{const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-v2-stats summary-grid/);run("setView('opportunities')");assert.match(node('content').innerHTML,/opportunity-summary summary-grid/);});
+test('shared summary grid is used by platform view and opportunities',async()=>{const {run,node}=setup();await run('loadAllForTests()');run("setView('social',{socialView:'platforms'})");assert.match(node('content').innerHTML,/social-v2-stats summary-grid/);run("setView('opportunities')");assert.match(node('content').innerHTML,/opportunity-summary summary-grid/);});
+
+ test('follower sums exclude unknown and unverified counts, deduplicate identical accounts and preserve zero',async()=>{const {run}=setup();assert.equal(run("socialFollowerTotal([{status:'verified',platform:'X',url:'https://x.com/a',followers:100},{status:'verified',platform:'X',url:'https://x.com/a',followers:100},{status:'review',platform:'X',url:'https://x.com/b',followers:500},{status:'verified',platform:'YouTube',url:'https://youtube.com/@a',followers:0},{status:'verified',platform:'Instagram',followers:null}]).total"),100);assert.equal(run("socialFollowerTotal([{status:'verified',platform:'X',url:'https://x.com/a',followers:0}]).count"),1);assert.equal(run("socialFollowerFormat(236000)"),'23.6万');});

@@ -19,7 +19,7 @@ assert.ok(htmlBytes<=320*1024,'HTML exceeds 320 KiB; review payload growth');
 assert.ok(overviewBytes<=256*1024,'overview snapshots exceed 256 KiB; review data growth');
 const failures=[];
 try{
- for(const viewport of [{width:1440,height:1000},{width:390,height:844},{width:360,height:800}]){
+ for(const viewport of [{width:1440,height:900},{width:390,height:844},{width:360,height:800}]){
   const label=viewport.width===1440?'desktop':String(viewport.width);
   let context,page;const errors=[];
   // Each scenario begins from a fresh browser context; within a scenario reloads
@@ -51,26 +51,37 @@ try{
     const result=await page.locator('.model-table').evaluate(t=>({font:parseFloat(getComputedStyle(t).fontSize),vendor:getComputedStyle(t.querySelector('tbody td:first-child')).position,model:getComputedStyle(t.querySelector('tbody td:nth-child(2)')).position,wrap:t.parentElement.clientWidth,table:t.scrollWidth}));
     assert.ok(result.font>=13);assert.equal(result.model,'sticky');if(viewport.width<761){assert.equal(result.vendor,'static');assert.ok(result.table>result.wrap)}
    }
-   if(view==='overview')assert.equal(await page.locator('.overview-dashboard .overview-column').count(),2);
+   if(view==='overview'){assert.equal(await page.locator('.overview-dashboard .overview-column').count(),2);assert.equal(await page.locator('.overview-category').count(),6);assert.equal(await page.locator('.overview-module').count(),9);if(viewport.width>=1280){const cols=await page.locator('.overview-category-grid').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length);assert.equal(cols,6);}}
+   if(view==='feeds'){const list=page.locator('.combined-news-list').first();if(await list.count()){const layout=await list.evaluate(el=>({display:getComputedStyle(el).display,cols:getComputedStyle(el).gridTemplateColumns.split(' ').length}));if(viewport.width>=1280){assert.equal(layout.display,'grid');assert.equal(layout.cols,2)}else assert.equal(layout.display,'block');}}
    if(view==='rankings'){
-    const evidence=page.locator('.rank-row-evidence').first();if(await evidence.count()){await evidence.locator('summary').click();assert.equal(await evidence.evaluate(el=>el.open),true);await evidence.locator('summary').click()}
+    assert.equal(await page.locator('.rank-row-evidence').count(),0);const evidence=page.locator('details.rank-board-nav').filter({has:page.locator('summary').filter({hasText:'原榜分数区间与名次范围'})});assert.equal(await evidence.count(),1);assert.equal(await page.locator('.rank-table tbody tr').count(),10);if(viewport.width>=1200){const rect=await page.locator('.rank-table').evaluate(el=>({bottom:el.getBoundingClientRect().bottom,viewport:window.innerHeight,width:el.scrollWidth,container:el.parentElement.clientWidth}));assert.ok(rect.bottom<=rect.viewport,'Top 10 must fit in viewport '+JSON.stringify(rect));assert.ok(rect.width<=rect.container+2,'rank table horizontal overflow');}
     const principles=page.locator('.rank-principles details');assert.equal(await principles.evaluate(el=>el.open),false);await principles.locator('summary').click();assert.equal(await principles.evaluate(el=>el.open),true);await principles.locator('summary').click();
     const table=await page.locator('.rank-table').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),header:getComputedStyle(el.querySelector('th')).position,numeric:getComputedStyle(el.querySelector('th:nth-child(3)')).textAlign}));
-    assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');
+    assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');if(viewport.width<761){const fit=await page.locator('.rank-table').evaluate(el=>({width:el.scrollWidth,container:el.parentElement.clientWidth}));assert.ok(fit.width<=fit.container+2,'mobile ranking must show score and samples without horizontal scroll');}
    }
+   if(view==='models'&&viewport.width>=1200){const fit=await page.locator('.model-table').evaluate(el=>({width:el.scrollWidth,container:el.parentElement.clientWidth}));assert.ok(fit.width<=fit.container+2,'model table horizontal overflow '+JSON.stringify(fit));}
+   if(viewport.width>=1440&&['practice','platforms'].includes(view)){const grid=page.locator(view==='practice'?'.practice-grid':'.platform-grid').first();if(await grid.count())assert.equal(await grid.evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),4);}
    if(view==='today')assert.ok(await page.locator('.release-main').count()>0);
    if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
    console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
   });
+  await check('video rankings responsive comparison',async()=>{
+   await page.goto(base+'?view=rankings&category=video&task=image-to-video-audio',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const panels=page.locator('.rank-task-panel');assert.equal(await panels.count(),2);
+   const selected=page.locator('.rank-task-selected');assert.equal(await selected.getAttribute('aria-label'),'有声图生视频');
+   if(viewport.width>=1440){assert.equal(await panels.first().isVisible(),true);assert.equal(await panels.last().isVisible(),true);assert.equal(await page.locator('.ranking-task-tabs').isVisible(),false);for(const panel of await panels.all()){const table=panel.locator('.rank-table');if(await table.count()){assert.ok(await table.locator('tbody tr').count()<=10);const fit=await table.evaluate(el=>({width:el.scrollWidth,container:el.parentElement.clientWidth,bottom:el.getBoundingClientRect().bottom,height:innerHeight}));assert.ok(fit.width<=fit.container+2,'video rank horizontal overflow '+JSON.stringify(fit));assert.ok(fit.bottom<=fit.height,'video top ten below fold '+JSON.stringify(fit));}}}
+   else{assert.equal(await panels.first().isVisible(),false);assert.equal(await panels.last().isVisible(),true);await page.locator('[data-rank-video-task="text-to-video-audio"]').click();assert.equal(await panels.first().isVisible(),true);assert.equal(await panels.last().isVisible(),false);}
+   await page.screenshot({path:path.join(out,label+'-video-dual-rank.png')});
+  });
   if(viewport.width===1440)await check('desktop folding navigation',async()=>{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   const toggle=page.locator('#desktopNavToggle'),sidebar=page.locator('#sidebar');
+   const sidebar=page.locator('#sidebar'),toggle=sidebar.locator('#desktopNavToggle');
    assert.equal(await toggle.getAttribute('aria-expanded'),'true');const expanded=await sidebar.evaluate(el=>el.getBoundingClientRect().width);
    await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);assert.ok(await sidebar.evaluate(el=>el.getBoundingClientRect().width)<expanded);
    await page.screenshot({path:path.join(out,label+'-compact-nav.png')});
    await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);
    await sidebar.locator('[data-view="models"]').click();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.evaluate(()=>state.view),'models');
-   await toggle.click();await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width>=240);const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
+   await toggle.click();await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width>=214);const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
    await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await group.getAttribute('aria-expanded'),'false');await group.click();
    assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),true);
   });
@@ -106,7 +117,7 @@ try{
   });
   if(viewport.width!==360)await check('social views',async()=>{
    await page.goto(base+'?view=social',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   const brand=page.locator('.social-brand-record').first();await brand.locator(':scope > summary').click();assert.equal(await brand.evaluate(el=>el.open),true);await page.screenshot({path:path.join(out,label+'-social-brand-expanded.png')});
+   const brand=page.locator('.social-brand-record').first(),button=brand.locator('[data-social-detail]');assert.equal(await page.locator('.social-matrix th').count(),10);assert.equal(await page.locator('.social-brand-record').count(),12);assert.equal(await page.locator('.social-total').count(),12);if(viewport.width===1440){const fit=await page.locator('.social-matrix-footer').evaluate(el=>({bottom:el.getBoundingClientRect().bottom,height:innerHeight}));assert.ok(fit.bottom<=fit.height,'social matrix page and total must fit '+JSON.stringify(fit));}const firstTotal=await page.locator('.social-matrix-footer strong').textContent();await page.locator('[data-social-page="1"]').click();assert.equal(await page.locator('.social-matrix-footer strong').textContent(),firstTotal);await page.locator('[data-social-page="-1"]').click();await button.click();assert.equal(await button.getAttribute('aria-expanded'),'true');assert.equal(await page.locator('.social-matrix-detail').first().isVisible(),true);await page.screenshot({path:path.join(out,label+'-social-brand-expanded.png')});
    await page.locator('[data-social-view="platforms"]').click();await page.locator('[data-social-platform-filter]').selectOption('platform:X');assert.equal(await page.locator('.social-platform-record').count(),1);
    await page.locator('[data-social-view="posts"]').click();assert.equal(await page.evaluate(()=>state.socialView),'posts');await page.screenshot({path:path.join(out,label+'-social-posts.png')});
   });
