@@ -46,3 +46,28 @@ class ExplicitChronicleReferenceTests(unittest.TestCase):
         ]}
         refs = explicit_chronicle_refs([family])
         self.assertEqual(set(refs["event"]), {("s2", "avatar"), ("s2", "editing")})
+
+
+class EvidenceQueueTests(unittest.TestCase):
+    def test_gap_classification_preserves_unknowns(self):
+        from scripts.audit_model_completeness import gap_kind
+        family = {"category": "video"}
+        self.assertEqual(gap_kind(family, {"releaseDate": "2026-01-01"}), "dated-without-evidence")
+        self.assertEqual(gap_kind(family, {"historicalMilestones": [{"stage": "preview"}]}), "historical-stage-only")
+        self.assertEqual(gap_kind(family, {"status": "榜单型号待核验"}), "leaderboard-identity-review")
+        self.assertEqual(gap_kind(family, {"derivedFrom": "base"}), "provider-variant-review")
+        self.assertEqual(gap_kind(family, {"name": "Demo Preview"}), "preview-stage-review")
+        self.assertEqual(gap_kind({"category": "agent"}, {}), "agent-product-scope")
+        self.assertEqual(gap_kind(family, {"status": "已发布"}), "release-source-review")
+
+    def test_queue_is_exhaustive_and_does_not_promote_sources(self):
+        families = [{"id": "demo", "vendor": "Vendor", "category": "video", "versions": [
+            {"id": "v1", "name": "Demo 1", "releaseUrl": "https://example.com/catalog"},
+            {"id": "v2", "name": "Demo 2", "releaseEvidence": {"eventId": "known"}},
+        ]}]
+        result = audit(families, [], {"links": [], "vendorTopics": {}})
+        self.assertEqual(result["missingEvidence"], 1)
+        self.assertEqual(sum(result["gapKinds"].values()), 1)
+        self.assertEqual(result["vendors"]["Vendor"]["evidence"], 1)
+        self.assertEqual(result["gaps"][0]["candidateSourceUrl"], "https://example.com/catalog")
+        self.assertNotIn("releaseEvidence", families[0]["versions"][0])
