@@ -180,3 +180,9 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - 本批未删除模型 ID、原始排名或历史记录。所有改动待最新 CI 与生产验证；其余未核实型号、Niji 403、零匹配源及其他厂商的混合榜单映射仍需继续处理。
 
 来源：[MiniMax 官方发布目录](https://www.minimax.io/blog)、[Meta AI 研究目录](https://ai.meta.com/research/)、[Muse Wonder](https://research.meta.ai/blog/muse-wonder)、[Veo 3.1 Lite](https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/)、[Gemini Omni 1.1 Flash](https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/)、[Seedream 4.5](https://www.byteplus.com/en/blog/seedream4-5?type=services)。
+
+## 发布事件展示层（第七轮）
+
+- 版本记录仍为唯一事实数据；前端从 30 天清单派生事件，不重写型号、日期、许可及原始证据。明确的家族、日期和批次成员映射优先；仅同家族、同日期、同一明确官方公告才允许自动归并，不按日期或滚动模型卡猜测。
+- 近期上新默认已核实、创作优先；类别顺序视频、图像、音乐、TTS、实时音频、语言。语言按个人关注优先级（OpenAI/Anthropic/Google；其他重点厂商；其他）分组，不是能力排名。纯时间倒序可切换。统计分离事件数和型号数，所有具体证据可展开。
+- 音频零记录明确表示证据清单缺口而非没有新模型。本轮不凭聚合报道补写发布日期；音频专项证据补齐另行验证。

@@ -202,3 +202,16 @@ test('board row indexing preserves first-match rank semantics and snapshot isola
  const result=run("JSON.stringify(modelRanksFor({leaderboardAliases:[{source:'reference',boardId:'demo',name:'A',rank:99},{source:'reference',boardId:'demo',name:'B',rank:1}]},[{source:'reference',boardId:'demo',rows:[{name:'A',rank:7},{name:'A',rank:2},{name:'B',rank:0}]}]).map(x=>x.alias.rank))");
  assert.deepEqual(JSON.parse(result),[7]);
 });
+
+ test('release event grouping preserves versions, dates and exact evidence',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ const fixtures=[{id:'a',modelFamilyId:'tencent-hy-mt',modelName:'Hy-MT3-1.8B',publishedAt:'2026-11-24',category:'llm',vendor:'腾讯混元',url:'https://huggingface.co/tencent/Hy-MT3-1.8B'},{id:'b',modelFamilyId:'tencent-hy-mt',modelName:'Hy-MT3-7B',publishedAt:'2026-11-24',category:'llm',vendor:'腾讯混元',url:'https://huggingface.co/tencent/Hy-MT3-7B'},{id:'c',modelFamilyId:'tencent-hy-mt',modelName:'Hy-MT3-30B-A3B',publishedAt:'2026-11-24',category:'llm',vendor:'腾讯混元',url:'https://huggingface.co/tencent/Hy-MT3-30B-A3B'},{id:'d',modelFamilyId:'gpt',modelName:'GPT-6.2 Astra',publishedAt:'2026-11-17',category:'llm',vendor:'OpenAI'},{id:'e',modelFamilyId:'gpt',modelName:'GPT-6.2 (November 23)',publishedAt:'2026-11-23',category:'llm',vendor:'OpenAI'},{id:'f',modelFamilyId:'ovhcloud-olala',modelName:'Other',publishedAt:'2026-11-25',category:'llm',vendor:'OVHcloud'}];
+ const events=JSON.parse(run("JSON.stringify(releaseEvents("+JSON.stringify(fixtures)+",'priority'))"));
+ assert.equal(events.length,4);assert.equal(events.reduce((n,e)=>n+e.versions.length,0),fixtures.length);
+ const mt=events.find(e=>e.modelName==='Hy-MT3 系列');assert.equal(mt.versions.length,3);assert.equal(new Set(mt.versions.map(v=>v.url)).size,3);
+ assert.ok(events.filter(e=>e.category==='llm').findIndex(e=>e.vendor==='OpenAI')<events.filter(e=>e.category==='llm').findIndex(e=>e.vendor==='OVHcloud'));
+ assert.equal(events.filter(e=>e.modelFamilyId==='gpt').length,2);
+ run("setView('today',{releaseCategory:'llm'})");assert.match(node('content').innerHTML,/创作优先/);
+ assert.equal(run("releaseEvents([{id:'a',modelFamilyId:'gpt',modelName:'A',publishedAt:'2026-11-25',evidenceType:'official-model-card',url:'https://example.com/card'},{id:'b',modelFamilyId:'gpt',modelName:'B',publishedAt:'2026-11-25',evidenceType:'official-model-card',url:'https://example.com/card'}]).length"),2);
+ const chronological=JSON.parse(run("JSON.stringify(releaseEvents(state.modelReleases,'date').map(e=>e.publishedAt))"));assert.deepEqual(chronological,[...chronological].sort().reverse());
+});
