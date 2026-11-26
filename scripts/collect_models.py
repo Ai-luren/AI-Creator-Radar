@@ -31,7 +31,7 @@ USER_AGENT = "AI-Creator-Radar/2.0 (+https://github.com/Ai-luren/AI-Creator-Rada
 
 RELEASE_TERMS = (
     "release", "released", "introducing", "announcing", "announced",
-    "launch", "launched", "now available", "officially available",
+    "launch", "launched", "now available", "officially available", "open-sourced", "open sourced", "开源",
     "正式发布", "正式上线", "发布", "上线", "推出", "新模型", "模型发布",
 )
 PRE_RELEASE_TERMS = (
@@ -404,7 +404,9 @@ def html_page_items(page: str, source: dict) -> list[dict]:
     if source.get("type") == "dated-headings":
         return dated_heading_items(blocks, source)
     if source.get("type") == "model-cards":
-        return model_card_items(blocks, source)
+        cards = model_card_items(blocks, source)
+        if cards or not source.get("fallbackHeadings"):
+            return cards
 
     headings = [i for i, block in enumerate(blocks) if block["tag"] in {"h1", "h2", "h3", "h4", "h5", "h6"}]
     candidates = []
@@ -456,7 +458,7 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                     if article_url:
                         break
         article_url = article_url or source["url"]
-        if model_id and is_release_candidate(title, published_at):
+        if model_id and (is_release_candidate(title, published_at) or (source.get("allowNamedVersion") and published_at and re.search(r"^\s*(?:version|v|niji)\s*v?\d+(?:\.\d+)*\b", title, re.I))):
             candidates.append({
                 "title": title,
                 "summary": " ".join(summary_parts),
@@ -483,7 +485,7 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                 None,
             )
             article_url = valid_article_url(block["attrs"]["href"], source["url"])
-            if article_url and is_release_candidate(title, published_at):
+            if article_url and (is_release_candidate(title, published_at) or (source.get("allowNamedVersion") and published_at and re.search(r"^\s*(?:version|v|niji)\s*v?\d+(?:\.\d+)*\b", title, re.I))):
                 candidates.append({
                     "title": title, "summary": "", "url": article_url,
                     "publishedAt": published_at, "modelId": model_id,
@@ -527,6 +529,7 @@ def markdown_news_items(page: str, source: dict) -> list[dict]:
         raw = bullet.group(1).strip()
         links = re.findall(r"\[([^\]]+)\]\((https?://[^)]+)\)", raw)
         plain = re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r"\1", raw)
+        plain = plain.replace("**", "").replace("`", "")
         title = clean_text(plain)
         published = find_date(title)
         model_id = match_model(title, source)
@@ -546,6 +549,9 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
     model = models.get(model_id, {})
     url = normalize_url(urljoin(source["url"], raw.get("url") or source["url"]))
     identity = url if url != normalize_url(source["url"]) else source["id"] + "|" + raw["title"].casefold()
+    # Shared announcements can contain different model families. Preserve each family.
+    if model_id:
+        identity += "|" + model_id
     stable_id = hashlib.sha256(identity.encode("utf-8")).hexdigest()[:18]
     version = None
     version_pattern = source.get("versionPatterns", {}).get(model_id)
@@ -578,6 +584,13 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
     }
 
 
+def update_identity(item: dict) -> tuple:
+    url = normalize_url(item.get("url") or "")
+    title = " ".join(str(item.get("title") or "").casefold().split())
+    published = str(item.get("publishedAt") or "")[:10]
+    return (item.get("modelId"), url, title, published)
+
+
 def merge_item(old: dict, new: dict) -> dict:
     merged = dict(old)
     last_seen = new.get("lastSeenAt") or new.get("discoveredAt") or old.get("lastSeenAt") or old.get("discoveredAt")
@@ -586,6 +599,9 @@ def merge_item(old: dict, new: dict) -> dict:
         merged["lastSeenAt"] = last_seen
     if discovered:
         merged["discoveredAt"] = min(discovered)
+    first_seen = [value for value in (old.get("firstSeenAt"), new.get("firstSeenAt"), *discovered) if value]
+    if first_seen:
+        merged["firstSeenAt"] = min(first_seen)
     if not merged.get("publishedAt") and new.get("publishedAt"):
         merged["publishedAt"] = new["publishedAt"]
     if len(new.get("summary", "")) > len(old.get("summary", "")):
@@ -686,7 +702,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Collect official model version announcements.")
     parser.add_argument("--dry-run", action="store_true", help="Fetch and report without writing JSON.")
     parser.add_argument("--source", help="Only check a source by ID.")
+    parser.add_argument("--report", type=Path, help="Write a local JSON diagnostic report; requires --dry-run.")
     args = parser.parse_args()
+    if args.report and not args.dry_run:
+        parser.error("--report requires --dry-run")
 
     sources = load_json(CONFIG_FILE, [])
     active = [source for source in sources if source.get("active") and source.get("url")]
@@ -713,9 +732,14 @@ def main() -> int:
     for item in previous_updates.get("items", []):
         if item.get("id"):
             by_id[item["id"]] = item
+    existing_keys = {update_identity(item): key for key, item in by_id.items()}
     status_entries = []
     success_count = 0
     new_count = 0
+    new_recent = 0
+    new_undated = 0
+    new_historical = 0
+    new_future = 0
 
     for source, raw_items, error in sorted(fetched, key=lambda value: value[0]["name"]):
         old = old_status.get(source["id"], {})
@@ -723,11 +747,29 @@ def main() -> int:
             success_count += 1
             incoming = [make_item(item, source, models, now_iso) for item in raw_items]
             for item in incoming:
-                if item["id"] in by_id:
-                    by_id[item["id"]] = merge_item(by_id[item["id"]], item)
+                key = update_identity(item)
+                item_id = existing_keys.get(key) or item["id"]
+                if item_id in by_id and update_identity(by_id[item_id])[:3] != key[:3]:
+                    # A single URL can be a rolling page; do not merge unrelated entries.
+                    item_id = hashlib.sha256(repr(key).encode("utf-8")).hexdigest()[:18]
+                if item_id in by_id:
+                    by_id[item_id] = merge_item(by_id[item_id], item)
                 else:
-                    by_id[item["id"]] = item
+                    item["id"] = item_id
+                    by_id[item_id] = item
                     new_count += 1
+                    published = parse_date(item.get("publishedAt"))
+                    if not published:
+                        new_undated += 1
+                    else:
+                        dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+                        if dt.date() > now.date():
+                            new_future += 1
+                        elif dt.date() >= (now - timedelta(days=29)).date():
+                            new_recent += 1
+                        else:
+                            new_historical += 1
+                existing_keys[key] = item_id
             status_entries.append({
                 "id": source["id"], "name": source["name"], "type": source.get("type", "html"),
                 "url": source["url"], "active": True, "official": bool(source.get("official", True)),
@@ -761,17 +803,21 @@ def main() -> int:
     recent_incoming = [item for source_entry in status_entries
                        for item in by_id.values()
                        if item.get("sourceId") == source_entry["id"] and item.get("lastSeenAt") == now_iso]
-    version_changes = apply_recent_model_versions(models, recent_incoming, now)
+    # Automatic discoveries are not reviewed release evidence. Keep the canonical
+    # version registry untouched; publish candidates via the pending discovery stream.
+    version_changes = []
     status = {
         "zeroMatchSources": sum(e.get("resultStatus") == "zero-match" for e in status_entries),
         "coverage": source_coverage(sources, models),
         "checkedAt": now_iso, "totalSources": len(active), "successSources": success_count,
         "failedSources": len(active) - success_count, "newUpdates": new_count,
+        "newRecentDated": new_recent, "newUndated": new_undated, "newHistorical": new_historical, "newFutureDated": new_future,
         "sources": status_entries,
     }
     updates = {"generatedAt": now_iso, "items": retained}
     print(f"Model monitor: {success_count}/{len(active)} official sources OK; "
           f"{new_count} new items; {len(retained)} retained.")
+    print(f"New candidates by source date: recent={new_recent}, undated={new_undated}, historical={new_historical}, future={new_future}.")
     coverage = status["coverage"]
     print(f"Source coverage: {coverage['configuredFamilies']}/{coverage['catalogFamilies']} canonical families; {len(coverage['unmappedFamilyIds'])} unmapped IDs.")
     if version_changes:
@@ -783,12 +829,12 @@ def main() -> int:
 
     if args.source and not args.dry_run:
         parser.error("--source requires --dry-run; partial writes would replace full monitor status")
+    if args.report:
+        write_json(args.report, {"status": status, "items": retained})
     if not args.dry_run:
-        models_output = [models[model["id"]] for model in models_list if model.get("id") in models]
         write_json(UPDATES_FILE, updates)
         write_json(STATUS_FILE, status)
         write_json(STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active]})
-        write_json(MODELS_FILE, models_output)
     return 0
 
 

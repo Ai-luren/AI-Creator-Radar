@@ -41,7 +41,15 @@ jobs:
 
       - name: Probe official sources on overhaul branch (read-only)
         if: github.event_name == 'push' && github.ref == 'refs/heads/feat/radar-freshness-overhaul'
-        run: python scripts/collect_models.py --dry-run
+        run: python scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
+
+      - name: Upload read-only source diagnostics
+        if: github.event_name == 'push' && github.ref == 'refs/heads/feat/radar-freshness-overhaul'
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-probe
+          path: /tmp/radar-source-probe.json
+          retention-days: 7
 
       - name: Collect official model updates
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'

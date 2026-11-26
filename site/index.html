@@ -589,11 +589,11 @@ function evaluationTargets(){
 function modelSourceHealth(){
  var status=state.modelMonitorStatus;
  if(!status||!Array.isArray(status.sources))return '<p class="page-desc">官方信源检查状态暂不可用。</p>';
- var age=daysSince(status.checkedAt)*24,stale=!Number.isFinite(age)||age<0||age>2;
+ var age=(Date.now()-Date.parse(status.checkedAt))/3600000,stale=!Number.isFinite(age)||age<0||age>2;
  var dateTime=function(v){var d=new Date(v);return v&&!isNaN(d)?new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d):'未记录'};
  var rows=status.sources.map(function(s){var failed=!!s.error,zero=!failed&&(s.resultStatus==='zero-match'||s.itemCount===0);return '<div class="source-health-row"><a href="'+safeUrl(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.name)+' ↗</a><span class="pill">'+(failed?'采集异常':zero?'零匹配 · 待查':'已匹配')+'</span><span>'+esc(failed?s.error:zero?'未匹配到条目':s.itemCount+' 条匹配')+'</span><span>最近成功 '+esc(dateTime(s.lastSuccessAt))+'</span></div>'}).join('');
  var zero=status.sources.filter(function(s){return !s.error&&(s.resultStatus==='zero-match'||s.itemCount===0)}).length;
- return '<details class="source-health"><summary>官方信源 · '+(stale?'检查已延迟':'检查时间 '+esc(dateTime(status.checkedAt)))+' · '+Number(status.failedSources||0)+' 异常 · '+zero+' 零匹配</summary><p>匹配状态不代表发布事实已经核实；零匹配需检查信源或解析器。'+(status.coverage?' 当前配置覆盖 '+status.coverage.configuredFamilies+' / '+status.coverage.catalogFamilies+' 个目录家族。':'')+'</p>'+rows+'</details>';
+ return '<details class="source-health"><summary>官方信源 · '+(stale?'检查已延迟':'检查时间 '+esc(dateTime(status.checkedAt)))+' · '+Number(status.failedSources||0)+' 异常 · '+zero+' 零匹配</summary><p>匹配状态不代表发布事实已经核实；零匹配需检查信源或解析器。'+(status.coverage?' 当前配置覆盖 '+status.coverage.configuredFamilies+' / '+status.coverage.catalogFamilies+' 个目录家族。':'')+(typeof status.newRecentDated==='number'?' 本轮首次登记：近30天有日期 '+status.newRecentDated+' 条，历史 '+status.newHistorical+' 条，日期未知 '+status.newUndated+' 条。':'')+'</p>'+rows+'</details>';
 }
 function modelEvaluationsPage(){
  var releases=(state.modelReleases||[]).filter(function(x){return ['video','image','llm','music','tts','audio'].indexOf(x.category)>=0&&daysSince(x.publishedAt)<=30&&daysSince(x.publishedAt)>=0&&(state.releaseCategory==='all'||x.category===state.releaseCategory)&&matches([x.vendor,x.modelName,x.summary].join(' '))}).sort(function(a,b){return String(b.publishedAt||'').localeCompare(String(a.publishedAt||''))});

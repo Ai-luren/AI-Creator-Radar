@@ -78,7 +78,8 @@
     "versionPatterns": {
       "nano-banana": "Nano\\s+Banana\\s+([0-9]+(?:\\.[0-9]+)*)",
       "veo": "Veo\\s+([0-9]+(?:\\.[0-9]+)*)"
-    }
+    },
+    "fallbackHeadings": true
   },
   {
     "id": "minimax-ir",
@@ -163,9 +164,9 @@
   },
   {
     "id": "qwen-image-updates",
-    "name": "Qwen 官方发布目录",
+    "name": "Qwen 官方首页发布目录",
     "type": "html",
-    "url": "https://qwen.ai/news",
+    "url": "https://qwen.ai/home",
     "vendor": "阿里巴巴通义千问",
     "official": true,
     "active": true,
@@ -401,9 +402,9 @@
   },
   {
     "id": "pixverse-news",
-    "name": "PixVerse 官方新闻",
+    "name": "PixVerse 英文官方博客",
     "type": "html",
-    "url": "https://pixverse.ai/en/news",
+    "url": "https://pixverse.ai/en/blog",
     "vendor": "PixVerse",
     "official": true,
     "active": true,
@@ -502,10 +503,12 @@
     "modelMatches": {
       "midjourney": [
         "re:\\b(?:Midjourney|Niji)\\b.{0,45}\\bv?\\d+(?:\\.\\d+)*\\b",
-        "re:^v\\d+(?:\\.\\d+)*\\s+(?:is now|released|launch)"
+        "re:^v\\d+(?:\\.\\d+)*\\s+(?:is now|released|launch)",
+        "re:^\\s*(?:version|v|niji)\\s*v?\\d+(?:\\.\\d+)*\\b"
       ]
     },
-    "previousFeed": "https://updates.midjourney.com/rss/"
+    "previousFeed": "https://updates.midjourney.com/rss/",
+    "allowNamedVersion": true
   },
   {
     "id": "kimi-announcement",
@@ -613,7 +616,10 @@
     "active": true,
     "modelMatches": {
       "hunyuan-hy4": [
-        "re:\\b(?:Tencent\\s+)?HY\\s*4(?:\\.\\d+)*\\b"
+        "re:\\b(?:Tencent\\s+)?HY\\s*4(?:\\.\\d+)*\\b",
+        "re:\\bhunyuan[- ](?:t1|turbo|hy4|standard|lite)\\b",
+        "混元大模型",
+        "混元生文"
       ],
       "hunyuan-video": [
         "re:\\bHunyuan[- ]?Video\\b",
@@ -628,6 +634,134 @@
       ]
     },
     "updateType": "model-card",
-    "maxRowLength": 2500
+    "maxRowLength": 2500,
+    "fallbackHeadings": true
+  },
+  {
+    "id": "google-official-feed",
+    "name": "Google 官方新闻 RSS",
+    "type": "rss",
+    "url": "https://blog.google/feed/",
+    "vendor": "Google",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "nano-banana": [
+        "nano banana"
+      ],
+      "lyria": [
+        "lyria"
+      ],
+      "veo": [
+        "re:\\bVeo\\b"
+      ],
+      "gemini-omni-flash": [
+        "re:\\bGemini\\s+Omni\\b",
+        "omni flash"
+      ],
+      "gemini-tts": [
+        "re:\\bGemini\\b.{0,45}\\b(?:TTS|text.to.speech)\\b"
+      ],
+      "gemini": [
+        "re:\\bGemini\\s+\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "deepmind-news",
+    "name": "Google DeepMind 官方新闻",
+    "type": "html",
+    "url": "https://deepmind.google/blog/",
+    "vendor": "Google DeepMind",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "nano-banana": [
+        "nano banana"
+      ],
+      "lyria": [
+        "lyria"
+      ],
+      "veo": [
+        "re:\\bVeo\\b"
+      ],
+      "gemini-omni-flash": [
+        "re:\\bGemini\\s+Omni\\b",
+        "omni flash"
+      ],
+      "gemini-tts": [
+        "re:\\bGemini\\b.{0,45}\\b(?:TTS|text.to.speech)\\b"
+      ],
+      "gemini": [
+        "re:\\bGemini\\s+\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "qwen-image-repo",
+    "name": "Qwen Image 官方仓库 News",
+    "type": "markdown-news",
+    "url": "https://raw.githubusercontent.com/QwenLM/Qwen-Image/main/README.md",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "qwen-image-edit": [
+        "re:\\bQwen[- ]Image[- ]Edit\\b"
+      ],
+      "qwen-image": [
+        "re:\\bQwen[- ]Image\\b"
+      ]
+    },
+    "section": "News",
+    "updateType": "model-card"
+  },
+  {
+    "id": "hunyuan-video-repo",
+    "name": "腾讯混元视频官方仓库 News",
+    "type": "markdown-news",
+    "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo/main/README.md",
+    "vendor": "腾讯混元",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "hunyuan-video": [
+        "re:\\bHunyuan[- ]?Video\\b"
+      ]
+    },
+    "section": "🔥🔥🔥 News!!",
+    "updateType": "model-card"
+  },
+  {
+    "id": "hunyuan-image-repo",
+    "name": "腾讯混元图像官方仓库 News",
+    "type": "markdown-news",
+    "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanImage-3.0/main/README.md",
+    "vendor": "腾讯混元",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "hunyuan-image": [
+        "re:\\bHunyuan[- ]?Image\\b"
+      ]
+    },
+    "section": "🔥🔥🔥 News",
+    "updateType": "model-card"
+  },
+  {
+    "id": "hunyuan-mt3-repo",
+    "name": "腾讯 Hy-MT3 官方仓库 News",
+    "type": "markdown-news",
+    "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/Hy-MT3/main/README.md",
+    "vendor": "腾讯混元",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "tencent-hy-mt": [
+        "re:\\b(?:Hy|Hunyuan)[- ]MT\\b"
+      ]
+    },
+    "section": "News",
+    "updateType": "model-card"
   }
 ]
