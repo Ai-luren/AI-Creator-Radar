@@ -13,9 +13,16 @@
 
 ## 设计
 
-每 15 分钟检查一次，2 次只读 API，只有快照超期且没有活动/刚启动的工作流时才 POST dispatch。只读取小型 scheduler-health.json；原始采集成功时间、日报日期仍由 plan_refresh.py 决定。12 分钟冷却，5 分钟超期宽限；GitHub 侧并发锁是最终防重保障。404 仅作为尚无心跳的启动场景；403、429、错误响应、无效时间均 fail closed。部署前默认演练模式。没有公开 webhook、没有服务端持久化凭证，不使用第三方 cron 站点保存令牌。Cloudflare Free 限额和服务条款需以实际账户为准；本代码不代表已经部署或已通过外部实跑。
+正式模式每 15 分钟检查一次（当前首次验收临时每分钟演练，正式启用前恢复），2 次只读 API，只有快照超期且没有活动/刚启动的工作流时才 POST dispatch。只读取小型 scheduler-health.json；原始采集成功时间、日报日期仍由 plan_refresh.py 决定。12 分钟冷却，5 分钟超期宽限；GitHub 侧并发锁是最终防重保障。404 仅作为尚无心跳的启动场景；403、429、错误响应、无效时间均 fail closed。部署前默认演练模式。没有公开 webhook、没有服务端持久化凭证，不使用第三方 cron 站点保存令牌。Cloudflare Free 限额和服务条款需以实际账户为准；本代码不代表已经部署或已通过外部实跑。
 
 本地可运行 `node --test tests/test_scheduler_worker.mjs`（从仓库根目录）。撤销：删除 Worker/cron，并撤销细粒度令牌。备用 Mac watchdog 可继续独立使用，避免两个备份同时启用造成重复调度。
 
 参考：https://developers.cloudflare.com/workers/configuration/cron-triggers/
 https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event
+
+## 生产运行兼容修复
+
+- 实际 Worker 名称统一为 `ai-creator-radar`，与已授权的部署及 Secret 绑定一致，不再使用旧规划名称。
+- Cloudflare Workers 不支持 Fetch 的 redirect:error；改为 redirect:manual 并拒绝所有 3xx 响应，不跟随 Location，不转发令牌。
+- 只有明确配置 DRY_RUN=false 才允许 dispatch；缺失或其他值均为演练。当前仓库保持 true，临时每分钟检查，验收后恢复 15 分钟，再启用生产。
+- 持久化日志配置由 Wrangler 文件管理。已通过 Wrangler secret put 绑定的令牌不得写入仓库。自动部署之后仍需检查实际版本及运行日志，不能以构建成功代替端到端验证。
