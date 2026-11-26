@@ -25,7 +25,13 @@
         "label": "查看招募与规则",
         "url": "https://jimeng.jianying.com/ai-tool/activity-detail/2026-809-dreamina-weekly-challenge",
         "sourceUrl": "https://jimeng.jianying.com/ai-tool/activity-detail/2026-809-dreamina-weekly-challenge",
-        "note": "官方招募页显示项目扶持及创作者成长权益；当前页面活动期至 2026-12-30，按页面规则报名。"
+        "note": "官方招募页显示项目扶持及创作者成长权益；当前页面活动期至 2026-12-30，按页面规则报名。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "overseas": {
         "programName": "Dreamina Creator Partnership Program (CPP)",
@@ -33,7 +39,13 @@
         "label": "海外 CPP 申请",
         "url": "https://wj.byteoversea.com/q/82561/5885MMdi/af54/#/",
         "sourceUrl": "https://wj.byteoversea.com/q/82561/5885MMdi/af54/#/",
-        "note": "按用户提供的 Dreamina 海外 CPP 申请入口登记。"
+        "note": "按用户提供的 Dreamina 海外 CPP 申请入口登记。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-26"
@@ -158,7 +170,13 @@
         "label": "海外 CPP 说明",
         "url": "https://pixverse.ai/en/blog/join-pixverse-creator-partnership-program",
         "sourceUrl": "https://pixverse.ai/en/blog/join-pixverse-creator-partnership-program",
-        "note": "PixVerse 官方英文 CPP 介绍页；按用户标注归入海外计划。"
+        "note": "PixVerse 官方英文 CPP 介绍页；按用户标注归入海外计划。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-26"
@@ -201,7 +219,13 @@
         "label": "海外 CPP 申请",
         "url": "https://kling.ai/app/creator-apply",
         "sourceUrl": "https://kling.ai/app/creator-apply",
-        "note": "按用户提供的 Kling 海外 CPP 申请入口登记。"
+        "note": "按用户提供的 Kling 海外 CPP 申请入口登记。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-26"
@@ -238,7 +262,13 @@
         "label": "创作者申请",
         "url": "https://go.vidu.com/zh/artist-program",
         "sourceUrl": "https://go.vidu.com/zh/artist-program",
-        "note": "官方中文计划页含创作者报名入口。"
+        "note": "官方中文计划页含创作者报名入口。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "overseas": [
         {
@@ -247,7 +277,13 @@
           "label": "海外 CPP",
           "url": "https://go.vidu.com/artist-program",
           "sourceUrl": "https://go.vidu.com/artist-program",
-          "note": "Vidu 官方英文 CPP 申请入口。"
+          "note": "Vidu 官方英文 CPP 申请入口。",
+          "applicationReview": {
+            "status": "application-listed",
+            "checkedAt": "2026-11-26",
+            "sourceUrl": "https://go.vidu.com/artist-program",
+            "note": "官方英文页提供申请流程与按钮，未验证表单提交和地区资格。"
+          }
         },
         {
           "programName": "Vidu 创作者计划",
@@ -255,7 +291,13 @@
           "label": "海外创作者计划",
           "url": "https://www.vidu.cn/vidu-earn",
           "sourceUrl": "https://www.vidu.cn/vidu-earn",
-          "note": "按用户说明列入海外创作者计划；所给入口位于 vidu.cn，适用地区待核实。"
+          "note": "按用户说明列入海外创作者计划；所给入口位于 vidu.cn，适用地区待核实。",
+          "applicationReview": {
+            "status": "unconfirmed",
+            "checkedAt": null,
+            "sourceUrl": null,
+            "note": "尚未核验当前报名状态；现有入口仅作登记。"
+          }
         }
       ],
       "global": null,
@@ -294,7 +336,13 @@
         "label": "海外 CPP 申请",
         "url": "https://docs.google.com/forms/d/e/1FAIpQLScQoLd-MKGtNHjOA3OSZe2qD0M16lPLnRHC_25XLi4o_cV0BA/viewform?fbzx=-1738603673776446382",
         "sourceUrl": "https://docs.google.com/forms/d/e/1FAIpQLScQoLd-MKGtNHjOA3OSZe2qD0M16lPLnRHC_25XLi4o_cV0BA/viewform?fbzx=-1738603673776446382",
-        "note": "按用户提供的 MiniMax / Hailuo AI 海外 CPP 申请表登记。"
+        "note": "按用户提供的 MiniMax / Hailuo AI 海外 CPP 申请表登记。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-26"
@@ -322,7 +370,13 @@
         "label": "CPP 申请",
         "url": "https://runway.com/creative-partners-program#apply",
         "sourceUrl": "https://runway.com/creative-partners-program/",
-        "note": "Runway 官方公开申请页，面向精选艺术家、团队与创作者，提供新工具和模型体验、合作机会及活动。独立于 Runway Rewards 推荐佣金计划。"
+        "note": "Runway 官方公开申请页，面向精选艺术家、团队与创作者，提供新工具和模型体验、合作机会及活动。独立于 Runway Rewards 推荐佣金计划。",
+        "applicationReview": {
+          "status": "application-listed",
+          "checkedAt": "2026-11-26",
+          "sourceUrl": "https://help.runwayml.com/hc/en-us/articles/37464713358099-Runway-Resources",
+          "note": "官方资源页邀请创作者申请 CPP；当前表单提交能力未验证。"
+        }
       },
       "checkedAt": "2026-11-25"
     }
@@ -375,7 +429,13 @@
         "label": "查看计划与申请",
         "url": "https://labs.google/fx/en/tools/flow",
         "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/flow-and-flow-music-session-artists/",
-        "note": "Google 官方艺术家合作计划，按 cohort 招募，适合带项目提案的创作者；不属于常开 CPP。"
+        "note": "Google 官方艺术家合作计划，按 cohort 招募，适合带项目提案的创作者；不属于常开 CPP。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-25"
     },
@@ -405,7 +465,13 @@
         "label": "查看申请",
         "url": "https://suno.com/spark",
         "sourceUrl": "https://about.suno.com/spark-terms",
-        "note": "面向独立歌手、词曲作者或制作人；官方条款将中国列入不适用地区。"
+        "note": "面向独立歌手、词曲作者或制作人；官方条款将中国列入不适用地区。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-25"
@@ -510,7 +576,13 @@
         "label": "Codex 大使申请",
         "url": "https://openai.com/zh-Hans-CN/form/codex-ambassadors/",
         "sourceUrl": "https://openai.com/zh-Hans-CN/form/codex-ambassadors/",
-        "note": "OpenAI 官方 Codex 大使申请表。"
+        "note": "OpenAI 官方 Codex 大使申请表。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-26"
     }
@@ -541,7 +613,13 @@
         "label": "Claude 大使申请",
         "url": "https://claude.com/community/ambassadors",
         "sourceUrl": "https://claude.com/community/ambassadors",
-        "note": "Anthropic 官方 Claude Community Ambassadors 计划。"
+        "note": "Anthropic 官方 Claude Community Ambassadors 计划。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-26"
     }
@@ -600,7 +678,13 @@
         "label": "查看申请",
         "url": "https://www.aliyun.com/benefit/aihands-on/image",
         "sourceUrl": "https://www.aliyun.com/benefit/aihands-on/image",
-        "note": "面向构建 Agent 的技术创作者，不是通用视频内容 CPP。"
+        "note": "面向构建 Agent 的技术创作者，不是通用视频内容 CPP。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "overseas": null,
       "global": {
@@ -609,7 +693,13 @@
         "label": "Ambassador application",
         "url": "https://qwen.ai/ambassador",
         "sourceUrl": "https://qwen.ai/ambassador",
-        "note": "全球计划，侧重开源开发、案例与社区活动，不是通用内容创作者 CPP。"
+        "note": "全球计划，侧重开源开发、案例与社区活动，不是通用内容创作者 CPP。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-25"
     }
@@ -634,7 +724,13 @@
         "label": "大使计划申请",
         "url": "https://www.kimi.com/zh-cn/lp/kimi-ambassador",
         "sourceUrl": "https://www.kimi.com/zh-cn/lp/kimi-ambassador",
-        "note": "官方面向全球招募创作者、分享者与社区组织者；非专门 CPP。"
+        "note": "官方面向全球招募创作者、分享者与社区组织者；非专门 CPP。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-25"
     },
@@ -684,7 +780,13 @@
         "label": "CPP 申请",
         "url": "https://higgsfield.ai/creator-partnership-program",
         "sourceUrl": "https://higgsfield.ai/creator-partnership-program",
-        "note": "官方面向全球 AI 创作者开放申请。"
+        "note": "官方面向全球 AI 创作者开放申请。",
+        "applicationReview": {
+          "status": "open",
+          "checkedAt": "2026-11-26",
+          "sourceUrl": "https://higgsfield.ai/creator-hub/help-center/business/how-do-i-join-a-partnership-or-creator-program",
+          "note": "官方帮助页明确说 CPP 开放申请；需要作品链接、国家和平台资料，人工审核。"
+        }
       },
       "checkedAt": "2026-11-25"
     },
@@ -716,7 +818,13 @@
         "label": "全球 CPP 申请",
         "url": "https://www.magnific.com/ai/partners",
         "sourceUrl": "https://www.magnific.com/ai/partners",
-        "note": "Magnific 官方 CPP 页面；提供 Beta 工具提前体验、AI 创作额度与 Premium 功能、团队反馈渠道、创作者社区及作品奖励。页面于 2026-11-16 更新。"
+        "note": "Magnific 官方 CPP 页面；提供 Beta 工具提前体验、AI 创作额度与 Premium 功能、团队反馈渠道、创作者社区及作品奖励。页面于 2026-11-16 更新。",
+        "applicationReview": {
+          "status": "application-listed",
+          "checkedAt": "2026-11-26",
+          "sourceUrl": "https://www.magnific.com/ai/partners",
+          "note": "CPP 官方页有申请入口；与 Magnific Originals 项目招募状态不同。"
+        }
       },
       "checkedAt": "2026-11-26"
     }
@@ -742,7 +850,13 @@
         "label": "全球 CPP 申请",
         "url": "https://openart.ai/programs/cpp",
         "sourceUrl": "https://openart.ai/programs/cpp",
-        "note": "OpenArt 官方 CPP 页面面向创作者、教育者与 AI 爱好者；提供免费额度、功能抢先体验、官方社媒展示、优先付费合作机会及活动参与。"
+        "note": "OpenArt 官方 CPP 页面面向创作者、教育者与 AI 爱好者；提供免费额度、功能抢先体验、官方社媒展示、优先付费合作机会及活动参与。",
+        "applicationReview": {
+          "status": "application-listed",
+          "checkedAt": "2026-11-26",
+          "sourceUrl": "https://openart.ai/programs/cpp",
+          "note": "官方页提供申请按钮及合作权益；未实际验证表单是否接受提交。"
+        }
       },
       "checkedAt": "2026-11-26"
     }
@@ -768,7 +882,13 @@
         "label": "CPP 申请",
         "url": "https://creator.renoise.ai/",
         "sourceUrl": "https://creator.renoise.ai/",
-        "note": "申请表要求选择国家或地区，采用同一全球入口。"
+        "note": "申请表要求选择国家或地区，采用同一全球入口。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-25"
     }
@@ -792,7 +912,13 @@
         "label": "国内 CPP 申请",
         "url": "https://pollo.ai/zh/creative-partner-program",
         "sourceUrl": "https://pollo.ai/zh/creative-partner-program",
-        "note": "Pollo AI 中文 CPP 页面。"
+        "note": "Pollo AI 中文 CPP 页面。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "overseas": {
         "programName": "Pollo AI Creative Partner Program (CPP)",
@@ -800,7 +926,13 @@
         "label": "海外 CPP 申请",
         "url": "https://pollo.ai/creative-partner-program",
         "sourceUrl": "https://pollo.ai/creative-partner-program",
-        "note": "Pollo AI 英文 CPP 页面。"
+        "note": "Pollo AI 英文 CPP 页面。",
+        "applicationReview": {
+          "status": "application-listed",
+          "checkedAt": "2026-11-26",
+          "sourceUrl": "https://pollo.ai/creative-partner-program",
+          "note": "官方英文页提供申请入口、作品集及活跃社媒要求；未验证表单提交。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-26"
@@ -836,7 +968,13 @@
         "label": "国内申请",
         "url": "https://app.tapnow.media/creator-program/apply",
         "sourceUrl": "https://app.tapnow.media/creator-program/apply",
-        "note": "TapNow 国内创作者成长计划申请入口。"
+        "note": "TapNow 国内创作者成长计划申请入口。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "overseas": {
         "programName": "TapNow Creator Growth Program",
@@ -844,7 +982,13 @@
         "label": "海外申请",
         "url": "https://app.tapnow.ai/creator-program",
         "sourceUrl": "https://app.tapnow.ai/creator-program",
-        "note": "TapNow 海外创作者成长计划入口。"
+        "note": "TapNow 海外创作者成长计划入口。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-26"
@@ -869,7 +1013,13 @@
         "label": "国内 CPP 招募",
         "url": "https://www.flova.ai/zh-CN/activity/excellent-creator-recruitment-program/",
         "sourceUrl": "https://www.flova.ai/zh-CN/activity/excellent-creator-recruitment-program/",
-        "note": "官方页面称为精选作者团招募，包含 Brief 任务、基础激励与 CPE；你将其归类为国内 CPP。以当期规则为准。"
+        "note": "官方页面称为精选作者团招募，包含 Brief 任务、基础激励与 CPE；你将其归类为国内 CPP。以当期规则为准。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "overseas": null,
       "global": {
@@ -878,7 +1028,13 @@
         "label": "Skill Creator application",
         "url": "https://www.flova.ai/en/activity/flova-skill-creator-program/",
         "sourceUrl": "https://www.flova.ai/en/activity/flova-skill-creator-program/",
-        "note": "全球计划，但须先创建并发布 Skill 与演示视频；并非通用 CPP。"
+        "note": "全球计划，但须先创建并发布 Skill 与演示视频；并非通用 CPP。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-26"
     },
@@ -910,7 +1066,13 @@
         "label": "查看计划",
         "url": "https://resonate.feishu.cn/wiki/LOxEwi47Gii2OUkZ9RVcoltAnqc",
         "sourceUrl": "https://resonate.feishu.cn/wiki/LOxEwi47Gii2OUkZ9RVcoltAnqc",
-        "note": "按用户提供的计划资料登记；适用地区待核实。"
+        "note": "按用户提供的计划资料登记；适用地区待核实。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-26"
     }
@@ -936,7 +1098,13 @@
         "label": "申请入口",
         "url": "https://v.wjx.cn/vm/wQgu4CD.aspx",
         "sourceUrl": "https://v.wjx.cn/vm/wQgu4CD.aspx",
-        "note": "按用户提供的申请入口登记；适用地区待核实。"
+        "note": "按用户提供的申请入口登记；适用地区待核实。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "checkedAt": "2026-11-26"
     }
@@ -1077,7 +1245,13 @@
         "label": "国内 CPP 详情",
         "url": "https://sensetime.feishu.cn/wiki/TqjVwBCEbiTTeZkJf8acyzbrnkf",
         "sourceUrl": "https://sensetime.feishu.cn/wiki/TqjVwBCEbiTTeZkJf8acyzbrnkf",
-        "note": "按用户提供的 Seko 国内创作者计划资料登记。"
+        "note": "按用户提供的 Seko 国内创作者计划资料登记。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "overseas": {
         "programName": "SekoTV Creator Partnership Program (CPP)",
@@ -1085,7 +1259,13 @@
         "label": "海外 CPP 详情",
         "url": "https://docs.google.com/document/d/1BcH21CSKIUsdEeRhSFXKYGEAjfBBNlUwvsaHJDxoQGE/mobilebasic?tab=t.0&_immersive_translate_auto_translate=1",
         "sourceUrl": "https://docs.google.com/document/d/1BcH21CSKIUsdEeRhSFXKYGEAjfBBNlUwvsaHJDxoQGE/mobilebasic?tab=t.0&_immersive_translate_auto_translate=1",
-        "note": "按用户提供的 SekoTV 海外计划资料登记。"
+        "note": "按用户提供的 SekoTV 海外计划资料登记。",
+        "applicationReview": {
+          "status": "unconfirmed",
+          "checkedAt": null,
+          "sourceUrl": null,
+          "note": "尚未核验当前报名状态；现有入口仅作登记。"
+        }
       },
       "global": null,
       "checkedAt": "2026-11-26"

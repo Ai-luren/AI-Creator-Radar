@@ -619,8 +619,8 @@
   {
     "id": "niji-blog",
     "name": "Niji Journey 官方博客",
-    "type": "html",
-    "url": "https://nijijourney.com/zh/blog",
+    "type": "niji-release-index",
+    "url": "https://nijijourney.com/blog",
     "vendor": "Midjourney",
     "official": true,
     "active": true,
@@ -629,7 +629,10 @@
         "re:\\bNiji\\s*v?\\d+(?:\\.\\d+)*\\b"
       ]
     },
-    "updateType": "model-card"
+    "updateType": "model-release",
+    "fallbackUrls": [
+      "https://nijijourney.com/zh/blog"
+    ]
   },
   {
     "id": "tencent-model-news",
@@ -664,9 +667,9 @@
   },
   {
     "id": "google-official-feed",
-    "name": "Google 官方新闻 RSS",
+    "name": "Google 官方 AI 新闻 RSS",
     "type": "rss",
-    "url": "https://blog.google/feed/",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
     "vendor": "Google",
     "official": true,
     "active": true,
@@ -693,7 +696,10 @@
       "gemini": [
         "re:\\bGemini\\s+\\d+(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "fallbackUrls": [
+      "https://blog.google/rss"
+    ]
   },
   {
     "id": "deepmind-news",

@@ -3,12 +3,20 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createRequire} from 'node:module';
 const require=createRequire(path.join(process.env.RADAR_BROWSER_DEPS||process.cwd(),'package.json'));
-const {chromium}=require('playwright');
+const engine=process.env.RADAR_BROWSER_ENGINE||'chromium';
+const browserType=require('playwright')[engine];
+assert.ok(browserType,'unsupported browser engine '+engine);
 const base='http://127.0.0.1:8765/';
 const out=process.env.RADAR_SCREENSHOTS||'/tmp/radar-screenshots';
 fs.mkdirSync(out,{recursive:true});
 const digest=JSON.parse(fs.readFileSync('site/data/model-releases-30d.json','utf8'));
-const browser=await chromium.launch({headless:true});
+const browser=await browserType.launch({headless:true});
+const overviewFiles=['model-releases-30d.json','model-monitor-status.json','aihot-items.json','aihot-daily.json','juya-daily.json'];
+const overviewBytes=overviewFiles.reduce((n,f)=>n+fs.statSync(path.join('site/data',f)).size,0);
+const htmlBytes=fs.statSync('site/index.html').size;
+console.log('BUDGET '+engine+' HTML '+htmlBytes+' bytes; overview JSON '+overviewBytes+' bytes');
+assert.ok(htmlBytes<=320*1024,'HTML exceeds 320 KiB; review payload growth');
+assert.ok(overviewBytes<=256*1024,'overview snapshots exceed 256 KiB; review data growth');
 const failures=[];
 try{
  for(const viewport of [{width:1440,height:1000},{width:390,height:844},{width:360,height:800}]){
@@ -17,8 +25,8 @@ try{
   await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
-  const routes=viewport.width===360?['overview','models','rankings','social','opportunities']:['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
-  async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.message)}}
+  const routes=['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
+  async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled'}).catch(()=>{})}}
   for(const view of routes)await check(view,async()=>{
    const loaded=new Set();const capture=req=>{if(req.url().includes('/data/'))loaded.add(new URL(req.url()).pathname.split('/').pop())};page.on('request',capture);
    await page.goto(base+'?view='+view,{waitUntil:'domcontentloaded'});
@@ -32,9 +40,33 @@ try{
     const result=await page.locator('.model-table').evaluate(t=>({font:parseFloat(getComputedStyle(t).fontSize),vendor:getComputedStyle(t.querySelector('tbody td:first-child')).position,model:getComputedStyle(t.querySelector('tbody td:nth-child(2)')).position,wrap:t.parentElement.clientWidth,table:t.scrollWidth}));
     assert.ok(result.font>=13);assert.equal(result.model,'sticky');if(viewport.width<761){assert.equal(result.vendor,'static');assert.ok(result.table>result.wrap)}
    }
+   if(view==='overview')assert.equal(await page.locator('.overview-dashboard .overview-column').count(),2);
+   if(view==='rankings'){
+    const principles=page.locator('.rank-principles details');assert.equal(await principles.evaluate(el=>el.open),false);await principles.locator('summary').click();assert.equal(await principles.evaluate(el=>el.open),true);await principles.locator('summary').click();
+    const table=await page.locator('.rank-table').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),header:getComputedStyle(el.querySelector('th')).position,numeric:getComputedStyle(el.querySelector('th:nth-child(3)')).textAlign}));
+    assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');
+   }
    if(view==='today')assert.ok(await page.locator('.release-main').count()>0);
    if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
    console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
+  });
+  if(viewport.width<761)await check('mobile navigation',async()=>{
+   await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const menu=page.locator('#mobileMenu'),sidebar=page.locator('#sidebar');
+   assert.equal(await menu.getAttribute('aria-expanded'),'false');
+   assert.equal(await sidebar.evaluate(el=>el.inert),true,'closed sidebar must be inert');
+   await menu.click();assert.equal(await menu.getAttribute('aria-expanded'),'true');
+   assert.equal(await page.locator('main').evaluate(el=>el.inert),true,'open menu must make main inert');
+   await page.waitForFunction(()=>document.activeElement===document.getElementById('mobileNavClose'),null,{timeout:2000});
+   await page.keyboard.press('Shift+Tab');assert.equal(await sidebar.locator('[data-view]').last().evaluate(el=>el===document.activeElement),true,'reverse Tab must wrap');
+   await page.keyboard.press('Tab');assert.equal(await page.locator('#mobileNavClose').evaluate(el=>el===document.activeElement),true,'Tab must wrap');
+   await page.screenshot({path:path.join(out,label+'-mobile-nav.png')});
+   await page.keyboard.press('Escape');assert.equal(await menu.getAttribute('aria-expanded'),'false');
+   await page.waitForFunction(()=>document.activeElement===document.getElementById('mobileMenu'),null,{timeout:2000});
+   await menu.click();await sidebar.locator('[data-view="models"]').click();await page.waitForFunction(()=>state.dataReady);
+   assert.equal(await page.evaluate(()=>state.view),'models');assert.equal(await menu.getAttribute('aria-expanded'),'false');
+   assert.equal(await page.locator('main').evaluate(el=>el.inert),false);
+   await menu.click();await page.locator('#navBackdrop').click({position:{x:viewport.width-10,y:100}});assert.equal(await menu.getAttribute('aria-expanded'),'false');
   });
   if(viewport.width!==360)await check('search-and-version',async()=>{
    await page.goto(base+'?view=models&category=image',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);

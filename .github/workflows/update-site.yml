@@ -9,6 +9,18 @@ on:
     - cron: "17 2,8,14,20 * * *" # rankings and creator resources, every six hours
     - cron: "13 2 * * *" # daily maintenance, 10:13 China time
   workflow_dispatch:
+    inputs:
+      scope:
+        description: "Choose a production collection or deployment scope"
+        type: choice
+        required: true
+        default: all
+        options:
+          - all
+          - models
+          - resources
+          - maintenance
+          - deploy-only
 
 permissions:
   contents: write
@@ -25,83 +37,105 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       changed: ${{ steps.persist.outputs.changed }}
+      aihot_outcome: ${{ steps.aihot.outcome }}
     timeout-minutes: 30
     steps:
       - name: Checkout the triggering ref
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.ref }}
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
+      - name: Set up Node for rendering tests
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          package-manager-cache: false
+
       - name: Collect official model updates
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'models')) || github.event.schedule == '7,37 * * * *'
         run: python scripts/collect_models.py
 
       - name: Build the 30-day release view from canonical model versions
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'models')) || github.event.schedule == '7,37 * * * *'
         run: python scripts/build_model_release_digest.py
 
       - name: Update company chronologies from official model sources
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'models')) || github.event.schedule == '7,37 * * * *'
         run: python scripts/collect_chronicle_updates.py
 
       - name: Check official model resource links
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 2 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'maintenance')) || github.event.schedule == '13 2 * * *'
         run: python scripts/check_model_resources.py
 
       - name: Check creator opportunity link reachability
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 2 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'maintenance')) || github.event.schedule == '13 2 * * *'
         run: python scripts/check_creator_links.py
 
+      - name: Scan public creator opportunity sources
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'maintenance')) || github.event.schedule == '13 2 * * *'
+        run: python scripts/collect_creator_opportunities.py
+
       - name: Validate creator opportunity records
-        run: python scripts/check_creator_links.py --dry-run
+        run: |
+          python scripts/check_creator_links.py --dry-run
+          python scripts/collect_creator_opportunities.py --dry-run
 
       - name: Collect RSS and Awesome resources
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_resources.py
 
       - name: Collect public model leaderboard snapshot
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_rankings.py
 
       - name: Collect Maomu model ranking boards
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_maomu_rankings.py
 
       - name: Build unified capability rankings
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/build_unified_rankings.py
 
       - name: Collect AIHOT selected items
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
-        run: python scripts/collect_aihot.py
+        id: aihot
+        continue-on-error: true
+        timeout-minutes: 2
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'models')) || github.event.schedule == '7,37 * * * *'
+        run: |
+          if ! python scripts/collect_aihot.py; then
+            echo "::warning::AIHOT selected fetch failed; retrying once in 10 seconds."
+            sleep 10
+            python scripts/collect_aihot.py
+          fi
 
       - name: Collect AIHOT daily digest
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_briefings.py aihot
 
       - name: Collect Juya daily digest
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_briefings.py juya
 
       - name: Collect AIPick video ideas
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_aipick.py
 
       - name: Collect new model evaluation candidates
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 2 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'maintenance')) || github.event.schedule == '13 2 * * *'
         run: python scripts/collect_model_evaluations.py
 
       - name: Collect public social trends
-        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_social_trends.py
 
       - name: Link exact model mentions across radar data
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only')
         run: python scripts/link_model_records.py
 
       - name: Test collectors and current data after regeneration
@@ -119,7 +153,7 @@ jobs:
 
       - name: Persist collected data to the triggering branch
         id: persist
-        if: github.event_name != 'push'
+        if: github.event_name != 'push' && !(github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only')
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -134,17 +168,17 @@ jobs:
           fi
 
       - name: Configure GitHub Pages
-        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || steps.persist.outputs.changed == 'true')
-        uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || steps.persist.outputs.changed == 'true')
+        uses: actions/configure-pages@v6.0.0
 
       - name: Upload Pages artifact
-        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || steps.persist.outputs.changed == 'true')
-        uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || steps.persist.outputs.changed == 'true')
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: site
 
   deploy:
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || needs.collect.outputs.changed == 'true')
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || needs.collect.outputs.changed == 'true')
     needs: collect
     runs-on: ubuntu-24.04
     environment:
@@ -152,4 +186,18 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5.0.1
+
+  report-collector-failure:
+    # AIHOT writes atomically. Keep other validated data publishable even when
+    # AIHOT is temporarily unavailable, but preserve an honest failed run.
+    needs: [collect, deploy]
+    if: always() && !cancelled() && needs.collect.outputs.aihot_outcome == 'failure'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Report degraded collection without hiding notifications
+        run: |
+          echo "### Partial collection failure: AIHOT selected" >> "$GITHUB_STEP_SUMMARY"
+          echo "The previous AIHOT snapshot was retained. See the collect job for the error and retry. Other validated data may have deployed; inspect the deploy job." >> "$GITHUB_STEP_SUMMARY"
+          echo "::error::AIHOT selected collection failed after retry; previous snapshot retained."
+          exit 1

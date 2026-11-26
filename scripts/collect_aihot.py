@@ -76,7 +76,7 @@ def collect(dry_run: bool = False) -> tuple[int, bool]:
     except urllib.error.HTTPError as error:
         if error.code != 304:
             raise
-        if not previous.get("items"):
+        if not isinstance(previous.get("items"), list):
             raise RuntimeError("AIHOT returned 304 but no existing snapshot is available") from error
         payload = {**previous, "checkedAt": datetime.now(timezone.utc).isoformat(timespec="seconds")}
         if not dry_run:

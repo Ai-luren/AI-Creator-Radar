@@ -1,23 +1,32 @@
-# 自动更新说明
+# 自动更新与发布说明
 
-## 每日运行
+## 正式运行（北京时间）
 
-`.github/workflows/update-site.yml` 每天 02:00 UTC（北京时间 10:00）运行一次。工作流测试后依次刷新模型发布、厂商发展史、资源状态、RSS / Awesome、榜单原始快照、统一榜单、AIHOT / 橘鸦简报、AIPick、模型评测候选和 Google Trends，再关联并校验模型引用。数据有变化时提交到 `main`；在 `main` 上还会发布 GitHub Pages。
+| 任务 | 时间 | 内容 |
+| --- | --- | --- |
+| 模型 | 每小时 07、37 分 | 官方模型动态、30 天上新、厂商发展史、AIHOT 精选 |
+| 资源 | 04:17、10:17、16:17、22:17 | RSS、榜单、简报、AIPick、社媒趋势 |
+| 维护 | 每日 10:13 | 模型资源、创作机会链接及候选、评测候选 |
+| 普通 main push | 提交时 | 校验、Pages 打包和发布，不重复采集 |
+| 手动 | 按需 | all / models / resources / maintenance / deploy-only |
 
-普通 `main` push 只运行测试并发布 Pages，不启动重复采集。本机 Codex 自动化 `AI 创作台官方账号粉丝快照日更` 每天北京时间 21:00 单独更新官方账号粉丝 / 订阅快照。它开始前先读取 GitHub 最新状态，避免拿过期快照覆盖远端数据。
+GitHub Actions 使用 UTC cron，可能受排队影响。正式采集仅在 main 执行；PR 的基础、Chromium、WebKit 回归及 Pages 预打包不修改生产数据、不发布。
 
-RSS / Awesome 资源采集先于橘鸦简报，因为后者会使用本轮资源列表。任务按顺序执行，任一步失败都会跳过后续步骤；需要即时刷新时可在 Actions 手动运行 `workflow_dispatch`。GitHub 定时任务可能延迟启动。
+本机 Codex 自动化“AI 创作台官方账号粉丝快照日更”每天北京时间 21:00 单独更新粉丝/订阅快照，读取最新远端数据后再更新。Google Trends 不等于抓取官方账号发帖。
 
-## 自动更新范围
+## 故障处理
 
-- GitHub Actions 运行工作流中明确列出的采集器，只覆盖配置好的来源。
-- 官方社媒粉丝快照由本机 Ego Lite 任务采集，不由 GitHub Actions 抓取。
-- Google Trends 更新社媒趋势，不等于自动抓取官方账号发帖。
-- 创作工具与 CPP 目录是人工核实的维护型数据，目前没有可靠的自动发现采集器。
-- 统一榜单由原始榜单快照派生；来源失败时需查看 Action 日志，不应把旧快照当作新数据。
+- AIHOT 精选失败后有限重试一次，仍失败则保留旧快照。其他已通过严格校验的数据允许持久化并发布，独立失败报告保持红色状态及通知。
+- 官方模型信源的 HTTP 403、超时、零匹配等进入实际监控状态；保留既有记录，不把外部来源不可访问误报为已更新。2026-11-26 的 PR 诊断：34 个模型信源 33 成功，Niji 官方博客及中文备用入口均返回 403；5 个成功访问的信源无匹配。Google RSS 已恢复访问。创作机会诊断的 6 个来源与 7 个计划入口均可访问，但可访问不等于开放报名。
+- 其他采集器异常仍可能阻止后续步骤；真实代码、数据和结构校验失败禁止发布。先看当前提交的 collect、deploy 和 report-collector-failure 结果，不重跑过期提交去覆盖生产。
+- 历史失败记录保留：旧源码断言、原榜关联不一致、旧 Pages 制品缺失已由后续版本和验证流程处理；取消的过期 PR 运行不属于代码失败。
+- Action 运行时迁移到官方 Node 24 版本，项目测试仍使用 Node 22；PR 额外验证 Pages 制品打包，但不代表生产部署已经验证。部署后必须检查最新 main 运行、线上入口和实际数据检查时间。
+- 统一榜单保留原始来源和名次，不应把旧快照当成新数据。创作工具及 CPP 目录仍为维护型数据，自动扫描只发现候选，不自动认定资格。
 
 ## 维护入口
 
-- 工作流：[`../.github/workflows/update-site.yml`](../.github/workflows/update-site.yml)
-- 社媒快照规则：[`social-monitor-data-guide.md`](social-monitor-data-guide.md)
-- 项目数据目录说明：[`README.md`](README.md)
+- [生产工作流](../.github/workflows/update-site.yml)
+- [PR 基础验证](../.github/workflows/validate-radar.yml)
+- [浏览器验收](../.github/workflows/browser-visual.yml)
+- [社媒快照规则](social-monitor-data-guide.md)
+- [项目目录说明](README.md)

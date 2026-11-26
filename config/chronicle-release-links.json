@@ -444,6 +444,330 @@
       "modelVersionId": "qwen-image-2-1",
       "chronicleAuditId": "v48-qwen-0049",
       "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-sonnet-5",
+      "chronicleAuditId": "v48-anthropic-0112",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-opus-4-8",
+      "chronicleAuditId": "v48-anthropic-0125",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-opus-4-7",
+      "chronicleAuditId": "v48-anthropic-0143",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-sonnet-4-6",
+      "chronicleAuditId": "v48-anthropic-0171",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-opus-4-6",
+      "chronicleAuditId": "v48-anthropic-0180",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-opus-4-5",
+      "chronicleAuditId": "v48-anthropic-0214",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-haiku-4-5",
+      "chronicleAuditId": "v48-anthropic-0236",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-sonnet-4-5",
+      "chronicleAuditId": "v48-anthropic-0241",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-opus-4",
+      "chronicleAuditId": "v48-anthropic-0292",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-sonnet-4",
+      "chronicleAuditId": "v48-anthropic-0292",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-3-7-sonnet",
+      "chronicleAuditId": "v48-anthropic-0333",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-3-opus",
+      "chronicleAuditId": "v48-anthropic-0424",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-3-sonnet",
+      "chronicleAuditId": "v48-anthropic-0424",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-2",
+      "chronicleAuditId": "v48-anthropic-0463",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-1",
+      "chronicleAuditId": "v48-anthropic-0478",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-v4-pro",
+      "chronicleAuditId": "v48-deepseek-0080",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-v3-2",
+      "chronicleAuditId": "v48-deepseek-0211",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-v3-2-speciale",
+      "chronicleAuditId": "v48-deepseek-0211",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-v3-1",
+      "chronicleAuditId": "v48-deepseek-0254",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-r1",
+      "chronicleAuditId": "v48-deepseek-0343",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-r1-zero",
+      "chronicleAuditId": "v48-deepseek-0343",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-v3",
+      "chronicleAuditId": "v48-deepseek-0352",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-v2-5",
+      "chronicleAuditId": "v48-deepseek-0383",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-coder-v2",
+      "chronicleAuditId": "v48-deepseek-0403",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "deepseek",
+      "modelVersionId": "deepseek-v2",
+      "chronicleAuditId": "v48-deepseek-0414",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gemini",
+      "modelVersionId": "gemini-3-7-flash",
+      "chronicleAuditId": "v48-google-0079",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gemini",
+      "modelVersionId": "gemini-3-5-flash",
+      "chronicleAuditId": "v48-google-0130",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gemini",
+      "modelVersionId": "gemini-3-flash",
+      "chronicleAuditId": "v48-google-gemini-0201",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-6-sol",
+      "chronicleAuditId": "v48-openai-chatgpt-0045",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-6-luna",
+      "chronicleAuditId": "v48-openai-chatgpt-0045",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-6-astra",
+      "chronicleAuditId": "v48-openai-chatgpt-0061",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-5-4",
+      "chronicleAuditId": "v48-openai-0161",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-5-4-pro",
+      "chronicleAuditId": "v48-openai-0161",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-5-1-codex-max",
+      "chronicleAuditId": "v48-openai-0218",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-5-codex",
+      "chronicleAuditId": "v48-openai-0248",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-4-1",
+      "chronicleAuditId": "v48-openai-chatgpt-0315",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-4-1-mini",
+      "chronicleAuditId": "v48-openai-chatgpt-0315",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-4-1-nano",
+      "chronicleAuditId": "v48-openai-chatgpt-0315",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-4",
+      "chronicleAuditId": "v48-openai-0476",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "5-3",
+      "chronicleAuditId": "v48-zhipu-0077",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "5-3-flash",
+      "chronicleAuditId": "v48-zhipu-0071",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "5-2",
+      "chronicleAuditId": "v48-zhipu-0118",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "glm-5-1",
+      "chronicleAuditId": "v48-zhipu-0148",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "glm-5",
+      "chronicleAuditId": "v48-zhipu-0175",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "glm-4-7",
+      "chronicleAuditId": "v48-zhipu-0197",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "glm-4-6",
+      "chronicleAuditId": "v48-zhipu-0238",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "glm-4-5",
+      "chronicleAuditId": "v48-zhipu-0267",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "glm-4-5-air",
+      "chronicleAuditId": "v48-zhipu-0267",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "glm",
+      "modelVersionId": "chatglm2-6b",
+      "chronicleAuditId": "v48-zhipu-0465",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "kimi",
+      "modelVersionId": "k1-5",
+      "chronicleAuditId": "v48-kimi-0342",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "qwen",
+      "modelVersionId": "qwen3-6-plus",
+      "chronicleAuditId": "v48-qwen-0151",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "qwen",
+      "modelVersionId": "qwen3-8-max",
+      "chronicleAuditId": "v48-qwen-0091",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "qwen",
+      "modelVersionId": "qwen3-7-max",
+      "chronicleAuditId": "v48-qwen-0128",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "qwen",
+      "modelVersionId": "qwen3-8-flash-next",
+      "chronicleAuditId": "v48-qwen-0069",
+      "sourceField": "url"
     }
   ]
 }

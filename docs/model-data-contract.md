@@ -95,3 +95,98 @@ python3 scripts/validate_model_links.py
 ## 自动发现历史的保护边界
 
 `collect_chronicle_updates.py` 只接受审核配置映射内的已存在厂商、明确模型发布/预告类型与非未来 HTTPS 来源记录；新增节点为待复核，`dateKind=source-date` 不表示确认首发日期。审核 ID、审核日期或非原始待复核状态的记录不被采集覆盖；不同明确模型家族共享官方页仍可独立保留。既有历史节点不删除，待复核数据不等于发布证据。
+
+
+## 发布证据复核第三批（2026-11-26）
+
+本批在已有 320 个版本、98 个发布证据的基础上，直接复核厂商官方公告、官方仓库及模型卡，补齐 15 个版本证据（113/320）。保留原有历史节点、ID、榜单别名，不将新补证的历史发布视为今日新模型。新增证据的 `verifiedAt` 是本批实际查阅日期；对回溯报道明确列出的模型发布日，`publishedAt` 表示模型事件日期，`sourcePublicationDate` 另存报道页面日期。新补证记录的当前可用性仍需独立验证。未修改已核实的旧证据。
+
+仍缺发布证据的 207 个版本并非 207 个已知正式发布遗漏。审核脚本输出厂商维度、类别和互斥的处理队列：已有日期缺证、历史阶段证据、智能体产品范围、榜单身份待核验、第三方衍生型号、预览阶段、其余发布来源待查。分类依据是现有字段，仅用于安排审核，不是最终型号性质判断；不自动新增或删除版本。
+
+```sh
+python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.json
+```
+
+### 保留冲突与阶段边界
+
+| 型号 | 已见证据 | 当前决定 |
+| --- | --- | --- |
+| Seedance 2.5 | [官方首页](https://seed.bytedance.com/en/) 标注 2026-11-16；[正式发布文章](https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5) 标注 2026-07-31 | 日期冲突，暂不写入正式发布证据 |
+| HunyuanVideo 1.5 | [专用仓库](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5) 与 [模型卡](https://huggingface.co/tencent/HunyuanVideo-1.5) 记载 2025-11-20 开放代码和权重；[主仓库](https://github.com/Tencent-Hunyuan/HunyuanVideo) 与 [官方许可证](https://huggingface.co/tencent/HunyuanVideo-1.5/blob/main/LICENSE) 标注 2025-11-21 | 区分发布阶段和时区可能性；不任选首发日 |
+| Kling 3.0 / Omni | [2026-02-05 官方公告](https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/) 明确当时仅 Ultra 用户提前体验 | 不把提前体验日期冒充全面开放日 |
+| Kling 2.6 Pro | [官方 2.6 公告](https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-video-26-model-simultaneous-audio-visual) 记载基础 2.6 于 2025-12-03 发布 | 尚需核实 Pro 端点或服务档位身份，不直接套用基础型号日期 |
+| Kling 2.1 | [官方财报](https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-technology-announces-second-quarter-and-interim-2025) 明确 2025-05 发布 | 仅有月份精度，不补猜日期 |
+
+本批核验 15 个版本，不代表已重新核实 320 个版本。旧有榜单条目、服务档位、发布证据以及历史里程碑未全面重新联网审核。
+
+
+## 视频谱系复核第四批（2026-11-26）
+
+- 补齐 Hailuo 2.3 Fast（2025-10-28）、Wan 2.6 视频系列、Wan2.6-image 与 Wan2.6-T2I（2025-12-16）共 4 份正式发布证据。
+- 新增 PixVerse V5、V5.5、Vidu Q2 Pro Fast 三个已证实的独立型号；不继承榜单别名及许可。
+- 将 PixVerse V5/V5.5/V5.6 的 API 发布日、Vidu Q2 Pro/Turbo/Pro Fast 与 Q3 Pro/Turbo 的 API 开放日、Kling 3.0/3.0 Omni 提前体验日、初代 Kling 测试日记录为有明确阶段的历史事件。来源：[PixVerse 更新日志](https://docs.platform.pixverse.ai/changelog-2394996m0)、[Vidu 更新日志](https://platform.vidu.com/docs/api-reference/updates)、[Kling 3.0 公告](https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/)。
+- Vidu Q2 的 2025-09-30 是厂商公告日；官方 API 记录 9 月 24 日已有 Pro/Turbo，[第三方 9 月 25 日已公布接入](https://www.prnewswire.com/news-releases/pollo-ai-has-launched-vidu-q2-and-kling-2-5-turbo-ai-video-models-empowering-creators-with-studio-level-cinematics-302566885.html)。保留公告阶段，不把公告日当作唯一首发日。
+- Seedance 1.0 官方技术报告 2025-06-11 使用基础家族名，[BytePlus 月度目录](https://docs.byteplus.com/vi/docs/modelark/model-release-announcement-2025?redirect=1) 同时列出 Seedance 1.0 Pro 的版本标签与 API 上线记录；不能将技术报告日期或标签日期直接写成 Pro 首发日。Seedance 2.5 冲突继续保留。
+- 本批最终目录 323 个版本，117 个结构化正式发布证据，39 条历史阶段证据；206 个版本仍无正式发布证据，其中含新补齐的历史 API 型号。尚未完成全厂商重新核验。
+
+
+## 图像谱系复核第五批（2026-11-26）
+
+- 新补 GPT Image 1 Mini、1.5、2、2.5 Sunburst、2.5 Flare，Nano Banana 初代、Nano Banana 2 Lite，以及 HunyuanImage 3.0 Instruct 共 8 份发布证据。
+- GPT Image 1 保留 2025-04-23 API 上线阶段；官方 API 文档确认 2026-10-23 停用。ChatGPT Image Latest 是滚动 API 名称，不作为固定模型发布事件。
+- 补充 Seedream 2.0：官方技术页 2025-03-11 公布，回顾 2024 年 12 月初已接入豆包和即梦；保留月份精度，不据技术页日期猜测首发日。
+- Nano Banana 2.1 的 2026-10-06 是官方模型卡更新时间，暂不认定为首发日。Midjourney V7 的 2025-04-03 初次发布与 2025-06-17 默认版本切换分别记录。
+- Qwen Image 2.0/2.0 Pro、2.1 Pro/Turbo 与 3.0 Pro 保存明确的国际 API 部署阶段；3.0 Pro 的 2026-07-20 国际部署与 2026-08-06 全球部署分别保存，不能等同基础模型首发。
+- Seedream 4.5 首发日、Kling Image O1/3.0 Omni 首发日、Qwen Image Edit 商业 API 名称与公开权重版本映射仍待核验；未强行补证。此前 Qwen Image Edit 的公告时区/日期差异亦需复核。
+- 目录现为 324 个版本，125 份结构化发布证据，51 条历史阶段证据。未重新核实全部旧记录。
+
+来源：[OpenAI 更新日志](https://developers.openai.com/api/docs/changelog)、[Google Nano Banana](https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/)、[Google Nano Banana 2 Lite](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/)、[腾讯混元仓库](https://github.com/Tencent-Hunyuan/HunyuanImage-3.0)、[Midjourney 版本文档](https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version)、[Seedream 2.0 技术页](https://seed.bytedance.com/zh/seedream2_0)、[阿里云模型日志](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)。
+
+
+## 音乐与语音谱系复核第六批（2026-11-26）
+
+- 新补 19 个历史型号（Mureka 13 个、Suno 2 个、Eleven TTS 2 个、Lyria 2 个）、11 份正式发布证据及 21 条历史阶段证据。当前目录 343 版本、136 份正式证据、72 条历史阶段记录。
+- [Mureka 官方发展史](https://www.mureka.ai/blog_zh-CN/what-is-mureka.html) 记载 1.0–7.6 的历史进展；内部研发、内测及已有可用记录不能直接当作公开首发。V6/O1（2025-03-26）、V7（2025-07-23）、V7.5（2025-08-15）依据昆仑官网确认；V7.6/O2 的 API 上线日为 2025-12-09。V8、V9、V9.5/O3 分别保留 2026-01、03、07 月份精度；V9.5 的 8 月 28 日增强版更新及 Remix V9.5 的 11 月 12 日 API 开放是不同事件，不将 11 月 16 日回顾文章当作首发日。
+- Suno V2 仅确认 2024-05-24 已可选择；V4.5-all 及 V6 Wild/Mini 有官方发布日期。Suno V1、V4.5+ 的准确首发仍待查。
+- Eleven Turbo v2.5、Flash v2/v2.5、v3 Conversational 补发布证据；Eleven v3 保留 Alpha、API（2025-08-20）、全面开放（2026-02-02）三个阶段。
+- Lyria 初代公布于 2023-11-16；Lyria 2 在 Vertex AI 全面开放于 2025-05-20；RealTime 于 2025-04-24 公布介绍，5 月 20 日开放 API。
+- 增加 `development-milestone`（研发阶段）、`documented-availability`（已有可用记录）、`model-update`（模型更新），保持历史证据与发布视图分离；历史日期精度由 datePrecision 表示，不以 stage 猜测。
+
+来源：[昆仑官网](https://www1.kunlun.com/news/3.html)、[Mureka API 日志](https://platform.mureka.ai/docs/en/changelog.html)、[昆仑半年报公告转载](https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm)、[Suno 更新日志](https://suno.com/release-notes)、[ElevenLabs 官方博客](https://elevenlabs.io/blog)、[Google DeepMind 初代 Lyria](https://deepmind.google/blog/transforming-the-future-of-music-creation/)。
+未完成全部音频厂商及旧有记录的再次核验；Mureka TTS V1、Lyria 后续变体、MiniMax Speech、Gemini TTS 等仍需单独核验范围与数据结构。
+
+
+## 大语言模型谱系复核第七批（2026-11-26）
+
+- 本批新增 60 个型号，补 71 份结构化发布证据（17 份本轮直接核对官方来源，54 份迁移既有人工审核历史记录，后者保留原 verificationDate 与 auditId，并非重新联网核验），新增 3 条历史阶段记录。目录 403 版本、207 份发布证据、75 条历史阶段记录。
+- Claude 补初代至 5.x 历史型号，包括 Fable 5、Mythos 5；Mythos 访问受限，不能当作公众可用。Claude 3.5 Sonnet 日期及 Fable/Mythos 5.1 精确日期仍待核验。
+- GPT-6.1 原 ID 保留，名称明确为 Sol（原有榜单别名均为 Sol）；补 GPT-6 Astra/Sol/Luna、GPT-4/4.1、GPT-5.4、Codex 历史分支。新型号不继承旧榜单别名。
+- DeepSeek V4.1 Pro 仅有预告，纠正已发布标记；9 月 14 日后继续提供的是 V4 Pro。V4.1 Flash 1017 属同代更新，不重复计算基础代际首发。
+- Gemini 4 Argon 的 2026-09-30 有限访问与 10-13 扩大开放分开记录，避免混同；Gemini 3.1 Pro 等预览节点另待核验。
+- Kimi K2.7 更正为 K2.7 Code；原 ID 与榜单关联保留。K3/K3.1 Pro 的权重开放日期应与模型上线区分；K1.5 以前的历史仍待查。
+- GLM 5.2/5.3/5.3 Flash 按既有历史核验迁移；GLM 原榜单关联存在型号粒度混合，暂保留待专项核验。
+- Qwen3.5/3.6/3.8 汇总项保留旧 ID 与历史榜单关联，不能套用某个子型号的首发日；新增有明确事件依据的 Plus/Max/Flash Next 等型号。后续需核对原榜单别名映射。
+- 本批仅迁移有明确型号、日级日期和已确认审核状态的历史事件；不新增缺乏明确证据的型号，不将预览或快照误算成基础代际首发。全量事实审核及 CI 尚未完成。
+
+官方来源：[OpenAI API 日志](https://developers.openai.com/api/docs/changelog)、[Anthropic 模型公告目录](https://www.anthropic.com/news/models)、[DeepSeek 更新日志](https://api-docs.deepseek.com/updates/)、[Google Argon 有限访问](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)、[Google Argon 扩大开放](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/)、[Kimi 研究目录](https://www.kimi.ai/blog/)、[Kimi Code 更新日志](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html)。
+
+
+## 模型身份与证据收口第八批（2026-11-26）
+
+- 修复 PR 信源诊断工作流 YAML 拼接错误。修复后的 [CI 运行](https://github.com/Ai-luren/AI-Creator-Radar/actions/runs/45782748462) 通过 98 项 Python、19 项 JavaScript 测试及模型引用检查（403 个版本）；只读诊断 33/34 源可访问，Niji 返回 403，另有 7 个零匹配源。可访问不等于覆盖完整，未将诊断计为生产采集成功。
+- 本批新增 MiniMax M2.1，并核验 17 份正式发布证据：MiniMax M1/M2/M2.1/M2.5/M2.7/M3/M3.1 Flash；Muse Spark、1.1/1.2/1.3、Wonder、Wonder Full、Glimmer；Gemini Omni 1.1 Flash、Veo 3.1 Lite、Seedream 4.5。M1 依据 6 月 19 日官方回顾的“两天前”记录 6 月 17 日，保留原报道日期。Seedream 4.5 依据 2025-12-03 官方 BytePlus 公告，不将模型快照编号当作首发日期。
+- GLM-5.3 Flash 与 Qwen3.6 Plus、Qwen3.8 Max/Flash Next 的 27 条原榜别名从错误/粗粒度版本移至明确版本（重复关联去重）；Nex-N2-Pro、Quasar 两种第三方衍生型号的榜单证据移到所属家族 `unresolvedLeaderboardAliases`，原字段保留，不参与精确型号映射。原始榜单数据不删改；派生排名下一次重建后生效。
+- `recordKind` 与 `identityReview` 标记 10 条非独立首发身份：代际汇总、滚动 API 名称、评测配置、未标版本别名、服务档位、榜单快照。审核脚本独立统计，禁止为这些条目填造正式首发日期；仍计入原始目录条目及未附正式发布证据总数。该分类是现有证据下的保守处理，不意味着永久排除新证据。
+- 本批未删除模型 ID、原始排名或历史记录。所有改动待最新 CI 与生产验证；其余未核实型号、Niji 403、零匹配源及其他厂商的混合榜单映射仍需继续处理。
+
+来源：[MiniMax 官方发布目录](https://www.minimax.io/blog)、[Meta AI 研究目录](https://ai.meta.com/research/)、[Muse Wonder](https://research.meta.ai/blog/muse-wonder)、[Veo 3.1 Lite](https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/)、[Gemini Omni 1.1 Flash](https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/)、[Seedream 4.5](https://www.byteplus.com/en/blog/seedream4-5?type=services)。
+
+## 发布事件展示层（第七轮）
+
+- 版本记录仍为唯一事实数据；前端从 30 天清单派生事件，不重写型号、日期、许可及原始证据。明确的家族、日期和批次成员映射优先；仅同家族、同日期、同一明确官方公告才允许自动归并，不按日期或滚动模型卡猜测。
+- 近期上新默认已核实、创作优先；类别顺序视频、图像、音乐、TTS、实时音频、语言。语言按个人关注优先级（OpenAI/Anthropic/Google；其他重点厂商；其他）分组，不是能力排名。纯时间倒序可切换。统计分离事件数和型号数，所有具体证据可展开。
+- 音频零记录明确表示证据清单缺口而非没有新模型。本轮不凭聚合报道补写发布日期；音频专项证据补齐另行验证。
+
+## 资讯事件派生视图（第七轮第二批）
+
+首页与行业简报共享综合资讯事件：明确原文 URL、条目身份、精确规范标题及小范围人工核对的等价来源为去重依据；不使用邻近链接或相似词强行合并。不同查询参数、发布说明锚点保留；仅移除已知追踪参数。原始报道、来源、摘要、刊期和发布时间均保留。综合列表日期是资讯来源记录日期，不是正式模型发布日期。首页与已核实发布事件存在精确相同证据链接时不重复展示；原始来源页不删条目。没有使用付费模型 API。

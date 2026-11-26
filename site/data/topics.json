@@ -460,6 +460,26 @@
     ],
     "milestones": [
       {
+        "date": "2026-10-17",
+        "kind": "模型",
+        "title": "DeepSeek V4.1 Flash 1017 · 模型更新",
+        "summary": "V4.1 Flash 升级为 1017 快照；不重复计为基础模型代际首发。",
+        "url": "https://api-docs.deepseek.com/news/news261017/",
+        "auditId": "review-20261126-deepseek-deepseek-v4-1-flash-1017-model-update-20261017",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "llm"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "deepseek",
+            "modelVersionId": "deepseek-v4-1-flash-1017",
+            "matchedName": "DeepSeek V4.1 Flash 1017"
+          }
+        ]
+      },
+      {
         "date": "2026-09-10",
         "kind": "模型",
         "title": "DeepSeek 发布 V4.1 Flash",
@@ -743,6 +763,66 @@
         "eventStage": "api-availability"
       },
       {
+        "date": "2026-02-10",
+        "kind": "模型",
+        "title": "Eleven v3 Conversational · 发布",
+        "summary": "基于 Eleven v3 的实时对话语音模型，随 Expressive Mode 推出。",
+        "url": "https://elevenlabs.io/blog/introducing-expressive-mode",
+        "auditId": "review-20261126-eleven-tts-eleven-v3-conversational-release-20260210",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "tts"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-v3-conversational",
+            "matchedName": "Eleven v3 Conversational"
+          }
+        ]
+      },
+      {
+        "date": "2026-02-02",
+        "kind": "模型",
+        "title": "Eleven v3 · 全面开放",
+        "summary": "正式版全面开放，区别于此前 Alpha 与 API 阶段。",
+        "url": "https://elevenlabs.io/blog/eleven-v3-is-now-generally-available",
+        "auditId": "review-20261126-eleven-tts-eleven-v3-general-availability-20260202",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "tts"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-v3",
+            "matchedName": "Eleven v3"
+          }
+        ]
+      },
+      {
+        "date": "2025-08-20",
+        "kind": "模型",
+        "title": "Eleven v3 · API 上线",
+        "summary": "Alpha 版本开放 API。",
+        "url": "https://elevenlabs.io/blog/eleven-v3-alpha-now-available-in-the-api",
+        "auditId": "review-20261126-eleven-tts-eleven-v3-api-availability-20250820",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "tts"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-v3",
+            "matchedName": "Eleven v3"
+          }
+        ]
+      },
+      {
         "date": "2025-08-05",
         "kind": "模型",
         "title": "ElevenLabs 发布 Music",
@@ -790,6 +870,66 @@
           "audio"
         ],
         "verificationUrl": "https://elevenlabs.io/docs/changelog/2024/12/19"
+      },
+      {
+        "date": "2024-12-18",
+        "kind": "模型",
+        "title": "Eleven Flash v2 · 发布",
+        "summary": "面向低延迟英文语音合成，发布时 API 可用。",
+        "url": "https://elevenlabs.io/blog/meet-flash",
+        "auditId": "review-20261126-eleven-tts-eleven-flash-v2-release-20241218",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "tts"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-flash-v2",
+            "matchedName": "Eleven Flash v2"
+          }
+        ]
+      },
+      {
+        "date": "2024-12-18",
+        "kind": "模型",
+        "title": "Eleven Flash v2.5 · 发布",
+        "summary": "支持 32 种语言的低延迟语音合成，发布时 API 可用。",
+        "url": "https://elevenlabs.io/blog/meet-flash",
+        "auditId": "review-20261126-eleven-tts-eleven-flash-v2-5-release-20241218",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "tts"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-flash-v2-5",
+            "matchedName": "Eleven Flash v2.5"
+          }
+        ]
+      },
+      {
+        "date": "2024-07-19",
+        "kind": "模型",
+        "title": "Eleven Turbo v2.5 · 发布",
+        "summary": "低延迟多语言语音合成。",
+        "url": "https://elevenlabs.io/blog/introducing-turbo-v25",
+        "auditId": "review-20261126-eleven-tts-eleven-turbo-v2-5-release-20240719",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "tts"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-tts",
+            "modelVersionId": "eleven-turbo-v2-5",
+            "matchedName": "Eleven Turbo v2.5"
+          }
+        ]
       },
       {
         "date": "2023-11-09",
@@ -952,6 +1092,26 @@
         "verificationUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/"
       },
       {
+        "date": "2026-10-13",
+        "kind": "模型",
+        "title": "Gemini 4 Argon · 扩大开放",
+        "summary": "官方宣布扩大开放至 Gemini App 与开发者入口；具体权限依套餐。",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+        "auditId": "review-20261126-gemini-gemini-4-argon-general-availability-20261013",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "llm"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-argon",
+            "matchedName": "Gemini 4 Argon"
+          }
+        ]
+      },
+      {
         "date": "2026-10-06",
         "kind": "模型卡更新",
         "title": "Nano Banana 2.1 模型卡更新",
@@ -1008,6 +1168,26 @@
         ]
       },
       {
+        "date": "2026-10-06",
+        "kind": "模型",
+        "title": "Nano Banana 2.1 模型卡公开记录",
+        "summary": "官方模型卡更新时间为 10 月 6 日，不能自动视作首发日。",
+        "url": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
+        "auditId": "review-20261126-nano-banana-nano-banana-2-1-official-introduction-20261006",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2-1",
+            "matchedName": "Nano Banana 2.1"
+          }
+        ]
+      },
+      {
         "date": "2026-09-30",
         "kind": "模型",
         "title": "Gemini 4 Argon",
@@ -1027,6 +1207,26 @@
         "modelFamilyMentions": [
           {
             "modelFamilyId": "gemini",
+            "matchedName": "Gemini 4 Argon"
+          }
+        ]
+      },
+      {
+        "date": "2026-09-30",
+        "kind": "模型",
+        "title": "Gemini 4 Argon · 有限访问",
+        "summary": "初期向经认可的测试者开放，不能等同公众可用。",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "auditId": "review-20261126-gemini-gemini-4-argon-early-access-20260930",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "llm"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-argon",
             "matchedName": "Gemini 4 Argon"
           }
         ]
@@ -1615,6 +1815,66 @@
         ]
       },
       {
+        "date": "2025-05-20",
+        "kind": "模型",
+        "title": "Lyria 2 · 全面开放",
+        "summary": "Lyria 2 在 Vertex AI 全面开放。",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/announcing-veo-3-imagen-4-and-lyria-2-on-vertex-ai",
+        "auditId": "review-20261126-lyria-lyria-2-general-availability-20250520",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "modelVersionId": "lyria-2",
+            "matchedName": "Lyria 2"
+          }
+        ]
+      },
+      {
+        "date": "2025-05-20",
+        "kind": "模型",
+        "title": "Lyria RealTime · API 上线",
+        "summary": "通过 API 和 AI Studio 开放。",
+        "url": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
+        "auditId": "review-20261126-lyria-lyria-realtime-api-availability-20250520",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "modelVersionId": "lyria-realtime",
+            "matchedName": "Lyria RealTime"
+          }
+        ]
+      },
+      {
+        "date": "2025-04-24",
+        "kind": "模型",
+        "title": "Lyria RealTime · 官方介绍",
+        "summary": "介绍实时交互音乐模型。",
+        "url": "https://deepmind.google/blog/music-ai-sandbox-now-with-new-features-and-broader-access/",
+        "auditId": "review-20261126-lyria-lyria-realtime-official-introduction-20250424",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "modelVersionId": "lyria-realtime",
+            "matchedName": "Lyria RealTime"
+          }
+        ]
+      },
+      {
         "date": "2025-03-25",
         "kind": "模型",
         "title": "Gemini 2.5 Pro 实验版发布",
@@ -1807,6 +2067,26 @@
           "audio"
         ],
         "verificationUrl": "https://www.reuters.com/technology/google-launches-gemini-ai-model-bard-2023-12-06/"
+      },
+      {
+        "date": "2023-11-16",
+        "kind": "模型",
+        "title": "Lyria（初代） · 官方公布",
+        "summary": "公布初代 Lyria，并与 YouTube 合作开展音乐生成实验。",
+        "url": "https://deepmind.google/blog/transforming-the-future-of-music-creation/",
+        "auditId": "review-20261126-lyria-lyria-1-announcement-20231116",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "lyria",
+            "modelVersionId": "lyria-1",
+            "matchedName": "Lyria（初代）"
+          }
+        ]
       },
       {
         "date": "2023-03-21",
@@ -2521,6 +2801,46 @@
             "modelFamilyId": "midjourney-video",
             "modelVersionId": "midjourney-v1-video",
             "matchedName": "Midjourney V1 Video"
+          }
+        ]
+      },
+      {
+        "date": "2025-06-17",
+        "kind": "模型",
+        "title": "Midjourney V7 成为默认版本",
+        "summary": "官方文档列出默认版本起始时间；此处记录默认切换而非首次开放。",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "auditId": "review-20261126-midjourney-midjourney-v7-general-availability-20250617",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v7",
+            "matchedName": "Midjourney V7"
+          }
+        ]
+      },
+      {
+        "date": "2025-04-03",
+        "kind": "模型",
+        "title": "Midjourney V7 首次发布",
+        "summary": "官方版本文档记载首发日为 4 月 3 日；不推定当日为默认版本。",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "auditId": "review-20261126-midjourney-midjourney-v7-release-20250403",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v7",
+            "matchedName": "Midjourney V7"
           }
         ]
       },
@@ -3770,6 +4090,26 @@
         ]
       },
       {
+        "date": "2025-04-23",
+        "kind": "模型",
+        "title": "GPT Image 1 首次进入 API",
+        "summary": "官方公布具备生成与编辑能力的 gpt-image-1 API；不等同于底层 4o 图像能力首次推出。",
+        "url": "https://openai.com/index/image-generation-api/",
+        "auditId": "review-20261126-gpt-image-gpt-image-1-api-availability-20250423",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-1",
+            "matchedName": "GPT Image 1"
+          }
+        ]
+      },
+      {
         "date": "2025-04-16",
         "kind": "模型",
         "title": "o3 与 o4-mini 推理模型发布",
@@ -4077,6 +4417,27 @@
         ]
       },
       {
+        "date": "2026-01-26",
+        "kind": "模型",
+        "title": "PixVerse V5.6 API 发布",
+        "summary": "日志记录 V5.6 发布；2 月 12 日另增加参考生视频支持。",
+        "url": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "auditId": "review-20261126-pixverse-v6-pixverse-v5-6-api-availability-20260126",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://docs.pixverse.ai/PixVerse-V5-6-User-Guide-2fe3e99bf350806f86adc8a55de3c3a7",
+        "modelMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "modelVersionId": "pixverse-v5-6",
+            "matchedName": "PixVerse V5.6"
+          }
+        ]
+      },
+      {
         "date": "2026-01-12",
         "kind": "模型",
         "title": "PixVerse 发布 R1 实时世界模型",
@@ -4093,6 +4454,48 @@
           {
             "modelFamilyId": "pixverse-v6",
             "matchedName": "PixVerse"
+          }
+        ]
+      },
+      {
+        "date": "2025-12-02",
+        "kind": "模型",
+        "title": "PixVerse V5.5 API 发布",
+        "summary": "日志记载 V5.5 发布；独立于 V5.6。",
+        "url": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "auditId": "review-20261126-pixverse-v6-pixverse-v5-5-api-availability-20251202",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://docs.pixverse.ai/PixVerse-V5-6-User-Guide-2fe3e99bf350806f86adc8a55de3c3a7",
+        "modelMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "modelVersionId": "pixverse-v5-5",
+            "matchedName": "PixVerse V5.5"
+          }
+        ]
+      },
+      {
+        "date": "2025-08-29",
+        "kind": "模型",
+        "title": "PixVerse V5 API 发布",
+        "summary": "日志记载 V5 发布；不以 API 日志代替全平台首发日。",
+        "url": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "auditId": "review-20261126-pixverse-v6-pixverse-v5-api-availability-20250829",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://pixverse.ai/en/blog/pixverse-announces-series-b-international-expansion-ai-video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "modelVersionId": "pixverse-v5",
+            "matchedName": "PixVerse V5"
           }
         ]
       },
@@ -4193,6 +4596,46 @@
         "modelCategory": "music"
       },
       {
+        "date": "2026-09-09",
+        "kind": "模型",
+        "title": "Suno V6 Wild · 发布",
+        "summary": "V6 系列探索分支，偏向更多样的创意生成。",
+        "url": "https://suno.com/release-notes/introducing-v6",
+        "auditId": "review-20261126-suno-suno-v6-wild-release-20260909",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "suno",
+            "modelVersionId": "suno-v6-wild",
+            "matchedName": "Suno V6 Wild"
+          }
+        ]
+      },
+      {
+        "date": "2026-09-09",
+        "kind": "模型",
+        "title": "Suno V6 Mini · 发布",
+        "summary": "V6 系列高效率分支。",
+        "url": "https://suno.com/release-notes/introducing-v6",
+        "auditId": "review-20261126-suno-suno-v6-mini-release-20260909",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "suno",
+            "modelVersionId": "suno-v6-mini",
+            "matchedName": "Suno V6 Mini"
+          }
+        ]
+      },
+      {
         "date": "2026-03-26",
         "kind": "模型",
         "title": "Suno 发布 v5.5 并推出 Voices 与个性化功能",
@@ -4240,6 +4683,26 @@
         "verificationStatus": "官方一手来源自动收录 · 待复核",
         "collectedAt": "2026-11-24T09:41:51Z",
         "modelCategory": "music"
+      },
+      {
+        "date": "2025-10-21",
+        "kind": "模型",
+        "title": "Suno V4.5-all · 发布",
+        "summary": "面向所有用户的免费音乐模型。",
+        "url": "https://suno.com/release-notes/v4-5-all-a-new-free-model-for-everyone",
+        "auditId": "review-20261126-suno-suno-v4-5-all-release-20251021",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "suno",
+            "modelVersionId": "suno-v4-5-all",
+            "matchedName": "Suno V4.5-all"
+          }
+        ]
       },
       {
         "date": "2025-09-23",
@@ -4368,6 +4831,26 @@
           "music"
         ],
         "eventStage": "early-access"
+      },
+      {
+        "date": "2024-05-24",
+        "kind": "模型",
+        "title": "Suno V2 · 已可使用",
+        "summary": "官方 V3.5 早期访问公告确认 V2 已可在版本菜单使用；不是 V2 首发日。",
+        "url": "https://suno.com/release-notes/v3-5-early-access-4-minute-songs",
+        "auditId": "review-20261126-suno-suno-v2-documented-availability-20240524",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "suno",
+            "modelVersionId": "suno-v2",
+            "matchedName": "Suno V2"
+          }
+        ]
       },
       {
         "date": "2024-03-21",
@@ -5187,6 +5670,26 @@
         ]
       },
       {
+        "date": "2025-03-11",
+        "kind": "模型",
+        "title": "Seedream 2.0 官方技术资料公开",
+        "summary": "官方技术页详细介绍中英双语图像生成模型，技术资料公开并非初次上线。",
+        "url": "https://seed.bytedance.com/zh/seedream2_0",
+        "auditId": "review-20261126-seedream-2-0-official-introduction-20250311",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-2-0",
+            "matchedName": "Seedream 2.0"
+          }
+        ]
+      },
+      {
         "date": "2025-01-22",
         "kind": "模型",
         "title": "Seed 1.5（Doubao-1.5-pro）发布",
@@ -5208,6 +5711,26 @@
           {
             "modelFamilyId": "seedream",
             "matchedName": "Seedream"
+          }
+        ]
+      },
+      {
+        "date": "2024-12",
+        "kind": "模型",
+        "title": "Seedream 2.0 已接入豆包与即梦",
+        "summary": "官方技术页回顾 2024 年 12 月初已接入相关产品，保留月份精度；最早首发日未知。",
+        "url": "https://seed.bytedance.com/zh/seedream2_0",
+        "auditId": "review-20261126-seedream-2-0-early-access-202412",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-2-0",
+            "matchedName": "Seedream 2.0"
           }
         ]
       },
@@ -5374,6 +5897,46 @@
           {
             "modelFamilyId": "kling",
             "matchedName": "Kling"
+          }
+        ]
+      },
+      {
+        "date": "2026-02-05",
+        "kind": "模型",
+        "title": "Kling 3.0 面向 Ultra 用户提前开放",
+        "summary": "发布公告确认当时仅 Ultra 用户可提前体验。",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
+        "auditId": "review-20261126-kling-kling-3-0-early-access-20260205",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-3-0",
+            "matchedName": "Kling 3.0"
+          }
+        ]
+      },
+      {
+        "date": "2026-02-05",
+        "kind": "模型",
+        "title": "Kling 3.0 Omni 面向 Ultra 用户提前开放",
+        "summary": "同批公告明确列出 Video 3.0 Omni，全面开放日待查。",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
+        "auditId": "review-20261126-kling-kling-3-0-omni-early-access-20260205",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-3-0-omni",
+            "matchedName": "Kling 3.0 Omni"
           }
         ]
       },
@@ -5551,6 +6114,27 @@
         "verificationUrl": "https://huggingface.co/Kwai-Kolors/Kolors"
       },
       {
+        "date": "2024-06-06",
+        "kind": "模型",
+        "title": "初代 Kling 文生视频开放测试",
+        "summary": "7 月 8 日官方回顾明确文生视频于 6 月 6 日上线；当时为测试阶段。",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-comprehensive-ai-models-reshaping-content-and/",
+        "auditId": "review-20261126-kling-kling-1-0-early-access-20240606",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-proprietary-video-generation-model-kling",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-1-0",
+            "matchedName": "Kling 1.0"
+          }
+        ]
+      },
+      {
         "date": "2024-06",
         "kind": "模型",
         "title": "Kling 1.0 首次发布",
@@ -5591,6 +6175,26 @@
     ],
     "milestones": [
       {
+        "date": "2026-11-12",
+        "kind": "模型",
+        "title": "Mureka Remix V9.5 · API 上线",
+        "summary": "Remix API 向所有用户开放新版；11 月 16 日博客是上线后介绍。",
+        "url": "https://platform.mureka.ai/docs/en/changelog.html",
+        "auditId": "review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-remix-v9-5",
+            "matchedName": "Mureka Remix V9.5"
+          }
+        ]
+      },
+      {
         "date": "2026-08-28",
         "kind": "模型",
         "title": "Mureka 更新 V9.5 音乐生成模型",
@@ -5606,6 +6210,86 @@
           {
             "modelFamilyId": "mureka",
             "matchedName": "Mureka"
+          }
+        ]
+      },
+      {
+        "date": "2026-08-28",
+        "kind": "模型",
+        "title": "Mureka V9.5 · 模型更新",
+        "summary": "增强版更新，不是初代 V9.5 首发。",
+        "url": "https://platform.mureka.ai/docs/en/changelog.html",
+        "auditId": "review-20261126-mureka-mureka-v9-5-model-update-20260828",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v9-5",
+            "matchedName": "Mureka V9.5"
+          }
+        ]
+      },
+      {
+        "date": "2026-07",
+        "kind": "模型",
+        "title": "Mureka V9.5 · 发布",
+        "summary": "公司记载 7 月 WAIC 期间发布。",
+        "url": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+        "auditId": "review-20261126-mureka-mureka-v9-5-release-202607",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v9-5",
+            "matchedName": "Mureka V9.5"
+          }
+        ]
+      },
+      {
+        "date": "2026-07",
+        "kind": "模型",
+        "title": "Mureka O3 · 发布",
+        "summary": "与 V9.5 同期发布的音乐推理模型。",
+        "url": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+        "auditId": "review-20261126-mureka-mureka-o3-release-202607",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-o3",
+            "matchedName": "Mureka O3"
+          }
+        ]
+      },
+      {
+        "date": "2026-03",
+        "kind": "模型",
+        "title": "Mureka V9 · 发布",
+        "summary": "公司回顾确认 2026 年 3 月推出，保留月份精度。",
+        "url": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+        "auditId": "review-20261126-mureka-mureka-v9-release-202603",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v9",
+            "matchedName": "Mureka V9"
           }
         ]
       },
@@ -5626,6 +6310,266 @@
           {
             "modelFamilyId": "mureka",
             "matchedName": "Mureka V8"
+          }
+        ]
+      },
+      {
+        "date": "2026-01",
+        "kind": "模型",
+        "title": "Mureka V8 · 发布",
+        "summary": "公司回顾确认 2026 年 1 月发布；具体日另需核实。",
+        "url": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+        "auditId": "review-20261126-mureka-mureka-v8-release-202601",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v8",
+            "matchedName": "Mureka V8"
+          }
+        ]
+      },
+      {
+        "date": "2025-12-09",
+        "kind": "模型",
+        "title": "Mureka V7.6 · API 上线",
+        "summary": "API 日志确认 V7.6 与 O2 新增；不等同最早产品首发。",
+        "url": "https://platform.mureka.ai/docs/en/changelog.html",
+        "auditId": "review-20261126-mureka-mureka-v7-6-api-availability-20251209",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v7-6",
+            "matchedName": "Mureka V7.6"
+          }
+        ]
+      },
+      {
+        "date": "2025-12-09",
+        "kind": "模型",
+        "title": "Mureka O2 · API 上线",
+        "summary": "与 V7.6 同批在 API 上线。",
+        "url": "https://platform.mureka.ai/docs/en/changelog.html",
+        "auditId": "review-20261126-mureka-mureka-o2-api-availability-20251209",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-o2",
+            "matchedName": "Mureka O2"
+          }
+        ]
+      },
+      {
+        "date": "2025-08-15",
+        "kind": "模型",
+        "title": "Mureka V7.5 · 发布",
+        "summary": "进一步优化中文演唱、音色与情感表达。",
+        "url": "https://www.kunlun.com/wap/mnews/",
+        "auditId": "review-20261126-mureka-mureka-v7-5-release-20250815",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v7-5",
+            "matchedName": "Mureka V7.5"
+          }
+        ]
+      },
+      {
+        "date": "2025-07-23",
+        "kind": "模型",
+        "title": "Mureka V7 · 发布",
+        "summary": "新一代音乐生成模型，提升人声表现与编曲质量。",
+        "url": "https://www1.kunlun.com/news/3.html",
+        "auditId": "review-20261126-mureka-mureka-v7-release-20250723",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v7",
+            "matchedName": "Mureka V7"
+          }
+        ]
+      },
+      {
+        "date": "2025-03-26",
+        "kind": "模型",
+        "title": "Mureka V6 · 发布",
+        "summary": "音乐生成基座模型，支持多语言音乐创作。",
+        "url": "https://www1.kunlun.com/news/3.html",
+        "auditId": "review-20261126-mureka-mureka-v6-release-20250326",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v6",
+            "matchedName": "Mureka V6"
+          }
+        ]
+      },
+      {
+        "date": "2025-03-26",
+        "kind": "模型",
+        "title": "Mureka O1 · 发布",
+        "summary": "音乐推理模型，与 V6 同批正式发布。",
+        "url": "https://www1.kunlun.com/news/3.html",
+        "auditId": "review-20261126-mureka-mureka-o1-release-20250326",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-o1",
+            "matchedName": "Mureka O1"
+          }
+        ]
+      },
+      {
+        "date": "2024-11",
+        "kind": "模型",
+        "title": "Mureka 5.0 · 研发阶段",
+        "summary": "多语言与混合微调阶段，官方将 5.0/5.5 合列。",
+        "url": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "auditId": "review-20261126-mureka-mureka-v5-development-milestone-202411",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v5",
+            "matchedName": "Mureka 5.0"
+          }
+        ]
+      },
+      {
+        "date": "2024-11",
+        "kind": "模型",
+        "title": "Mureka 5.5 · 研发阶段",
+        "summary": "与 5.0 同属官方列出的多语言迭代阶段。",
+        "url": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "auditId": "review-20261126-mureka-mureka-v5-5-development-milestone-202411",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v5-5",
+            "matchedName": "Mureka 5.5"
+          }
+        ]
+      },
+      {
+        "date": "2024-08",
+        "kind": "模型",
+        "title": "Mureka 4.0 · 研发阶段",
+        "summary": "数据筛选与音频重建能力迭代；具体公开日期未证实。",
+        "url": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "auditId": "review-20261126-mureka-mureka-v4-development-milestone-202408",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v4",
+            "matchedName": "Mureka 4.0"
+          }
+        ]
+      },
+      {
+        "date": "2024-06",
+        "kind": "模型",
+        "title": "Mureka 3.0 · 研发阶段",
+        "summary": "大规模训练推动基座能力形成；未证实公开首发。",
+        "url": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "auditId": "review-20261126-mureka-mureka-v3-development-milestone-202406",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v3",
+            "matchedName": "Mureka 3.0"
+          }
+        ]
+      },
+      {
+        "date": "2024-04",
+        "kind": "模型",
+        "title": "Mureka 2.0 · 已可使用",
+        "summary": "中英文版本接入天工；具体日及公开范围不详。",
+        "url": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "auditId": "review-20261126-mureka-mureka-v2-documented-availability-202404",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v2",
+            "matchedName": "Mureka 2.0"
+          }
+        ]
+      },
+      {
+        "date": "2024-02",
+        "kind": "模型",
+        "title": "Mureka 1.0 · 早期体验",
+        "summary": "SkyMusic 内测，验证端到端音乐生成。",
+        "url": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "auditId": "review-20261126-mureka-mureka-v1-early-access-202402",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "mureka",
+            "modelVersionId": "mureka-v1",
+            "matchedName": "Mureka 1.0"
           }
         ]
       }
@@ -6249,6 +7193,48 @@
         ]
       },
       {
+        "date": "2026-02-11",
+        "kind": "模型",
+        "title": "Vidu Q3 Turbo 加入文生与图生视频 API",
+        "summary": "生成时间较短，日志同日记录首尾帧支持。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q3-turbo-api-availability-20260211",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://www.genspi.com/zh/vidu-q3/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q3-turbo",
+            "matchedName": "Vidu Q3 Turbo"
+          }
+        ]
+      },
+      {
+        "date": "2026-01-27",
+        "kind": "模型",
+        "title": "Vidu Q3 Pro 加入文生与图生视频 API",
+        "summary": "官方列为新增模型，支持有声视频生成。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q3-pro-api-availability-20260127",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://www.genspi.com/zh/vidu-q3/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q3-pro",
+            "matchedName": "Vidu Q3 Pro"
+          }
+        ]
+      },
+      {
         "date": "2025-12-23",
         "kind": "研究",
         "title": "生数科技与清华开源 TurboDiffusion 视频生成加速框架",
@@ -6261,6 +7247,27 @@
           "video"
         ],
         "verificationUrl": "https://github.com/thu-ml/TurboDiffusion"
+      },
+      {
+        "date": "2025-12-02",
+        "kind": "模型",
+        "title": "Vidu Q2 Pro Fast 加入 API",
+        "summary": "独立低成本 API 型号，支持图生视频与首尾帧。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q2-pro-fast-api-availability-20251202",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://platform.vidu.com/docs/api-reference/video-models/vidu-q2/start-end-to-video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2-pro-fast",
+            "matchedName": "Vidu Q2 Pro Fast"
+          }
+        ]
       },
       {
         "date": "2025-12-01",
@@ -6286,17 +7293,17 @@
       {
         "date": "2025-09-30",
         "kind": "模型",
-        "title": "Vidu Q2 基础模型正式发布",
-        "summary": "生数科技于 2025-09-30 发布 Vidu Q2 视频基础模型，强化人物表演、动作和视觉一致性。2025-10-21 推出 Q2 Reference-to-Video 能力，提升多参考素材控制和创作一致性；该功能属于 Q2 同代升级，不是新的基础模型代际。2025-12-01 又将 Q2 能力扩展到图像生成，形成视频与图像创作能力组合。",
+        "title": "Vidu Q2 基础模型官方发布公告",
+        "summary": "生数科技于 2025-09-30 发布 Q2 官方公告；Q2 Pro/Turbo API 日志已记载 9 月 24 日开放，第三方平台 9 月 25 日已宣布接入 Q2。9 月 30 日为公告日，不代表最早可用日。",
         "url": "https://www.prnewswire.com/news-releases/starring-ai-vidu-q2-brings-performances-to-life-302570537.html",
         "auditId": "v48-vidu-0237",
         "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24",
+        "verificationDate": "2026-11-26",
         "modelCategory": [
           "image",
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "verificationUrl": "https://platform.vidu.com/docs/api-reference/updates",
         "modelMentions": [
           {
             "modelFamilyId": "vidu",
@@ -6308,6 +7315,48 @@
           {
             "modelFamilyId": "vidu",
             "matchedName": "Vidu"
+          }
+        ]
+      },
+      {
+        "date": "2025-09-24",
+        "kind": "模型",
+        "title": "Vidu Q2 Pro 加入 API",
+        "summary": "新增模型，支持图生视频与首尾帧。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q2-pro-api-availability-20250924",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2-pro",
+            "matchedName": "Vidu Q2 Pro"
+          }
+        ]
+      },
+      {
+        "date": "2025-09-24",
+        "kind": "模型",
+        "title": "Vidu Q2 Turbo 加入 API",
+        "summary": "新增模型，支持图生视频与首尾帧。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q2-turbo-api-availability-20250924",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2-turbo",
+            "matchedName": "Vidu Q2 Turbo"
           }
         ]
       },
@@ -6621,6 +7670,46 @@
         ]
       },
       {
+        "date": "2026-10-09",
+        "kind": "模型",
+        "title": "Qwen-Image-2.1 Pro 国际 API 上线记录",
+        "summary": "官方国际部署日志明确列出该型号。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-1-pro-api-availability-20261009",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-1-pro",
+            "matchedName": "Qwen-Image 2.1 Pro"
+          }
+        ]
+      },
+      {
+        "date": "2026-10-09",
+        "kind": "模型",
+        "title": "Qwen-Image-2.1 Turbo 国际 API 上线记录",
+        "summary": "官方国际部署日志明确列出该型号。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-1-turbo-api-availability-20261009",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-1-turbo",
+            "matchedName": "Qwen-Image 2.1 Turbo"
+          }
+        ]
+      },
+      {
         "date": "2026-09-21",
         "kind": "模型",
         "title": "Qwen-Audio-3.1-ASR-Flash-Streaming 实时识别模型",
@@ -6780,6 +7869,26 @@
         ]
       },
       {
+        "date": "2026-08-06",
+        "kind": "模型",
+        "title": "Qwen-Image-3.0 Pro 全球部署记录",
+        "summary": "全球部署日志另列 8 月 6 日；保留两个地区节点。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-3-0-pro-api-availability-20260806",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-3-0-pro",
+            "matchedName": "Qwen-Image 3.0 Pro"
+          }
+        ]
+      },
+      {
         "date": "2026-08-04",
         "kind": "模型",
         "title": "Qwen-Image-3.0 图像生成与编辑模型上线",
@@ -6841,6 +7950,26 @@
           "audio"
         ],
         "verificationUrl": "https://help.aliyun.com/zh/model-studio/qwen3-7-flash"
+      },
+      {
+        "date": "2026-07-20",
+        "kind": "模型",
+        "title": "Qwen-Image-3.0 Pro 国际部署记录",
+        "summary": "国际部署日志记载 7 月 20 日，不能与全球部署混为一谈。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-3-0-pro-api-availability-20260720",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-3-0-pro",
+            "matchedName": "Qwen-Image 3.0 Pro"
+          }
+        ]
       },
       {
         "date": "2026-06-15",
@@ -6959,6 +8088,46 @@
           {
             "modelFamilyId": "wan",
             "matchedName": "Wan 2.7"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-03",
+        "kind": "模型",
+        "title": "Qwen-Image-2.0 国际 API 上线记录",
+        "summary": "国际部署日志列出标准版及 2026-03-03 快照。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-0-api-availability-20260303",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-0",
+            "matchedName": "Qwen-Image 2.0"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-03",
+        "kind": "模型",
+        "title": "Qwen-Image-2.0 Pro 国际 API 快照记录",
+        "summary": "国际部署日志列出 Pro 2026-03-03 快照；不推定此前未发布。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-0-pro-api-availability-20260303",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-0-pro",
+            "matchedName": "Qwen-Image 2.0 Pro"
           }
         ]
       },

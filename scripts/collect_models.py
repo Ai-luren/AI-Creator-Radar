@@ -11,6 +11,8 @@ import json
 import re
 import sys
 import tempfile
+import time
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
@@ -401,6 +403,8 @@ def html_page_items(page: str, source: dict) -> list[dict]:
     parser.close()
     blocks = sorted(parser.blocks, key=lambda block: block["sequence"])
 
+    if source.get("type") == "niji-release-index":
+        return niji_release_items(blocks, source)
     if source.get("type") == "dated-headings":
         return dated_heading_items(blocks, source)
     if source.get("type") == "model-cards":
@@ -495,8 +499,30 @@ def html_page_items(page: str, source: dict) -> list[dict]:
     return dedupe_candidates(candidates)
 
 
+def niji_release_items(blocks: list[dict], source: dict) -> list[dict]:
+    """Only accept dedicated numbered Niji release article links, not tutorials."""
+    results = []
+    for block in blocks:
+        if block["tag"] != "a":
+            continue
+        url = valid_article_url(block["attrs"].get("href", ""), source["url"])
+        parts = urlsplit(url)
+        match = re.fullmatch(r"/(?:zh/|ja/|ko/|en/)?blog/niji-v?(\d+(?:\.\d+)*)(?:/)?", parts.path, re.I)
+        if not match or parts.hostname not in {"nijijourney.com", "www.nijijourney.com"}:
+            continue
+        version = match.group(1)
+        title = clean_text(block["text"])
+        if not re.search(rf"(?<![A-Za-z0-9])niji\s*v?{re.escape(version)}(?![A-Za-z0-9.])", title, re.I):
+            continue
+        results.append({"title": f"Niji {version} 官方发布公告", "summary": title[:520],
+                        "url": url, "publishedAt": None, "modelId": "midjourney"})
+    return dedupe_candidates(results)
+
+
 def rss_items(body: bytes, source: dict) -> list[dict]:
     root = ET.fromstring(body)
+    if local_name(root.tag) not in {"rss", "feed", "rdf"}:
+        raise ValueError("Expected RSS or Atom feed, received a different XML document")
     entries = [node for node in root.iter() if local_name(node.tag) in {"item", "entry"}]
     results = []
     for entry in entries[:MAX_ITEMS_PER_SOURCE]:
@@ -666,7 +692,7 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
     return changed
 
 
-def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
+def fetch_source_once(source: dict) -> tuple[dict, list[dict], str | None]:
     request = urllib.request.Request(source["url"], headers={
         "User-Agent": USER_AGENT,
         "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, text/html;q=0.9, */*;q=0.8",
@@ -696,6 +722,30 @@ def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
         return source, items, None
     except Exception as exc:
         return source, [], f"{type(exc).__name__}: {str(exc)[:220]}"
+
+
+def retryable_source_error(error: str) -> bool:
+    # Do not retry 403, invalid XML, or deterministic parsing errors.
+    return bool(re.search(r"HTTP Error (?:408|429|5\d\d)\b|timed? ?out|temporary failure|connection reset", error, re.I))
+
+
+def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
+    attempts = []
+    primary_url = source["url"]
+    endpoints = list(dict.fromkeys([primary_url, *source.get("fallbackUrls", [])]))[:3]
+    last_error = None
+    for url in endpoints:
+        endpoint = {**source, "url": url}
+        for attempt in range(2):
+            _, items, error = fetch_source_once(endpoint)
+            attempts.append({"url": url, "error": error})
+            if error is None:
+                return {**endpoint, "primaryUrl": primary_url, "attempts": attempts}, items, None
+            last_error = error
+            if attempt or not retryable_source_error(error):
+                break
+            time.sleep(2)
+    return {**source, "primaryUrl": primary_url, "attempts": attempts}, [], last_error
 
 
 def main() -> int:
@@ -772,9 +822,10 @@ def main() -> int:
                 existing_keys[key] = item_id
             status_entries.append({
                 "id": source["id"], "name": source["name"], "type": source.get("type", "html"),
-                "url": source["url"], "active": True, "official": bool(source.get("official", True)),
+                "url": source.get("primaryUrl", source["url"]), "effectiveUrl": source["url"],
+                "attempts": source.get("attempts", []), "active": True, "official": bool(source.get("official", True)),
                 "checkedAt": now_iso, "lastSuccessAt": now_iso, "itemCount": len(incoming),
-                "latestItemAt": max((item.get("publishedAt") or "" for item in incoming), default="") or None,
+                "latestItemAt": max((item.get("publishedAt") or "" for item in incoming), default="") or old.get("latestItemAt"),
                 "resultStatus": "matched" if incoming else "zero-match",
                 "lastMatchAt": now_iso if incoming else old.get("lastMatchAt") or (old.get("lastSuccessAt") if old.get("itemCount") else None),
                 "error": None,
@@ -782,7 +833,8 @@ def main() -> int:
         else:
             status_entries.append({
                 "id": source["id"], "name": source["name"], "type": source.get("type", "html"),
-                "url": source["url"], "active": True, "official": bool(source.get("official", True)),
+                "url": source.get("primaryUrl", source["url"]), "effectiveUrl": None,
+                "attempts": source.get("attempts", []), "active": True, "official": bool(source.get("official", True)),
                 "checkedAt": now_iso, "lastSuccessAt": old.get("lastSuccessAt"),
                 "itemCount": old.get("itemCount", 0), "latestItemAt": old.get("latestItemAt"),
                 "resultStatus": "failed",

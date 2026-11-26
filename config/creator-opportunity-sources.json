@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "contests": [
+    {
+      "id": "aifc",
+      "name": "AIFC",
+      "url": "https://aifc.news/",
+      "pathPattern": "/contest/[^/]+",
+      "provenance": "directory"
+    },
+    {
+      "id": "aifilmcontests",
+      "name": "AI Film Contests",
+      "url": "https://aifilmcontests.com/",
+      "pathPattern": "/contests/[^/]+",
+      "provenance": "directory"
+    },
+    {
+      "id": "laurelume",
+      "name": "Laurelume",
+      "url": "https://laurelume.com/calendar",
+      "pathPattern": "/(?:contest|contests|festival|festivals|event|events)/[^/]+",
+      "provenance": "directory"
+    },
+    {
+      "id": "higgsfield",
+      "name": "Higgsfield 官方比赛",
+      "url": "https://higgsfield.ai/contests",
+      "pathPattern": "/contests/[^/]+",
+      "provenance": "official"
+    },
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs 官方博客",
+      "url": "https://elevenlabs.io/blog",
+      "pathPattern": "/blog/[^/]+",
+      "provenance": "official"
+    },
+    {
+      "id": "heygen",
+      "name": "HeyGen 官方博客",
+      "url": "https://www.heygen.com/blog",
+      "pathPattern": "/(?:en-gb/|en-in/)?blog/[^/]+",
+      "provenance": "official"
+    }
+  ],
+  "programs": [
+    {
+      "platformId": "higgsfield",
+      "scope": "global",
+      "url": "https://higgsfield.ai/creator-hub/help-center/business/how-do-i-join-a-partnership-or-creator-program"
+    },
+    {
+      "platformId": "openart",
+      "scope": "global",
+      "url": "https://openart.ai/programs/cpp"
+    },
+    {
+      "platformId": "vidu-platform",
+      "scope": "overseas",
+      "url": "https://go.vidu.com/artist-program"
+    },
+    {
+      "platformId": "pollo",
+      "scope": "overseas",
+      "url": "https://pollo.ai/creative-partner-program"
+    },
+    {
+      "platformId": "pollo",
+      "scope": "domestic",
+      "url": "https://pollo.ai/zh/creative-partner-program"
+    },
+    {
+      "platformId": "magnific",
+      "scope": "global",
+      "url": "https://www.magnific.com/ai/partners"
+    },
+    {
+      "platformId": "runway",
+      "scope": "global",
+      "url": "https://runway.com/creative-partners-program/"
+    }
+  ]
+}

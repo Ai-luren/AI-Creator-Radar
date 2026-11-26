@@ -176,3 +176,56 @@ test('canonical history preserves audited combined events and audio subclasses',
 test('active frontend no longer ships unreachable ranking or evaluation renderers',()=>{
  for(const name of ['legacyRankingsPage','aihotLeaderboardPage','evaluationTargets','modelCard','expandTopicMilestones'])assert.ok(!html.includes('function '+name+'('),name);
 });
+
+
+test('creator program evidence ages independently of links and scan candidates stay separate',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ assert.equal(run("programReview({applicationReview:{status:'open',checkedAt:'2026-11-26'}},new Date('2026-11-27T00:00:00Z')).label"),'官方说明开放');
+ assert.equal(run("programReview({applicationReview:{status:'open',checkedAt:'2026-11-26'}},new Date('2026-12-12T00:00:00Z')).key"),'unknown');
+ assert.equal(run("programReview({applicationReview:{status:'application-listed',checkedAt:'2026-11-26'}},new Date('2026-11-27T00:00:00Z')).key"),'unknown');
+ run("state.opportunityDiscovery={checkedAt:'2026-11-26T00:00:00Z',sources:[],programSignals:[{platformId:'demo',scope:'global',sourceUrl:'https://example.com',status:'reachable',signal:'closure-signal'}],candidates:[{title:'Pending Example Festival',url:'https://example.com/contest',sourceName:'Demo',provenance:'directory'}]};setView('opportunities')");
+ assert.equal(run("programReview({platformId:'demo',scope:'global',applicationReview:{status:'open',checkedAt:'2026-11-26',sourceUrl:'https://example.com'}},new Date('2026-11-27T00:00:00Z')).key"),'unknown');
+ assert.match(node('content').innerHTML,/Pending Example Festival/);
+ assert.equal(run("state.opportunityData.items.some(x=>x.title==='Pending Example Festival')"),false);
+});
+
+
+test('board row indexing preserves first-match rank semantics and snapshot isolation',()=>{
+ const {run}=setup();
+ assert.equal(run("(()=>{const rows=[{name:'A',rank:7},{name:'A',rank:2}];return firstBoardRow(rows,'A').rank})()"),7);
+ assert.equal(run("(()=>{const rows=[{name:'A',rank:7}];firstBoardRow(rows,'A');return firstBoardRow([{name:'A',rank:2}],'A').rank})()"),2);
+ assert.equal(run("firstBoardRow([], 'missing')"),undefined);
+});
+
+ test('rank evidence resolves current snapshot rather than stale aliases',()=>{
+ const {run}=setup();
+ const result=run("JSON.stringify(modelRanksFor({leaderboardAliases:[{source:'reference',boardId:'demo',name:'A',rank:99},{source:'reference',boardId:'demo',name:'B',rank:1}]},[{source:'reference',boardId:'demo',rows:[{name:'A',rank:7},{name:'A',rank:2},{name:'B',rank:0}]}]).map(x=>x.alias.rank))");
+ assert.deepEqual(JSON.parse(result),[7]);
+});
+
+ test('release event grouping preserves versions, dates and exact evidence',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ const fixtures=[{id:'a',modelFamilyId:'tencent-hy-mt',modelName:'Hy-MT3-1.8B',publishedAt:'2026-11-24',category:'llm',vendor:'腾讯混元',url:'https://huggingface.co/tencent/Hy-MT3-1.8B'},{id:'b',modelFamilyId:'tencent-hy-mt',modelName:'Hy-MT3-7B',publishedAt:'2026-11-24',category:'llm',vendor:'腾讯混元',url:'https://huggingface.co/tencent/Hy-MT3-7B'},{id:'c',modelFamilyId:'tencent-hy-mt',modelName:'Hy-MT3-30B-A3B',publishedAt:'2026-11-24',category:'llm',vendor:'腾讯混元',url:'https://huggingface.co/tencent/Hy-MT3-30B-A3B'},{id:'d',modelFamilyId:'gpt',modelName:'GPT-6.2 Astra',publishedAt:'2026-11-17',category:'llm',vendor:'OpenAI'},{id:'e',modelFamilyId:'gpt',modelName:'GPT-6.2 (November 23)',publishedAt:'2026-11-23',category:'llm',vendor:'OpenAI'},{id:'f',modelFamilyId:'ovhcloud-olala',modelName:'Other',publishedAt:'2026-11-25',category:'llm',vendor:'OVHcloud'}];
+ const events=JSON.parse(run("JSON.stringify(releaseEvents("+JSON.stringify(fixtures)+",'priority'))"));
+ assert.equal(events.length,4);assert.equal(events.reduce((n,e)=>n+e.versions.length,0),fixtures.length);
+ const mt=events.find(e=>e.modelName==='Hy-MT3 系列');assert.equal(mt.versions.length,3);assert.equal(new Set(mt.versions.map(v=>v.url)).size,3);
+ assert.ok(events.filter(e=>e.category==='llm').findIndex(e=>e.vendor==='OpenAI')<events.filter(e=>e.category==='llm').findIndex(e=>e.vendor==='OVHcloud'));
+ assert.equal(events.filter(e=>e.modelFamilyId==='gpt').length,2);
+ run("setView('today',{releaseCategory:'llm'})");assert.match(node('content').innerHTML,/创作优先/);
+ assert.equal(run("releaseEvents([{id:'a',modelFamilyId:'gpt',modelName:'A',publishedAt:'2026-11-25',evidenceType:'official-model-card',url:'https://example.com/card'},{id:'b',modelFamilyId:'gpt',modelName:'B',publishedAt:'2026-11-25',evidenceType:'official-model-card',url:'https://example.com/card'}]).length"),2);
+ const chronological=JSON.parse(run("JSON.stringify(releaseEvents(state.modelReleases,'date').map(e=>e.publishedAt))"));assert.deepEqual(chronological,[...chronological].sort().reverse());
+});
+
+test('combined news merges only primary identities and preserves every report',()=>{
+ const {run}=setup();
+ run("state.aihotDaily={title:'AI 日报（2026 年 11 月 25 日）',items:[{title:'Claude Install as app 桌面应用',category:'头条',links:[{label:'原文',url:'https://claude.com/blog/install-as-app'},{label:'邻近新闻',url:'https://example.com/other'}]}]};state.juyaDaily={title:'AI 早报 2026-11-25',items:[{title:'Anthropic artifacts 桌面应用',category:'要闻',url:'https://claude.com/resources/articles/install-as-app'},{title:'一条完全独立的邻近新闻',url:'https://example.com/other'}]};state.aihot={items:[{title:'Claude 安装桌面应用',selected:true,category:'ai-products',publishedAt:'2026-11-24T00:00:00Z',links:{original:'https://claude.com/blog/install-as-app?utm_source=test'}}]};");
+ const events=JSON.parse(run('JSON.stringify(combinedNews())'));assert.equal(events.length,2);assert.equal(events.reduce((n,e)=>n+e.rows.length,0),4);
+ const merged=events.find(e=>e.rows.length===3);assert.equal(merged.sources.length,3);assert.equal(merged.rows.find(r=>r.source==='AIHOT 精选').day,'2026-11-24');
+ assert.notEqual(run("newsUrlKey('https://example.com/notes#v1')"),run("newsUrlKey('https://example.com/notes#v2')"));
+});
+test('overview keeps full source entry points and separates review from main feed',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
+ assert.match(markup,/重点 AI 资讯/);assert.match(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
+ assert.match(markup,/data-briefing-target="combined"/);assert.match(markup,/data-briefing-target="aihot"/);assert.match(markup,/data-briefing-target="juya"/);assert.match(markup,/data-briefing-target="selected"/);
+ run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
+});
