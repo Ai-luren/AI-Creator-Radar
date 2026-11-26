@@ -21,12 +21,23 @@ const failures=[];
 try{
  for(const viewport of [{width:1440,height:1000},{width:390,height:844},{width:360,height:800}]){
   const label=viewport.width===1440?'desktop':String(viewport.width);
-  const context=await browser.newContext({viewport,locale:'zh-CN',deviceScaleFactor:1,reducedMotion:'reduce'});
-  await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
-  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
+  let context,page;const errors=[];
+  // Each scenario begins from a fresh browser context; within a scenario reloads
+  // retain storage/history. A crashed renderer must not poison following scenarios.
   const routes=['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
-  async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled'}).catch(()=>{})}}
+  async function check(name,fn){
+   context=null;page=null;
+   try{
+    context=await browser.newContext({viewport,locale:'zh-CN',deviceScaleFactor:1,reducedMotion:'reduce'});
+    await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
+    page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));
+    await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
+    await fn();console.log('PASS '+label+' '+name)
+   }catch(e){
+    failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);
+    if(page)await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled',timeout:5000}).catch(()=>{})
+   }finally{if(context)await context.close().catch(e=>{failures.push(label+' '+name+' context close: '+e.message)})}
+  }
   for(const view of routes)await check(view,async()=>{
    const loaded=new Set();const capture=req=>{if(req.url().includes('/data/'))loaded.add(new URL(req.url()).pathname.split('/').pop())};page.on('request',capture);
    await page.goto(base+'?view='+view,{waitUntil:'domcontentloaded'});
@@ -131,7 +142,7 @@ try{
    await page.keyboard.press('Escape');await page.locator('.model-detail-panel').waitFor({state:'hidden'});assert.equal(await page.evaluate(()=>state.view),'today');
    page.off('request',listener);
   });
-  await check('no runtime errors',async()=>assert.deepEqual(errors,[]));await context.close();
+  await check('no runtime errors',async()=>assert.deepEqual(errors,[]));
  }
 }finally{await browser.close()}
 if(failures.length){console.error(failures.join('\n'));process.exitCode=1}
