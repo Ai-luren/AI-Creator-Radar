@@ -403,6 +403,111 @@ def source_coverage(sources: list, models: dict) -> dict:
     }
 
 
+
+def markdown_dated_model_items(page: str, source: dict) -> list[dict]:
+    """Read official date + standalone model-name sections, not mentions in prose."""
+    results = []
+    current_date = None
+    expected_name = source.get("modelTitlePattern", r"(?!)")
+    for raw in page.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        plain = line.strip("*").strip()
+        if re.fullmatch(r"20\d{2}-\d{2}-\d{2}", plain):
+            current_date = parse_date(plain)
+            continue
+        if line.startswith("#"):
+            current_date = None
+            continue
+        if not current_date or not re.fullmatch(expected_name, plain, re.I):
+            continue
+        model_id = match_model(plain, source)
+        if model_id:
+            results.append({"title": plain, "summary": "官方模型目录的日期条目；发布阶段待核验。",
+                            "url": source["url"], "publishedAt": current_date,
+                            "modelId": model_id, "updateType": "model-card"})
+    return dedupe_candidates(results)
+
+
+def version_document_items(blocks: list[dict], source: dict) -> list[dict]:
+    """Official version reference: accept named sections and explicit local launch dates only."""
+    results = []
+    current = None
+    for block in blocks:
+        tag = block["tag"]
+        title = clean_text(block["text"])
+        if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            current = None
+            if re.fullmatch(source.get("modelTitlePattern", r"(?!)"), title, re.I):
+                model_id = match_model(title, source)
+                if model_id:
+                    current = (title, model_id)
+            continue
+        if tag != "p" or not current:
+            continue
+        name, model_id = current
+        # Restrict date to the same sentence as the section's named model and event.
+        sentence = re.search(r"(?:^|[.!?]\s+)" + re.escape(name)
+                             + r"(?:\s+model)?(?:,\s*launched\s+on|\s+(?:was\s+)?(?:released|launched)\s+(?:as the default version\s+)?on)"
+                             + r"\s+([A-Za-z]+\s+\d{1,2},\s+20\d{2})", title, re.I)
+        if sentence:
+            published = parse_date(sentence.group(1))
+            if published:
+                results.append({"title": name, "summary": "官方版本文档记载的发布或开放阶段；不是自动确认首发。",
+                                "url": source["url"], "publishedAt": published,
+                                "modelId": model_id, "updateType": "model-card"})
+                current = None
+    return dedupe_candidates(results)
+
+
+
+def markdown_dated_release_headings(page: str, source: dict) -> list[dict]:
+    """Explicit full-date sections and exact model headings in a first-party changelog."""
+    results = []
+    day = None
+    for line in page.splitlines():
+        heading = re.match(r"^(#{2,6})\s+(.+?)\s*$", line)
+        if not heading:
+            continue
+        level, title = len(heading.group(1)), clean_text(heading.group(2))
+        if level == 2:
+            day = parse_date(title) if re.fullmatch(r"[A-Za-z]+\s+\d{1,2},\s+20\d{2}", title) else None
+            continue
+        if level != 3 or not day or not re.fullmatch(source.get("modelTitlePattern", r"(?!)"), title, re.I):
+            continue
+        model_id = match_model(title, source)
+        if model_id:
+            results.append({"title": title, "summary": "官方开发日志的型号条目；具体发布阶段待核验。",
+                            "url": source["url"], "publishedAt": day, "modelId": model_id,
+                            "updateType": "model-card"})
+    return dedupe_candidates(results)
+
+
+def version_document_json_items(page: str, source: dict) -> list[dict]:
+    """Use the public help center article API, not the page wrapper or updated_at."""
+    article = json.loads(page).get("article", {})
+    if (article.get("id") != source.get("articleId") or article.get("draft") is not False
+            or not isinstance(article.get("body"), str)):
+        raise ValueError("Unexpected public help-center article")
+    return html_page_items(article["body"], {**source, "type": "version-document",
+                           "url": source["articleUrl"]})
+
+
+def effective_coverage(entries, models):
+    """Separate transport success from matched catalog families and recent dated candidates."""
+    successful = [e for e in entries if not e.get("error")]
+    matched = [e for e in successful if e.get("matchedModelFamilyIds")]
+    actual = set().union(*(set(e.get("matchedModelFamilyIds", [])) for e in matched))
+    recent = set().union(*(set(e.get("recentDatedModelFamilyIds", [])) for e in matched))
+    return {"reachableSources": len(successful), "matchingModelSources": len(matched),
+            "recentDatedModelSources": sum(bool(e.get("recentDatedModelFamilyIds")) for e in matched),
+            "distinctMatchingEndpoints": len({e.get("effectiveUrl") for e in matched if e.get("effectiveUrl")}),
+            "matchedFamilies": len(actual & set(models)), "recentDatedFamilies": len(recent & set(models)),
+            "unmatchedFamilies": sorted(set(models) - actual),
+            "fallbackSources": sum(e.get("primaryDegraded") is True and not e.get("error") for e in successful)}
+
+
 def html_page_items(page: str, source: dict) -> list[dict]:
     parser = BlockParser()
     parser.feed(page)
@@ -430,6 +535,8 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                                    "updateType": "announcement"})
         return dedupe_candidates(candidates)
 
+    if source.get("type") == "version-document":
+        return version_document_items(blocks, source)
     if source.get("type") == "niji-release-index":
         return niji_release_items(blocks, source)
     if source.get("type") == "dated-headings":
@@ -760,7 +867,16 @@ def fetch_source_once(source: dict) -> tuple[dict, list[dict], str | None]:
             required_text = source.get("requiredText")
             if required_text and not re.search(required_text, page, flags=re.I):
                 raise ValueError("Expected model text is absent; the official page may be client-rendered or changed")
-            items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
+            if source_type == "markdown-dated-models":
+                if not re.search(r"(?m)^\*\*20\d{2}-\d{2}-\d{2}\*\*\s*$", page):
+                    raise ValueError("Expected explicit Markdown date sections")
+                items = markdown_dated_model_items(page, source)
+            elif source_type == "markdown-dated-release-headings":
+                items = markdown_dated_release_headings(page, source)
+            elif source_type == "version-document-json":
+                items = version_document_json_items(page, source)
+            else:
+                items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
         return source, items, None
     except Exception as exc:
         return source, [], f"{type(exc).__name__}: {str(exc)[:220]}"
@@ -774,19 +890,31 @@ def retryable_source_error(error: str) -> bool:
 def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
     attempts = []
     primary_url = source["url"]
-    endpoints = list(dict.fromkeys([primary_url, *source.get("fallbackUrls", [])]))[:3]
+    endpoints = [{"url": primary_url}]
+    endpoints.extend({"url": url} for url in source.get("fallbackUrls", []))
+    endpoints.extend(source.get("fallbackEndpoints", []))
+    endpoints = list({e["url"]: e for e in endpoints}.values())[:5]
     last_error = None
-    for url in endpoints:
-        endpoint = {**source, "url": url}
+    empty = None
+    for endpoint_config in endpoints:
+        endpoint = {**source, **endpoint_config}
+        url = endpoint["url"]
         for attempt in range(2):
             _, items, error = fetch_source_once(endpoint)
-            attempts.append({"url": url, "error": error})
+            attempts.append({"url": url, "error": error, "itemCount": len(items) if error is None else None})
             if error is None:
-                return {**endpoint, "primaryUrl": primary_url, "attempts": attempts}, items, None
+                result = {**endpoint, "primaryUrl": primary_url, "attempts": attempts,
+                          "primaryDegraded": url != primary_url}
+                if items or not source.get("fallbackOnZeroMatch"):
+                    return result, items, None
+                empty = empty or result
+                break
             last_error = error
             if attempt or not retryable_source_error(error):
                 break
             time.sleep(2)
+    if empty:
+        return {**empty, "attempts": attempts}, [], None
     return {**source, "primaryUrl": primary_url, "attempts": attempts}, [], last_error
 
 
@@ -862,7 +990,13 @@ def main() -> int:
                         else:
                             new_historical += 1
                 existing_keys[key] = item_id
+            matched_ids = sorted({i["modelId"] for i in incoming if i.get("modelId") in models})
+            recent_ids = sorted({i["modelId"] for i in incoming if i.get("modelId") in models
+                                 and i.get("publishedAt") and (now - timedelta(days=29)).date().isoformat()
+                                 <= i["publishedAt"][:10] <= now.date().isoformat()})
             status_entries.append({
+                "matchedModelFamilyIds": matched_ids, "recentDatedModelFamilyIds": recent_ids,
+                "primaryDegraded": source.get("primaryDegraded", False),
                 "id": source["id"], "name": source["name"], "type": source.get("type", "html"),
                 "url": source.get("primaryUrl", source["url"]), "effectiveUrl": source["url"],
                 "attempts": source.get("attempts", []), "active": True, "official": bool(source.get("official", True)),
@@ -904,6 +1038,7 @@ def main() -> int:
         **model_check_stamps(previous_status, now_iso, success_count, len(active)),
         "zeroMatchSources": sum(e.get("resultStatus") == "zero-match" for e in status_entries),
         "coverage": source_coverage(sources, models),
+        "effectiveCoverage": effective_coverage(status_entries, models),
         "checkedAt": now_iso, "totalSources": len(active), "successSources": success_count,
         "failedSources": len(active) - success_count, "newUpdates": new_count,
         "newRecentDated": new_recent, "newUndated": new_undated, "newHistorical": new_historical, "newFutureDated": new_future,
@@ -915,12 +1050,15 @@ def main() -> int:
     print(f"New candidates by source date: recent={new_recent}, undated={new_undated}, historical={new_historical}, future={new_future}.")
     coverage = status["coverage"]
     print(f"Source coverage: {coverage['configuredFamilies']}/{coverage['catalogFamilies']} canonical families; {len(coverage['unmappedFamilyIds'])} unmapped IDs.")
+    print("Effective model coverage:", json.dumps(status["effectiveCoverage"], ensure_ascii=False, sort_keys=True))
     if version_changes:
         print("Model versions updated from recent official sources: " + ", ".join(version_changes))
     for entry in status_entries:
         label = "WARN" if entry["error"] or entry.get("resultStatus") == "zero-match" else "OK"
         print(f"[{label}] {entry['name']}: {entry['itemCount']} matched updates"
               + (f" — {entry['error']}" if entry["error"] else " — no matching items; parser and source need review" if entry.get("resultStatus") == "zero-match" else ""))
+        if entry.get("error") or entry.get("resultStatus") == "zero-match" or entry.get("primaryDegraded"):
+            print("  Endpoint attempts:", json.dumps(entry.get("attempts", []), ensure_ascii=False))
 
     if args.source and not args.dry_run:
         parser.error("--source requires --dry-run; partial writes would replace full monitor status")

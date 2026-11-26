@@ -78,3 +78,72 @@ class SourceReliabilityTests(unittest.TestCase):
         self.assertEqual({x["title"] for x in items}, {"Niji 8 官方发布公告", "Niji 7 官方发布公告"})
         self.assertTrue(all(x["publishedAt"] is None for x in items))
         self.assertTrue(all(x["modelId"] == "midjourney" for x in items))
+
+
+class EffectiveYieldTests(unittest.TestCase):
+    def test_glm_markdown_uses_explicit_dates_and_standalone_names(self):
+        source = {"url": "https://docs.z.ai/notes.md", "modelTitlePattern": r"GLM-\d+(?:\.\d+)*(?:-[A-Za-z]+)*",
+                  "modelMatches": {"glm": [r"re:\bGLM-\d"]}}
+        page = "# Models\n**2026-08-26**\n\nGLM-5.3-Flash\n* Mentions GLM-5.2\n**2026-08-18**\nGLM-5.3\n# Other\nGLM-9\n"
+        items = collector.markdown_dated_model_items(page, source)
+        self.assertEqual([(x["title"], x["publishedAt"][:10]) for x in items],
+                         [("GLM-5.3-Flash", "2026-08-26"), ("GLM-5.3", "2026-08-18")])
+        self.assertTrue(all(x["updateType"] == "model-card" and "publicationDateKind" not in x for x in items))
+
+    def test_version_docs_do_not_borrow_unrelated_dates(self):
+        source = {"url": "https://docs.midjourney.com/version", "type": "version-document",
+                  "modelTitlePattern": r"Niji\s+\d+", "modelMatches": {"midjourney": ["niji"]}}
+        page = "<h2>Niji 7</h2><p>Overview. Niji 7, launched on January 9, 2026, has new features.</p><h2>Niji 8</h2><p>Other model released on June 1, 2026.</p>"
+        items = collector.html_page_items(page, source)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["publishedAt"][:10], "2026-01-09")
+        self.assertEqual(items[0]["updateType"], "model-card")
+
+    def test_zero_match_fallback_preserves_primary_degradation(self):
+        source = {"url": "https://example.com/index", "fallbackOnZeroMatch": True,
+                  "fallbackEndpoints": [{"url": "https://official.example/docs", "type": "version-document"}]}
+        with patch.object(collector, "fetch_source_once", side_effect=[
+                (source, [], None), (source, [{"title": "Niji 7"}], None)]) as fetch:
+            effective, items, error = collector.fetch_source(source)
+        self.assertIsNone(error)
+        self.assertTrue(effective["primaryDegraded"])
+        self.assertEqual(effective["type"], "version-document")
+        self.assertEqual(effective["attempts"][0]["itemCount"], 0)
+        self.assertEqual(len(items), 1)
+
+    def test_effective_coverage_does_not_count_failed_old_or_duplicate_endpoints(self):
+        entries = [
+            {"error": None, "effectiveUrl": "https://docs.example/", "matchedModelFamilyIds": ["glm"],
+             "recentDatedModelFamilyIds": ["glm"], "primaryDegraded": True},
+            {"error": None, "effectiveUrl": "https://docs.example/", "matchedModelFamilyIds": ["glm"]},
+            {"error": "403", "matchedModelFamilyIds": ["gpt"]},
+            {"error": None, "matchedModelFamilyIds": []},
+        ]
+        result = collector.effective_coverage(entries, {"glm": {}, "gpt": {}})
+        self.assertEqual(result["reachableSources"], 3)
+        self.assertEqual(result["matchingModelSources"], 2)
+        self.assertEqual(result["distinctMatchingEndpoints"], 1)
+        self.assertEqual(result["matchedFamilies"], 1)
+        self.assertEqual(result["unmatchedFamilies"], ["gpt"])
+        self.assertEqual(result["fallbackSources"], 1)
+
+
+    def test_public_article_json_ignores_updated_at(self):
+        import json
+        source = {"url": "https://docs.example/api", "articleUrl": "https://docs.example/version",
+                  "articleId": 42, "modelTitlePattern": r"Niji\s+\d+", "modelMatches": {"midjourney": ["niji"]}}
+        body = json.dumps({"article": {"id": 42, "draft": False, "updated_at": "2026-11-27",
+                            "body": "<h2>Niji 7</h2><p>Niji 7, launched on January 9, 2026, is available.</p>"}})
+        items = collector.version_document_json_items(body, source)
+        self.assertEqual(items[0]["publishedAt"][:10], "2026-01-09")
+        self.assertEqual(items[0]["url"], source["articleUrl"])
+        with self.assertRaises(ValueError):
+            collector.version_document_json_items('{"article":{"id":43,"draft":false,"body":"x"}}', source)
+
+    def test_markdown_release_headings_exclude_minor_feature_updates(self):
+        source = {"url": "https://official.example/changelog.md", "modelTitlePattern": r"Scribe\s+v\d+",
+                  "modelMatches": {"eleven-scribe": ["scribe"]}}
+        page = "## November 9, 2026\n### Scribe v3\nNow available\n### Scribe v3 character limits\nFeature\n## November\n### Scribe v4\n"
+        items = collector.markdown_dated_release_headings(page, source)
+        self.assertEqual([(x["title"], x["publishedAt"][:10]) for x in items], [("Scribe v3", "2026-11-09")])
+        self.assertEqual(items[0]["updateType"], "model-card")
