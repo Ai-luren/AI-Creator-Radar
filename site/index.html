@@ -473,13 +473,16 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .release-version-entry a,.release-version-entry button{display:inline-block;margin:5px 10px 0 0;color:var(--blue);font-size:12px}
 .release-tabs .tab small{font-size:11px;color:inherit;font-variant-numeric:tabular-nums}
 .overview-category-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:0 0 16px}
-.overview-category{display:flex;align-items:center;justify-content:space-between;gap:6px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-control);padding:12px;color:var(--muted);font-size:12px;text-align:left}
-.overview-category strong{color:var(--ink);font-size:18px;font-variant-numeric:tabular-nums}
+.overview-category{appearance:none;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:20px 28px 3px;align-items:center;gap:5px;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-control);padding:10px 12px;color:var(--muted);font-size:12px;text-align:left;cursor:pointer}
+.overview-category-label{font-size:12px;line-height:1.4;font-weight:550;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.overview-category-metric{display:flex;align-items:baseline;justify-content:space-between;gap:4px;min-width:0}
+.overview-category:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.overview-category strong{color:var(--ink);font-size:24px;line-height:1;font-weight:650;font-variant-numeric:tabular-nums}
 .overview-category:hover{border-color:var(--blueLine);background:var(--blue2)}
 .news-source-details{margin-top:10px;font-size:13px;color:var(--muted)}.news-source-details summary{cursor:pointer;color:var(--blue);font-weight:600}
 .news-source-details>div{padding:10px 0;border-bottom:1px solid var(--line)}.news-source-details small{display:block;font-size:12px;margin-top:3px}.news-source-details a{display:inline-block;margin:4px 12px 0 0;color:var(--blue);font-size:12px}
 @media(max-width:1180px){.overview-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:760px){.overview-category-grid{gap:6px}.overview-category{padding:10px 8px;min-height:44px}.overview-category strong{font-size:16px}}
+@media(max-width:760px){.overview-category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.overview-category{padding:9px 10px}.overview-category strong{font-size:22px}}
 .desktop-nav-toggle{display:none}
 .nav-group-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;border:0;background:transparent;text-align:left;padding:6px 10px 8px;cursor:pointer;min-height:30px}
 .nav-group-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -519,7 +522,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .model-table-guide{font-size:12px;color:var(--muted);margin-top:8px}.model-table-guide summary{cursor:pointer;color:var(--blue);font-size:12px}.model-table-guide p{margin:4px 0}.topic-v2-filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0 14px}.topic-v2-filters .tabs{margin:0}.topic-v2-filters .compact-select select{min-width:96px}
 .platform-card .card-top{align-items:center;gap:8px}.platform-card .card-brand{flex:1;min-width:0}.platform-favorite{border:1px solid var(--line);background:var(--paper);border-radius:8px;width:32px;height:32px;flex:none;color:var(--muted);display:grid;place-items:center;padding:0;box-sizing:border-box;cursor:pointer}.platform-favorite svg{display:block;width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.platform-favorite[aria-pressed="true"] svg{fill:currentColor}.platform-favorite[aria-pressed="true"]{color:var(--blue);background:var(--blue2);border-color:var(--blueLine)}
 @media(max-width:760px){.platform-favorite{min-width:44px;min-height:44px}}
-.overview-category{flex-wrap:wrap}.overview-stage-count{width:100%;font-size:11px;color:var(--blue)}
+.overview-stage-count{font-size:11px;color:var(--blue);font-weight:550;line-height:1.3;white-space:nowrap}
 
 /* V3 desktop density and social matrix */
 @media(min-width:761px){
@@ -534,7 +537,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 
 /* V3 daily tracking: compact desktop hierarchy, readable mobile stack. */
 @media(min-width:761px){
-.overview-section-heading{margin-bottom:6px}.overview-section-heading h2,.overview-panel-head h2{font-size:16px}.overview-category-grid{gap:6px;margin-bottom:10px}.overview-category{padding:7px 10px;min-height:40px}.overview-category strong{font-size:20px}.overview-stage-count{width:auto;flex-basis:100%;line-height:1.3}
+.overview-section-heading{margin-bottom:6px}.overview-section-heading h2,.overview-panel-head h2{font-size:16px}.overview-category-grid{gap:8px;margin-bottom:12px}
 .overview-dashboard{gap:12px;margin-bottom:12px}.overview-panel{padding:10px 13px}.overview-panel-head{margin-bottom:3px;gap:8px}.overview-panel-head p{margin-top:2px}.overview-row{padding:7px 0;gap:8px}.overview-row h3{font-size:14px;line-height:1.4;margin-top:1px}.overview-row-meta{line-height:1.4}.overview-row-link{padding-top:8px}.overview-row p{margin-top:2px;font-size:12px;line-height:1.4}
 .overview-module-grid{gap:6px;margin-bottom:10px}.overview-module{padding:8px 10px;gap:8px;border-radius:9px}.overview-module-icon{width:26px;height:26px;border-radius:6px}.overview-module-icon svg{width:15px;height:15px}.overview-module-copy small{font-size:12px;line-height:1.35}.overview-module-arrow{font-size:16px}.overview-module-copy strong{font-size:13px}
 .release-company{margin-bottom:12px}.release-company-head{margin-bottom:5px}.release-company-head h2{font-size:16px}.release-grid .release-card{grid-template-columns:minmax(88px,100px) minmax(0,1fr) minmax(116px,155px);gap:10px;padding:9px 12px}.release-card .release-meta{gap:3px}.release-card .release-main h3{margin-bottom:3px;font-size:14px;line-height:1.4}.release-card .release-main p{font-size:13px;line-height:1.5}.release-actions{gap:4px}.release-card .release-actions a,.release-card .release-model-link{font-size:12px}.release-card .release-access{line-height:1.4}.release-version-details{margin-top:4px;font-size:12px}.release-vendor{margin-top:1px}.release-compact-toolbar{margin-bottom:6px}.release-view-controls{gap:6px;margin-bottom:8px}.release-view-controls .compact-select select{min-height:30px;padding:4px 7px}.launch-section{margin-top:12px}
@@ -637,7 +640,7 @@ button.text-link:focus-visible,.rank-model-link:focus-visible,.v34-control:focus
 }
 
 /* V3.4 shared reading components. */
-.overview-count-track{flex-basis:100%;height:3px;border-radius:3px;background:var(--paper2);overflow:hidden}.overview-count-track i{display:block;height:100%;background:var(--accent);border-radius:3px}
+.overview-count-track{display:block;width:100%;height:3px;border-radius:3px;background:var(--paper2);overflow:hidden}.overview-count-track i{display:block;height:100%;background:var(--accent);border-radius:3px}
 .topic-year{display:flex;align-items:center;gap:8px}.topic-year-count{font-size:11px;color:var(--muted);font-weight:500;margin-left:auto;white-space:nowrap}.topic-year-track{width:44px;height:4px;background:var(--paper2);border-radius:3px;overflow:hidden;flex:none}.topic-year-track i{display:block;height:100%;background:var(--accent);border-radius:3px}
 .overview-module-arrow .ui-icon,.topic-arrow .ui-icon,.social-record-arrow .ui-icon{width:15px;height:15px;vertical-align:middle}.overview-module-icon svg{stroke-width:1.75}
 .nav-group-toggle [data-icon]{display:grid;place-items:center}.global-search-icon{display:grid;place-items:center}.global-search-icon .ui-icon{width:16px;height:16px}
@@ -1049,7 +1052,7 @@ function overviewPage(){
  function sourceLink(url,label){return safeUrl(url)!=='#'?'<a class="overview-row-link" href="'+safeUrl(url)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+' ↗</a>':''}
  function panel(title,sub,rows,button,emptyText){return '<section class="overview-panel"><header class="overview-panel-head"><div><h2>'+esc(title)+'</h2><p>'+esc(sub)+'</p></div>'+button+'</header><div class="overview-list">'+(rows||'<p class="overview-empty">'+esc(emptyText)+'</p>')+'</div></section>'}
  var categories=['video','image','music','tts','audio','llm'],recentStages=((releaseData||{}).verifiedStages||[]).filter(function(x){return withinDays(x.stageDate,7,now)});
- var maxCategoryCount=Math.max(1,...categories.map(function(c){return allRecent.filter(function(x){return x.category===c}).length}));var counts=categories.map(function(c){var count=allRecent.filter(function(x){return x.category===c}).length,stages=recentStages.filter(function(x){return x.category===c}).length;return '<button class="overview-category" data-view="today" data-release-target="'+c+'" data-release-mode-target="confirmed" data-release-window-target="7"><span>'+esc(categoryName(c))+'</span><strong>'+esc(releaseMissing?'—':count)+'</strong>'+(!releaseMissing?'<span class="overview-count-track" aria-hidden="true"><i style="width:'+count/maxCategoryCount*100+'%"></i></span>':'')+(stages?'<small class="overview-stage-count">+'+stages+' 上线</small>':'')+'</button>'}).join('');
+ var maxCategoryCount=Math.max(1,...categories.map(function(c){return allRecent.filter(function(x){return x.category===c}).length}));var counts=categories.map(function(c){var count=allRecent.filter(function(x){return x.category===c}).length,stages=recentStages.filter(function(x){return x.category===c}).length;return '<button type="button" class="overview-category" data-view="today" data-release-target="'+c+'" data-release-mode-target="confirmed" data-release-window-target="7" aria-label="'+esc(categoryName(c)+'：'+(releaseMissing?'正式发布数据暂缺':count+' 次正式发布')+(stages?'，另有 '+stages+' 次上线阶段':''))+'"><span class="overview-category-label">'+esc(c==='audio'?'音频 / 实时语音':categoryName(c))+'</span><span class="overview-category-metric"><strong>'+esc(releaseMissing?'—':count)+'</strong><small class="overview-stage-count"'+(stages?'':' aria-hidden="true"')+'>'+(stages?'+'+stages+' 上线':'')+'</small></span><span class="overview-count-track" aria-hidden="true">'+(!releaseMissing?'<i style="width:'+count/maxCategoryCount*100+'%"></i>':'')+'</span></button>'}).join('');
  var confirmed=allRecent.filter(releaseEventMatches),seen={},shortlist=confirmed.filter(function(x){var c=x.category;seen[c]=(seen[c]||0)+1;return seen[c]<=1}).slice(0,4);
  if(shortlist.length<4)shortlist=shortlist.concat(confirmed.filter(function(x){return !shortlist.includes(x)}).slice(0,4-shortlist.length));
  var recentRows=shortlist.map(function(x){return row(x.modelName,[overviewDateLabel(x.publishedAt),categoryName(x.category),x.vendor].join(' · '),x.versions.length>1?x.versions.length+' 个型号':'',sourceLink(x.url,'证据'))}).join('');
@@ -1084,7 +1087,7 @@ function overviewPage(){
  (failed.length?'<p class="overview-notice" role="status">部分概览数据未加载，以下内容可能不完整。请刷新重试。</p>':'')+
  (releaseStale?'<p class="overview-notice">发布清单截止 '+esc(dataDate)+'，并非今日完整数据。</p>':'')+
  (delayed.length?'<p class="overview-notice" role="status">同步延迟 · '+esc(delayed.map(function(x){return x[0]}).join('、'))+'；以下保留最近已采集数据。</p>':'')+
- '<div class="overview-section-heading"><h2>近 7 天 · 模型发布</h2><span>正式发布 / 上线阶段分开</span></div><div class="overview-category-grid" aria-label="近七天发布事件计数">'+counts+'</div>'+
+ '<div class="overview-section-heading"><h2>近 7 天 · 模型发布</h2><span>蓝条：正式发布相对数量 · 上线另计</span></div><div class="overview-category-grid" aria-label="近七天发布事件计数">'+counts+'</div>'+
  '<div class="overview-grid overview-dashboard"><div class="overview-column">'+panel('模型重点','近 7 天 · 创作优先',recentRows,action('today','全部上新','data-release-target="all" data-release-mode-target="confirmed"'),releaseMissing?'发布数据暂不可用。':'近 7 天暂无符合条件的已核实发布证据。')+'</div><div class="overview-column">'+panel('重点 AI 资讯','近期重点报道',newsRows,action('feeds','完整资讯','data-briefing-target="combined"'),'暂无可展示的资讯。')+'</div></div>'+
  '<div class="overview-section-heading"><h2>快捷入口</h2><span>9 个功能入口</span></div><div class="overview-module-grid">'+directory+'</div>'+
  '<details class="source-health"><summary>数据状态 · '+(monitorStale?'信源检查延迟':'最近检查 '+esc(overviewTime(monitor.checkedAt)))+'</summary><p>发布清单生成 '+esc(overviewTime(releaseData&&releaseData.updatedAt))+' · '+(monitor?Number(monitor.failedSources||0)+' 个采集异常':'检查状态暂不可用')+'；类别为零表示当前清单没有对应正式发布证据，不代表没有新模型；明确上线阶段另计。待复核不计入正式事件。</p><p>AIHOT 日报刊期 '+esc(briefIssueDay(state.aihotDaily)||'待确认')+' · 橘鸦早报刊期 '+esc(briefIssueDay(state.juyaDaily)||'待确认')+'。</p><p>最近抓取（北京时间）：'+freshness.map(function(x){return esc(x[0]+' '+overviewTime(x[1])+(x[2]?'（延迟或未记录）':''))}).join(' · ')+'</p>'+action('today','查看待复核 '+summary.pending.length+' 条','data-release-target="all" data-release-mode-target="pending"')+'</details>'+
