@@ -1,11 +1,11 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-26T17:48:59+00:00",
+  "checkedAt": "2026-11-26T17:56:34+00:00",
   "summary": {
     "uniqueOfficialUrls": 27,
-    "attempted": 3,
+    "attempted": 0,
     "articleDateVerified": 7,
-    "newlyCheckedVerified": 1,
+    "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
     "unresolved": 14,
     "notAnnouncement": 2,
