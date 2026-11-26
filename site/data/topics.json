@@ -1008,6 +1008,26 @@
         ]
       },
       {
+        "date": "2026-10-06",
+        "kind": "模型",
+        "title": "Nano Banana 2.1 模型卡公开记录",
+        "summary": "官方模型卡更新时间为 10 月 6 日，不能自动视作首发日。",
+        "url": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
+        "auditId": "review-20261126-nano-banana-nano-banana-2-1-official-introduction-20261006",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "nano-banana",
+            "modelVersionId": "nano-banana-2-1",
+            "matchedName": "Nano Banana 2.1"
+          }
+        ]
+      },
+      {
         "date": "2026-09-30",
         "kind": "模型",
         "title": "Gemini 4 Argon",
@@ -2525,6 +2545,46 @@
         ]
       },
       {
+        "date": "2025-06-17",
+        "kind": "模型",
+        "title": "Midjourney V7 成为默认版本",
+        "summary": "官方文档列出默认版本起始时间；此处记录默认切换而非首次开放。",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "auditId": "review-20261126-midjourney-midjourney-v7-general-availability-20250617",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v7",
+            "matchedName": "Midjourney V7"
+          }
+        ]
+      },
+      {
+        "date": "2025-04-03",
+        "kind": "模型",
+        "title": "Midjourney V7 首次发布",
+        "summary": "官方版本文档记载首发日为 4 月 3 日；不推定当日为默认版本。",
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "auditId": "review-20261126-midjourney-midjourney-v7-release-20250403",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v7",
+            "matchedName": "Midjourney V7"
+          }
+        ]
+      },
+      {
         "date": "2024-07-30",
         "kind": "模型",
         "title": "Midjourney 发布 V6.1",
@@ -3766,6 +3826,26 @@
           {
             "modelFamilyId": "gpt-image",
             "matchedName": "GPT Image"
+          }
+        ]
+      },
+      {
+        "date": "2025-04-23",
+        "kind": "模型",
+        "title": "GPT Image 1 首次进入 API",
+        "summary": "官方公布具备生成与编辑能力的 gpt-image-1 API；不等同于底层 4o 图像能力首次推出。",
+        "url": "https://openai.com/index/image-generation-api/",
+        "auditId": "review-20261126-gpt-image-gpt-image-1-api-availability-20250423",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-1",
+            "matchedName": "GPT Image 1"
           }
         ]
       },
@@ -5250,6 +5330,26 @@
         ]
       },
       {
+        "date": "2025-03-11",
+        "kind": "模型",
+        "title": "Seedream 2.0 官方技术资料公开",
+        "summary": "官方技术页详细介绍中英双语图像生成模型，技术资料公开并非初次上线。",
+        "url": "https://seed.bytedance.com/zh/seedream2_0",
+        "auditId": "review-20261126-seedream-2-0-official-introduction-20250311",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-2-0",
+            "matchedName": "Seedream 2.0"
+          }
+        ]
+      },
+      {
         "date": "2025-01-22",
         "kind": "模型",
         "title": "Seed 1.5（Doubao-1.5-pro）发布",
@@ -5271,6 +5371,26 @@
           {
             "modelFamilyId": "seedream",
             "matchedName": "Seedream"
+          }
+        ]
+      },
+      {
+        "date": "2024-12",
+        "kind": "模型",
+        "title": "Seedream 2.0 已接入豆包与即梦",
+        "summary": "官方技术页回顾 2024 年 12 月初已接入相关产品，保留月份精度；最早首发日未知。",
+        "url": "https://seed.bytedance.com/zh/seedream2_0",
+        "auditId": "review-20261126-seedream-2-0-early-access-202412",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-2-0",
+            "matchedName": "Seedream 2.0"
           }
         ]
       },
@@ -6850,6 +6970,46 @@
         ]
       },
       {
+        "date": "2026-10-09",
+        "kind": "模型",
+        "title": "Qwen-Image-2.1 Pro 国际 API 上线记录",
+        "summary": "官方国际部署日志明确列出该型号。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-1-pro-api-availability-20261009",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-1-pro",
+            "matchedName": "Qwen-Image 2.1 Pro"
+          }
+        ]
+      },
+      {
+        "date": "2026-10-09",
+        "kind": "模型",
+        "title": "Qwen-Image-2.1 Turbo 国际 API 上线记录",
+        "summary": "官方国际部署日志明确列出该型号。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-1-turbo-api-availability-20261009",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-1-turbo",
+            "matchedName": "Qwen-Image 2.1 Turbo"
+          }
+        ]
+      },
+      {
         "date": "2026-09-21",
         "kind": "模型",
         "title": "Qwen-Audio-3.1-ASR-Flash-Streaming 实时识别模型",
@@ -7009,6 +7169,26 @@
         ]
       },
       {
+        "date": "2026-08-06",
+        "kind": "模型",
+        "title": "Qwen-Image-3.0 Pro 全球部署记录",
+        "summary": "全球部署日志另列 8 月 6 日；保留两个地区节点。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-3-0-pro-api-availability-20260806",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-3-0-pro",
+            "matchedName": "Qwen-Image 3.0 Pro"
+          }
+        ]
+      },
+      {
         "date": "2026-08-04",
         "kind": "模型",
         "title": "Qwen-Image-3.0 图像生成与编辑模型上线",
@@ -7070,6 +7250,26 @@
           "audio"
         ],
         "verificationUrl": "https://help.aliyun.com/zh/model-studio/qwen3-7-flash"
+      },
+      {
+        "date": "2026-07-20",
+        "kind": "模型",
+        "title": "Qwen-Image-3.0 Pro 国际部署记录",
+        "summary": "国际部署日志记载 7 月 20 日，不能与全球部署混为一谈。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-3-0-pro-api-availability-20260720",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-3-0-pro",
+            "matchedName": "Qwen-Image 3.0 Pro"
+          }
+        ]
       },
       {
         "date": "2026-06-15",
@@ -7188,6 +7388,46 @@
           {
             "modelFamilyId": "wan",
             "matchedName": "Wan 2.7"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-03",
+        "kind": "模型",
+        "title": "Qwen-Image-2.0 国际 API 上线记录",
+        "summary": "国际部署日志列出标准版及 2026-03-03 快照。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-0-api-availability-20260303",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-0",
+            "matchedName": "Qwen-Image 2.0"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-03",
+        "kind": "模型",
+        "title": "Qwen-Image-2.0 Pro 国际 API 快照记录",
+        "summary": "国际部署日志列出 Pro 2026-03-03 快照；不推定此前未发布。",
+        "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "auditId": "review-20261126-qwen-image-qwen-image-2-0-pro-api-availability-20260303",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "image"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-0-pro",
+            "matchedName": "Qwen-Image 2.0 Pro"
           }
         ]
       },
