@@ -148,7 +148,13 @@
       "gpt-live": [
         "re:\\bGPT[- ]Live[- ]?\\d*(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "allowProductAnnouncements": true,
+    "announcementHosts": [
+      "openai.com",
+      "www.openai.com"
+    ],
+    "category": "llm"
   },
   {
     "id": "vidu-api-updates",
@@ -866,6 +872,30 @@
       ],
       "eleven-tts": [
         "re:\\bEleven\\s+v\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "sandai-research",
+    "name": "Sand.ai 官方研究与发布目录",
+    "type": "html",
+    "url": "https://sand.ai/research/",
+    "vendor": "Sand.ai",
+    "official": true,
+    "active": true,
+    "updateType": "announcement",
+    "modelMatches": {
+      "magi-2": [
+        "re:\\bMAGI[- ]2\\b"
+      ],
+      "magi-1": [
+        "re:\\bMAGI[- ]1(?:\\.1)?\\b"
+      ],
+      "davinci-magihuman": [
+        "daVinci-MAGIHuman"
+      ],
+      "gaga-1": [
+        "GAGA-1"
       ]
     }
   }

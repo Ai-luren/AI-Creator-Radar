@@ -403,6 +403,27 @@ def html_page_items(page: str, source: dict) -> list[dict]:
     parser.close()
     blocks = sorted(parser.blocks, key=lambda block: block["sequence"])
 
+    if source.get("id") == "sandai-research":
+        # Research cards carry the publication date inside the enclosing link.
+        # Never borrow a date from a neighbouring card or promote a research
+        # announcement to a confirmed model release.
+        candidates = []
+        for block in blocks:
+            if block["tag"] != "a":
+                continue
+            url = valid_article_url(block["attrs"].get("href", ""), source["url"])
+            parts = urlsplit(url)
+            if parts.hostname not in {"sand.ai", "www.sand.ai"} or not parts.path.startswith("/blog/"):
+                continue
+            title = clean_text(block["text"])
+            published = find_date(title)
+            model_id = match_model(title, source)
+            if model_id and published and len(title) <= 220:
+                candidates.append({"title": title, "summary": "", "url": url,
+                                   "publishedAt": published, "modelId": model_id,
+                                   "updateType": "announcement"})
+        return dedupe_candidates(candidates)
+
     if source.get("type") == "niji-release-index":
         return niji_release_items(blocks, source)
     if source.get("type") == "dated-headings":
@@ -532,11 +553,18 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
         summary = clean_text(child_text(entry, {"description", "summary", "content", "encoded"}))
         model_id = match_model(title, source) or match_model(title + " " + summary, source)
         published = parse_date(child_text(entry, {"pubdate", "published", "date", "created"})) or parse_date(child_text(entry, {"updated"}))
-        if not model_id or not is_release_candidate(title, published, source.get("allowVersionOnly", False)):
+        url = entry_link(entry)
+        model_release = model_id and is_release_candidate(title, published, source.get("allowVersionOnly", False))
+        product = source.get("allowProductAnnouncements") and published and re.search(
+            r"\b(?:introducing|launch(?:ing|es)?|release(?:d)?|availability|pricing|subscription|credits|access|upgrade|update(?:s|d)?|new feature|now available)\b",
+            title, re.I
+        ) and urlsplit(url).scheme == "https" and urlsplit(url).hostname in source.get("announcementHosts", [])
+        if not model_release and not product:
             continue
         results.append({
-            "title": title, "summary": summary, "url": entry_link(entry),
-            "publishedAt": published, "modelId": model_id,
+            "title": title, "summary": summary, "url": url,
+            "publishedAt": published, "modelId": model_id if model_release else None,
+            **({"updateType": "product-announcement"} if not model_release else {}),
         })
     return results
 
@@ -571,7 +599,7 @@ def markdown_news_items(page: str, source: dict) -> list[dict]:
 
 
 def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
-    model_id = raw.get("modelId") or match_model(raw["title"] + " " + raw.get("summary", ""), source)
+    model_id = None if raw.get("updateType") == "product-announcement" else raw.get("modelId") or match_model(raw["title"] + " " + raw.get("summary", ""), source)
     model = models.get(model_id, {})
     url = normalize_url(urljoin(source["url"], raw.get("url") or source["url"]))
     identity = url if url != normalize_url(source["url"]) else source["id"] + "|" + raw["title"].casefold()
@@ -585,7 +613,7 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         version_match = re.search(version_pattern, raw["title"] + " " + raw.get("summary", ""), flags=re.I)
         if version_match:
             version = clean_text(version_match.group(1))
-    update_type = source.get("updateType", "release")
+    update_type = raw.get("updateType") or source.get("updateType", "release")
     title_lower = raw["title"].casefold()
     if update_type in {"release", "model-release", "model-card"} and any(term in title_lower for term in PRE_RELEASE_TERMS):
         update_type = "announcement"

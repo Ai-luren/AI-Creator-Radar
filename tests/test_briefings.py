@@ -1,7 +1,10 @@
 import unittest
+import tempfile
+import json
+from pathlib import Path
 from unittest.mock import patch
 
-from scripts.collect_briefings import compact_aihot, compact_juya, find_juya_url, JUYA_ARCHIVE_URL, JUYA_RSS_URL
+from scripts.collect_briefings import compact_aihot, compact_juya, write_snapshot, find_juya_url, JUYA_ARCHIVE_URL, JUYA_RSS_URL
 
 
 class BriefingCollectorTests(unittest.TestCase):
@@ -46,6 +49,16 @@ class BriefingCollectorTests(unittest.TestCase):
         fetch.side_effect = [OSError("offline"), b'<rss><channel/></rss>']
         with self.assertRaises(ValueError):
             find_juya_url()
+
+    def test_snapshot_rejects_regressed_or_undated_edition(self):
+        with tempfile.TemporaryDirectory() as root:
+            path = Path(root) / "daily.json"
+            current = {"title": "AI 日报 2026 年 11 月 26 日", "items": []}
+            write_snapshot(path, current)
+            for title in ("2026-11-25", "unknown"):
+                with self.assertRaises(ValueError):
+                    write_snapshot(path, {"title": title, "items": []})
+                self.assertEqual(json.loads(path.read_text()), current)
 
 
 if __name__ == "__main__":

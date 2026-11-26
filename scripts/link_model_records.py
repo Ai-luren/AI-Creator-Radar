@@ -12,6 +12,7 @@ CHRONICLE_CONFIG = ROOT / "config/chronicle-release-links.json"
 
 RECORD_SECTIONS = {
     "site/data/model-evaluations.json": ("items", ("modelName", "title", "summary")),
+    "site/data/model-updates.json": ("items", ("title", "summary")),
     "site/data/aihot-daily.json": ("items", ("title", "summary")),
     "site/data/juya-daily.json": ("items", ("title", "summary")),
     "site/data/aihot-items.json": ("items", ("title", "summary", "reason")),
@@ -172,6 +173,11 @@ def main() -> int:
         if apply_records(document, section, fields, families):
             path.write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             updated.append(relative)
+    try:
+        from scripts.ranking_identity import update_rankings
+    except ModuleNotFoundError:
+        from ranking_identity import update_rankings
+    print("Primary ranking identity coverage:", update_rankings(families))
     print("Updated model references in " + (", ".join(updated) if updated else "no records"))
     return 0
 
