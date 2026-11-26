@@ -1,0 +1,240 @@
+{
+  "schema": "lead-resolution/v1",
+  "checkedAt": "2026-11-26T17:23:36+00:00",
+  "summary": {
+    "uniqueOfficialUrls": 10,
+    "attempted": 10,
+    "articleDateVerified": 4,
+    "newlyCheckedVerified": 4,
+    "awaitingProbe": 0,
+    "unresolved": 4,
+    "notAnnouncement": 2
+  },
+  "items": [
+    {
+      "id": "recovery-550f4d88633d42452645",
+      "urlKey": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "leadIds": [
+        "17beaffacb91f706b08c",
+        "c69166643fbc30c82eff"
+      ],
+      "discoverySourceIds": [
+        "olshansk-anthropic-feed",
+        "turing-anthropic-feed"
+      ],
+      "reportedDates": [
+        "2026-10-27"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "status": "not-model-announcement",
+      "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
+    },
+    {
+      "id": "recovery-be0aed2f51056a6d6c6f",
+      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "leadIds": [
+        "1b7321ac8d720e8a5de2"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-11-18"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "status": "article-date-verified",
+      "title": "Introducing Gemini 4 Neon",
+      "modelId": "gemini",
+      "vendor": "Google",
+      "category": "llm",
+      "articlePublishedAt": "2026-11-18T00:00:00Z",
+      "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
+    },
+    {
+      "id": "recovery-8f6af8c44a4a1bfb5de3",
+      "urlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "leadIds": [
+        "aa9f4ac4f7e2b5726e42",
+        "c706997129dfe347f996"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-11-17"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
+      "status": "date-unresolved",
+      "title": "Introducing GPT-6.2 Astra and Sol",
+      "modelId": "gpt"
+    },
+    {
+      "id": "recovery-d7c21c501eb23f12ba47",
+      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "leadIds": [
+        "d5fac904fcdff033002d"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-11-12"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "status": "article-date-verified",
+      "title": "Introducing Gemini 4 Hydrogen",
+      "modelId": "gemini",
+      "vendor": "Google",
+      "category": "llm",
+      "articlePublishedAt": "2026-11-12T00:00:00Z",
+      "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
+    },
+    {
+      "id": "recovery-1f23fe23a180f18b31eb",
+      "urlKey": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+      "url": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+      "leadIds": [
+        "6b15ddd9110bfe6e00e2"
+      ],
+      "discoverySourceIds": [
+        "turing-anthropic-feed"
+      ],
+      "reportedDates": [
+        "2026-11-09"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "status": "article-date-verified",
+      "title": "Claude Fable 5.2 and Mythos 5.2",
+      "modelId": "claude",
+      "vendor": "Anthropic",
+      "category": "llm",
+      "articlePublishedAt": "2026-11-09T00:00:00Z",
+      "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
+    },
+    {
+      "id": "recovery-a989f1582084d0cf153c",
+      "urlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "leadIds": [
+        "3a9d309f17e3331aaf5c"
+      ],
+      "discoverySourceIds": [
+        "olshansk-anthropic-feed"
+      ],
+      "reportedDates": [
+        "2026-11-09"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "status": "article-date-verified",
+      "title": "Claude Fable 5.2 and Mythos 5.2",
+      "modelId": "claude",
+      "vendor": "Anthropic",
+      "category": "llm",
+      "articlePublishedAt": "2026-11-09T00:00:00Z",
+      "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
+    },
+    {
+      "id": "recovery-295354ff422b0d4db922",
+      "urlKey": "https://openai.com/index/introducing-images-2-6",
+      "url": "https://openai.com/index/introducing-images-2-6",
+      "leadIds": [
+        "0f97d6774e4dfa345823",
+        "fb916bcd70750bb748c5"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-11-04"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-a92d7b7ef0e2da4d5922",
+      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "leadIds": [
+        "f6f1c9902b71cf51798f"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-10-28"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "status": "not-model-announcement",
+      "title": "Gemini 4 Carbon: our next frontier model"
+    },
+    {
+      "id": "recovery-35e334c198740f741663",
+      "urlKey": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "leadIds": [
+        "72359e3d5f2a94123af0"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-10-26"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
+      "status": "date-unresolved",
+      "title": "GPT-6.1Terra",
+      "modelId": "gpt"
+    },
+    {
+      "id": "recovery-12251940b3b4d2234012",
+      "urlKey": "https://x.ai/news/grok-voice-3",
+      "url": "https://x.ai/news/grok-voice-3",
+      "leadIds": [
+        "799de59e8080adb97e35"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-10-14"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
+      "status": "family-unresolved",
+      "title": "Introducing Grok Voice 3.0"
+    }
+  ]
+}

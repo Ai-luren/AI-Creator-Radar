@@ -1,21 +1,35 @@
 {
-  "checkedAt": "2026-11-26T17:14:40.788260+00:00",
+  "checkedAt": "2026-11-26T17:23:37.813821+00:00",
   "sampleReviewedAt": "2026-11-27",
   "sampleScope": "Fixed purposive sample of official dated model announcements, independently inspected; not exhaustive or random. One sample per publication event, including multiple models in a single event.",
-  "collectorCheckedAt": "2026-11-26T17:14:35Z",
+  "collectorCheckedAt": "2026-11-26T17:23:28Z",
   "allSample": {
     "events": 8,
     "discovered": 5,
     "retainedDated": 4,
     "currentDated": 3,
+    "recoveredDated": 1,
+    "endToEndDated": 5,
     "canonicalComplete": 8,
     "dateConflicts": 1
+  },
+  "recoveryCheckedAt": "2026-11-26T17:23:36+00:00",
+  "recoverySummary": {
+    "uniqueOfficialUrls": 10,
+    "attempted": 10,
+    "articleDateVerified": 4,
+    "newlyCheckedVerified": 4,
+    "awaitingProbe": 0,
+    "unresolved": 4,
+    "notAnnouncement": 2
   },
   "activeWindow": {
     "events": 8,
     "discovered": 5,
     "retainedDated": 4,
     "currentDated": 3,
+    "recoveredDated": 1,
+    "endToEndDated": 5,
     "canonicalComplete": 8,
     "dateConflicts": 1
   },
@@ -24,6 +38,9 @@
       "id": "seedream-55",
       "modelFamilyId": "seedream",
       "eventDate": "2026-11-09",
+      "recoveredDated": false,
+      "endToEndDated": true,
+      "recoveryFirstVerifiedLagDays": null,
       "modelNames": [
         "Seedream 5.5"
       ],
@@ -51,6 +68,9 @@
       "id": "claude-fable-mythos-52",
       "modelFamilyId": "claude",
       "eventDate": "2026-11-09",
+      "recoveredDated": true,
+      "endToEndDated": true,
+      "recoveryFirstVerifiedLagDays": 17,
       "modelNames": [
         "Claude Fable 5.2",
         "Claude Mythos 5.2"
@@ -76,6 +96,9 @@
       "id": "gpt-62-astra-sol",
       "modelFamilyId": "gpt",
       "eventDate": "2026-11-17",
+      "recoveredDated": false,
+      "endToEndDated": true,
+      "recoveryFirstVerifiedLagDays": null,
       "modelNames": [
         "GPT-6.2 Astra",
         "GPT-6.2 Sol"
@@ -101,6 +124,9 @@
       "id": "scribe-medical",
       "modelFamilyId": "eleven-scribe",
       "eventDate": "2026-11-17",
+      "recoveredDated": false,
+      "endToEndDated": false,
+      "recoveryFirstVerifiedLagDays": null,
       "modelNames": [
         "Scribe v3 Live Medical"
       ],
@@ -122,6 +148,9 @@
       "id": "kling-image-40",
       "modelFamilyId": "kling-image",
       "eventDate": "2026-11-18",
+      "recoveredDated": false,
+      "endToEndDated": true,
+      "recoveryFirstVerifiedLagDays": null,
       "modelNames": [
         "Kling Image 4.0"
       ],
@@ -146,6 +175,9 @@
       "id": "glm-54",
       "modelFamilyId": "glm",
       "eventDate": "2026-11-23",
+      "recoveredDated": false,
+      "endToEndDated": false,
+      "recoveryFirstVerifiedLagDays": null,
       "modelNames": [
         "GLM-5.4"
       ],
@@ -167,6 +199,9 @@
       "id": "niji-8",
       "modelFamilyId": "midjourney",
       "eventDate": "2026-11-24",
+      "recoveredDated": false,
+      "endToEndDated": false,
+      "recoveryFirstVerifiedLagDays": null,
       "modelNames": [
         "Niji 8"
       ],
@@ -188,6 +223,9 @@
       "id": "magi-2",
       "modelFamilyId": "magi-2",
       "eventDate": "2026-11-24",
+      "recoveredDated": false,
+      "endToEndDated": true,
+      "recoveryFirstVerifiedLagDays": null,
       "modelNames": [
         "MAGI-2"
       ],
