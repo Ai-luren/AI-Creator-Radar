@@ -1,28 +1,28 @@
 {
-  "checkedAt": "2026-11-26T17:44:53.748918+00:00",
+  "checkedAt": "2026-11-26T17:48:59.794653+00:00",
   "sampleReviewedAt": "2026-11-27",
   "sampleScope": "Fixed purposive sample of official dated model announcements, independently inspected; not exhaustive or random. One sample per publication event, including multiple models in a single event.",
-  "collectorCheckedAt": "2026-11-26T17:44:42Z",
+  "collectorCheckedAt": "2026-11-26T17:48:51Z",
   "directObservationMethod": "raw-source-observations",
   "allSample": {
     "events": 8,
     "discovered": 5,
     "retainedDated": 4,
     "currentDated": 4,
-    "recoveredDated": 2,
-    "endToEndDated": 5,
+    "recoveredDated": 3,
+    "endToEndDated": 6,
     "canonicalComplete": 8,
     "dateConflicts": 1
   },
-  "recoveryCheckedAt": "2026-11-26T17:44:51+00:00",
+  "recoveryCheckedAt": "2026-11-26T17:48:59+00:00",
   "recoverySummary": {
     "uniqueOfficialUrls": 27,
-    "attempted": 10,
-    "articleDateVerified": 6,
-    "newlyCheckedVerified": 0,
+    "attempted": 3,
+    "articleDateVerified": 7,
+    "newlyCheckedVerified": 1,
     "awaitingProbe": 0,
     "unresolved": 14,
-    "notAnnouncement": 3,
+    "notAnnouncement": 2,
     "weakCandidateDatesCorrected": 10
   },
   "activeWindow": {
@@ -30,8 +30,8 @@
     "discovered": 5,
     "retainedDated": 4,
     "currentDated": 4,
-    "recoveredDated": 2,
-    "endToEndDated": 5,
+    "recoveredDated": 3,
+    "endToEndDated": 6,
     "canonicalComplete": 8,
     "dateConflicts": 1
   },
@@ -126,9 +126,9 @@
       "id": "scribe-medical",
       "modelFamilyId": "eleven-scribe",
       "eventDate": "2026-11-17",
-      "recoveredDated": false,
-      "endToEndDated": false,
-      "recoveryFirstVerifiedLagDays": null,
+      "recoveredDated": true,
+      "endToEndDated": true,
+      "recoveryFirstVerifiedLagDays": 9,
       "modelNames": [
         "Scribe v3 Live Medical"
       ],

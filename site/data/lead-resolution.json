@@ -1,92 +1,17 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-26T17:44:51+00:00",
+  "checkedAt": "2026-11-26T17:48:59+00:00",
   "summary": {
     "uniqueOfficialUrls": 27,
-    "attempted": 10,
-    "articleDateVerified": 6,
-    "newlyCheckedVerified": 0,
+    "attempted": 3,
+    "articleDateVerified": 7,
+    "newlyCheckedVerified": 1,
     "awaitingProbe": 0,
     "unresolved": 14,
-    "notAnnouncement": 3,
+    "notAnnouncement": 2,
     "weakCandidateDatesCorrected": 10
   },
   "items": [
-    {
-      "id": "recovery-f5390a2aecae5dc01ca9",
-      "urlKey": "https://nijijourney.com/blog/niji-8",
-      "url": "https://nijijourney.com/blog/niji-8",
-      "leadIds": [
-        "ecab231e4cc0db197f84"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "Niji 8",
-        "Niji V8",
-        "Welcome to Niji 8!"
-      ],
-      "reportedDates": [
-        "2026-11-24"
-      ],
-      "checkedAt": "2026-11-26T17:44:51+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
-      "status": "fetch-failed",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
-    },
-    {
-      "id": "recovery-f1db7ce98881d8901597",
-      "urlKey": "https://z.ai/blog/glm-5.4",
-      "url": "https://z.ai/blog/glm-5.4",
-      "leadIds": [
-        "4c53475e2cd1ac2dfd15"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4",
-        "GLM-5.4 docs",
-        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
-      ],
-      "reportedDates": [
-        "2026-11-23"
-      ],
-      "checkedAt": "2026-11-26T17:44:51+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
-      "status": "identity-unresolved"
-    },
-    {
-      "id": "recovery-0f77f061dfedac16453d",
-      "urlKey": "https://docs.z.ai/guides/llm/glm-5.4",
-      "url": "https://docs.z.ai/guides/llm/glm-5.4",
-      "leadIds": [
-        "4c53475e2cd1ac2dfd15"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4",
-        "GLM-5.4 docs",
-        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
-      ],
-      "reportedDates": [
-        "2026-11-23"
-      ],
-      "checkedAt": "2026-11-26T17:44:51+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
-      "status": "date-unresolved",
-      "title": "GLM-5.4",
-      "modelId": "glm"
-    },
     {
       "id": "recovery-be0aed2f51056a6d6c6f",
       "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon",
@@ -199,13 +124,17 @@
         "olshansk-anthropic-feed",
         "turing-anthropic-feed"
       ],
+      "titleHintsChecked": [
+        "Expanding our partnership with GSA to bring Claude to all levels of government"
+      ],
+      "resolverRevision": 2,
       "reportedDates": [
         "2026-10-27"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-26T17:48:59+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-27T17:48:59+00:00",
       "status": "not-model-announcement",
       "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
     },
@@ -298,6 +227,81 @@
       "articlePublishedAt": "2025-09-23T18:17:00Z"
     },
     {
+      "id": "recovery-f5390a2aecae5dc01ca9",
+      "urlKey": "https://nijijourney.com/blog/niji-8",
+      "url": "https://nijijourney.com/blog/niji-8",
+      "leadIds": [
+        "ecab231e4cc0db197f84"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "Niji 8",
+        "Niji V8",
+        "Welcome to Niji 8!"
+      ],
+      "reportedDates": [
+        "2026-11-24"
+      ],
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
+      "status": "fetch-failed",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "recovery-f1db7ce98881d8901597",
+      "urlKey": "https://z.ai/blog/glm-5.4",
+      "url": "https://z.ai/blog/glm-5.4",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-0f77f061dfedac16453d",
+      "urlKey": "https://docs.z.ai/guides/llm/glm-5.4",
+      "url": "https://docs.z.ai/guides/llm/glm-5.4",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
+      "status": "date-unresolved",
+      "title": "GLM-5.4",
+      "modelId": "glm"
+    },
+    {
       "id": "recovery-93dc5dee213209423c58",
       "urlKey": "https://deepmind.google/models/model-cards/gemini-4-neon",
       "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
@@ -357,15 +361,21 @@
         "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right",
         "Scribe v3 Live Medical"
       ],
+      "resolverRevision": 2,
       "reportedDates": [
         "2026-11-17"
       ],
-      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "checkedAt": "2026-11-26T17:48:59+00:00",
       "firstAttemptAt": "2026-11-26T17:41:00+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-27T17:44:51+00:00",
-      "status": "not-model-announcement",
-      "title": "Scribe v3 Live Medical helps conversational agents get clinical details right"
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-27T17:48:59+00:00",
+      "status": "article-date-verified",
+      "title": "Scribe v3 Live Medical helps conversational agents get clinical details right",
+      "modelId": "eleven-scribe",
+      "vendor": "ElevenLabs",
+      "category": "audio",
+      "articlePublishedAt": "2026-11-17T12:00:00Z",
+      "firstVerifiedAt": "2026-11-26T17:48:59+00:00"
     },
     {
       "id": "recovery-8f6af8c44a4a1bfb5de3",
@@ -566,13 +576,17 @@
       "discoverySourceIds": [
         "llm-world-json"
       ],
+      "titleHintsChecked": [
+        "Gemini 4 Carbon"
+      ],
+      "resolverRevision": 2,
       "reportedDates": [
         "2026-10-28"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-26T17:48:59+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-27T17:48:59+00:00",
       "status": "not-model-announcement",
       "title": "Gemini 4 Carbon: our next frontier model"
     },
