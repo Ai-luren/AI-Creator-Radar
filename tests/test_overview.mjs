@@ -272,3 +272,11 @@ test('Scribe variants form one reviewed batch with two preserved versions',()=>{
 test('shared summary grid is used by platform view and opportunities',async()=>{const {run,node}=setup();await run('loadAllForTests()');run("setView('social',{socialView:'platforms'})");assert.match(node('content').innerHTML,/social-v2-stats summary-grid/);run("setView('opportunities')");assert.match(node('content').innerHTML,/opportunity-summary summary-grid/);});
 
  test('follower sums exclude unknown and unverified counts, deduplicate identical accounts and preserve zero',async()=>{const {run}=setup();assert.equal(run("socialFollowerTotal([{status:'verified',platform:'X',url:'https://x.com/a',followers:100},{status:'verified',platform:'X',url:'https://x.com/a',followers:100},{status:'review',platform:'X',url:'https://x.com/b',followers:500},{status:'verified',platform:'YouTube',url:'https://youtube.com/@a',followers:0},{status:'verified',platform:'Instagram',followers:null}]).total"),100);assert.equal(run("socialFollowerTotal([{status:'verified',platform:'X',url:'https://x.com/a',followers:0}]).count"),1);assert.equal(run("socialFollowerFormat(236000)"),'23.6万');});
+
+test('overview explicitly identifies delayed snapshots without treating them as current',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ run("state.modelMonitorStatus={checkedAt:'2000-01-01T00:00:00Z'};state.aihot.updatedAt='2000-01-01T00:00:00Z';state.aihotDaily.fetchedAt='2000-01-01T00:00:00Z';state.juyaDaily.fetchedAt='2000-01-01T00:00:00Z';setView('overview');render()");
+ assert.match(node('content').innerHTML,/同步延迟 · [^<]*模型信源[^<]*AIHOT 精选[^<]*AIHOT 日报[^<]*橘鸦早报/);
+ run("var freshStamp=new Date().toISOString();state.modelMonitorStatus.checkedAt=freshStamp;state.modelReleaseData.updatedAt=freshStamp;state.aihot.updatedAt=freshStamp;state.aihotDaily.fetchedAt=freshStamp;state.juyaDaily.fetchedAt=freshStamp;render()");
+ assert.doesNotMatch(node('content').innerHTML,/同步延迟 · /);
+});
