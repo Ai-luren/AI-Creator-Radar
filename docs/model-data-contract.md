@@ -154,3 +154,18 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 
 来源：[昆仑官网](https://www1.kunlun.com/news/3.html)、[Mureka API 日志](https://platform.mureka.ai/docs/en/changelog.html)、[昆仑半年报公告转载](https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm)、[Suno 更新日志](https://suno.com/release-notes)、[ElevenLabs 官方博客](https://elevenlabs.io/blog)、[Google DeepMind 初代 Lyria](https://deepmind.google/blog/transforming-the-future-of-music-creation/)。
 未完成全部音频厂商及旧有记录的再次核验；Mureka TTS V1、Lyria 后续变体、MiniMax Speech、Gemini TTS 等仍需单独核验范围与数据结构。
+
+
+## 大语言模型谱系复核第七批（2026-11-26）
+
+- 本批新增 60 个型号，补 71 份结构化发布证据（17 份本轮直接核对官方来源，54 份迁移既有人工审核历史记录，后者保留原 verificationDate 与 auditId，并非重新联网核验），新增 3 条历史阶段记录。目录 403 版本、207 份发布证据、75 条历史阶段记录。
+- Claude 补初代至 5.x 历史型号，包括 Fable 5、Mythos 5；Mythos 访问受限，不能当作公众可用。Claude 3.5 Sonnet 日期及 Fable/Mythos 5.1 精确日期仍待核验。
+- GPT-6.1 原 ID 保留，名称明确为 Sol（原有榜单别名均为 Sol）；补 GPT-6 Astra/Sol/Luna、GPT-4/4.1、GPT-5.4、Codex 历史分支。新型号不继承旧榜单别名。
+- DeepSeek V4.1 Pro 仅有预告，纠正已发布标记；9 月 14 日后继续提供的是 V4 Pro。V4.1 Flash 1017 属同代更新，不重复计算基础代际首发。
+- Gemini 4 Argon 的 2026-09-30 有限访问与 10-13 扩大开放分开记录，避免混同；Gemini 3.1 Pro 等预览节点另待核验。
+- Kimi K2.7 更正为 K2.7 Code；原 ID 与榜单关联保留。K3/K3.1 Pro 的权重开放日期应与模型上线区分；K1.5 以前的历史仍待查。
+- GLM 5.2/5.3/5.3 Flash 按既有历史核验迁移；GLM 原榜单关联存在型号粒度混合，暂保留待专项核验。
+- Qwen3.5/3.6/3.8 汇总项保留旧 ID 与历史榜单关联，不能套用某个子型号的首发日；新增有明确事件依据的 Plus/Max/Flash Next 等型号。后续需核对原榜单别名映射。
+- 本批仅迁移有明确型号、日级日期和已确认审核状态的历史事件；不新增缺乏明确证据的型号，不将预览或快照误算成基础代际首发。全量事实审核及 CI 尚未完成。
+
+官方来源：[OpenAI API 日志](https://developers.openai.com/api/docs/changelog)、[Anthropic 模型公告目录](https://www.anthropic.com/news/models)、[DeepSeek 更新日志](https://api-docs.deepseek.com/updates/)、[Google Argon 有限访问](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)、[Google Argon 扩大开放](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/)、[Kimi 研究目录](https://www.kimi.ai/blog/)、[Kimi Code 更新日志](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html)。
