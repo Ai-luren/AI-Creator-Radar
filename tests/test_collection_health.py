@@ -65,3 +65,22 @@ class CollectionHealthTests(unittest.TestCase):
         self.assertIn("node --test tests/test_overview.mjs", workflow)
         self.assertIn("python scripts/validate_model_links.py", workflow)
         self.assertIn('exit 1', workflow)  # real persistence failures remain blocking
+
+    def test_same_run_retries_do_not_escalate_or_repeat_alerts(self):
+        state = {}
+        for i in range(5):
+            state, alerts = update_health(state, {"models-batch": "failure"}, f"retry-{i}", "run-1")
+            self.assertEqual(alerts, [])
+            self.assertEqual(state["sources"]["models-batch"]["consecutiveFailures"], 1)
+        state, alerts = update_health(state, {"models-batch": "failure"}, "next", "run-2")
+        self.assertEqual(alerts, [])
+        state, alerts = update_health(state, {"models-batch": "failure"}, "third", "run-3")
+        self.assertEqual(alerts, ["models-batch"])
+        for run_id in ("run-3", "run-1"):
+            state, alerts = update_health(state, {"models-batch": "failure"}, "retry", run_id)
+            self.assertEqual(alerts, [])
+            self.assertEqual(state["sources"]["models-batch"]["consecutiveFailures"], 3)
+        state, alerts = update_health(state, {"models-batch": "success"}, "recovered", "run-3")
+        self.assertEqual(state["sources"]["models-batch"]["consecutiveFailures"], 0)
+        state, alerts = update_health(state, {"models-batch": "failure"}, "new", "run-4")
+        self.assertEqual(state["sources"]["models-batch"]["consecutiveFailures"], 1)
