@@ -213,3 +213,7 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - Suno v6 无日期的重复候选仅按精确原标题、固定来源及既有 9-09 正式证据排除，不把发现时间算作新发布。
 
 - GPT-Live 11-20 API 公告补入 OpenAI 发展史，作为 canonical historicalMilestone 的明确审核节点；Scribe Medical 同步历史节点。CI 历史关系校验不降级。
+
+## 自动模型关联精度
+
+资讯、官方更新、教程、社媒等自动引用必须有包含模型身份的完整名称；通用版本号（V4.1、2.5 Flash）及素材编号（Video 1、Audio 2）不能单独作为型号身份。已有具名官方证据可用于精确匹配；无法确定具体版本时宁缺毋滥，不跨厂商猜测。已审核厂商发展史通过明确证据 ID 绑定的短标签不受此限制。引用 ID 存在并不等于事实正确；新增自动关联精度回归检查，不改变原始内容和证据字段。

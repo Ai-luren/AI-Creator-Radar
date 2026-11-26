@@ -23,6 +23,11 @@ RECORD_SECTIONS = {
 }
 
 
+def is_unqualified_version_label(value: str) -> bool:
+    """A number or generic modality/version label is not a model identity."""
+    return bool(re.match(r"^(?:(?:v(?:ersion)?|image|video|audio|music|speech|model)\s*[-_]?\s*)?\d+(?:[.-]\d+)*(?=$|[\s-])", str(value or "").strip(), re.I))
+
+
 def phrases(family: dict, version: dict) -> list[str]:
     values = [version.get("name", "")]
     # A few catalogs store version numbers without the family prefix.
@@ -32,7 +37,8 @@ def phrases(family: dict, version: dict) -> list[str]:
     if evidence.get("modelName"):
         values.append(evidence["modelName"])
     return list(dict.fromkeys(value.strip() for value in values
-                              if len(value.strip()) >= 4 and re.search(r"\d", value)))
+                              if len(value.strip()) >= 4 and re.search(r"\d", value)
+                              and not is_unqualified_version_label(value)))
 
 
 def record_refs(text: str, families: list[dict]) -> list[dict]:
