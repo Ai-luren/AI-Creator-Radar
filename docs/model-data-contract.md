@@ -118,3 +118,13 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 | Kling 2.1 | [官方财报](https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-technology-announces-second-quarter-and-interim-2025) 明确 2025-05 发布 | 仅有月份精度，不补猜日期 |
 
 本批核验 15 个版本，不代表已重新核实 320 个版本。旧有榜单条目、服务档位、发布证据以及历史里程碑未全面重新联网审核。
+
+
+## 视频谱系复核第四批（2026-11-26）
+
+- 补齐 Hailuo 2.3 Fast（2025-10-28）、Wan 2.6 视频系列、Wan2.6-image 与 Wan2.6-T2I（2025-12-16）共 4 份正式发布证据。
+- 新增 PixVerse V5、V5.5、Vidu Q2 Pro Fast 三个已证实的独立型号；不继承榜单别名及许可。
+- 将 PixVerse V5/V5.5/V5.6 的 API 发布日、Vidu Q2 Pro/Turbo/Pro Fast 与 Q3 Pro/Turbo 的 API 开放日、Kling 3.0/3.0 Omni 提前体验日、初代 Kling 测试日记录为有明确阶段的历史事件。来源：[PixVerse 更新日志](https://docs.platform.pixverse.ai/changelog-2394996m0)、[Vidu 更新日志](https://platform.vidu.com/docs/api-reference/updates)、[Kling 3.0 公告](https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/)。
+- Vidu Q2 的 2025-09-30 是厂商公告日；官方 API 记录 9 月 24 日已有 Pro/Turbo，[第三方 9 月 25 日已公布接入](https://www.prnewswire.com/news-releases/pollo-ai-has-launched-vidu-q2-and-kling-2-5-turbo-ai-video-models-empowering-creators-with-studio-level-cinematics-302566885.html)。保留公告阶段，不把公告日当作唯一首发日。
+- Seedance 1.0 官方技术报告 2025-06-11 使用基础家族名，[BytePlus 月度目录](https://docs.byteplus.com/vi/docs/modelark/model-release-announcement-2025?redirect=1) 同时列出 Seedance 1.0 Pro 的版本标签与 API 上线记录；不能将技术报告日期或标签日期直接写成 Pro 首发日。Seedance 2.5 冲突继续保留。
+- 本批最终目录 323 个版本，117 个结构化正式发布证据，39 条历史阶段证据；206 个版本仍无正式发布证据，其中含新补齐的历史 API 型号。尚未完成全厂商重新核验。
