@@ -10,3 +10,5 @@
 - `follow-builders/`、`legacy-news/`：已经退役的旧模块材料。
 
 整理归档时保留原始文件内容；只有经明确确认后才永久删除历史材料。
+
+- [V3–V3.6 设计历史](engineering-history/2026-11-26-design-history-through-v36.md)、[旧 README](engineering-history/2026-11-26-readme-before-v36.md) 和 [旧封面](engineering-history/2026-11-26-readme-hero-before-v36.svg)：保留原文件供追溯，现行规范已收敛至根目录。
