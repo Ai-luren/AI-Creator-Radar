@@ -12,7 +12,12 @@ async function request(fetcher, path, token, options={}) {
     "Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28",
     ...(options.headers||{})};
   // Never follow redirects with a credential or accept arbitrary repository/URL input.
-  return fetcher(API+path,{...options,headers,redirect:"error"});
+  const response = await fetcher(API+path,{...options,headers,redirect:"manual"});
+  // Workers only supports manual/follow. Fail closed without inspecting Location.
+  if (response.status >= 300 && response.status < 400) {
+    throw new Error("GitHub redirect refused: "+response.status);
+  }
+  return response;
 }
 
 export async function check(env, now=Date.now(), fetcher=fetch) {
@@ -39,7 +44,7 @@ export async function check(env, now=Date.now(), fetcher=fetch) {
     }
     if(now<due+GRACE_MS&&now-generated<MAX_AGE_MS) return "fresh";
   }
-  if(env.DRY_RUN==="true") return "would-dispatch";
+  if(env.DRY_RUN!=="false") return "would-dispatch";
   const dispatched=await request(fetcher,WORKFLOW+"/dispatches",token,{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({ref:"main",inputs:{scope:"due"}})});

@@ -6,6 +6,7 @@ const env={GITHUB_RADAR_TOKEN:"test-token",DRY_RUN:"false"};
 function mock({runs=[],manifest,code=200,dispatchCode=204}={}) {
   const calls=[];
   const fetcher=async (url,options)=>{
+    assert.equal(options.redirect,"manual","Cloudflare does not support redirect:error");
     calls.push({url,options});
     if(url.includes("/runs?")) return Response.json({workflow_runs:runs});
     if(url.includes("/contents/")) return code===200?Response.json(manifest):new Response(null,{status:code});
@@ -30,7 +31,7 @@ test("overdue heartbeat dispatches only due scope to main",async()=>{
  assert.equal(await check(env,now,m.fetcher),"dispatched");
  assert.equal(m.calls.length,3);
  assert.deepEqual(JSON.parse(m.calls[2].options.body),{ref:"main",inputs:{scope:"due"}});
- assert.equal(m.calls[2].options.redirect,"error");
+ assert.equal(m.calls[2].options.redirect,"manual");
 });
 test("dry run and first bootstrap do not write without authorization flag",async()=>{
  const m=mock({code:404});
@@ -48,4 +49,27 @@ test("dispatch failure is not reported as success",async()=>{
 });
 test("missing secret prevents all requests",async()=>{
  const m=mock();await assert.rejects(check({},now,m.fetcher),/Missing/);assert.equal(m.calls.length,0);
+});
+
+test("redirects are rejected at every API stage without another request",async()=>{
+ for (const stage of [1,2,3]) {
+  for (const code of [301,302,303,307,308]) {
+   const m=mock({manifest:heartbeat(60,-35)});
+   let n=0;
+   const fetcher=async(url,options)=>{
+    assert.equal(options.redirect,"manual");
+    if(++n===stage) return new Response(null,{status:code,headers:{Location:"https://example.invalid/"}});
+    return m.fetcher(url,options);
+   };
+   await assert.rejects(check(env,now,fetcher),/redirect refused/);
+   assert.equal(n,stage);
+  }
+ }
+});
+test("missing or mistyped dry-run value cannot authorize dispatch",async()=>{
+ for(const value of [undefined,"true","False","0",""]) {
+  const m=mock({manifest:heartbeat(60,-35)});
+  assert.equal(await check({...env,DRY_RUN:value},now,m.fetcher),"would-dispatch");
+  assert.equal(m.calls.length,2);
+ }
 });
