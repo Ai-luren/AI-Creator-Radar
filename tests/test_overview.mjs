@@ -16,8 +16,8 @@ function setup({query='',fail=[],defer}={}){
   if(!nodes.has(id))nodes.set(id,{id,innerHTML:'',textContent:'',value:'',classList:{toggle(){},remove(){}},addEventListener(){},insertAdjacentHTML(where,value){this.innerHTML=where==='afterbegin'?value+this.innerHTML:this.innerHTML+value},querySelectorAll(){return []},querySelector(){return null}});
   return nodes.get(id);
  }
- const location={search:query,protocol:'https:'};
- const ctx=vm.createContext({URL,URLSearchParams,Intl,Date,console,location,window:{location,scrollTo(){}},document:{querySelectorAll(){return []},getElementById:node,addEventListener(){}},localStorage:{getItem(){return null}},fetch:async url=>{
+ const location={search:query,protocol:'https:'};const entries=[];let cursor=-1;const history={state:null,replaceState(s,_,url){this.state=s;location.search=url.split('#')[0];if(cursor<0){entries.push({state:s,url});cursor=0}else entries[cursor]={state:s,url}},pushState(s,_,url){entries.splice(cursor+1);entries.push({state:s,url});cursor++;this.state=s;location.search=url},back(){if(cursor>0){cursor--;this.state=entries[cursor].state;location.search=entries[cursor].url;vm.runInContext('restoreNavigation(window.history.state)',ctx)}}};
+ const ctx=vm.createContext({URL,URLSearchParams,Intl,Date,console,location,window:{location,history,scrollY:0,scrollTo(x,y){this.scrollY=y}},document:{querySelectorAll(){return []},getElementById:node,addEventListener(){}},localStorage:{getItem(){return null}},fetch:async url=>{
   const name=url.split('/').pop().split('?')[0];
   if(defer)await defer(name);
   if(fail.includes(name))return {ok:false,status:503};
@@ -77,4 +77,31 @@ test('overview jumps to distinct confirmed and pending release views',async()=>{
  assert.match(node('content').innerHTML,/data-release-mode-target="pending"/);
  run("state.releaseMode='pending';setView('today')");assert.match(node('content').innerHTML,/aria-pressed="true" data-release-mode="pending"/);assert.doesNotMatch(node('content').innerHTML,/class="release-company"/);
  run("state.releaseMode='confirmed';render()");assert.match(node('content').innerHTML,/aria-pressed="true" data-release-mode="confirmed"/);assert.doesNotMatch(node('content').innerHTML,/<h2>官方动态 · 待复核<\/h2>/);
+});
+
+test('global index finds exact versions and cross-module records',async()=>{
+ const {run}=setup();await run('loadData()');
+ const result=JSON.parse(run("JSON.stringify(searchGlobal('Seedance 2.0','model').slice(0,1))"));
+ assert.equal(result[0].action.family,'seedance');assert.equal(result[0].action.version,'seedance-2-0');
+ assert.ok(run("searchGlobal('CPP','program').length")>0);
+ assert.ok(run("searchGlobal('Seedance','resource').length")>0);
+ assert.ok(run("searchGlobal('Veo','topic').length")>0);
+ assert.ok(run("searchGlobal('视频','ranking').length")>0);
+ assert.equal(run("searchGlobal('not-a-real-model-00000000','all').length"),0);
+});
+test('version deep link and browser back restore originating filters',async()=>{
+ const {run,node}=setup({query:'?view=models&category=image&region=%E6%B5%B7%E5%A4%96&q=Nano'});
+ await run('loadData()');assert.equal(run('state.modelCategory'),'image');assert.equal(run('state.regionFilter'),'海外');assert.equal(run('state.query'),'Nano');
+ run("window.scrollY=250;openModelDetails('seedance','seedance-2-0')");
+ assert.match(run('window.location.search'),/model=seedance&version=seedance-2-0/);
+ assert.match(node('content').innerHTML,/model-detail-version-selected" data-version-id="seedance-2-0"/);
+ run('closeModelDetails()');assert.equal(run('state.selectedModelId'),null);assert.equal(run('state.modelCategory'),'image');assert.equal(run('state.query'),'Nano');assert.equal(run('window.scrollY'),250);
+});
+test('direct version links survive reload, unknown version degrades to family',async()=>{
+ const a=setup({query:'?view=models&model=seedance&version=seedance-2-0'});await a.run('loadData()');assert.equal(a.run('state.selectedVersionId'),'seedance-2-0');
+ const b=setup({query:'?view=models&model=seedance&version=unknown'});await b.run('loadData()');assert.equal(b.run('state.selectedVersionId'),null);assert.match(b.node('content').innerHTML,/具体型号不存在/);
+});
+test('page filters and deep links survive browser back',async()=>{
+ const {run}=setup();await run('loadData()');run("setView('today',{releaseMode:'pending'});state.releaseCategory='video';state.query='Seed';render();window.scrollY=380;setView('feeds',{briefingTab:'selected'});window.history.back()");
+ assert.equal(run('state.view'),'today');assert.equal(run('state.releaseMode'),'pending');assert.equal(run('state.releaseCategory'),'video');assert.equal(run('state.query'),'Seed');assert.equal(run('window.scrollY'),380);
 });

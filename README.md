@@ -79,3 +79,8 @@ python3 scripts/build_unified_rankings.py
 ## License
 
 [MIT](LICENSE)
+
+
+## 检索与分享
+
+顶部“全局搜索”（⌘K / Ctrl+K）检索本地已收录的模型、新闻、历史、教程、官方账号和创作者计划；页面内筛选独立保留。支持复制地址栏链接分享当前模块、筛选与具体模型版本，例如 `?view=models&model=seedance&version=seedance-2-0`。不需要额外 API 或账户。
