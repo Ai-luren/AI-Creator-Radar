@@ -103,8 +103,13 @@ def plan(data_dir, event, scope="", now=None, schedule=""):
             result[group] = daily_due(data_dir, group, now)
             continue
         minutes = INTERVAL_MINUTES[group]
-        # A collector/configuration push need not rerun recently attempted fast collectors.
-        if event == "push" and group in {"models", "selected"}:
+        # Production pushes are restricted to collector/config/workflow paths.
+        # Always exercise the model transaction on these changes: a green
+        # validation-only run must not masquerade as a production smoke test.
+        if event == "push" and group == "models":
+            result[group] = True
+            continue
+        if event == "push" and group == "selected":
             minutes = 120
         stamps = [read_stamp(data_dir, filename, field) for filename, field in inputs]
         result[group] = any(stamp is None or stamp > now or now - stamp >= timedelta(minutes=minutes) for stamp in stamps)

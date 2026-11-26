@@ -29,11 +29,18 @@ class RefreshPlannerTests(unittest.TestCase):
             self.stamp(group)
         self.assertFalse(any(plan(self.data, "schedule", now=self.now).values()))
 
-    def test_regular_push_skips_recent_fast_collectors(self):
+    def test_collector_push_exercises_model_transaction_even_when_fresh(self):
+        for group in GROUPS:
+            self.stamp(group)
+        self.assertFalse(any(plan(self.data, "schedule", now=self.now).values()))
+        result = plan(self.data, "push", now=self.now)
+        self.assertEqual({k for k, v in result.items() if v}, {"models"})
+
+    def test_collector_push_preserves_selected_cooldown(self):
         for group in GROUPS:
             self.stamp(group, 40)
-        self.assertTrue(plan(self.data, "schedule", now=self.now)["models"])
-        self.assertFalse(plan(self.data, "push", now=self.now)["models"])
+        self.assertTrue(plan(self.data, "schedule", now=self.now)["selected"])
+        self.assertFalse(plan(self.data, "push", now=self.now)["selected"])
 
     def test_missing_or_future_timestamp_is_due(self):
         self.stamp("models", -5)
