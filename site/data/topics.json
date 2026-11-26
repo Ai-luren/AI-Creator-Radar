@@ -460,6 +460,26 @@
     ],
     "milestones": [
       {
+        "date": "2026-10-17",
+        "kind": "模型",
+        "title": "DeepSeek V4.1 Flash 1017 · 模型更新",
+        "summary": "V4.1 Flash 升级为 1017 快照；不重复计为基础模型代际首发。",
+        "url": "https://api-docs.deepseek.com/news/news261017/",
+        "auditId": "review-20261126-deepseek-deepseek-v4-1-flash-1017-model-update-20261017",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "llm"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "deepseek",
+            "modelVersionId": "deepseek-v4-1-flash-1017",
+            "matchedName": "DeepSeek V4.1 Flash 1017"
+          }
+        ]
+      },
+      {
         "date": "2026-09-10",
         "kind": "模型",
         "title": "DeepSeek 发布 V4.1 Flash",
@@ -1072,6 +1092,26 @@
         "verificationUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/genie-4-now-available-project-genie/"
       },
       {
+        "date": "2026-10-13",
+        "kind": "模型",
+        "title": "Gemini 4 Argon · 扩大开放",
+        "summary": "官方宣布扩大开放至 Gemini App 与开发者入口；具体权限依套餐。",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+        "auditId": "review-20261126-gemini-gemini-4-argon-general-availability-20261013",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "llm"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-argon",
+            "matchedName": "Gemini 4 Argon"
+          }
+        ]
+      },
+      {
         "date": "2026-10-06",
         "kind": "模型卡更新",
         "title": "Nano Banana 2.1 模型卡更新",
@@ -1167,6 +1207,26 @@
         "modelFamilyMentions": [
           {
             "modelFamilyId": "gemini",
+            "matchedName": "Gemini 4 Argon"
+          }
+        ]
+      },
+      {
+        "date": "2026-09-30",
+        "kind": "模型",
+        "title": "Gemini 4 Argon · 有限访问",
+        "summary": "初期向经认可的测试者开放，不能等同公众可用。",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "auditId": "review-20261126-gemini-gemini-4-argon-early-access-20260930",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "llm"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-argon",
             "matchedName": "Gemini 4 Argon"
           }
         ]
