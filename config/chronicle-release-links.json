@@ -64,6 +64,9 @@
       "阿里巴巴通义千问",
       "阿里巴巴通义万相",
       "Alibaba Cloud Model Studio"
+    ],
+    "sandai": [
+      "Sand.ai"
     ]
   },
   "links": [
@@ -767,6 +770,42 @@
       "modelFamilyId": "qwen",
       "modelVersionId": "qwen3-8-flash-next",
       "chronicleAuditId": "v48-qwen-0069",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "magi-2",
+      "modelVersionId": "magi-2",
+      "chronicleAuditId": "review-20261126-sandai-magi-2-20261124",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "magi-2",
+      "modelVersionId": "preview",
+      "chronicleAuditId": "review-20261126-sandai-preview-20260805",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "magi-1",
+      "modelVersionId": "magi-1-1-24b",
+      "chronicleAuditId": "review-20261126-sandai-magi-1-1-24b-20260617",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "magi-1",
+      "modelVersionId": "magi-1-4-5b-distill",
+      "chronicleAuditId": "review-20261126-sandai-magi-1-4-5b-distill-20250526",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "magi-1",
+      "modelVersionId": "magi-1-4-5b",
+      "chronicleAuditId": "review-20261126-sandai-magi-1-4-5b-20250430",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "magi-1",
+      "modelVersionId": "magi-1-24b",
+      "chronicleAuditId": "review-20261126-sandai-magi-1-24b-20250421",
       "sourceField": "url"
     }
   ]

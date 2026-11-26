@@ -10900,5 +10900,216 @@
     ],
     "chronicleSourceVersion": "official-feed-sync",
     "chronicleSourceUrl": "https://pika.art"
+  },
+  {
+    "id": "sandai",
+    "name": "Sand.ai / MAGI",
+    "description": "自回归视频、音视频联合生成及 MoE 视频模型。正式发布、研究预览、权重开放分别记录。GAGA-1 已有官方介绍，首发日期待核验。",
+    "keywords": [
+      "Sand.ai",
+      "Sand AI",
+      "MAGI",
+      "GAGA-1",
+      "daVinci-MAGIHuman"
+    ],
+    "topicUrl": "https://sand.ai/",
+    "domain": "sand.ai",
+    "group": "公司与模型",
+    "modelCategories": [
+      "video"
+    ],
+    "chronicleSourceVersion": "review-20261126",
+    "chronicleSourceUrl": "https://sand.ai/research/",
+    "milestones": [
+      {
+        "date": "2026-11-24",
+        "kind": "模型",
+        "title": "MAGI-2 发布",
+        "summary": "旗舰 MAGI-2：官方披露 480B 总参数与约 28B 激活参数；支持原生音视频、最高 1080p/30 秒，完整权重尚未公开。",
+        "url": "https://sand.ai/blog/magi-2/",
+        "verificationUrl": "https://higgsfield.ai/creator-hub/changelog",
+        "auditId": "review-20261126-sandai-magi-2-20261124",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "magi-2",
+            "modelVersionId": "magi-2",
+            "matchedName": "MAGI-2"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "magi-2",
+            "matchedName": "MAGI-2"
+          }
+        ]
+      },
+      {
+        "date": "2026-08-05",
+        "kind": "模型",
+        "title": "MAGI-2 Preview 研究预览发布",
+        "summary": "114B 音视频联合生成研究预览，约 6B 激活参数；公开推理代码和模型权重，与 11 月旗舰版分开。",
+        "url": "https://sand.ai/blog/magi-2-preview/",
+        "verificationUrl": "https://github.com/SandAI-org/MAGI-2-preview",
+        "auditId": "review-20261126-sandai-preview-20260805",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "magi-2",
+            "modelVersionId": "preview",
+            "matchedName": "MAGI-2 Preview"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "magi-2",
+            "matchedName": "MAGI-2 Preview"
+          }
+        ]
+      },
+      {
+        "date": "2026-06-17",
+        "kind": "模型",
+        "title": "MAGI-1.1 24B 发布",
+        "summary": "MAGI-1.1 24B 原始、蒸馏与量化权重开放。",
+        "url": "https://github.com/SandAI-org/MAGI-1",
+        "verificationUrl": "https://huggingface.co/sand-ai/MAGI-1",
+        "auditId": "review-20261126-sandai-magi-1-1-24b-20260617",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "modelVersionId": "magi-1-1-24b",
+            "matchedName": "MAGI-1.1 24B"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "matchedName": "MAGI-1.1 24B"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-23",
+        "kind": "模型",
+        "title": "daVinci-MagiHuman 技术报告",
+        "summary": "官方目录记录 daVinci-MAGIHuman 技术报告；不推断正式首发日。",
+        "url": "https://sand.ai/research/",
+        "verificationUrl": "https://github.com/SandAI-org/daVinci-MagiHuman",
+        "auditId": "review-20261126-sandai-davinci-magihuman-20260323",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "davinci-magihuman",
+            "modelVersionId": "davinci-magihuman",
+            "matchedName": "daVinci-MagiHuman"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "davinci-magihuman",
+            "matchedName": "daVinci-MagiHuman"
+          }
+        ]
+      },
+      {
+        "date": "2025-05-26",
+        "kind": "模型",
+        "title": "MAGI-1 4.5B Distill 发布",
+        "summary": "MAGI-1 4.5B 蒸馏及量化权重发布。",
+        "url": "https://github.com/SandAI-org/MAGI-1",
+        "verificationUrl": "https://huggingface.co/sand-ai/MAGI-1",
+        "auditId": "review-20261126-sandai-magi-1-4-5b-distill-20250526",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "modelVersionId": "magi-1-4-5b-distill",
+            "matchedName": "MAGI-1 4.5B Distill"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "matchedName": "MAGI-1 4.5B Distill"
+          }
+        ]
+      },
+      {
+        "date": "2025-04-30",
+        "kind": "模型",
+        "title": "MAGI-1 4.5B 发布",
+        "summary": "MAGI-1 4.5B 权重发布。",
+        "url": "https://github.com/SandAI-org/MAGI-1",
+        "verificationUrl": "https://huggingface.co/sand-ai/MAGI-1",
+        "auditId": "review-20261126-sandai-magi-1-4-5b-20250430",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "modelVersionId": "magi-1-4-5b",
+            "matchedName": "MAGI-1 4.5B"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "matchedName": "MAGI-1 4.5B"
+          }
+        ]
+      },
+      {
+        "date": "2025-04-21",
+        "kind": "模型",
+        "title": "MAGI-1 24B 发布",
+        "summary": "初代 MAGI-1 公开模型权重与推理代码。",
+        "url": "https://github.com/SandAI-org/MAGI-1",
+        "verificationUrl": "https://huggingface.co/sand-ai/MAGI-1",
+        "auditId": "review-20261126-sandai-magi-1-24b-20250421",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "modelVersionId": "magi-1-24b",
+            "matchedName": "MAGI-1 24B"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "magi-1",
+            "matchedName": "MAGI-1 24B"
+          }
+        ]
+      }
+    ]
   }
 ]

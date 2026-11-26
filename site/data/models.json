@@ -23343,14 +23343,14 @@
     "name": "MAGI-2 系列",
     "vendor": "Sand.ai",
     "category": "video",
-    "watched": false,
+    "watched": true,
     "homepage": "https://sand.ai/",
-    "releaseUrl": "https://sand.ai/blog/magi-2-preview",
+    "releaseUrl": "https://sand.ai/blog/magi-2/",
     "modelCardUrl": "https://github.com/SandAI-org/MAGI-2-preview",
     "version": "MAGI-2 / Preview",
     "region": "海外",
     "access": "开源权重",
-    "note": "MAGI-2 Preview（2026 年 8 月）与全规模 MAGI-2（2026-11-24）是不同版本，分别保留来源与榜单关联。",
+    "note": "MAGI-2 正式版与 114B 研究预览分别记录。正式版已提供在线体验；官方称完整权重将后续公布，不将 Preview 的开放权重混同为正式版。",
     "versions": [
       {
         "id": "magi-2",
@@ -23359,7 +23359,7 @@
         "access": "Higgsfield 已开放生成；Sand.ai 权重计划开源，尚未发布",
         "homepage": "https://sand.ai/",
         "releaseUrl": "https://sand.ai/blog/magi-2/",
-        "modelCardUrl": "https://github.com/SandAI-org/MAGI-2",
+        "modelCardUrl": "https://sand.ai/blog/magi-2/",
         "legacyIds": [
           "magi-2"
         ],
@@ -23373,13 +23373,15 @@
           "sourceUrl": "https://sand.ai/blog/magi-2/",
           "sourceName": "Sand.ai 官方公告",
           "evidenceType": "official-release",
-          "verifiedAt": "2026-11-25",
+          "verifiedAt": "2026-11-26",
           "summary": "480B 总参数、约 28B 激活参数；支持原生音视频生成，最高 1080p、30 秒。官方称模型权重后续开源，当前公告未提供权重。",
           "access": "Higgsfield 已开放生成；Sand.ai 权重计划开源，尚未发布",
           "category": "video",
-          "modelName": "MAGI-2"
+          "modelName": "MAGI-2",
+          "chronicleAuditId": "review-20261126-sandai-magi-2-20261124",
+          "chronicleTopicId": "sandai"
         },
-        "availabilityUrl": "https://higgsfield.ai/announcing-magi-2"
+        "availabilityUrl": "https://higgsfield.ai/creator-hub/changelog"
       },
       {
         "region": "海外",
@@ -23388,7 +23390,7 @@
         "releaseUrl": "https://sand.ai/blog/magi-2-preview",
         "modelCardUrl": "https://github.com/SandAI-org/MAGI-2-preview",
         "id": "preview",
-        "name": "Preview",
+        "name": "MAGI-2 Preview",
         "legacyIds": [
           "magi-2"
         ],
@@ -23409,7 +23411,22 @@
           }
         ],
         "status": "已发布",
-        "note": "Sand.ai 的统一音视频研究预览模型；官方将其称为中间研究发布，不代表正式产品版。"
+        "note": "Sand.ai 的统一音视频研究预览模型；官方将其称为中间研究发布，不代表正式产品版。",
+        "releaseDate": "2026-08-05",
+        "releaseEvidence": {
+          "eventId": "sandai-preview-20260805",
+          "publishedAt": "2026-08-05",
+          "sourceUrl": "https://sand.ai/blog/magi-2-preview/",
+          "sourceName": "Sand.ai 官方发布记录",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "114B 音视频联合生成研究预览，约 6B 激活参数；公开推理代码和模型权重，与 11 月旗舰版分开。",
+          "access": "开源权重",
+          "category": "video",
+          "modelName": "MAGI-2 Preview",
+          "chronicleAuditId": "review-20261126-sandai-preview-20260805",
+          "chronicleTopicId": "sandai"
+        }
       }
     ],
     "legacyIds": [
@@ -30407,5 +30424,212 @@
     "legacyIds": [],
     "leaderboardAliases": [],
     "audioSubtype": "实时语音交互"
+  },
+  {
+    "id": "magi-1",
+    "name": "MAGI-1 系列",
+    "vendor": "Sand.ai",
+    "category": "video",
+    "watched": true,
+    "homepage": "https://sand.ai/",
+    "releaseUrl": "https://github.com/SandAI-org/MAGI-1",
+    "modelCardUrl": "https://github.com/SandAI-org/MAGI-1",
+    "version": "MAGI-1.1 24B / MAGI-1 4.5B Distill / MAGI-1 4.5B / MAGI-1 24B",
+    "region": "海外",
+    "access": "开源权重",
+    "note": "自回归分块视频生成；原版、4.5B 和后续权重版本分别记录。",
+    "versions": [
+      {
+        "id": "magi-1-1-24b",
+        "name": "MAGI-1.1 24B",
+        "region": "海外",
+        "access": "开源权重",
+        "homepage": "https://sand.ai/",
+        "releaseUrl": "https://github.com/SandAI-org/MAGI-1",
+        "modelCardUrl": "https://github.com/SandAI-org/MAGI-1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "note": "官方仓库记录原始、蒸馏和量化权重开放。",
+        "releaseDate": "2026-06-17",
+        "releaseEvidence": {
+          "eventId": "sandai-magi-1-1-24b-20260617",
+          "publishedAt": "2026-06-17",
+          "sourceUrl": "https://github.com/SandAI-org/MAGI-1",
+          "sourceName": "Sand.ai 官方发布记录",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "MAGI-1.1 24B 原始、蒸馏与量化权重开放。",
+          "access": "开源权重",
+          "category": "video",
+          "modelName": "MAGI-1.1 24B",
+          "chronicleAuditId": "review-20261126-sandai-magi-1-1-24b-20260617",
+          "chronicleTopicId": "sandai"
+        }
+      },
+      {
+        "id": "magi-1-4-5b-distill",
+        "name": "MAGI-1 4.5B Distill",
+        "region": "海外",
+        "access": "开源权重",
+        "homepage": "https://sand.ai/",
+        "releaseUrl": "https://github.com/SandAI-org/MAGI-1",
+        "modelCardUrl": "https://github.com/SandAI-org/MAGI-1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "note": "4.5B 蒸馏及量化权重。",
+        "releaseDate": "2025-05-26",
+        "releaseEvidence": {
+          "eventId": "sandai-magi-1-4-5b-distill-20250526",
+          "publishedAt": "2025-05-26",
+          "sourceUrl": "https://github.com/SandAI-org/MAGI-1",
+          "sourceName": "Sand.ai 官方发布记录",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "MAGI-1 4.5B 蒸馏及量化权重发布。",
+          "access": "开源权重",
+          "category": "video",
+          "modelName": "MAGI-1 4.5B Distill",
+          "chronicleAuditId": "review-20261126-sandai-magi-1-4-5b-distill-20250526",
+          "chronicleTopicId": "sandai"
+        }
+      },
+      {
+        "id": "magi-1-4-5b",
+        "name": "MAGI-1 4.5B",
+        "region": "海外",
+        "access": "开源权重",
+        "homepage": "https://sand.ai/",
+        "releaseUrl": "https://github.com/SandAI-org/MAGI-1",
+        "modelCardUrl": "https://github.com/SandAI-org/MAGI-1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "note": "轻量化 4.5B 权重。",
+        "releaseDate": "2025-04-30",
+        "releaseEvidence": {
+          "eventId": "sandai-magi-1-4-5b-20250430",
+          "publishedAt": "2025-04-30",
+          "sourceUrl": "https://github.com/SandAI-org/MAGI-1",
+          "sourceName": "Sand.ai 官方发布记录",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "MAGI-1 4.5B 权重发布。",
+          "access": "开源权重",
+          "category": "video",
+          "modelName": "MAGI-1 4.5B",
+          "chronicleAuditId": "review-20261126-sandai-magi-1-4-5b-20250430",
+          "chronicleTopicId": "sandai"
+        }
+      },
+      {
+        "id": "magi-1-24b",
+        "name": "MAGI-1 24B",
+        "region": "海外",
+        "access": "开源权重",
+        "homepage": "https://sand.ai/",
+        "releaseUrl": "https://github.com/SandAI-org/MAGI-1",
+        "modelCardUrl": "https://github.com/SandAI-org/MAGI-1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "note": "初代自回归分块视频模型，公开模型权重与推理代码。",
+        "releaseDate": "2025-04-21",
+        "releaseEvidence": {
+          "eventId": "sandai-magi-1-24b-20250421",
+          "publishedAt": "2025-04-21",
+          "sourceUrl": "https://github.com/SandAI-org/MAGI-1",
+          "sourceName": "Sand.ai 官方发布记录",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "初代 MAGI-1 公开模型权重与推理代码。",
+          "access": "开源权重",
+          "category": "video",
+          "modelName": "MAGI-1 24B",
+          "chronicleAuditId": "review-20261126-sandai-magi-1-24b-20250421",
+          "chronicleTopicId": "sandai"
+        }
+      }
+    ],
+    "legacyIds": [],
+    "aliases": [],
+    "leaderboardAliases": []
+  },
+  {
+    "id": "davinci-magihuman",
+    "name": "daVinci-MagiHuman",
+    "vendor": "Sand.ai",
+    "category": "video",
+    "watched": true,
+    "homepage": "https://sand.ai/",
+    "releaseUrl": "https://github.com/SandAI-org/daVinci-MagiHuman",
+    "modelCardUrl": "https://github.com/SandAI-org/daVinci-MagiHuman",
+    "version": "daVinci-MagiHuman",
+    "region": "海外",
+    "access": "开源权重",
+    "note": "Sand.ai 与 SII-GAIR 合作的人物音视频生成研究模型。技术报告公开日期不等同于正式产品首发。",
+    "versions": [
+      {
+        "id": "davinci-magihuman",
+        "name": "daVinci-MagiHuman",
+        "region": "海外",
+        "access": "开源权重",
+        "homepage": "https://sand.ai/",
+        "releaseUrl": "https://github.com/SandAI-org/daVinci-MagiHuman",
+        "modelCardUrl": "https://github.com/SandAI-org/daVinci-MagiHuman",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "note": "2026-03-23 官网研究目录记录技术报告。",
+        "historicalMilestones": [
+          {
+            "date": "2026-03-23",
+            "datePrecision": "day",
+            "stage": "official-introduction",
+            "sourceUrl": "https://sand.ai/research/",
+            "sourceName": "Sand.ai 官网研究目录",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-sandai-davinci-magihuman-20260323",
+            "summary": "官方目录记录 daVinci-MAGIHuman 技术报告；不推断正式首发日。"
+          }
+        ]
+      }
+    ],
+    "legacyIds": [],
+    "aliases": [],
+    "leaderboardAliases": []
+  },
+  {
+    "id": "gaga-1",
+    "name": "GAGA-1",
+    "vendor": "Sand.ai",
+    "category": "video",
+    "watched": true,
+    "homepage": "https://sand.ai/",
+    "releaseUrl": "https://sand.ai/about-us",
+    "modelCardUrl": "https://sand.ai/about-us",
+    "version": "GAGA-1",
+    "region": "海外",
+    "access": "待核验",
+    "note": "官网 About Us 明确列出同时生成音视频的模型，尚未核实首发日期。",
+    "versions": [
+      {
+        "id": "gaga-1",
+        "name": "GAGA-1",
+        "region": "海外",
+        "access": "待核验",
+        "homepage": "https://sand.ai/",
+        "releaseUrl": "https://sand.ai/about-us",
+        "modelCardUrl": "https://sand.ai/about-us",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "官方已介绍 · 首发日期待核验",
+        "note": "已核实型号存在；不推断首发日期及权重许可。"
+      }
+    ],
+    "legacyIds": [],
+    "aliases": [],
+    "leaderboardAliases": []
   }
 ]
