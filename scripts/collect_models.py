@@ -165,7 +165,7 @@ def entry_link(element: ET.Element) -> str:
 
 class BlockParser(HTMLParser):
     """Extract headings, links, dates and paragraphs from server-rendered pages."""
-    CAPTURE = {"h1", "h2", "h3", "h4", "h5", "h6", "a", "time", "p", "li", "tr", "td", "th"}
+    CAPTURE = {"h1", "h2", "h3", "h4", "h5", "h6", "a", "time", "p", "li", "tr", "td", "th", "button"}
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -246,6 +246,7 @@ def jsonld_items(page: str, source: dict) -> list[dict]:
                 "summary": description,
                 "url": valid_article_url(obj.get("url") or obj.get("mainEntityOfPage"), source["url"]) or source["url"],
                 "publishedAt": published,
+                **({"publicationDateKind": "jsonld-datePublished"} if parse_date(obj.get("datePublished")) else {}),
             })
     return results
 
@@ -322,7 +323,7 @@ def dedupe_candidates(candidates: list[dict]) -> list[dict]:
             continue
         old_path = urlsplit(old.get("url") or "").path
         new_path = urlsplit(item.get("url") or "").path
-        if len(new_path) > len(old_path):
+        if (item.get("publicationDateKind") and not old.get("publicationDateKind")) or (bool(item.get("publicationDateKind")) == bool(old.get("publicationDateKind")) and len(new_path) > len(old_path)):
             deduped[key] = item
     return list(deduped.values())[:MAX_ITEMS_PER_SOURCE]
 
@@ -374,7 +375,7 @@ def dated_heading_items(blocks: list[dict], source: dict) -> list[dict]:
     results = []
     current_date = None
     for block in blocks:
-        if block["tag"] not in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+        if block["tag"] not in {"h1", "h2", "h3", "h4", "h5", "h6"} | ({"button"} if source.get("dateButtons") else set()):
             continue
         title = clean_text(block["text"])
         if re.fullmatch(r"20\d{2}[./-]\d{1,2}[./-]\d{1,2}", title):
@@ -557,7 +558,8 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
             continue
         summary = clean_text(child_text(entry, {"description", "summary", "content", "encoded"}))
         model_id = match_model(title, source) or match_model(title + " " + summary, source)
-        published = parse_date(child_text(entry, {"pubdate", "published", "date", "created"})) or parse_date(child_text(entry, {"updated"}))
+        explicit_published = parse_date(child_text(entry, {"pubdate", "published"}))
+        published = explicit_published or parse_date(child_text(entry, {"date", "created", "updated"}))
         url = entry_link(entry)
         model_release = model_id and is_release_candidate(title, published, source.get("allowVersionOnly", False))
         product = source.get("allowProductAnnouncements") and published and re.search(
@@ -569,6 +571,7 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
         results.append({
             "title": title, "summary": summary, "url": url,
             "publishedAt": published, "modelId": model_id if model_release else None,
+            **({"publicationDateKind": "feed-published"} if explicit_published else {}),
             **({"updateType": "product-announcement"} if not model_release else {}),
         })
     return results
@@ -640,6 +643,8 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         "official": bool(source.get("official", True)),
         "updateType": update_type,
         "modelVersion": version,
+        **({"publicationDateKind": raw["publicationDateKind"], "publicationObservedAt": now_iso}
+           if raw.get("publicationDateKind") else {}),
     }
 
 
@@ -663,6 +668,10 @@ def merge_item(old: dict, new: dict) -> dict:
         merged["firstSeenAt"] = min(first_seen)
     if not merged.get("publishedAt") and new.get("publishedAt"):
         merged["publishedAt"] = new["publishedAt"]
+    if (new.get("publicationDateKind") and old.get("sourceId") == new.get("sourceId")
+            and merged.get("publishedAt") == new.get("publishedAt")):
+        merged["publicationDateKind"] = new["publicationDateKind"]
+        merged["publicationObservedAt"] = new["publicationObservedAt"]
     if len(new.get("summary", "")) > len(old.get("summary", "")):
         merged["summary"] = new["summary"]
     if new.get("modelVersion"):

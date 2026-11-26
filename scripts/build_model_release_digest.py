@@ -27,9 +27,13 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
     def normalize(value):
         return "".join(ch for ch in str(value).casefold() if ch.isalnum())
 
+    confirmed_update_ids = {uid for family in families for version in family.get("versions", [])
+                            for uid in (version.get("releaseEvidence") or {}).get("sourceUpdateIds", [])}
     start = today - timedelta(days=29)
     candidates = {}
     for update in updates:
+        if update.get("id") in confirmed_update_ids:
+            continue
         family = family_map.get(update.get("modelId"))
         if not family or update.get("official") is not True:
             continue
@@ -147,6 +151,8 @@ def build(today: date) -> dict:
                 "modelVersionId": version["id"],
                 "evidenceType": evidence.get("evidenceType", "official-release"),
                 "verifiedAt": evidence.get("verifiedAt", ""),
+                **({"verificationMethod": evidence["verificationMethod"], "corroboratingSources": evidence["corroboratingSources"]}
+                   if evidence.get("verificationMethod") == "automatic-dual-official" else {}),
                 **({"audioSubtype": evidence["audioSubtype"]} if evidence.get("audioSubtype") else {}),
             })
     items.sort(key=lambda item: (item["publishedAt"], item["vendor"], item["modelName"]), reverse=True)

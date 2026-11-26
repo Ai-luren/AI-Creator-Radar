@@ -217,3 +217,7 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 ## 自动模型关联精度
 
 资讯、官方更新、教程、社媒等自动引用必须有包含模型身份的完整名称；通用版本号（V4.1、2.5 Flash）及素材编号（Video 1、Audio 2）不能单独作为型号身份。已有具名官方证据可用于精确匹配；无法确定具体版本时宁缺毋滥，不跨厂商猜测。已审核厂商发展史通过明确证据 ID 绑定的短标签不受此限制。引用 ID 存在并不等于事实正确；新增自动关联精度回归检查，不改变原始内容和证据字段。
+
+## P1 自动双源发布核验（第一阶段）
+
+采集器仅把 RSS/Atom 明确 published/pubDate 或 JSON-LD datePublished 作为结构化发布日期证据；updated、列表邻近日期、模型卡及 API 日志仍只用于候选发现。模型事务在生成上新视图之前运行 collect_verify_model_releases.py：当前成功抓取、同一规范家族、明确正式发布标题、两个不同官方站点及不同来源 ID/文章 URL、日级日期一致且无已知冲突才可自动写入 releaseEvidence。自动记录 verificationMethod=automatic-dual-official，保存双方标题、链接、日期来源和采集时间；verifiedAt 是机器核验日期而不是人工审查日期。既有人工证据、历史阶段、身份变体和冲突不覆盖；新型号只允许显式白名单中的简洁数字版本，其他型号保留候选。两条证据不代表独立第三方核验；不推断许可、权重、可用范围。未满足条件的候选保留原发现流，核验状态记录于 site/data/model-release-verification-status.json。厂商发展史仍按原规则保留自动发现节点，后续单独收敛已核验节点。
