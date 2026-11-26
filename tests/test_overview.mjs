@@ -238,3 +238,9 @@ test('briefing category and practice links keep full resources accessible',async
  const {run,node}=setup();await run('loadAllForTests()');run("setView('feeds',{briefingTab:'combined',briefingCategory:'模型'})");assert.match(node('content').innerHTML,/aria-pressed="true" data-briefing-category="模型"/);assert.match(node('content').innerHTML,/完整摘要与来源/);
  run("setView('practice',{modelPracticeType:'model'})");assert.doesNotMatch(node('content').innerHTML,/模型库详情 ↗/);assert.match(node('content').innerHTML,/模型库详情 →/);
 });
+
+test('social views separate actual verified homepages, search entries and posts',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-brand-record/);assert.match(node('content').innerHTML,/已核验主页/);assert.equal(run("socialAccountState({status:'verified-search'})"),'官方搜索入口');
+ run("setView('social',{socialView:'platforms',socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-platform-record/);assert.doesNotMatch(node('content').innerHTML,/social-brand-record/);
+ run("setView('social',{socialView:'posts',socialRegion:'all'})");assert.match(node('content').innerHTML,/social-post-row/);assert.match(node('content').innerHTML,/原帖发布时间不等于模型首发日期/);
+});
