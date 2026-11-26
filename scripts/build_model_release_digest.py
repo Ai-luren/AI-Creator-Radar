@@ -9,13 +9,16 @@ from pathlib import Path
 
 try:
     from scripts.collect_models import non_release_title
+    from scripts.collect_resolve_model_leads import candidate_rows
 except ModuleNotFoundError:
     from collect_models import non_release_title
+    from collect_resolve_model_leads import candidate_rows
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ROOT / "site/data/models.json"
 OUTPUT = ROOT / "site/data/model-releases-30d.json"
 UPDATES = ROOT / "site/data/model-updates.json"
+RESOLUTION = ROOT / "site/data/lead-resolution.json"
 
 
 CATEGORIES = ("video", "image", "llm", "music", "tts", "audio")
@@ -161,6 +164,8 @@ def build(today: date) -> dict:
                 **({"audioSubtype": evidence["audioSubtype"]} if evidence.get("audioSubtype") else {}),
             })
     items.sort(key=lambda item: (item["publishedAt"], item["vendor"], item["modelName"]), reverse=True)
+    updates = json.loads(UPDATES.read_text(encoding="utf-8")).get("items", []) if UPDATES.exists() else []
+    recovered = candidate_rows(json.loads(RESOLUTION.read_text(encoding="utf-8"))) if RESOLUTION.exists() else []
     return {
         "schema": "model-release-digest/v2",
         "sourceOfTruth": "site/data/models.json",
@@ -171,7 +176,7 @@ def build(today: date) -> dict:
         "categories": list(CATEGORIES),
         "items": items,
         "verifiedStages": collect_verified_stages(families, today),
-        "pending": collect_pending(families, json.loads(UPDATES.read_text(encoding="utf-8")).get("items", []) if UPDATES.exists() else [], items, today),
+        "pending": collect_pending(families, updates + recovered, items, today),
     }
 
 
