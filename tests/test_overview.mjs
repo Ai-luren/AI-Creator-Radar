@@ -250,7 +250,7 @@ test('reported internal-model concern is industry news, not a release',()=>{
 });
 
 test('library prioritization, history year and review filters retain records',async()=>{
- const {run,node}=setup();await run('loadAllForTests()');assert.equal(run('state.modelSort'),'priority');assert.equal(run("latestDatedVersion({versions:[{name:'unknown'},{name:'old',releaseDate:'2025-01-01'},{name:'new',releaseDate:'2026-01-01'}]}).name"),'new');
+ const {run,node}=setup();await run('loadAllForTests()');assert.equal(run('state.modelSort'),'recent');assert.equal(run("latestDatedVersion({versions:[{name:'unknown'},{name:'old',releaseDate:'2025-01-01'},{name:'new',releaseDate:'2026-01-01'}]}).name"),'new');
  run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{date:'2025-01-01',title:'Old checked',verificationStatus:'已确认'},{date:'2026-01-01',title:'New checked',verificationStatus:'已确认'},{date:'2026-01-02',title:'Pending discovery',autoCollected:true}]}];setView('topics',{activeTopic:'google',topicYear:'2026',topicReview:'verified'})");assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Old checked|Pending discovery/);
  run("state.topicReview='all';render()");assert.match(node('content').innerHTML,/Pending discovery/);
 });
@@ -317,7 +317,7 @@ test('ranked MAGI-2 has the same model family and version IDs as its release',as
 test('daily edition freshness is based on Beijing publication window, not four-hour age',()=>{const {run}=setup();assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T00:10:00Z'},8,new Date('2026-11-26T12:00:00Z'))"),false);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-27T00:04:00Z'},8,new Date('2026-11-27T00:06:00Z'))"),true);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T02:10:00Z'},10,new Date('2026-11-27T01:00:00Z'))"),false);});
 
 test('V3.4 grouped model library preserves flat view and family links',async()=>{
- const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video'})");
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video',modelGrouping:'vendor'})");
  assert.match(node('content').innerHTML,/model-table-grouped/);assert.match(node('content').innerHTML,/data-model-group=/);assert.match(node('content').innerHTML,/data-model-open="magi-2"/);
  run("state.modelGrouping='flat';render()");assert.doesNotMatch(node('content').innerHTML,/model-table-grouped|data-model-group=/);assert.match(node('content').innerHTML,/data-model-open="magi-2"/);
 });
@@ -343,3 +343,14 @@ test('latest briefing date is shared across sources and fixed before search or c
 });
 
 test('V3.5 separates formal releases from service stages',async()=>{const {run,node}=setup();await run('loadAllForTests()');assert.doesNotMatch(node('content').innerHTML,/overview-stage-count|overview-count-track/);run("setView('today',{releaseMode:'confirmed',releaseCategory:'all'})");assert.doesNotMatch(node('content').innerHTML,/\+\s*\d+\s*上线|已核实模型上线阶段|data-release-mode="all"/);run("setView('today',{releaseMode:'announcements',releaseCategory:'all'})");assert.match(node('content').innerHTML,/官方公告/);if(run("(state.modelReleaseData.verifiedStages||[]).some(x=>withinDays(x.stageDate,30,new Date()))"))assert.match(node('content').innerHTML,/已核实模型上线阶段/);});
+
+test('V3.5 model library defaults to strict latest dated family order and unknowns last',async()=>{
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');
+ assert.equal(run('state.modelSort'),'recent');assert.equal(run('state.modelGrouping'),'flat');
+ const ids=Array.from(node('content').innerHTML.matchAll(/class="model-row-open" data-model-open="([^"]+)"/g),m=>m[1]);
+ const dates=JSON.parse(run('JSON.stringify('+JSON.stringify(ids)+'.map(id=>{const v=latestDatedVersion(libraryModels().find(m=>m.id===id));return v?v.releaseDate:""}))'));
+ assert.ok(dates.length>1);assert.deepEqual(dates,dates.slice().sort().reverse());
+});
+test('V3.5 identical news summaries are displayed only once while distinct text remains',()=>{
+ const {run}=setup();assert.deepEqual(JSON.parse(run('JSON.stringify((()=>{const seen=new Set();return [uniqueNewsSummary("A  summary",seen),uniqueNewsSummary("A summary",seen),uniqueNewsSummary("Another summary",seen)]})())')),['<p class="briefing-quote">A  summary</p>','','<p class="briefing-quote">Another summary</p>']);
+});
