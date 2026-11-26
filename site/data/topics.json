@@ -4077,6 +4077,27 @@
         ]
       },
       {
+        "date": "2026-01-26",
+        "kind": "模型",
+        "title": "PixVerse V5.6 API 发布",
+        "summary": "日志记录 V5.6 发布；2 月 12 日另增加参考生视频支持。",
+        "url": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "auditId": "review-20261126-pixverse-v6-pixverse-v5-6-api-availability-20260126",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://docs.pixverse.ai/PixVerse-V5-6-User-Guide-2fe3e99bf350806f86adc8a55de3c3a7",
+        "modelMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "modelVersionId": "pixverse-v5-6",
+            "matchedName": "PixVerse V5.6"
+          }
+        ]
+      },
+      {
         "date": "2026-01-12",
         "kind": "模型",
         "title": "PixVerse 发布 R1 实时世界模型",
@@ -4093,6 +4114,48 @@
           {
             "modelFamilyId": "pixverse-v6",
             "matchedName": "PixVerse"
+          }
+        ]
+      },
+      {
+        "date": "2025-12-02",
+        "kind": "模型",
+        "title": "PixVerse V5.5 API 发布",
+        "summary": "日志记载 V5.5 发布；独立于 V5.6。",
+        "url": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "auditId": "review-20261126-pixverse-v6-pixverse-v5-5-api-availability-20251202",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://docs.pixverse.ai/PixVerse-V5-6-User-Guide-2fe3e99bf350806f86adc8a55de3c3a7",
+        "modelMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "modelVersionId": "pixverse-v5-5",
+            "matchedName": "PixVerse V5.5"
+          }
+        ]
+      },
+      {
+        "date": "2025-08-29",
+        "kind": "模型",
+        "title": "PixVerse V5 API 发布",
+        "summary": "日志记载 V5 发布；不以 API 日志代替全平台首发日。",
+        "url": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "auditId": "review-20261126-pixverse-v6-pixverse-v5-api-availability-20250829",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://pixverse.ai/en/blog/pixverse-announces-series-b-international-expansion-ai-video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "pixverse-v6",
+            "modelVersionId": "pixverse-v5",
+            "matchedName": "PixVerse V5"
           }
         ]
       },
@@ -5378,6 +5441,46 @@
         ]
       },
       {
+        "date": "2026-02-05",
+        "kind": "模型",
+        "title": "Kling 3.0 面向 Ultra 用户提前开放",
+        "summary": "发布公告确认当时仅 Ultra 用户可提前体验。",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
+        "auditId": "review-20261126-kling-kling-3-0-early-access-20260205",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-3-0",
+            "matchedName": "Kling 3.0"
+          }
+        ]
+      },
+      {
+        "date": "2026-02-05",
+        "kind": "模型",
+        "title": "Kling 3.0 Omni 面向 Ultra 用户提前开放",
+        "summary": "同批公告明确列出 Video 3.0 Omni，全面开放日待查。",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
+        "auditId": "review-20261126-kling-kling-3-0-omni-early-access-20260205",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-3-0-omni",
+            "matchedName": "Kling 3.0 Omni"
+          }
+        ]
+      },
+      {
         "date": "2025-12-03",
         "kind": "模型",
         "title": "Kling 2.6 音画同出模型",
@@ -5549,6 +5652,27 @@
           "image"
         ],
         "verificationUrl": "https://huggingface.co/Kwai-Kolors/Kolors"
+      },
+      {
+        "date": "2024-06-06",
+        "kind": "模型",
+        "title": "初代 Kling 文生视频开放测试",
+        "summary": "7 月 8 日官方回顾明确文生视频于 6 月 6 日上线；当时为测试阶段。",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-comprehensive-ai-models-reshaping-content-and/",
+        "auditId": "review-20261126-kling-kling-1-0-early-access-20240606",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-proprietary-video-generation-model-kling",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-1-0",
+            "matchedName": "Kling 1.0"
+          }
+        ]
       },
       {
         "date": "2024-06",
@@ -6249,6 +6373,48 @@
         ]
       },
       {
+        "date": "2026-02-11",
+        "kind": "模型",
+        "title": "Vidu Q3 Turbo 加入文生与图生视频 API",
+        "summary": "生成时间较短，日志同日记录首尾帧支持。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q3-turbo-api-availability-20260211",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://www.genspi.com/zh/vidu-q3/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q3-turbo",
+            "matchedName": "Vidu Q3 Turbo"
+          }
+        ]
+      },
+      {
+        "date": "2026-01-27",
+        "kind": "模型",
+        "title": "Vidu Q3 Pro 加入文生与图生视频 API",
+        "summary": "官方列为新增模型，支持有声视频生成。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q3-pro-api-availability-20260127",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://www.genspi.com/zh/vidu-q3/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q3-pro",
+            "matchedName": "Vidu Q3 Pro"
+          }
+        ]
+      },
+      {
         "date": "2025-12-23",
         "kind": "研究",
         "title": "生数科技与清华开源 TurboDiffusion 视频生成加速框架",
@@ -6261,6 +6427,27 @@
           "video"
         ],
         "verificationUrl": "https://github.com/thu-ml/TurboDiffusion"
+      },
+      {
+        "date": "2025-12-02",
+        "kind": "模型",
+        "title": "Vidu Q2 Pro Fast 加入 API",
+        "summary": "独立低成本 API 型号，支持图生视频与首尾帧。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q2-pro-fast-api-availability-20251202",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://platform.vidu.com/docs/api-reference/video-models/vidu-q2/start-end-to-video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2-pro-fast",
+            "matchedName": "Vidu Q2 Pro Fast"
+          }
+        ]
       },
       {
         "date": "2025-12-01",
@@ -6286,17 +6473,17 @@
       {
         "date": "2025-09-30",
         "kind": "模型",
-        "title": "Vidu Q2 基础模型正式发布",
-        "summary": "生数科技于 2025-09-30 发布 Vidu Q2 视频基础模型，强化人物表演、动作和视觉一致性。2025-10-21 推出 Q2 Reference-to-Video 能力，提升多参考素材控制和创作一致性；该功能属于 Q2 同代升级，不是新的基础模型代际。2025-12-01 又将 Q2 能力扩展到图像生成，形成视频与图像创作能力组合。",
+        "title": "Vidu Q2 基础模型官方发布公告",
+        "summary": "生数科技于 2025-09-30 发布 Q2 官方公告；Q2 Pro/Turbo API 日志已记载 9 月 24 日开放，第三方平台 9 月 25 日已宣布接入 Q2。9 月 30 日为公告日，不代表最早可用日。",
         "url": "https://www.prnewswire.com/news-releases/starring-ai-vidu-q2-brings-performances-to-life-302570537.html",
         "auditId": "v48-vidu-0237",
         "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24",
+        "verificationDate": "2026-11-26",
         "modelCategory": [
           "image",
           "video"
         ],
-        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "verificationUrl": "https://platform.vidu.com/docs/api-reference/updates",
         "modelMentions": [
           {
             "modelFamilyId": "vidu",
@@ -6308,6 +6495,48 @@
           {
             "modelFamilyId": "vidu",
             "matchedName": "Vidu"
+          }
+        ]
+      },
+      {
+        "date": "2025-09-24",
+        "kind": "模型",
+        "title": "Vidu Q2 Pro 加入 API",
+        "summary": "新增模型，支持图生视频与首尾帧。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q2-pro-api-availability-20250924",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2-pro",
+            "matchedName": "Vidu Q2 Pro"
+          }
+        ]
+      },
+      {
+        "date": "2025-09-24",
+        "kind": "模型",
+        "title": "Vidu Q2 Turbo 加入 API",
+        "summary": "新增模型，支持图生视频与首尾帧。",
+        "url": "https://platform.vidu.com/docs/api-reference/updates",
+        "auditId": "review-20261126-vidu-vidu-q2-turbo-api-availability-20250924",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "video"
+        ],
+        "verificationUrl": "https://platform.vidu.com/docs/model-map",
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu",
+            "modelVersionId": "vidu-q2-turbo",
+            "matchedName": "Vidu Q2 Turbo"
           }
         ]
       },
