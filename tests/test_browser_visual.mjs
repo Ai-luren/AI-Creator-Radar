@@ -19,7 +19,7 @@ assert.ok(htmlBytes<=320*1024,'HTML exceeds 320 KiB; review payload growth');
 assert.ok(overviewBytes<=256*1024,'overview snapshots exceed 256 KiB; review data growth');
 const failures=[];
 try{
- for(const viewport of [{width:1440,height:1000},{width:390,height:844},{width:360,height:800}]){
+ for(const viewport of [{width:1440,height:900},{width:390,height:844},{width:360,height:800}]){
   const label=viewport.width===1440?'desktop':String(viewport.width);
   let context,page;const errors=[];
   // Each scenario begins from a fresh browser context; within a scenario reloads
