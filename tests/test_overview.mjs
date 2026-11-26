@@ -229,3 +229,7 @@ test('overview exposes all modules without duplicating raw daily feeds',async()=
  assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds','social','models','rankings','topics','practice','opportunities','platforms'])assert.ok(markup.includes('data-view="'+view+'"'),view);
  run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
+
+test('release range and order persist in route',async()=>{
+ const {run,node}=setup({query:'?view=today&days=7&sort=date'});await run('loadAllForTests()');assert.equal(run('state.releaseWindow'),'7');assert.equal(run('state.releaseSort'),'date');assert.match(node('content').innerHTML,/data-release-window/);
+});

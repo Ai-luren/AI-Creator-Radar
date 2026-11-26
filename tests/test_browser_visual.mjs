@@ -80,6 +80,12 @@ try{
    assert.equal(await page.locator('main').evaluate(el=>el.inert),false);
    await menu.click();await page.locator('#navBackdrop').click({position:{x:viewport.width-10,y:100}});assert.equal(await menu.getAttribute('aria-expanded'),'false');
   });
+  if(viewport.width!==360)await check('release controls',async()=>{
+   await page.goto(base+'?view=today',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.locator('[data-release-window]').selectOption('7');assert.equal(await page.evaluate(()=>state.releaseWindow),'7');
+   await page.locator('[data-release-sort-select]').selectOption('date');assert.equal(await page.evaluate(()=>state.releaseSort),'date');
+   await page.screenshot({path:path.join(out,label+'-release-controls.png')});
+  });
   if(viewport.width!==360)await check('search-and-version',async()=>{
    await page.goto(base+'?view=models&category=image',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});await page.waitForFunction(()=>state.indexReady);
