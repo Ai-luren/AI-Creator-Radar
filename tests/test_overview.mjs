@@ -188,3 +188,11 @@ test('creator program evidence ages independently of links and scan candidates s
  assert.match(node('content').innerHTML,/Pending Example Festival/);
  assert.equal(run("state.opportunityData.items.some(x=>x.title==='Pending Example Festival')"),false);
 });
+
+
+test('board row indexing preserves first-match rank semantics and snapshot isolation',()=>{
+ const {run}=setup();
+ assert.equal(run("(()=>{const rows=[{name:'A',rank:7},{name:'A',rank:2}];return firstBoardRow(rows,'A').rank})()"),7);
+ assert.equal(run("(()=>{const rows=[{name:'A',rank:7}];firstBoardRow(rows,'A');return firstBoardRow([{name:'A',rank:2}],'A').rank})()"),2);
+ assert.equal(run("firstBoardRow([], 'missing')"),undefined);
+});
