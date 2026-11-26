@@ -615,16 +615,21 @@ button.text-link:focus-visible,.rank-model-link:focus-visible,.v34-control:focus
 .topic-event-expanded .topic-event-links .ui-icon{width:13px;height:13px}.topic-related-source{border-top:1px solid var(--line);padding-top:8px;margin-top:8px;font-size:12px}.topic-related-source strong{display:block}
 @media(min-width:761px){
  :root:not(.nav-compact){--side:224px}.sidebar,.nav-compact .sidebar{padding:12px 10px}.sidebar .brand,.nav-compact .brand{height:48px;min-height:48px;box-sizing:border-box;flex-direction:row;gap:8px;padding:0 6px 10px;justify-content:flex-start}
- .sidebar .brand-mark{width:32px;height:32px;border-radius:10px}.nav-compact .brand{justify-content:center;padding:0 0 10px}
- .topbar .desktop-nav-toggle{display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--muted);border-radius:7px}
- .topbar .desktop-nav-toggle .nav-icon,.topbar .desktop-nav-toggle svg{width:20px;height:20px;transform:none;stroke-width:1.75}
- .topbar .desktop-nav-toggle:hover{color:var(--blue);background:var(--blue2)}
+ .sidebar .brand-mark{width:32px;height:32px;border-radius:10px}
+ .sidebar .brand,.nav-compact .sidebar .brand{display:grid;height:76px;min-height:76px;grid-template-columns:32px minmax(0,1fr) 32px;grid-template-rows:32px 32px;align-items:center;align-content:start;gap:4px 7px;padding:0 4px 8px}
+ .sidebar .brand-mark{grid-column:1;grid-row:1}.sidebar .brand-copy{grid-column:2;grid-row:1}
+ .sidebar .desktop-nav-toggle{display:grid;grid-column:3;grid-row:1;place-items:center;width:32px;height:32px;padding:0;border:0;background:transparent;color:var(--muted);border-radius:7px}
+ .sidebar .desktop-nav-toggle .nav-icon,.sidebar .desktop-nav-toggle svg{width:20px;height:20px;transform:none;stroke-width:1.75}
+ .sidebar .desktop-nav-toggle:hover{color:var(--blue);background:var(--blue2)}
+ .nav-compact .sidebar .brand{grid-template-columns:1fr;justify-items:center;padding:0 0 8px}
+ .nav-compact .sidebar .desktop-nav-toggle{grid-column:1;grid-row:2}
+
  .nav-group,.nav-compact .nav-group{margin:0 0 12px;padding:0;border:0}.nav-group-toggle,.nav-compact .nav-group-toggle{height:29px;min-height:29px;box-sizing:border-box}
  .nav-compact .nav-group-toggle{display:block;visibility:hidden;pointer-events:none}.nav-compact .nav-group{position:relative}.nav-compact .nav-group:not(:first-child):before{content:"";position:absolute;top:13px;left:7px;right:7px;border-top:1px solid var(--line)}
  .nav button,.nav-compact .nav button{height:42px;min-height:42px;padding:0 10px;border-radius:9px}.nav-compact .nav button{padding:0;justify-content:center}.nav-scroll{scrollbar-width:thin}
 }
 @media(max-width:760px){
- .topbar .desktop-nav-toggle{display:none}.mobile-menu,.mobile-nav-close{display:grid;place-items:center}
+ .sidebar .desktop-nav-toggle{display:none}.mobile-menu,.mobile-nav-close{display:grid;place-items:center}
  .model-table-grouped thead th:first-child,.model-table-grouped .model-family-row td:first-child{width:24px;min-width:24px;max-width:24px}.model-table-grouped thead th:nth-child(2),.model-table-grouped .model-family-row td:nth-child(2){left:0}
  .model-group-toggle{min-height:44px}.model-group-controls .v34-control,.topic-event-tools .v34-control{min-height:44px}
  .topic-events .topic-event{grid-template-columns:53px minmax(0,1fr);gap:6px}.topic-event-day{padding-top:13px;font-size:11px}
@@ -647,7 +652,7 @@ button.text-link:focus-visible,.rank-model-link:focus-visible,.v34-control:focus
 <div class="app">
 <button type="button" class="nav-backdrop" id="navBackdrop" aria-label="关闭导航" tabindex="-1" hidden></button>
 <aside class="sidebar" id="sidebar">
-  <div class="brand"><div class="brand-mark"><img src="assets/creator-avatar.jpg" alt="Ai路人头像"></div><div class="brand-copy"><div class="brand-name">AI视频创作台</div></div><button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="关闭导航"><span class="nav-icon" data-icon="close"></span></button></div>
+  <div class="brand"><div class="brand-mark"><img src="assets/creator-avatar.jpg" alt="Ai路人头像"></div><div class="brand-copy"><div class="brand-name">AI视频创作台</div></div><button type="button" class="desktop-nav-toggle" id="desktopNavToggle" aria-label="收起侧边栏" aria-controls="sidebar" aria-expanded="true" title="收起侧边栏"><span class="nav-icon" data-icon="panel"></span></button><button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="关闭导航"><span class="nav-icon" data-icon="close"></span></button></div>
   <div class="nav-scroll">
     <section class="nav-group" data-nav-group="daily"><button type="button" class="nav-label nav-group-toggle" data-nav-group-toggle="daily" aria-controls="nav-daily" aria-expanded="true"><span>每日追踪</span><span data-icon="down"></span></button><nav class="nav" id="nav-daily" aria-label="每日追踪">
       <button class="active" data-view="overview" aria-current="page" aria-label="今日概览" title="今日概览"><span class="nav-icon" data-icon="dashboard"></span><span class="nav-text">今日概览</span></button>
@@ -670,7 +675,7 @@ button.text-link:focus-visible,.rank-model-link:focus-visible,.v34-control:focus
 </aside>
 <main class="main">
   <header class="topbar">
-    <div style="display:flex;align-items:center;gap:10px;min-width:0"><button type="button" class="mobile-menu" id="mobileMenu" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false"><span class="nav-icon" data-icon="menu"></span></button><button type="button" class="desktop-nav-toggle" id="desktopNavToggle" aria-label="收起侧边栏" aria-controls="sidebar" aria-expanded="true" title="收起侧边栏"><span class="nav-icon" data-icon="panel"></span></button><div class="crumb">AI视频创作台 <span style="color:#b1bac2"> / </span><strong id="crumbTitle">今日概览</strong></div></div>
+    <div style="display:flex;align-items:center;gap:10px;min-width:0"><button type="button" class="mobile-menu" id="mobileMenu" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false"><span class="nav-icon" data-icon="menu"></span></button><div class="crumb">AI视频创作台 <span style="color:#b1bac2"> / </span><strong id="crumbTitle">今日概览</strong></div></div>
     <div class="top-right"><button type="button" class="global-search-trigger" id="globalSearchTrigger" aria-label="打开全局搜索"><span class="global-search-icon" data-icon="search"></span><span>全局搜索</span><kbd>⌘K</kbd></button><label class="search"><span data-icon="search"></span><input id="searchInput" type="search" aria-label="筛选当前页面" placeholder="筛选当前页面…"></label></div>
   </header>
   <section class="content" id="content"><div class="empty">正在加载工作台数据…</div></section>

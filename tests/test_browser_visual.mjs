@@ -86,9 +86,12 @@ try{
   });
   if(viewport.width===1440)await check('desktop folding navigation',async()=>{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   const sidebar=page.locator('#sidebar'),toggle=page.locator('#desktopNavToggle');
+   const sidebar=page.locator('#sidebar'),toggle=sidebar.locator('#desktopNavToggle');
+   const geometry=()=>toggle.evaluate(el=>{const b=el.getBoundingClientRect(),side=el.closest('.sidebar').getBoundingClientRect(),avatar=el.closest('.brand').querySelector('.brand-mark').getBoundingClientRect(),svg=el.querySelector('svg').getBoundingClientRect();return {inside:b.left>=side.left&&b.right<=side.right&&b.top>=side.top&&b.bottom<=side.bottom,centerX:Math.abs(b.left+b.width/2-side.left-side.width/2),avatarY:Math.abs(b.top+b.height/2-avatar.top-avatar.height/2),below:b.top>=avatar.bottom,iconX:Math.abs(b.left+b.width/2-svg.left-svg.width/2),iconY:Math.abs(b.top+b.height/2-svg.top-svg.height/2)}});
+   const expandedGeometry=await geometry();assert.ok(expandedGeometry.inside&&expandedGeometry.avatarY<=1&&expandedGeometry.iconX<=1&&expandedGeometry.iconY<=1,'expanded toggle misaligned '+JSON.stringify(expandedGeometry));
    assert.equal(await toggle.getAttribute('aria-expanded'),'true');const expanded=await sidebar.evaluate(el=>el.getBoundingClientRect().width);const startY=await sidebar.locator('[data-view="overview"]').evaluate(el=>el.getBoundingClientRect().y);
    await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);assert.ok(await sidebar.evaluate(el=>el.getBoundingClientRect().width)<expanded);
+   const compactGeometry=await geometry();assert.ok(compactGeometry.inside&&compactGeometry.below&&compactGeometry.centerX<=1&&compactGeometry.iconX<=1&&compactGeometry.iconY<=1,'compact toggle misaligned '+JSON.stringify(compactGeometry));
    assert.ok(Math.abs(startY-await sidebar.locator('[data-view="overview"]').evaluate(el=>el.getBoundingClientRect().y))<=2,'navigation items jump vertically');
    await page.screenshot({path:path.join(out,label+'-compact-nav.png')});
    await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);
