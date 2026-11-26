@@ -1,8 +1,18 @@
-name: Monitor official AI model releases and deploy Pages
+name: Refresh radar data
 
 on:
   push:
     branches: [main]
+    # Run after collector/config changes, not after routine UI or docs pushes.
+    paths:
+      - 'scripts/collect_*.py'
+      - 'scripts/build_*.py'
+      - 'scripts/check_*.py'
+      - 'scripts/link_model_records.py'
+      - 'scripts/plan_refresh.py'
+      - 'scripts/collection_health.py'
+      - 'config/**'
+      - '.github/workflows/update-site.yml'
   schedule:
     # Every tick checks all persisted timestamps; missed ticks can catch up.
     - cron: "7,37 * * * *" # official model discovery, AIHOT selected
@@ -28,18 +38,16 @@ permissions:
   id-token: write
 
 concurrency:
-  group: ai-creator-radar-pages
+  group: radar-data-refresh
   cancel-in-progress: false
 
 jobs:
   collect:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && !(github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only')
     runs-on: ubuntu-24.04
     outputs:
       changed: ${{ steps.persist.outputs.changed }}
-      aihot_outcome: ${{ steps.aihot.outcome }}
-      aihot_daily_outcome: ${{ steps.aihot_daily.outcome }}
-      juya_outcome: ${{ steps.juya_daily.outcome }}
+      notify: ${{ steps.health.outputs.notify }}
     timeout-minutes: 30
     steps:
       - name: Checkout the triggering ref
@@ -53,7 +61,6 @@ jobs:
           python-version: "3.12"
 
       - name: Set up Node for rendering tests
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         uses: actions/setup-node@v5
         with:
           node-version: "22"
@@ -153,11 +160,19 @@ jobs:
         if: steps.plan.outputs.collect == 'true'
         run: python scripts/link_model_records.py
 
+      - name: Record briefing source health and deduplicate alerts
+        id: health
+        if: steps.plan.outputs.collect == 'true'
+        env:
+          AIHOT_SELECTED: ${{ steps.aihot.outcome }}
+          AIHOT_DAILY: ${{ steps.aihot_daily.outcome }}
+          JUYA_DAILY: ${{ steps.juya_daily.outcome }}
+        run: python scripts/collection_health.py --output "$GITHUB_OUTPUT" --summary "$GITHUB_STEP_SUMMARY"
+
       - name: Test collectors and current data after regeneration
         run: python -m unittest discover -s tests -v
 
       - name: Test overview and navigation rendering
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
         run: node --test tests/test_overview.mjs
 
       - name: Validate shared model references
@@ -172,48 +187,42 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site/data/
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(data): refresh models, rankings and resources"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-          else
+          base="$(git rev-parse HEAD)"
+          git fetch origin main
+          if [ "$(git rev-parse origin/main)" != "$base" ]; then
+            echo "::warning::Main advanced during collection; retain newer committed data and retry on the next scheduled run."
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No collected data changes."
+            exit 0
           fi
+          git add site/data/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "chore(data): refresh models, rankings and resources"
+          if ! git push origin HEAD:main; then
+            git fetch origin main
+            if [ "$(git rev-parse origin/main)" != "$base" ]; then
+              echo "::warning::Concurrent main update won; generated snapshot not published."
+              echo "changed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::error::Data push failed without a concurrent main update."
+            exit 1
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Configure GitHub Pages
-        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || steps.persist.outputs.changed == 'true')
-        uses: actions/configure-pages@v6.0.0
-
-      - name: Upload Pages artifact
-        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || steps.persist.outputs.changed == 'true')
-        uses: actions/upload-pages-artifact@v5.0.0
-        with:
-          path: site
-
-  deploy:
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || needs.collect.outputs.changed == 'true')
+  publish:
     needs: collect
-    runs-on: ubuntu-24.04
-    environment:
-      name: github-pages
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5.0.1
+    if: always() && !cancelled() && github.ref == 'refs/heads/main' && ((github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || (needs.collect.result == 'success' && needs.collect.outputs.changed == 'true'))
+    uses: ./.github/workflows/deploy-pages.yml
 
-  report-collector-failure:
-    # Daily digests and AIHOT selected write atomically. Retain old snapshots
-    # on failure, publish other validated data, and preserve failure visibility.
-    needs: [collect, deploy]
-    if: always() && !cancelled() && (needs.collect.outputs.aihot_outcome == 'failure' || needs.collect.outputs.aihot_daily_outcome == 'failure' || needs.collect.outputs.juya_outcome == 'failure')
+  persistent-source-alert:
+    needs: [collect, publish]
+    if: always() && !cancelled() && needs.collect.result == 'success' && needs.collect.outputs.changed == 'true' && needs.collect.outputs.notify == 'true'
     runs-on: ubuntu-24.04
     steps:
-      - name: Report degraded collection without hiding notifications
+      - name: Report newly persistent source incident once
         run: |
-          echo "### Partial collection failure: briefing sources" >> "$GITHUB_STEP_SUMMARY"
-          echo "AIHOT selected: ${{ needs.collect.outputs.aihot_outcome }}; AIHOT daily: ${{ needs.collect.outputs.aihot_daily_outcome }}; Juya: ${{ needs.collect.outputs.juya_outcome }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "Failed atomic snapshots retain their old timestamp. Other validated data may have deployed; inspect the deploy job." >> "$GITHUB_STEP_SUMMARY"
-          echo "::error::One or more briefing sources failed; previous failed-source snapshots retained."
+          echo "::error::A briefing source failed three consecutive collection attempts. Valid data and old snapshots are retained; see collection-health.json."
           exit 1

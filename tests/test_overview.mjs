@@ -143,7 +143,7 @@ test('existing community repositories are reachable in prompt views and global s
  assert.match(node('content').innerHTML,/开源提示词与 Skill 索引/);assert.match(node('content').innerHTML,/LearnPrompt\/awesome-seedance/);
  assert.ok(run("searchGlobal('Awesome Seedance','resource').length")>0);
  assert.equal(run("stableCreatorKey('https://example.com/apply')===stableCreatorKey('https://example.com/apply')"),true);
- run("setView('opportunities',{opportunityTab:'programs'})");assert.match(node('content').innerHTML,/未检测/);
+ run("setView('opportunities',{opportunityTab:'programs'})");assert.match(node('content').innerHTML,/creator-link-health/);
 });
 
 test('direct ranking route does not fetch model registry or legacy data; global search loads only active search sources',async()=>{
@@ -279,4 +279,25 @@ test('overview explicitly identifies delayed snapshots without treating them as 
  assert.match(node('content').innerHTML,/同步延迟 · [^<]*模型信源[^<]*AIHOT 精选[^<]*AIHOT 日报[^<]*橘鸦早报/);
  run("var freshStamp=new Date().toISOString();state.modelMonitorStatus.checkedAt=freshStamp;state.modelReleaseData.updatedAt=freshStamp;state.aihot.updatedAt=freshStamp;state.aihotDaily.fetchedAt=freshStamp;state.juyaDaily.fetchedAt=freshStamp;render()");
  assert.doesNotMatch(node('content').innerHTML,/同步延迟 · /);
+});
+
+test('creator link reachability is independent of live snapshot state',()=>{
+ const {run}=setup();
+ const url='https://example.com/apply';
+ run("state.creatorLinkStatus={results:[]}");
+ assert.match(run("creatorReachability('"+url+"')"),/未检测/);
+ for(const [status,label] of [['available','链接响应正常'],['restricted','访问受限'],['missing','链接可能失效'],['server-error','服务器异常'],['unknown','无法确认'],['unexpected','未确认']]){
+   run("state.creatorLinkStatus="+JSON.stringify({checkedAt:'2026-11-26T12:00:00Z',results:[{url,status}]}));
+   const markup=run("creatorReachability('"+url+"#form')");
+   assert.ok(markup.includes(label),status+' => '+markup);
+   assert.ok(markup.includes('2026-11-26'));
+ }
+});
+test('program page renders both pre-collection and post-collection link snapshots',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ run("setView('opportunities',{opportunityTab:'programs'});state.creatorLinkStatus={results:[]};render()");
+ assert.match(node('content').innerHTML,/未检测/);
+ run("state.creatorLinkStatus={checkedAt:'2026-11-26T12:00:00Z',results:creatorPrograms().map(p=>({url:p.url.split('#')[0],status:'available'}))};render()");
+ assert.match(node('content').innerHTML,/链接响应正常/);
+ assert.doesNotMatch(node('content').innerHTML,/class="creator-link-health">未检测/);
 });

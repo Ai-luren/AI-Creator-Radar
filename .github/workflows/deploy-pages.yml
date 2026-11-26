@@ -1,0 +1,65 @@
+name: Publish validated GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'tests/**'
+      - 'scripts/validate_model_links.py'
+      - 'scripts/audit_model_completeness.py'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One publish at a time, using the latest main after entering the queue.
+# A GITHUB_TOKEN data commit does not trigger push workflows; the collector
+# explicitly calls this reusable workflow after a validated successful commit.
+concurrency:
+  group: radar-pages-publish
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout committed main (never collect external data)
+        uses: actions/checkout@v5
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          package-manager-cache: false
+      - name: Validate committed code and snapshots
+        run: |
+          python -m unittest discover -s tests -v
+          node --test tests/test_overview.mjs
+          python scripts/validate_model_links.py
+          python scripts/audit_model_completeness.py
+      - name: Record revision in the deployment artifact
+        run: |
+          python -c 'import json,subprocess; from pathlib import Path; Path("site/deploy-revision.json").write_text(json.dumps({"commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()})+"\n",encoding="utf-8")'
+          echo "Publishing $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6.0.0
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          path: site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5.0.1

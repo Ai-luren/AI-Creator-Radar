@@ -1,7 +1,7 @@
 """Plan overdue collectors from persisted timestamps, not the cron string.
 
 GitHub schedules are best effort. A missed tick is recovered by a later
-scheduled run or a main push. No source timestamp is rewritten here.
+scheduled run or a collector/configuration push. No source timestamp is rewritten here.
 """
 import argparse
 import json
@@ -47,7 +47,7 @@ def plan(data_dir, event, scope="", now=None):
     result = {}
     for group, inputs in GROUPS.items():
         minutes = INTERVAL_MINUTES[group]
-        # A normal UI push should not rerun a recently attempted fast collector.
+        # A collector/configuration push need not rerun recently attempted fast collectors.
         if event == "push" and group in {"models", "selected"}:
             minutes = 120
         stamps = [read_stamp(data_dir, filename, field) for filename, field in inputs]
