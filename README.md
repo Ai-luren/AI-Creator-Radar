@@ -116,3 +116,18 @@ AIHOT 精选读取失败后会重试一次；再次失败则保留上次快照�
 Google AI 专项 RSS（`https://blog.google/innovation-and-ai/technology/ai/rss/`）取代返回 HTML 的旧 `/feed/`；总站 RSS 为失败时的备选。Niji 优先英文官方博客，中文为备选；仅提取明确编号的发布文章链接，不从目录推断发布日期。候选仍需人工审核，已有模型证据不被自动覆盖。
 
 官方模型采集对 HTTP 408、429、5xx 和部分暂时性连接错误最多重试一次；403 和解析错误不重复请求，配置了备用入口时尝试备用入口。状态快照保留主入口、实际入口、尝试记录和最后成功时间。合法空 RSS 不算网络故障，也不因无新增模型自动切换来源。涉及模型采集器或信源配置变更的 PR 自动执行只读联网诊断并上传报告；诊断完成不等于所有来源均健康。
+
+
+### 创作机会自动发现与申请状态（第二阶段第四轮）
+
+每日维护任务（UTC 02:13，北京时间 10:13 的计划触发时间）执行 `scripts/collect_creator_opportunities.py`。6 个公开比赛索引与 7 个公开创作者计划页面配置在 `config/creator-opportunity-sources.json`。不使用付费 API/LLM，不登录、不提交表单、不访问用户私人数据。每页有超时与体积上限；仅同站且符合路径及标题/slug 关键词的链接进入待审核池（最多 180 条，45 天保留期限），不会自动填造奖金、日期或资格。失败与零匹配独立记录；暂时失败不立即删除旧候选。官方页面线索也必须人工复核才能进入正式赛事。首次扫描前数据为显式空快照。
+
+`creator-contests.json` 是人工审核的赛事清单（12 项）；`social-platforms.json` 中 30 个创作者计划入口保留原 ID 与链接，其中 6 项已补本轮有日期的 `applicationReview`。开放、仅有申请入口、关闭、邀请制和待确认分别表示不同证据，不将链接可达或自动识别的文字视为实时开放。正式状态超过 14 天自动降级为待复核；与同一证据页面的自动信号冲突时亦降级。原申请进度仍保存在浏览器，不自动申请。未核实的 24 项保持待确认；地区/版权/资格和实际表单提交能力需独立核对。
+
+```sh
+python scripts/collect_creator_opportunities.py --dry-run
+python scripts/collect_creator_opportunities.py --report /tmp/opportunities-probe.json
+python scripts/check_creator_links.py --dry-run
+```
+
+PR 触及采集器或配置时会进行只读联网诊断并上传 artifact；实际生产快照需 main 首次维护任务生成。诊断成功仅表示扫描过程完成，不表示所有外部页面可访问或报名开放。
