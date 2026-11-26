@@ -115,3 +115,10 @@ test('rankings search indexes visible source rows and keeps task identity',async
  assert.equal(run('state.query'),candidate.title);
  assert.match(node('content').innerHTML,/原榜 #/);
 });
+
+test('grouped release list, recent known date and readable briefing preserve source links',async()=>{
+ const {run,node}=setup();await run('loadData()');run("setView('today')");
+ assert.match(node('content').innerHTML,/class="release-main"/);assert.match(node('content').innerHTML,/class="release-actions"/);assert.match(node('content').innerHTML,/data-model-version=/);
+ run("setView('models')");assert.match(node('content').innerHTML,/最近发布日期/);assert.match(node('content').innerHTML,/table-scroll-hint/);
+ run("setView('feeds')");assert.doesNotMatch(node('content').innerHTML,/class="briefing-intro"/);assert.match(node('content').innerHTML,/briefing-original-links/);
+});
