@@ -1,13 +1,18 @@
 name: Browser layout and interaction checks
 on:
-  push:
-    branches: [feat/radar-freshness-overhaul]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
   browser:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      matrix:
+        engine: [chromium, webkit]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,11 +21,12 @@ jobs:
       - name: Install isolated browser test dependency
         run: |
           npm install --prefix /tmp/radar-browser --no-save --package-lock=false playwright@1.56.1
-          /tmp/radar-browser/node_modules/.bin/playwright install --with-deps chromium
+          /tmp/radar-browser/node_modules/.bin/playwright install --with-deps ${{ matrix.engine }}
       - name: Check actual browser layouts and interactions
         env:
           RADAR_BROWSER_DEPS: /tmp/radar-browser
           RADAR_SCREENSHOTS: /tmp/radar-screenshots
+          RADAR_BROWSER_ENGINE: ${{ matrix.engine }}
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 --directory site >/tmp/radar-server.log 2>&1 &
           trap 'kill $! 2>/dev/null || true' EXIT
@@ -30,7 +36,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: radar-browser-screenshots
+          name: radar-browser-screenshots-${{ matrix.engine }}
           path: /tmp/radar-screenshots
           retention-days: 7
           if-no-files-found: warn
