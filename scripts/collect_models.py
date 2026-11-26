@@ -403,6 +403,27 @@ def html_page_items(page: str, source: dict) -> list[dict]:
     parser.close()
     blocks = sorted(parser.blocks, key=lambda block: block["sequence"])
 
+    if source.get("id") == "sandai-research":
+        # Research cards carry the publication date inside the enclosing link.
+        # Never borrow a date from a neighbouring card or promote a research
+        # announcement to a confirmed model release.
+        candidates = []
+        for block in blocks:
+            if block["tag"] != "a":
+                continue
+            url = valid_article_url(block["attrs"].get("href", ""), source["url"])
+            parts = urlsplit(url)
+            if parts.hostname not in {"sand.ai", "www.sand.ai"} or not parts.path.startswith("/blog/"):
+                continue
+            title = clean_text(block["text"])
+            published = find_date(title)
+            model_id = match_model(title, source)
+            if model_id and published and len(title) <= 220:
+                candidates.append({"title": title, "summary": "", "url": url,
+                                   "publishedAt": published, "modelId": model_id,
+                                   "updateType": "announcement"})
+        return dedupe_candidates(candidates)
+
     if source.get("type") == "niji-release-index":
         return niji_release_items(blocks, source)
     if source.get("type") == "dated-headings":
