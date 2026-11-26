@@ -128,3 +128,16 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - Vidu Q2 的 2025-09-30 是厂商公告日；官方 API 记录 9 月 24 日已有 Pro/Turbo，[第三方 9 月 25 日已公布接入](https://www.prnewswire.com/news-releases/pollo-ai-has-launched-vidu-q2-and-kling-2-5-turbo-ai-video-models-empowering-creators-with-studio-level-cinematics-302566885.html)。保留公告阶段，不把公告日当作唯一首发日。
 - Seedance 1.0 官方技术报告 2025-06-11 使用基础家族名，[BytePlus 月度目录](https://docs.byteplus.com/vi/docs/modelark/model-release-announcement-2025?redirect=1) 同时列出 Seedance 1.0 Pro 的版本标签与 API 上线记录；不能将技术报告日期或标签日期直接写成 Pro 首发日。Seedance 2.5 冲突继续保留。
 - 本批最终目录 323 个版本，117 个结构化正式发布证据，39 条历史阶段证据；206 个版本仍无正式发布证据，其中含新补齐的历史 API 型号。尚未完成全厂商重新核验。
+
+
+## 图像谱系复核第五批（2026-11-26）
+
+- 新补 GPT Image 1 Mini、1.5、2、2.5 Sunburst、2.5 Flare，Nano Banana 初代、Nano Banana 2 Lite，以及 HunyuanImage 3.0 Instruct 共 8 份发布证据。
+- GPT Image 1 保留 2025-04-23 API 上线阶段；官方 API 文档确认 2026-10-23 停用。ChatGPT Image Latest 是滚动 API 名称，不作为固定模型发布事件。
+- 补充 Seedream 2.0：官方技术页 2025-03-11 公布，回顾 2024 年 12 月初已接入豆包和即梦；保留月份精度，不据技术页日期猜测首发日。
+- Nano Banana 2.1 的 2026-10-06 是官方模型卡更新时间，暂不认定为首发日。Midjourney V7 的 2025-04-03 初次发布与 2025-06-17 默认版本切换分别记录。
+- Qwen Image 2.0/2.0 Pro、2.1 Pro/Turbo 与 3.0 Pro 保存明确的国际 API 部署阶段；3.0 Pro 的 2026-07-20 国际部署与 2026-08-06 全球部署分别保存，不能等同基础模型首发。
+- Seedream 4.5 首发日、Kling Image O1/3.0 Omni 首发日、Qwen Image Edit 商业 API 名称与公开权重版本映射仍待核验；未强行补证。此前 Qwen Image Edit 的公告时区/日期差异亦需复核。
+- 目录现为 324 个版本，125 份结构化发布证据，51 条历史阶段证据。未重新核实全部旧记录。
+
+来源：[OpenAI 更新日志](https://developers.openai.com/api/docs/changelog)、[Google Nano Banana](https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/)、[Google Nano Banana 2 Lite](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/)、[腾讯混元仓库](https://github.com/Tencent-Hunyuan/HunyuanImage-3.0)、[Midjourney 版本文档](https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version)、[Seedream 2.0 技术页](https://seed.bytedance.com/zh/seedream2_0)、[阿里云模型日志](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)。
