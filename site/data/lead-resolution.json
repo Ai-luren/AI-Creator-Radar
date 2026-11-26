@@ -1,9 +1,9 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-26T19:15:54+00:00",
+  "checkedAt": "2026-11-26T19:18:17+00:00",
   "summary": {
     "uniqueOfficialUrls": 27,
-    "attempted": 12,
+    "attempted": 3,
     "articleDateVerified": 7,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
@@ -624,14 +624,14 @@
       "titleHintsChecked": [
         "GPT-6.1 Terra"
       ],
-      "resolverRevision": 2,
+      "resolverRevision": 3,
       "reportedDates": [
         "2026-10-26"
       ],
-      "checkedAt": "2026-11-26T19:04:17+00:00",
+      "checkedAt": "2026-11-26T19:18:17+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-26T21:04:17+00:00",
+      "consecutiveUnresolved": 3,
+      "nextAttemptAt": "2026-11-26T23:18:17+00:00",
       "status": "date-unresolved",
       "title": "GPT-6.1Terra",
       "modelId": "gpt"
@@ -649,13 +649,14 @@
       "titleHintsChecked": [
         "Grok Voice 3.0"
       ],
+      "resolverRevision": 3,
       "reportedDates": [
         "2026-10-14"
       ],
-      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "checkedAt": "2026-11-26T19:18:17+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-26T19:44:51+00:00",
+      "consecutiveUnresolved": 3,
+      "nextAttemptAt": "2026-11-26T23:18:17+00:00",
       "status": "family-unresolved",
       "title": "Introducing Grok Voice 3.0",
       "articlePublishedAt": "2026-10-14T00:00:00Z",
@@ -674,14 +675,14 @@
       "titleHintsChecked": [
         "Gemini 4 Argon"
       ],
-      "resolverRevision": 2,
+      "resolverRevision": 3,
       "reportedDates": [
         "2026-10-13"
       ],
-      "checkedAt": "2026-11-26T19:04:17+00:00",
+      "checkedAt": "2026-11-26T19:18:17+00:00",
       "firstAttemptAt": "2026-11-26T17:35:51+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-26T21:04:17+00:00",
+      "consecutiveUnresolved": 3,
+      "nextAttemptAt": "2026-11-26T23:18:17+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Argon",
       "modelId": "gemini"
