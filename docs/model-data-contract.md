@@ -205,3 +205,5 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - OpenAI GPT-Live 独立家族：1 / 1 mini 的 2026-07-08 官方 System Card；1.1 的 10-15 产品推出，11-20 开发者公告确认 API 可用（公告日期，不推测更早具体开放时间）；Quip 型号由官方 System Card 确认但独立首发日不推断。API 阶段独立于首发统计。
 - ElevenLabs Scribe v3 Live Medical：11-17 官方博客首发，11-23 更新日志确认工作区扩展；后者不算第二次模型发布。新增开发更新日志与 OpenAI 官方开发者公告监控；可访问但零匹配的信源继续明确记录，不宣称全网完备。
 - Suno v6 无日期的重复候选仅按精确原标题、固定来源及既有 9-09 正式证据排除，不把发现时间算作新发布。
+
+- GPT-Live 11-20 API 公告补入 OpenAI 发展史，作为 canonical historicalMilestone 的明确审核节点；Scribe Medical 同步历史节点。CI 历史关系校验不降级。
