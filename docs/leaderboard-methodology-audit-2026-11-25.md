@@ -22,7 +22,7 @@ MAI-Image-2.7 经 Microsoft 官方模型卡、Microsoft Foundry 与发布页确�
 
 ## 本地数据审计发现
 
-1. **评测机构与快照发布者曾被混为一谈。** `site/data/reference-rankings.json` 的快照发布者是 FAI.Fashion，原始榜单链接才指向 Arena 或 Artificial Analysis；部分 Arena 榜由 `site/data-v4/maomu-rankings.json` 的猫目快照提供。此前页面有评测机构链接，但没有在榜单主视图突出“第三方整理快照”，降低了来源透明度。
+1. **评测机构与快照发布者曾被混为一谈。** `site/data/reference-rankings.json` 的快照发布者是 FAI.Fashion，原始榜单链接才指向 Arena 或 Artificial Analysis；部分 Arena 榜由 `site/data/maomu-rankings.json` 的猫目快照提供。此前页面有评测机构链接，但没有在榜单主视图突出“第三方整理快照”，降低了来源透明度。
 2. **视频衍生端点混入主榜。** Artificial Analysis 官方方法将原生标准端点和 Modified 端点分开；Modified 可涉及蒸馏、参数暴露变化或输出质量变化，并可能默认隐藏。旧输入快照没有把这类资格充分落实为主榜排除规则，导致 H3 基础模型和多个基于 H3 的第三方端点一起出现。它们不一定是“假的”，但若目标是比较基础模型，就不能当作多个互相独立的基础模型。本轮又核对到 Pruna 官方明确 P-Video-2-Pro 基于 MiniMax H3，现已纳入同一排除规则。
 3. **视频来源不符合“只看有声”条件。** Arena 官方视频说明称，并非所有模型都支持音频，且每次随机匹配的音频输出可能不同；其通用 T2V/I2V 榜不是纯有声评测。不能因为榜单叫视频 Arena，就把它当成有声视频任务数据。
 4. **图片表格排序曾让分数与名次观感冲突。** v4 原先把达到旧公式门槛的行全部排在单源暂定行之前，而不是按分数一起展示；因此 GPT Image 2.6 的试算点分高于 MAI-Image-2.7，却显示在其后。当前前台不再展示这些跨榜试算，改为直接显示 Arena 文生图来源名次；这解决了两套序号争抢主表的问题，但不能把 Arena 偏好分说成市场采用率或客观质量。

@@ -2300,7 +2300,7 @@
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "付费 Gemini API 可用，Google AI Ultra 按渠道开放，官方未提供公开权重",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
         "releaseUrl": "https://blog.google/products/gemini/",
@@ -2376,11 +2376,24 @@
           }
         ],
         "status": "已发布",
-        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。"
+        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。",
+        "releaseDate": "2026-11-10",
+        "releaseEvidence": {
+          "eventId": "gemini-gemini-4-carbon-20261110",
+          "publishedAt": "2026-11-10",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "sourceName": "Google 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "长程推理型号，11 月 10 日面向更广泛的开发者与企业正式开放。",
+          "access": "付费 Gemini API 可用，Google AI Ultra 按渠道开放，官方未提供公开权重",
+          "category": "llm",
+          "modelName": "Gemini 4 Carbon"
+        }
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "通过 Gemini API 和 Gemini 应用等渠道使用，官方未提供公开权重",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
         "releaseUrl": "https://blog.google/products/gemini/",
@@ -2449,11 +2462,24 @@
           }
         ],
         "status": "已发布",
-        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。"
+        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。",
+        "releaseDate": "2026-11-12",
+        "releaseEvidence": {
+          "eventId": "gemini-gemini-4-hydrogen-20261112",
+          "publishedAt": "2026-11-12",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "sourceName": "Google 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "Gemini 4 系列面向快速执行、日常编码和多步骤工作流的型号。",
+          "access": "通过 Gemini API 和 Gemini 应用等渠道使用，官方未提供公开权重",
+          "category": "llm",
+          "modelName": "Gemini 4 Hydrogen"
+        }
       },
       {
         "region": "海外",
-        "access": "以官方模型页所列渠道为准",
+        "access": "Gemini API、AI Studio 及企业渠道可用，Gemini 应用和 Antigravity 按订阅开放，官方未提供公开权重",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
         "releaseUrl": "https://deepmind.google/models/model-cards/gemini-4-neon/",
@@ -2539,7 +2565,7 @@
           "evidenceType": "official-model-card",
           "verifiedAt": "2026-11-25",
           "summary": "Google DeepMind 于 11 月 18 日发布模型卡，列为 Gemini 4 系列新型号。",
-          "access": "以官方模型页所列渠道为准",
+          "access": "Gemini API、AI Studio 及企业渠道可用，Gemini 应用和 Antigravity 按订阅开放，官方未提供公开权重",
           "category": "llm",
           "modelName": "Gemini 4 Neon"
         }
@@ -4748,7 +4774,7 @@
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
     "modelCardUrl": "https://developers.openai.com/api/docs/models/all",
-    "version": "GPT-4o / GPT-5 / GPT-5.1 / GPT-5.2 / GPT-6.1 / GPT-6.1 Terra / GPT-6.2 Astra / GPT-6.2 Sol / GPT-5.3 Codex / GPT-5.5 / GPT-5.5 Instant / GPT-5.5 Pro",
+    "version": "GPT-4o / GPT-5 / GPT-5.1 / GPT-5.2 / GPT-6.1 / GPT-6.1 Terra / GPT-6.2 Astra / GPT-6.2 Sol / GPT-5.3 Codex / GPT-5.5 / GPT-5.5 Instant / GPT-5.5 Pro / GPT-6.2 (November 23)",
     "aliases": [
       "GPT 系列",
       "GPT-6.2 Astra",
@@ -5552,6 +5578,27 @@
           }
         ],
         "status": "榜单原称；厂商版本关系待进一步核实"
+      },
+      {
+        "id": "gpt-6-2-chat",
+        "name": "GPT-6.2 (November 23)",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-23",
+        "access": "面向符合条件的 ChatGPT 付费方案逐步开放，未公布独立 API 或权重",
+        "releaseEvidence": {
+          "eventId": "gpt-gpt-6-2-chat-20261123",
+          "publishedAt": "2026-11-23",
+          "sourceUrl": "https://deploymentsafety.openai.com/gpt-6-2-chatgpt/preparedness-assessment",
+          "sourceName": "OpenAI 官方模型卡",
+          "evidenceType": "official-model-card",
+          "verifiedAt": "2026-11-25",
+          "summary": "基于 GPT-6.2 Sol、针对日常对话调优的 ChatGPT 版本。",
+          "access": "面向符合条件的 ChatGPT 付费方案逐步开放，未公布独立 API 或权重",
+          "category": "llm",
+          "modelName": "GPT-6.2 (November 23)"
+        }
       }
     ],
     "legacyIds": [
@@ -7795,7 +7842,7 @@
     "versions": [
       {
         "region": "中国",
-        "access": "权重计划开源，尚未发布",
+        "access": "Z.ai Chat、ZCode 和 Coding Plan 可用，API 待上线，权重计划开源，尚未发布",
         "homepage": "https://z.ai/",
         "releaseUrl": "https://z.ai/blog/glm-5.4",
         "id": "5-4",
@@ -7815,7 +7862,7 @@
           "evidenceType": "official-release",
           "verifiedAt": "2026-11-25",
           "summary": "首个采用 Loop Transformer 的旗舰模型，强化编码与通用任务；官方称权重会在安全加固后开源。",
-          "access": "权重计划开源，尚未发布",
+          "access": "Z.ai Chat、ZCode 和 Coding Plan 可用，API 待上线，权重计划开源，尚未发布",
           "category": "llm",
           "modelName": "GLM-5.4"
         }
@@ -9899,7 +9946,7 @@
       },
       {
         "region": "中国",
-        "access": "开源权重",
+        "access": "百炼正式版 API 可用，官方未提供公开权重",
         "accessNote": "仅部分具体型号提供开放权重；许可证和可商用范围因型号而异。",
         "homepage": "https://qwen.ai/",
         "releaseUrl": "https://qwen.ai/",
@@ -9933,7 +9980,20 @@
           }
         ],
         "status": "已发布",
-        "note": "通义千问包含大语言、多模态、图像和音频模型；各模态型号在对应分类单列。"
+        "note": "通义千问包含大语言、多模态、图像和音频模型；各模态型号在对应分类单列。",
+        "releaseDate": "2026-11-16",
+        "releaseEvidence": {
+          "eventId": "qwen-qwen4-max-20261116",
+          "publishedAt": "2026-11-16",
+          "sourceUrl": "https://help.aliyun.com/en/model-studio/newly-released-models",
+          "sourceName": "阿里云百炼官方模型更新",
+          "evidenceType": "official-docs",
+          "verifiedAt": "2026-11-25",
+          "summary": "通义千问旗舰多模态模型，支持文本生成、图像与视频理解及深度推理。",
+          "access": "百炼正式版 API 可用，官方未提供公开权重",
+          "category": "llm",
+          "modelName": "Qwen4-Max"
+        }
       }
     ],
     "legacyIds": [
@@ -13887,7 +13947,7 @@
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
         "homepage": "https://playground.microsoft.ai/",
         "releaseUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
         "modelCardUrl": "https://microsoft.ai/pdf/MAI-Image-2.7-Model-Card.pdf",
@@ -13948,11 +14008,24 @@
           }
         ],
         "status": "已发布",
-        "note": "微软图像生成模型；2.7 与 2.7 Flash 当前标注为 Preview，目录还保留 2.6、2.5 系列。"
+        "note": "微软图像生成模型；2.7 与 2.7 Flash 当前标注为 Preview，目录还保留 2.6、2.5 系列。",
+        "releaseDate": "2026-11-17",
+        "releaseEvidence": {
+          "eventId": "mai-image-mai-image-2-7-20261117",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+          "sourceName": "Microsoft AI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "面向高质量图片生成与精确局部编辑。",
+          "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
+          "category": "image",
+          "modelName": "MAI Image 2.7"
+        }
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
         "homepage": "https://playground.microsoft.ai/",
         "releaseUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
         "modelCardUrl": "https://microsoft.ai/pdf/MAI-Image-2.7-Model-Card.pdf",
@@ -13985,7 +14058,20 @@
           }
         ],
         "status": "已发布",
-        "note": "微软图像生成模型；2.7 与 2.7 Flash 当前标注为 Preview，目录还保留 2.6、2.5 系列。"
+        "note": "微软图像生成模型；2.7 与 2.7 Flash 当前标注为 Preview，目录还保留 2.6、2.5 系列。",
+        "releaseDate": "2026-11-17",
+        "releaseEvidence": {
+          "eventId": "mai-image-mai-image-2-7-flash-20261117",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+          "sourceName": "Microsoft AI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "面向大量出图与快速编辑，侧重速度和成本。",
+          "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
+          "category": "image",
+          "modelName": "MAI Image 2.7 Flash"
+        }
       }
     ],
     "legacyIds": [
@@ -14266,7 +14352,7 @@
     "region": "海外",
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
-    "version": "Midjourney V6 / Midjourney V7 / Midjourney V8 / Midjourney V8.2",
+    "version": "Midjourney V6 / Midjourney V7 / Midjourney V8 / Midjourney V8.2 / Niji 8",
     "modelCardUrl": "https://updates.midjourney.com/version-8-2/",
     "versions": [
       {
@@ -14332,6 +14418,27 @@
         "leaderboardAliases": [],
         "status": "已发布",
         "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。"
+      },
+      {
+        "id": "niji-8",
+        "name": "Niji 8",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-24",
+        "access": "网页版本菜单及 Discord 可用，官方未提供公开权重",
+        "releaseEvidence": {
+          "eventId": "midjourney-niji-8-20261124",
+          "publishedAt": "2026-11-24",
+          "sourceUrl": "https://nijijourney.com/zh/blog/niji-8",
+          "sourceName": "niji・journey 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "新版动画风格图像模型，支持高清生成和保持角色一致性的编辑。",
+          "access": "网页版本菜单及 Discord 可用，官方未提供公开权重",
+          "category": "image",
+          "modelName": "Niji 8"
+        }
       }
     ],
     "legacyIds": [
@@ -14416,19 +14523,19 @@
         ],
         "status": "已发布",
         "region": "中国",
-        "access": "开源权重",
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
-        "releaseDate": "2026-11-11",
-        "releaseUrl": "https://ir.minimax.io/news-events/new-releases",
+        "access": "开放权重及托管 API",
+        "note": "中文首发公告与官方发布记录均为 11 月 10 日；英文公告于 11 月 11 日刊发。",
+        "releaseDate": "2026-11-10",
+        "releaseUrl": "https://minimax.cn/blog/minimax-h3-image",
         "releaseEvidence": {
           "eventId": "minimax-h3-image-20261111-minimax-h3-image",
-          "publishedAt": "2026-11-11",
-          "sourceUrl": "https://ir.minimax.io/news-events/new-releases",
-          "sourceName": "MiniMax 官方发布页",
+          "publishedAt": "2026-11-10",
+          "sourceUrl": "https://minimax.cn/blog/minimax-h3-image",
+          "sourceName": "MiniMax 中文首发公告",
           "evidenceType": "official-release",
           "verifiedAt": "2026-11-25",
           "summary": "开源权重图像模型，支持文生图、参考图生成和图像编辑；官方介绍支持 4K 生成。",
-          "access": "开源权重",
+          "access": "开放权重，可通过 MiniMax API、MiniMax Code 和海螺使用",
           "category": "image",
           "modelName": "MiniMax H3-Image"
         }
@@ -14462,10 +14569,12 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "型号映射待核验",
+        "status": "托管高速模式可用",
         "region": "中国",
-        "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "access": "MiniMax 托管高速模式；无独立权重发布证据",
+        "note": "11 月 10 日 H3-Image 首发公告已列为 Highspeed 模式。11 月 24 日家族公告再次介绍该模式。",
+        "releaseUrl": "https://minimax.cn/blog/minimax-h3-image",
+        "apiUrl": "https://platform.minimax.io/docs/guides/image-generation"
       }
     ],
     "legacyIds": [
@@ -14791,7 +14900,7 @@
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "OpenAI 图像 API 可用，官方未提供公开权重",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
         "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
@@ -14825,11 +14934,24 @@
           }
         ],
         "status": "已发布",
-        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。"
+        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。",
+        "releaseDate": "2026-11-04",
+        "releaseEvidence": {
+          "eventId": "gpt-image-gpt-image-2-6-sunburst-20261104",
+          "publishedAt": "2026-11-04",
+          "sourceUrl": "https://openai.com/index/introducing-images-2-6/",
+          "sourceName": "OpenAI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "面向更细致的图像生成和精确编辑，可输出动图。",
+          "access": "OpenAI 图像 API 可用，官方未提供公开权重",
+          "category": "image",
+          "modelName": "GPT-Image-2.6 Sunburst"
+        }
       },
       {
         "region": "海外",
-        "access": "闭源",
+        "access": "OpenAI 图像 API 可用，官方未提供公开权重",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
         "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
@@ -14863,7 +14985,20 @@
           }
         ],
         "status": "已发布",
-        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。"
+        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。",
+        "releaseDate": "2026-11-04",
+        "releaseEvidence": {
+          "eventId": "gpt-image-gpt-image-2-6-flare-20261104",
+          "publishedAt": "2026-11-04",
+          "sourceUrl": "https://openai.com/index/introducing-images-2-6/",
+          "sourceName": "OpenAI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "面向快速迭代的图像生成与编辑，可输出动图。",
+          "access": "OpenAI 图像 API 可用，官方未提供公开权重",
+          "category": "image",
+          "modelName": "GPT-Image-2.6 Flare"
+        }
       },
       {
         "region": "海外",
@@ -18075,11 +18210,24 @@
         ],
         "status": "Google官方发布",
         "region": "海外",
-        "access": "闭源",
+        "access": "Gemini API 和 Gemini for business 已正式开放，官方未提供公开权重",
         "accessNote": "通过 Google Gemini 服务提供；具体地区和 API 能力以官方页面为准。",
         "homepage": "https://gemini.google.com/",
         "releaseUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-        "modelCardUrl": "https://deepmind.google/models/model-cards/"
+        "modelCardUrl": "https://deepmind.google/models/model-cards/",
+        "releaseDate": "2026-11-05",
+        "releaseEvidence": {
+          "eventId": "gemini-omni-flash-gemini-omni-flash-1-2-20261105",
+          "publishedAt": "2026-11-05",
+          "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "sourceName": "Google 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "支持原生 15 秒视频、连续对话式编辑和更强参考素材遵循。",
+          "access": "Gemini API 和 Gemini for business 已正式开放，官方未提供公开权重",
+          "category": "video",
+          "modelName": "Gemini Omni 1.2 Flash"
+        }
       }
     ],
     "legacyIds": [
@@ -19673,7 +19821,7 @@
     "watched": true,
     "homepage": "https://hailuoai.video/tools/minimax-h3",
     "releaseUrl": "https://github.com/MiniMax-AI/MiniMax-H3",
-    "note": "开放权重视频与原生音频模型；支持文生、首尾帧和多模态参考生成。",
+    "note": "开放权重视频与原生音频模型；支持文生、首尾帧和多模态参考生成。 官方 API 另提供 H3 Highspeed（快速交付）与 H3 Lite（低成本试作）两个 480P／768P 选项。11 月 24 日家族介绍列出这两个选项，首次上线日期及各自独立权重尚未核实。",
     "region": "中国",
     "access": "开源权重",
     "accessNote": "权重采用 MiniMax H3 Community License；“开放权重”不代表 OSI 开源许可，商用、分发前先看协议。",
@@ -19771,7 +19919,8 @@
           }
         ],
         "status": "已发布",
-        "note": "开放权重视频与原生音频模型；支持文生、首尾帧和多模态参考生成。"
+        "note": "开放权重视频与原生音频模型；支持文生、首尾帧和多模态参考生成。",
+        "apiUrl": "https://platform.minimax.cn/docs/api-reference/video-generation-v2-create"
       }
     ],
     "legacyIds": [
@@ -20105,8 +20254,8 @@
     "region": "海外",
     "access": "闭源",
     "homepage": "https://runwayml.com/",
-    "releaseUrl": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
-    "modelCardUrl": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
+    "releaseUrl": "https://runwayml.com/research/introducing-runway-gen-4.5",
+    "modelCardUrl": "https://runwayml.com/research/introducing-runway-gen-4.5",
     "note": "Runway 官方帮助中心当前推荐的最高质量视频模型；支持文生与图生视频。",
     "accessNote": "通过 Runway 托管服务使用。",
     "versions": [
@@ -20115,8 +20264,8 @@
         "access": "闭源",
         "accessNote": "通过 Runway 托管服务使用。",
         "homepage": "https://runwayml.com/",
-        "releaseUrl": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
-        "modelCardUrl": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
+        "releaseUrl": "https://runwayml.com/research/introducing-runway-gen-4.5",
+        "modelCardUrl": "https://runwayml.com/research/introducing-runway-gen-4.5",
         "id": "4-5",
         "name": "4.5",
         "legacyIds": [
@@ -20169,7 +20318,7 @@
         "id": "magi-2",
         "name": "MAGI-2",
         "region": "海外",
-        "access": "权重计划开源，尚未发布",
+        "access": "Higgsfield 已开放生成；Sand.ai 权重计划开源，尚未发布",
         "homepage": "https://sand.ai/",
         "releaseUrl": "https://sand.ai/blog/magi-2/",
         "modelCardUrl": "https://github.com/SandAI-org/MAGI-2",
@@ -20188,10 +20337,11 @@
           "evidenceType": "official-release",
           "verifiedAt": "2026-11-25",
           "summary": "480B 总参数、约 28B 激活参数；支持原生音视频生成，最高 1080p、30 秒。官方称模型权重后续开源，当前公告未提供权重。",
-          "access": "权重计划开源，尚未发布",
+          "access": "Higgsfield 已开放生成；Sand.ai 权重计划开源，尚未发布",
           "category": "video",
           "modelName": "MAGI-2"
-        }
+        },
+        "availabilityUrl": "https://higgsfield.ai/announcing-magi-2"
       },
       {
         "region": "海外",
@@ -21575,10 +21725,10 @@
       },
       {
         "region": "中国",
-        "access": "闭源",
+        "access": "Kling 创作平台可用；10 月 28 日起 API 全量开放，官方未提供公开权重",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://klingai.com/",
-        "releaseUrl": "https://kling.ai/document-api/updates/api",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/",
         "modelCardUrl": "https://kling.ai/document-api/updates/api",
         "id": "kling-4-0",
         "name": "Kling 4.0",
@@ -21587,7 +21737,8 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。"
+        "note": "快手公告确认 10 月 15 日正式上线，9 月 30 日博客为早期体验介绍。",
+        "releaseDate": "2026-10-15"
       }
     ],
     "legacyIds": [
@@ -24435,5 +24586,219 @@
         "detailUrl": "https://maomu.com/models/fal--flux3max?entry=artificial-analysis%3Avideo-image%3A17"
       }
     ]
+  },
+  {
+    "id": "inclusionai-ling",
+    "name": "Ling-3.2-air",
+    "vendor": "蚂蚁 inclusionAI",
+    "category": "llm",
+    "watched": false,
+    "homepage": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+    "releaseUrl": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+    "version": "Ling-3.2-air",
+    "aliases": [],
+    "region": "国内",
+    "access": "官方权重可下载，MIT 许可证",
+    "versions": [
+      {
+        "id": "ling-3-2-air",
+        "name": "Ling-3.2-air",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-23",
+        "access": "官方权重可下载，MIT 许可证",
+        "license": "MIT",
+        "releaseEvidence": {
+          "eventId": "inclusionai-ling-ling-3-2-air-20261123",
+          "publishedAt": "2026-11-23",
+          "sourceUrl": "https://huggingface.co/inclusionAI/Ling-3.2-air",
+          "sourceName": "inclusionAI 官方模型仓库",
+          "evidenceType": "official-model-card",
+          "verifiedAt": "2026-11-25",
+          "summary": "原生多模态语言模型，支持图片和视频理解，采用混合线性 MoE。",
+          "access": "官方权重可下载，MIT 许可证",
+          "category": "llm",
+          "modelName": "Ling-3.2-air"
+        }
+      }
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": []
+  },
+  {
+    "id": "cognition-swe",
+    "name": "SWE-2.1",
+    "vendor": "Cognition",
+    "category": "llm",
+    "watched": false,
+    "homepage": "https://cognition.com/blog/swe-2-1",
+    "releaseUrl": "https://cognition.com/blog/swe-2-1",
+    "version": "SWE-2.1",
+    "aliases": [],
+    "region": "海外",
+    "access": "Devin Desktop、Cloud 和 CLI 可用，官方未提供公开权重",
+    "versions": [
+      {
+        "id": "swe-2-1",
+        "name": "SWE-2.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-24",
+        "access": "Devin Desktop、Cloud 和 CLI 可用，官方未提供公开权重",
+        "releaseEvidence": {
+          "eventId": "cognition-swe-swe-2-1-20261124",
+          "publishedAt": "2026-11-24",
+          "sourceUrl": "https://cognition.com/blog/swe-2-1",
+          "sourceName": "Cognition 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "面向软件工程任务的编码语言模型。Lightning 是同一模型的高速推理服务。",
+          "access": "Devin Desktop、Cloud 和 CLI 可用，官方未提供公开权重",
+          "category": "llm",
+          "modelName": "SWE-2.1"
+        }
+      }
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": []
+  },
+  {
+    "id": "sensenova-u",
+    "name": "SenseNova U1.6",
+    "vendor": "商汤科技",
+    "category": "image",
+    "watched": false,
+    "homepage": "https://sensetime.com/cn/news/sensenova-u1-6-open-source-20261124-1152",
+    "releaseUrl": "https://sensetime.com/cn/news/sensenova-u1-6-open-source-20261124-1152",
+    "version": "SenseNova U1.6",
+    "aliases": [],
+    "region": "国内",
+    "access": "8B 版本公开权重，Apache 2.0",
+    "versions": [
+      {
+        "id": "sensenova-u1-6",
+        "name": "SenseNova U1.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-24",
+        "access": "8B 版本公开权重，Apache 2.0",
+        "license": "Apache-2.0",
+        "modelCardUrl": "https://huggingface.co/sensenova/SenseNova-U1.6-8B-MoT-Native",
+        "releaseEvidence": {
+          "eventId": "sensenova-u-sensenova-u1-6-20261124",
+          "publishedAt": "2026-11-24",
+          "sourceUrl": "https://sensetime.com/cn/news/sensenova-u1-6-open-source-20261124-1152",
+          "sourceName": "商汤官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "支持图像生成与编辑，8B 开放权重版本可检查初稿并自我修正画面文字。",
+          "access": "8B 版本公开权重，Apache 2.0",
+          "category": "image",
+          "modelName": "SenseNova U1.6"
+        }
+      }
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": []
+  },
+  {
+    "id": "sensenova-loop",
+    "name": "SenseNova Loop",
+    "vendor": "商汤科技",
+    "category": "llm",
+    "watched": false,
+    "homepage": "https://www.sensetime.com/cn/news/sensenova-loop-9b-20261118-1059",
+    "releaseUrl": "https://www.sensetime.com/cn/news/sensenova-loop-9b-20261118-1059",
+    "version": "SenseNova Loop-9B",
+    "aliases": [],
+    "region": "国内",
+    "versions": [
+      {
+        "id": "loop-9b",
+        "name": "SenseNova Loop-9B",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-17",
+        "access": "权重与代码已发布，Apache 2.0；部分权重仓库需登录并接受访问条件",
+        "releaseEvidence": {
+          "eventId": "sensenova-loop-loop-9b-20261117",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://www.sensetime.com/cn/news/sensenova-loop-9b-20261118-1059",
+          "sourceName": "商汤官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "采用共享层循环结构的约 9B 模型，接受文本和图片输入并输出文本。",
+          "access": "权重与代码已发布，Apache 2.0；部分权重仓库需登录并接受访问条件",
+          "category": "llm",
+          "modelName": "SenseNova Loop-9B"
+        },
+        "license": "Apache-2.0",
+        "modelCardUrl": "https://huggingface.co/sensenova/SenseNova-Loop-9B"
+      }
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": []
+  },
+  {
+    "id": "mai-code",
+    "name": "MAI Code",
+    "vendor": "Microsoft",
+    "category": "llm",
+    "watched": false,
+    "homepage": "https://microsoft.ai/news/microsoft-ignite-2026/",
+    "releaseUrl": "https://microsoft.ai/news/microsoft-ignite-2026/",
+    "version": "MAI Code 2 / MAI Code 2 Flash",
+    "aliases": [],
+    "region": "海外",
+    "versions": [
+      {
+        "id": "mai-code-2",
+        "name": "MAI Code 2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-17",
+        "access": "GitHub Copilot 可用，官方未提供公开权重",
+        "releaseEvidence": {
+          "eventId": "mai-code-mai-code-2-20261117",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://microsoft.ai/news/microsoft-ignite-2026/",
+          "sourceName": "Microsoft AI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "面向日常企业开发、前端界面和可视化生成。",
+          "access": "GitHub Copilot 可用，官方未提供公开权重",
+          "category": "llm",
+          "modelName": "MAI Code 2"
+        }
+      },
+      {
+        "id": "mai-code-2-flash",
+        "name": "MAI Code 2 Flash",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-17",
+        "access": "GitHub Copilot 可用，Microsoft Foundry 限量预览，官方未提供公开权重",
+        "releaseEvidence": {
+          "eventId": "mai-code-mai-code-2-flash-20261117",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://microsoft.ai/news/microsoft-ignite-2026/",
+          "sourceName": "Microsoft AI 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-25",
+          "summary": "面向代码解释、局部编辑和常规修复的高吞吐型号。",
+          "access": "GitHub Copilot 可用，Microsoft Foundry 限量预览，官方未提供公开权重",
+          "category": "llm",
+          "modelName": "MAI Code 2 Flash"
+        }
+      }
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": []
   }
 ]

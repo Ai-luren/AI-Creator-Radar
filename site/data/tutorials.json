@@ -47,12 +47,12 @@
   },
   {
     "id": "kling-release",
-    "title": "Kling 4.0 正式上线公告",
+    "title": "Kling 4.0 官方介绍与案例",
     "type": "官方发布动态",
     "model": "Kling 4.0",
     "official": true,
-    "url": "https://ir.kuaishou.com/zh-hans/news-releases/news-release-details/kelingaixinyidaimoxingklin1g-40zhengshishangxian/",
-    "description": "快手官方新闻稿：高动态、复杂运镜、最长 30 秒生成、参考素材和关键帧能力。"
+    "url": "https://kling.ai/blog/kling40-kling-visual-realism-creative-control-introducing-storytelling",
+    "description": "可灵官方介绍，涵盖高动态、复杂运镜、最长 30 秒、参考素材与关键帧。"
   },
   {
     "id": "veo-model",
@@ -74,12 +74,12 @@
   },
   {
     "id": "runway-gen45-guide",
-    "title": "Gen-4.5 使用指南",
-    "type": "官方模型教程",
+    "title": "Gen-4.5 提示词指南",
+    "type": "官方提示词指南",
     "model": "Runway Gen-4.5",
     "official": true,
-    "url": "https://help.runwayml.com/hc/en-us/articles/46974685288467-Creating-with-Gen-4-5",
-    "description": "Runway 官方模型使用说明与提示词指南入口，涵盖文生视频和图生视频。"
+    "url": "https://academy.runwayml.com/guides/prompting-guide",
+    "description": "Runway Academy 官方课程，结合 Gen-4.5 示例讲解文生视频和图生视频提示词。"
   },
   {
     "id": "suno-notes",

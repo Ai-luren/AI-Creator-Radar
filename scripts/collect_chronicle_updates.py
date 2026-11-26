@@ -10,9 +10,9 @@ from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-TOPICS_FILE = ROOT / "site/data-v3/topics.json"
-UPDATES_FILE = ROOT / "site/data-v3/model-updates.json"
-STATUS_FILE = ROOT / "site/data-v3/chronicle-updates-status.json"
+TOPICS_FILE = ROOT / "site/data/topics.json"
+UPDATES_FILE = ROOT / "site/data/model-updates.json"
+STATUS_FILE = ROOT / "site/data/chronicle-updates-status.json"
 
 VENDOR_TOPIC = {
     "anthropic": "anthropic",
@@ -25,6 +25,7 @@ VENDOR_TOPIC = {
     "字节跳动 seed": "bytedance",
     "字节跳动 seed / 即梦": "bytedance",
     "快手": "kuaishou",
+    "kling ai": "kuaishou",
     "阿里巴巴通义千问": "qwen",
     "生数科技": "shengshu",
     "pika": "pika",

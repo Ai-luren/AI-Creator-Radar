@@ -17,8 +17,8 @@ from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = {
-    "aihot": ROOT / "site" / "data-v4" / "aihot-daily.json",
-    "juya": ROOT / "site" / "data-v4" / "juya-daily.json",
+    "aihot": ROOT / "site" / "data" / "aihot-daily.json",
+    "juya": ROOT / "site" / "data" / "juya-daily.json",
 }
 AIHOT_URL = "https://aihot.news/daily"
 JUYA_ARCHIVE_URL = "https://daily.juya.uk/archive/"

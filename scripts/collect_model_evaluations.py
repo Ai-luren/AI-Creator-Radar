@@ -18,10 +18,10 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS_PATH = ROOT / "site/data-v3/models.json"
-UPDATES_PATH = ROOT / "site/data-v3/model-updates.json"
-AIPICK_PATH = ROOT / "site/data-v4/aipick-data.json"
-OUTPUT = ROOT / "site/data-v4/model-evaluations.json"
+MODELS_PATH = ROOT / "site/data/models.json"
+UPDATES_PATH = ROOT / "site/data/model-updates.json"
+AIPICK_PATH = ROOT / "site/data/aipick-data.json"
+OUTPUT = ROOT / "site/data/model-evaluations.json"
 SOGOU_BASE = "https://weixin.sogou.com/weixin"
 MAX_BYTES = 4 * 1024 * 1024
 RELEASE_WINDOW_DAYS = 21

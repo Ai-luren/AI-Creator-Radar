@@ -1,11 +1,11 @@
 ---
-name: ai-creator-radar-account-snapshots
+name: account-snapshots
 description: Read dated public follower-count snapshots for verified official accounts in the AI Creator Radar using local Ego Lite, then safely update the project dataset and GitHub when requested.
 ---
 
 # AI 创作台官方账号快照
 
-用于更新当前仓库 `site/data-v4/social-accounts.json` 中已核验官方主页的公开粉丝 / 订阅数。它记录的是带日期的公开主页快照，不是实时统计。
+用于更新当前仓库 `site/data/social-accounts.json` 中已核验官方主页的公开粉丝 / 订阅数。它记录的是带日期的公开主页快照，不是实时统计。
 
 ## 采集范围
 
@@ -44,7 +44,7 @@ description: Read dated public follower-count snapshots for verified official ac
 - 保留其他字段和历史数据，原子写入 JSON，并运行：
 
   ```bash
-  python3 -m json.tool site/data-v4/social-accounts.json >/dev/null
+  python3 -m json.tool site/data/social-accounts.json >/dev/null
   ```
 
 ## 同步到 GitHub
@@ -52,7 +52,7 @@ description: Read dated public follower-count snapshots for verified official ac
 仅在用户明确要求同步或运行其每日自动化时执行：
 
 1. 先确认 `origin/main` 最新版本及目标 JSON 没有并发改动；不要覆盖冲突。
-2. 只提交 `site/data-v4/social-accounts.json`，绝不使用 `git add -A`，不纳入其他工作区文件。
+2. 只提交 `site/data/social-accounts.json`，绝不使用 `git add -A`，不纳入其他工作区文件。
 3. 仅用普通 fast-forward 更新和普通 push；遇到冲突、认证失败或非快进拒绝时停止，不强推。
 4. 没有实际数据变化就不创建空提交。
 5. 汇报本轮按平台成功 / 受阻数量、实际更新时间和 GitHub 同步结果；不把部分采集描述为全量完成。

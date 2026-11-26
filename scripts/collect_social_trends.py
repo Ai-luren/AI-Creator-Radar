@@ -16,7 +16,7 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "site" / "data-v4" / "social-trends.json"
+OUTPUT = ROOT / "site" / "data" / "social-trends.json"
 BASE = "https://trends.google.com/trending/rss?geo={}"
 WINDOW = timedelta(days=7)
 REGIONS = {

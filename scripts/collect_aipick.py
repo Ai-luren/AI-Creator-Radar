@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refresh AIPick topic picks and hot topics for the V4 preview."""
+"""Refresh AIPick topic picks and hot topics for the creator radar."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "site" / "data-v4" / "aipick-data.json"
+OUTPUT = ROOT / "site" / "data" / "aipick-data.json"
 ENDPOINTS = {
     "items": "https://aipick.news/api/v1/items?mode=selected&window=7d&limit=30",
     "hotTopics": "https://aipick.news/api/v1/hot-topics",
@@ -105,7 +105,7 @@ def collect(dry_run: bool = False) -> dict:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Refresh AIPick video topic data for the V4 preview.")
+    parser = argparse.ArgumentParser(description="Refresh AIPick video topic data for the creator radar.")
     parser.add_argument("--dry-run", action="store_true", help="Fetch and validate without writing the snapshot.")
     args = parser.parse_args()
     data = collect(dry_run=args.dry_run)

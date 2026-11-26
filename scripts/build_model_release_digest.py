@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ROOT / "site/data/models.json"
-OUTPUT = ROOT / "site/data-v4/model-releases-30d.json"
+OUTPUT = ROOT / "site/data/model-releases-30d.json"
 
 
 def build(today: date) -> dict:

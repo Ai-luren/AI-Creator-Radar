@@ -1,0 +1,203 @@
+{
+  "source": "Google Trends RSS",
+  "sourceUrl": "https://trends.google.com/trending",
+  "fetchedAt": "2026-11-25T07:56:51Z",
+  "window": "7d",
+  "metricDefinition": "approxSearchTraffic is an approximate search-volume bucket supplied by Google Trends. It is not a social-platform engagement metric.",
+  "regions": {
+    "US": {
+      "status": "ok",
+      "region": "美国"
+    },
+    "GB": {
+      "status": "ok",
+      "region": "英国"
+    },
+    "CA": {
+      "status": "ok",
+      "region": "加拿大"
+    },
+    "AU": {
+      "status": "ok",
+      "region": "澳大利亚"
+    },
+    "JP": {
+      "status": "ok",
+      "region": "日本"
+    },
+    "KR": {
+      "status": "ok",
+      "region": "韩国"
+    },
+    "TW": {
+      "status": "ok",
+      "region": "台湾地区"
+    },
+    "IN": {
+      "status": "ok",
+      "region": "印度"
+    }
+  },
+  "items": [
+    {
+      "id": "google-search-trend-bbd8a81d141e",
+      "type": "search-trend",
+      "title": "melbourne victory vs the cong",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-25T07:40:00Z",
+      "approxSearchTraffic": "2000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=melbourne+victory+vs+the+cong",
+      "relatedNews": [
+        {
+          "title": "Victory veteran demands win in crucial clash",
+          "source": "The Australian",
+          "url": "https://www.theaustralian.com.au/breaking-news/melbourne-victory-defender-brendan-hamill-declares-champions-league-two-clash-a-mustwin-encounter/news-story/5cdbc7ed87e190e52616b9b1cb828186",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTLOZbkpfHfT_BRlwn1IejZpIdQh1gOai5qDNHtL62IkzVfHh8DYhqzt-JllhM"
+        },
+        {
+          "title": "Victory in Geelong for ACL Two",
+          "source": "Melbourne Victory Football Club",
+          "url": "https://melbournevictory.com.au/news/victory-in-geelong-for-acl-two/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ8GR_k8oioz7D3xc8_vMeIvtVHBFX_KQsnv55aOdreWqsYB_qUSwF6s15PaJ4"
+        },
+        {
+          "title": "Watch Melbourne Victory vs Viettel live today: Who is broadcasting the match on TV and via live stream?",
+          "source": "Goal.com",
+          "url": "https://www.goal.com/en-au/news/live-stream-online-tv-where-to-watch-melbourne-victory-v-viettel/bltda4bbf100d67efb8",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSlta__byGp5F2sfC5xuofdDHDXy3tXz4vVEyXKCJF8J1cfKLlJJsuyag9UKDI"
+        },
+        {
+          "title": "Watch Melbourne Victory vs Viettel live today: Who is broadcasting the match on TV and via live stream?",
+          "source": "Goal.com",
+          "url": "https://www.goal.com/en-in/news/live-stream-online-tv-where-to-watch-melbourne-victory-v-viettel/bltda4bbf100d67efb8",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSlta__byGp5F2sfC5xuofdDHDXy3tXz4vVEyXKCJF8J1cfKLlJJsuyag9UKDI"
+        },
+        {
+          "title": "ACL TWO TALK: Victory’s Savarese and Hamill look ahead to Cong clash",
+          "source": "Melbourne Victory Football Club",
+          "url": "https://melbournevictory.com.au/news/acl-two-talk-victorys-savarese-and-hamill-look-ahead-to-cong-clash/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTz3M5YlS6t-GGiETd1y6YCnqV4S0dnCxhXQLTRUF2O4yXmnqHbAq9J2XBTc9w"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-25T07:00:00Z",
+          "approxSearchTraffic": "2000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=melbourne+victory+vs+the+cong"
+        },
+        {
+          "regionCode": "IN",
+          "regionName": "印度",
+          "publishedAt": "2026-11-25T07:40:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=melbourne+victory+vs+the+cong"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-afbcbec4bf30",
+      "type": "search-trend",
+      "title": "thanksgiving 2026 football",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "US",
+      "regionName": "美国",
+      "publishedAt": "2026-11-25T06:50:00Z",
+      "approxSearchTraffic": "500+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=thanksgiving+2026+football",
+      "relatedNews": [
+        {
+          "title": "NFL playoff picture: Postseason probabilities entering Week 12 of the 2026 season",
+          "source": "NFL.com",
+          "url": "https://www.nfl.com/news/nfl-playoff-picture-postseason-probabilities-week-12-2026-season",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRlvdQRbOhLD_WwPrhThHDN8A-fzqC9Ma8vb9k6Qzzssl7M81y0l_p3Nn_NeVk"
+        },
+        {
+          "title": "NFL Thanksgiving week games: Ranking the 5 weekday games by what's on the line",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nfl/article/nfl-thanksgiving-week-games-ranking-the-5-weekday-games-by-whats-on-the-line-205101159.html",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkSdbFLiYekOKAt_vxpAhd_6RgLCIViXAZYmCyCdkzUtHPqlaUeINV3dB-br4"
+        },
+        {
+          "title": "Super Bowl odds: What Bears-Lions, Chiefs-Bills, more Thanksgiving games could mean",
+          "source": "The New York Times",
+          "url": "https://www.nytimes.com/athletic/7809458/2026/11/24/super-bowl-odds-bears-lions-chiefs-bills-thanksgiving-nfl/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiS_PizM3HNgjzGaV0KwWkOAOXJ4bDFkYX91gFfXl_cX-dIjMe-WkY5WlFEkc"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "US",
+          "regionName": "美国",
+          "publishedAt": "2026-11-25T06:50:00Z",
+          "approxSearchTraffic": "500+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=thanksgiving+2026+football"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-7a567ee798a5",
+      "type": "search-trend",
+      "title": "south australia vs victoria",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-25T07:30:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=south+australia+vs+victoria",
+      "relatedNews": [
+        {
+          "title": "Weatherald posts second straight ton but Vics hit back late",
+          "source": "cricket.com.au",
+          "url": "https://www.cricket.com.au/news/4613548/match-report-south-australia-victoria-jake-weatherald-sheffield-shield-round-five-day-one",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfCdGMAJLd4jHh2aO20XuG2VUB3JOf5bZNGQ5yr3wjLqyoCdnAbud4ccuCYR0"
+        },
+        {
+          "title": "Remember me? Test discard reignites form",
+          "source": "The Australian",
+          "url": "https://www.theaustralian.com.au/sport/cricket/mental-block-marnus-labuschagne-falls-in-30s-again-after-bizarre-dismissal-at-scg/news-story/a01a3cc5c486f3252beeaea1f47b8263",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4_24-aSR3MC1Vl1NdXRMijN_W37ii8Zjhv_eHmMM3ut4_mUxTbaDnCILv0fc"
+        },
+        {
+          "title": "Weatherald makes statement with another Shield century",
+          "source": "Cricinfo",
+          "url": "https://www.cricinfo.com/series/sheffield-shield-2026-27-1544841/south-australia-vs-victoria-15th-match-1544878/match-report",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTzK3-vOH_xoWb4cZH9bZGN6v7WYFZSTe7NSbbSPlHNbk8WVVAEBlozqEQwUto"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-25T07:30:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=south+australia+vs+victoria"
+        }
+      ]
+    }
+  ]
+}

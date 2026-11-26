@@ -8,11 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 class ModelLibrarySchemaTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.models = json.loads((ROOT / "site/data-v3/models.json").read_text())
+        cls.models = json.loads((ROOT / "site/data/models.json").read_text())
         cls.by_id = {model["id"]: model for model in cls.models}
-        cls.archive = json.loads((ROOT / "archive/model-library-excluded-v4.json").read_text())
-        cls.maomu = json.loads((ROOT / "site/data-v4/maomu-rankings.json").read_text())
-        cls.reference = json.loads((ROOT / "site/data-v3/reference-rankings.json").read_text())
+        cls.archive = json.loads((ROOT / "archive/model-library-excluded-models.json").read_text())
+        cls.maomu = json.loads((ROOT / "site/data/maomu-rankings.json").read_text())
+        cls.reference = json.loads((ROOT / "site/data/reference-rankings.json").read_text())
 
     def test_family_and_variant_ids_are_unique_and_nonempty(self):
         self.assertEqual(len(self.by_id), len(self.models))
@@ -109,17 +109,23 @@ class ModelLibrarySchemaTests(unittest.TestCase):
                 self.assertGreater(int(alias.get("rank", 0)), 0, (family["id"], alias))
 
     def test_model_ranking_evidence_uses_current_snapshot_rank(self):
-        html = (ROOT / "site/preview-v4.html").read_text()
+        html = (ROOT / "site/index.html").read_text()
         self.assertIn("var row=(board.rows||[]).find(function(r){return r.name===a.name})", html)
         self.assertIn("Object.assign({},a,{rank:row.rank})", html)
         self.assertIn("return row&&Number(row.rank)>0?", html)
 
-    def test_production_and_v3_catalogs_match(self):
-        production = json.loads((ROOT / "site/data/models.json").read_text())
-        self.assertEqual(self.models, production)
+    def test_site_uses_one_live_data_directory(self):
+        html = (ROOT / "site/index.html").read_text()
+        self.assertIn("const DATA='./data/';", html)
+        self.assertNotIn("SOCIAL_DATA", html)
+        self.assertIn("social-platforms.json", html)
+        self.assertNotIn("data-v3", html)
+        self.assertNotIn("data-v4", html)
+        self.assertTrue((ROOT / "site/data/models.json").is_file())
+        self.assertTrue((ROOT / "site/data/social-platforms.json").is_file())
 
     def test_model_library_shows_source_coverage_without_composite_rank(self):
-        html = (ROOT / "site/preview-v4.html").read_text()
+        html = (ROOT / "site/index.html").read_text()
         self.assertNotIn("data-model-rank-board", html)
         self.assertIn("items.forEach(function(m){m._boardRefs=modelRanksFor(m,boards)})", html)
         self.assertIn("榜单覆盖只统计可查的来源原榜数量，不计算或混合分数", html)
@@ -128,7 +134,7 @@ class ModelLibrarySchemaTests(unittest.TestCase):
         self.assertNotIn("综合参考第", html)
 
     def test_music_and_tts_categories_use_existing_reference_snapshots(self):
-        html = (ROOT / "site/preview-v4.html").read_text()
+        html = (ROOT / "site/index.html").read_text()
         reference_boards = {board["id"]: board for board in self.reference["boards"]}
         self.assertIn("music-aa-instrumental-aurion-20261112", reference_boards)
         self.assertIn("music-aa-vocal-aurion-202610", reference_boards)

@@ -25,7 +25,7 @@ ARENA_BOARDS = (
     ("arena-video-edit", "视频编辑 · Arena", "video_edit", "https://arena.ai/leaderboard/video/video-edit"),
     ("arena-webdev", "文字生成网页 · Arena", "webdev", "https://arena.ai/leaderboard/code/webdev/frontend"),
 )
-OUTPUTS = (ROOT / "site/data/reference-rankings.json", ROOT / "site/data-v3/reference-rankings.json")
+OUTPUT = ROOT / "site/data/reference-rankings.json"
 MAX_BYTES = 5 * 1024 * 1024
 
 
@@ -241,10 +241,9 @@ def main() -> int:
           f"{sum(len(board['rows']) for board in snapshot['boards'])} rows; "
           f"source snapshot {snapshot.get('publishedAt')}; checked {snapshot.get('sourceCheckedAt')}.")
     if not args.dry_run:
-        for output in OUTPUTS:
-            cached_boards = cached_reference_boards(output)
-            updated = merge_reference_boards(snapshot, arena_boards, cached_boards)
-            write_json(output, updated)
+        cached_boards = cached_reference_boards(OUTPUT)
+        updated = merge_reference_boards(snapshot, arena_boards, cached_boards)
+        write_json(OUTPUT, updated)
     return 0
 
 

@@ -346,7 +346,7 @@ class LocalHandler(SimpleHTTPRequestHandler):
         super().__init__(*args, directory=str(SITE), **kwargs)
 
     def end_headers(self) -> None:
-        # Local JSON and preview assets change during editing. Do not let the
+        # Local JSON and static assets change during editing. Do not let the
         # browser keep an older copy between refreshes.
         if not urlsplit(self.path).path.startswith("/__local/"):
             self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
@@ -400,19 +400,19 @@ def main() -> None:
     import threading
     import webbrowser
 
-    parser = argparse.ArgumentParser(description="Run the local creator radar with a personal AIHOT leaderboard reader.")
+    parser = argparse.ArgumentParser(description="Run the local AI creator radar.")
     parser.add_argument("--port", type=int, default=8080)
-    parser.add_argument("--no-open", action="store_true", help="do not open the preview in a browser")
+    parser.add_argument("--no-open", action="store_true", help="do not open the website in a browser")
     args = parser.parse_args()
-    url = f"http://{HOST}:{args.port}/preview-v4.html"
+    url = f"http://{HOST}:{args.port}/"
 
-    # If the preview server is already running, reuse it and open its page.
+    # If the local server is already running, reuse it and open the homepage.
     try:
         with urlopen(url, timeout=0.6) as response:
             if response.status == 200 and "创作情报台".encode("utf-8") in response.read(8192):
                 if not args.no_open:
                     webbrowser.open_new_tab(url)
-                print(f"Using existing local preview: {url}")
+                print(f"Using existing local website: {url}")
                 return
     except OSError:
         pass

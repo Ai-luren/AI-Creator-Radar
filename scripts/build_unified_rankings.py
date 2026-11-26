@@ -17,10 +17,10 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "site/data-v4/unified-rankings.json"
+OUTPUT = ROOT / "site/data/unified-rankings.json"
 BASELINE = ROOT / "config/unified-ranking-baseline.json"
 VENDOR_ALIASES = ROOT / "config/unified-ranking-vendor-aliases.json"
-PRIMARY_SNAPSHOTS = ROOT / "site/data-v4/leaderboard-reference-snapshots.json"
+PRIMARY_SNAPSHOTS = ROOT / "site/data/leaderboard-reference-snapshots.json"
 METHOD_VERSION = "2026.11-radar-index-v4"
 MIN_ANCHORS = 20
 MIN_SPEARMAN = 0.80
@@ -227,7 +227,7 @@ def row_interval(row: dict):
 
 def load_inputs():
     ref_data = json.loads((ROOT / "site/data/reference-rankings.json").read_text())
-    maomu_data = json.loads((ROOT / "site/data-v4/maomu-rankings.json").read_text())
+    maomu_data = json.loads((ROOT / "site/data/maomu-rankings.json").read_text())
     primary_data = json.loads(PRIMARY_SNAPSHOTS.read_text())
     reference = {b["id"]: b for b in ref_data.get("boards", [])}
     maomu = {b["id"]: b for category in maomu_data.get("categories", []) for b in category.get("boards", [])}
