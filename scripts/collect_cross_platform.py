@@ -119,8 +119,59 @@ def llm_world_leads(body, source, allowed):
     return sorted(rows, key=lambda row: row["reportedAt"], reverse=True)[:100]
 
 
+
+def fetch_xml(url):
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/xml, text/xml, */*"})
+    with urllib.request.build_opener(SameHostRedirect()).open(request, timeout=12) as response:
+        body = response.read(MAX_BYTES + 1)
+    if len(body) > MAX_BYTES:
+        raise ValueError("Sitemap exceeds size limit")
+    return ET.fromstring(body)
+
+
+def sitemap_leads(source, allowed, get_xml=fetch_xml):
+    """Sitemap lastmod is a discovery priority only; never a publication date."""
+    root = get_xml(source["url"])
+    roots = [root]
+    if local_name(root.tag) == "sitemapindex":
+        host = urlsplit(source["url"]).hostname
+        children = []
+        for entry in root:
+            link = https_url(child_text(entry, {"loc"}))
+            if link and urlsplit(link).hostname == host and re.search(r"(?:blog|news|article|post)", urlsplit(link).path, re.I):
+                children.append(link)
+        # Do not crawl hundreds of unrelated child maps.
+        for link in sorted(set(children))[:4]:
+            roots.append(get_xml(link))
+        if not children:
+            raise ValueError("No bounded blog/news child sitemap")
+    entries = []
+    for document in roots:
+        if local_name(document.tag) not in {"urlset", "sitemapindex"}:
+            raise ValueError("Expected sitemap XML")
+        if local_name(document.tag) != "urlset":
+            continue
+        for entry in document:
+            url = article_url(child_text(entry, {"loc"}), allowed)
+            if not url or urlsplit(url).hostname != urlsplit(source["url"]).hostname:
+                continue
+            slug = urlsplit(url).path.rstrip("/").split("/")[-1]
+            title = re.sub(r"[-_]+", " ", slug)
+            if not re.search(r"\d", title) or not MODEL_SIGNAL.search(title) or non_release_title(title):
+                continue
+            if re.search(r"\b(?:how to|guide|tutorial|review|pricing|comparison|vs|case study|tips|alternatives)\b", title, re.I):
+                continue
+            modified = parse_date(child_text(entry, {"lastmod"}))
+            entries.append({"title": title, "url": url, "sourceId": source["id"], "sourceName": source["name"],
+                            "reportedAt": None, "lastModifiedAt": modified, "dateKind": "sitemap-discovery-only",
+                            "officialArticleUrls": [url], "verificationStatus": "unverified-lead"})
+    return sorted(entries, key=lambda row: (row["lastModifiedAt"] or "", row["url"]), reverse=True)[:35]
+
+
 def fetch(source, allowed):
     try:
+        if source["type"] == "sitemap":
+            return source, sitemap_leads(source, allowed), None
         req = urllib.request.Request(source["url"], headers={"User-Agent": USER_AGENT,
                                      "Accept": "application/json, application/rss+xml, application/atom+xml, */*"})
         with urllib.request.build_opener(SameHostRedirect()).open(req, timeout=15) as response:

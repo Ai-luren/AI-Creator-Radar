@@ -28,6 +28,23 @@ def url_key(value):
         return ""
 
 
+def article_day_stamp(value, url):
+    """Preserve raw timestamps separately; use explicit publisher calendar policy.
+
+    Kling's dated article is displayed in China time on the full blog entry.
+    Other sources retain their original UTC/date-only convention until verified.
+    This is an article calendar date, never an inferred first-release date.
+    """
+    try:
+        dt = datetime.fromisoformat(str(value or "").replace("Z", "+00:00"))
+        host = urlsplit(url or "").hostname
+        if host == "kling.ai" and dt.tzinfo is not None:
+            return dt.astimezone(timezone(timedelta(hours=8))).date().isoformat() + "T00:00:00Z"
+    except (ValueError, TypeError):
+        return value
+    return value
+
+
 def identity(value):
     return "".join(ch for ch in str(value or "").casefold() if ch.isalnum())
 
@@ -45,9 +62,21 @@ def assess(benchmark, updates, status, digest, today, recovery=None):
                    and not non_release_title(u.get("title"))
                    and all(re.search(p, str(u.get("title") or ""), re.I) for p in event["titlePatterns"])]
         dated = [u for u in matched if str(u.get("publishedAt") or "")[:10] == day]
-        current = [u for u in dated if checked and u.get("lastSeenAt") == checked
-                   and source_states.get(u.get("sourceId"), {}).get("checkedAt") == checked
-                   and not source_states[u["sourceId"]].get("error")]
+        # Fresh raw source observations, not the lastSeenAt of a merged cached item.
+        # Old snapshots without the new field keep their legacy score for comparison.
+        has_observations = any("publicationObservations" in s for s in source_states.values())
+        if has_observations:
+            current = [o for s in source_states.values()
+                       if s.get("checkedAt") == checked and not s.get("error")
+                       for o in s.get("publicationObservations", [])
+                       if o.get("modelId") == family and url_key(o.get("url")) in urls
+                       and not non_release_title(o.get("title"))
+                       and all(re.search(p, str(o.get("title") or ""), re.I) for p in event["titlePatterns"])
+                       and str(o.get("publishedAt") or "")[:10] == day]
+        else:
+            current = [u for u in dated if checked and u.get("lastSeenAt") == checked
+                       and source_states.get(u.get("sourceId"), {}).get("checkedAt") == checked
+                       and not source_states[u["sourceId"]].get("error")]
         actual_dates = sorted({str(u.get("publishedAt"))[:10] for u in matched if u.get("publishedAt")})
         confirmed = {identity(x.get("modelName")) for x in digest.get("items", [])
                      if x.get("modelFamilyId") == family and str(x.get("publishedAt") or "")[:10] == day
@@ -57,18 +86,18 @@ def assess(benchmark, updates, status, digest, today, recovery=None):
                    "identity-mismatch" if same_article else "not-discovered")
         recovered = [p for row in recovery.get("items", []) if url_key(row.get("url")) in urls
                      for p in [row if row.get("status") == "article-date-verified" else row.get("lastVerifiedObservation") or {}]
-                     if p.get("modelId") == family and str(p.get("articlePublishedAt") or "")[:10] == day
+                     if p.get("modelId") == family and str(article_day_stamp(p.get("articlePublishedAt"), row.get("url")) or "")[:10] == day
                      and all(re.search(pattern, str(p.get("title") or ""), re.I) for pattern in event["titlePatterns"])]
         first_days = [str(p.get("firstVerifiedAt") or "")[:10] for p in recovered if p.get("firstVerifiedAt")]
         lag = (datetime.fromisoformat(min(first_days)).date() - datetime.fromisoformat(day).date()).days if first_days else None
         rows.append({"id": event["id"], "modelFamilyId": family, "eventDate": day,
-                     "recoveredDated": bool(recovered), "endToEndDated": bool(dated or recovered),
+                     "recoveredDated": bool(recovered), "endToEndDated": bool(dated or current or recovered),
                      "recoveryFirstVerifiedLagDays": lag if lag is not None and lag >= 0 else None,
                      "modelNames": event["modelNames"], "sourceUrls": event["sourceUrls"],
                      "outcome": outcome, "actualDates": actual_dates,
                      "dateConflict": any(d != day for d in actual_dates),
                      "currentDated": bool(current), "retainedDated": bool(dated),
-                     "discovered": bool(matched),
+                     "discovered": bool(matched or current),
                      "canonicalComplete": all(identity(n) in confirmed for n in event["modelNames"]),
                      "matchingUpdateIds": sorted({u["id"] for u in matched if u.get("id")}),
                      "within30Days": (today-timedelta(days=29)).isoformat() <= day <= today.isoformat()})
@@ -89,7 +118,8 @@ def assess(benchmark, updates, status, digest, today, recovery=None):
         negatives.append({"id": case["id"], "note": case["note"], "pendingIds": pending,
                           "incorrectConfirmedIds": false_confirmed})
     return {"sampleReviewedAt": benchmark["reviewedAt"], "sampleScope": benchmark["scope"],
-            "collectorCheckedAt": checked, "allSample": counts(rows),
+            "collectorCheckedAt": checked, "directObservationMethod": "raw-source-observations" if any("publicationObservations" in s for s in source_states.values()) else "legacy-merged-observation",
+            "allSample": counts(rows),
             "recoveryCheckedAt": recovery.get("checkedAt"), "recoverySummary": recovery.get("summary", {}),
             "activeWindow": counts([r for r in rows if r["within30Days"]]),
             "events": rows, "negativeControls": negatives}

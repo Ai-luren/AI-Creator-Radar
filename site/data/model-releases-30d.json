@@ -650,20 +650,6 @@
   ],
   "pending": [
     {
-      "id": "c9a9fe2d0a86aa3c1f",
-      "category": "music",
-      "vendor": "Suno",
-      "title": "Introducing v5.5: Voices, Custom Models, and My Taste",
-      "summary": "",
-      "url": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste",
-      "sourceName": "Suno 官方更新日志",
-      "publishedAt": null,
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "suno",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "af4d0f19fa8b56e83f",
       "category": "llm",
       "vendor": "Google",
@@ -674,20 +660,6 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "gemini",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
-      "id": "8b5c61eca875dc73fd",
-      "category": "music",
-      "vendor": "Suno",
-      "title": "Introducing v6",
-      "summary": "",
-      "url": "https://suno.com/release-notes/introducing-v6",
-      "sourceName": "Suno 官方更新日志",
-      "publishedAt": null,
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "suno",
       "updateType": "release",
       "verificationStatus": "pending"
     },
@@ -720,20 +692,6 @@
       "verificationStatus": "pending"
     },
     {
-      "id": "07cf0ba0dee97f17f2",
-      "category": "music",
-      "vendor": "Suno",
-      "title": "Introducing v5 - the world's best music model",
-      "summary": "",
-      "url": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
-      "sourceName": "Suno 官方更新日志",
-      "publishedAt": null,
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "suno",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "98d2bdcffca1339e0a",
       "category": "audio",
       "vendor": "阿里巴巴通义千问",
@@ -762,20 +720,6 @@
       "verificationStatus": "pending"
     },
     {
-      "id": "a41a8b12f7a3ba35ab",
-      "category": "image",
-      "vendor": "Kling AI",
-      "title": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise.",
-      "summary": "",
-      "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all",
-      "sourceName": "Kling 官方发布博客",
-      "publishedAt": "2026-11-17T17:56:46Z",
-      "discoveredAt": "2026-11-25T08:09:46Z",
-      "modelFamilyId": "kling-image",
-      "updateType": "model-card",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "633fc816a4a57ffa07",
       "category": "music",
       "vendor": "昆仑万维",
@@ -787,20 +731,6 @@
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "mureka",
       "updateType": "model-card",
-      "verificationStatus": "pending"
-    },
-    {
-      "id": "seedance-25-20261116",
-      "category": "video",
-      "vendor": "字节跳动 Seed / 即梦",
-      "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
-      "summary": "字节 Seed 于 2026 年 7 月 31 日正式发布 Seedance 2.5，重点升级长叙事生成、多模态参考与编辑能力。",
-      "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
-      "sourceName": "字节跳动 Seed 官方动态",
-      "publishedAt": "2026-11-16T00:00:00Z",
-      "discoveredAt": "2026-11-22T00:00:00Z",
-      "modelFamilyId": "seedance",
-      "updateType": "release",
       "verificationStatus": "pending"
     },
     {

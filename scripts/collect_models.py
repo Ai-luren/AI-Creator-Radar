@@ -1140,6 +1140,9 @@ def main() -> int:
                                  <= i["publishedAt"][:10] <= now.date().isoformat()})
             status_entries.append({
                 "matchedModelFamilyIds": matched_ids, "recentDatedModelFamilyIds": recent_ids,
+                "publicationObservations": [{k: i.get(k) for k in ("modelId", "url", "title", "publishedAt")}
+                                            for i in incoming if i.get("modelId") in models and i.get("publishedAt")
+                                            and (now - timedelta(days=45)).date().isoformat() <= i["publishedAt"][:10] <= now.date().isoformat()],
                 "primaryDegraded": source.get("primaryDegraded", False),
                 "id": source["id"], "name": source["name"], "type": source.get("type", "html"),
                 "url": source.get("primaryUrl", source["url"]), "effectiveUrl": source["url"],

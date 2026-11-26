@@ -31,7 +31,7 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
     family_map = {family["id"]: family for family in families}
     # Only canonical IDs: retired aliases may point to unrelated derivative products.
     confirmed_keys = {
-        (row["modelFamilyId"], str(row["publishedAt"])[:10], row["url"])
+        (row["modelFamilyId"], str(row["publishedAt"])[:10], url_key(row["url"]))
         for row in confirmed
     }
     def normalize(value):
@@ -61,7 +61,7 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
             continue
         if not start <= event_day <= today:
             continue
-        if published and (family["id"], str(published)[:10], url) in confirmed_keys:
+        if published and (family["id"], str(published)[:10], url_key(url)) in confirmed_keys:
             continue
         # Equivalent translated URLs or model-card entries with the same model and date.
         # Do not hide a conflicting date, or collapse distinct models on a rolling URL.

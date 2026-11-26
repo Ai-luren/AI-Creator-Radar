@@ -177,9 +177,29 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
             existing_events_by_id[event_key] = event
         added += 1
 
+    # Exact duplicate unreviewed nodes only. Preserve all audited history and distinct date conflicts.
+    deduplicated = 0
     for topic in topics_by_id.values():
+        seen = set()
+        retained = []
+        for event in topic.get("milestones", []):
+            if protected(event):
+                retained.append(event)
+                continue
+            identity = (normalize_url(str(event.get("url", ""))).split("?")[0], str(event.get("date", "")),
+                        str(event.get("sourceModelId", "")), "".join(ch for ch in str(event.get("title", "")).casefold() if ch.isalnum()))
+            # Strip only known tracking query parameters using the common key, not meaningful query IDs.
+            from urllib.parse import parse_qsl, urlencode
+            parsed = urlsplit(str(event.get("url", "")))
+            query = urlencode(sorted((k,v) for k,v in parse_qsl(parsed.query) if k.casefold() not in {"tab","view_from","trk","source","lang","ref","fbclid","gclid"} and not k.casefold().startswith("utm_")))
+            identity = (identity[0] + ("?" + query if query else ""), *identity[1:])
+            if identity[0] and identity[2] and identity in seen:
+                deduplicated += 1
+                continue
+            seen.add(identity)
+            retained.append(event)
         topic["milestones"] = sorted(
-            topic.get("milestones", []),
+            retained,
             key=lambda event: (str(event.get("date", "")), str(event.get("title", ""))),
             reverse=True,
         )
@@ -190,6 +210,7 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
         "officialUpdatesConsidered": considered,
         "added": added,
         "updated": updated,
+        "deduplicatedUnreviewed": deduplicated,
         "unmatchedVendors": sorted(unmatched_vendors),
         "policy": "仅收录已配置厂商的模型发布或预告候选；来源日期不等于首发日期；不覆盖人工审核记录、不自动新增厂商。",
     }

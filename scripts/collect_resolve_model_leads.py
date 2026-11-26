@@ -15,12 +15,12 @@ try:
     from scripts.collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
         article_publication_date, title_identity, match_model, non_release_title, is_release_candidate, write_json)
     from scripts.collect_cross_platform import article_url
-    from scripts.collect_release_recall import url_key
+    from scripts.collect_release_recall import url_key, article_day_stamp
 except ModuleNotFoundError:
     from collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
         article_publication_date, title_identity, match_model, non_release_title, is_release_candidate, write_json)
     from collect_cross_platform import article_url
-    from collect_release_recall import url_key
+    from collect_release_recall import url_key, article_day_stamp
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/lead-resolution.json"
@@ -45,7 +45,7 @@ def title_agrees(actual, expected):
     if len(expected) > 100 or not re.search(r"\d", expected):
         return False
     parts = re.split(r"[\s_-]+", expected.strip())
-    pattern = r"(?<![\w.])" + r"[\s_-]*".join(re.escape(p) for p in parts) + r"(?![\w.])"
+    pattern = r"(?<![\w.])" + r"[\s_-]*".join(re.escape(p) for p in parts) + r"(?![\w.]|[-_]\w|\s+(?:turbo|flash|pro|lite|mini|ultra|plus|max|preview|thinking|live|fast|medical)\b)"
     return bool(re.search(pattern, actual, re.I))
 
 
@@ -85,8 +85,10 @@ def parse_article(page, url, titles, sources, catalog, now):
     stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com"})
     if not stamp:
         return {"status": "date-unresolved", "title": title, "modelId": family["id"]}
-    if not (now - timedelta(days=45)).date().isoformat() <= stamp[:10] <= now.date().isoformat():
-        return {"status": "outside-current-window", "title": title, "articlePublishedAt": stamp}
+    day = article_day_stamp(stamp, url)[:10]
+    if not (now - timedelta(days=45)).date().isoformat() <= day <= now.date().isoformat():
+        return {"status": "outside-current-window", "title": title, "articlePublishedAt": stamp,
+                "modelId": family["id"], "vendor": family["vendor"], "category": family["category"]}
     if not is_release_candidate(title, stamp, True):
         return {"status": "not-model-announcement", "title": title}
     return {"status": "article-date-verified", "title": title, "modelId": family["id"],
@@ -182,7 +184,8 @@ def candidate_rows(resolution):
                      "category": proof["category"], "url": row["url"], "sourceId": "official-article-recovery",
                      "sourceName": "官方文章原文 · 跨平台发现", "official": True, "updateType": "model-card",
                      "summary": "已读取官方文章日期及型号标题；正式首发阶段仍待核验。",
-                     "publishedAt": proof["articlePublishedAt"], "discoveredAt": proof["firstVerifiedAt"],
+                     "publishedAt": article_day_stamp(proof["articlePublishedAt"], row["url"]),
+                     "articlePublishedAt": proof["articlePublishedAt"], "discoveredAt": proof["firstVerifiedAt"],
                      "firstSeenAt": proof["firstVerifiedAt"], "lastSeenAt": proof["checkedAt"],
                      "publicationDateKind": "article-explicit-date"})
     return rows
@@ -196,6 +199,31 @@ def reconcile_candidate_dates(updates, resolution):
         key = (proof["modelId"], url_key(proof["url"]))
         if key[1]:
             index.setdefault(key, []).append(proof)
+    # Historical observations must also correct undated duplicates; otherwise a
+    # rediscovered old article re-enters the rolling recent window forever.
+    for row in resolution.get("items", []):
+        if row.get("status") != "outside-current-window" or not row.get("articlePublishedAt") or not row.get("checkedAt"):
+            continue
+        article_date = article_day_stamp(row["articlePublishedAt"], row["url"])
+        try:
+            observed = datetime.fromisoformat(row["checkedAt"].replace("Z", "+00:00"))
+            day = datetime.fromisoformat(article_date.replace("Z", "+00:00")).date()
+        except (ValueError, TypeError):
+            continue
+        if day >= (observed - timedelta(days=45)).date():
+            continue
+        # Migrate older proof records that predate modelId: only same article,
+        # exact normalized title, official provenance, and one unique family.
+        matched = {u.get("modelId") for u in updates if u.get("official") is True and u.get("modelId")
+                   and url_key(u.get("url")) == url_key(row["url"])
+                   and title_identity(u.get("title") or "") == title_identity(row.get("title") or "")}
+        fid = row.get("modelId") or (next(iter(matched)) if len(matched) == 1 else None)
+        if not fid or matched != {fid}:
+            continue
+        proof = {"id": row["id"], "title": row["title"], "modelId": fid, "url": row["url"],
+                 "publishedAt": article_date, "articlePublishedAt": row["articlePublishedAt"],
+                 "lastSeenAt": row["checkedAt"]}
+        index.setdefault((fid, url_key(row["url"])), []).append(proof)
     output = []
     corrections = []
     for original in updates:
@@ -213,6 +241,7 @@ def reconcile_candidate_dates(updates, resolution):
             item["publishedAt"] = proof["publishedAt"]
             item["publicationDateKind"] = "article-explicit-date"
             item["publicationObservedAt"] = proof["lastSeenAt"]
+            item["articlePublishedAt"] = proof.get("articlePublishedAt", proof["publishedAt"])
             item["recoveryProofId"] = proof["id"]
             corrections.append({"updateId": item["id"], "previousDate": original.get("publishedAt"),
                                 "articleDate": item["publishedAt"], "proofId": proof["id"]})

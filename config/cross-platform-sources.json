@@ -72,6 +72,30 @@
       "project": "https://github.com/mayoorrnikam/llm-world",
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "id": "elevenlabs-sitemap",
+      "name": "ElevenLabs 官方 Sitemap",
+      "type": "sitemap",
+      "url": "https://elevenlabs.io/sitemap.xml"
+    },
+    {
+      "id": "zai-sitemap",
+      "name": "Z.ai 官方 Sitemap",
+      "type": "sitemap",
+      "url": "https://z.ai/sitemap.xml"
+    },
+    {
+      "id": "niji-sitemap",
+      "name": "Niji Journey 官方 Sitemap",
+      "type": "sitemap",
+      "url": "https://nijijourney.com/sitemap.xml"
+    },
+    {
+      "id": "elevenlabs-archive-rss",
+      "name": "AI News · ElevenLabs 归档 RSS",
+      "type": "rss",
+      "url": "https://ai-news-ed8ddf.gitlab.io/feed/source/elevenlabs.xml"
     }
   ],
   "officialArticleHosts": {
