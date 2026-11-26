@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-26T21:18:15.380434+00:00",
+  "checkedAt": "2026-11-26T21:48:23.605993+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1193,9 +1193,9 @@
   },
   "sourceCoverage": {
     "reachableSources": 44,
-    "matchingModelSources": 38,
+    "matchingModelSources": 39,
     "recentDatedModelSources": 16,
-    "distinctMatchingEndpoints": 37,
+    "distinctMatchingEndpoints": 38,
     "matchedFamilies": 49,
     "recentDatedFamilies": 16,
     "unmatchedFamilies": [
@@ -1262,6 +1262,10 @@
     "incorrectConfirmed": 0
   },
   "scopeNote": "Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review.",
-  "dueScopes": [],
-  "eligibleScopes": []
+  "dueScopes": [
+    "selected"
+  ],
+  "eligibleScopes": [
+    "selected"
+  ]
 }
