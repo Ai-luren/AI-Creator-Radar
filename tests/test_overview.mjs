@@ -264,3 +264,7 @@ test('verified service stages remain outside release event counts',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');assert.ok(run('Array.isArray(state.modelReleaseData.verifiedStages)'));assert.ok(run("state.modelReleaseData.verifiedStages.every(x=>!state.modelReleases.some(y=>y.id===x.id))"));
  run("setView('today',{releaseCategory:'music'})");assert.match(node('content').innerHTML,/已核实模型上线阶段|当前时间范围没有已核实/);
 });
+
+test('Scribe variants form one reviewed batch with two preserved versions',()=>{
+ const {run}=setup();const fixtures=['Scribe v3','Scribe v3 Live'].map((modelName,i)=>({id:'asr-'+i,modelFamilyId:'eleven-scribe',modelVersionId:'asr-'+i,modelName,category:'audio',vendor:'ElevenLabs',publishedAt:'2026-11-09'}));const events=JSON.parse(run('JSON.stringify(releaseEvents('+JSON.stringify(fixtures)+'))'));assert.equal(events.length,1);assert.equal(events[0].versions.length,2);assert.equal(events[0].modelName,'Scribe v3 系列');
+});

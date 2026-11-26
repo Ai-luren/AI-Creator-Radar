@@ -197,3 +197,5 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - Scribe v3 / v3 Live：2026-11-09 官方更新日志（https://elevenlabs.io/docs/changelog/2026/11/9），11-10 中英官方博客（https://elevenlabs.io/blog/scribe-v3）介绍同一批次。记录最早明确的服务发布证据，两型号保留独立 ID；按 ASR 分类，不混入 TTS。
 - Qwen-Audio-3.1-Live 的 11-23 上线已存历史节点（https://docs.qwencloud.com/changelog/models 与 https://www.alibabacloud.com/help/en/model-studio/qwen-audio-3-1-live）；Mureka Remix V9.5 的 11-12 API 全量上线早于 11-16 博客（https://platform.mureka.ai/docs/en/changelog.html 与 https://www.mureka.ai/blog_zh-CN/mureka-remix-v9-5-is-here.html）。仅将两条明确核实的历史阶段派生为 verifiedStages；不写入 releaseDate、releaseEvidence 或正式发布次数，不自动推广普通 API 更新。
 - Qwen TTS 3.1 Plus 10-21、Flash 10-12、Next 10-22 均早于 30 天窗口起点 10-28，不能为了填满栏目挪到 11 月；Suno v6 的历史日期仍需按官方原始记录审核。
+
+- Scribe v3 两型号使用显式同批次规则；正式发布与已核实服务上线的计数分开。新增固定历史窗口和派生清单一致性测试。

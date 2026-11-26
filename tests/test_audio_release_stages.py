@@ -1,0 +1,37 @@
+"""Keep reviewed service launches separate from first-release records."""
+from datetime import date
+import json
+import unittest
+from pathlib import Path
+
+from scripts.build_model_release_digest import build, collect_verified_stages
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class AudioStageTests(unittest.TestCase):
+    def test_known_stages_are_distinct_from_releases(self):
+        result = build(date(2026, 11, 26))
+        ids = {r["modelVersionId"] for r in result["verifiedStages"]}
+        self.assertIn("qwen-audio-3-1-live", ids)
+        self.assertIn("mureka-remix-v9-5", ids)
+        self.assertFalse(ids.intersection(r["modelVersionId"] for r in result["items"]))
+        self.assertTrue(all("publishedAt" not in r for r in result["verifiedStages"]))
+        self.assertTrue(all(r["stage"] == "api-availability" for r in result["verifiedStages"]))
+
+    def test_window_and_unknown_stages(self):
+        families = json.loads((ROOT / "site/data/models.json").read_text(encoding="utf-8"))
+        self.assertEqual(collect_verified_stages(families, date(2026, 10, 27)), [])
+        self.assertEqual(collect_verified_stages(families, date(2027, 1, 1)), [])
+        self.assertEqual(collect_verified_stages([{"id": "mureka", "versions": [{"id": "mureka-remix-v9-5", "historicalMilestones": [{"chronicleAuditId": "unreviewed", "datePrecision": "day", "date": "2026-11-12", "stage": "api-availability", "verifiedAt": "2026-11-26", "sourceUrl": "https://example.com"}]}]}], date(2026, 11, 26)), [])
+
+    def test_digest_matches_canonical_snapshot(self):
+        actual = json.loads((ROOT / "site/data/model-releases-30d.json").read_text(encoding="utf-8"))
+        expected = build(date.fromisoformat(actual["windowEnd"]))
+        actual.pop("updatedAt", None)
+        expected.pop("updatedAt", None)
+        self.assertEqual(actual, expected)
+
+
+if __name__ == "__main__":
+    unittest.main()
