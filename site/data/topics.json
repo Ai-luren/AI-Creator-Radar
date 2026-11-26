@@ -10971,7 +10971,7 @@
         "modelFamilyMentions": [
           {
             "modelFamilyId": "magi-2",
-            "matchedName": "MAGI-2 Preview"
+            "matchedName": "MAGI-2"
           }
         ]
       },
@@ -10992,12 +10992,6 @@
           {
             "modelFamilyId": "magi-1",
             "modelVersionId": "magi-1-1-24b",
-            "matchedName": "MAGI-1.1 24B"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "magi-1",
             "matchedName": "MAGI-1.1 24B"
           }
         ]
@@ -11048,12 +11042,6 @@
             "modelVersionId": "magi-1-4-5b-distill",
             "matchedName": "MAGI-1 4.5B Distill"
           }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "magi-1",
-            "matchedName": "MAGI-1 4.5B Distill"
-          }
         ]
       },
       {
@@ -11075,12 +11063,6 @@
             "modelVersionId": "magi-1-4-5b",
             "matchedName": "MAGI-1 4.5B"
           }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "magi-1",
-            "matchedName": "MAGI-1 4.5B"
-          }
         ]
       },
       {
@@ -11100,12 +11082,6 @@
           {
             "modelFamilyId": "magi-1",
             "modelVersionId": "magi-1-24b",
-            "matchedName": "MAGI-1 24B"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "magi-1",
             "matchedName": "MAGI-1 24B"
           }
         ]

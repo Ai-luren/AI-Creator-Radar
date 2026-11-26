@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T12:21:41Z",
+  "generatedAt": "2026-11-26T15:32:00Z",
   "items": [
     {
       "id": "730dd1f3dd15fd1c9b",
@@ -13,12 +13,28 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "deepseek-news",
       "sourceName": "DeepSeek 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "DeepSeek 官方更新日志"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "recraft",
+          "modelVersionId": "v4-1",
+          "matchedName": "V4.1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "deepseek",
+          "matchedName": "DeepSeek-V4.1-Flash"
+        }
+      ]
     },
     {
       "id": "1ce4bf5ae6ac81bc0c",
@@ -32,12 +48,15 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "deepseek-news",
       "sourceName": "DeepSeek 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "DeepSeek 官方更新日志"
+      ]
     },
     {
       "id": "e6064d6e415f43c281",
@@ -51,12 +70,28 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "deepmind-news",
       "sourceName": "Google DeepMind 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google DeepMind 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-neon",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ]
     },
     {
       "id": "a523b07bdbe8407311",
@@ -70,12 +105,28 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "deepmind-news",
       "sourceName": "Google DeepMind 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google DeepMind 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-hydrogen",
+          "matchedName": "Gemini 4 Hydrogen"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Hydrogen"
+        }
+      ]
     },
     {
       "id": "b94ca56d3c3ea473fd",
@@ -89,12 +140,28 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "deepmind-news",
       "sourceName": "Google DeepMind 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google DeepMind 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-carbon",
+          "matchedName": "Gemini 4 Carbon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Carbon"
+        }
+      ]
     },
     {
       "id": "af4d0f19fa8b56e83f",
@@ -108,12 +175,15 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "deepmind-news",
       "sourceName": "Google DeepMind 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google DeepMind 官方新闻"
+      ]
     },
     {
       "id": "8b5c61eca875dc73fd",
@@ -127,12 +197,15 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "c9a9fe2d0a86aa3c1f",
@@ -146,12 +219,15 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "07cf0ba0dee97f17f2",
@@ -165,12 +241,15 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Suno 官方更新日志"
+      ]
     },
     {
       "id": "e758724b05878cb107",
@@ -184,12 +263,15 @@
       "publishedAt": "2026-11-26T04:42:57Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.174.0"
+      "modelVersion": "0.174.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "517ee2c019dd07b715",
@@ -203,12 +285,15 @@
       "publishedAt": "2026-11-25T19:41:38Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
       "updateType": "product-release",
-      "modelVersion": "0.174.0"
+      "modelVersion": "0.174.0",
+      "sourceNames": [
+        "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
     },
     {
       "id": "d1a8a8c302ae6a4a1f",
@@ -222,7 +307,7 @@
       "publishedAt": "2026-11-25T01:32:14Z",
       "discoveredAt": "2026-11-25T05:03:17Z",
       "firstSeenAt": "2026-11-25T05:03:17Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -244,7 +329,7 @@
       "publishedAt": "2026-11-25T01:23:23Z",
       "discoveredAt": "2026-11-25T05:03:17Z",
       "firstSeenAt": "2026-11-25T05:03:17Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -266,7 +351,7 @@
       "publishedAt": "2026-11-24T23:06:32Z",
       "discoveredAt": "2026-11-25T05:03:17Z",
       "firstSeenAt": "2026-11-25T05:03:17Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -288,7 +373,7 @@
       "publishedAt": "2026-11-24T20:18:38Z",
       "discoveredAt": "2026-11-25T05:03:17Z",
       "firstSeenAt": "2026-11-25T05:03:17Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -310,7 +395,7 @@
       "publishedAt": "2026-11-24T16:21:51Z",
       "discoveredAt": "2026-11-25T05:03:17Z",
       "firstSeenAt": "2026-11-25T05:03:17Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -332,7 +417,7 @@
       "publishedAt": null,
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
@@ -354,7 +439,7 @@
       "publishedAt": "2026-11-24T06:48:20Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -376,7 +461,7 @@
       "publishedAt": "2026-11-24T01:51:10Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -398,7 +483,7 @@
       "publishedAt": "2026-11-24T00:06:41Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -406,6 +491,38 @@
       "modelVersion": "0.172.0",
       "sourceNames": [
         "OpenAI Codex CLI 官方 GitHub Releases"
+      ]
+    },
+    {
+      "id": "0afd36cef0c590bf73",
+      "modelId": "magi-2",
+      "modelName": "MAGI-2 系列",
+      "vendor": "Sand.ai",
+      "category": "video",
+      "title": "MAGI-2: A 480B Frontier Video Generation ModelNovember 24, 2026 · Research",
+      "summary": "",
+      "url": "https://sand.ai/blog/magi-2",
+      "publishedAt": "2026-11-24T00:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "sandai-research",
+      "sourceName": "Sand.ai 官方研究与发布目录",
+      "official": true,
+      "updateType": "announcement",
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        }
       ]
     },
     {
@@ -420,7 +537,7 @@
       "publishedAt": "2026-11-23T21:34:41Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -464,7 +581,7 @@
       "publishedAt": "2026-11-23T18:07:33Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "codex-cli-releases",
       "sourceName": "OpenAI Codex CLI 官方 GitHub Releases",
       "official": true,
@@ -486,12 +603,15 @@
       "publishedAt": "2026-11-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "35bb80cc66121b0f72",
@@ -572,7 +692,7 @@
       "publishedAt": "2026-11-20T22:32:56Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -638,12 +758,28 @@
       "publishedAt": "2026-11-20T04:12:19Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "openai-developer-announcements",
       "sourceName": "OpenAI 开发者官方公告",
       "official": true,
       "updateType": "announcement",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "OpenAI 开发者官方公告"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gpt-live",
+          "modelVersionId": "gpt-live-1-1",
+          "matchedName": "GPT-Live-1.1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt-live",
+          "matchedName": "GPT-Live"
+        }
+      ]
     },
     {
       "id": "b208e8b7c729510690",
@@ -679,12 +815,28 @@
       "publishedAt": "2026-11-20T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "kuaishou-ir",
       "sourceName": "Kling 官方发布博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": "4.0"
+      "modelVersion": "4.0",
+      "sourceNames": [
+        "Kling 官方发布博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling",
+          "modelVersionId": "kling-4-0",
+          "matchedName": "Kling 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        }
+      ]
     },
     {
       "id": "f3d370a5121afbf2b7",
@@ -698,7 +850,7 @@
       "publishedAt": "2026-11-19T22:14:41Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -742,7 +894,7 @@
       "publishedAt": "2026-11-19T01:14:04Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -750,6 +902,13 @@
       "modelVersion": "2.1.328",
       "sourceNames": [
         "Claude Code 官方 GitHub Releases"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-opus-4-6",
+          "matchedName": "Claude Opus 4.6"
+        }
       ]
     },
     {
@@ -766,6 +925,19 @@
       "updateType": "api-update",
       "sourceNames": [
         "Kling AI API 更新日志"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling",
+          "modelVersionId": "kling-4-0",
+          "matchedName": "Kling 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        }
       ]
     },
     {
@@ -787,6 +959,19 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-neon",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Neon"
+        }
       ]
     },
     {
@@ -806,7 +991,24 @@
       "sourceName": "Kling 官方发布博客",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": "4.0"
+      "modelVersion": "4.0",
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling-image",
+          "modelVersionId": "kling-image-4-0",
+          "matchedName": "Kling Image 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "kling-image",
+          "matchedName": "Kling Image"
+        }
+      ]
     },
     {
       "id": "7547865fc76ddb4f64",
@@ -825,7 +1027,20 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-neon",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Neon"
+        }
+      ]
     },
     {
       "id": "8f7a055a1b360233ad",
@@ -839,7 +1054,7 @@
       "publishedAt": "2026-11-17T23:17:45Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -861,11 +1076,46 @@
       "publishedAt": "2026-11-17T17:45:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "openai-news",
       "sourceName": "OpenAI 官方新闻 RSS",
       "official": true,
       "updateType": "release",
+      "modelVersion": null,
+      "sourceNames": [
+        "OpenAI 官方新闻 RSS"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "modelVersionId": "gpt-6-2-astra",
+          "matchedName": "GPT-6.2 Astra"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "matchedName": "GPT-6.2 Astra"
+        }
+      ]
+    },
+    {
+      "id": "3047d7657748ea760f",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "Introducing ChatGPT for Sales",
+      "summary": "Explore the new Sales plugin and 30+ new and expanded partner plugins in ChatGPT to research prospects, prepare pitches, update your CRM, and move deals forward.",
+      "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+      "publishedAt": "2026-11-17T08:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
       "modelVersion": null
     },
     {
@@ -884,6 +1134,23 @@
       "promoVideoNote": "厂商发布页内含官方演示视频；页面时间线展示视频缩略图与播放入口。",
       "sourceNames": [
         "Kling AI 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling-image",
+          "modelVersionId": "kling-image-4-0",
+          "matchedName": "Kling Image 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "kling-image",
+          "matchedName": "Kling Image"
+        }
       ]
     },
     {
@@ -898,12 +1165,21 @@
       "publishedAt": "2026-11-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "57dc39d0ad95ca4c01",
@@ -917,12 +1193,51 @@
       "publishedAt": "2026-11-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-zh-blog",
       "sourceName": "PixVerse 中文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 中文官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling",
+          "modelVersionId": "kling-3-0",
+          "matchedName": "Kling 3.0"
+        },
+        {
+          "modelFamilyId": "pixverse-v6",
+          "modelVersionId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "veo",
+          "modelVersionId": "veo-3",
+          "matchedName": "Veo 3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "d2ef0a9a061a74ffce",
@@ -936,11 +1251,69 @@
       "publishedAt": "2026-11-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-news",
       "sourceName": "PixVerse 英文官方博客",
       "official": true,
       "updateType": "release",
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 英文官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling",
+          "modelVersionId": "kling-3-0",
+          "matchedName": "Kling 3.0"
+        },
+        {
+          "modelFamilyId": "pixverse-v6",
+          "modelVersionId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "veo",
+          "modelVersionId": "veo-3",
+          "matchedName": "Veo 3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        },
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "3b3be741a87f5e2153",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "Introducing OpenAI for Chile",
+      "summary": "OpenAI and the Government of Chile are partnering to support responsible AI adoption, build public-sector skills and help local startups develop AI applications.",
+      "url": "https://openai.com/index/introducing-openai-for-chile",
+      "publishedAt": "2026-11-17T00:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
       "modelVersion": null
     },
     {
@@ -955,7 +1328,7 @@
       "publishedAt": "2026-11-16T22:11:05Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -964,6 +1337,25 @@
       "sourceNames": [
         "Claude Code 官方 GitHub Releases"
       ]
+    },
+    {
+      "id": "2d7a5d6b20fff3cd43",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "Broadening access to AI for scientists",
+      "summary": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models.",
+      "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+      "publishedAt": "2026-11-16T17:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
+      "modelVersion": null
     },
     {
       "id": "seedance-25-20261116",
@@ -984,6 +1376,19 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "字节跳动 Seed 官方动态"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
       ]
     },
     {
@@ -998,7 +1403,7 @@
       "publishedAt": "2026-11-16T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "seed-official",
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
@@ -1006,6 +1411,19 @@
       "modelVersion": null,
       "sourceNames": [
         "字节跳动 Seed 官方动态"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
       ]
     },
     {
@@ -1025,7 +1443,20 @@
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
     },
     {
       "id": "09d104a2365c353922",
@@ -1039,11 +1470,40 @@
       "publishedAt": "2026-11-16T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen4-max",
+          "matchedName": "Qwen4-Max"
+        }
+      ]
+    },
+    {
+      "id": "60f3c7381bc61eae5e",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "The King’s Trust and OpenAI launch £1m partnership",
+      "summary": "The King’s Trust and OpenAI launch a £1m partnership to help up to 25,000 young people across the UK build practical AI skills for work.",
+      "url": "https://openai.com/index/the-kings-trust-and-openai",
+      "publishedAt": "2026-11-16T00:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
       "modelVersion": null
     },
     {
@@ -1058,7 +1518,7 @@
       "publishedAt": "2026-11-13T20:40:01Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -1067,6 +1527,25 @@
       "sourceNames": [
         "Claude Code 官方 GitHub Releases"
       ]
+    },
+    {
+      "id": "7d4d71d056da02862d",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "Introducing ChatGPT Wallet",
+      "summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "publishedAt": "2026-11-13T15:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
+      "modelVersion": null
     },
     {
       "id": "8427d4fee9a7d1b919",
@@ -1080,7 +1559,7 @@
       "publishedAt": "2026-11-12T22:12:13Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -1102,12 +1581,21 @@
       "publishedAt": "2026-11-12T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "80197d4a79452cb55e",
@@ -1121,11 +1609,40 @@
       "publishedAt": "2026-11-11T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen4-max",
+          "matchedName": "Qwen4-Max"
+        }
+      ]
+    },
+    {
+      "id": "991ad48e8559b2fefa",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "Introducing Businesses in ChatGPT",
+      "summary": "Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT.",
+      "url": "https://openai.com/index/introducing-businesses-chatgpt",
+      "publishedAt": "2026-11-10T10:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
       "modelVersion": null
     },
     {
@@ -1140,7 +1657,7 @@
       "publishedAt": "2026-11-10T02:29:43Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "claude-code-releases",
       "sourceName": "Claude Code 官方 GitHub Releases",
       "official": true,
@@ -1169,6 +1686,23 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "MiniMax 官方最新发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "minimax-h3-image",
+          "modelVersionId": "minimax-h3-image",
+          "matchedName": "MiniMax H3-Image"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        },
+        {
+          "modelFamilyId": "minimax-h3-image",
+          "matchedName": "MiniMax H3-Image"
+        }
       ]
     },
     {
@@ -1188,7 +1722,20 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-carbon",
+          "matchedName": "Gemini 4 Carbon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Carbon"
+        }
+      ]
     },
     {
       "id": "ace31f3b0bb1b6f07e",
@@ -1210,7 +1757,39 @@
       "modelVersion": "2.1.321",
       "sourceNames": [
         "Claude Code 官方 GitHub Releases"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-fable-5-2",
+          "matchedName": "Claude Fable 5.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Fable 5.2"
+        }
       ]
+    },
+    {
+      "id": "caa9073cefb43725f1",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "ChatGPT Enterprise now available in AWS Marketplace",
+      "summary": "ChatGPT Enterprise is now available through AWS Marketplace, helping organizations simplify procurement through existing AWS purchasing and billing relationships.",
+      "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
+      "publishedAt": "2026-11-09T19:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
+      "modelVersion": null
     },
     {
       "id": "seedream-55-20261109",
@@ -1231,6 +1810,19 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "字节跳动 Seed 官方动态"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "modelVersionId": "seedream-5-5",
+          "matchedName": "Seedream 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "matchedName": "Seedream 5.5"
+        }
       ]
     },
     {
@@ -1245,7 +1837,7 @@
       "publishedAt": "2026-11-09T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "seed-official",
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
@@ -1253,6 +1845,19 @@
       "modelVersion": null,
       "sourceNames": [
         "字节跳动 Seed 官方动态"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "modelVersionId": "seedream-5-5",
+          "matchedName": "Seedream 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "matchedName": "Seedream 5.5"
+        }
       ]
     },
     {
@@ -1272,7 +1877,20 @@
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "modelVersionId": "seedream-5-5",
+          "matchedName": "Seedream 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "matchedName": "Seedream 5.5"
+        }
+      ]
     },
     {
       "id": "b2cab39b783d8ad409",
@@ -1286,12 +1904,28 @@
       "publishedAt": "2026-11-05T17:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "google-official-feed",
       "sourceName": "Google 官方 AI 新闻 RSS",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Google 官方 AI 新闻 RSS"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini-omni-flash",
+          "modelVersionId": "gemini-omni-flash-1-2",
+          "matchedName": "Gemini Omni 1.2 Flash"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini-omni-flash",
+          "matchedName": "Gemini Omni 1.2 Flash"
+        }
+      ]
     },
     {
       "id": "41f6e416aad8fe8469",
@@ -1310,7 +1944,20 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini-omni-flash",
+          "modelVersionId": "gemini-omni-flash-1-2",
+          "matchedName": "Gemini Omni 1.2 Flash"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini-omni-flash",
+          "matchedName": "Gemini Omni 1.2 Flash"
+        }
+      ]
     },
     {
       "id": "df1dc5e77547959fa1",
@@ -1324,12 +1971,15 @@
       "publishedAt": "2026-11-04T07:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "openai-news",
       "sourceName": "OpenAI 官方新闻 RSS",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "OpenAI 官方新闻 RSS"
+      ]
     },
     {
       "id": "8e450599cbb0276aac",
@@ -1343,11 +1993,46 @@
       "publishedAt": "2026-11-04T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "openai-news",
       "sourceName": "OpenAI 官方新闻 RSS",
       "official": true,
       "updateType": "release",
+      "modelVersion": null,
+      "sourceNames": [
+        "OpenAI 官方新闻 RSS"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "modelVersionId": "gpt-6-1",
+          "matchedName": "GPT-6.1 Sol"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "matchedName": "GPT-6.1 Sol"
+        }
+      ]
+    },
+    {
+      "id": "295354ff422b0d4db9",
+      "modelId": null,
+      "modelName": "OpenAI",
+      "vendor": "OpenAI",
+      "category": "llm",
+      "title": "Introducing Images 2.6",
+      "summary": "Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.",
+      "url": "https://openai.com/index/introducing-images-2-6",
+      "publishedAt": "2026-11-04T00:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "openai-news",
+      "sourceName": "OpenAI 官方新闻 RSS",
+      "official": true,
+      "updateType": "product-announcement",
       "modelVersion": null
     },
     {
@@ -1362,12 +2047,32 @@
       "publishedAt": "2026-11-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "minimax-ir",
       "sourceName": "MiniMax 官方最新发布",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "MiniMax 官方最新发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "minimax-h3-image",
+          "modelVersionId": "minimax-h3-image",
+          "matchedName": "MiniMax H3-Image"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        },
+        {
+          "modelFamilyId": "minimax-h3-image",
+          "matchedName": "MiniMax H3-Image"
+        }
+      ]
     },
     {
       "id": "7f5d917745d3dc6294",
@@ -1389,6 +2094,12 @@
       "modelVersion": null,
       "sourceNames": [
         "Pika H3 Flex 官方发布"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
       ]
     },
     {
@@ -1411,6 +2122,12 @@
       "modelVersion": null,
       "sourceNames": [
         "Pika H3 Flex 官方发布"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
       ]
     },
     {
@@ -1425,12 +2142,15 @@
       "publishedAt": "2026-10-27T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "7ee82a300ebc2a72ad",
@@ -1444,12 +2164,28 @@
       "publishedAt": "2026-10-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "kimi-announcement",
       "sourceName": "Kimi 官方公告目录",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Kimi 官方公告目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kimi",
+          "modelVersionId": "k3-1-pro",
+          "matchedName": "K3.1 Pro"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kimi",
+          "matchedName": "Kimi K3"
+        }
+      ]
     },
     {
       "id": "64803e0a4f48ad4ca7",
@@ -1463,12 +2199,15 @@
       "publishedAt": "2026-10-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "de48728e35dc6bda62",
@@ -1482,12 +2221,21 @@
       "publishedAt": "2026-10-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen-audio-tts",
+          "matchedName": "Qwen-Audio-3.1-TTS-Plus"
+        }
+      ]
     },
     {
       "id": "b6edf533d574346e9f",
@@ -1501,7 +2249,7 @@
       "publishedAt": "2026-10-18T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "anthropic-model-news",
       "sourceName": "Anthropic 官方新闻",
       "official": true,
@@ -1509,6 +2257,24 @@
       "modelVersion": null,
       "sourceNames": [
         "Anthropic 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-fable-5-2",
+          "matchedName": "Claude Fable 5.2"
+        },
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-mythos-5-2",
+          "matchedName": "Claude Mythos 5.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Mythos 5.2"
+        }
       ]
     },
     {
@@ -1530,6 +2296,19 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "快手官方新闻稿"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kling",
+          "modelVersionId": "kling-4-0",
+          "matchedName": "Kling 4.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kling",
+          "matchedName": "Kling"
+        }
       ]
     },
     {
@@ -1544,12 +2323,28 @@
       "publishedAt": "2026-10-15T19:11:50Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "openai-developer-announcements",
       "sourceName": "OpenAI 开发者官方公告",
       "official": true,
       "updateType": "announcement",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "OpenAI 开发者官方公告"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gpt-live",
+          "modelVersionId": "gpt-live-1-1",
+          "matchedName": "GPT-Live-1.1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt-live",
+          "matchedName": "GPT-Live"
+        }
+      ]
     },
     {
       "id": "d610813f1e7089578f",
@@ -1568,7 +2363,20 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-4-argon",
+          "matchedName": "Gemini 4 Argon"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 4 Argon"
+        }
+      ]
     },
     {
       "id": "0da9cac4e3887c0c3e",
@@ -1590,6 +2398,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Meta Superintelligence Labs 官方模型发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-3",
+          "matchedName": "Muse Spark 1.3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark 1.3"
+        }
       ]
     },
     {
@@ -1604,12 +2425,28 @@
       "publishedAt": "2026-10-12T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "meta-models",
       "sourceName": "Meta Superintelligence Labs 官方模型发布",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Meta Superintelligence Labs 官方模型发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-3",
+          "matchedName": "Muse Spark 1.3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark 1.3"
+        }
+      ]
     },
     {
       "id": "8763cb642183c39209",
@@ -1623,12 +2460,28 @@
       "publishedAt": "2026-10-12T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "meta-models",
       "sourceName": "Meta Superintelligence Labs 官方模型发布",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Meta Superintelligence Labs 官方模型发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-3",
+          "matchedName": "Muse Spark 1.3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark 1.3"
+        }
+      ]
     },
     {
       "id": "7e479a07ac42a5f49b",
@@ -1642,12 +2495,21 @@
       "publishedAt": "2026-10-12T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen-audio-tts",
+          "matchedName": "Qwen-Audio-3.1-TTS-Flash"
+        }
+      ]
     },
     {
       "id": "e9c525fba779c99ec9",
@@ -1661,12 +2523,15 @@
       "publishedAt": "2026-10-09T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "4bba6c6ad4d6b4ed5f",
@@ -1680,7 +2545,7 @@
       "publishedAt": "2026-10-07T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
@@ -1688,6 +2553,19 @@
       "modelVersion": "Q4 preview",
       "sourceNames": [
         "Vidu 官方模型更新日志"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "vidu",
+          "modelVersionId": "vidu-q4-preview",
+          "matchedName": "Vidu Q4 Preview"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "vidu",
+          "matchedName": "Vidu"
+        }
       ]
     },
     {
@@ -1709,6 +2587,19 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "modelVersionId": "nano-banana-2-1",
+          "matchedName": "Nano Banana 2.1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "matchedName": "Nano Banana 2"
+        }
       ]
     },
     {
@@ -1731,6 +2622,19 @@
       "modelVersion": "2.1",
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "modelVersionId": "nano-banana-2-1",
+          "matchedName": "Nano Banana 2.1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "matchedName": "Nano Banana 2"
+        }
       ]
     },
     {
@@ -1745,12 +2649,15 @@
       "publishedAt": "2026-10-02T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "047259f433998c6b7e",
@@ -1764,12 +2671,28 @@
       "publishedAt": "2026-09-28T12:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "elevenlabs-news",
       "sourceName": "ElevenLabs 官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "ElevenLabs 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "eleven-tts",
+          "modelVersionId": "eleven-v4",
+          "matchedName": "Eleven v4"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "eleven-tts",
+          "matchedName": "Eleven v4"
+        }
+      ]
     },
     {
       "id": "57cb9a671bd6955ffc",
@@ -1783,7 +2706,7 @@
       "publishedAt": "2026-09-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "anthropic-model-news",
       "sourceName": "Anthropic 官方新闻",
       "official": true,
@@ -1791,6 +2714,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Anthropic 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-sonnet-5-5",
+          "matchedName": "Claude Sonnet 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Sonnet 5.5"
+        }
       ]
     },
     {
@@ -1824,7 +2760,7 @@
       "publishedAt": "2026-09-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "anthropic-model-news",
       "sourceName": "Anthropic 官方新闻",
       "official": true,
@@ -1832,6 +2768,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Anthropic 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-haiku-5-5",
+          "matchedName": "Claude Haiku 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Haiku 5.5"
+        }
       ]
     },
     {
@@ -1846,12 +2795,21 @@
       "publishedAt": "2026-09-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-zh-blog",
       "sourceName": "PixVerse 中文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 中文官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "91c0e390fb00f822f2",
@@ -1865,12 +2823,21 @@
       "publishedAt": "2026-09-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.7"
+        }
+      ]
     },
     {
       "id": "1d613fd24eac33beca",
@@ -1884,7 +2851,7 @@
       "publishedAt": "2026-09-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "anthropic-model-news",
       "sourceName": "Anthropic 官方新闻",
       "official": true,
@@ -1892,6 +2859,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Anthropic 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-opus-5-5",
+          "matchedName": "Claude Opus 5.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Opus 5.5"
+        }
       ]
     },
     {
@@ -1906,12 +2886,28 @@
       "publishedAt": "2026-09-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-8",
+          "matchedName": "Qwen3.8"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
+      ]
     },
     {
       "id": "bf96c04ea146bf1c20",
@@ -1925,12 +2921,15 @@
       "publishedAt": "2026-09-20T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "f96fb848214b59faf0",
@@ -1944,12 +2943,28 @@
       "publishedAt": "2026-09-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-8",
+          "matchedName": "Qwen3.8"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
+      ]
     },
     {
       "id": "00b4d8ae012cf355a9",
@@ -1963,12 +2978,37 @@
       "publishedAt": "2026-09-15T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "vidu-s2",
+          "modelVersionId": "vidu-s2-avatar",
+          "matchedName": "Vidu S2-Avatar"
+        },
+        {
+          "modelFamilyId": "vidu-s2",
+          "modelVersionId": "vidu-s2-editing",
+          "matchedName": "Vidu S2-Editing"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "vidu",
+          "matchedName": "Vidu"
+        },
+        {
+          "modelFamilyId": "vidu-s2",
+          "matchedName": "S2-Editing"
+        }
+      ]
     },
     {
       "id": "ed5d92cb03ee0f4aa3",
@@ -1982,12 +3022,33 @@
       "publishedAt": "2026-09-10T18:57:29Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "openai-developer-announcements",
       "sourceName": "OpenAI 开发者官方公告",
       "official": true,
       "updateType": "announcement",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "OpenAI 开发者官方公告"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "gpt",
+          "modelVersionId": "gpt-6-astra",
+          "matchedName": "GPT-6 Astra"
+        },
+        {
+          "modelFamilyId": "gpt-live",
+          "modelVersionId": "gpt-live-1",
+          "matchedName": "GPT-Live-1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt-live",
+          "matchedName": "GPT-Live"
+        }
+      ]
     },
     {
       "id": "7ecefc6567b5334dd9",
@@ -2001,7 +3062,7 @@
       "publishedAt": "2026-09-09T15:10:20Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
@@ -2030,6 +3091,12 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "Suno 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "suno",
+          "matchedName": "Suno"
+        }
       ]
     },
     {
@@ -2048,6 +3115,19 @@
       "updateType": "release",
       "sourceNames": [
         "Meta AI 官方研究站"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-3",
+          "matchedName": "Muse Spark 1.3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark 1.3"
+        }
       ]
     },
     {
@@ -2070,6 +3150,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Meta Superintelligence Labs 官方模型发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-2",
+          "matchedName": "Muse Spark 1.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark"
+        }
       ]
     },
     {
@@ -2089,7 +3182,20 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-3-8-flash",
+          "matchedName": "Gemini 3.8 Flash"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "matchedName": "Gemini 3.8 Flash"
+        }
+      ]
     },
     {
       "id": "e700d1ddbfdcf6dc7e",
@@ -2103,12 +3209,28 @@
       "publishedAt": "2026-09-02T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "meta-models",
       "sourceName": "Meta Superintelligence Labs 官方模型发布",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Meta Superintelligence Labs 官方模型发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-2",
+          "matchedName": "Muse Spark 1.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark"
+        }
+      ]
     },
     {
       "id": "2e66a0e9ec6706d7a1",
@@ -2122,12 +3244,28 @@
       "publishedAt": "2026-09-02T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-8",
+          "matchedName": "Qwen3.8"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
+      ]
     },
     {
       "id": "b1d9e16fe09c7e0f0c",
@@ -2141,12 +3279,21 @@
       "publishedAt": "2026-08-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "f00844eefbcfd2cecd",
@@ -2168,6 +3315,12 @@
       "modelVersion": null,
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini-omni-flash",
+          "matchedName": "Gemini Omni Flash"
+        }
       ]
     },
     {
@@ -2201,12 +3354,21 @@
       "publishedAt": "2026-08-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.6"
+        }
+      ]
     },
     {
       "id": "a2687bb92f515209c3",
@@ -2220,12 +3382,21 @@
       "publishedAt": "2026-08-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.6"
+        }
+      ]
     },
     {
       "id": "6568b2bef8d039cc5a",
@@ -2239,12 +3410,28 @@
       "publishedAt": "2026-08-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-8",
+          "matchedName": "Qwen3.8"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
+      ]
     },
     {
       "id": "5a7fc161f9964324f7",
@@ -2258,12 +3445,15 @@
       "publishedAt": "2026-08-20T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "ab3eca92fcc92e6d5b",
@@ -2277,12 +3467,21 @@
       "publishedAt": "2026-08-19T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.6"
+        }
+      ]
     },
     {
       "id": "c79626234104497389",
@@ -2296,12 +3495,21 @@
       "publishedAt": "2026-08-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
+      ]
     },
     {
       "id": "126722d6d817c38880",
@@ -2315,12 +3523,21 @@
       "publishedAt": "2026-08-14T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.6"
+        }
+      ]
     },
     {
       "id": "81146965f941401b80",
@@ -2334,12 +3551,21 @@
       "publishedAt": "2026-08-14T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.5"
+        }
+      ]
     },
     {
       "id": "6c92ba4787507b387a",
@@ -2353,12 +3579,21 @@
       "publishedAt": "2026-08-13T13:33:59Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "minimax-blog",
       "sourceName": "MiniMax 官方研究博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "MiniMax 官方研究博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-music",
+          "matchedName": "MiniMax Music 3.0"
+        }
+      ]
     },
     {
       "id": "minimax-music-30-20260813",
@@ -2380,6 +3615,12 @@
       "modelVersion": "3.0",
       "sourceNames": [
         "MiniMax 官方 Music 3.0 发布文章"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-music",
+          "matchedName": "MiniMax Music 3.0"
+        }
       ]
     },
     {
@@ -2399,7 +3640,14 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-3-7-flash",
+          "matchedName": "Gemini 3.7 Flash"
+        }
+      ]
     },
     {
       "id": "cbb0303e988c3d4ba5",
@@ -2413,12 +3661,21 @@
       "publishedAt": "2026-08-12T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
+      ]
     },
     {
       "id": "1e800071b6f5a5b61c",
@@ -2432,12 +3689,15 @@
       "publishedAt": "2026-08-10T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "5cc120e8ba048454a5",
@@ -2451,12 +3711,15 @@
       "publishedAt": "2026-08-10T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "4fb7c2890f13f0ce8c",
@@ -2470,12 +3733,15 @@
       "publishedAt": "2026-08-06T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "seed-realtime-20260805",
@@ -2496,6 +3762,12 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "字节跳动 Seed 官方动态"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seed-realtime",
+          "matchedName": "SeedRealtime"
+        }
       ]
     },
     {
@@ -2514,6 +3786,19 @@
       "updateType": "release",
       "sourceNames": [
         "Meta AI 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-2",
+          "matchedName": "Muse Spark 1.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark"
+        }
       ]
     },
     {
@@ -2528,7 +3813,7 @@
       "publishedAt": "2026-08-05T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "seed-official",
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
@@ -2536,6 +3821,12 @@
       "modelVersion": null,
       "sourceNames": [
         "字节跳动 Seed 官方动态"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seed-realtime",
+          "matchedName": "SeedRealtime"
+        }
       ]
     },
     {
@@ -2555,7 +3846,45 @@
       "sourceName": "字节跳动 Seed 官方动态",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seed-realtime",
+          "matchedName": "SeedRealtime"
+        }
+      ]
+    },
+    {
+      "id": "038b549bc2bc2d706a",
+      "modelId": "magi-2",
+      "modelName": "MAGI-2 系列",
+      "vendor": "Sand.ai",
+      "category": "video",
+      "title": "MAGI-2 Preview: Scaling Video Generation Models EfficientlyAugust 5, 2026 · Research",
+      "summary": "",
+      "url": "https://sand.ai/blog/magi-2-preview",
+      "publishedAt": "2026-08-05T00:00:00Z",
+      "discoveredAt": "2026-11-26T15:32:00Z",
+      "firstSeenAt": "2026-11-26T15:32:00Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
+      "sourceId": "sandai-research",
+      "sourceName": "Sand.ai 官方研究与发布目录",
+      "official": true,
+      "updateType": "announcement",
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "preview",
+          "matchedName": "MAGI-2 Preview"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        }
+      ]
     },
     {
       "id": "be477cddad2f1b7b6e",
@@ -2569,12 +3898,15 @@
       "publishedAt": "2026-08-04T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "minimax-h3-20260803",
@@ -2595,6 +3927,12 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "MiniMax 官方最新发布"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
       ]
     },
     {
@@ -2609,7 +3947,7 @@
       "publishedAt": "2026-08-03T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "minimax-ir",
       "sourceName": "MiniMax 官方最新发布",
       "official": true,
@@ -2617,6 +3955,12 @@
       "modelVersion": null,
       "sourceNames": [
         "MiniMax 官方最新发布"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-music",
+          "matchedName": "MiniMax Music 3.0"
+        }
       ]
     },
     {
@@ -2631,12 +3975,28 @@
       "publishedAt": "2026-08-02T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-8",
+          "matchedName": "Qwen3.8"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.8"
+        }
+      ]
     },
     {
       "id": "bafd0b83465863b249",
@@ -2650,12 +4010,21 @@
       "publishedAt": "2026-07-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "minimax-ir",
       "sourceName": "MiniMax 官方最新发布",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "MiniMax 官方最新发布"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
     },
     {
       "id": "7edc026b5dce314f62",
@@ -2669,12 +4038,21 @@
       "publishedAt": "2026-07-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-zh-blog",
       "sourceName": "PixVerse 中文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 中文官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "5fae853e224483310d",
@@ -2688,12 +4066,21 @@
       "publishedAt": "2026-07-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-news",
       "sourceName": "PixVerse 英文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 英文官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "2fe482082c0e2f9abd",
@@ -2707,12 +4094,15 @@
       "publishedAt": "2026-07-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "adf03d8b2d8515c7fb",
@@ -2734,6 +4124,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "lyria",
+          "modelVersionId": "lyria-3-5",
+          "matchedName": "Lyria 3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "lyria",
+          "matchedName": "Lyria 3.5"
+        }
       ]
     },
     {
@@ -2748,12 +4151,21 @@
       "publishedAt": "2026-07-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.5"
+        }
+      ]
     },
     {
       "id": "fe841185c9b9866b1d",
@@ -2767,12 +4179,21 @@
       "publishedAt": "2026-07-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.5"
+        }
+      ]
     },
     {
       "id": "9485e55c7d9bdb40d2",
@@ -2829,7 +4250,14 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-3-5-flash",
+          "matchedName": "Gemini 3.5 Flash"
+        }
+      ]
     },
     {
       "id": "486167a283559195ef",
@@ -2843,12 +4271,15 @@
       "publishedAt": "2026-07-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "0c8822b35d63825f54",
@@ -2862,12 +4293,15 @@
       "publishedAt": "2026-07-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "f084b954d4205192e1",
@@ -2881,12 +4315,21 @@
       "publishedAt": "2026-07-20T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok 4.5"
+        }
+      ]
     },
     {
       "id": "0f365146b4be79ea52",
@@ -2900,12 +4343,15 @@
       "publishedAt": "2026-07-20T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "c85370badc26ab82d2",
@@ -2919,12 +4365,15 @@
       "publishedAt": "2026-07-14T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "2bd2505ec3545f024d",
@@ -2938,12 +4387,15 @@
       "publishedAt": "2026-07-14T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "ba19aa886843d052ed",
@@ -2965,6 +4417,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Meta Superintelligence Labs 官方模型发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-1",
+          "matchedName": "Muse Spark 1.1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark"
+        }
       ]
     },
     {
@@ -2979,12 +4444,28 @@
       "publishedAt": "2026-07-09T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "meta-models",
       "sourceName": "Meta Superintelligence Labs 官方模型发布",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Meta Superintelligence Labs 官方模型发布"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "muse",
+          "modelVersionId": "muse-spark-1-1",
+          "matchedName": "Muse Spark 1.1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark"
+        }
+      ]
     },
     {
       "id": "seedream-5-pro-2026-07-08",
@@ -3002,6 +4483,19 @@
       "updateType": "release",
       "sourceNames": [
         "字节跳动 Seed 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "modelVersionId": "seedream-5-0-pro",
+          "matchedName": "Seedream 5.0 Pro"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedream",
+          "matchedName": "Seedream"
+        }
       ]
     },
     {
@@ -3020,6 +4514,16 @@
       "updateType": "release",
       "sourceNames": [
         "Meta AI 官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse-image",
+          "matchedName": "Muse Image"
+        },
+        {
+          "modelFamilyId": "muse-video",
+          "matchedName": "Muse Video"
+        }
       ]
     },
     {
@@ -3038,6 +4542,12 @@
       "updateType": "release",
       "sourceNames": [
         "Meta AI 官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse-image",
+          "matchedName": "Muse Image"
+        }
       ]
     },
     {
@@ -3052,12 +4562,21 @@
       "publishedAt": "2026-07-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "wan",
+          "matchedName": "wan2.7-t2v-2026-06-12"
+        }
+      ]
     },
     {
       "id": "9fe61f80f41393c841",
@@ -3071,12 +4590,21 @@
       "publishedAt": "2026-07-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "wan",
+          "matchedName": "wan2.7-r2v-2026-06-12"
+        }
+      ]
     },
     {
       "id": "nano-banana-2-lite-omni-2026-06-30",
@@ -3094,6 +4622,23 @@
       "updateType": "release",
       "sourceNames": [
         "Google AI 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "modelVersionId": "nano-banana-2-lite",
+          "matchedName": "Nano Banana 2 Lite"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gemini-omni-flash",
+          "matchedName": "Gemini Omni Flash"
+        },
+        {
+          "modelFamilyId": "nano-banana",
+          "matchedName": "Nano Banana 2 Lite"
+        }
       ]
     },
     {
@@ -3127,12 +4672,15 @@
       "publishedAt": "2026-06-25T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "0201843ed67a70c0c1",
@@ -3146,12 +4694,37 @@
       "publishedAt": "2026-06-16T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "grok-imagine-video",
+          "modelVersionId": "grok-imagine-video-1-5",
+          "matchedName": "Grok Imagine Video 1.5"
+        },
+        {
+          "modelFamilyId": "heygen-video",
+          "modelVersionId": "video-1",
+          "matchedName": "Video 1"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-imagine-video",
+          "matchedName": "Grok Imagine Video"
+        },
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
+        }
+      ]
     },
     {
       "id": "a37f430d9a6d483674",
@@ -3165,12 +4738,21 @@
       "publishedAt": "2026-06-16T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "happyhorse",
+          "matchedName": "HappyHorse"
+        }
+      ]
     },
     {
       "id": "da2ee5acf2083cd584",
@@ -3184,12 +4766,21 @@
       "publishedAt": "2026-06-16T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "happyhorse",
+          "matchedName": "HappyHorse"
+        }
+      ]
     },
     {
       "id": "e60f718edd075de844",
@@ -3203,12 +4794,21 @@
       "publishedAt": "2026-06-16T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "happyhorse",
+          "matchedName": "HappyHorse"
+        }
+      ]
     },
     {
       "id": "f069febe012d39ff6f",
@@ -3222,12 +4822,15 @@
       "publishedAt": "2026-06-10T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "4d622a0a630bf8d31a",
@@ -3241,12 +4844,15 @@
       "publishedAt": "2026-06-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "9e82f074ea531eaffd",
@@ -3260,12 +4866,15 @@
       "publishedAt": "2026-06-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "qwen-agent-release-20260529-v0026",
@@ -3301,12 +4910,15 @@
       "publishedAt": "2026-05-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "4e06f8b7d7536f1b13",
@@ -3320,12 +4932,15 @@
       "publishedAt": "2026-05-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "dc953de9f9f7438d6e",
@@ -3339,12 +4954,15 @@
       "publishedAt": "2026-05-20T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "ba622b8184241c007c",
@@ -3358,12 +4976,15 @@
       "publishedAt": "2026-05-20T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "71e80c428fd3c716dc",
@@ -3382,7 +5003,14 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-3-5-flash",
+          "matchedName": "Gemini 3.5 Flash"
+        }
+      ]
     },
     {
       "id": "1f075e357e34ce36d5",
@@ -3396,12 +5024,28 @@
       "publishedAt": "2026-05-19T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "a37be1ecd10b11ce24",
@@ -3415,12 +5059,28 @@
       "publishedAt": "2026-05-19T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "cfc623321fa32df084",
@@ -3434,12 +5094,15 @@
       "publishedAt": "2026-04-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "69d71bbbcda318df9c",
@@ -3453,12 +5116,21 @@
       "publishedAt": "2026-04-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "wan",
+          "matchedName": "wan2.7-i2v-2026-04-25"
+        }
+      ]
     },
     {
       "id": "ff271bcab53f8ee781",
@@ -3472,12 +5144,21 @@
       "publishedAt": "2026-04-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "happyhorse",
+          "matchedName": "HappyHorse"
+        }
+      ]
     },
     {
       "id": "badc88510c9b710ea2",
@@ -3491,12 +5172,21 @@
       "publishedAt": "2026-04-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "happyhorse",
+          "matchedName": "HappyHorse"
+        }
+      ]
     },
     {
       "id": "b51a8b09e207c4bfa4",
@@ -3510,12 +5200,28 @@
       "publishedAt": "2026-04-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "05643b913057bef021",
@@ -3529,12 +5235,15 @@
       "publishedAt": "2026-04-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "96f662e320d0b661b3",
@@ -3548,12 +5257,15 @@
       "publishedAt": "2026-04-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "526894355a79384640",
@@ -3567,12 +5279,21 @@
       "publishedAt": "2026-04-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.6"
+        }
+      ]
     },
     {
       "id": "021f0a3e8b2d631823",
@@ -3586,12 +5307,21 @@
       "publishedAt": "2026-04-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "happyhorse",
+          "matchedName": "HappyHorse"
+        }
+      ]
     },
     {
       "id": "99481c749d10445f53",
@@ -3605,12 +5335,21 @@
       "publishedAt": "2026-04-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "happyhorse",
+          "matchedName": "HappyHorse"
+        }
+      ]
     },
     {
       "id": "95e4e79b467b42741b",
@@ -3624,12 +5363,28 @@
       "publishedAt": "2026-04-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-6",
+          "matchedName": "Qwen3.6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.6"
+        }
+      ]
     },
     {
       "id": "badc63a74a596156a8",
@@ -3643,12 +5398,28 @@
       "publishedAt": "2026-04-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-6",
+          "matchedName": "Qwen3.6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.6"
+        }
+      ]
     },
     {
       "id": "667e5d819bcf35e4c6",
@@ -3662,12 +5433,21 @@
       "publishedAt": "2026-04-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.6"
+        }
+      ]
     },
     {
       "id": "79ffa59d1a379dfc15",
@@ -3700,12 +5480,28 @@
       "publishedAt": "2026-04-14T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-6",
+          "matchedName": "Qwen3.6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.6"
+        }
+      ]
     },
     {
       "id": "7aecd56d41d63cd684",
@@ -3719,12 +5515,15 @@
       "publishedAt": "2026-04-13T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "62fed260c7bf7a55ba",
@@ -3738,12 +5537,21 @@
       "publishedAt": "2026-04-09T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "veo-31-lite-card-20260408",
@@ -3764,6 +5572,13 @@
       "lastSeenAt": "2026-11-22T00:00:00Z",
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "veo",
+          "modelVersionId": "veo-3-1-lite",
+          "matchedName": "Veo 3.1 Lite"
+        }
       ]
     },
     {
@@ -3782,6 +5597,12 @@
       "updateType": "release",
       "sourceNames": [
         "Meta AI 官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "muse",
+          "matchedName": "Muse Spark"
+        }
       ]
     },
     {
@@ -3804,6 +5625,13 @@
       "modelVersion": "3.1",
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "veo",
+          "modelVersionId": "veo-3-1-lite",
+          "matchedName": "Veo 3.1 Lite"
+        }
       ]
     },
     {
@@ -3818,12 +5646,21 @@
       "publishedAt": "2026-04-07T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-zh-blog",
       "sourceName": "PixVerse 中文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 中文官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "18b46f8c5989cd3b79",
@@ -3837,12 +5674,15 @@
       "publishedAt": "2026-04-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "3ffebcfc6202bcaaf3",
@@ -3856,12 +5696,15 @@
       "publishedAt": "2026-04-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "471fcd14a4f599969f",
@@ -3875,12 +5718,15 @@
       "publishedAt": "2026-04-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "67b4ee264be6cfef95",
@@ -3894,12 +5740,15 @@
       "publishedAt": "2026-04-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "ae79bbc7e64dbdeed8",
@@ -3913,12 +5762,15 @@
       "publishedAt": "2026-04-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "b82ef12aadcebe4341",
@@ -3932,12 +5784,28 @@
       "publishedAt": "2026-04-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-6",
+          "matchedName": "Qwen3.6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.6"
+        }
+      ]
     },
     {
       "id": "1f60fd55851edc17e6",
@@ -3951,12 +5819,28 @@
       "publishedAt": "2026-04-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-6",
+          "matchedName": "Qwen3.6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.6"
+        }
+      ]
     },
     {
       "id": "85fbe3fbda7e17f0f8",
@@ -3970,12 +5854,28 @@
       "publishedAt": "2026-03-30T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-zh-blog",
       "sourceName": "PixVerse 中文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 中文官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "modelVersionId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        }
+      ]
     },
     {
       "id": "dfd200d84c8c65a3cf",
@@ -3989,12 +5889,28 @@
       "publishedAt": "2026-03-30T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-news",
       "sourceName": "PixVerse 英文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 英文官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "modelVersionId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse V6"
+        }
+      ]
     },
     {
       "id": "729b5981c11c6f6a04",
@@ -4008,7 +5924,7 @@
       "publishedAt": "2026-03-26T17:21:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
@@ -4030,12 +5946,28 @@
       "publishedAt": "2026-03-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "1c77318ffdc6630118",
@@ -4049,12 +5981,28 @@
       "publishedAt": "2026-03-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "2a3744ca90f3bae943",
@@ -4068,12 +6016,28 @@
       "publishedAt": "2026-03-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "7a16e438907dbc80d2",
@@ -4087,12 +6051,28 @@
       "publishedAt": "2026-03-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "135480187097b4c5eb",
@@ -4106,12 +6086,28 @@
       "publishedAt": "2026-03-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "499bf5245efc2e49b8",
@@ -4125,12 +6121,28 @@
       "publishedAt": "2026-03-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "81ba47275266d9e6ff",
@@ -4144,12 +6156,28 @@
       "publishedAt": "2026-03-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "0cf84938a43de8e83a",
@@ -4163,12 +6191,28 @@
       "publishedAt": "2026-03-25T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "8a97a71e177a69f949",
@@ -4201,12 +6245,15 @@
       "publishedAt": "2026-03-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "116fb61835a953f613",
@@ -4220,12 +6267,15 @@
       "publishedAt": "2026-03-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "80d7a6a9b3beed7f67",
@@ -4239,12 +6289,15 @@
       "publishedAt": "2026-03-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "90b3c4fa1c1cfb1e8c",
@@ -4258,12 +6311,21 @@
       "publishedAt": "2026-03-02T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "65642f9ff8aeaad1da",
@@ -4277,12 +6339,15 @@
       "publishedAt": "2026-03-02T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ]
     },
     {
       "id": "985817304341bf7c63",
@@ -4296,12 +6361,28 @@
       "publishedAt": "2026-02-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-zh-blog",
       "sourceName": "PixVerse 中文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 中文官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "modelVersionId": "pixverse-v5-6",
+          "matchedName": "PixVerse V5.6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "2817b18b3cfaa43597",
@@ -4315,12 +6396,28 @@
       "publishedAt": "2026-02-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-news",
       "sourceName": "PixVerse 英文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 英文官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "modelVersionId": "pixverse-v5-6",
+          "matchedName": "PixVerse V5.6"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "nano-banana-2-2026-02-26",
@@ -4338,6 +6435,19 @@
       "updateType": "release",
       "sourceNames": [
         "Google AI 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "modelVersionId": "nano-banana-2",
+          "matchedName": "Nano Banana 2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "nano-banana",
+          "matchedName": "Nano Banana 2"
+        }
       ]
     },
     {
@@ -4371,12 +6481,28 @@
       "publishedAt": "2026-02-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "03b0f375e133d3adaa",
@@ -4390,12 +6516,28 @@
       "publishedAt": "2026-02-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "3a0b97ec1da356adde",
@@ -4409,12 +6551,28 @@
       "publishedAt": "2026-02-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "c31199eb5ef1f18122",
@@ -4428,12 +6586,28 @@
       "publishedAt": "2026-02-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "alibaba-model-studio",
       "sourceName": "阿里云百炼新模型目录",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "阿里云百炼新模型目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "modelVersionId": "qwen3-5",
+          "matchedName": "Qwen3.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen",
+          "matchedName": "Qwen3.5"
+        }
+      ]
     },
     {
       "id": "2f3cdb197bc0a9889b",
@@ -4474,6 +6648,19 @@
       "modelVersion": null,
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "lyria",
+          "modelVersionId": "lyria-3",
+          "matchedName": "Lyria 3"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "lyria",
+          "matchedName": "Lyria"
+        }
       ]
     },
     {
@@ -4492,6 +6679,19 @@
       "updateType": "release",
       "sourceNames": [
         "字节跳动 Seed 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
       ]
     },
     {
@@ -4506,12 +6706,15 @@
       "publishedAt": "2026-02-11T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "150fcccd16a01f7937",
@@ -4525,12 +6728,15 @@
       "publishedAt": "2026-02-10T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "d1da48627e9e174131",
@@ -4544,12 +6750,21 @@
       "publishedAt": "2026-02-05T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "3171fd9cbdc99e3904",
@@ -4563,12 +6778,15 @@
       "publishedAt": "2026-01-27T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "216bf23db497f4c57f",
@@ -4582,12 +6800,15 @@
       "publishedAt": "2026-01-27T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "511f196afa0d30ca1a",
@@ -4601,12 +6822,15 @@
       "publishedAt": "2026-01-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-image-repo",
       "sourceName": "腾讯混元图像官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元图像官方仓库 News"
+      ]
     },
     {
       "id": "ad804c9f555593dad7",
@@ -4620,12 +6844,15 @@
       "publishedAt": "2026-01-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-image-repo",
       "sourceName": "腾讯混元图像官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元图像官方仓库 News"
+      ]
     },
     {
       "id": "qwen3-tts-release-20260122",
@@ -4647,6 +6874,24 @@
       "modelVersion": "0.6B / 1.7B",
       "sourceNames": [
         "Qwen3-TTS 官方仓库"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen3-tts",
+          "modelVersionId": "0-6b",
+          "matchedName": "0.6B"
+        },
+        {
+          "modelFamilyId": "qwen3-tts",
+          "modelVersionId": "1-7b",
+          "matchedName": "1.7B"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen3-tts",
+          "matchedName": "Qwen3-TTS"
+        }
       ]
     },
     {
@@ -4661,7 +6906,7 @@
       "publishedAt": "2026-01-22T00:00:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen3-tts-releases",
       "sourceName": "Qwen3-TTS 官方发布与版本记录",
       "official": true,
@@ -4669,6 +6914,24 @@
       "modelVersion": null,
       "sourceNames": [
         "Qwen3-TTS 官方发布与版本记录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "qwen3-tts",
+          "modelVersionId": "0-6b",
+          "matchedName": "0.6B"
+        },
+        {
+          "modelFamilyId": "qwen3-tts",
+          "modelVersionId": "1-7b",
+          "matchedName": "1.7B"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "qwen3-tts",
+          "matchedName": "Qwen3-TTS"
+        }
       ]
     },
     {
@@ -4687,6 +6950,13 @@
       "updateType": "model-card",
       "sourceNames": [
         "Google AI 官方博客"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "veo",
+          "modelVersionId": "veo-3-1",
+          "matchedName": "Veo 3.1"
+        }
       ]
     },
     {
@@ -4709,6 +6979,13 @@
       "modelVersion": "3",
       "sourceNames": [
         "Google DeepMind 官方模型卡"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "veo",
+          "modelVersionId": "veo-3",
+          "matchedName": "Veo 3"
+        }
       ]
     },
     {
@@ -4723,12 +7000,21 @@
       "publishedAt": "2026-01-12T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-zh-blog",
       "sourceName": "PixVerse 中文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 中文官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "11b221da067af821e0",
@@ -4742,12 +7028,21 @@
       "publishedAt": "2026-01-12T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "pixverse-news",
       "sourceName": "PixVerse 英文官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "PixVerse 英文官方博客"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "pixverse-v6",
+          "matchedName": "PixVerse"
+        }
+      ]
     },
     {
       "id": "fb10eddd271eb13c51",
@@ -4761,12 +7056,15 @@
       "publishedAt": "2026-01-09T12:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "elevenlabs-news",
       "sourceName": "ElevenLabs 官方博客",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "ElevenLabs 官方博客"
+      ]
     },
     {
       "id": "1bac054a206619ac65",
@@ -4780,12 +7078,15 @@
       "publishedAt": "2025-12-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "61b4f2c5f50111d630",
@@ -4799,12 +7100,15 @@
       "publishedAt": "2025-12-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "b07163a9d25dcc0e0b",
@@ -4818,12 +7122,15 @@
       "publishedAt": "2025-12-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "f4aa4535e1c4692866",
@@ -4837,12 +7144,15 @@
       "publishedAt": "2025-12-31T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "6548be00851e3c048c",
@@ -4856,12 +7166,15 @@
       "publishedAt": "2025-12-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "3f1a027fb386f384e3",
@@ -4875,12 +7188,15 @@
       "publishedAt": "2025-12-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "dc31694a30cd7c2815",
@@ -4894,12 +7210,15 @@
       "publishedAt": "2025-12-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "dfef2a2a97dc46d0b4",
@@ -4913,12 +7232,15 @@
       "publishedAt": "2025-12-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "4ee3fb3f93b1519564",
@@ -4932,12 +7254,15 @@
       "publishedAt": "2025-12-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "920bf8f36408b1bac0",
@@ -4951,12 +7276,15 @@
       "publishedAt": "2025-12-19T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "899c36b4eb3bbfcf2f",
@@ -4970,12 +7298,15 @@
       "publishedAt": "2025-12-19T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "987944858275ef19d7",
@@ -4994,7 +7325,14 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "gemini",
+          "modelVersionId": "gemini-3-flash",
+          "matchedName": "Gemini 3 Flash"
+        }
+      ]
     },
     {
       "id": "45626011fcb6747a8b",
@@ -5008,12 +7346,21 @@
       "publishedAt": "2025-12-11T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "xai-news",
       "sourceName": "xAI 官方新闻",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "xAI 官方新闻"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
+        }
+      ]
     },
     {
       "id": "b198ec0a9871b15f16",
@@ -5027,12 +7374,21 @@
       "publishedAt": "2025-12-09T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "fb9cdce598f8fa5eb5",
@@ -5046,12 +7402,15 @@
       "publishedAt": "2025-12-02T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "38821c7bb47ae19ea7",
@@ -5065,12 +7424,15 @@
       "publishedAt": "2025-12-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "d0c5c18d82b3e643ee",
@@ -5084,12 +7446,15 @@
       "publishedAt": "2025-11-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-video-repo",
       "sourceName": "腾讯混元视频官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元视频官方仓库 News"
+      ]
     },
     {
       "id": "055a78e79fad714ea9",
@@ -5141,12 +7506,28 @@
       "publishedAt": "2025-11-13T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": "Q2"
+      "modelVersion": "Q2",
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "vidu",
+          "modelVersionId": "vidu-q2",
+          "matchedName": "Vidu Q2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "vidu",
+          "matchedName": "Vidu"
+        }
+      ]
     },
     {
       "id": "ef0eba98e53e55eadf",
@@ -5160,12 +7541,15 @@
       "publishedAt": "2025-11-11T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "8266e38114b4d3f9f6",
@@ -5179,12 +7563,15 @@
       "publishedAt": "2025-11-07T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "ed1fc833a6e9a58a47",
@@ -5198,12 +7585,15 @@
       "publishedAt": "2025-10-30T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-image-repo",
       "sourceName": "腾讯混元图像官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元图像官方仓库 News"
+      ]
     },
     {
       "id": "cde87921a4e22a4cb6",
@@ -5217,7 +7607,7 @@
       "publishedAt": "2025-10-21T18:15:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
@@ -5239,12 +7629,15 @@
       "publishedAt": "2025-10-21T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "cd9a2e9a04339bdac0",
@@ -5277,12 +7670,15 @@
       "publishedAt": "2025-09-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-image-repo",
       "sourceName": "腾讯混元图像官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元图像官方仓库 News"
+      ]
     },
     {
       "id": "4232611eb6b7eba12d",
@@ -5296,12 +7692,15 @@
       "publishedAt": "2025-09-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-image-repo",
       "sourceName": "腾讯混元图像官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元图像官方仓库 News"
+      ]
     },
     {
       "id": "3ed22d3966e0cae29b",
@@ -5320,7 +7719,19 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "agnes-image-25-flash",
+          "modelVersionId": "2-5-flash",
+          "matchedName": "2.5 Flash"
+        },
+        {
+          "modelFamilyId": "agnes-video-25",
+          "modelVersionId": "2-5-flash",
+          "matchedName": "2.5 Flash"
+        }
+      ]
     },
     {
       "id": "9c4f441cf7fb3b7644",
@@ -5339,7 +7750,19 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "modelMentions": [
+        {
+          "modelFamilyId": "agnes-image-25-flash",
+          "modelVersionId": "2-5-flash",
+          "matchedName": "2.5 Flash"
+        },
+        {
+          "modelFamilyId": "agnes-video-25",
+          "modelVersionId": "2-5-flash",
+          "matchedName": "2.5 Flash"
+        }
+      ]
     },
     {
       "id": "01a8ff9609077a266c",
@@ -5353,12 +7776,21 @@
       "publishedAt": "2025-09-25T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "ecef3b64277aca1cb6",
@@ -5372,12 +7804,15 @@
       "publishedAt": "2025-09-24T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "438533b2a7fab7e7ef",
@@ -5391,7 +7826,7 @@
       "publishedAt": "2025-09-23T18:17:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
@@ -5413,12 +7848,15 @@
       "publishedAt": "2025-09-22T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "0ec8e060017ba774e2",
@@ -5432,12 +7870,15 @@
       "publishedAt": "2025-09-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-mt3-repo",
       "sourceName": "腾讯 Hy-MT3 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯 Hy-MT3 官方仓库 News"
+      ]
     },
     {
       "id": "acc1ce61233843a653",
@@ -5451,12 +7892,15 @@
       "publishedAt": "2025-08-26T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "vidu-api-updates",
       "sourceName": "Vidu 官方模型更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Vidu 官方模型更新日志"
+      ]
     },
     {
       "id": "0ccf6a283cd68c6292",
@@ -5470,12 +7914,15 @@
       "publishedAt": "2025-08-19T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "cb67229082e07b9585",
@@ -5489,12 +7936,15 @@
       "publishedAt": "2025-08-18T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "23c4b20b3615651ee3",
@@ -5508,12 +7958,15 @@
       "publishedAt": "2025-08-09T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "2d294ae30e99e6221d",
@@ -5527,12 +7980,15 @@
       "publishedAt": "2025-08-05T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "c4c7f1822f5aa3f406",
@@ -5546,12 +8002,15 @@
       "publishedAt": "2025-08-05T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "09e6bf8d2544b839a1",
@@ -5565,12 +8024,15 @@
       "publishedAt": "2025-08-04T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "647c9b26156d916793",
@@ -5584,12 +8046,15 @@
       "publishedAt": "2025-08-04T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-image-repo",
       "sourceName": "Qwen Image 官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Qwen Image 官方仓库 News"
+      ]
     },
     {
       "id": "bcfacc59e44ed153fe",
@@ -5622,12 +8087,28 @@
       "publishedAt": "2025-08-01T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "kimi-announcement",
       "sourceName": "Kimi 官方公告目录",
       "official": true,
       "updateType": "release",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Kimi 官方公告目录"
+      ],
+      "modelMentions": [
+        {
+          "modelFamilyId": "kimi",
+          "modelVersionId": "k2",
+          "matchedName": "Kimi K2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "kimi",
+          "matchedName": "Kimi"
+        }
+      ]
     },
     {
       "id": "49c070ea15dc30b491",
@@ -5641,12 +8122,21 @@
       "publishedAt": "2025-07-29T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "cfdfe3cba1a41f28af",
@@ -5679,12 +8169,21 @@
       "publishedAt": "2025-06-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "mureka-changelog",
       "sourceName": "Mureka 官方更新日志",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "Mureka 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "mureka",
+          "matchedName": "Mureka"
+        }
+      ]
     },
     {
       "id": "f3422f24bec5627d5e",
@@ -5698,7 +8197,7 @@
       "publishedAt": "2025-05-29T09:36:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5720,12 +8219,15 @@
       "publishedAt": "2025-05-28T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-video-repo",
       "sourceName": "腾讯混元视频官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元视频官方仓库 News"
+      ]
     },
     {
       "id": "ba156e90d696d1e8ff",
@@ -5739,7 +8241,7 @@
       "publishedAt": "2025-05-22T10:29:30Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5761,7 +8263,7 @@
       "publishedAt": "2025-05-19T11:19:10Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5783,7 +8285,7 @@
       "publishedAt": "2025-05-16T04:48:21Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5805,12 +8307,15 @@
       "publishedAt": "2025-05-09T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-video-repo",
       "sourceName": "腾讯混元视频官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元视频官方仓库 News"
+      ]
     },
     {
       "id": "f3fa51a6cbd04433d1",
@@ -5824,7 +8329,7 @@
       "publishedAt": "2025-05-08T13:21:46Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5846,7 +8351,7 @@
       "publishedAt": "2025-05-01T18:36:04Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5868,7 +8373,7 @@
       "publishedAt": "2025-05-01T16:15:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
@@ -5890,7 +8395,7 @@
       "publishedAt": "2025-04-28T17:42:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5950,7 +8455,7 @@
       "publishedAt": "2025-04-01T08:51:47Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5972,7 +8477,7 @@
       "publishedAt": "2025-03-30T12:47:02Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -5994,7 +8499,7 @@
       "publishedAt": "2025-03-18T09:06:32Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "qwen-agent-releases",
       "sourceName": "Qwen-Agent 官方 GitHub Releases",
       "official": true,
@@ -6016,12 +8521,15 @@
       "publishedAt": "2025-03-06T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-video-repo",
       "sourceName": "腾讯混元视频官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元视频官方仓库 News"
+      ]
     },
     {
       "id": "d40764489a52f67e7a",
@@ -6035,12 +8543,15 @@
       "publishedAt": "2024-12-18T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-video-repo",
       "sourceName": "腾讯混元视频官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元视频官方仓库 News"
+      ]
     },
     {
       "id": "0149654331e6361225",
@@ -6054,12 +8565,15 @@
       "publishedAt": "2024-12-07T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-video-repo",
       "sourceName": "腾讯混元视频官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元视频官方仓库 News"
+      ]
     },
     {
       "id": "3b64d61d968ff69479",
@@ -6073,7 +8587,7 @@
       "publishedAt": "2024-12-06T00:15:00Z",
       "discoveredAt": "2026-11-24T09:41:41Z",
       "firstSeenAt": "2026-11-24T09:41:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "suno-release",
       "sourceName": "Suno 官方更新日志",
       "official": true,
@@ -6081,6 +8595,12 @@
       "modelVersion": null,
       "sourceNames": [
         "Suno 官方更新日志"
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "suno",
+          "matchedName": "Suno"
+        }
       ]
     },
     {
@@ -6095,12 +8615,15 @@
       "publishedAt": "2024-12-03T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "firstSeenAt": "2026-11-26T12:21:41Z",
-      "lastSeenAt": "2026-11-26T12:21:41Z",
+      "lastSeenAt": "2026-11-26T15:32:00Z",
       "sourceId": "hunyuan-video-repo",
       "sourceName": "腾讯混元视频官方仓库 News",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null
+      "modelVersion": null,
+      "sourceNames": [
+        "腾讯混元视频官方仓库 News"
+      ]
     }
   ]
 }

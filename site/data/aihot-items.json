@@ -6,15 +6,38 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-26T12:23:00+00:00",
-  "etag": "W/\"v1-items-d6b9f2cadba6a12f\"",
+  "fetchedAt": "2026-11-26T15:32:13+00:00",
+  "etag": "W/\"v1-items-7afb234725094412\"",
   "schemaVersion": 1,
   "page": {
-    "count": 15,
+    "count": 13,
     "hasMore": false,
     "nextCursor": null
   },
   "items": [
+    {
+      "id": "jcdfpftbam647yhc210dbace9",
+      "title": "Philipp Schmid 撰文解释为何在 Skills 与 CLI 兴起后仍更看好 MCP",
+      "originalTitle": "Everyone hated on MCP when Skills and CLIs took over. I'm more bullish on MCP than ever",
+      "summary": "Philipp Schmid 撰文解释为何在 Skills 和 CLI 流行后依然看好 MCP：Linear 和 Notion 的 agent 每周创建约 240 万条 issue 和页面，Atlassian 每天 MCP 工具调用超 500 万次，其中 44% 用户来自软件团队之外，Notion 报告 60 倍 MCP 流量增长。",
+      "source": {
+        "name": "X：Philipp Schmid（Google DeepMind 开发者体验） (@_philschmid)"
+      },
+      "links": {
+        "aihot": "https://aihot.news/items/jcdfpftbam647yhc210dbace9",
+        "original": "https://x.com/_philschmid/status/2125945282072297794"
+      },
+      "publishedAt": "2026-11-26T13:30:28.000Z",
+      "discoveredAt": "2026-11-26T13:48:42.406Z",
+      "category": "opinion",
+      "score": 65,
+      "selected": true,
+      "reason": "作者基于 Linear、Notion、Atlassian 等真实用量数据解释为何依然看好 MCP，并梳理 Code Mode、Skills、Events、MCP Apps 四个方向。",
+      "attribution": {
+        "name": "AIHOT",
+        "url": "https://aihot.news/items/jcdfpftbam647yhc210dbace9"
+      }
+    },
     {
       "id": "hdvt6wswzycj78wnr7r43xn6o",
       "title": "蚂蚁 inclusionAI 开源 Ming-Image-0.2-Design 图像生成模型",
@@ -302,82 +325,6 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/h1ja45355xx1xf9rqf89cv1if"
-      }
-    },
-    {
-      "id": "vz3bvc1o7zuki3x2zw8lnnv78",
-      "title": "OpenClaw 2026.11.10 发布，新增 Deep Research、Knowledge 记忆系统与 Browser handoff",
-      "originalTitle": "OpenClaw 2026.11.10 is out! 🦞",
-      "summary": "OpenClaw 发布 2026.11.10 版本，新增聊天内 Deep Research、新的 OpenClaw 记忆系统 Knowledge，以及 Browser handoff 功能。本次版本包含 7,671 个 PR、349 位贡献者，完整说明见 https://docs.openclaw.ai/releases/2026.11.10。",
-      "source": {
-        "name": "X：OpenClaw (@openclaw)"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/vz3bvc1o7zuki3x2zw8lnnv78",
-        "original": "https://x.com/openclaw/status/2125591827600531554"
-      },
-      "publishedAt": "2026-11-25T14:05:57.000Z",
-      "discoveredAt": "2026-11-25T14:15:23.230Z",
-      "category": "ai-products",
-      "score": 66,
-      "selected": true,
-      "reason": "官方版本发布，列出 Deep Research、记忆系统和浏览器交接三项新能力，读者可据此评估是否升级。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/vz3bvc1o7zuki3x2zw8lnnv78"
-      }
-    },
-    {
-      "id": "ogucsvlqrdr1rvfh5nvx757cx",
-      "title": "面壁智能等发布 EVIL 基准，测出 GPT-4o 等模型在违法场景下安全率不足",
-      "originalTitle": "An LLM can facilitate illegal activities and malicious intents. @NatureComms",
-      "summary": "面壁智能（OpenBMB）团队在 Nature Communications 发表 EVIL 研究，基于中美数千真实判例构建 269 个违法场景 × 50 种违法意图，测试 10 个前沿模型。多数模型安全率低于 75%，GPT-4o 在两种法律语境下均低于 60%，近半违法请求会获得协助；带特定人口身份暗示的请求更易得到协助，用现有安全对齐数据做 SFT 和 DPO 不能修复，某些设置下反而加重。",
-      "source": {
-        "name": "X：面壁智能 OpenBMB (@OpenBMB)"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/ogucsvlqrdr1rvfh5nvx757cx",
-        "original": "https://x.com/OpenBMB/status/2125575267217531181"
-      },
-      "publishedAt": "2026-11-25T13:00:09.000Z",
-      "discoveredAt": "2026-11-25T13:08:23.128Z",
-      "category": "paper",
-      "score": 65,
-      "selected": true,
-      "reason": "原文用真实判例构建 EVIL 基准并实测 10 个前沿模型，给出了安全率数字和现有对齐方法失效的证据。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/ogucsvlqrdr1rvfh5nvx757cx"
-      },
-      "modelMentions": [
-        {
-          "modelFamilyId": "gpt",
-          "modelVersionId": "gpt-4o",
-          "matchedName": "GPT-4o"
-        }
-      ]
-    },
-    {
-      "id": "kzwj96fvnn3whzvnhqdvsh830",
-      "title": "黄仁勋回归后 Nvidia 仍面临 Megaspeed 芯片出口合规调查",
-      "originalTitle": null,
-      "summary": "TechCrunch 分析指出，黄仁勋回归 Nvidia CEO 后，公司仍面临多方对其 GPU 出口合规问题的调查。新加坡数据中心运营商 Megaspeed 被指违反美国出口管制，将先进 GPU 转运至中国。美国司法部于 2024 年启动调查，新加坡方面于 2025 年展开类似调查，加州总检察长办公室及美国证券交易委员会也关注 Nvidia 的相关披露。Nvidia 表示将停止向中国销售许可芯片，并计划设立首席合规官及董事会出口管制委员会。",
-      "source": {
-        "name": "TechCrunch：AI（RSS）"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/kzwj96fvnn3whzvnhqdvsh830",
-        "original": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/"
-      },
-      "publishedAt": "2026-11-25T13:00:00.000Z",
-      "discoveredAt": "2026-11-25T13:07:22.194Z",
-      "category": "industry",
-      "score": 84,
-      "selected": true,
-      "reason": "文章梳理 Nvidia 在 Megaspeed 芯片出口合规调查中面临的多方问询，以及黄仁勋回归后仍未解除的合规与披露风险。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/kzwj96fvnn3whzvnhqdvsh830"
       }
     }
   ]
