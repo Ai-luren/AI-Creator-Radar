@@ -254,3 +254,8 @@ test('library prioritization, history year and review filters retain records',as
  run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{date:'2025-01-01',title:'Old checked',verificationStatus:'已确认'},{date:'2026-01-01',title:'New checked',verificationStatus:'已确认'},{date:'2026-01-02',title:'Pending discovery',autoCollected:true}]}];setView('topics',{activeTopic:'google',topicYear:'2026',topicReview:'verified'})");assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Old checked|Pending discovery/);
  run("state.topicReview='all';render()");assert.match(node('content').innerHTML,/Pending discovery/);
 });
+
+test('resource summaries and favorites do not change source data',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('platforms')");assert.match(node('content').innerHTML,/data-platform-favorite/);assert.deepEqual(JSON.parse(run('JSON.stringify(platformFavorites())')),[]);
+ run("setView('opportunities')");assert.match(node('content').innerHTML,/近7天按公告截止/);assert.match(node('content').innerHTML,/已核验开放计划/);
+});

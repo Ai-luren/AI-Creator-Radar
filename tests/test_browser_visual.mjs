@@ -114,6 +114,7 @@ try{
    await page.goto(base+'?view=opportunities&tab=programs',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const progress=page.locator('[data-creator-progress]').first();await progress.selectOption('watch');await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-creator-progress]').first().inputValue(),'watch');
    await page.screenshot({path:path.join(out,label+'-programs.png')});
+   await page.goto(base+'?view=platforms',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);const fav=page.locator('[data-platform-favorite]').first(),favoriteId=await fav.getAttribute('data-platform-favorite');await fav.click();await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-platform-favorite="'+favoriteId+'"]').getAttribute('aria-pressed'),'true');
    await page.goto(base+'?view=practice&type=prompt',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);assert.ok(await page.locator('[data-copy-template="product-tvc"]').count());await page.screenshot({path:path.join(out,label+'-prompts.png')});
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
   });
