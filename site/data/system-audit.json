@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-26T17:56:57.516328+00:00",
+  "checkedAt": "2026-11-26T18:03:38.649265+00:00",
   "errors": [],
   "counts": {
     "families": 94,
@@ -23,11 +23,11 @@
   },
   "sourceCoverage": {
     "reachableSources": 43,
-    "matchingModelSources": 37,
-    "recentDatedModelSources": 14,
-    "distinctMatchingEndpoints": 36,
-    "matchedFamilies": 45,
-    "recentDatedFamilies": 14,
+    "matchingModelSources": 38,
+    "recentDatedModelSources": 15,
+    "distinctMatchingEndpoints": 37,
+    "matchedFamilies": 49,
+    "recentDatedFamilies": 15,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -42,7 +42,6 @@
       "flux",
       "flux3-video",
       "gaga-1",
-      "gemini-tts",
       "gpt-image",
       "grok-imagine-image",
       "hailuo",
@@ -56,7 +55,6 @@
       "kling-image",
       "llama",
       "ltx",
-      "lyria",
       "magi-1",
       "mai-code",
       "mai-image",
@@ -64,7 +62,6 @@
       "mimo",
       "minimax-llm",
       "muse-video",
-      "nano-banana",
       "ovhcloud-olala",
       "prismml-bonsai",
       "recraft",
@@ -76,7 +73,6 @@
       "skyreels-v4",
       "step-5",
       "stepaudio-3-tts",
-      "veo",
       "workbuddy"
     ],
     "fallbackSources": 4
@@ -96,5 +92,7 @@
     "incorrectConfirmed": 0
   },
   "scopeNote": "Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review.",
-  "dueScopes": []
+  "dueScopes": [
+    "selected"
+  ]
 }
