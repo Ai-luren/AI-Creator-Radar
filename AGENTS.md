@@ -23,6 +23,9 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 
 ## Verification
 
+- Required offline gate: `python3 scripts/preflight.py` before pushing. If canonical input or digest logic changed, run `python3 scripts/preflight.py --repair-digest`, review the generated diff and commit all related files atomically. A consistent snapshot must not have its window or timestamp rewritten just to pass checks.
+- Install the repository pre-push hook once per clone (`python3 scripts/preflight.py --install-hook`), with actionlint on PATH. The hook checks the exact commit rather than uncommitted local files. API-based writers bypass local hooks and must validate their complete staged tree independently; never use remote CI for repeated patch debugging. Do not bypass the hook to force an invalid push.
+
 - Validate edited JSON with `python3 -m json.tool <file>`.
 - Run `python3 -m unittest discover -s tests -v` for collector or data-path changes.
 - Run `python3 scripts/collect_models.py --dry-run` to inspect official model-source collection without writing data.

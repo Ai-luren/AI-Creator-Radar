@@ -28,6 +28,12 @@ jobs:
         with:
           node-version: "22"
           package-manager-cache: false
+      - name: Install pinned workflow validator
+        run: |
+          GOBIN="$RUNNER_TEMP/radar-bin" go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.7
+          echo "$RUNNER_TEMP/radar-bin" >> "$GITHUB_PATH"
+      - name: Validate workflow syntax and derived snapshots
+        run: python scripts/preflight.py --static-only
       - name: Validate Python tests
         run: python -m unittest discover -s tests -v
       - name: Validate refresh planning on production snapshots (read only)
@@ -47,17 +53,12 @@ jobs:
           name: radar-pages-preflight
           path: site
           retention-days: 2
-      - name: Detect collector or source configuration changes
+      - name: Detect changed collector scopes
         id: probe_needed
         if: github.event_name == 'pull_request'
-        run: |
-          if git diff --name-only HEAD^1 HEAD | grep -Eq '^(config/(model-sources|cross-platform-sources|release-recall-benchmark)\.json|scripts/collect_(models|cross_platform|resolve_model_leads|release_recall)\.py)$'; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          fi
+        run: python scripts/ci_changed_scopes.py
       - name: Read-only source diagnostics
-        if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.run == 'true')
+        if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.models == 'true')
         run: |
           python scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
           python scripts/collect_cross_platform.py --dry-run --report /tmp/radar-cross-probe.json
@@ -65,7 +66,7 @@ jobs:
           python scripts/collect_release_recall.py --dry-run --probe /tmp/radar-source-probe.json --recovery /tmp/radar-proof-probe.json
           python scripts/collect_model_intake.py --dry-run --resolution /tmp/radar-proof-probe.json
       - name: Upload source diagnostics
-        if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.run == 'true')
+        if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.models == 'true')
         uses: actions/upload-artifact@v7
         with:
           name: source-probe
@@ -75,20 +76,11 @@ jobs:
             /tmp/radar-proof-probe.json
           retention-days: 7
 
-      - name: Detect creator opportunity collector changes
-        id: opportunities_probe
-        if: github.event_name == 'pull_request'
-        run: |
-          if git diff --name-only HEAD^1 HEAD | grep -Eq '^(config/creator-opportunity-sources\.json|scripts/collect_creator_opportunities\.py)$'; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-          fi
       - name: Read-only opportunity discovery diagnostics
-        if: steps.opportunities_probe.outputs.run == 'true'
+        if: steps.probe_needed.outputs.opportunities == 'true'
         run: python scripts/collect_creator_opportunities.py --report /tmp/opportunities-probe.json
       - name: Upload opportunity discovery diagnostics
-        if: steps.opportunities_probe.outputs.run == 'true'
+        if: steps.probe_needed.outputs.opportunities == 'true'
         uses: actions/upload-artifact@v7
         with:
           name: opportunities-probe

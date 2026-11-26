@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# Verify the exact commit being pushed, not unstaged local changes.
+root=$(git rev-parse --show-toplevel)
+while read -r local_ref local_oid remote_ref remote_oid; do
+  [[ "$remote_ref" == refs/heads/* && "$local_oid" != 0000000000000000000000000000000000000000 ]] || continue
+  (
+    temp=$(mktemp -d)
+    trap 'rm -rf "$temp"' EXIT
+    git -C "$root" archive "$local_oid" | tar -x -C "$temp"
+    cd "$temp"
+    python3 scripts/preflight.py
+  )
+done
