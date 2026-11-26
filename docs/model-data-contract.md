@@ -95,3 +95,26 @@ python3 scripts/validate_model_links.py
 ## 自动发现历史的保护边界
 
 `collect_chronicle_updates.py` 只接受审核配置映射内的已存在厂商、明确模型发布/预告类型与非未来 HTTPS 来源记录；新增节点为待复核，`dateKind=source-date` 不表示确认首发日期。审核 ID、审核日期或非原始待复核状态的记录不被采集覆盖；不同明确模型家族共享官方页仍可独立保留。既有历史节点不删除，待复核数据不等于发布证据。
+
+
+## 发布证据复核第三批（2026-11-26）
+
+本批在已有 320 个版本、98 个发布证据的基础上，直接复核厂商官方公告、官方仓库及模型卡，补齐 15 个版本证据（113/320）。保留原有历史节点、ID、榜单别名，不将新补证的历史发布视为今日新模型。新增证据的 `verifiedAt` 是本批实际查阅日期；对回溯报道明确列出的模型发布日，`publishedAt` 表示模型事件日期，`sourcePublicationDate` 另存报道页面日期。新补证记录的当前可用性仍需独立验证。未修改已核实的旧证据。
+
+仍缺发布证据的 207 个版本并非 207 个已知正式发布遗漏。审核脚本输出厂商维度、类别和互斥的处理队列：已有日期缺证、历史阶段证据、智能体产品范围、榜单身份待核验、第三方衍生型号、预览阶段、其余发布来源待查。分类依据是现有字段，仅用于安排审核，不是最终型号性质判断；不自动新增或删除版本。
+
+```sh
+python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.json
+```
+
+### 保留冲突与阶段边界
+
+| 型号 | 已见证据 | 当前决定 |
+| --- | --- | --- |
+| Seedance 2.5 | [官方首页](https://seed.bytedance.com/en/) 标注 2026-11-16；[正式发布文章](https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5) 标注 2026-07-31 | 日期冲突，暂不写入正式发布证据 |
+| HunyuanVideo 1.5 | [专用仓库](https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5) 与 [模型卡](https://huggingface.co/tencent/HunyuanVideo-1.5) 记载 2025-11-20 开放代码和权重；[主仓库](https://github.com/Tencent-Hunyuan/HunyuanVideo) 与 [官方许可证](https://huggingface.co/tencent/HunyuanVideo-1.5/blob/main/LICENSE) 标注 2025-11-21 | 区分发布阶段和时区可能性；不任选首发日 |
+| Kling 3.0 / Omni | [2026-02-05 官方公告](https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/) 明确当时仅 Ultra 用户提前体验 | 不把提前体验日期冒充全面开放日 |
+| Kling 2.6 Pro | [官方 2.6 公告](https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-video-26-model-simultaneous-audio-visual) 记载基础 2.6 于 2025-12-03 发布 | 尚需核实 Pro 端点或服务档位身份，不直接套用基础型号日期 |
+| Kling 2.1 | [官方财报](https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-technology-announces-second-quarter-and-interim-2025) 明确 2025-05 发布 | 仅有月份精度，不补猜日期 |
+
+本批核验 15 个版本，不代表已重新核实 320 个版本。旧有榜单条目、服务档位、发布证据以及历史里程碑未全面重新联网审核。
