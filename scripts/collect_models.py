@@ -20,6 +20,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit, urlunsplit, parse_qsl, urlencode
 
+try:
+    from scripts.plan_refresh import model_check_stamps
+except ModuleNotFoundError:
+    from plan_refresh import model_check_stamps
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "config" / "model-sources.json"
 MODELS_FILE = ROOT / "site" / "data" / "models.json"
@@ -887,6 +892,7 @@ def main() -> int:
     # version registry untouched; publish candidates via the pending discovery stream.
     version_changes = []
     status = {
+        **model_check_stamps(previous_status, now_iso, success_count, len(active)),
         "zeroMatchSources": sum(e.get("resultStatus") == "zero-match" for e in status_entries),
         "coverage": source_coverage(sources, models),
         "checkedAt": now_iso, "totalSources": len(active), "successSources": success_count,
@@ -912,7 +918,10 @@ def main() -> int:
     if args.report:
         write_json(args.report, {"status": status, "items": retained})
     if not args.dry_run:
-        write_json(UPDATES_FILE, updates)
+        if success_count:
+            write_json(UPDATES_FILE, updates)
+        else:
+            print("All model sources failed; retaining the last model-updates snapshot unchanged.")
         write_json(STATUS_FILE, status)
         write_json(STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active]})
     return 0

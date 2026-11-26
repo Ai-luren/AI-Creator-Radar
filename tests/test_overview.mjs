@@ -387,3 +387,11 @@ test('expired snapshot is a legitimate empty release window, not a broken page',
  assert.equal(run('overviewSummary(new Date()).confirmed.length'),0);
  assert.match(node('content').innerHTML,/同步延迟/);
 });
+
+test('a failed model source attempt does not make an old successful read current',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ run("state.modelMonitorStatus={checkedAt:new Date().toISOString(),lastSuccessfulCheckAt:'2000-01-01T00:00:00Z',successSources:0,failedSources:38,totalSources:38,sources:[]};setView('overview');render()");
+ assert.equal(run('modelSuccessStamp(state.modelMonitorStatus)'),'2000-01-01T00:00:00Z');
+ assert.match(node('content').innerHTML,/同步延迟 · [^<]*模型信源/);
+ assert.match(node('content').innerHTML,/38 个采集异常/);
+});
