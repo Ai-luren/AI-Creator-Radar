@@ -174,16 +174,21 @@ def candidate_rows(resolution):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--discovery", type=Path)
+    parser.add_argument("--report", type=Path)
     args = parser.parse_args()
     def read(path, default=None):
         p = ROOT / path
         return json.loads(p.read_text(encoding="utf-8")) if p.exists() else default
-    result = resolve(read("site/data/cross-platform-discovery.json", {}), read(OUTPUT, {}),
+    discovery = json.loads(args.discovery.read_text(encoding="utf-8")) if args.discovery else read("site/data/cross-platform-discovery.json", {})
+    result = resolve(discovery, {} if args.discovery else read(OUTPUT, {}),
                      read("config/cross-platform-sources.json"), read("config/model-sources.json"),
                      read("site/data/models.json"), datetime.now(timezone.utc))
     print("Lead resolution:", json.dumps(result["summary"], ensure_ascii=False))
     for row in result["items"]:
         print("[PROOF]", row["url"], row["status"], row.get("articlePublishedAt"), row.get("error", ""))
+    if args.report:
+        write_json(args.report, result)
     if not args.dry_run:
         write_json(OUTPUT, result)
     return 0

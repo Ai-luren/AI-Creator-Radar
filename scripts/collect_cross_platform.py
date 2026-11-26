@@ -184,6 +184,7 @@ def collect(config, previous, now, fetcher=fetch):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--report", type=Path)
     args = parser.parse_args()
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
     old = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.exists() else {}
@@ -193,6 +194,8 @@ def main():
           "officialArticleLeads": sum(bool(r["officialArticleUrls"]) for r in result["items"])}, ensure_ascii=False))
     for s in result["sources"]:
         print("[DISCOVERY]", s["id"], "items=", s["itemCount"], "error=", s["error"])
+    if args.report:
+        write_json(args.report, result)
     if not args.dry_run:
         write_json(OUTPUT, result)
     return 0

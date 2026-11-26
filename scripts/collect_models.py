@@ -1189,15 +1189,6 @@ def main() -> int:
         if entry.get("error") or entry.get("resultStatus") == "zero-match" or entry.get("primaryDegraded"):
             print("  Endpoint attempts:", json.dumps(entry.get("attempts", []), ensure_ascii=False))
 
-    if args.report and not args.source and (ROOT / "config/cross-platform-sources.json").is_file():
-        # Read-only diagnostics also exercise independent public discovery endpoints.
-        try:
-            from scripts.collect_cross_platform import main as cross_main
-        except ModuleNotFoundError:
-            from collect_cross_platform import main as cross_main
-        import subprocess
-        subprocess.run([sys.executable, str(ROOT / "scripts/collect_cross_platform.py"), "--dry-run"], check=True, timeout=120)
-
     if args.source and not args.dry_run:
         parser.error("--source requires --dry-run; partial writes would replace full monitor status")
     if args.report:

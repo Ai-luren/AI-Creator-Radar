@@ -99,6 +99,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--probe", type=Path)
+    parser.add_argument("--recovery", type=Path)
     args = parser.parse_args()
     def read(p):
         return json.loads((ROOT / p).read_text(encoding="utf-8"))
@@ -109,13 +110,13 @@ def main():
         items = read("site/data/model-updates.json")["items"]
         status = read("site/data/model-monitor-status.json")
     now = datetime.now(timezone.utc)
-    recovery_path = ROOT / "site/data/lead-resolution.json"
-    recovery = json.loads(recovery_path.read_text(encoding="utf-8")) if recovery_path.exists() and not args.probe else {}
+    recovery_path = args.recovery or ROOT / "site/data/lead-resolution.json"
+    recovery = json.loads(recovery_path.read_text(encoding="utf-8")) if recovery_path.exists() and (args.recovery or not args.probe) else {}
     result = assess(read("config/release-recall-benchmark.json"), items, status,
                     read("site/data/model-releases-30d.json"), now.date(), recovery)
     print("Release sample recall:", json.dumps(result["allSample"], ensure_ascii=False))
     for row in result["events"]:
-        print(f"[RECALL] {row['id']}: {row['outcome']}; dates={row['actualDates']}; canonical={row['canonicalComplete']}")
+        print(f"[RECALL] {row['id']}: {row['outcome']}; dates={row['actualDates']}; recovered={row['recoveredDated']}; canonical={row['canonicalComplete']}")
     for case in result["negativeControls"]:
         print(f"[CONTROL] {case['id']}: pending={len(case['pendingIds'])}, incorrect confirmed={len(case['incorrectConfirmedIds'])}")
     if not args.dry_run and not args.probe:

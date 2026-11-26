@@ -873,6 +873,7 @@ var dataRequests={},dataSettled={},activeViewLoad=null,searchLoad=null;
 var dataFiles={
  release:['model-releases-30d.json',function(x){state.modelReleaseData=x;state.modelReleases=x&&x.items||[]}],
  monitor:['model-monitor-status.json',function(x){state.modelMonitorStatus=x}],
+ recall:['release-recall-status.json',function(x){state.releaseRecall=x}],
  announcements:['model-updates.json',function(x){state.officialUpdates=x&&x.items||[]}],
  selected:['aihot-items.json',function(x){if(x){state.aihot.items=Array.isArray(x.items)?x.items:[];state.aihot.updatedAt=x.fetchedAt||''}}],
  aihot:['aihot-daily.json',function(x){if(x)state.aihotDaily=x}],
@@ -898,7 +899,7 @@ var dataFiles={
 };
 var viewData={
  overview:['release','monitor','selected','aihot','juya'],
- today:['release','monitor','social'],
+ today:['release','monitor','social','recall'],
  models:['models','reference','maomu'],
  practice:['practice','tutorials','resourceStatus','prompts','cases','resources','models'],
  rankings:['ranking'],
@@ -1322,7 +1323,9 @@ function modelSourceHealth(){
  var dateTime=function(v){var d=new Date(v);return v&&!isNaN(d)?new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d):'未记录'};
  var rows=status.sources.map(function(s){var failed=!!s.error,zero=!failed&&(s.resultStatus==='zero-match'||s.itemCount===0);return '<div class="source-health-row"><a href="'+safeUrl(s.url)+'" target="_blank" rel="noopener noreferrer">'+esc(s.name)+' ↗</a><span class="pill">'+(failed?'采集异常':zero?'零匹配 · 待查':'已匹配')+'</span><span>'+esc(failed?s.error:zero?'未匹配到条目':s.itemCount+' 条匹配')+'</span><span>最近成功 '+esc(dateTime(s.lastSuccessAt))+'</span></div>'}).join('');
  var zero=status.sources.filter(function(s){return !s.error&&(s.resultStatus==='zero-match'||s.itemCount===0)}).length;
- return '<details class="source-health"><summary>官方信源 · '+(stale?'成功读取已延迟':'检查时间 '+esc(dateTime(status.checkedAt)))+' · '+Number(status.failedSources||0)+' 异常 · '+zero+' 零匹配</summary><p>匹配状态不代表发布事实已经核实；零匹配需检查信源或解析器。'+(status.coverage?' 当前配置覆盖 '+status.coverage.configuredFamilies+' / '+status.coverage.catalogFamilies+' 个目录家族。':'')+(typeof status.newRecentDated==='number'?' 本轮首次登记：近30天有日期 '+status.newRecentDated+' 条，历史 '+status.newHistorical+' 条，日期未知 '+status.newUndated+' 条。':'')+'</p>'+rows+'</details>';
+ var cov=status.effectiveCoverage||{},rec=state.releaseRecall||{},sample=rec.activeWindow||{},recovery=rec.recoverySummary||{};
+ var quality='<p class="page-desc">'+(Number.isFinite(cov.matchedFamilies)?'本轮实际匹配 '+esc(cov.matchedFamilies)+' / '+esc((status.coverage||{}).catalogFamilies||'—')+' 个家族；近30天有日期候选 '+esc(cov.recentDatedFamilies||0)+' 个家族。':'')+(sample.events?' 独立抽样 '+esc(sample.events)+' 个发布事件：当次准确抓取 '+esc(sample.currentDated||0)+' 个，累计正确发现（含原文补查） '+esc(Number.isFinite(sample.endToEndDated)?sample.endToEndDated:sample.retainedDated||0)+' 个；不代表全量召回率。':'')+(Number.isFinite(recovery.uniqueOfficialUrls)?' 辅助原文补查：'+esc(recovery.uniqueOfficialUrls)+' 个链接，'+esc(recovery.articleDateVerified||0)+' 个文章日期已核对，'+esc(recovery.unresolved||0)+' 个未解决。':'')+'</p>';
+ return '<details class="source-health"><summary>官方信源 · '+(stale?'成功读取已延迟':'检查时间 '+esc(dateTime(status.checkedAt)))+' · '+Number(status.failedSources||0)+' 异常 · '+zero+' 零匹配</summary><p>匹配状态不代表发布事实已经核实；零匹配需检查信源或解析器。'+(status.coverage?' 当前配置覆盖 '+status.coverage.configuredFamilies+' / '+status.coverage.catalogFamilies+' 个目录家族。':'')+(typeof status.newRecentDated==='number'?' 本轮首次登记：近30天有日期 '+status.newRecentDated+' 条，历史 '+status.newHistorical+' 条，日期未知 '+status.newUndated+' 条。':'')+'</p>'+quality+rows+'</details>';
 }
 function recentReleasesPage(){
  if(state.releaseMode==='all')state.releaseMode='confirmed';if(state.releaseCategory==='tts')state.releaseCategory='speech';
