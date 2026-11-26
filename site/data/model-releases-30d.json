@@ -4,7 +4,7 @@
   "windowDays": 30,
   "windowStart": "2026-10-28",
   "windowEnd": "2026-11-26",
-  "updatedAt": "2026-11-26T19:11:27Z",
+  "updatedAt": "2026-11-26T19:15:57Z",
   "categories": [
     "video",
     "image",
@@ -720,6 +720,20 @@
       "verificationStatus": "pending"
     },
     {
+      "id": "5a535246782e7978fb",
+      "category": "llm",
+      "vendor": "智谱 / Z.ai",
+      "title": "GLM-5.3-Flash: More Intelligence with Less Compute",
+      "summary": "GLM-5.3-Flash is our first natively multimodal model in the GLM-5 family. With 320B total parameters and only 18B active parameters, it delivers strong performance across complex tasks, agentic workflows, visual understanding, and professional work. AutoClaw Team Nov 19 2026",
+      "url": "https://autoclaw.z.ai/en/blog/model/glm-5.3-flash/",
+      "sourceName": "智谱 Z.ai 官方博客",
+      "publishedAt": "2026-11-19T05:23:56Z",
+      "discoveredAt": "2026-11-26T19:15:43Z",
+      "modelFamilyId": "glm",
+      "updateType": "model-card",
+      "verificationStatus": "pending"
+    },
+    {
       "id": "633fc816a4a57ffa07",
       "category": "music",
       "vendor": "昆仑万维",
@@ -730,6 +744,20 @@
       "publishedAt": "2026-11-17T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "mureka",
+      "updateType": "model-card",
+      "verificationStatus": "pending"
+    },
+    {
+      "id": "3a49a40bd5ac7a2b29",
+      "category": "llm",
+      "vendor": "智谱 / Z.ai",
+      "title": "GLM-5.3-flashX-Legal Is Now Available in AutoClaw",
+      "summary": "GLM-5.3-flashX-Legal is now available directly in AutoClaw, bringing specialized legal intelligence into your everyday work. AutoClaw Team Nov 13 2026",
+      "url": "https://autoclaw.z.ai/en/blog/model/GLM-5.3-flashX-Legal/",
+      "sourceName": "智谱 Z.ai 官方博客",
+      "publishedAt": "2026-11-13T07:46:22Z",
+      "discoveredAt": "2026-11-26T19:15:43Z",
+      "modelFamilyId": "glm",
       "updateType": "model-card",
       "verificationStatus": "pending"
     },
