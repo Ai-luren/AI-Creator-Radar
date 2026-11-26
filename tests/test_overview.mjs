@@ -244,3 +244,7 @@ test('social views separate actual verified homepages, search entries and posts'
  run("setView('social',{socialView:'platforms',socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-platform-record/);assert.doesNotMatch(node('content').innerHTML,/social-brand-record/);
  run("setView('social',{socialView:'posts',socialRegion:'all'})");assert.match(node('content').innerHTML,/social-post-row/);assert.match(node('content').innerHTML,/原帖发布时间不等于模型首发日期/);
 });
+
+test('reported internal-model concern is industry news, not a release',()=>{
+ const {run}=setup();assert.equal(run("newsCategory({category:'要闻',title:'报道称 OpenAI 和 Anthropic 员工忧内部模型难以安全发布'})"),'行业');
+});

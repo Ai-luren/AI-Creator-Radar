@@ -54,11 +54,11 @@ try{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const toggle=page.locator('#desktopNavToggle'),sidebar=page.locator('#sidebar');
    assert.equal(await toggle.getAttribute('aria-expanded'),'true');const expanded=await sidebar.evaluate(el=>el.getBoundingClientRect().width);
-   await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');assert.ok(await sidebar.evaluate(el=>el.getBoundingClientRect().width)<expanded);
+   await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);assert.ok(await sidebar.evaluate(el=>el.getBoundingClientRect().width)<expanded);
    await page.screenshot({path:path.join(out,label+'-compact-nav.png')});
-   await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await toggle.getAttribute('aria-expanded'),'false');
+   await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);
    await sidebar.locator('[data-view="models"]').click();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.evaluate(()=>state.view),'models');
-   await toggle.click();const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
+   await toggle.click();await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width>=240);const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
    await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await group.getAttribute('aria-expanded'),'false');await group.click();
    assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),true);
   });

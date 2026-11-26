@@ -674,7 +674,7 @@ function routeQuery(){
 function currentScroll(){var t=content.querySelector('.model-table-wrap');return {y:window.scrollY||0,tableTop:t?t.scrollTop:0,tableLeft:t?t.scrollLeft:0}}
 function saveRoute(push,extra){if(!window.history||restoringRoute)return;var prior=window.history.state||{},entry=Object.assign({},push?{}:prior,{radar:true,scroll:currentScroll()},extra||{});if(push)window.history.pushState(entry,'',routeQuery());else window.history.replaceState(entry,'',routeQuery()+(window.location.hash||''))}
 function restoreScroll(position){if(!position)return;window.scrollTo(0,position.y||0);var t=content.querySelector('.model-table-wrap');if(t){t.scrollTop=position.tableTop||0;t.scrollLeft=position.tableLeft||0}}
-function restoreNavigation(entry){restoringRoute=true;applyRoute(window.location.search);routeScroll=entry&&entry.scroll||{y:0};routeFocus=entry&&entry.focus||null;render();restoringRoute=false}
+function restoreNavigation(entry){restoringRoute=true;applyRoute(window.location.search);revealActiveNav();routeScroll=entry&&entry.scroll||{y:0};routeFocus=entry&&entry.focus||null;render();restoringRoute=false}
 applyRoute(window.location.search);
 if(window.history){window.history.scrollRestoration='manual';var initialEntry=window.history.state;if(initialEntry&&initialEntry.radar)routeScroll=initialEntry.scroll||null;else saveRoute(false)}
 
@@ -895,8 +895,9 @@ function newsIdentityKeys(item,selected){
  return Array.from(new Set(out))
 }
 function newsCategory(item){
- var c=String(item.category||'');
- if(/模型发布|^ai-models$/.test(c)||/发布(?:并开源)?(?:第.{0,8}代)?(?:编码|翻译|语言|图像|视频|语音)?模型|模型.{0,12}(?:发布|开源)|\bH3 Family\b/i.test(item.title||''))return '模型';
+ var c=String(item.category||''),headline=String(item.title||'');
+ if(/^(?:报道称|据报道|传闻)|难以安全发布|员工.*担忧/.test(headline))return '行业';
+ if(/模型发布|^ai-models$/.test(c)||/发布(?:并开源)?(?:第.{0,8}代)?(?:编码|翻译|语言|图像|视频|语音)?模型|模型.{0,12}(?:发布|开源)|\bH3 Family\b/i.test(headline))return '模型';
  if(/产品发布|^ai-products$/.test(c))return '产品';
  if(/论文|研究|技术与洞察|^paper$/.test(c))return '研究';
  if(/行业|^industry$/.test(c))return '行业';
@@ -960,7 +961,15 @@ function overviewPage(){
  var confirmed=allRecent.filter(releaseEventMatches),seen={},shortlist=confirmed.filter(function(x){var c=x.category;seen[c]=(seen[c]||0)+1;return seen[c]<=1}).slice(0,4);
  if(shortlist.length<4)shortlist=shortlist.concat(confirmed.filter(function(x){return !shortlist.includes(x)}).slice(0,4-shortlist.length));
  var recentRows=shortlist.map(function(x){return row(x.modelName,[overviewDateLabel(x.publishedAt),categoryName(x.category),x.vendor].join(' · '),x.versions.length>1?x.versions.length+' 个型号':'',sourceLink(x.url,'证据'))}).join('');
- var confirmedUrls=new Set(allRecent.flatMap(function(e){return e.versions.map(function(v){return newsUrlKey(v.url)})}).filter(Boolean));
+ // Cross-module duplicates are removed only when the same release is visibly in the shortlist.
+ // Exact reviewed article identities; keep the complete news event in the briefing.
+ var confirmedUrls=new Set(shortlist.flatMap(function(e){return e.versions.map(function(v){return newsUrlKey(v.url)})}).filter(Boolean));
+ var coveredReleaseNews=[
+  {family:'magi-2',day:'2026-11-24',article:'https://mp.weixin.qq.com/s/JkZM9s6tC_Wz5MKeYcccxw'},
+  {family:'tencent-hy-mt',day:'2026-11-24',article:'https://huggingface.co/collections/tencent/hy-mt3'},
+  {family:'sensenova-u',day:'2026-11-24',article:'https://huggingface.co/sensenova/SenseNova-U1.6-8B-MoT-Native/tree/ed98cc5ca5a1891028db2041f665b43b96a43cfa'}
+ ];
+ coveredReleaseNews.forEach(function(x){if(shortlist.some(function(e){return e.modelFamilyId===x.family&&chinaDay(e.publishedAt)===x.day}))confirmedUrls.add(newsUrlKey(x.article))});
  var news=combinedNews().filter(newsMatches).filter(function(e){return !e.keys.some(function(k){return k.startsWith('url:')&&confirmedUrls.has(k.slice(4))})});
  var featured=news.slice(0,4),newsRows=featured.map(function(x){var first=newsEventLinks(x)[0];return row(x.title,[x.day||'日期待确认',x.category,x.sources.length+' 类来源'].join(' · '),'',first?sourceLink(first.url,'来源'):'')}).join('');
  var modules=[
