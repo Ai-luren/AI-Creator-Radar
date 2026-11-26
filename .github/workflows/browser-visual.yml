@@ -1,9 +1,7 @@
 name: Browser layout and interaction checks
 on:
   pull_request:
-    branches: [main, feat/radar-v2-experience]
-  push:
-    branches: [feat/creator-watch-pilot]
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read

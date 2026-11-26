@@ -64,7 +64,16 @@
       "relation": "官方 Creative Partner 目录",
       "focus": "Skills 与创作教程",
       "evidence": "https://higgsfield.ai/community/creators",
-      "accounts": []
+      "accounts": [],
+      "accountCandidates": [
+        {
+          "platform": "Instagram",
+          "handle": "@joeysnoisygroup",
+          "url": "https://www.instagram.com/joeysnoisygroup/",
+          "status": "公开视频简介的第三方转录含此链接；本人原页待核验",
+          "evidence": "https://videohighlight.com/v/4TXaAnittHs"
+        }
+      ]
     },
     {
       "id": "nyanyanrin",
@@ -134,6 +143,12 @@
       "name": "社媒原帖采集",
       "url": "https://developer.x.com/",
       "status": "待接入；尚无成功采集快照"
+    },
+    {
+      "brand": "Instagram / X",
+      "name": "公开网页免登录试验",
+      "url": "https://github.com/FreshRSS/Extensions",
+      "status": "待运行只读探测；不使用付费 API、账号密码或会话 Cookie"
     }
   ],
   "reviewQueue": [
@@ -158,6 +173,16 @@
       "date": null,
       "url": "https://www.youtube.com/watch?v=f0QIKt9djqs",
       "reason": "原帖发布时间及可访问性尚未完成核验，不进入最新动态"
+    }
+  ],
+  "discoveryNotes": [
+    {
+      "creator": "kaye",
+      "platform": "Instagram",
+      "title": "It is all an illusion",
+      "reportedDate": "2026-11-21",
+      "evidence": "https://www.makeviral.ai/templates/tiny-me-in-a-box-ai-trend",
+      "status": "第三方报道，原帖 ID 与发布时间未核验，不进入动态"
     }
   ]
 }

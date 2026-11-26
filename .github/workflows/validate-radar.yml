@@ -1,9 +1,7 @@
 name: Validate radar changes
 on:
   pull_request:
-    branches: [main, feat/radar-v2-experience]
-  push:
-    branches: [feat/creator-watch-pilot]
+    branches: [main]
   workflow_dispatch:
     inputs:
       probe_sources:
@@ -84,4 +82,15 @@ jobs:
         with:
           name: opportunities-probe
           path: /tmp/opportunities-probe.json
+          retention-days: 7
+
+      - name: Probe creator public sources (read only)
+        if: github.event_name == 'pull_request' && github.head_ref == 'feat/creator-watch-pilot'
+        run: python scripts/probe_creator_social.py --report /tmp/creator-social-probe.json
+      - name: Upload creator social diagnostics
+        if: github.event_name == 'pull_request' && github.head_ref == 'feat/creator-watch-pilot'
+        uses: actions/upload-artifact@v7
+        with:
+          name: creator-social-probe
+          path: /tmp/creator-social-probe.json
           retention-days: 7
