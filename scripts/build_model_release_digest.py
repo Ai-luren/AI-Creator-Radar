@@ -7,6 +7,11 @@ import json
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
+try:
+    from scripts.collect_models import non_release_title
+except ModuleNotFoundError:
+    from collect_models import non_release_title
+
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ROOT / "site/data/models.json"
 OUTPUT = ROOT / "site/data/model-releases-30d.json"
@@ -32,7 +37,7 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
     start = today - timedelta(days=29)
     candidates = {}
     for update in updates:
-        if update.get("id") in confirmed_update_ids:
+        if non_release_title(update.get("title")) or update.get("id") in confirmed_update_ids:
             continue
         family = family_map.get(update.get("modelId"))
         if not family or update.get("official") is not True:

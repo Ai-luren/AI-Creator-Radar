@@ -23,7 +23,11 @@
       "seed-audio": [
         "seed audio"
       ]
-    }
+    },
+    "articleDateCheck": true,
+    "articleHosts": [
+      "seed.bytedance.com"
+    ]
   },
   {
     "id": "kuaishou-ir",
@@ -46,7 +50,11 @@
     "versionPatterns": {
       "kling-image": "Kling\\s+Image\\s+([0-9]+(?:\\.[0-9]+)*)",
       "kling": "Kling\\s+([0-9]+(?:\\.[0-9]+)*)"
-    }
+    },
+    "articleDateCheck": true,
+    "articleHosts": [
+      "kling.ai"
+    ]
   },
   {
     "id": "deepmind-blog",
@@ -154,7 +162,8 @@
       "openai.com",
       "www.openai.com"
     ],
-    "category": "llm"
+    "category": "llm",
+    "titleModelOnly": true
   },
   {
     "id": "vidu-api-updates",
@@ -395,7 +404,11 @@
       "claude": [
         "re:\\bClaude\\s+(?:Opus|Sonnet|Haiku|Fable|Mythos|\\d)"
       ]
-    }
+    },
+    "articleDateCheck": true,
+    "articleHosts": [
+      "www.anthropic.com"
+    ]
   },
   {
     "id": "google-gemini-news",
@@ -457,7 +470,8 @@
         "re:\\bPixVerse\\b.{0,65}\\b[VC]\\d+(?:\\.\\d+)*\\b",
         "re:\\bPixVerse\\b.{0,65}(?:视频模型|video model)"
       ]
-    }
+    },
+    "titleModelOnly": true
   },
   {
     "id": "pixverse-zh-blog",
@@ -479,7 +493,8 @@
         "re:\\bPixVerse\\b.{0,65}\\b[VC]\\d+(?:\\.\\d+)*\\b",
         "re:\\bPixVerse\\b.{0,65}(?:视频模型|video model)"
       ]
-    }
+    },
+    "titleModelOnly": true
   },
   {
     "id": "elevenlabs-news",
@@ -504,7 +519,11 @@
       "eleven-scribe": [
         "re:\\bScribe\\s+v\\d+(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "articleDateCheck": true,
+    "articleHosts": [
+      "elevenlabs.io"
+    ]
   },
   {
     "id": "xai-news",
@@ -632,7 +651,11 @@
         "re:\\bHailuo\\s*\\d+(?:\\.\\d+)*\\b",
         "海螺视频模型"
       ]
-    }
+    },
+    "articleDateCheck": true,
+    "articleHosts": [
+      "www.minimax.io"
+    ]
   },
   {
     "id": "alibaba-model-studio",
@@ -1002,6 +1025,25 @@
       ],
       "muse": [
         "muse spark"
+      ]
+    }
+  },
+  {
+    "id": "anthropic-model-announcements",
+    "name": "Anthropic 官方模型公告目录",
+    "type": "html",
+    "url": "https://www.anthropic.com/news/models",
+    "vendor": "Anthropic",
+    "official": true,
+    "active": true,
+    "articleDateCheck": true,
+    "articleHosts": [
+      "www.anthropic.com"
+    ],
+    "titleModelOnly": true,
+    "modelMatches": {
+      "claude": [
+        "re:\\bClaude\\s+(?:Opus|Sonnet|Haiku|Fable|Mythos|\\d)"
       ]
     }
   }

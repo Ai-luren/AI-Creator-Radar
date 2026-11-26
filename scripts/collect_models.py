@@ -237,7 +237,7 @@ def jsonld_items(page: str, source: dict) -> list[dict]:
             if not title:
                 continue
             description = clean_text(str(obj.get("description") or ""))
-            model_id = match_model(title, source) or match_model(title + " " + description, source)
+            model_id = match_model(title, source) or (None if source.get("titleModelOnly") else match_model(title + " " + description, source))
             published = find_date(obj.get("datePublished") or obj.get("dateCreated"))
             if not model_id or not is_release_candidate(title, published):
                 continue
@@ -263,8 +263,128 @@ def match_model(text: str, source: dict) -> str | None:
     return None
 
 
+
+def non_release_title(title):
+    return bool(re.search(r"\b(?:how to|tutorial|prompting guide|user guide|review[s]?:|"
+                          r"review[s]?\s+of|vs\.?\s+|alternatives in|case study)"
+                          r"|评测[：:]|使用教程|提示词指南|使用指南|实战教程", str(title or ""), re.I))
+
+
+def title_identity(value):
+    return "".join(ch for ch in clean_text(value).casefold() if ch.isalnum())
+
+
+class ArticleMetaParser(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.dates = []
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == "meta" and (attrs.get("property") or attrs.get("name") or "").lower() in {
+                "article:published_time", "datepublished"}:
+            stamp = parse_date(attrs.get("content"))
+            if stamp:
+                self.dates.append(stamp)
+
+
+def article_publication_date(page, expected_title):
+    """Require matching article heading; never use modified dates or neighbouring cards."""
+    parser = BlockParser()
+    parser.feed(page)
+    parser.close()
+    blocks = sorted(parser.blocks, key=lambda b: b["sequence"])
+    title = title_identity(expected_title)
+    headings = [i for i, b in enumerate(blocks) if b["tag"] == "h1" and title and title_identity(b["text"]) == title]
+    if not headings:
+        return None
+    metadata = ArticleMetaParser()
+    metadata.feed(page)
+    dates = list(metadata.dates)
+    for raw in re.findall(r"<script\b[^>]*type=[\"']application/ld\+json[\"'][^>]*>(.*?)</script>", page, flags=re.I | re.S):
+        try:
+            payload = json.loads(html.unescape(raw.strip()))
+        except (ValueError, TypeError):
+            continue
+        for obj in walk_jsonld(payload):
+            if title_identity(str(obj.get("headline") or "")) == title:
+                stamp = parse_date(obj.get("datePublished"))
+                if stamp:
+                    dates.append(stamp)
+    for i in headings:
+        section = []
+        for b in blocks[i+1:i+14]:
+            if b["tag"] in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+                break
+            section.append(b)
+        for j, b in enumerate(section):
+            value = b["text"].strip()
+            if b["tag"] == "time" and b["attrs"].get("datetime"):
+                stamp = parse_date(b["attrs"]["datetime"])
+            elif re.fullmatch(r"(?:published|publication date|date|发布日期|发布时间|日期)\s*[:：]?", value, re.I) and j+1 < len(section):
+                stamp = parse_date(section[j+1]["text"])
+            elif re.fullmatch(r"(?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}-\d{2}-\d{2})", value):
+                stamp = parse_date(value)
+            else:
+                stamp = None
+            if stamp:
+                dates.append(stamp)
+    if not dates or len({d[:10] for d in dates}) != 1:
+        return None
+    return dates[0]
+
+
+class SameHostRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        old, new = urlsplit(req.full_url), urlsplit(newurl)
+        if new.scheme != "https" or new.hostname != old.hostname or new.port not in (None, 443) or new.username or new.password:
+            raise urllib.error.HTTPError(req.full_url, code, "Cross-host article redirect rejected", headers, fp)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def enrich_article_dates(source, items):
+    if not source.get("articleDateCheck"):
+        return items
+    allowed = set(source.get("articleHosts", [])) | {urlsplit(source["url"]).hostname}
+    selected, seen = [], set()
+    for item in items:
+        url = normalize_url(item.get("url") or "")
+        parts = urlsplit(url)
+        if (url in seen or url == normalize_url(source["url"]) or not parts.path.strip("/")
+                or parts.scheme != "https" or parts.hostname not in allowed
+                or parts.username or parts.password or parts.port not in (None, 443)
+                or non_release_title(item.get("title"))):
+            continue
+        seen.add(url)
+        selected.append((item, url))
+        if len(selected) >= 5:
+            break
+    def probe(pair):
+        item, url = pair
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html"})
+            with urllib.request.build_opener(SameHostRedirect()).open(req, timeout=12) as response:
+                raw = response.read(MAX_BYTES + 1)
+            if len(raw) > MAX_BYTES:
+                return
+            stamp = article_publication_date(raw.decode("utf-8", errors="replace"), item["title"])
+            if stamp:
+                listing = item.get("publishedAt")
+                if listing and listing[:10] != stamp[:10]:
+                    item["listingPublishedAt"] = listing
+                item["publishedAt"] = stamp
+                item["publicationDateKind"] = "article-explicit-date"
+        except (OSError, ValueError, TypeError):
+            pass
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+        list(pool.map(probe, selected))
+    return items
+
+
 def is_release_candidate(title: str, published_at: str | None, allow_version_only: bool = False) -> bool:
     lowered = title.casefold()
+    if non_release_title(title):
+        return False
     if any(term in lowered for term in PRE_RELEASE_TERMS):
         return True
     has_release_word = any(term in lowered for term in RELEASE_TERMS)
@@ -567,6 +687,7 @@ def html_page_items(page: str, source: dict) -> list[dict]:
         for anchor in reversed(enclosing):
             article_url = valid_article_url(anchor["attrs"].get("href", ""), source["url"])
             if article_url:
+                published_at = published_at or find_date(anchor["text"])
                 break
         for candidate in nearby:
             attrs = candidate["attrs"]
@@ -586,7 +707,7 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                     if not article_url:
                         article_url = valid_article_url(href, source["url"])
         combined = title + " " + " ".join(summary_parts)
-        model_id = match_model(title, source) or match_model(combined, source)
+        model_id = match_model(title, source) or (None if source.get("titleModelOnly") else match_model(combined, source))
         published_at = published_at or find_date_near_title(page, title)
         if not article_url:
             # Accept a direct "Learn more" link only in this heading's own section.
@@ -664,7 +785,7 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
         if not title:
             continue
         summary = clean_text(child_text(entry, {"description", "summary", "content", "encoded"}))
-        model_id = match_model(title, source) or match_model(title + " " + summary, source)
+        model_id = match_model(title, source) or (None if source.get("titleModelOnly") else match_model(title + " " + summary, source))
         explicit_published = parse_date(child_text(entry, {"pubdate", "published"}))
         published = explicit_published or parse_date(child_text(entry, {"date", "created", "updated"}))
         url = entry_link(entry)
@@ -752,6 +873,7 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         "modelVersion": version,
         **({"publicationDateKind": raw["publicationDateKind"], "publicationObservedAt": now_iso}
            if raw.get("publicationDateKind") else {}),
+        **({"listingPublishedAt": raw["listingPublishedAt"]} if raw.get("listingPublishedAt") else {}),
     }
 
 
@@ -773,8 +895,15 @@ def merge_item(old: dict, new: dict) -> dict:
     first_seen = [value for value in (old.get("firstSeenAt"), new.get("firstSeenAt"), *discovered) if value]
     if first_seen:
         merged["firstSeenAt"] = min(first_seen)
+    if (new.get("publicationDateKind") == "article-explicit-date" and new.get("sourceId") == old.get("sourceId")
+            and new.get("publishedAt") and new.get("publishedAt") != old.get("publishedAt")):
+        previous = [*old.get("previousSourceDates", []), old.get("publishedAt"), new.get("listingPublishedAt")]
+        merged["previousSourceDates"] = list(dict.fromkeys(d for d in previous if d and d != new["publishedAt"]))
+        merged["publishedAt"] = new["publishedAt"]
     if not merged.get("publishedAt") and new.get("publishedAt"):
         merged["publishedAt"] = new["publishedAt"]
+    if new.get("listingPublishedAt") and old.get("sourceId") == new.get("sourceId"):
+        merged["listingPublishedAt"] = new["listingPublishedAt"]
     if (new.get("publicationDateKind") and old.get("sourceId") == new.get("sourceId")
             and merged.get("publishedAt") == new.get("publishedAt")):
         merged["publicationDateKind"] = new["publicationDateKind"]
@@ -877,7 +1006,7 @@ def fetch_source_once(source: dict) -> tuple[dict, list[dict], str | None]:
                 items = version_document_json_items(page, source)
             else:
                 items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
-        return source, items, None
+        return source, enrich_article_dates(source, items), None
     except Exception as exc:
         return source, [], f"{type(exc).__name__}: {str(exc)[:220]}"
 
