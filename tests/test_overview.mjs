@@ -354,3 +354,18 @@ test('V3.5 model library defaults to strict latest dated family order and unknow
 test('V3.5 identical news summaries are displayed only once while distinct text remains',()=>{
  const {run}=setup();assert.deepEqual(JSON.parse(run('JSON.stringify((()=>{const seen=new Set();return [uniqueNewsSummary("A  summary",seen),uniqueNewsSummary("A summary",seen),uniqueNewsSummary("Another summary",seen)]})())')),['<p class="briefing-quote">A  summary</p>','','<p class="briefing-quote">Another summary</p>']);
 });
+
+test('V3.6 audio leaves are mutually exclusive and overview only counts formal releases',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ assert.deepEqual(JSON.parse(run('JSON.stringify(MODEL_TABS.map(x=>x[0]))')),['video','image','llm','audio']);
+ for(const src of ['libraryModels()','state.modelReleases','(state.modelReleaseData||{}).verifiedStages||[]']){
+  const p=JSON.parse(run('JSON.stringify((()=>{const a='+src+';return {total:a.filter(x=>categoryFilter(x,"audio")).length,parts:["music","speech","audio-other"].map(c=>a.filter(x=>categoryFilter(x,c)).length)}})())'));
+  assert.equal(p.total,p.parts.reduce((a,b)=>a+b,0));
+ }
+ assert.equal(run('audioLeaf({category:"audio",audioSubtype:"语音识别 ASR"})'),'speech');assert.equal(run('audioLeaf({category:"audio",audioSubtype:"实时语音交互"})'),'audio-other');
+ run("setView('overview')");assert.equal((node('content').innerHTML.match(/class="overview-category(?: zero)?"/g)||[]).length,4);
+ for(const mode of ['confirmed','pending','announcements'])for(const c of ['all','video','image','llm','audio','music','speech','audio-other']){
+  run("setView('today',{releaseMode:"+JSON.stringify(mode)+",releaseCategory:"+JSON.stringify(c)+"})");assert.doesNotMatch(node('content').innerHTML,/\+\s*\d+\s*上线/);
+  if(mode==='confirmed')assert.doesNotMatch(node('content').innerHTML,/已核实模型上线阶段/);
+ }
+});
