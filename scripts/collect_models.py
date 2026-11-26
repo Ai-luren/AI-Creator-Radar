@@ -1193,6 +1193,19 @@ def main() -> int:
         parser.error("--source requires --dry-run; partial writes would replace full monitor status")
     if args.report:
         write_json(args.report, {"status": status, "items": retained})
+        # Run the independent sample audit on the actual diagnostic snapshot.
+        # It never injects benchmark URLs into discovery or mutates canonical data.
+        if not args.source and (ROOT / "config/release-recall-benchmark.json").is_file():
+            try:
+                from scripts.collect_release_recall import assess
+            except ModuleNotFoundError:
+                from collect_release_recall import assess
+            sample = load_json(ROOT / "config/release-recall-benchmark.json", {})
+            digest = load_json(ROOT / "site/data/model-releases-30d.json", {})
+            result = assess(sample, retained, status, digest, now.date())
+            print("Release sample recall:", json.dumps(result["allSample"], ensure_ascii=False))
+            for row in result["events"]:
+                print(f"[RECALL] {row['id']}: {row['outcome']}; dates={row['actualDates']}; canonical={row['canonicalComplete']}")
     if not args.dry_run:
         if success_count:
             write_json(UPDATES_FILE, updates)
