@@ -492,11 +492,11 @@ function routeQuery(){
  return '?'+p.toString();
 }
 function currentScroll(){var t=content.querySelector('.model-table-wrap');return {y:window.scrollY||0,tableTop:t?t.scrollTop:0,tableLeft:t?t.scrollLeft:0}}
-function saveRoute(push,extra){if(!window.history||restoringRoute)return;var prior=window.history.state||{},entry=Object.assign({},push?{}:prior,{radar:true,scroll:currentScroll()},extra||{});if(push)window.history.pushState(entry,'',routeQuery());else window.history.replaceState(entry,'',routeQuery())}
+function saveRoute(push,extra){if(!window.history||restoringRoute)return;var prior=window.history.state||{},entry=Object.assign({},push?{}:prior,{radar:true,scroll:currentScroll()},extra||{});if(push)window.history.pushState(entry,'',routeQuery());else window.history.replaceState(entry,'',routeQuery()+(window.location.hash||''))}
 function restoreScroll(position){if(!position)return;window.scrollTo(0,position.y||0);var t=content.querySelector('.model-table-wrap');if(t){t.scrollTop=position.tableTop||0;t.scrollLeft=position.tableLeft||0}}
 function restoreNavigation(entry){restoringRoute=true;applyRoute(window.location.search);routeScroll=entry&&entry.scroll||{y:0};routeFocus=entry&&entry.focus||null;render();restoringRoute=false}
 applyRoute(window.location.search);
-if(window.history){window.history.scrollRestoration='manual';saveRoute(false)}
+if(window.history){window.history.scrollRestoration='manual';var initialEntry=window.history.state;if(initialEntry&&initialEntry.radar)routeScroll=initialEntry.scroll||null;else saveRoute(false)}
 
 async function loadData(){
  function trackedJson(name,version,noStore){
@@ -678,7 +678,16 @@ function buildGlobalIndex(){
  (state.platforms||[]).forEach(function(p){add('tool',p.name,p.type,p.note,external(p.url));['domestic','overseas','global'].forEach(function(scope){var v=(p.creatorPrograms||{})[scope];(Array.isArray(v)?v:v?[v]:[]).forEach(function(x){add('program',x.programName||x.type||'创作者计划',[p.name,{domestic:'国内登记',overseas:'海外登记',global:'全球登记'}[scope],'按来源规则核实'].join(' · '),[x.note,'CPP 超创 创作者 合作'].join(' '),external(x.url))})})});
  (state.social.brands||[]).forEach(function(b){(b.accounts||[]).filter(function(a){return a.status!=='none'}).forEach(function(a){add('social',b.name+' · '+a.platform,[a.handle,a.status==='review'?'待核验':a.status==='verified-search'?'搜索入口':'账号记录'].join(' · '),b.company,external(a.url))})});
  (state.social.posts||[]).forEach(function(x){add('social',x.title,[x.brand,x.platform,x.type].join(' · '),x.summary,external(x.url))});
- [['image','图片能力榜'],['video','视频能力榜'],['music','音乐能力榜'],['tts','语音合成能力榜'],['coding','编程能力榜']].forEach(function(x){add('ranking',x[1],'能力榜单 · 原榜口径',x[0],route('rankings',{rankTab:x[0]}))});
+ RANKING_VIEWS.forEach(function(x){add('ranking',x[1]+'能力榜','能力榜单 · 原榜口径',x[0],route('rankings',{rankTab:x[0]}))});
+ (state.unifiedRankings.categories||[]).forEach(function(c){
+  if(!RANKING_VIEWS.some(function(x){return x[0]===c.id}))return;
+  var boards=c.id==='video'?Object.entries(c.primaryLeaderboards||{}):[['',c.primaryLeaderboard]];
+  boards.forEach(function(pair){var task=pair[0],board=pair[1];if(!board)return;(board.rows||[]).slice(0,10).forEach(function(row){
+   var opts={rankTab:c.id,query:row.name};if(task)opts.rankVideoTask=task;
+   var taskName=task==='text-to-video-audio'?'有声文生视频':task==='image-to-video-audio'?'有声图生视频':categoryName(c.id);
+   add('ranking',row.name,[row.provider,board.sourceName,taskName,'原榜 #'+row.rank].filter(Boolean).join(' · '),'榜单 排名 '+taskName,route('rankings',opts));
+  })});
+ });
  Object.keys(labels).forEach(function(v){add('tool',labels[v],'工作台页面','导航',route(v))});
  globalIndex=index;
 }
@@ -880,7 +889,7 @@ function unifiedRankingsPage(){
  var category=(state.unifiedRankings.categories||[]).find(function(x){return x.id===view}),videoTasks=[['text-to-video-audio','有声文生视频'],['image-to-video-audio','有声图生视频']],primaryBoards=category&&category.primaryLeaderboards;
  if(view==='video'&&videoTasks.some(function(x){return x[0]===state.rankVideoTask})===false)state.rankVideoTask='text-to-video-audio';
  var primary=view==='video'&&primaryBoards?primaryBoards[state.rankVideoTask]:category&&category.primaryLeaderboard,rows=primary&&primary.rows||[];
- var displayRows=rows.slice(0,10);
+ var displayRows=rows.slice(0,10).filter(function(row){return matches([row.name,row.provider].join(' '))});
  var taskTabs=view==='video'?'<div class="tabs ranking-task-tabs" aria-label="有声视频任务">'+videoTasks.map(function(x){return '<button class="tab '+(state.rankVideoTask===x[0]?'active':'')+'" aria-pressed="'+(state.rankVideoTask===x[0])+'" data-rank-video-task="'+x[0]+'">'+x[1]+'</button>'}).join('')+'</div>':'';
  var head=pageHead('创作者能力参考榜','每类最多显示 10 个合资格候选；视频分有声文生与有声图生，分别沿用各自原榜。','本地整理 · '+(state.unifiedRankings.calculatedAt||'待生成'))+'<div class="rank-board-nav"><strong>来源原榜，不再展示未校准的跨榜试算序</strong><p>主表保留评测源自己的分数刻度。不同机构、视频任务池之间不直接相加。名次表示该来源任务中的盲测偏好，不代表市场使用量或创作者采用率；当前没有可靠的创作者实际使用份额数据可以直接替代这项评测。</p><p>经资格筛选后保留原榜序号，不保证序号连续。分数区间和名次范围有重叠时，不能把单个位次当成稳定胜负。</p></div><div class="tabs ranking-view-tabs">'+views+'</div>'+taskTabs;
  if(!category)return head+empty('榜单数据尚未生成。运行 scripts/build_unified_rankings.py 更新。');
@@ -901,7 +910,7 @@ function unifiedRankingsPage(){
  var method='<details class="rank-board-nav"><summary>评测口径、来源和规则</summary><p><strong>'+esc(primary.sourceName)+'</strong> · '+esc(primary.evaluationVersion||'原榜版本未标注')+' · '+esc(primary.snapshotPublisher||'来源快照')+' · '+sourceDate+checked+'</p><p>'+esc(primary.methodNote||category.description||'')+'</p><p>95% CI 是分数区间；AA 的名次范围也反映不确定性。若相邻模型区间重叠，不能把一位之差解释成稳定的能力差距。比较次数/样本量不是独立评审者人数。</p><p>'+sourceLink+' · <a href="./ranking-rules.html" target="_blank" rel="noopener noreferrer">本榜规则说明 ↗</a></p>'+excludedHtml+'</details>';
  var scope=primary.snapshotScope?' · '+esc(primary.snapshotScope):'';
  var meta='<div class="rank-board-nav"><strong>'+esc(primary.sourceName)+' · 主榜合资格候选前 10</strong><p>'+esc(primary.snapshotPublisher||'')+' · '+sourceDate+checked+scope+' · 显示 '+displayRows.length+' / '+rows.length+' 个合资格候选</p>'+method+'</div>';
- var table=displayRows.length?'<div class="rank-snapshot"><div class="rank-snapshot-meta"><span>'+esc(primary.sourceName)+' · '+esc(primary.evaluationVersion||'原榜版本待核实')+'</span><span>'+sourceDate+'</span></div><div class="rank-table-wrap" tabindex="0" aria-label="原榜表格，可横向滚动"><table class="rank-table rank-table-curated"><thead><tr><th>来源名次</th><th>模型 / 厂商</th><th>原榜分数 / 区间</th><th>样本量</th></tr></thead><tbody>'+body+'</tbody></table></div><div class="rank-pagination"><span>最多显示前 10 个合资格候选；保留来源原榜名次，不把过滤后的顺序重新标成官方名次。</span></div></div>':empty('当前来源没有可显示的榜单记录。');
+ var table=displayRows.length?'<div class="rank-snapshot"><div class="rank-snapshot-meta"><span>'+esc(primary.sourceName)+' · '+esc(primary.evaluationVersion||'原榜版本待核实')+'</span><span>'+sourceDate+'</span></div><div class="rank-table-wrap" tabindex="0" aria-label="原榜表格，可横向滚动"><table class="rank-table rank-table-curated"><thead><tr><th>来源名次</th><th>模型 / 厂商</th><th>原榜分数 / 区间</th><th>样本量</th></tr></thead><tbody>'+body+'</tbody></table></div><div class="rank-pagination"><span>最多显示前 10 个合资格候选；保留来源原榜名次，不把过滤后的顺序重新标成官方名次。</span></div></div>':empty(state.query?'没有匹配的主榜候选；可清除当前页面筛选。':'当前来源没有可显示的榜单记录。');
  var foot='<div class="footer"><span>跨来源试算仅保留在审计数据中，尚未通过可比性验证，不作为主榜名次。</span><span>'+sourceLink+'</span></div>';
  return head+meta+table+foot
 }
@@ -1189,7 +1198,7 @@ document.getElementById('globalSearchDialog').addEventListener('cancel',function
 document.getElementById('globalSearchDialog').addEventListener('click',function(e){if(e.target===this){var r=this.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeGlobalSearch();return}var t=e.target.closest('[data-global-type]');if(t){globalType=t.dataset.globalType;globalActive=0;renderGlobalSearch();document.getElementById('globalSearchInput').focus();return}var b=e.target.closest('[data-global-result]');if(b)selectGlobal(Number(b.dataset.globalResult))});
 document.getElementById('globalSearchInput').addEventListener('input',function(){globalActive=0;renderGlobalSearch()});
 document.getElementById('globalSearchInput').addEventListener('keydown',function(e){if(e.isComposing)return;if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();stepGlobal(e.key==='ArrowDown'?1:-1)}else if(e.key==='Enter'){e.preventDefault();selectGlobal(globalActive)}});
-if(window.addEventListener){window.addEventListener('popstate',function(e){restoreNavigation(e.state)});window.addEventListener('pagehide',function(){saveRoute(false)});}
+if(window.addEventListener){var scrollSaveTimer;function scheduleScrollSave(){clearTimeout(scrollSaveTimer);var url=window.location.search;scrollSaveTimer=setTimeout(function(){if(url===window.location.search)saveRoute(false)},120)}window.addEventListener('popstate',function(e){clearTimeout(scrollSaveTimer);restoreNavigation(e.state)});window.addEventListener('scroll',scheduleScrollSave,{passive:true});content.addEventListener('scroll',function(e){if(e.target.matches&&e.target.matches('.model-table-wrap'))scheduleScrollSave()},{capture:true,passive:true});window.addEventListener('pagehide',function(){clearTimeout(scrollSaveTimer);saveRoute(false)});}
 document.getElementById('mobileMenu').addEventListener('click',function(){document.getElementById('sidebar').classList.toggle('open')});
 loadData().catch(function(e){if(location.protocol==='file:'){var localUrl='http://127.0.0.1:8080/';content.innerHTML='<section class="local-load-error"><h2>正在连接本机预览</h2><p>若本机预览服务已启动，页面会自动跳转；否则请双击项目根目录的启动命令打开完整页面。</p><a href="'+localUrl+'">重试打开 ↗</a></section>';fetch(localUrl,{mode:'no-cors',cache:'no-store'}).then(function(){location.replace(localUrl)}).catch(function(){}) ;return}content.innerHTML='<div class="empty">数据加载失败：'+esc(e.message)+'。请确认网络连接后刷新页面。</div>'});
 </script>

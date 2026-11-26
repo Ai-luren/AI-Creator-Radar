@@ -105,3 +105,13 @@ test('page filters and deep links survive browser back',async()=>{
  const {run}=setup();await run('loadData()');run("setView('today',{releaseMode:'pending'});state.releaseCategory='video';state.query='Seed';render();window.scrollY=380;setView('feeds',{briefingTab:'selected'});window.history.back()");
  assert.equal(run('state.view'),'today');assert.equal(run('state.releaseMode'),'pending');assert.equal(run('state.releaseCategory'),'video');assert.equal(run('state.query'),'Seed');assert.equal(run('window.scrollY'),380);
 });
+
+test('rankings search indexes visible source rows and keeps task identity',async()=>{
+ const {run,node}=setup();await run('loadData()');
+ const candidate=JSON.parse(run("JSON.stringify(globalIndex.find(function(x){return x.type==='ranking'&&x.action.options&&x.action.options.rankVideoTask}))"));
+ assert.ok(candidate);assert.match(candidate.meta,/原榜 #/);
+ run("setView('rankings',"+JSON.stringify(candidate.action.options)+")");
+ assert.equal(run('state.rankVideoTask'),candidate.action.options.rankVideoTask);
+ assert.equal(run('state.query'),candidate.title);
+ assert.match(node('content').innerHTML,/原榜 #/);
+});
