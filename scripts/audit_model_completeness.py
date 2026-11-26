@@ -71,7 +71,7 @@ def audit(families, topics, config):
                     or milestone.get("verifiedAt") != event.get("verificationDate")
                     or event.get("autoCollected") or event.get("verificationStatus") != "已确认：型号、日期与事件性质"
                     or milestone.get("datePrecision") != ("month" if len(event.get("date", "")) == 7 else "day")
-                    or milestone.get("stage") not in {"release", "early-access", "general-availability", "api-availability", "preview", "alpha", "announcement", "official-introduction"}):
+                    or milestone.get("stage") not in {"release", "early-access", "general-availability", "api-availability", "preview", "alpha", "announcement", "official-introduction", "development-milestone", "documented-availability", "model-update"}):
                 errors.append(f"Invalid historical milestone: {key} / {aid}")
     seen = set()
     for link in config["links"]:
