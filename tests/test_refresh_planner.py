@@ -58,3 +58,8 @@ class RefreshPlannerTests(unittest.TestCase):
         name, field = GROUPS["aihot_daily"][0]
         (self.data / name).write_text(json.dumps({field: morning.isoformat(), "title": "AI 日报 2026 年 11 月 27 日"}), encoding="utf-8")
         self.assertFalse(plan(self.data, "schedule", now=morning + timedelta(hours=3))["aihot_daily"])
+
+    def test_future_dated_issue_cannot_be_fresh_with_older_fetch_timestamp(self):
+        name, field = GROUPS["aihot_daily"][0]
+        (self.data / name).write_text(json.dumps({field: "2026-11-25T00:00:00Z", "title": "2026-11-26"}), encoding="utf-8")
+        self.assertTrue(plan(self.data, "schedule", now=self.now)["aihot_daily"])

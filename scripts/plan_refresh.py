@@ -57,7 +57,7 @@ def daily_due(data_dir, group, now):
     except (OSError, ValueError, AttributeError, TypeError):
         issue = None
     stamp = read_stamp(data_dir, filename, field)
-    if issue is not None and expected <= issue <= local.date() and stamp is not None and stamp <= now:
+    if issue is not None and expected <= issue <= local.date() and stamp is not None and stamp <= now and stamp.astimezone(CHINA).date() >= issue:
         return False
     if stamp is None or stamp > now:
         return True

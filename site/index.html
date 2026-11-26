@@ -833,7 +833,7 @@ function briefIssueDay(data){
 function briefIssueStale(data,hour,now){
  now=now||new Date();var local=new Date(now.getTime()+8*3600000),today=chinaDay(now),expected=local.getUTCHours()*60+local.getUTCMinutes()>=hour*60+5?today:chinaDay(new Date(now.getTime()-86400000));
  var issue=briefIssueDay(data),stamp=Date.parse((data||{}).fetchedAt||'');
- return !issue||issue<expected||issue>today||!Number.isFinite(stamp)||stamp>now.getTime();
+ return !issue||issue<expected||issue>today||!Number.isFinite(stamp)||stamp>now.getTime()||chinaDay(new Date(stamp))<issue;
 }
 function briefArticleLinks(item){
  var entries=Array.isArray(item.links)?item.links:[],out=[];
