@@ -215,3 +215,17 @@ test('board row indexing preserves first-match rank semantics and snapshot isola
  assert.equal(run("releaseEvents([{id:'a',modelFamilyId:'gpt',modelName:'A',publishedAt:'2026-11-25',evidenceType:'official-model-card',url:'https://example.com/card'},{id:'b',modelFamilyId:'gpt',modelName:'B',publishedAt:'2026-11-25',evidenceType:'official-model-card',url:'https://example.com/card'}]).length"),2);
  const chronological=JSON.parse(run("JSON.stringify(releaseEvents(state.modelReleases,'date').map(e=>e.publishedAt))"));assert.deepEqual(chronological,[...chronological].sort().reverse());
 });
+
+test('combined news merges only primary identities and preserves every report',()=>{
+ const {run}=setup();
+ run("state.aihotDaily={title:'AI 日报（2026 年 11 月 25 日）',items:[{title:'Claude Install as app 桌面应用',category:'头条',links:[{label:'原文',url:'https://claude.com/blog/install-as-app'},{label:'邻近新闻',url:'https://example.com/other'}]}]};state.juyaDaily={title:'AI 早报 2026-11-25',items:[{title:'Anthropic artifacts 桌面应用',category:'要闻',url:'https://claude.com/resources/articles/install-as-app'},{title:'一条完全独立的邻近新闻',url:'https://example.com/other'}]};state.aihot={items:[{title:'Claude 安装桌面应用',selected:true,category:'ai-products',publishedAt:'2026-11-24T00:00:00Z',links:{original:'https://claude.com/blog/install-as-app?utm_source=test'}}]};");
+ const events=JSON.parse(run('JSON.stringify(combinedNews())'));assert.equal(events.length,2);assert.equal(events.reduce((n,e)=>n+e.rows.length,0),4);
+ const merged=events.find(e=>e.rows.length===3);assert.equal(merged.sources.length,3);assert.equal(merged.rows.find(r=>r.source==='AIHOT 精选').day,'2026-11-24');
+ assert.notEqual(run("newsUrlKey('https://example.com/notes#v1')"),run("newsUrlKey('https://example.com/notes#v2')"));
+});
+test('overview keeps full source entry points and separates review from main feed',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
+ assert.match(markup,/重点 AI 资讯/);assert.match(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
+ assert.match(markup,/data-briefing-target="combined"/);assert.match(markup,/data-briefing-target="aihot"/);assert.match(markup,/data-briefing-target="juya"/);assert.match(markup,/data-briefing-target="selected"/);
+ run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
+});
