@@ -1,6 +1,6 @@
 {
   "schema": "ai-creator-radar-model-evaluations/1",
-  "generatedAt": "2026-11-25T13:02:01Z",
+  "generatedAt": "2026-11-26T12:23:08Z",
   "sourceNotes": {
     "aipick": "AIPick 近 7 天精选中的公开评测候选；保留其来源与原始链接。",
     "sogou": "搜狗微信搜索只读取搜索结果页的标题、摘要、公众号名和发布时间；不抓正文；遇到验证页停止并退避 24 小时。"
@@ -8,12 +8,12 @@
   "status": {
     "aipick": {
       "status": "ok",
-      "checkedAt": "2026-11-25T13:02:00+00:00",
-      "candidateCount": 3
+      "checkedAt": "2026-11-26T12:23:07+00:00",
+      "candidateCount": 2
     },
     "sogou": {
       "status": "ok",
-      "checkedAt": "2026-11-25T13:02:01Z",
+      "checkedAt": "2026-11-26T12:23:08Z",
       "searchesThisRun": 3,
       "warnings": [
         "本轮达到 3 次搜狗查询上限，剩余模型下次再查"
@@ -22,6 +22,23 @@
     }
   },
   "targets": [
+    {
+      "id": "kling",
+      "modelId": "kling",
+      "name": "Kling 视频 Kling 2.1 / Kling 2.5 Turbo / Kling 2.6 Pro / Kling O1 / Kling 3.0 / Kling 3.0 Omni / Kling 4.0 / Kling 2.0 / Kling 1.6 / Kling 1.5 / Kling 1.0",
+      "vendor": "快手",
+      "category": "video",
+      "releasedAt": "2026-11-20T00:00:00Z",
+      "releaseTitle": "Hitting REDLINE: How to Make a Cinematic Racing Film with Kling 4.0",
+      "aliases": [
+        "Kling 视频 Kling 2.1 / Kling 2.5 Turbo / Kling 2.6 Pro / Kling O1 / Kling 3.0 / Kling 3.0 Omni / Kling 4.0 / Kling 2.0 / Kling 1.6 / Kling 1.5 / Kling 1.0",
+        "Kling 视频",
+        "Hitting REDLINE: How to Make a Cinematic Racing Film with Kling 4.0"
+      ],
+      "query": "Kling 视频 Kling 2.1 / Kling 2.5 Turbo / Kling 2.6 Pro / Kling O1 / Kling 3.0 / Kling 3.0 Omni / Kling 4.0 / Kling 2.0 / Kling 1.6 / Kling 1.5 / Kling 1.0 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20%E8%A7%86%E9%A2%91%20Kling%202.1%20/%20Kling%202.5%20Turbo%20/%20Kling%202.6%20Pro%20/%20Kling%20O1%20/%20Kling%203.0%20/%20Kling%203.0%20Omni%20/%20Kling%204.0%20/%20Kling%202.0%20/%20Kling%201.6%20/%20Kling%201.5%20/%20Kling%201.0%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-26T12:23:08Z"
+    },
     {
       "id": "kling-image",
       "modelId": "kling-image",
@@ -38,8 +55,25 @@
         "Kling Image 4.0 正式发布：原生 8K 与一致图像组"
       ],
       "query": "Kling Image Kling Image 4.0 / Kling Image 3.0 Omni / Kling Image O1 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%20Kling%20Image%204.0%20/%20Kling%20Image%203.0%20Omni%20/%20Kling%20Image%20O1%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-25T13:02:01Z"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%20Kling%20Image%204.0%20/%20Kling%20Image%203.0%20Omni%20/%20Kling%20Image%20O1%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
+    },
+    {
+      "id": "pixverse-v6",
+      "modelId": "pixverse-v6",
+      "name": "PixVerse PixVerse V5.6 / PixVerse V6 / PixVerse V5 / PixVerse V5.5",
+      "vendor": "PixVerse / 爱诗科技",
+      "category": "video",
+      "releasedAt": "2026-11-17T00:00:00Z",
+      "releaseTitle": "Seedance 2.0 评测：功能、提示词与 2026 年替代方案",
+      "aliases": [
+        "PixVerse PixVerse V5.6 / PixVerse V6 / PixVerse V5 / PixVerse V5.5",
+        "PixVerse",
+        "Seedance 2.0 评测：功能、提示词与 2026 年替代方案",
+        "Seedance 2.0 Review: Features, Prompts, and Alternatives in 2026"
+      ],
+      "query": "PixVerse PixVerse V5.6 / PixVerse V6 / PixVerse V5 / PixVerse V5.5 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=PixVerse%20PixVerse%20V5.6%20/%20PixVerse%20V6%20/%20PixVerse%20V5%20/%20PixVerse%20V5.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-26T12:23:08Z"
     },
     {
       "id": "seedance",
@@ -55,8 +89,7 @@
         "一镜成片，随心参考：Seedance 2.5 正式发布"
       ],
       "query": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-25T13:02:01Z"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
     },
     {
       "id": "minimax-h3-image",
@@ -72,28 +105,148 @@
         "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代"
       ],
       "query": "MiniMax H3-Image MiniMax H3-Image / MiniMax H3-Image Highspeed 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=MiniMax%20H3-Image%20MiniMax%20H3-Image%20/%20MiniMax%20H3-Image%20Highspeed%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-25T13:02:01Z"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=MiniMax%20H3-Image%20MiniMax%20H3-Image%20/%20MiniMax%20H3-Image%20Highspeed%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
     },
     {
       "id": "seedream",
       "modelId": "seedream",
-      "name": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5",
+      "name": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 / Seedream 5.0 Flash / Seedream 2.0",
       "vendor": "字节跳动 Seed",
       "category": "image",
       "releasedAt": "2026-11-09T00:00:00Z",
       "releaseTitle": "生成更真实，百轮编辑更稳定：Seedream 5.5 发布",
       "aliases": [
-        "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5",
+        "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 / Seedream 5.0 Flash / Seedream 2.0",
         "Seedream",
         "生成更真实，百轮编辑更稳定：Seedream 5.5 发布",
         "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布"
       ],
-      "query": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%20Seedream%203.0%20/%20Seedream%204.0%20/%20Seedream%204.5%20/%20Seedream%205.0%20Pro%20/%20Seedream%205.0%20Lite%20/%20Seedream%205.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
+      "query": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 / Seedream 5.0 Flash / Seedream 2.0 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%20Seedream%203.0%20/%20Seedream%204.0%20/%20Seedream%204.5%20/%20Seedream%205.0%20Pro%20/%20Seedream%205.0%20Lite%20/%20Seedream%205.5%20/%20Seedream%205.0%20Flash%20/%20Seedream%202.0%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-26T12:23:08Z"
+    },
+    {
+      "id": "gemini-omni-flash",
+      "modelId": "gemini-omni-flash",
+      "name": "Gemini Omni Flash Gemini Omni Flash 1.1 / Gemini Omni Flash 1.2",
+      "vendor": "Google DeepMind",
+      "category": "video",
+      "releasedAt": "2026-11-05T17:00:00Z",
+      "releaseTitle": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "aliases": [
+        "Gemini Omni Flash Gemini Omni Flash 1.1 / Gemini Omni Flash 1.2",
+        "Gemini Omni Flash",
+        "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips"
+      ],
+      "query": "Gemini Omni Flash Gemini Omni Flash 1.1 / Gemini Omni Flash 1.2 评测",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Gemini%20Omni%20Flash%20Gemini%20Omni%20Flash%201.1%20/%20Gemini%20Omni%20Flash%201.2%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
     }
   ],
   "items": [
+    {
+      "id": "aipick-xyzusuv2s3b4pthtlbyrp5iyz",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "MAGI-2 与 Seedance 2.0 同提示词实测对比：开源新模型每秒 5 毛",
+      "summary": "创作者用同一提示词对比新开源视频模型 MAGI-2 与年初使用的 Seedance 2.0，认为 MAGI-2 在奥特曼画面、变身特效、动作和光影质感上不少镜头更稳更强。MAGI-2 价格为每秒 5 毛钱，且已开源，作者称跑完后反复确认了多遍。",
+      "sourceType": "aipick",
+      "sourceName": "抖音 · 热点搜「MAGI-2」",
+      "publishedAt": "2026-11-25T15:29:28Z",
+      "url": "https://www.douyin.com/video/7712131253427801386",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-26T12:23:08Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "aipick-gbqmydbdqarfmfqljtztwcshb",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "MAGI-2 视频模型实测对比 Seedance 2.5：480B 音视频一体、原生 1080P、最长 30 秒",
+      "summary": "Sand.ai 发布 480B 音视频一体模型 MAGI-2，支持原生 1080P、最长 30 秒，并计划开源权重。作者用同提示词、同参考图对 MAGI-2 与 Seedance 2.5 做实测对比，展示两者在画面一致性、指令跟随和生成成本上的差异。",
+      "sourceType": "aipick",
+      "sourceName": "抖音 · 热点搜「MAGI-2 视频模型」",
+      "publishedAt": "2026-11-25T11:32:54Z",
+      "url": "https://www.douyin.com/video/7712070430865018121",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-26T12:23:08Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
     {
       "id": "aipick-bshpw56c5p8m3x9ggdec4t29w",
       "targetId": "seedance",
@@ -1181,7 +1334,7 @@
     }
   ],
   "searchState": {
-    "lastRunAt": "2026-11-25T13:02:01Z",
+    "lastRunAt": "2026-11-26T12:23:08Z",
     "queries": {
       "kling-image": {
         "lastSearchedAt": "2026-11-25T13:02:01Z",
@@ -1198,7 +1351,7 @@
         "error": null
       },
       "seedream": {
-        "lastSearchedAt": "2026-11-24T12:52:38Z",
+        "lastSearchedAt": "2026-11-26T12:23:08Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,
@@ -1206,6 +1359,20 @@
       },
       "seedance": {
         "lastSearchedAt": "2026-11-25T13:02:01Z",
+        "status": "ok",
+        "resultCount": 0,
+        "candidateCount": 0,
+        "error": null
+      },
+      "kling": {
+        "lastSearchedAt": "2026-11-26T12:23:08Z",
+        "status": "ok",
+        "resultCount": 0,
+        "candidateCount": 0,
+        "error": null
+      },
+      "pixverse-v6": {
+        "lastSearchedAt": "2026-11-26T12:23:08Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,

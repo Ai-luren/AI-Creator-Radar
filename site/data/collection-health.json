@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "sources": {
+    "aihot-selected": {
+      "lastAttemptAt": "2026-11-26T12:23:39+00:00",
+      "lastSuccessAt": "2026-11-26T12:23:39+00:00",
+      "status": "healthy",
+      "consecutiveFailures": 0
+    },
+    "aihot-daily": {
+      "lastAttemptAt": "2026-11-26T12:23:39+00:00",
+      "lastSuccessAt": "2026-11-26T12:23:39+00:00",
+      "status": "healthy",
+      "consecutiveFailures": 0
+    },
+    "juya-daily": {
+      "lastAttemptAt": "2026-11-26T12:23:39+00:00",
+      "lastSuccessAt": "2026-11-26T12:23:39+00:00",
+      "status": "healthy",
+      "consecutiveFailures": 0
+    }
+  }
+}

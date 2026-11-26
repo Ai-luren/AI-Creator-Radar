@@ -3,10 +3,10 @@
   "provider": "FAI.Fashion",
   "providerUrl": "https://fai.fashion/leaderboard",
   "sourceUrl": "https://fai.fashion/api/site/observatory/model-snapshot",
-  "publishedAt": "2026-11-25T11:55:26.791Z",
-  "fetchedAt": "2026-11-25T13:03:21Z",
-  "sourceCheckedAt": "2026-11-25T12:55:26.833Z",
-  "sourceStatus": "healthy",
+  "publishedAt": "2026-11-25T23:55:42.938Z",
+  "fetchedAt": "2026-11-26T12:22:16Z",
+  "sourceCheckedAt": "2026-11-26T04:56:12.963Z",
+  "sourceStatus": "error",
   "note": "第三方评测榜单的公开快照。名次与 Elo 按各自任务和原榜版本保留，不跨任务合并；模型资料链接不等同于厂商官方认证。",
   "boards": [
     {
@@ -1821,6 +1821,20 @@
         },
         {
           "rank": 11,
+          "name": "Kling 4.0",
+          "provider": "KlingAI",
+          "releasedAt": "2026-10-15",
+          "detailsUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "elo": 1144.45,
+          "comparisons": 3895,
+          "ciLow": 1129.45,
+          "ciHigh": 1159.45,
+          "price": 12.6,
+          "priceUnit": "$/分钟",
+          "openWeights": false
+        },
+        {
+          "rank": 12,
           "name": "FLUX 3",
           "provider": "Black Forest Labs",
           "releasedAt": "2026-07-23",
@@ -1834,7 +1848,7 @@
           "openWeights": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "name": "SkyReels V4",
           "provider": "Skywork AI",
           "releasedAt": "2026-03-18",
@@ -1848,7 +1862,7 @@
           "openWeights": false
         },
         {
-          "rank": 13,
+          "rank": 14,
           "name": "Dreamina Seedance 2.0",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-03-18",
@@ -1862,7 +1876,7 @@
           "openWeights": false
         },
         {
-          "rank": 14,
+          "rank": 15,
           "name": "P-Video-2-Pro",
           "provider": "Pruna AI",
           "releasedAt": "2026-09-17",
@@ -1876,7 +1890,7 @@
           "openWeights": false
         },
         {
-          "rank": 15,
+          "rank": 16,
           "name": "Gemini Omni Flash 1.1",
           "provider": "Google",
           "releasedAt": "2026-08-28",
@@ -1890,7 +1904,7 @@
           "openWeights": false
         },
         {
-          "rank": 16,
+          "rank": 17,
           "name": "Pika H3 Flex",
           "provider": "Pika Art",
           "releasedAt": "2026-10-29",
@@ -1904,7 +1918,7 @@
           "openWeights": true
         },
         {
-          "rank": 17,
+          "rank": 18,
           "name": "Dreamina Seedance 2.5 Flash (720p)",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-11-12",
@@ -1918,7 +1932,7 @@
           "openWeights": false
         },
         {
-          "rank": 18,
+          "rank": 19,
           "name": "Agnes-Video-2.5",
           "provider": "Sapiens AI",
           "releasedAt": "2026-08-22",
@@ -1932,7 +1946,7 @@
           "openWeights": false
         },
         {
-          "rank": 19,
+          "rank": 20,
           "name": "Grok Imagine Video 1.5",
           "provider": "SpaceXAI",
           "releasedAt": "2026-05-30",
@@ -1946,7 +1960,7 @@
           "openWeights": false
         },
         {
-          "rank": 20,
+          "rank": 21,
           "name": "HappyHorse-1.1",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-06-22",
@@ -1960,7 +1974,7 @@
           "openWeights": false
         },
         {
-          "rank": 21,
+          "rank": 22,
           "name": "MAGI-2 Preview",
           "provider": "Sand.ai",
           "releasedAt": "2026-09-12",
@@ -1974,7 +1988,7 @@
           "openWeights": false
         },
         {
-          "rank": 22,
+          "rank": 23,
           "name": "PixVerse V6 Max",
           "provider": "PixVerse",
           "releasedAt": "2026-10-22",
@@ -1988,7 +2002,7 @@
           "openWeights": false
         },
         {
-          "rank": 23,
+          "rank": 24,
           "name": "Wan2.7-260612",
           "provider": "Alibaba",
           "releasedAt": "2026-06-12",
@@ -2002,7 +2016,7 @@
           "openWeights": false
         },
         {
-          "rank": 24,
+          "rank": 25,
           "name": "HappyHorse-1.0",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-04-07",
@@ -2016,7 +2030,7 @@
           "openWeights": false
         },
         {
-          "rank": 25,
+          "rank": 26,
           "name": "Kling 3.0 Omni 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -2030,7 +2044,7 @@
           "openWeights": false
         },
         {
-          "rank": 26,
+          "rank": 27,
           "name": "Kling 3.0 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -2044,7 +2058,7 @@
           "openWeights": false
         },
         {
-          "rank": 27,
+          "rank": 28,
           "name": "Grok Imagine Video 1.5 Lite",
           "provider": "SpaceXAI",
           "releasedAt": "2026-08-26",
@@ -2058,7 +2072,7 @@
           "openWeights": false
         },
         {
-          "rank": 28,
+          "rank": 29,
           "name": "PixVerse V6",
           "provider": "PixVerse",
           "releasedAt": "2026-03-23",
@@ -2072,7 +2086,7 @@
           "openWeights": false
         },
         {
-          "rank": 29,
+          "rank": 30,
           "name": "Veo 3.1",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -2086,7 +2100,7 @@
           "openWeights": false
         },
         {
-          "rank": 30,
+          "rank": 31,
           "name": "Veo 3.1 Fast",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -2100,7 +2114,7 @@
           "openWeights": false
         },
         {
-          "rank": 31,
+          "rank": 32,
           "name": "Veo 3.1 Lite",
           "provider": "Google",
           "releasedAt": "2026-03-31",
@@ -2114,7 +2128,7 @@
           "openWeights": false
         },
         {
-          "rank": 32,
+          "rank": 33,
           "name": "LTX-2.5 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -2128,7 +2142,7 @@
           "openWeights": true
         },
         {
-          "rank": 33,
+          "rank": 34,
           "name": "Vidu Q3 Pro",
           "provider": "Vidu",
           "releasedAt": "2026-01-30",
@@ -2142,7 +2156,7 @@
           "openWeights": false
         },
         {
-          "rank": 34,
+          "rank": 35,
           "name": "LTX-2.5 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -2156,7 +2170,7 @@
           "openWeights": true
         },
         {
-          "rank": 35,
+          "rank": 36,
           "name": "Vidu Q3 Turbo",
           "provider": "Vidu",
           "releasedAt": "2026-02-09",
@@ -2170,7 +2184,7 @@
           "openWeights": false
         },
         {
-          "rank": 36,
+          "rank": 37,
           "name": "LTX-2.3 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",
@@ -2184,7 +2198,7 @@
           "openWeights": true
         },
         {
-          "rank": 37,
+          "rank": 38,
           "name": "LTX-2.3 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",
@@ -2198,7 +2212,7 @@
           "openWeights": true
         },
         {
-          "rank": 38,
+          "rank": 39,
           "name": "Boreal",
           "provider": "Creatify",
           "releasedAt": "2026-09-15",
@@ -2342,6 +2356,20 @@
         },
         {
           "rank": 9,
+          "name": "Kling 4.0",
+          "provider": "KlingAI",
+          "releasedAt": "2026-10-15",
+          "detailsUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "elo": 1116.18,
+          "comparisons": 3790,
+          "ciLow": 1100.18,
+          "ciHigh": 1132.18,
+          "price": 12.6,
+          "priceUnit": "$/分钟",
+          "openWeights": false
+        },
+        {
+          "rank": 10,
           "name": "Bach 1.0 Pro",
           "provider": "Video Rebirth",
           "releasedAt": "2026-09-29",
@@ -2355,7 +2383,7 @@
           "openWeights": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "name": "Gemini Omni Flash 1.2",
           "provider": "Google",
           "releasedAt": "2026-11-05",
@@ -2369,7 +2397,7 @@
           "openWeights": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "name": "P-Video-2-Pro",
           "provider": "Pruna AI",
           "releasedAt": "2026-09-17",
@@ -2383,7 +2411,7 @@
           "openWeights": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "name": "Dreamina Seedance 2.5",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-07-31",
@@ -2397,7 +2425,7 @@
           "openWeights": false
         },
         {
-          "rank": 13,
+          "rank": 14,
           "name": "SkyReels V4",
           "provider": "Skywork AI",
           "releasedAt": "2026-03-18",
@@ -2411,7 +2439,7 @@
           "openWeights": false
         },
         {
-          "rank": 14,
+          "rank": 15,
           "name": "Pika H3 Flex",
           "provider": "Pika Art",
           "releasedAt": "2026-10-29",
@@ -2425,7 +2453,7 @@
           "openWeights": true
         },
         {
-          "rank": 15,
+          "rank": 16,
           "name": "FLUX 3",
           "provider": "Black Forest Labs",
           "releasedAt": "2026-07-23",
@@ -2439,7 +2467,7 @@
           "openWeights": false
         },
         {
-          "rank": 16,
+          "rank": 17,
           "name": "Dreamina Seedance 2.5 Flash (720p)",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-11-12",
@@ -2453,7 +2481,7 @@
           "openWeights": false
         },
         {
-          "rank": 17,
+          "rank": 18,
           "name": "Dreamina Seedance 2.0",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-03-18",
@@ -2467,7 +2495,7 @@
           "openWeights": false
         },
         {
-          "rank": 18,
+          "rank": 19,
           "name": "Gemini Omni Flash 1.1",
           "provider": "Google",
           "releasedAt": "2026-08-28",
@@ -2481,7 +2509,7 @@
           "openWeights": false
         },
         {
-          "rank": 19,
+          "rank": 20,
           "name": "Agnes-Video-2.5",
           "provider": "Sapiens AI",
           "releasedAt": "2026-08-22",
@@ -2495,7 +2523,7 @@
           "openWeights": false
         },
         {
-          "rank": 20,
+          "rank": 21,
           "name": "PixVerse V6 Max",
           "provider": "PixVerse",
           "releasedAt": "2026-10-22",
@@ -2509,7 +2537,7 @@
           "openWeights": false
         },
         {
-          "rank": 21,
+          "rank": 22,
           "name": "Grok Imagine Video 1.5",
           "provider": "SpaceXAI",
           "releasedAt": "2026-05-30",
@@ -2523,7 +2551,7 @@
           "openWeights": false
         },
         {
-          "rank": 22,
+          "rank": 23,
           "name": "HappyHorse-1.1",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-06-22",
@@ -2537,7 +2565,7 @@
           "openWeights": false
         },
         {
-          "rank": 23,
+          "rank": 24,
           "name": "HappyHorse-1.0",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-04-07",
@@ -2551,7 +2579,7 @@
           "openWeights": false
         },
         {
-          "rank": 24,
+          "rank": 25,
           "name": "Wan2.7-260612",
           "provider": "Alibaba",
           "releasedAt": "2026-06-12",
@@ -2565,7 +2593,7 @@
           "openWeights": false
         },
         {
-          "rank": 25,
+          "rank": 26,
           "name": "MAGI-2 Preview",
           "provider": "Sand.ai",
           "releasedAt": "2026-09-12",
@@ -2579,7 +2607,7 @@
           "openWeights": false
         },
         {
-          "rank": 26,
+          "rank": 27,
           "name": "Kling 3.0 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -2593,7 +2621,7 @@
           "openWeights": false
         },
         {
-          "rank": 27,
+          "rank": 28,
           "name": "Kling 3.0 Omni 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -2607,7 +2635,7 @@
           "openWeights": false
         },
         {
-          "rank": 28,
+          "rank": 29,
           "name": "PixVerse V6",
           "provider": "PixVerse",
           "releasedAt": "2026-03-23",
@@ -2621,7 +2649,7 @@
           "openWeights": false
         },
         {
-          "rank": 29,
+          "rank": 30,
           "name": "Grok Imagine Video 1.5 Lite",
           "provider": "SpaceXAI",
           "releasedAt": "2026-08-26",
@@ -2635,7 +2663,7 @@
           "openWeights": false
         },
         {
-          "rank": 30,
+          "rank": 31,
           "name": "Veo 3.1",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -2649,7 +2677,7 @@
           "openWeights": false
         },
         {
-          "rank": 31,
+          "rank": 32,
           "name": "Veo 3.1 Fast",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -2663,7 +2691,7 @@
           "openWeights": false
         },
         {
-          "rank": 32,
+          "rank": 33,
           "name": "Veo 3.1 Lite",
           "provider": "Google",
           "releasedAt": "2026-03-31",
@@ -2677,7 +2705,7 @@
           "openWeights": false
         },
         {
-          "rank": 33,
+          "rank": 34,
           "name": "LTX-2.5 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -2691,7 +2719,7 @@
           "openWeights": true
         },
         {
-          "rank": 34,
+          "rank": 35,
           "name": "LTX-2.5 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -2705,7 +2733,7 @@
           "openWeights": true
         },
         {
-          "rank": 35,
+          "rank": 36,
           "name": "Runway Gen-4.5 (720p)",
           "provider": "Runway",
           "releasedAt": "2025-12-01",
@@ -2719,7 +2747,7 @@
           "openWeights": false
         },
         {
-          "rank": 36,
+          "rank": 37,
           "name": "Vidu Q3 Pro",
           "provider": "Vidu",
           "releasedAt": "2026-01-30",
@@ -2733,7 +2761,7 @@
           "openWeights": false
         },
         {
-          "rank": 37,
+          "rank": 38,
           "name": "Vidu Q3 Turbo",
           "provider": "Vidu",
           "releasedAt": "2026-02-09",
@@ -2747,7 +2775,7 @@
           "openWeights": false
         },
         {
-          "rank": 38,
+          "rank": 39,
           "name": "Kling O1 Pro (January)",
           "provider": "KlingAI",
           "releasedAt": "2026-01-13",
@@ -2761,7 +2789,7 @@
           "openWeights": false
         },
         {
-          "rank": 39,
+          "rank": 40,
           "name": "LTX-2.3 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",
@@ -2775,7 +2803,7 @@
           "openWeights": true
         },
         {
-          "rank": 40,
+          "rank": 41,
           "name": "LTX-2.3 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",
@@ -2789,7 +2817,7 @@
           "openWeights": true
         },
         {
-          "rank": 41,
+          "rank": 42,
           "name": "Pika 2.5",
           "provider": "Pika Art",
           "releasedAt": "2025-11-22",
@@ -2803,7 +2831,7 @@
           "openWeights": false
         },
         {
-          "rank": 42,
+          "rank": 43,
           "name": "Boreal",
           "provider": "Creatify",
           "releasedAt": "2026-09-15",
@@ -2817,7 +2845,7 @@
           "openWeights": false
         },
         {
-          "rank": 43,
+          "rank": 44,
           "name": "P-Video",
           "provider": "Pruna AI",
           "releasedAt": "2026-02-26",
@@ -2919,6 +2947,20 @@
         },
         {
           "rank": 6,
+          "name": "Kling 4.0",
+          "provider": "KlingAI",
+          "releasedAt": "2026-10-15",
+          "detailsUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "elo": 1138.73,
+          "comparisons": 3681,
+          "ciLow": 1122.73,
+          "ciHigh": 1154.73,
+          "price": 12.6,
+          "priceUnit": "$/分钟",
+          "openWeights": false
+        },
+        {
+          "rank": 7,
           "name": "MiniMax H3 (768p)",
           "provider": "MiniMax",
           "releasedAt": "2026-07-30",
@@ -2932,7 +2974,7 @@
           "openWeights": true
         },
         {
-          "rank": 7,
+          "rank": 8,
           "name": "Dreamina Seedance 2.5 Flash (720p)",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-11-12",
@@ -2946,7 +2988,7 @@
           "openWeights": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "name": "SkyReels V4",
           "provider": "Skywork AI",
           "releasedAt": "2026-03-18",
@@ -2960,7 +3002,7 @@
           "openWeights": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "name": "HeyGen Video 1",
           "provider": "HeyGen",
           "releasedAt": "2026-10-13",
@@ -2974,7 +3016,7 @@
           "openWeights": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "name": "Hyperflow H3",
           "provider": "Video Rebirth",
           "releasedAt": "2026-09-17",
@@ -2988,7 +3030,7 @@
           "openWeights": true
         },
         {
-          "rank": 11,
+          "rank": 12,
           "name": "P-Video-2-Pro",
           "provider": "Pruna AI",
           "releasedAt": "2026-09-17",
@@ -3002,7 +3044,7 @@
           "openWeights": false
         },
         {
-          "rank": 12,
+          "rank": 13,
           "name": "MiniMax H3 Max",
           "provider": "Fal",
           "releasedAt": "2026-08-26",
@@ -3016,7 +3058,7 @@
           "openWeights": false
         },
         {
-          "rank": 13,
+          "rank": 14,
           "name": "Pika H3 Flex",
           "provider": "Pika Art",
           "releasedAt": "2026-10-29",
@@ -3030,7 +3072,7 @@
           "openWeights": true
         },
         {
-          "rank": 14,
+          "rank": 15,
           "name": "Wan 3.0",
           "provider": "Alibaba",
           "releasedAt": "2026-08-19",
@@ -3044,7 +3086,7 @@
           "openWeights": false
         },
         {
-          "rank": 15,
+          "rank": 16,
           "name": "HiDream-O1-Video-1.0",
           "provider": "HiDream",
           "releasedAt": "2026-08-28",
@@ -3058,7 +3100,7 @@
           "openWeights": false
         },
         {
-          "rank": 16,
+          "rank": 17,
           "name": "Agnes-Video-2.5",
           "provider": "Sapiens AI",
           "releasedAt": "2026-08-22",
@@ -3072,7 +3114,7 @@
           "openWeights": false
         },
         {
-          "rank": 17,
+          "rank": 18,
           "name": "Gemini Omni Flash 1.2",
           "provider": "Google",
           "releasedAt": "2026-11-05",
@@ -3086,7 +3128,7 @@
           "openWeights": false
         },
         {
-          "rank": 18,
+          "rank": 19,
           "name": "FLUX 3",
           "provider": "Black Forest Labs",
           "releasedAt": "2026-07-23",
@@ -3100,7 +3142,7 @@
           "openWeights": false
         },
         {
-          "rank": 19,
+          "rank": 20,
           "name": "FLUX 3 Max",
           "provider": "Fal",
           "releasedAt": "2026-10-19",
@@ -3114,7 +3156,7 @@
           "openWeights": false
         },
         {
-          "rank": 20,
+          "rank": 21,
           "name": "PixVerse V6 Max",
           "provider": "PixVerse",
           "releasedAt": "2026-10-22",
@@ -3128,7 +3170,7 @@
           "openWeights": false
         },
         {
-          "rank": 21,
+          "rank": 22,
           "name": "Grok Imagine Video 1.5",
           "provider": "SpaceXAI",
           "releasedAt": "2026-05-30",
@@ -3142,7 +3184,7 @@
           "openWeights": false
         },
         {
-          "rank": 22,
+          "rank": 23,
           "name": "Gemini Omni Flash 1.1",
           "provider": "Google",
           "releasedAt": "2026-08-28",
@@ -3156,7 +3198,7 @@
           "openWeights": false
         },
         {
-          "rank": 23,
+          "rank": 24,
           "name": "HappyHorse-1.1",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-06-22",
@@ -3170,7 +3212,7 @@
           "openWeights": false
         },
         {
-          "rank": 24,
+          "rank": 25,
           "name": "Vidu Q4 Preview",
           "provider": "Vidu",
           "releasedAt": "2026-10-07",
@@ -3184,7 +3226,7 @@
           "openWeights": false
         },
         {
-          "rank": 25,
+          "rank": 26,
           "name": "HappyHorse-1.0",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-04-07",
@@ -3198,7 +3240,7 @@
           "openWeights": false
         },
         {
-          "rank": 26,
+          "rank": 27,
           "name": "Kling 3.0 Omni 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -3212,7 +3254,7 @@
           "openWeights": false
         },
         {
-          "rank": 27,
+          "rank": 28,
           "name": "Kling 3.0 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -3226,7 +3268,7 @@
           "openWeights": false
         },
         {
-          "rank": 28,
+          "rank": 29,
           "name": "Grok Imagine Video 1.5 Lite",
           "provider": "SpaceXAI",
           "releasedAt": "2026-08-26",
@@ -3240,7 +3282,7 @@
           "openWeights": false
         },
         {
-          "rank": 29,
+          "rank": 30,
           "name": "MAGI-2 Preview",
           "provider": "Sand.ai",
           "releasedAt": "2026-09-12",
@@ -3254,7 +3296,7 @@
           "openWeights": false
         },
         {
-          "rank": 30,
+          "rank": 31,
           "name": "Veo 3.1",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -3268,7 +3310,7 @@
           "openWeights": false
         },
         {
-          "rank": 31,
+          "rank": 32,
           "name": "PixVerse V6",
           "provider": "PixVerse",
           "releasedAt": "2026-03-23",
@@ -3282,7 +3324,7 @@
           "openWeights": false
         },
         {
-          "rank": 32,
+          "rank": 33,
           "name": "Veo 3.1 Fast",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -3296,7 +3338,7 @@
           "openWeights": false
         },
         {
-          "rank": 33,
+          "rank": 34,
           "name": "Veo 3.1 Lite",
           "provider": "Google",
           "releasedAt": "2026-03-31",
@@ -3310,7 +3352,7 @@
           "openWeights": false
         },
         {
-          "rank": 34,
+          "rank": 35,
           "name": "Vidu Q3 Pro",
           "provider": "Vidu",
           "releasedAt": "2026-01-30",
@@ -3324,7 +3366,7 @@
           "openWeights": false
         },
         {
-          "rank": 35,
+          "rank": 36,
           "name": "LTX-2.5 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -3338,7 +3380,7 @@
           "openWeights": true
         },
         {
-          "rank": 36,
+          "rank": 37,
           "name": "LTX-2.5 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -3352,7 +3394,7 @@
           "openWeights": true
         },
         {
-          "rank": 37,
+          "rank": 38,
           "name": "Vidu Q3 Turbo",
           "provider": "Vidu",
           "releasedAt": "2026-02-09",
@@ -3366,7 +3408,7 @@
           "openWeights": false
         },
         {
-          "rank": 38,
+          "rank": 39,
           "name": "LTX-2.3 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",
@@ -3380,7 +3422,7 @@
           "openWeights": true
         },
         {
-          "rank": 39,
+          "rank": 40,
           "name": "LTX-2.3 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",
@@ -3440,6 +3482,20 @@
         },
         {
           "rank": 3,
+          "name": "Kling 4.0",
+          "provider": "KlingAI",
+          "releasedAt": "2026-10-15",
+          "detailsUrl": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+          "elo": 1132.4,
+          "comparisons": 3722,
+          "ciLow": 1116.4,
+          "ciHigh": 1148.4,
+          "price": 12.6,
+          "priceUnit": "$/分钟",
+          "openWeights": false
+        },
+        {
+          "rank": 4,
           "name": "Dreamina Seedance 2.5",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-07-31",
@@ -3453,7 +3509,7 @@
           "openWeights": false
         },
         {
-          "rank": 4,
+          "rank": 5,
           "name": "Hyperflow H3",
           "provider": "Video Rebirth",
           "releasedAt": "2026-09-17",
@@ -3467,7 +3523,7 @@
           "openWeights": true
         },
         {
-          "rank": 5,
+          "rank": 6,
           "name": "MiniMax H3 Max",
           "provider": "Fal",
           "releasedAt": "2026-08-26",
@@ -3481,7 +3537,7 @@
           "openWeights": false
         },
         {
-          "rank": 6,
+          "rank": 7,
           "name": "Bach 1.0 Pro",
           "provider": "Video Rebirth",
           "releasedAt": "2026-09-29",
@@ -3495,7 +3551,7 @@
           "openWeights": false
         },
         {
-          "rank": 7,
+          "rank": 8,
           "name": "Boreal-H3",
           "provider": "Creatify",
           "releasedAt": "2026-10-07",
@@ -3509,7 +3565,7 @@
           "openWeights": false
         },
         {
-          "rank": 8,
+          "rank": 9,
           "name": "SkyReels V4",
           "provider": "Skywork AI",
           "releasedAt": "2026-03-18",
@@ -3523,7 +3579,7 @@
           "openWeights": false
         },
         {
-          "rank": 9,
+          "rank": 10,
           "name": "Agnes-Video-2.5",
           "provider": "Sapiens AI",
           "releasedAt": "2026-08-22",
@@ -3537,7 +3593,7 @@
           "openWeights": false
         },
         {
-          "rank": 10,
+          "rank": 11,
           "name": "Dreamina Seedance 2.5 Flash (720p)",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-11-12",
@@ -3551,7 +3607,7 @@
           "openWeights": false
         },
         {
-          "rank": 11,
+          "rank": 12,
           "name": "MiniMax H3 (768p)",
           "provider": "MiniMax",
           "releasedAt": "2026-07-30",
@@ -3565,7 +3621,7 @@
           "openWeights": true
         },
         {
-          "rank": 12,
+          "rank": 13,
           "name": "P-Video-2-Pro",
           "provider": "Pruna AI",
           "releasedAt": "2026-09-17",
@@ -3579,7 +3635,7 @@
           "openWeights": false
         },
         {
-          "rank": 13,
+          "rank": 14,
           "name": "HeyGen Video 1",
           "provider": "HeyGen",
           "releasedAt": "2026-10-13",
@@ -3593,7 +3649,7 @@
           "openWeights": false
         },
         {
-          "rank": 14,
+          "rank": 15,
           "name": "Pika H3 Flex",
           "provider": "Pika Art",
           "releasedAt": "2026-10-29",
@@ -3607,7 +3663,7 @@
           "openWeights": true
         },
         {
-          "rank": 15,
+          "rank": 16,
           "name": "Dreamina Seedance 2.0",
           "provider": "ByteDance Seed",
           "releasedAt": "2026-03-18",
@@ -3621,7 +3677,7 @@
           "openWeights": false
         },
         {
-          "rank": 16,
+          "rank": 17,
           "name": "HiDream-O1-Video-1.0",
           "provider": "HiDream",
           "releasedAt": "2026-08-28",
@@ -3635,7 +3691,7 @@
           "openWeights": false
         },
         {
-          "rank": 17,
+          "rank": 18,
           "name": "Wan 3.0",
           "provider": "Alibaba",
           "releasedAt": "2026-08-19",
@@ -3649,7 +3705,7 @@
           "openWeights": false
         },
         {
-          "rank": 18,
+          "rank": 19,
           "name": "PixVerse V6 Max",
           "provider": "PixVerse",
           "releasedAt": "2026-10-22",
@@ -3663,7 +3719,7 @@
           "openWeights": false
         },
         {
-          "rank": 19,
+          "rank": 20,
           "name": "Gemini Omni Flash 1.2",
           "provider": "Google",
           "releasedAt": "2026-11-05",
@@ -3677,7 +3733,7 @@
           "openWeights": false
         },
         {
-          "rank": 20,
+          "rank": 21,
           "name": "FLUX 3 Max",
           "provider": "Fal",
           "releasedAt": "2026-10-19",
@@ -3691,7 +3747,7 @@
           "openWeights": false
         },
         {
-          "rank": 21,
+          "rank": 22,
           "name": "Grok Imagine Video 1.5",
           "provider": "SpaceXAI",
           "releasedAt": "2026-05-30",
@@ -3705,7 +3761,7 @@
           "openWeights": false
         },
         {
-          "rank": 22,
+          "rank": 23,
           "name": "FLUX 3",
           "provider": "Black Forest Labs",
           "releasedAt": "2026-07-23",
@@ -3719,7 +3775,7 @@
           "openWeights": false
         },
         {
-          "rank": 23,
+          "rank": 24,
           "name": "HappyHorse-1.1",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-06-22",
@@ -3733,7 +3789,7 @@
           "openWeights": false
         },
         {
-          "rank": 24,
+          "rank": 25,
           "name": "Gemini Omni Flash 1.1",
           "provider": "Google",
           "releasedAt": "2026-08-28",
@@ -3747,7 +3803,7 @@
           "openWeights": false
         },
         {
-          "rank": 25,
+          "rank": 26,
           "name": "HappyHorse-1.0",
           "provider": "Alibaba-ATH",
           "releasedAt": "2026-04-07",
@@ -3761,7 +3817,7 @@
           "openWeights": false
         },
         {
-          "rank": 26,
+          "rank": 27,
           "name": "Kling 3.0 Omni 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -3775,7 +3831,7 @@
           "openWeights": false
         },
         {
-          "rank": 27,
+          "rank": 28,
           "name": "Kling 3.0 1080p (Pro)",
           "provider": "KlingAI",
           "releasedAt": "2026-02-04",
@@ -3789,7 +3845,7 @@
           "openWeights": false
         },
         {
-          "rank": 28,
+          "rank": 29,
           "name": "Grok Imagine Video 1.5 Lite",
           "provider": "SpaceXAI",
           "releasedAt": "2026-08-26",
@@ -3803,7 +3859,7 @@
           "openWeights": false
         },
         {
-          "rank": 29,
+          "rank": 30,
           "name": "Vidu Q4 Preview",
           "provider": "Vidu",
           "releasedAt": "2026-10-07",
@@ -3817,7 +3873,7 @@
           "openWeights": false
         },
         {
-          "rank": 30,
+          "rank": 31,
           "name": "MAGI-2 Preview",
           "provider": "Sand.ai",
           "releasedAt": "2026-09-12",
@@ -3831,7 +3887,7 @@
           "openWeights": false
         },
         {
-          "rank": 31,
+          "rank": 32,
           "name": "Veo 3.1",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -3845,7 +3901,7 @@
           "openWeights": false
         },
         {
-          "rank": 32,
+          "rank": 33,
           "name": "PixVerse V6",
           "provider": "PixVerse",
           "releasedAt": "2026-03-23",
@@ -3859,7 +3915,7 @@
           "openWeights": false
         },
         {
-          "rank": 33,
+          "rank": 34,
           "name": "Veo 3.1 Fast",
           "provider": "Google",
           "releasedAt": "2026-01-30",
@@ -3873,7 +3929,7 @@
           "openWeights": false
         },
         {
-          "rank": 34,
+          "rank": 35,
           "name": "Vidu Q3 Turbo",
           "provider": "Vidu",
           "releasedAt": "2026-02-09",
@@ -3887,7 +3943,7 @@
           "openWeights": false
         },
         {
-          "rank": 35,
+          "rank": 36,
           "name": "Veo 3.1 Lite",
           "provider": "Google",
           "releasedAt": "2026-03-31",
@@ -3901,7 +3957,7 @@
           "openWeights": false
         },
         {
-          "rank": 36,
+          "rank": 37,
           "name": "LTX-2.5 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -3915,7 +3971,7 @@
           "openWeights": true
         },
         {
-          "rank": 37,
+          "rank": 38,
           "name": "Vidu Q3 Pro",
           "provider": "Vidu",
           "releasedAt": "2026-01-30",
@@ -3929,7 +3985,7 @@
           "openWeights": false
         },
         {
-          "rank": 38,
+          "rank": 39,
           "name": "LTX-2.5 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-08-11",
@@ -3943,7 +3999,7 @@
           "openWeights": true
         },
         {
-          "rank": 39,
+          "rank": 40,
           "name": "Runway Gen-4.5 (720p)",
           "provider": "Runway",
           "releasedAt": "2025-12-01",
@@ -3957,7 +4013,7 @@
           "openWeights": false
         },
         {
-          "rank": 40,
+          "rank": 41,
           "name": "Kling O1 Pro (January)",
           "provider": "KlingAI",
           "releasedAt": "2026-01-13",
@@ -3971,7 +4027,7 @@
           "openWeights": false
         },
         {
-          "rank": 41,
+          "rank": 42,
           "name": "Pika 2.5",
           "provider": "Pika Art",
           "releasedAt": "2025-11-22",
@@ -3985,7 +4041,7 @@
           "openWeights": false
         },
         {
-          "rank": 42,
+          "rank": 43,
           "name": "LTX-2.3 Fast",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",
@@ -3999,7 +4055,7 @@
           "openWeights": true
         },
         {
-          "rank": 43,
+          "rank": 44,
           "name": "Ray 3.2",
           "provider": "Luma Labs",
           "releasedAt": "2026-06-09",
@@ -4013,7 +4069,7 @@
           "openWeights": false
         },
         {
-          "rank": 44,
+          "rank": 45,
           "name": "LTX-2.3 Pro",
           "provider": "Lightricks",
           "releasedAt": "2026-03-05",

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-25T13:00:09Z",
+  "checkedAt": "2026-11-26T12:21:41Z",
   "sourceIds": [
     "seed-official",
     "kuaishou-ir",
@@ -10,12 +10,33 @@
     "vidu-api-updates",
     "qwen-image-updates",
     "xai-model-updates",
-    "pika-h3-flex-updates",
-    "luma-ray-updates",
     "meta-models",
     "qwen3-tts-releases",
     "claude-code-releases",
     "qwen-agent-releases",
-    "codex-cli-releases"
+    "codex-cli-releases",
+    "anthropic-model-news",
+    "google-gemini-news",
+    "deepseek-news",
+    "pixverse-news",
+    "pixverse-zh-blog",
+    "elevenlabs-news",
+    "xai-news",
+    "mureka-changelog",
+    "midjourney-updates",
+    "kimi-announcement",
+    "minimax-blog",
+    "alibaba-model-studio",
+    "niji-blog",
+    "tencent-model-news",
+    "google-official-feed",
+    "deepmind-news",
+    "qwen-image-repo",
+    "hunyuan-video-repo",
+    "hunyuan-image-repo",
+    "hunyuan-mt3-repo",
+    "qwen-cloud-model-releases",
+    "openai-developer-announcements",
+    "elevenlabs-changelog"
   ]
 }

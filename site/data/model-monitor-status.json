@@ -1,21 +1,183 @@
 {
-  "checkedAt": "2026-11-25T13:00:09Z",
-  "totalSources": 16,
-  "successSources": 14,
-  "failedSources": 2,
-  "newUpdates": 2,
+  "zeroMatchSources": 7,
+  "coverage": {
+    "catalogFamilies": 91,
+    "configuredFamilies": 60,
+    "unmappedFamilyIds": [],
+    "unmonitoredFamilyIds": [
+      "agnes-image-25-flash",
+      "agnes-llm",
+      "agnes-video-25",
+      "antigravity",
+      "canva-craft",
+      "cognition-swe",
+      "fish-audio-drama",
+      "fish-audio-s2",
+      "flux",
+      "flux3-video",
+      "glm",
+      "heygen-video",
+      "heygen-voice",
+      "hidream-o1-video",
+      "inclusionai-ling",
+      "llama",
+      "ltx",
+      "magi-2",
+      "mai-code",
+      "mai-image",
+      "mimo",
+      "ovhcloud-olala",
+      "prismml-bonsai",
+      "recraft",
+      "runway-gen45",
+      "sensenova-loop",
+      "sensenova-u",
+      "skyreels-v4",
+      "step-5",
+      "stepaudio-3-tts",
+      "workbuddy"
+    ]
+  },
+  "checkedAt": "2026-11-26T12:21:41Z",
+  "totalSources": 37,
+  "successSources": 36,
+  "failedSources": 1,
+  "newUpdates": 221,
+  "newRecentDated": 19,
+  "newUndated": 9,
+  "newHistorical": 193,
+  "newFutureDated": 0,
   "sources": [
+    {
+      "id": "anthropic-model-news",
+      "name": "Anthropic 官方新闻",
+      "type": "html",
+      "url": "https://www.anthropic.com/news",
+      "effectiveUrl": "https://www.anthropic.com/news",
+      "attempts": [
+        {
+          "url": "https://www.anthropic.com/news",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 11,
+      "latestItemAt": "2026-11-09T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
     {
       "id": "claude-code-releases",
       "name": "Claude Code 官方 GitHub Releases",
       "type": "rss",
       "url": "https://github.com/anthropics/claude-code/releases.atom",
+      "effectiveUrl": "https://github.com/anthropics/claude-code/releases.atom",
+      "attempts": [
+        {
+          "url": "https://github.com/anthropics/claude-code/releases.atom",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 10,
       "latestItemAt": "2026-11-25T01:32:14Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "deepseek-news",
+      "name": "DeepSeek 官方更新日志",
+      "type": "html",
+      "url": "https://api-docs.deepseek.com/updates/",
+      "effectiveUrl": "https://api-docs.deepseek.com/updates/",
+      "attempts": [
+        {
+          "url": "https://api-docs.deepseek.com/updates/",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 2,
+      "latestItemAt": null,
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "elevenlabs-news",
+      "name": "ElevenLabs 官方博客",
+      "type": "html",
+      "url": "https://elevenlabs.io/blog",
+      "effectiveUrl": "https://elevenlabs.io/blog",
+      "attempts": [
+        {
+          "url": "https://elevenlabs.io/blog",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 2,
+      "latestItemAt": "2026-09-28T12:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "elevenlabs-changelog",
+      "name": "ElevenLabs 官方开发更新日志",
+      "type": "model-cards",
+      "url": "https://elevenlabs.io/docs/changelog",
+      "effectiveUrl": "https://elevenlabs.io/docs/changelog",
+      "attempts": [
+        {
+          "url": "https://elevenlabs.io/docs/changelog",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 0,
+      "latestItemAt": null,
+      "resultStatus": "zero-match",
+      "lastMatchAt": null,
+      "error": null
+    },
+    {
+      "id": "deepmind-news",
+      "name": "Google DeepMind 官方新闻",
+      "type": "html",
+      "url": "https://deepmind.google/blog/",
+      "effectiveUrl": "https://deepmind.google/blog/",
+      "attempts": [
+        {
+          "url": "https://deepmind.google/blog/",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 4,
+      "latestItemAt": null,
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
@@ -23,38 +185,109 @@
       "name": "Google DeepMind 官方模型卡",
       "type": "model-cards",
       "url": "https://deepmind.google/models/model-cards/",
+      "effectiveUrl": "https://deepmind.google/models/model-cards/",
+      "attempts": [
+        {
+          "url": "https://deepmind.google/models/model-cards/",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
-      "itemCount": 6,
-      "latestItemAt": "2026-10-06T00:00:00Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 32,
+      "latestItemAt": "2026-11-18T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "google-gemini-news",
+      "name": "Google Gemini 模型发布",
+      "type": "html",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/",
+      "effectiveUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/",
+      "attempts": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 0,
+      "latestItemAt": null,
+      "resultStatus": "zero-match",
+      "lastMatchAt": null,
+      "error": null
+    },
+    {
+      "id": "google-official-feed",
+      "name": "Google 官方 AI 新闻 RSS",
+      "type": "rss",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+      "effectiveUrl": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+      "attempts": [
+        {
+          "url": "https://blog.google/innovation-and-ai/technology/ai/rss/",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 1,
+      "latestItemAt": "2026-11-05T17:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "kimi-announcement",
+      "name": "Kimi 官方公告目录",
+      "type": "html",
+      "url": "https://forum.moonshot.ai/c/announcement/5",
+      "effectiveUrl": "https://forum.moonshot.ai/c/announcement/5",
+      "attempts": [
+        {
+          "url": "https://forum.moonshot.ai/c/announcement/5",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 2,
+      "latestItemAt": "2026-10-23T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
       "id": "kuaishou-ir",
-      "name": "Kling 官方 API 更新记录",
+      "name": "Kling 官方发布博客",
       "type": "html",
-      "url": "https://kling.ai/document-api/updates/api",
+      "url": "https://kling.ai/blog",
+      "effectiveUrl": "https://kling.ai/blog",
+      "attempts": [
+        {
+          "url": "https://kling.ai/blog",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": null,
-      "itemCount": 0,
-      "latestItemAt": null,
-      "error": "ValueError: Expected model text is absent; the official page may be client-rendered or changed"
-    },
-    {
-      "id": "luma-ray-updates",
-      "name": "Luma Ray 官方更新指南",
-      "type": "html",
-      "url": "https://lumalabs.ai/learning-hub/ray314-user-guide",
-      "active": true,
-      "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
-      "itemCount": 0,
-      "latestItemAt": null,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 1,
+      "latestItemAt": "2026-11-20T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
@@ -62,12 +295,43 @@
       "name": "Meta Superintelligence Labs 官方模型发布",
       "type": "html",
       "url": "https://ai.meta.com/research/",
+      "effectiveUrl": "https://ai.meta.com/research/",
+      "attempts": [
+        {
+          "url": "https://ai.meta.com/research/",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 4,
       "latestItemAt": "2026-10-12T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "midjourney-updates",
+      "name": "Midjourney 官方更新目录",
+      "type": "html",
+      "url": "https://updates.midjourney.com/",
+      "effectiveUrl": "https://updates.midjourney.com/",
+      "attempts": [
+        {
+          "url": "https://updates.midjourney.com/",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 0,
+      "latestItemAt": null,
+      "resultStatus": "zero-match",
+      "lastMatchAt": null,
       "error": null
     },
     {
@@ -75,51 +339,245 @@
       "name": "MiniMax 官方最新发布",
       "type": "html",
       "url": "https://ir.minimax.io/zh/news-events/new-releases",
+      "effectiveUrl": "https://ir.minimax.io/zh/news-events/new-releases",
+      "attempts": [
+        {
+          "url": "https://ir.minimax.io/zh/news-events/new-releases",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
-      "itemCount": 1,
-      "latestItemAt": "2026-08-03T00:00:00Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 3,
+      "latestItemAt": "2026-11-03T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
+    },
+    {
+      "id": "minimax-blog",
+      "name": "MiniMax 官方研究博客",
+      "type": "html",
+      "url": "https://www.minimax.io/blog",
+      "effectiveUrl": "https://www.minimax.io/blog",
+      "attempts": [
+        {
+          "url": "https://www.minimax.io/blog",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 1,
+      "latestItemAt": "2026-08-13T13:33:59Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "mureka-changelog",
+      "name": "Mureka 官方更新日志",
+      "type": "model-cards",
+      "url": "https://platform.mureka.ai/docs/en/changelog.html",
+      "effectiveUrl": "https://platform.mureka.ai/docs/en/changelog.html",
+      "attempts": [
+        {
+          "url": "https://platform.mureka.ai/docs/en/changelog.html",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 10,
+      "latestItemAt": "2026-11-17T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "niji-blog",
+      "name": "Niji Journey 官方博客",
+      "type": "niji-release-index",
+      "url": "https://nijijourney.com/blog",
+      "effectiveUrl": null,
+      "attempts": [
+        {
+          "url": "https://nijijourney.com/blog",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
+        },
+        {
+          "url": "https://nijijourney.com/zh/blog",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": null,
+      "itemCount": 0,
+      "latestItemAt": null,
+      "resultStatus": "failed",
+      "lastMatchAt": null,
+      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "codex-cli-releases",
       "name": "OpenAI Codex CLI 官方 GitHub Releases",
       "type": "rss",
       "url": "https://github.com/openai/codex/releases.atom",
+      "effectiveUrl": "https://github.com/openai/codex/releases.atom",
+      "attempts": [
+        {
+          "url": "https://github.com/openai/codex/releases.atom",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 10,
-      "latestItemAt": "2026-11-25T01:23:23Z",
+      "latestItemAt": "2026-11-26T04:42:57Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
       "id": "openai-news",
-      "name": "OpenAI 官方动态",
-      "type": "html",
-      "url": "https://openai.com/news/",
+      "name": "OpenAI 官方新闻 RSS",
+      "type": "rss",
+      "url": "https://openai.com/news/rss.xml",
+      "effectiveUrl": "https://openai.com/news/rss.xml",
+      "attempts": [
+        {
+          "url": "https://openai.com/news/rss.xml",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
-      "itemCount": 0,
-      "latestItemAt": null,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 3,
+      "latestItemAt": "2026-11-17T17:45:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
-      "id": "pika-h3-flex-updates",
-      "name": "Pika H3 Flex 官方发布",
-      "type": "html",
-      "url": "https://pika.art/blog/pika-h3-flex-research",
+      "id": "openai-developer-announcements",
+      "name": "OpenAI 开发者官方公告",
+      "type": "rss",
+      "url": "https://community.openai.com/c/announcements/6.rss",
+      "effectiveUrl": "https://community.openai.com/c/announcements/6.rss",
+      "attempts": [
+        {
+          "url": "https://community.openai.com/c/announcements/6.rss",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
-      "itemCount": 1,
-      "latestItemAt": "2026-10-29T00:00:00Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 3,
+      "latestItemAt": "2026-11-20T04:12:19Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "pixverse-zh-blog",
+      "name": "PixVerse 中文官方博客",
+      "type": "html",
+      "url": "https://pixverse.ai/zh/blog",
+      "effectiveUrl": "https://pixverse.ai/zh/blog",
+      "attempts": [
+        {
+          "url": "https://pixverse.ai/zh/blog",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 7,
+      "latestItemAt": "2026-11-17T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "pixverse-news",
+      "name": "PixVerse 英文官方博客",
+      "type": "html",
+      "url": "https://pixverse.ai/en/blog",
+      "effectiveUrl": "https://pixverse.ai/en/blog",
+      "attempts": [
+        {
+          "url": "https://pixverse.ai/en/blog",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 5,
+      "latestItemAt": "2026-11-17T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "qwen-image-repo",
+      "name": "Qwen Image 官方仓库 News",
+      "type": "markdown-news",
+      "url": "https://raw.githubusercontent.com/QwenLM/Qwen-Image/main/README.md",
+      "effectiveUrl": "https://raw.githubusercontent.com/QwenLM/Qwen-Image/main/README.md",
+      "attempts": [
+        {
+          "url": "https://raw.githubusercontent.com/QwenLM/Qwen-Image/main/README.md",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 22,
+      "latestItemAt": "2026-02-10T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "qwen-image-updates",
+      "name": "Qwen 官方首页发布目录",
+      "type": "html",
+      "url": "https://qwen.ai/home",
+      "effectiveUrl": "https://qwen.ai/home",
+      "attempts": [
+        {
+          "url": "https://qwen.ai/home",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 0,
+      "latestItemAt": null,
+      "resultStatus": "zero-match",
+      "lastMatchAt": null,
       "error": null
     },
     {
@@ -127,12 +585,21 @@
       "name": "Qwen-Agent 官方 GitHub Releases",
       "type": "rss",
       "url": "https://github.com/QwenLM/Qwen-Agent/releases.atom",
+      "effectiveUrl": "https://github.com/QwenLM/Qwen-Agent/releases.atom",
+      "attempts": [
+        {
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases.atom",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 10,
       "latestItemAt": "2025-05-29T09:36:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
@@ -140,12 +607,43 @@
       "name": "Qwen3-TTS 官方发布与版本记录",
       "type": "markdown-news",
       "url": "https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/README.md",
+      "effectiveUrl": "https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/README.md",
+      "attempts": [
+        {
+          "url": "https://raw.githubusercontent.com/QwenLM/Qwen3-TTS/main/README.md",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 1,
       "latestItemAt": "2026-01-22T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "qwen-cloud-model-releases",
+      "name": "QwenCloud 官方模型发布日志",
+      "type": "model-cards",
+      "url": "https://docs.qwencloud.com/changelog/models",
+      "effectiveUrl": "https://docs.qwencloud.com/changelog/models",
+      "attempts": [
+        {
+          "url": "https://docs.qwencloud.com/changelog/models",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 0,
+      "latestItemAt": null,
+      "resultStatus": "zero-match",
+      "lastMatchAt": null,
       "error": null
     },
     {
@@ -153,12 +651,21 @@
       "name": "Suno 官方更新日志",
       "type": "html",
       "url": "https://suno.com/release-notes",
+      "effectiveUrl": "https://suno.com/release-notes",
+      "attempts": [
+        {
+          "url": "https://suno.com/release-notes",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
-      "itemCount": 9,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 12,
       "latestItemAt": "2026-09-09T15:10:20Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
@@ -166,12 +673,21 @@
       "name": "Vidu 官方模型更新日志",
       "type": "model-cards",
       "url": "https://platform.vidu.com/docs/api-reference/updates",
+      "effectiveUrl": "https://platform.vidu.com/docs/api-reference/updates",
+      "attempts": [
+        {
+          "url": "https://platform.vidu.com/docs/api-reference/updates",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
-      "itemCount": 1,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 12,
       "latestItemAt": "2026-10-07T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
@@ -179,12 +695,43 @@
       "name": "xAI Imagine 官方模型更新",
       "type": "html",
       "url": "https://docs.x.ai/developers/release-notes",
+      "effectiveUrl": "https://docs.x.ai/developers/release-notes",
+      "attempts": [
+        {
+          "url": "https://docs.x.ai/developers/release-notes",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 0,
       "latestItemAt": null,
+      "resultStatus": "zero-match",
+      "lastMatchAt": null,
+      "error": null
+    },
+    {
+      "id": "xai-news",
+      "name": "xAI 官方新闻",
+      "type": "html",
+      "url": "https://x.ai/news",
+      "effectiveUrl": "https://x.ai/news",
+      "attempts": [
+        {
+          "url": "https://x.ai/news",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 11,
+      "latestItemAt": "2026-09-22T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
@@ -192,26 +739,132 @@
       "name": "字节跳动 Seed 官方动态",
       "type": "html",
       "url": "https://seed.bytedance.com/zh/",
+      "effectiveUrl": "https://seed.bytedance.com/zh/",
+      "attempts": [
+        {
+          "url": "https://seed.bytedance.com/zh/",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": "2026-11-25T13:00:09Z",
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-16T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
       "error": null
     },
     {
-      "id": "qwen-image-updates",
-      "name": "通义千问图像模型官方发布",
-      "type": "html",
-      "url": "https://qwen.ai/blog?id=qwen-image-3.0",
+      "id": "hunyuan-mt3-repo",
+      "name": "腾讯 Hy-MT3 官方仓库 News",
+      "type": "markdown-news",
+      "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/Hy-MT3/main/README.md",
+      "effectiveUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/Hy-MT3/main/README.md",
+      "attempts": [
+        {
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/Hy-MT3/main/README.md",
+          "error": null
+        }
+      ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-25T13:00:09Z",
-      "lastSuccessAt": null,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 1,
+      "latestItemAt": "2025-09-01T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "tencent-model-news",
+      "name": "腾讯混元产品动态",
+      "type": "model-cards",
+      "url": "https://cloud.tencent.com/document/product/1729/97765",
+      "effectiveUrl": "https://cloud.tencent.com/document/product/1729/97765",
+      "attempts": [
+        {
+          "url": "https://cloud.tencent.com/document/product/1729/97765",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
       "itemCount": 0,
       "latestItemAt": null,
-      "error": "ValueError: Expected model text is absent; the official page may be client-rendered or changed"
+      "resultStatus": "zero-match",
+      "lastMatchAt": null,
+      "error": null
+    },
+    {
+      "id": "hunyuan-image-repo",
+      "name": "腾讯混元图像官方仓库 News",
+      "type": "markdown-news",
+      "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanImage-3.0/main/README.md",
+      "effectiveUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanImage-3.0/main/README.md",
+      "attempts": [
+        {
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanImage-3.0/main/README.md",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 5,
+      "latestItemAt": "2026-01-26T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "hunyuan-video-repo",
+      "name": "腾讯混元视频官方仓库 News",
+      "type": "markdown-news",
+      "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo/main/README.md",
+      "effectiveUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo/main/README.md",
+      "attempts": [
+        {
+          "url": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo/main/README.md",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 7,
+      "latestItemAt": "2025-11-21T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
+    },
+    {
+      "id": "alibaba-model-studio",
+      "name": "阿里云百炼新模型目录",
+      "type": "dated-headings",
+      "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+      "effectiveUrl": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+      "attempts": [
+        {
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "error": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T12:21:41Z",
+      "lastSuccessAt": "2026-11-26T12:21:41Z",
+      "itemCount": 80,
+      "latestItemAt": "2026-11-23T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T12:21:41Z",
+      "error": null
     }
   ]
 }
