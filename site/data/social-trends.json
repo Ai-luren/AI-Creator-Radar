@@ -1,7 +1,7 @@
 {
   "source": "Google Trends RSS",
   "sourceUrl": "https://trends.google.com/trending",
-  "fetchedAt": "2026-11-26T12:23:10Z",
+  "fetchedAt": "2026-11-26T19:05:10Z",
   "window": "7d",
   "metricDefinition": "approxSearchTraffic is an approximate search-volume bucket supplied by Google Trends. It is not a social-platform engagement metric.",
   "regions": {
@@ -40,9 +40,9 @@
   },
   "items": [
     {
-      "id": "google-search-trend-e0787824558b",
+      "id": "google-search-trend-78da446c00ae",
       "type": "search-trend",
-      "title": "bihar cricket team vs punjab cricket team standings",
+      "title": "nfl scores",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -50,46 +50,46 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "IN",
-      "regionName": "印度",
-      "publishedAt": "2026-11-26T12:00:00Z",
-      "approxSearchTraffic": "5000+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=bihar+cricket+team+vs+punjab+cricket+team+standings",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-26T18:10:00Z",
+      "approxSearchTraffic": "10000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl+scores",
       "relatedNews": [
         {
-          "title": "Punjab vs Bihar, Match 103, 26 Nov 2026 – Stats | Syed Mushtaq Ali Trophy Elite 2026/27 | Match Centre",
-          "source": "BCCI",
-          "url": "https://www.bcci.tv/matches/d0eeaf74-f1db-41ec-a11b-d59aad4c1768/punjab-vs-bihar/stats",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-mSZBbpHKFNPsZKmcCTnPnDBcRklLo9iH2Wh8ajT64M7dcyJ1m2KlJl28A_0"
+          "title": "2026 NFL Thanksgiving preview: Picks, predictions, schedule, odds, fantasy tips",
+          "source": "ESPN",
+          "url": "https://www.espn.com/nfl/story/_/id/50582822/thanksgiving-games-picks-schedule-fantasy-odds-2026",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSXbsHvlV8NFSmf2_UJaftAdVD0UsH3E_Tos-hyFigB-cmMehI45BxQIfeykw"
         },
         {
-          "title": "PUN vs BIH, Elite Group B, Syed Mushtaq Ali Trophy Elite 2026 - Commentary",
-          "source": "Cricbuzz",
-          "url": "https://m.cricbuzz.com/live-cricket-scores/165281/bih-vs-pun-elite-group-b-syed-mushtaq-ali-trophy-elite-2026",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkHq1Anlbsl78dH8mm6QdWkBKcgaJRZaBGdxxIVeRxD63XFs5IRKTrXOiXty8"
+          "title": "Underdog Thanksgiving Promo Code FOXNEWS: Play $10, Get $50 on Lions-Bears, Cowboys-Eagles, or Bills-Chiefs",
+          "source": "Fox News",
+          "url": "https://www.foxnews.com/outkick-betting/underdog-thanksgiving-promo-code-foxnews-play-10-get-50-on-lions-bears-cowboys-eagles-or-bills-chiefs",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTUYTksuDE-BtxG26EJvBFzCoWPnjLjV69BdvtbflZNY7xr3TKaxXfhtIVqjrk"
         },
         {
-          "title": "Punjab vs Bihar Live Scorecard: Live Cricket Score PUN vs BIH, Match 122, Syed Mushtaq Ali Trophy, 2026",
-          "source": "India Today",
-          "url": "https://www.indiatoday.in/live-score/cricket/punjab-bihar-live-cricket-scorecard-273323",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ2TVozts-0Ge02psZu9KvOdbuRDoT_S71yLsaCwVyMgieFDWc0C1mYOAcuw4"
+          "title": "NFL DFS Thanksgiving Day Picks for DraftKings and FanDuel (Fantasy Football)",
+          "source": "Fantasy Footballers Podcast",
+          "url": "https://www.thefantasyfootballers.com/dfs/nfl-dfs-thanksgiving-day-picks-for-draftkings-and-fanduel-fantasy-football-2/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRiCnse5-TJFF5xPKmEsyEwl0VRLxzkxfIpyBfMM1jWAFsrlf67Bu1vZKoQ738"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "IN",
-          "regionName": "印度",
-          "publishedAt": "2026-11-26T12:00:00Z",
-          "approxSearchTraffic": "5000+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=bihar+cricket+team+vs+punjab+cricket+team+standings"
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-26T18:10:00Z",
+          "approxSearchTraffic": "10000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl+scores"
         }
       ]
     },
     {
-      "id": "google-search-trend-e787b1e0957d",
+      "id": "google-search-trend-cb29cb7fb4fd",
       "type": "search-trend",
-      "title": "india a vs sri lanka a",
+      "title": "nfl",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -97,48 +97,95 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "KR",
-      "regionName": "韩国",
-      "publishedAt": "2026-11-26T09:50:00Z",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-26T18:20:00Z",
       "approxSearchTraffic": "500+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=KR&q=india+a+vs+sri+lanka+a",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl",
       "relatedNews": [
         {
-          "title": "India A vs Sri Lanka A Live Score: IND-A (203/4 in 32.1 ov), Tilak falls as Sri Lanka fight back",
-          "source": "India Today",
-          "url": "https://www.indiatoday.in/sports/cricket/story/india-a-vs-sri-lanka-a-live-score-rising-stars-asia-cup-2026-semi-final-ind-a-vs-sl-a-match-3047337-2026-11-26",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQPXknu8W56fQ9KstYBpvH85glbgRN_pfFK_FdYR8q9XMeYJAjCcxBAwsDv5M"
+          "title": "2026 NFL Thanksgiving preview: Picks, predictions, schedule, odds, fantasy tips",
+          "source": "ESPN",
+          "url": "https://www.espn.com.au/nfl/story/_/id/50582822/thanksgiving-games-picks-schedule-fantasy-odds-2026",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ12G35_hx5uy0YV66VzkpnerYylGHr5eQzDHB_aew4Itt-6qsh9ieC4K6f1ME"
         },
         {
-          "title": "Vaibhav Sooryavanshi dismissed for 40 off 27 balls against Sri Lanka A in Asia Cup Rising Stars 2026 semifinal",
-          "source": "Sportstar",
-          "url": "https://sportstar.thehindu.com/cricket/vaibhav-sooryavanshi-score-asia-cup-rising-stars-2026-semifinal-india-a-vs-sri-lanka-a/article71746121.ece",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvQpcqLg5ORcbOx3ggF8Gbh_t9Xo6_l3yXlh65a-TpdyBTuModgnxCB9_DiRU"
+          "title": "NFL Thanksgiving slate: Two must-know storylines for each of five games",
+          "source": "NFL.com",
+          "url": "https://www.nfl.com/news/nfl-thanksgiving-slate-two-must-know-storylines-for-each-of-five-games",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIUiA2PK8gUz0T28VQ_ejfu-5rI823-hzi8tGny9R_QILkDiM1DVdpECcjq1s"
         },
         {
-          "title": "Live Cricket Score, Schedule, Latest News, Stats & Videos",
-          "source": "Cricbuzz",
-          "url": "https://m.cricbuzz.com/player-match-performance/match/177210/player/15779/batting",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPeYVLJtcQcHsIRGnJKZwIgowKEJDcPRq0TFTJB9IVvVXfFFL6gF00ZmhD8JA"
+          "title": "What channel is Thanksgiving football on? How to stream the Bears vs. Lions, Eagles vs. Cowboys and Chiefs vs. Bills games today",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nfl/article/what-channel-is-thanksgiving-football-on-how-to-stream-the-bears-vs-lions-eagles-vs-cowboys-and-chiefs-vs-bills-games-today-110000466.html",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE2Hi9XXg9-Zxzd4eHOccMO_uU0KCXSlnNCrjtFYRRQncRz1WpqdA_UFtJ3SI"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "KR",
-          "regionName": "韩国",
-          "publishedAt": "2026-11-26T09:50:00Z",
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-26T18:20:00Z",
           "approxSearchTraffic": "500+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=KR&q=india+a+vs+sri+lanka+a"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl"
         }
       ]
     },
     {
-      "id": "google-search-trend-cbbf1672da5f",
+      "id": "google-search-trend-779c3d7f50f4",
       "type": "search-trend",
-      "title": "playstation plus monthly games",
-      "category": "games",
-      "categoryLabel": "游戏 / 电竞话题",
+      "title": "brighton vs craiova",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-26T17:40:00Z",
+      "approxSearchTraffic": "500+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=brighton+vs+craiova",
+      "relatedNews": [
+        {
+          "title": "Brighton & Hove Albion vs Universitatea Craiova: UEFA Conference League stats & head-to-head",
+          "source": "BBC",
+          "url": "https://www.bbc.com/sport/football/live/c6y80ej72k2gt",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT41CaDRV6nnoIsmUQy1Cj_cK1IdXGUv6f62NDbBdcbEbtBvQZs23Q5qpmimvk"
+        },
+        {
+          "title": "'We have a great opportunity to really push on' - Hinshelwood",
+          "source": "AOL.com",
+          "url": "https://www.aol.com/articles/great-opportunity-really-push-hinshelwood-115813000.html",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS2m_AKIx3K-JT7dmIvmkrinpd7hzbz6G80zZ24xeppogvVnJ-oL7rfv_gZkdo"
+        },
+        {
+          "title": "Brighton vs Universitatea Craiova 8/1 Bet Builder boost: Bet £5 and get £40 in free bets",
+          "source": "talkSPORT",
+          "url": "https://talksport.com/betting/4730783/brighton-universitatea-craiova-bet-builder-odds-boost-conference-league/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSSkInCcJk2yRsZBNLRyth0MRscjTx381trDc8OHkw2xiIbnB33p4zwlXDf5XY"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-26T17:40:00Z",
+          "approxSearchTraffic": "500+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=brighton+vs+craiova"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-d4f4efbda68a",
+      "type": "search-trend",
+      "title": "challenge cup",
+      "category": "social_format",
+      "categoryLabel": "社媒形式 / 热梗",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
@@ -146,27 +193,27 @@
       "region": "overseas",
       "regionCode": "GB",
       "regionName": "英国",
-      "publishedAt": "2026-11-26T11:40:00Z",
+      "publishedAt": "2026-11-26T18:40:00Z",
       "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=playstation+plus+monthly+games",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=challenge+cup",
       "relatedNews": [
         {
-          "title": "PlayStation Plus Monthly Games for December: Tony Hawk’s Pro Skater 3+4, Dragon Ball Xenoverse 2, Amnesia: The Bunker",
-          "source": "PlayStation.Blog",
-          "url": "https://blog.playstation.com/2026/11/25/playstation-plus-monthly-games-for-december-tony-hawks-pro-skater-34-dragon-ball-xenoverse-2-amnesia-the-bunker/",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT0Ch3fmPYy6Gecbw82uw9S8QUq7C2L8ycLU6v6iwruRz1kTJ-rzqFk0YTSqTk"
+          "title": "Challenge Cup returns with new identity and format for 2027",
+          "source": "The Home of Rugby League",
+          "url": "https://www.rugby-league.com/article/65357/challenge-cup-returns-with-new-identity-and-format-for-2027-",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFvnlWTL2Q-dTeWkeZP7IObT_deBRnd7JU-Xo072610UHYxWymkpXYZF_9bMI"
         },
         {
-          "title": "PS Plus Essential Games for December 2026 Announced",
-          "source": "Push Square",
-          "url": "https://www.pushsquare.com/news/2026/11/ps-plus-essential-games-for-december-2026-announced",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0vZQUk2jKZw78_5OQoPYE5MjPOfmzOYLWM4r8gEZ9qk15GKncDs0k7hoEEjc"
+          "title": "Super League duo withdraw from RFL Challenge Cup as structure confirmed",
+          "source": "Love Rugby League",
+          "url": "https://www.loverugbyleague.com/post/super-league-duo-withdraw-from-rfl-challenge-cup-as-structure-confirmed",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTosClnNYb1h6uRrWUwtPZqbnnT64aZeWxzZv0Hb3nAxHA5iVxEulD9KK11P2c"
         },
         {
-          "title": "Dragon Ball Xenoverse 2, Tony Hawk and Amnesia will be free on PS+ next month",
-          "source": "KitGuru",
-          "url": "https://www.kitguru.net/gaming/matthew-wilson/dragon-ball-xenoverse-2-tony-hawk-and-amnesia-will-be-free-on-ps-next-month/",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSjFMQXcOtbq2oByz53iXYq_xqorKS2NOzOxT1ojZCgpPmaRVsOMcCrebDnxjg"
+          "title": "Catalans Dragons release statement after Challenge Cup decision amid 2028 hope",
+          "source": "All Out Rugby League",
+          "url": "https://www.alloutrugbyleague.co.uk/news/catalans-dragons-voice-challenge-cup-2122785",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ6ft96Mhribxl8zX_hAr67RczHeGodO0F4UmTzMYgD9_ybQjWP49374Y_dLNY"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
@@ -174,110 +221,16 @@
         {
           "regionCode": "GB",
           "regionName": "英国",
-          "publishedAt": "2026-11-26T11:40:00Z",
+          "publishedAt": "2026-11-26T18:40:00Z",
           "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=playstation+plus+monthly+games"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=challenge+cup"
         }
       ]
     },
     {
-      "id": "google-search-trend-e895cd966e43",
+      "id": "google-search-trend-14567b3cf54a",
       "type": "search-trend",
-      "title": "northampton catasauqua thanksgiving game postponed",
-      "category": "games",
-      "categoryLabel": "游戏 / 电竞话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "US",
-      "regionName": "美国",
-      "publishedAt": "2026-11-26T11:40:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=northampton+catasauqua+thanksgiving+game+postponed",
-      "relatedNews": [
-        {
-          "title": "Two annual Thanksgiving Day games postponed due to incoming severe weather",
-          "source": "WFMZ.com",
-          "url": "https://www.wfmz.com/news/area/lehighvalley/northampton-county/nazareth-northampton-area/two-annual-thanksgiving-day-games-postponed-due-to-incoming-severe-weather/article_d827b72c-b822-4e6f-9eb5-a62ad8d76ba9.html",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRGrgXKDHzuV7LWbH4xlUjB2sCg7m5Z9VybFq_qwlhVPQgtsnZLTUrzevFRLls"
-        },
-        {
-          "title": "Thanksgiving Day football game between Northampton, Catasauqua postponed due to storm",
-          "source": "The Morning Call",
-          "url": "https://www.mcall.com/2026/11/25/northampton-catasauqua-thanksgiving-football-game-postponed/",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqdoZOuJcHpU-tQPKvrFfEOZXrv17nIaJ2-En7EYfDNsOSLiy-DhpmaobHJ2A"
-        },
-        {
-          "title": "Pennridge-Quakertown game postponed; Bristol-Morrisville cancelled",
-          "source": "Carlisle Sentinel",
-          "url": "https://cumberlink.com/news/state-regional/pennsylvania/article_e2108bc7-f2ed-5e60-9064-a54ec52878b9.html",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmKzlKDZBi9uY2dE8gv4UkLQ_W0u39AQRU6vjKeOxkQdg1pHxzXzszE3LdFnc"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "US",
-          "regionName": "美国",
-          "publishedAt": "2026-11-26T11:40:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=northampton+catasauqua+thanksgiving+game+postponed"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-3be2d1d2a152",
-      "type": "search-trend",
-      "title": "amit shah ramayana film meeting",
-      "category": "film_tv",
-      "categoryLabel": "影视 / 文娱话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "IN",
-      "regionName": "印度",
-      "publishedAt": "2026-11-26T11:30:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=amit+shah+ramayana+film+meeting",
-      "relatedNews": [
-        {
-          "title": "Amit Shah meets ‘Ramayana’ team, congratulates them on film’s global success",
-          "source": "The Hindu",
-          "url": "https://www.thehindu.com/news/national/amit-shah-meets-ramayana-team-congratulates-them-on-films-global-success/article71745696.ece",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSz7ObNPxudk64eWDqtMMYFHbjFH1vnC2uUMIv_khblM0uVEAMYEo05vs_ILXQ"
-        },
-        {
-          "title": "Sai Pallavi Meets Amit Shah With Ramayana Team In Pink Saree And Gold Jewellery",
-          "source": "NDTV",
-          "url": "https://www.ndtv.com/lifestyle/sai-pallavi-meets-amit-shah-with-ramayana-team-in-pink-saree-and-gold-jewellery-12379325",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRoKAnZN7gWXKVJXnhJhB_XgEcVejH7hqZZgZS9DJMkWHF8gJrOvktJ9u5nxqU"
-        },
-        {
-          "title": "Ranbir Kapoor returns to Mumbai after visiting Delhi's Bangla Sahib Gurudwara as 'Ramayana' begins intern",
-          "source": "The Times of India",
-          "url": "https://timesofindia.indiatimes.com/entertainment/hindi/bollywood/news/ranbir-kapoor-visits-delhis-bangla-sahib-gurudwara-as-ramayana-begins-international-awards-campaign-spotted-with-namit-malhotra-and-nitesh-tiwari-pics/articleshow/136175081.cms",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSicfvZjaMKfJKPrVHTSSdBOmIBkEAmQtQdcafGqG5UYPK7pIElN8QCC-OGMwk"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "IN",
-          "regionName": "印度",
-          "publishedAt": "2026-11-26T11:30:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=amit+shah+ramayana+film+meeting"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-6f048e06dc63",
-      "type": "search-trend",
-      "title": "jfa 全日本u-12サッカー選手権大会",
+      "title": "olympiacos vs milan",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -285,39 +238,227 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "JP",
-      "regionName": "日本",
-      "publishedAt": "2026-11-26T11:50:00Z",
-      "approxSearchTraffic": "100+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=jfa+%E5%85%A8%E6%97%A5%E6%9C%ACu-12%E3%82%B5%E3%83%83%E3%82%AB%E3%83%BC%E9%81%B8%E6%89%8B%E6%A8%A9%E5%A4%A7%E4%BC%9A",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-26T18:10:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=olympiacos+vs+milan",
       "relatedNews": [
         {
-          "title": "出場チーム、組み合わせ、およびテレビ放送が決定 JFA 第50回全日本U-12サッカー選手権大会",
-          "source": "JFA",
-          "url": "https://www.jfa.jp/news/00037083/",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQtGgbaeX-b1jN_JLX2Wm_ivibz41QX84dED64hJOgKx9E-USWyzZAuApp2HFQ"
+          "title": "'It is the only way to be a good team' - Ruben Amorim demands Europa League improvement from injury-hit AC Milan ahead of 'aggressive' Olympiacos trip",
+          "source": "Goal.com",
+          "url": "https://www.goal.com/en-au/news/ruben-amorim-demands-ac-milan-improvement-ahead-of-olympiacos-clash-europa-league/blt153b7afc6fcb346e",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS6Rwz3tucxOZvrIBxEUpyTEdxTzjs-l9_x_k67eszIX5R_upPS7URyyCupyX4"
         },
         {
-          "title": "[ヴァンフォーレ甲府U-12]JFA第50回 全日本U-12サッカー選手権大会 1次ラウンド組み合わせ決定のお知らせ",
-          "source": "ヴァンフォーレ甲府 公式サイト",
-          "url": "https://www.ventforet.jp/news/other/525745",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT5PEKQ16ASe6MlJ-t8AoChP2SeoFO82s9hB1WtZJ5OqwLLMXmRxbiCXWyHWg8"
+          "title": "LIVE: AMORIM AND JASHARI'S PRESS CONFERENCE",
+          "source": "OneFootball",
+          "url": "https://onefootball.com/en/news/live-amorim-and-jasharis-press-conference-43839457",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSbPLvlYz9YPCggxxWCgOmog8G8fLpJc9WF7RUBifxNIW5zWDBgGAXp_QTMBVA"
         },
         {
-          "title": "全日本Ｕ―１２サッカー宮崎県大会、アリーバＦＣが５年ぶり８回目の優勝…１２月の全国大会に出場：地域ニュース",
-          "source": "読売新聞",
-          "url": "https://www.yomiuri.co.jp/local/kyushu/news/20261124-GYS1T00022/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTPtkDZHRTcHi_RSzDPcXuAQNkj8s7-QOB2xZYifs4veGIgOzMGUnof0ftKmEc"
+          "title": "GdS: Super in Serie A, struggling in Europe – the reasons behind the ‘two-faced’ Milan",
+          "source": "SempreMilan",
+          "url": "https://sempremilan.com/the-reasons-behind-two-faced-milan",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ83k4JCwrf57IgZyG_cQb60enl78-hBIccJmCGG_UYO4uxrjSfXvdf8j8wIo"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "JP",
-          "regionName": "日本",
-          "publishedAt": "2026-11-26T11:50:00Z",
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-26T18:10:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=olympiacos+vs+milan"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-4e34abc03095",
+      "type": "search-trend",
+      "title": "lions vs bears",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-26T18:10:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=lions+vs+bears",
+      "relatedNews": [
+        {
+          "title": "Can Caleb Williams steer Bears past Lions in NFC North matchup?",
+          "source": "ESPN",
+          "url": "https://www.espn.com.au/video/clip/_/id/50604206/can-caleb-williams-steer-bears-lions-nfc-north-matchup",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRYGRCsnV8-sIvFWis087YLZl2S2Ew0K6cjKbKaf61mWw52j-0_F3U1iVcnTLM"
+        },
+        {
+          "title": "Lions vs. Bears: How to watch, listen and follow",
+          "source": "Detroit Lions",
+          "url": "https://www.detroitlions.com/news/lions-vs-bears-how-to-watch-listen-and-follow-2026-goff-gibbs-williams-joseph",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWu9q1xz7BqQ6QMfrqdAExnWlvYxnA6eRaownw1GkCWiVD382iNBEmpr60h6I"
+        },
+        {
+          "title": "Bears-Lions Thanksgiving Day game preview | 2026 Week 12",
+          "source": "Chicago Bears",
+          "url": "https://www.chicagobears.com/news/bears-lions-thanksgiving-day-game-preview-2026-week-12",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQq925XnhPnLPUntvgo6R2-3gUZYthbNzLYrhcMxosER6zgCZg9xQDyjyJExwo"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-26T18:10:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=lions+vs+bears"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-963ed22e0aad",
+      "type": "search-trend",
+      "title": "celta vs bournemouth",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-26T18:10:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=celta+vs+bournemouth",
+      "relatedNews": [
+        {
+          "title": "Ten-man Bournemouth level at Celta Vigo in Europa League, Brighton ahead in Conference League",
+          "source": "BBC",
+          "url": "https://www.bbc.com/sport/football/live/c6zxj2ypr4e8t",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIJp_3COQdn83mYoSLGAWifw3aqYKHCFft4K3DmBBIAwuBk5pnJprnGso25Zg"
+        },
+        {
+          "title": "Bournemouth confirmed line-up for 5.45pm Celta Vigo clash",
+          "source": "Dave.Sport",
+          "url": "https://dave.sport/news/celta-vigo-v-bournemouth-confirmed-line-ups/",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzjpVoWIiHxXwGE3PZHiJkrJoTqRcNcMt882fv00Y-mMfXuubzhZUYkrOzALI"
+        },
+        {
+          "title": "Celta Vigo vs Bournemouth Europa League Tips & Prediction - Bournemouth target record 10th straight win",
+          "source": "Bets.com.au",
+          "url": "https://www.bets.com.au/soccer/europa-league/celta-vigo-vs-bournemouth-europa-league-tips-prediction-20261125-0017/",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ6LEHmw4fwddynDy_4H91GRVKYHsnZ9ro_E4sCdFPG5C4KGrDz11D_J7adK78"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-26T18:10:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=celta+vs+bournemouth"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-6520f3ac396e",
+      "type": "search-trend",
+      "title": "conference league",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "CA",
+      "regionName": "加拿大",
+      "publishedAt": "2026-11-26T18:40:00Z",
+      "approxSearchTraffic": "100+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=conference+league",
+      "relatedNews": [
+        {
+          "title": "Netherlands Conference League Soccer",
+          "source": "chronicleonline.com",
+          "url": "https://www.chronicleonline.com/sports/soccer/netherlands-conference-league-soccer/image_1e059782-540e-5d67-ba07-08ed49039848.html",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQIqHJQWqqrm_cDfxIC5Ni8lVpcEgRZ_bu_F7ERQMJMRKLkqieG3Uf3bFSYEDI"
+        },
+        {
+          "title": "Netherlands Conference League Soccer",
+          "source": "couriernews.com",
+          "url": "https://www.couriernews.com/sports/netherlands-conference-league-soccer/image_58f138e4-60d4-55c1-9ed2-dcc94657aa3b.html",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT1kJUivewbkp_zEygB2iURj7KDZor32_uIlKx_HMJFCDLPTQcy6zHxH85b8wE"
+        },
+        {
+          "title": "Netherlands Conference League Soccer",
+          "source": "couriernews.com",
+          "url": "https://www.couriernews.com/sports/netherlands-conference-league-soccer/image_584ccc35-aeae-5443-a40c-ca255db7f091.html",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR1dbypp6QSW7g0bgXL8JL-wR79LKnNsrJlGQxMJghpCQysl1jP071TFnh_zCk"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "CA",
+          "regionName": "加拿大",
+          "publishedAt": "2026-11-26T18:40:00Z",
           "approxSearchTraffic": "100+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=jfa+%E5%85%A8%E6%97%A5%E6%9C%ACu-12%E3%82%B5%E3%83%83%E3%82%AB%E3%83%BC%E9%81%B8%E6%89%8B%E6%A8%A9%E5%A4%A7%E4%BC%9A"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=conference+league"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-c66cdd080cab",
+      "type": "search-trend",
+      "title": "hearts vs monaco",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "CA",
+      "regionName": "加拿大",
+      "publishedAt": "2026-11-26T18:30:00Z",
+      "approxSearchTraffic": "100+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=hearts+vs+monaco",
+      "relatedNews": [
+        {
+          "title": "Conference League: Build-up as Hearts host Monaco at Tynecastle",
+          "source": "Yahoo Sports",
+          "url": "https://ca.sports.yahoo.com/news/conference-league-build-hearts-host-155746245.html",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRFyrcr0YnTPQXk4lZGn7x9zcCibCbbj47JLlnYz-sdmgQrX1CQwtLE0u4mn_g"
+        },
+        {
+          "title": "Licensable picture: UEFA Conference League - Heart of Midlothian v AS Monaco",
+          "source": "Reuters Connect",
+          "url": "https://www.reutersconnect.com/item/uefa-conference-league-heart-of-midlothian-v-as-monaco/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1VQMUVNQlExRkpPODU",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc-8HRTOUBLgvEUgy0svMXF2WK4QHZ-28YX2jDJ3dxn2_VL2SkQ6AlN3otPgg"
+        },
+        {
+          "title": "Hearts make goalkeeper change to European squad list due to injury",
+          "source": "Hearts Standard",
+          "url": "https://www.heartsstandard.co.uk/news/26765111.hearts-make-change-euro-squad-list-injury/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR7He6pW4jEOLQ5runs8-lsOFTVlt8VKRT4QXO2V4nVOk6_7EaxMwTrf9ewp2U"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "CA",
+          "regionName": "加拿大",
+          "publishedAt": "2026-11-26T18:30:00Z",
+          "approxSearchTraffic": "100+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=hearts+vs+monaco"
         }
       ]
     }

@@ -1,22 +1,22 @@
 {
   "schema": "scheduler-health/v1",
-  "generatedAt": "2026-11-26T18:03:38.754311+00:00",
-  "nextDueAt": "2026-11-26T18:03:38.754311+00:00",
+  "generatedAt": "2026-11-26T19:05:41.597842+00:00",
+  "nextDueAt": "2026-11-26T19:29:41.597842+00:00",
   "trigger": {
-    "event": "push",
-    "runId": "45872752822",
+    "event": "workflow_dispatch",
+    "runId": "45880790691",
     "attempt": "1",
     "schedule": "",
-    "scope": ""
+    "scope": "due"
   },
   "groups": {
     "models": {
-      "oldestSnapshotAt": "2026-11-26T18:03:06+00:00",
+      "oldestSnapshotAt": "2026-11-26T19:04:09+00:00",
       "due": false
     },
     "selected": {
-      "oldestSnapshotAt": "2026-11-26T17:35:43+00:00",
-      "due": true
+      "oldestSnapshotAt": "2026-11-26T19:04:09+00:00",
+      "due": false
     },
     "aihot_daily": {
       "oldestSnapshotAt": "2026-11-26T12:23:00+00:00",
@@ -27,7 +27,7 @@
       "due": false
     },
     "resources": {
-      "oldestSnapshotAt": "2026-11-26T12:22:12+00:00",
+      "oldestSnapshotAt": "2026-11-26T19:04:19+00:00",
       "due": false
     },
     "maintenance": {
