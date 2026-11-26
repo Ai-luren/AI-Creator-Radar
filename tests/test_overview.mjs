@@ -233,3 +233,8 @@ test('overview exposes all modules without duplicating raw daily feeds',async()=
 test('release range and order persist in route',async()=>{
  const {run,node}=setup({query:'?view=today&days=7&sort=date'});await run('loadAllForTests()');assert.equal(run('state.releaseWindow'),'7');assert.equal(run('state.releaseSort'),'date');assert.match(node('content').innerHTML,/data-release-window/);
 });
+
+test('briefing category and practice links keep full resources accessible',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('feeds',{briefingTab:'combined',briefingCategory:'模型'})");assert.match(node('content').innerHTML,/aria-pressed="true" data-briefing-category="模型"/);assert.match(node('content').innerHTML,/完整摘要与来源/);
+ run("setView('practice',{modelPracticeType:'model'})");assert.doesNotMatch(node('content').innerHTML,/模型库详情 ↗/);assert.match(node('content').innerHTML,/模型库详情 →/);
+});

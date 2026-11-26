@@ -86,6 +86,12 @@ try{
    await page.locator('[data-release-sort-select]').selectOption('date');assert.equal(await page.evaluate(()=>state.releaseSort),'date');
    await page.screenshot({path:path.join(out,label+'-release-controls.png')});
   });
+  if(viewport.width!==360)await check('news category and details',async()=>{
+   await page.goto(base+'?view=feeds',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.locator('[data-briefing-category="模型"]').click();assert.equal(await page.evaluate(()=>state.briefingCategory),'模型');
+   const details=page.locator('.combined-news-card details').first();await details.locator('summary').click();assert.equal(await details.evaluate(el=>el.open),true);
+   await page.screenshot({path:path.join(out,label+'-news-detail.png')});
+  });
   if(viewport.width!==360)await check('search-and-version',async()=>{
    await page.goto(base+'?view=models&category=image',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});await page.waitForFunction(()=>state.indexReady);
