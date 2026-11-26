@@ -7,7 +7,7 @@
 - `company-chronicle-v49-review/`：公司编年史 V49 审核报告、证据表、复核过程和生成/校验脚本；当前编年史数据已进入 `site/data/topics.json`。
 - `engineering-history/`：已完成模型目录结构化工作的原始计划与规范，以及 [V3 之前的设计与验收记录](engineering-history/2026-11-26-design-history-through-v3.md)。
 - `company-chronicle-topics-before-review.json`、`model-library-excluded-models.json`：历史编年史候选和模型目录排除记录。
-- `follow-builders/`、`legacy-news/`：已经退役的旧模块材料。
+- `follow-builders/`、`legacy-news/`：已经退役的旧模块材料；旧版综合新闻采集器及配套配置、测试已原样归档。
 
 整理归档时保留原始文件内容；只有经明确确认后才永久删除历史材料。
 
