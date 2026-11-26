@@ -225,8 +225,8 @@ test('combined news merges only primary identities and preserves every report',(
 });
 test('overview exposes all modules without duplicating raw daily feeds',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
- assert.match(markup,/重点 AI 资讯/);assert.match(markup,/快捷入口/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
- assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds','social','models','rankings','topics','practice','opportunities','platforms'])assert.ok(markup.includes('data-view="'+view+'"'),view);
+ assert.match(markup,/今日行业简报/);assert.doesNotMatch(markup,/快捷入口|overview-module-grid|overview-stage-count/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
+ assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds'])assert.ok(markup.includes('data-view="'+view+'"'),view);
  run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
 
@@ -250,7 +250,7 @@ test('reported internal-model concern is industry news, not a release',()=>{
 });
 
 test('library prioritization, history year and review filters retain records',async()=>{
- const {run,node}=setup();await run('loadAllForTests()');assert.equal(run('state.modelSort'),'priority');assert.equal(run("latestDatedVersion({versions:[{name:'unknown'},{name:'old',releaseDate:'2025-01-01'},{name:'new',releaseDate:'2026-01-01'}]}).name"),'new');
+ const {run,node}=setup();await run('loadAllForTests()');assert.equal(run('state.modelSort'),'recent');assert.equal(run("latestDatedVersion({versions:[{name:'unknown'},{name:'old',releaseDate:'2025-01-01'},{name:'new',releaseDate:'2026-01-01'}]}).name"),'new');
  run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{date:'2025-01-01',title:'Old checked',verificationStatus:'已确认'},{date:'2026-01-01',title:'New checked',verificationStatus:'已确认'},{date:'2026-01-02',title:'Pending discovery',autoCollected:true}]}];setView('topics',{activeTopic:'google',topicYear:'2026',topicReview:'verified'})");assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Old checked|Pending discovery/);
  run("state.topicReview='all';render()");assert.match(node('content').innerHTML,/Pending discovery/);
 });
@@ -317,7 +317,7 @@ test('ranked MAGI-2 has the same model family and version IDs as its release',as
 test('daily edition freshness is based on Beijing publication window, not four-hour age',()=>{const {run}=setup();assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T00:10:00Z'},8,new Date('2026-11-26T12:00:00Z'))"),false);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-27T00:04:00Z'},8,new Date('2026-11-27T00:06:00Z'))"),true);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T02:10:00Z'},10,new Date('2026-11-27T01:00:00Z'))"),false);});
 
 test('V3.4 grouped model library preserves flat view and family links',async()=>{
- const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video'})");
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video',modelGrouping:'vendor'})");
  assert.match(node('content').innerHTML,/model-table-grouped/);assert.match(node('content').innerHTML,/data-model-group=/);assert.match(node('content').innerHTML,/data-model-open="magi-2"/);
  run("state.modelGrouping='flat';render()");assert.doesNotMatch(node('content').innerHTML,/model-table-grouped|data-model-group=/);assert.match(node('content').innerHTML,/data-model-open="magi-2"/);
 });
@@ -334,10 +334,23 @@ test('V3.4 shared semantic icons and readable provider labels',()=>{
  const {run}=setup();assert.equal(run("rankProviderLabel('openai')"),'OpenAI');assert.equal(run("rankProviderLabel('unknown-provider')"),'unknown-provider');assert.match(run("icon('panel')"),/M9 3v18/);assert.match(run("icon('external')"),/stroke-width="1.75"/);
 });
 test('V3.4 each vendor has its own semantic table row group',async()=>{
- const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video'})");const markup=node('content').innerHTML;assert.ok((markup.match(/<tbody class="model-vendor-group">/g)||[]).length>1);assert.equal((markup.match(/<tbody class="model-vendor-group">/g)||[]).length,(markup.match(/scope="rowgroup"/g)||[]).length);
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video',modelGrouping:'vendor'})");const markup=node('content').innerHTML;assert.ok((markup.match(/<tbody class="model-vendor-group">/g)||[]).length>1);assert.equal((markup.match(/<tbody class="model-vendor-group">/g)||[]).length,(markup.match(/scope="rowgroup"/g)||[]).length);
 });
 
 test('latest briefing date is shared across sources and fixed before search or categories',()=>{
  const {run}=setup();run("state.aihotDaily={title:'AI 日报 2026-11-25',items:[{title:'昨日旧报道',category:'行业',url:'https://example.com/old'}]};state.juyaDaily={title:'AI 早报 2026-11-26',items:[{title:'今日新报道',category:'行业',url:'https://example.com/new'}]};state.aihot={items:[{selected:true,title:'旧精选',publishedAt:'2026-11-25T00:00:00Z'},{selected:true,title:'新精选',publishedAt:'2026-11-26T00:00:00Z'},{selected:true,title:'未注明日期精选'},{selected:false,title:'未选资讯',publishedAt:'2026-11-26T00:00:00Z'}]};");
  assert.equal(run('latestBriefingDay()'),'2026-11-26');const events=JSON.parse(run('JSON.stringify(combinedNews(latestBriefingDay()))'));assert.equal(events.length,2);assert.ok(events.every(e=>e.day==='2026-11-26'&&e.rows.every(r=>r.day==='2026-11-26')));assert.equal(run('latestDigest(state.aihotDaily,latestBriefingDay()).items.length'),0);assert.equal(run('latestSelectedNews(latestBriefingDay()).length'),1);run("state.query='昨日旧报道'");assert.equal(run('latestBriefingDay()'),'2026-11-26');assert.equal(run('combinedNews(latestBriefingDay()).filter(newsMatches).length'),0);
+});
+
+test('V3.5 separates formal releases from service stages',async()=>{const {run,node}=setup();await run('loadAllForTests()');assert.doesNotMatch(node('content').innerHTML,/overview-stage-count|overview-count-track/);run("setView('today',{releaseMode:'confirmed',releaseCategory:'all'})");assert.doesNotMatch(node('content').innerHTML,/\+\s*\d+\s*上线|已核实模型上线阶段|data-release-mode="all"/);run("setView('today',{releaseMode:'announcements',releaseCategory:'all'})");assert.match(node('content').innerHTML,/官方公告/);if(run("(state.modelReleaseData.verifiedStages||[]).some(x=>withinDays(x.stageDate,30,new Date()))"))assert.match(node('content').innerHTML,/已核实模型上线阶段/);});
+
+test('V3.5 model library defaults to strict latest dated family order and unknowns last',async()=>{
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');
+ assert.equal(run('state.modelSort'),'recent');assert.equal(run('state.modelGrouping'),'flat');
+ const ids=Array.from(node('content').innerHTML.matchAll(/class="model-row-open" data-model-open="([^"]+)"/g),m=>m[1]);
+ const dates=JSON.parse(run('JSON.stringify('+JSON.stringify(ids)+'.map(id=>{const v=latestDatedVersion(libraryModels().find(m=>m.id===id));return v?v.releaseDate:""}))'));
+ assert.ok(dates.length>1);assert.deepEqual(dates,dates.slice().sort().reverse());
+});
+test('V3.5 identical news summaries are displayed only once while distinct text remains',()=>{
+ const {run}=setup();assert.deepEqual(JSON.parse(run('JSON.stringify((()=>{const seen=new Set();return [uniqueNewsSummary("A  summary",seen),uniqueNewsSummary("A summary",seen),uniqueNewsSummary("Another summary",seen)]})())')),['<p class="briefing-quote">A  summary</p>','','<p class="briefing-quote">Another summary</p>']);
 });
