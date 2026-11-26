@@ -277,7 +277,7 @@ test('overview explicitly identifies delayed snapshots without treating them as 
  const {run,node}=setup();await run('loadAllForTests()');
  run("state.modelMonitorStatus={checkedAt:'2000-01-01T00:00:00Z'};state.aihot.updatedAt='2000-01-01T00:00:00Z';state.aihotDaily.fetchedAt='2000-01-01T00:00:00Z';state.juyaDaily.fetchedAt='2000-01-01T00:00:00Z';setView('overview');render()");
  assert.match(node('content').innerHTML,/同步延迟 · [^<]*模型信源[^<]*AIHOT 精选[^<]*AIHOT 日报[^<]*橘鸦早报/);
- run("var freshStamp=new Date().toISOString();state.modelMonitorStatus.checkedAt=freshStamp;state.modelReleaseData.updatedAt=freshStamp;state.aihot.updatedAt=freshStamp;state.aihotDaily.fetchedAt=freshStamp;state.juyaDaily.fetchedAt=freshStamp;render()");
+ run("var freshStamp=new Date().toISOString();state.modelMonitorStatus.checkedAt=freshStamp;state.modelReleaseData.updatedAt=freshStamp;state.aihot.updatedAt=freshStamp;state.aihotDaily.fetchedAt=freshStamp;state.juyaDaily.fetchedAt=freshStamp;state.aihotDaily.title=chinaDay(new Date());state.juyaDaily.title=chinaDay(new Date());render()");
  assert.doesNotMatch(node('content').innerHTML,/同步延迟 · /);
 });
 
@@ -313,3 +313,5 @@ test('ranked MAGI-2 has the same model family and version IDs as its release',as
  if(exists)assert.match(node('content').innerHTML,/data-model-open="magi-2" data-model-version="magi-2"/);
  assert.equal(run("state.models.find(m=>m.id==='magi-2').versions.find(v=>v.id==='magi-2').releaseEvidence.chronicleTopicId"),'sandai');
 });
+
+test('daily edition freshness is based on Beijing publication window, not four-hour age',()=>{const {run}=setup();assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T00:10:00Z'},8,new Date('2026-11-26T12:00:00Z'))"),false);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-27T00:04:00Z'},8,new Date('2026-11-27T00:06:00Z'))"),true);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T02:10:00Z'},10,new Date('2026-11-27T01:00:00Z'))"),false);});

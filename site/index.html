@@ -830,6 +830,11 @@ function briefIssueDay(data){
  var title=String((data||{}).title||''),m=title.match(/(20\d{2})\s*(?:年|-)\s*(\d{1,2})\s*(?:月|-)\s*(\d{1,2})/);
  return m?m[1]+'-'+m[2].padStart(2,'0')+'-'+m[3].padStart(2,'0'):'';
 }
+function briefIssueStale(data,hour,now){
+ now=now||new Date();var local=new Date(now.getTime()+8*3600000),today=chinaDay(now),expected=local.getUTCHours()*60+local.getUTCMinutes()>=hour*60+5?today:chinaDay(new Date(now.getTime()-86400000));
+ var issue=briefIssueDay(data),stamp=Date.parse((data||{}).fetchedAt||'');
+ return !issue||issue<expected||issue>today||!Number.isFinite(stamp)||stamp>now.getTime();
+}
 function briefArticleLinks(item){
  var entries=Array.isArray(item.links)?item.links:[],out=[];
  function add(url,label){if(safeUrl(url)==='#'||out.some(function(x){return x.url===url}))return;out.push({url:url,label:label})}
@@ -997,8 +1002,8 @@ function overviewPage(){
  var directory=modules.map(function(x){return '<button class="overview-module" data-view="'+x[0]+'" '+x[5]+'><span class="overview-module-icon">'+icon(x[3])+'</span><span class="overview-module-copy"><strong>'+esc(x[1])+'</strong><small>'+esc(x[2])+'</small>'+(x[4]?'<small class="overview-module-count">'+esc(x[4])+'</small>':'')+'</span><span class="overview-module-arrow" aria-hidden="true">›</span></button>'}).join('');
  function stale(value,hours){var age=(now.getTime()-Date.parse(value||''))/3600000;return !Number.isFinite(age)||age<0||age>hours}
  var monitorStale=stale(monitor&&monitor.checkedAt,2);
- var freshness=[['模型信源',monitor&&monitor.checkedAt,2],['发布清单',releaseData&&releaseData.updatedAt,2],['AIHOT 精选',state.aihot.updatedAt,2],['AIHOT 日报',state.aihotDaily&&state.aihotDaily.fetchedAt,4],['橘鸦早报',state.juyaDaily&&state.juyaDaily.fetchedAt,4]];
- var delayed=freshness.filter(function(x){return stale(x[1],x[2])});
+ var freshness=[['模型信源',monitor&&monitor.checkedAt,monitorStale],['发布清单',releaseData&&releaseData.updatedAt,stale(releaseData&&releaseData.updatedAt,2)],['AIHOT 精选',state.aihot.updatedAt,stale(state.aihot.updatedAt,2)],['AIHOT 日报',state.aihotDaily&&state.aihotDaily.fetchedAt,briefIssueStale(state.aihotDaily,8,now)],['橘鸦早报',state.juyaDaily&&state.juyaDaily.fetchedAt,briefIssueStale(state.juyaDaily,10,now)]];
+ var delayed=freshness.filter(function(x){return x[2]});
  return pageHead('今日概览','近期模型、行业动态与创作入口。','北京时间 '+esc(today))+
  (failed.length?'<p class="overview-notice" role="status">部分概览数据未加载，以下内容可能不完整。请刷新重试。</p>':'')+
  (releaseStale?'<p class="overview-notice">发布清单截止 '+esc(dataDate)+'，并非今日完整数据。</p>':'')+
@@ -1006,7 +1011,7 @@ function overviewPage(){
  '<div class="overview-section-heading"><h2>近 7 天 · 模型发布</h2><span>正式发布 / 上线阶段分开</span></div><div class="overview-category-grid" aria-label="近七天发布事件计数">'+counts+'</div>'+
  '<div class="overview-grid overview-dashboard"><div class="overview-column">'+panel('模型重点','近 7 天 · 创作优先',recentRows,action('today','全部上新','data-release-target="all" data-release-mode-target="confirmed"'),releaseMissing?'发布数据暂不可用。':'近 7 天暂无符合条件的已核实发布证据。')+'</div><div class="overview-column">'+panel('重点 AI 资讯','近期重点报道',newsRows,action('feeds','完整资讯','data-briefing-target="combined"'),'暂无可展示的资讯。')+'</div></div>'+
  '<div class="overview-section-heading"><h2>快捷入口</h2><span>9 个功能入口</span></div><div class="overview-module-grid">'+directory+'</div>'+
- '<details class="source-health"><summary>数据状态 · '+(monitorStale?'信源检查延迟':'最近检查 '+esc(overviewTime(monitor.checkedAt)))+'</summary><p>发布清单生成 '+esc(overviewTime(releaseData&&releaseData.updatedAt))+' · '+(monitor?Number(monitor.failedSources||0)+' 个采集异常':'检查状态暂不可用')+'；类别为零表示当前清单没有对应正式发布证据，不代表没有新模型；明确上线阶段另计。待复核不计入正式事件。</p><p>AIHOT 日报刊期 '+esc(briefIssueDay(state.aihotDaily)||'待确认')+' · 橘鸦早报刊期 '+esc(briefIssueDay(state.juyaDaily)||'待确认')+'。</p><p>最近抓取（北京时间）：'+freshness.map(function(x){return esc(x[0]+' '+overviewTime(x[1])+(stale(x[1],x[2])?'（延迟或未记录）':''))}).join(' · ')+'</p>'+action('today','查看待复核 '+summary.pending.length+' 条','data-release-target="all" data-release-mode-target="pending"')+'</details>'+
+ '<details class="source-health"><summary>数据状态 · '+(monitorStale?'信源检查延迟':'最近检查 '+esc(overviewTime(monitor.checkedAt)))+'</summary><p>发布清单生成 '+esc(overviewTime(releaseData&&releaseData.updatedAt))+' · '+(monitor?Number(monitor.failedSources||0)+' 个采集异常':'检查状态暂不可用')+'；类别为零表示当前清单没有对应正式发布证据，不代表没有新模型；明确上线阶段另计。待复核不计入正式事件。</p><p>AIHOT 日报刊期 '+esc(briefIssueDay(state.aihotDaily)||'待确认')+' · 橘鸦早报刊期 '+esc(briefIssueDay(state.juyaDaily)||'待确认')+'。</p><p>最近抓取（北京时间）：'+freshness.map(function(x){return esc(x[0]+' '+overviewTime(x[1])+(x[2]?'（延迟或未记录）':''))}).join(' · ')+'</p>'+action('today','查看待复核 '+summary.pending.length+' 条','data-release-target="all" data-release-mode-target="pending"')+'</details>'+
  '<div class="footer"><span>本页仅整理已采集快照，不代表全网实时覆盖。</span></div>';
 }
 
@@ -1139,7 +1144,7 @@ function recentReleasesPage(){
  var promoMatches=function(post,model){var relation=String(post.relatedModelId||'').toLowerCase().replace(/[^a-z0-9]/g,''),modelName=String(model.modelName||'').toLowerCase().replace(/[^a-z0-9]/g,'');return (post.relatedModelName&&post.relatedModelName===model.modelName)||(relation&&modelName.indexOf(relation)>=0)};
  function releaseRow(x,isPending,linked){
   var stamp=isPending?(x.publishedAt?'来源日期 '+date(x.publishedAt):'发现 '+date(x.discoveredAt)):date(x.publishedAt),source=safeUrl(x.url)!=='#'?'<a href="'+safeUrl(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.sourceName||'官方原文')+' ↗</a>':'';
-  var model=!isPending&&x.modelFamilyId?'<button type="button" class="text-link release-model-link" data-model-open="'+esc(x.modelFamilyId)+'"'+(x.modelVersionId?' data-model-version="'+esc(x.modelVersionId)+'"':'')+'>查看模型版本 →</button>':'';
+  var model=isPending?modelMentionLinks(x):x.modelFamilyId?'<button type="button" class="text-link release-model-link" data-model-open="'+esc(x.modelFamilyId)+'"'+(x.modelVersionId?' data-model-version="'+esc(x.modelVersionId)+'"':'')+'>查看模型版本 →</button>':'';
   var versions=!isPending&&x.versions&&x.versions.length>1?'<details class="release-version-details"><summary>'+x.versions.length+' 个型号 · 展开版本与证据</summary>'+x.versions.map(function(v){return '<div class="release-version-entry"><strong>'+esc(v.modelName)+'</strong><p>'+esc(v.summary||'')+'</p><small>'+esc(v.access||'开放状态待核对')+'</small> <a href="'+safeUrl(v.url)+'" target="_blank" rel="noopener noreferrer">官方证据 ↗</a> <button class="text-link" data-model-open="'+esc(v.modelFamilyId)+'" data-model-version="'+esc(v.modelVersionId)+'">型号详情 →</button></div>'}).join('')+'</details>':'';
   var demos=(linked||[]).map(function(post){return '<a href="'+safeUrl(post.url)+'" target="_blank" rel="noopener noreferrer">'+esc(post.platform)+' 官方演示 ↗</a>'+modelMentionLinks(post)}).join('');
   return '<article class="release-card"><div class="release-meta"><time>'+esc(stamp)+'</time><small class="release-vendor">'+esc(x.vendor||'')+'</small><span class="pill'+(isPending?'':' blue')+'">'+esc(x.audioSubtype||categoryName(x.category))+'</span>'+(isPending?'<span class="release-review-label">待复核</span>':'')+'</div><div class="release-main"><h3>'+esc(isPending?x.title:x.modelName)+'</h3><p>'+esc(x.summary||'请查看官方原文。')+'</p>'+versions+(demos?'<div class="launch-links">'+demos+'</div>':'')+'</div><div class="release-actions">'+(!isPending&&(!x.versions||x.versions.length===1)&&x.access?'<p class="release-access">'+esc(x.access)+'</p>':'')+source+model+'</div></article>';
@@ -1208,6 +1213,8 @@ function feedsPage(){
  var active=sources.find(function(x){return x[0]===state.briefingTab});if(!active){active=sources[0];state.briefingTab=active[0]}
  var tabs=sources.map(function(x){return '<button class="tab '+(state.briefingTab===x[0]?'active':'')+'" aria-pressed="'+(state.briefingTab===x[0])+'" data-briefing="'+x[0]+'">'+x[1]+(x[2]?' <span class="briefing-time">'+x[2]+'</span>':'')+'</button>'}).join('');
  var body='',count=0,updated='',data={},entries=[];
+ var overdue=[['AIHOT 日报',state.aihotDaily,8],['橘鸦早报',state.juyaDaily,10]].filter(function(x){return briefIssueStale(x[1],x[2],new Date())}).map(function(x){return x[0]});
+ var freshnessNotice=overdue.length?'<div class="overview-notice" role="status">刊期待同步：'+esc(overdue.join('、'))+' · 保留最近有效内容。</div>':'';
  function digestMarkup(data){
   var items=(data.items||[]).filter(function(x){return matches([x.title,x.summary,x.category,x.sourceName].join(' '))});
   var groups=[];items.forEach(function(x){var key=x.category||'今日要闻';var group=groups.find(function(g){return g.name===key});if(!group){group={name:key,items:[]};groups.push(group)}group.items.push(x)});
@@ -1219,7 +1226,7 @@ function feedsPage(){
   var dates=[['AIHOT 日报',briefIssueDay(state.aihotDaily)],['橘鸦早报',briefIssueDay(state.juyaDaily)],['AIHOT 精选抓取',overviewTime(state.aihot.updatedAt)]].map(function(x){return x[0]+' '+(x[1]||'待确认')}).join(' · ');
   var byDate=new Map();events.forEach(function(x){if(!byDate.has(x.day))byDate.set(x.day,[]);byDate.get(x.day).push(x)});
   var sections=Array.from(byDate.entries()).map(function(entry){return '<section class="briefing-digest-section"><div class="section-head"><h2>'+esc(entry[0]||'日期待确认')+'</h2><span class="head-meta">'+entry[1].length+' 个事件</span></div><div class="briefing-list combined-news-list">'+entry[1].map(newsEventCard).join('')+'</div></section>'}).join('');
-  return pageHead('行业简报','三类信源合并阅读，保留原始报道。',events.length+' 个事件 · '+totalReports+' 条原始报道')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><div class="filter-row briefing-category-filters" role="group" aria-label="资讯分类">'+categoryFilters+'</div>'+(sections||empty('当前筛选下暂无综合资讯。'))+'<details class="source-health"><summary>来源日期与归并规则</summary><p>'+esc(dates)+'</p><p>日期是来源记录日期，不代表正式模型首发。仅合并明确相同或已核对的报道，疑似重复保持独立。</p></details>';
+  return pageHead('行业简报','三类信源合并阅读，保留原始报道。',events.length+' 个事件 · '+totalReports+' 条原始报道')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><div class="filter-row briefing-category-filters" role="group" aria-label="资讯分类">'+categoryFilters+'</div>'+freshnessNotice+(sections||empty('当前筛选下暂无综合资讯。'))+'<details class="source-health"><summary>来源日期与归并规则</summary><p>'+esc(dates)+'</p><p>日期是来源记录日期，不代表正式模型首发。仅合并明确相同或已核对的报道，疑似重复保持独立。</p></details>';
  }
  if(state.briefingTab==='aihot'){
   data=state.aihotDaily||{};entries=data.items||[];count=entries.filter(function(x){return matches([x.title,x.summary,x.category,x.sourceName].join(' '))}).length;updated=data.fetchedAt||'';body=digestMarkup(data);
@@ -1231,7 +1238,7 @@ function feedsPage(){
  }
  var desc=state.briefingTab==='selected'?'AIHOT 已选动态，按来源发布时间倒序展示；原文与条目分开链接。':state.briefingTab==='aihot'?'按 AIHOT 日报原版栏目展示头条与逐条摘要。':'按橘鸦早报原版栏目展开逐条要点与正文摘要。';
  var sourceUrl=data.sourceUrl||(state.briefingTab==='selected'?'https://aihot.news/':state.briefingTab==='aihot'?'https://aihot.news/daily':'https://daily.juya.uk/archive/');
- return pageHead('行业简报','集中查看 AIHOT 精选和两份中文日报。',''+count+' 条 · '+(briefIssueDay(data)?'刊期 '+esc(briefIssueDay(data))+' · ':'')+(updated?'抓取 '+esc(overviewTime(updated)):'等待同步'))+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><div class="news-toolbar"><p class="page-desc briefing-description">'+esc(desc)+'</p><span>'+count+' 条</span></div><div class="briefing-list">'+(body||empty('当前没有可展示的内容。请检查下一次自动同步结果。'))+'</div><div class="footer"><span>AIHOT / 橘鸦 · 自动同步由 GitHub Actions 运行</span><a class="text-link" href="'+safeUrl(sourceUrl)+'" target="_blank" rel="noopener noreferrer">打开当前信源 ↗</a></div>'
+ return pageHead('行业简报','集中查看 AIHOT 精选和两份中文日报。',''+count+' 条 · '+(briefIssueDay(data)?'刊期 '+esc(briefIssueDay(data))+' · ':'')+(updated?'抓取 '+esc(overviewTime(updated)):'等待同步'))+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div>'+freshnessNotice+'<div class="news-toolbar"><p class="page-desc briefing-description">'+esc(desc)+'</p><span>'+count+' 条</span></div><div class="briefing-list">'+(body||empty('当前没有可展示的内容。请检查下一次自动同步结果。'))+'</div><div class="footer"><span>AIHOT / 橘鸦 · 自动同步由 GitHub Actions 运行</span><a class="text-link" href="'+safeUrl(sourceUrl)+'" target="_blank" rel="noopener noreferrer">打开当前信源 ↗</a></div>'
 }
 function topicCard(t){
  var brand=t.group==='内容类型'?'<span class="brand-box topic-type-icon topic-type-'+esc(t.id)+'">'+icon(t.icon||'book')+'</span>':t.group==='技术方向'?'<span class="brand-box topic-brand-icon topic-brand-'+esc(t.id)+'">'+icon(({agent:'brain',coding:'code',multimodal:'spark','image-gen':'image',video:'video',voice:'music','open-source':'layers'})[t.id]||'spark')+'</span>':(t.domain||t.chronicleSourceUrl||t.topicUrl)?brandBox(t.name,t.domain?'https://'+t.domain:(t.chronicleSourceUrl||t.topicUrl),t.id):'<span class="brand-box">'+icon('book')+'</span>';

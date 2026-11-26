@@ -222,7 +222,24 @@ def compact_juya(body: bytes | str, source_url: str, fetched_at: str) -> dict:
     return {"source": "橘鸦 AI 早报", "sourceUrl": source_url, "title": title[:300], "fetchedAt": fetched_at, "items": items}
 
 
+def edition_day(data: dict) -> str | None:
+    match = re.search(r"(20\d{2})\s*[-年]\s*(\d{1,2})\s*[-月]\s*(\d{1,2})", str(data.get("title") or ""))
+    if not match:
+        return None
+    try:
+        return datetime(*map(int, match.groups())).date().isoformat()
+    except ValueError:
+        return None
+
+
 def write_snapshot(path: Path, data: dict):
+    incoming = edition_day(data)
+    if not incoming:
+        raise ValueError("Daily edition has no valid date; retaining previous snapshot")
+    if path.exists():
+        previous = edition_day(json.loads(path.read_text(encoding="utf-8")))
+        if previous and incoming < previous:
+            raise ValueError("Daily edition regressed; retaining previous snapshot")
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=path.parent, delete=False) as stream:
         json.dump(data, stream, ensure_ascii=False, indent=2)
