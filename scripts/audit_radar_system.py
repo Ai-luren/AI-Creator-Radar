@@ -57,7 +57,8 @@ def main():
               "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
     now=datetime.now(timezone.utc)
     report=inspect(data,json.loads((ROOT/"config/chronicle-release-links.json").read_text(encoding="utf-8")),now)
-    report["dueScopes"]=[k for k,v in plan(directory,"schedule",now=now).items() if v]
+    report["dueScopes"]=[k for k,v in plan(directory,"schedule",now=now,respect_backoff=False).items() if v]
+    report["eligibleScopes"]=[k for k,v in plan(directory,"schedule",now=now).items() if v]
     print("System audit:",json.dumps(report,ensure_ascii=False))
     if a.write:write_json(directory/"system-audit.json",report)
     return 1 if report["errors"] else 0

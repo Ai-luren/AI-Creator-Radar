@@ -86,7 +86,30 @@ def daily_due(data_dir, group, now):
     return now - stamp >= timedelta(minutes=10)
 
 
-def plan(data_dir, event, scope="", now=None, schedule=""):
+# Delay only a group with a recorded failure, never unrelated collectors.
+# Keep the cap within the existing 30-minute scheduler heartbeat horizon.
+HEALTH_SOURCE = {"models": "models-batch", "selected": "aihot-selected",
+                 "aihot_daily": "aihot-daily", "juya_daily": "juya-daily",
+                 "resources": "resources-batch", "maintenance": "maintenance-batch"}
+
+
+def retry_after(data_dir, group, now):
+    try:
+        state = json.loads((data_dir / "collection-health.json").read_text(encoding="utf-8"))
+        record = state["sources"][HEALTH_SOURCE[group]]
+        count = record["consecutiveFailures"]
+        if record["status"] != "degraded" or type(count) is not int or count < 1:
+            return None
+        attempt = datetime.fromisoformat(record["lastAttemptAt"].replace("Z", "+00:00"))
+        if attempt.tzinfo is None or attempt > now:
+            return None
+        return attempt + timedelta(minutes=15 if count == 1 else 30)
+    except (OSError, ValueError, TypeError, AttributeError, KeyError):
+        # Missing or invalid health metadata must not hide overdue snapshots.
+        return None
+
+
+def plan(data_dir, event, scope="", now=None, schedule="", respect_backoff=True):
     now = now or datetime.now(timezone.utc)
     if event == "workflow_dispatch" and scope == "due":
         event = "schedule"
@@ -114,6 +137,13 @@ def plan(data_dir, event, scope="", now=None, schedule=""):
             minutes = 120
         stamps = [read_stamp(data_dir, filename, field) for filename, field in inputs]
         result[group] = any(stamp is None or stamp > now or now - stamp >= timedelta(minutes=minutes) for stamp in stamps)
+    if respect_backoff:
+        for group, due in result.items():
+            if not due or (event == "push" and group == "models"):
+                continue
+            retry = retry_after(data_dir, group, now)
+            if retry is not None and now < retry:
+                result[group] = False
     return result
 
 

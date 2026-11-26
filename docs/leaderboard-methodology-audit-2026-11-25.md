@@ -98,3 +98,7 @@ Arena、AA 和其他榜单在页面给出原始名次、分数、票数/样本�
 - AIHOT 来源状态：<https://aihot.news/leaderboard/sources>
 - The Leaderboard Illusion（NeurIPS 2025）：<https://papers.neurips.cc/paper_files/paper/2025/file/70a93f260a51123b3c0e33ecd1b4de97-Paper-Datasets_and_Benchmarks_Track.pdf>
 - Leaderboard Hacking（2026-11 arXiv 预印本）：<https://arxiv.org/abs/2611.14769>
+
+## 现行维护指引（2026-11-27）
+
+本文保留 2026-11-25 审计时点的证据与结论，不重写历史测评结果。最新来源快照与刷新机制以 [自动更新说明](automation-runbook.md) 和 [线上榜单规则](../site/ranking-rules.html) 为准；综合试算仍不作为前台名次。

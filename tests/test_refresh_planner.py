@@ -70,3 +70,35 @@ class RefreshPlannerTests(unittest.TestCase):
         name, field = GROUPS["aihot_daily"][0]
         (self.data / name).write_text(json.dumps({field: "2026-11-25T00:00:00Z", "title": "2026-11-26"}), encoding="utf-8")
         self.assertTrue(plan(self.data, "schedule", now=self.now)["aihot_daily"])
+
+
+    def test_failed_group_backoff_does_not_suppress_other_due_groups(self):
+        for group in GROUPS:
+            self.stamp(group, 1500)
+        path = self.data / "collection-health.json"
+        for count, minutes in [(1, 15), (2, 30), (99, 30)]:
+            path.write_text(json.dumps({"sources": {"models-batch": {
+                "status": "degraded", "consecutiveFailures": count,
+                "lastAttemptAt": self.now.isoformat()}}}), encoding="utf-8")
+            self.assertFalse(plan(self.data, "schedule", now=self.now)["models"])
+            self.assertTrue(plan(self.data, "schedule", now=self.now)["selected"])
+            self.assertTrue(plan(self.data, "schedule", now=self.now, respect_backoff=False)["models"])
+            self.assertFalse(plan(self.data, "workflow_dispatch", "due", self.now)["models"])
+            self.assertTrue(plan(self.data, "workflow_dispatch", "models", self.now)["models"])
+            self.assertTrue(plan(self.data, "push", now=self.now)["models"])
+            self.assertTrue(plan(self.data, "schedule", now=self.now + timedelta(minutes=minutes))["models"])
+
+    def test_invalid_or_recovered_health_does_not_hide_stale_data(self):
+        self.stamp("models", 120)
+        path = self.data / "collection-health.json"
+        for record in [
+            {"status": "healthy", "consecutiveFailures": 0, "lastAttemptAt": self.now.isoformat()},
+            {"status": "degraded", "consecutiveFailures": True, "lastAttemptAt": self.now.isoformat()},
+            {"status": "degraded", "consecutiveFailures": 2, "lastAttemptAt": (self.now + timedelta(minutes=5)).isoformat()},
+            {"status": "degraded", "consecutiveFailures": 2, "lastAttemptAt": "bad"},
+            None,
+        ]:
+            path.write_text(json.dumps({"sources": {"models-batch": record}}), encoding="utf-8")
+            self.assertTrue(plan(self.data, "schedule", now=self.now)["models"])
+        path.write_text("invalid json", encoding="utf-8")
+        self.assertTrue(plan(self.data, "schedule", now=self.now)["models"])

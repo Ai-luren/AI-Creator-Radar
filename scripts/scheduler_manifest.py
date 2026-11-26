@@ -6,14 +6,15 @@ import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 try:
-    from scripts.plan_refresh import GROUPS, plan, read_stamp
+    from scripts.plan_refresh import GROUPS, plan, read_stamp, retry_after
 except ModuleNotFoundError:
-    from plan_refresh import GROUPS, plan, read_stamp
+    from plan_refresh import GROUPS, plan, read_stamp, retry_after
 
 ROOT = Path(__file__).resolve().parents[1]
 
 def build(data_dir, now, event, run_id, attempt, schedule="", scope=""):
-    due_now = plan(data_dir, "schedule", now=now)
+    due_now = plan(data_dir, "schedule", now=now, respect_backoff=False)
+    eligible_now = plan(data_dir, "schedule", now=now)
     # Models are due at most 25 minutes after a successful check. Calculate
     # the earliest due boundary using the existing planner, not a second SLA.
     next_due = now
@@ -27,14 +28,17 @@ def build(data_dir, now, event, run_id, attempt, schedule="", scope=""):
     groups = {}
     for group, inputs in GROUPS.items():
         values = [read_stamp(data_dir, filename, field) for filename, field in inputs]
+        retry = retry_after(data_dir, group, now) if due_now[group] and not eligible_now[group] else None
         groups[group] = {
             "oldestSnapshotAt": min(values).isoformat() if all(values) else None,
             "due": due_now[group],
+            "eligible": eligible_now[group],
+            "retryAfter": retry.isoformat() if retry is not None else None,
         }
     return {"schema":"scheduler-health/v1", "generatedAt":now.isoformat(),
             "nextDueAt":next_due.isoformat(), "trigger":{"event":event,"runId":run_id,
             "attempt":attempt,"schedule":schedule,"scope":scope}, "groups":groups,
-            "policy":"Validated snapshot freshness; heartbeat is not proof every source succeeded."}
+            "policy":"Validated snapshot freshness; due is raw staleness, eligible applies bounded retry backoff. Heartbeat is not proof every source succeeded."}
 
 def main():
     data = ROOT / "site/data"

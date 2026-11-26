@@ -57,3 +57,7 @@ description: Read dated public follower-count snapshots for verified official ac
 4. 没有实际数据变化就不创建空提交。
 5. 汇报本轮按平台成功 / 受阻数量、实际更新时间和 GitHub 同步结果；不把部分采集描述为全量完成。
 6. Push 成功只代表仓库同步完成。若要报告网站已更新，需另外检查 GitHub Actions / Pages 部署结果；代码推送、工作流通过和站点部署是不同状态。
+
+## 云端调度边界
+
+Cloudflare 与 GitHub 的自动到期采集不替代本 Skill 的登录态粉丝快照任务。成功的云端心跳或 Pages 发布不能视为粉丝数字已更新；只使用实际读到的主页日期。

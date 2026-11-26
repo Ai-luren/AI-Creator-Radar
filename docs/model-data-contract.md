@@ -221,3 +221,7 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 ## P1 自动双源发布核验（第一阶段）
 
 采集器仅把 RSS/Atom 明确 published/pubDate 或 JSON-LD datePublished 作为结构化发布日期证据；updated、列表邻近日期、模型卡及 API 日志仍只用于候选发现。模型事务在生成上新视图之前运行 collect_verify_model_releases.py：当前成功抓取、同一规范家族、明确正式发布标题、两个不同官方站点及不同来源 ID/文章 URL、日级日期一致且无已知冲突才可自动写入 releaseEvidence。自动记录 verificationMethod=automatic-dual-official，保存双方标题、链接、日期来源和采集时间；verifiedAt 是机器核验日期而不是人工审查日期。既有人工证据、历史阶段、身份变体和冲突不覆盖；新型号只允许显式白名单中的简洁数字版本，其他型号保留候选。两条证据不代表独立第三方核验；不推断许可、权重、可用范围。未满足条件的候选保留原发现流，核验状态记录于 site/data/model-release-verification-status.json。厂商发展史仅提升与自动证据来源 ID、日期及家族一致的待复核节点，合并同一事件的两条机器候选；保留双方证据，明确标记“自动双源核验 · 非人工复核”，不覆盖人工审核历史。
+
+## 调度与运行状态契约
+
+`collection-health.json` 记录各采集组最后尝试、最后成功与连续失败次数；`scheduler-health.json` 的 schema 保持 scheduler-health/v1，包含生成时间、下一次可执行到期时间及触发记录。组级 due 表示实际快照到期，eligible 表示满足退避条件可执行，retryAfter 为暂缓边界（无暂缓时 null）。新字段兼容旧快照，不改变模型、版本、发布证据或已有日期。system-audit.json 的 dueScopes 为真实过期组，eligibleScopes 为可立即重试组。不得把调度成功等同于模型事实已核验；详见 [运行手册](automation-runbook.md)。

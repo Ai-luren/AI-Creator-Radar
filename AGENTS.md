@@ -42,3 +42,9 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 
 - Do not delete user-authored or historical data. Move confirmed retired material into `archive/` and keep a short explanation of its status.
 - Keep generated caches and local settings out of Git.
+
+## Production operations
+
+- GitHub Actions is the only production data writer. Cloudflare Worker `ai-creator-radar` is the deployed independent watchdog, configured in `ops/cloudflare-watchdog/wrangler.toml`; keep the 15-minute cadence and do not edit dashboard schedules independently. The GitHub token belongs only in a runtime Secret. Rotate it before expiry; never log or commit it.
+- Treat PR validation, cloud deployment, actual dispatch, persisted heartbeat and live Pages publication as separate gates. Record raw overdue state separately from retry eligibility. Do not hide a stale group or reduce real incident reporting to make checks green.
+- Run `node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs` and the Python suite for scheduler changes; a Node mock is not a Cloudflare runtime acceptance test. Do not enable both independent fallback schedulers simultaneously. Main protection and local hook installation must be verified separately; preserve the validated automated data-writer path.
