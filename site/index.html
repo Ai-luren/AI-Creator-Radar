@@ -369,6 +369,24 @@ h1,h2,h3{letter-spacing:-.02em;text-wrap:balance}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
 /* Source health: compact and secondary to release content. */
 .source-health{margin:0 0 16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);font-size:12px;color:var(--muted)}.source-health summary{cursor:pointer;color:var(--ink);font-weight:650}.source-health p{margin:10px 0}.source-health-row{display:grid;grid-template-columns:minmax(120px,1.2fr) auto minmax(100px,1.5fr) auto;gap:8px;align-items:center;padding:7px 0;border-top:1px solid var(--line);overflow-wrap:anywhere}.source-health-row a{color:var(--blue);text-decoration:none}.source-health-row .pill{white-space:nowrap}@media(max-width:700px){.source-health-row{grid-template-columns:minmax(0,1fr) auto}.source-health-row span:nth-child(3),.source-health-row span:nth-child(4){font-size:11px}}
+
+/* Daily overview: compact scanning surfaces, existing palette and controls. */
+.overview-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 18px}
+.overview-metric{display:flex;flex-direction:column;gap:5px;align-items:flex-start;text-align:left;min-width:0;padding:14px 16px;border:1px solid var(--line);border-radius:var(--radius-card);background:var(--paper);color:var(--ink)}
+.overview-metric>span{font-size:13px;color:var(--muted)}.overview-metric>strong{font-size:25px;line-height:1.25;letter-spacing:-.03em;font-weight:700;font-variant-numeric:tabular-nums}.overview-metric>small{font-size:12px;color:var(--muted);overflow-wrap:anywhere}
+.overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 16px;align-items:start}
+.overview-panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);padding:15px 17px;margin:0 0 16px;min-width:0}
+.overview-grid>.overview-panel{margin:0}.overview-panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin:0 0 7px}.overview-panel-head h2,.overview-brief-head h2{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0;line-height:1.4}.overview-panel-head p{font-size:12px;color:var(--muted);margin:4px 0 0;line-height:1.5}
+.overview-link{background:transparent;border:0;color:var(--blue);font-size:12px;font-weight:600;padding:4px 0;white-space:nowrap;flex:none}.overview-link:hover,.overview-row-link:hover,.briefing-original-links a:hover{text-decoration:underline}
+.overview-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 0;border-top:1px solid var(--line);min-width:0}.overview-row:first-child{border-top:0}.overview-row:last-child{padding-bottom:2px}.overview-row-main{min-width:0}.overview-row-meta{font-size:12px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere;font-variant-numeric:tabular-nums}.overview-row h3{font-size:14px;line-height:1.5;font-weight:650;margin:3px 0 0;overflow-wrap:anywhere}.overview-row p{font-size:12px;line-height:1.6;color:var(--muted);margin:4px 0 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.overview-row-link{color:var(--blue);font-size:12px;text-decoration:none;flex:none;padding-top:18px}.overview-empty{color:var(--muted);font-size:13px;margin:12px 0 4px;line-height:1.6}.overview-notice{color:var(--amber);font-size:13px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-control);padding:10px 12px;margin:0 0 12px}
+.overview-brief-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 10px}.overview-brief-head>span{font-size:12px;color:var(--muted)}
+.overview-quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 18px}.overview-quick{display:flex;align-items:center;text-align:left;gap:10px;min-width:0;padding:12px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-control);color:var(--ink)}.overview-quick-icon{display:grid;place-items:center;color:var(--blue);width:28px;height:28px;flex:none}.overview-quick-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.overview-quick>span:nth-child(2){flex:1;min-width:0}.overview-quick strong{display:block;font-size:13px}.overview-quick small{display:block;font-size:12px;color:var(--muted);margin-top:3px}.overview-quick>span:last-child{color:var(--muted)}
+.overview-metric:hover,.overview-quick:hover{border-color:var(--blueLine);background:var(--blue2)}.overview-metric:focus-visible,.overview-quick:focus-visible,.overview-link:focus-visible,.overview-row-link:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.briefing-original-links{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:8px}.briefing-original-links a{color:var(--blue);font-size:12px;text-decoration:none}
+@media(max-width:1100px){.overview-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.overview-quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.overview-grid{grid-template-columns:1fr;gap:12px}.overview-metrics{gap:8px;margin-bottom:12px}.overview-metric{padding:11px 12px}.overview-metric>strong{font-size:22px}.overview-panel{padding:13px}.overview-quick-grid{grid-template-columns:1fr}.overview-brief-head{margin-top:18px}.overview-brief-head>span{font-size:11px}.overview-row-link{padding-top:3px}.overview-panel-head{gap:6px}.overview-panel-head h2{font-size:16px}.overview-link{font-size:12px}}
+
 </style>
 </head>
 <body>
@@ -376,18 +394,19 @@ h1,h2,h3{letter-spacing:-.02em;text-wrap:balance}
 <aside class="sidebar" id="sidebar">
   <div class="brand"><div class="brand-mark"><img src="assets/creator-avatar.jpg" alt="Ai路人头像"></div><div><div class="brand-name">AI视频创作台</div></div></div>
   <div class="nav-scroll">
-    <section class="nav-group"><div class="nav-label">发现</div><nav class="nav">
-      <button class="active" data-view="today"><span class="nav-icon" data-icon="brain"></span>近期上新</button>
+    <section class="nav-group"><div class="nav-label">每日追踪</div><nav class="nav" aria-label="每日追踪">
+      <button class="active" data-view="overview" aria-current="page"><span class="nav-icon" data-icon="grid"></span>今日概览</button>
+      <button data-view="today"><span class="nav-icon" data-icon="brain"></span>近期上新</button>
       <button data-view="feeds"><span class="nav-icon" data-icon="book"></span>行业简报</button>
       <button data-view="social"><span class="nav-icon" data-icon="megaphone"></span>官方账号监控</button>
     </nav></section>
-    <section class="nav-group"><div class="nav-label">研究</div><nav class="nav">
+    <section class="nav-group"><div class="nav-label">模型研究</div><nav class="nav" aria-label="模型研究">
       <button data-view="models"><span class="nav-icon" data-icon="layers"></span>模型库</button>
-      <button data-view="practice"><span class="nav-icon" data-icon="video"></span>模型资料</button>
       <button data-view="rankings"><span class="nav-icon" data-icon="chart"></span>能力榜单</button>
       <button data-view="topics"><span class="nav-icon" data-icon="grid"></span>厂商发展史</button>
     </nav></section>
-    <section class="nav-group"><div class="nav-label">创作</div><nav class="nav">
+    <section class="nav-group"><div class="nav-label">创作资源</div><nav class="nav" aria-label="创作资源">
+      <button data-view="practice"><span class="nav-icon" data-icon="video"></span>教程与案例</button>
       <button data-view="platforms"><span class="nav-icon" data-icon="wand"></span>创作工具</button>
     </nav></section>
   </div>
@@ -395,8 +414,8 @@ h1,h2,h3{letter-spacing:-.02em;text-wrap:balance}
 </aside>
 <main class="main">
   <header class="topbar">
-    <div style="display:flex;align-items:center;gap:10px;min-width:0"><button class="mobile-menu" id="mobileMenu" aria-label="打开导航">☰</button><div class="crumb">AI视频创作台 <span style="color:#b1bac2"> / </span><strong id="crumbTitle">近期上新</strong></div></div>
-    <div class="top-right"><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" aria-label="搜索模型、官方宣传、资讯与创作资源" placeholder="搜索模型、官方宣传、资讯与创作资源…"></label></div>
+    <div style="display:flex;align-items:center;gap:10px;min-width:0"><button class="mobile-menu" id="mobileMenu" aria-label="打开导航">☰</button><div class="crumb">AI视频创作台 <span style="color:#b1bac2"> / </span><strong id="crumbTitle">今日概览</strong></div></div>
+    <div class="top-right"><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" aria-label="筛选当前页面" placeholder="筛选当前页面…"></label></div>
   </header>
   <section class="content" id="content"><div class="empty">正在加载工作台数据…</div></section>
 </main>
@@ -442,75 +461,133 @@ function empty(t){return '<div class="empty">'+esc(t)+'</div>'}
 function readEvaluationWorkflow(){try{return JSON.parse(localStorage.getItem('creator-radar-evaluation-workflow-v1')||'{}')}catch(e){return {}}}
 function writeEvaluationWorkflow(){try{localStorage.setItem('creator-radar-evaluation-workflow-v1',JSON.stringify(state.evaluationWorkflow))}catch(e){}}
 function daysSince(value){var d=new Date(value);return isNaN(d)?Infinity:(Date.now()-d.getTime())/86400000}
-var state={view:'today',query:'',models:[],updates:[],platforms:[],tutorials:[],modelPractice:{items:[]},modelResourceStatus:{},chronicleSync:{},modelPracticeType:'all',practiceCategory:'视频',rankings:{categories:[]},maomuRankings:{categories:[]},referenceRankings:{boards:[]},unifiedRankings:{categories:[]},rankSources:[],topics:[],news:{items:[]},feedItems:[],aihotDaily:{items:[],fetchedAt:'',title:''},juyaDaily:{items:[],fetchedAt:'',title:''},briefingTab:'aihot',evaluations:{targets:[],items:[],status:{},searchState:{}},evaluationCategory:'all',evaluationWindow:'30d',evaluationStatusFilter:'all',evaluationApiFilter:'all',evaluationWorkflow:readEvaluationWorkflow(),aihot:{items:[],status:'idle',updatedAt:'',error:'',etag:''},aihotLeaderboard:{category:'overall',mode:'rank',status:'idle',data:null,error:'',requestKey:''},aihotTopics:{},social:{brands:[],posts:[]},modelReleases:[],modelReleaseData:null,modelMonitorStatus:null,releaseCategory:'all',modelCategory:'video',regionFilter:'all',accessFilter:'all',modelSort:'vendor',selectedModelId:null,modelDetailReturn:null,rankTab:'image',rankVideoTask:'text-to-video-audio',rankSub:'',rankPage:0,rankExpanded:true,rankSourcesOpen:false,newsExpanded:false,platformCategory:'video',socialRegion:'all',socialCategory:'all',activeTopic:null,topicCategory:'all'};
-if(new URLSearchParams(window.location.search).get('view')==='rankings')state.view='rankings';
+var state={view:'overview',query:'',overviewReady:false,dataReady:false,dataErrors:{},models:[],updates:[],platforms:[],tutorials:[],modelPractice:{items:[]},modelResourceStatus:{},chronicleSync:{},modelPracticeType:'all',practiceCategory:'视频',rankings:{categories:[]},maomuRankings:{categories:[]},referenceRankings:{boards:[]},unifiedRankings:{categories:[]},rankSources:[],topics:[],news:{items:[]},feedItems:[],aihotDaily:{items:[],fetchedAt:'',title:''},juyaDaily:{items:[],fetchedAt:'',title:''},briefingTab:'aihot',evaluations:{targets:[],items:[],status:{},searchState:{}},evaluationCategory:'all',evaluationWindow:'30d',evaluationStatusFilter:'all',evaluationApiFilter:'all',evaluationWorkflow:readEvaluationWorkflow(),aihot:{items:[],status:'idle',updatedAt:'',error:'',etag:''},aihotLeaderboard:{category:'overall',mode:'rank',status:'idle',data:null,error:'',requestKey:''},aihotTopics:{},social:{brands:[],posts:[]},modelReleases:[],modelReleaseData:null,modelMonitorStatus:null,releaseCategory:'all',modelCategory:'video',regionFilter:'all',accessFilter:'all',modelSort:'vendor',selectedModelId:null,modelDetailReturn:null,rankTab:'image',rankVideoTask:'text-to-video-audio',rankSub:'',rankPage:0,rankExpanded:true,rankSourcesOpen:false,newsExpanded:false,platformCategory:'video',socialRegion:'all',socialCategory:'all',activeTopic:null,topicCategory:'all'};
 var content=document.getElementById('content');
-var labels={today:'近期上新',models:'模型库',practice:'模型资料',rankings:'能力榜单',evaluations:'近期上新',feeds:'行业简报',topics:'厂商发展史',social:'官方账号监控',platforms:'创作工具'};
+var labels={overview:'今日概览',today:'近期上新',models:'模型库',practice:'教程与案例',rankings:'能力榜单',feeds:'行业简报',topics:'厂商发展史',social:'官方账号监控',platforms:'创作工具'};
+var initialView=new URLSearchParams(window.location.search).get('view');if(initialView==='evaluations')initialView='today';if(Object.prototype.hasOwnProperty.call(labels,initialView))state.view=initialView;
 async function loadData(){
- var names=['models.json','model-updates.json','rankings.json','ranking-sources.json','topics.json','news-today.json','reference-rankings.json'];
- function optionalJson(url){return fetch(url).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}
- function requiredJson(url,label,options){return fetch(url,options||{}).then(function(r){if(!r.ok)throw new Error(label);return r.json()})}
- var loaded=await Promise.all([
-  Promise.all(names.map(function(n){return requiredJson(DATA+n+'?v=5',n,{cache:'no-store'})})),
-  optionalJson(DATA+'maomu-rankings.json?v=4'),
-  optionalJson(DATA+'feed-items.json?v=1'),
-  optionalJson(DATA+'aihot-items.json?v=1'),
-  optionalJson(DATA+'aihot-daily.json?v=2'),
-  optionalJson(DATA+'juya-daily.json?v=2'),
-  requiredJson(DATA+'social-accounts.json?v=16','social-accounts.json',{cache:'no-store'}),
-  requiredJson(DATA+'social-platforms.json?v=5','social-platforms.json',{cache:'no-store'}),
-  optionalJson(DATA+'model-evaluations.json?v=1'),
-  optionalJson(DATA+'model-practice.json?v=8'),
-  optionalJson('./data/tutorials.json?v=5'),
-  optionalJson(DATA+'chronicle-updates-status.json?v=1'),
-  optionalJson(DATA+'model-resource-status.json?v=1'),
-  optionalJson(DATA+'model-releases-30d.json?v=2'),
-  optionalJson(DATA+'unified-rankings.json?v=5'),
-  optionalJson(DATA+'model-monitor-status.json?v=1')
- ]);
- var vals=loaded[0];
- state.models=vals[0]||[];
- state.updates=(vals[1]&&vals[1].items)||[];
- state.rankings=vals[2]||{categories:[]};
- state.rankSources=vals[3]||[];
- state.topics=vals[4]||[];
- state.news=vals[5]||{items:[]};
- state.referenceRankings=vals[6]||{boards:[]};
- state.maomuRankings=loaded[1]||{categories:[]};
- state.feedItems=Array.isArray(loaded[2]&&loaded[2].items)?loaded[2].items:[];
- if(loaded[3]){state.aihot.items=Array.isArray(loaded[3].items)?loaded[3].items:[];state.aihot.updatedAt=loaded[3].fetchedAt||''}
- state.aihotDaily=loaded[4]||state.aihotDaily;
- state.juyaDaily=loaded[5]||state.juyaDaily;
- state.social=loaded[6];
- state.platforms=loaded[7];
- state.evaluations=loaded[8]||state.evaluations;
- state.modelPractice=loaded[9]||state.modelPractice;
- state.tutorials=loaded[10]||[];
- state.chronicleSync=loaded[11]||state.chronicleSync;
- state.modelResourceStatus=loaded[12]||state.modelResourceStatus;
- state.modelReleaseData=loaded[13]||state.modelReleaseData;
+ function trackedJson(name,version,noStore){
+  return fetch(DATA+name+'?v='+version,noStore?{cache:'no-store'}:{}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(function(value){if(value==null||typeof value!=='object')throw new Error('数据格式无效');return value}).catch(function(e){state.dataErrors[name]=String(e.message||e);return null});
+ }
+ // A small first wave: the overview must not wait for the model registry or rankings.
+ var first=await Promise.all([trackedJson('model-releases-30d.json',3),trackedJson('model-monitor-status.json',2),trackedJson('aihot-items.json',2),trackedJson('aihot-daily.json',3),trackedJson('juya-daily.json',3)]);
+ if(location.protocol==='file:'&&first.every(function(x){return !x}))throw new Error('本地数据暂不可用');
+ state.modelReleaseData=first[0]||null;
  state.modelReleases=(state.modelReleaseData&&state.modelReleaseData.items)||[];
- state.unifiedRankings=loaded[14]||{categories:[]};
- state.modelMonitorStatus=loaded[15]||null;
- render();
+ state.modelMonitorStatus=first[1]||null;
+ if(first[2]){state.aihot.items=Array.isArray(first[2].items)?first[2].items:[];state.aihot.updatedAt=first[2].fetchedAt||''}
+ state.aihotDaily=first[3]||state.aihotDaily;
+ state.juyaDaily=first[4]||state.juyaDaily;
+ state.overviewReady=true;
+ if(state.view==='overview')render();
+ // Remaining modules retain their source contracts, with independent failure handling.
+ var loaded=await Promise.all([
+  trackedJson('models.json',6,true),trackedJson('model-updates.json',6,true),trackedJson('rankings.json',5,true),
+  trackedJson('ranking-sources.json',5,true),trackedJson('topics.json',6,true),trackedJson('news-today.json',5,true),
+  trackedJson('reference-rankings.json',5,true),trackedJson('maomu-rankings.json',4),
+  trackedJson('feed-items.json',1),trackedJson('social-accounts.json',16,true),trackedJson('social-platforms.json',5,true),
+  trackedJson('model-evaluations.json',1),trackedJson('model-practice.json',8),trackedJson('tutorials.json',5),
+  trackedJson('chronicle-updates-status.json',1),trackedJson('model-resource-status.json',1),trackedJson('unified-rankings.json',5)
+ ]);
+ state.models=Array.isArray(loaded[0])?loaded[0]:[];
+ state.updates=(loaded[1]&&loaded[1].items)||[];
+ state.rankings=loaded[2]||state.rankings;state.rankSources=loaded[3]||[];
+ state.topics=Array.isArray(loaded[4])?loaded[4]:[];
+ state.news=loaded[5]||state.news;state.referenceRankings=loaded[6]||state.referenceRankings;
+ state.maomuRankings=loaded[7]||state.maomuRankings;state.feedItems=(loaded[8]&&loaded[8].items)||[];
+ state.social=loaded[9]||state.social;state.platforms=Array.isArray(loaded[10])?loaded[10]:[];
+ state.evaluations=loaded[11]||state.evaluations;state.modelPractice=loaded[12]||state.modelPractice;
+ state.tutorials=Array.isArray(loaded[13])?loaded[13]:[];
+ state.chronicleSync=loaded[14]||state.chronicleSync;state.modelResourceStatus=loaded[15]||state.modelResourceStatus;
+ state.unifiedRankings=loaded[16]||state.unifiedRankings;
+ state.dataReady=true;
+ if(state.view!=='overview')render();
 }
-function setView(v){state.view=v;state.selectedModelId=null;state.modelDetailReturn=null;state.activeTopic=null;document.querySelectorAll('#sidebar [data-view]').forEach(function(b){b.classList.toggle('active',b.dataset.view===v)});document.getElementById('crumbTitle').textContent=labels[v]||'模型动态';document.getElementById('sidebar').classList.remove('open');render()}
+
+function setView(v){if(!Object.prototype.hasOwnProperty.call(labels,v))return;if(state.view!==v){state.query='';document.getElementById('searchInput').value=''}state.view=v;state.selectedModelId=null;state.modelDetailReturn=null;state.activeTopic=null;document.getElementById('sidebar').classList.remove('open');render();window.scrollTo(0,0)}
 function closeModelDetails(){var id=state.modelDetailReturn;state.selectedModelId=null;render();var trigger=Array.from(content.querySelectorAll('[data-model-open]')).find(function(x){return x.dataset.modelOpen===id});if(trigger)trigger.focus();state.modelDetailReturn=null}
 function render(){
- document.querySelectorAll('#sidebar [data-view]').forEach(function(b){b.classList.toggle('active',b.dataset.view===state.view)});
- document.getElementById('crumbTitle').textContent=labels[state.view]||'模型动态';
- if(state.view==='today'||state.view==='evaluations')content.innerHTML=timelinePage();
+ document.querySelectorAll('#sidebar [data-view]').forEach(function(b){var active=b.dataset.view===state.view;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
+ document.getElementById('crumbTitle').textContent=labels[state.view]||'今日概览';
+ if(state.view==='overview'?!state.overviewReady:!state.dataReady){content.innerHTML='<div class="empty" role="status">正在加载'+esc(labels[state.view])+'…</div>';return}
+ if(state.view==='overview')content.innerHTML=overviewPage();
+ else if(state.view==='today')content.innerHTML=timelinePage();
  else if(state.view==='models')content.innerHTML=modelPage();
  else if(state.view==='practice')content.innerHTML=modelPracticePage();
  else if(state.view==='rankings')content.innerHTML=rankingsPage();
- else if(state.view==='evaluations')content.innerHTML=modelEvaluationsPage();
  else if(state.view==='feeds')content.innerHTML=feedsPage();
  else if(state.view==='topics')content.innerHTML=topicsPage();
  else if(state.view==='social')content.innerHTML=socialPage();
  else if(state.view==='platforms')content.innerHTML=platformsPage();
- else content.innerHTML=timelinePage();
+ else content.innerHTML=overviewPage();
+ if(state.view!=='overview'){
+  var deps={today:['model-releases-30d.json','model-monitor-status.json','social-accounts.json'],models:['models.json','reference-rankings.json','maomu-rankings.json'],practice:['model-practice.json','tutorials.json','model-resource-status.json'],rankings:['unified-rankings.json'],feeds:['aihot-daily.json','juya-daily.json','aihot-items.json'],topics:['topics.json','chronicle-updates-status.json'],social:['social-accounts.json'],platforms:['social-platforms.json']};
+  var failed=(deps[state.view]||[]).filter(function(n){return state.dataErrors[n]});if(failed.length)content.insertAdjacentHTML('afterbegin','<p class="overview-notice" role="status">部分数据未加载：'+esc(failed.join('、'))+'。当前结果可能不完整，请刷新重试。</p>');
+ }
  if(state.selectedModelId){var selectedModel=state.models.find(function(m){return m.id===state.selectedModelId});if(selectedModel)content.insertAdjacentHTML('beforeend',modelDetails(selectedModel))}
 }
+
+function chinaDay(value){
+ if(typeof value==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(value))return isNaN(Date.parse(value))?'':value;
+ var d=new Date(value);if(!value||isNaN(d))return '';
+ var parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d),out={};parts.forEach(function(p){out[p.type]=p.value});return out.year+'-'+out.month+'-'+out.day;
+}
+function calendarAge(value,now){var day=chinaDay(value),current=chinaDay(now||new Date());return day&&current?(Date.parse(current)-Date.parse(day))/86400000:Infinity}
+function withinDays(value,days,now){var age=calendarAge(value,now);return age>=0&&age<days}
+function overviewDateLabel(value){return chinaDay(value)||'日期待确认'}
+function overviewTime(value){if(!value||isNaN(Date.parse(value)))return '未记录';return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(value))}
+function briefIssueDay(data){
+ var title=String((data||{}).title||''),m=title.match(/(20\d{2})\s*(?:年|-)\s*(\d{1,2})\s*(?:月|-)\s*(\d{1,2})/);
+ return m?m[1]+'-'+m[2].padStart(2,'0')+'-'+m[3].padStart(2,'0'):'';
+}
+function briefArticleLinks(item){
+ var entries=Array.isArray(item.links)?item.links:[],out=[];
+ function add(url,label){if(safeUrl(url)==='#'||out.some(function(x){return x.url===url}))return;out.push({url:url,label:label})}
+ if(item.url)add(item.url,'条目来源');
+ entries.filter(function(x){return /^(原文|原始来源|官方原文|original)$/i.test(String(x.label||'').trim())}).forEach(function(x){add(x.url,'原文')});
+ entries.filter(function(x){return x.label===item.title}).slice(0,1).forEach(function(x){add(x.url,'资讯条目')});
+ return out.slice(0,2);
+}
+function overviewSummary(now){
+ var confirmed=(state.modelReleases||[]).filter(function(x){return withinDays(x.publishedAt,7,now)}).sort(function(a,b){return String(b.publishedAt||'').localeCompare(String(a.publishedAt||''))});
+ var pending=((state.modelReleaseData||{}).pending||[]).filter(function(x){return withinDays(x.publishedAt||x.discoveredAt,7,now)}).sort(function(a,b){return String(b.publishedAt||b.discoveredAt||'').localeCompare(String(a.publishedAt||a.discoveredAt||''))});
+ var selected=(state.aihot.items||[]).filter(function(x){return x.selected===true&&['ai-models','ai-products'].indexOf(x.category)>=0&&withinDays(x.publishedAt,7,now)}).sort(function(a,b){return String(b.publishedAt||'').localeCompare(String(a.publishedAt||''))});
+ return {confirmed:confirmed,pending:pending,pendingDated:pending.filter(function(x){return !!x.publishedAt}).length,pendingUndated:pending.filter(function(x){return !x.publishedAt}).length,selected:selected};
+}
+function overviewPage(){
+ var now=new Date(),today=chinaDay(now),summary=overviewSummary(now),releaseData=state.modelReleaseData,monitor=state.modelMonitorStatus;
+ var confirmed=summary.confirmed.filter(function(x){return matches([x.modelName,x.vendor,x.summary].join(' '))}),pending=summary.pending.filter(function(x){return matches([x.title,x.vendor,x.summary].join(' '))}),selected=summary.selected.filter(function(x){return matches([x.title,x.summary,x.source&&x.source.name].join(' '))});
+ var monitorAge=monitor?(now.getTime()-Date.parse(monitor.checkedAt))/3600000:Infinity,monitorStale=!Number.isFinite(monitorAge)||monitorAge<0||monitorAge>2;
+ var issueCount=[state.aihotDaily,state.juyaDaily].filter(function(d){return briefIssueDay(d)===today&&(d.items||[]).length>0}).length;
+ var releaseMissing=!releaseData||!Array.isArray(releaseData.items),pendingMissing=!releaseData||!Array.isArray(releaseData.pending);
+ var dataDate=releaseData&&releaseData.windowEnd,releaseStale=!!dataDate&&dataDate<today;
+ var failed=Object.keys(state.dataErrors).filter(function(k){return ['model-releases-30d.json','model-monitor-status.json','aihot-items.json','aihot-daily.json','juya-daily.json'].indexOf(k)>=0});
+ function row(title,meta,url,summaryText,linkLabel){var link=safeUrl(url)!=='#'?'<a class="overview-row-link" href="'+safeUrl(url)+'" target="_blank" rel="noopener noreferrer">'+esc(linkLabel||'来源')+' ↗</a>':'';return '<article class="overview-row"><div class="overview-row-main"><div class="overview-row-meta">'+esc(meta)+'</div><h3>'+esc(title||'未命名记录')+'</h3>'+(summaryText?'<p>'+esc(summaryText)+'</p>':'')+'</div>'+link+'</article>'}
+ function panel(title,sub,rows,action,emptyText){return '<section class="overview-panel"><header class="overview-panel-head"><div><h2>'+esc(title)+'</h2><p>'+esc(sub)+'</p></div>'+action+'</header><div class="overview-list">'+(rows||'<p class="overview-empty">'+esc(emptyText)+'</p>')+'</div></section>'}
+ function action(view,label,attrs){return '<button type="button" class="overview-link" data-view="'+view+'" '+(attrs||'')+'>'+esc(label)+' →</button>'}
+ function metric(label,value,sub,view,attrs){return '<button type="button" class="overview-metric" data-view="'+view+'" '+(attrs||'')+'><span>'+esc(label)+'</span><strong>'+esc(value)+'</strong><small>'+esc(sub)+'</small></button>'}
+ var recentRows=confirmed.slice(0,5).map(function(x){return row(x.modelName,[overviewDateLabel(x.publishedAt),categoryName(x.category),x.vendor].join(' · '),x.url,x.summary,'官方原文')}).join('');
+ var pendingRows=pending.slice(0,4).map(function(x){return row(x.title,[x.publishedAt?'来源 '+overviewDateLabel(x.publishedAt):'发现 '+overviewDateLabel(x.discoveredAt)+' · 发布日未知',x.vendor,'待复核'].join(' · '),x.url,'','来源')}).join('');
+ var selectedRows=selected.slice(0,4).map(function(x){var links=x.links||{};return row(x.title,[overviewDateLabel(x.publishedAt),x.source&&x.source.name||'AIHOT'].join(' · '),links.original||links.aihot,'',links.original?'原文':'资讯条目')}).join('');
+ function briefPanel(data,key,name){var day=briefIssueDay(data),items=(data.items||[]).filter(function(x){return matches([x.title,x.summary,x.category].join(' '))});var sub=day?(day===today?'今日刊期 '+day:'最近刊期 '+day):'刊期待确认';if(data.fetchedAt)sub+=' · 抓取 '+overviewTime(data.fetchedAt);
+  return panel(name,sub,items.slice(0,3).map(function(x){var links=briefArticleLinks(x),best=links[0];return row(x.title,x.category||'日报',best&&best.url,'',best&&best.label)}).join(''),action('feeds','阅读全部','data-briefing-target="'+key+'"'),state.dataErrors[key==='aihot'?'aihot-daily.json':'juya-daily.json']?'日报加载失败，请重试。':'暂无符合条件的日报条目。')}
+ var metricHtml=metric('近 7 天 · 已核实型号',releaseMissing?'—':summary.confirmed.length,releaseStale?'清单截止 '+dataDate:'按正式发布证据','today','data-release-target="all"')+
+ metric('近 7 天 · 待复核',pendingMissing?'—':summary.pending.length,pendingMissing?'发现数据不可用':summary.pendingDated+' 条有日期 · '+summary.pendingUndated+' 条日期未知','today','data-release-target="all"')+
+ metric('今日刊期',state.dataErrors['aihot-daily.json']&&state.dataErrors['juya-daily.json']?'—':issueCount+' / 2','按日报刊期，不按抓取时间','feeds','data-briefing-target="aihot"')+
+ metric('信源检查',monitor?(monitorStale?'延迟':Number(monitor.failedSources||0)+' 异常'):'—',monitor?'最近检查 '+overviewTime(monitor.checkedAt):'检查状态暂不可用','today','data-release-target="all"');
+ var quick=[['models','模型库','查具体型号、日期与来源','layers'],['rankings','能力榜单','按任务比较原榜','chart'],['topics','厂商发展史','回顾演进节点','grid'],['practice','教程与案例','查官方演示与教程','video'],['platforms','创作工具','访问平台及创作者计划','wand']].map(function(x){return '<button type="button" class="overview-quick" data-view="'+x[0]+'"><span class="overview-quick-icon">'+icon(x[3])+'</span><span><strong>'+x[1]+'</strong><small>'+x[2]+'</small></span><span aria-hidden="true">›</span></button>'}).join('');
+ return pageHead('今日概览','先看模型变化和行业动态，再进入研究与创作。','北京时间 '+esc(today))+
+ (failed.length?'<p class="overview-notice" role="status">部分概览数据未加载，以下统计可能不完整。请刷新重试。</p>':'')+
+ (releaseStale?'<p class="overview-notice">发布清单截止 '+esc(dataDate)+'，并非今日完整数据。</p>':'')+
+ '<div class="overview-metrics" aria-label="近七天与今日状态">'+metricHtml+'</div>'+
+ '<div class="overview-grid">'+panel('最新模型','近 7 天已核实记录 · 最多 5 条',recentRows,action('today','全部上新','data-release-target="all"'),releaseMissing?'发布数据暂不可用。':'近 7 天没有符合条件的已核实发布。')+
+ panel('官方发现 · 待复核','近 7 天来源日期或首次发现 · 最多 4 条',pendingRows,action('today','查看发现','data-release-target="all"'),pendingMissing?'发现数据暂不可用。':'近 7 天没有符合条件的待复核记录。')+'</div>'+
+ '<div class="overview-brief-head"><h2>行业动态</h2><span>按来源保留刊期与原文</span></div><div class="overview-grid">'+briefPanel(state.aihotDaily,'aihot','AIHOT 日报')+briefPanel(state.juyaDaily,'juya','橘鸦 AI 早报')+'</div>'+
+ panel('AIHOT 精选 · 模型与产品','近 7 天已选条目 · 抓取 '+overviewTime(state.aihot.updatedAt),selectedRows,action('feeds','查看精选','data-briefing-target="selected"'),state.dataErrors['aihot-items.json']?'精选数据暂不可用。':'暂无符合条件的模型与产品精选。')+
+ '<div class="overview-brief-head"><h2>快速进入</h2><span>完整资料保留在对应模块</span></div><div class="overview-quick-grid">'+quick+'</div>'+
+ '<div class="footer"><span>概览仅汇总已采集数据，不代表全网实时覆盖；待复核不计入已核实型号。</span><span>清单生成 '+esc(overviewTime(releaseData&&releaseData.updatedAt))+'</span></div>';
+}
+
 function timelinePage(){return modelEvaluationsPage()}
 function modelBoardsFor(category){
  var maomuCategory={llm:'language',image:'image',video:'video'}[category],out=[];
@@ -610,7 +687,7 @@ function modelEvaluationsPage(){
  var pending=((state.modelReleaseData||{}).pending||[]).filter(function(x){var age=daysSince(x.publishedAt||x.discoveredAt);return age>=0&&age<=30&&(state.releaseCategory==='all'||x.category===state.releaseCategory)&&matches([x.vendor,x.title,x.summary].join(' '))});
  var pendingHtml=pending.length?'<section class="launch-section"><div class="section-head"><div><h2>官方动态 · 待复核</h2><p>自动发现的发布、预告或模型卡更新，不计入已核实型号。日期待确认时显示发现时间。</p></div><span class="head-meta">'+pending.length+' 条</span></div><div class="release-grid">'+pending.map(function(x){return '<article class="release-card"><div class="release-meta"><span class="pill">'+esc(categoryName(x.category))+' · 待复核</span><time>'+esc(x.publishedAt?'来源日期 '+date(x.publishedAt):'发现 '+date(x.discoveredAt))+'</time></div><h3>'+esc(x.title)+'</h3><p>'+esc(x.summary||'请查看官方原文。')+'</p><div class="release-access">'+esc(x.vendor)+'</div><a href="'+safeUrl(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.sourceName||'官方原文')+' ↗</a></article>'}).join('')+'</div></section>':'';
  var stamp=state.modelReleaseData&&state.modelReleaseData.updatedAt?date(state.modelReleaseData.updatedAt):'暂无生成时间';
- return '<section class="hero"><div class="hero-kicker">官方发布 · 最近 30 天</div><h1>近期有哪些新模型？</h1><p>已核实型号与新发现的官方动态分区展示；官方演示直接关联到型号。</p><div class="hero-bottom"><span><i class="dot"></i> '+releases.length+' 个已核实型号</span><span>清单生成于 '+esc(stamp)+'</span><span>'+names.length+' 家公司</span></div></section>'+pageHead('新模型清单','视频、图像、语言、音乐及音频按已核实官方发布日期汇总；待复核的官方动态单独展示。',releases.length+' 个已核实型号 · 最近 30 天')+'<div class="tabs release-tabs" role="group" aria-label="模型类别">'+tabs+'</div>'+modelSourceHealth()+pendingHtml+(companyHtml||empty('最近 30 天没有符合当前筛选的已核实新模型。'))+(promoRows?'<section class="launch-section"><div class="section-head"><div><h2>其他模型发布视频</h2><p>已核验的厂商模型发布原帖，与上方型号对应时已收进型号卡。</p></div><span class="head-meta">'+unlinkedPromos.length+' 条原帖</span></div><div class="promo-list">'+promoRows+'</div></section>':'')+'<div class="footer"><span>型号、类别与日期以厂商公告、模型卡或官方仓库为准；聚合站只用于发现线索。</span><span>官方宣传快照 '+esc(state.social.updatedAt||'暂无日期')+' · 未核实内容不猜测补入</span></div>'
+ return pageHead('近期上新','近30天已核实模型与官方发现分区展示；预告、模型卡更新不计为正式发布。',releases.length+' 个已核实型号 · '+names.length+' 家厂商 · 清单生成 '+esc(stamp))+'<div class="tabs release-tabs" role="group" aria-label="模型类别">'+tabs+'</div>'+modelSourceHealth()+(companyHtml||empty('最近 30 天没有符合当前筛选的已核实新模型。'))+pendingHtml+(promoRows?'<section class="launch-section"><div class="section-head"><div><h2>其他模型发布视频</h2><p>已核验的厂商模型发布原帖，与上方型号对应时已收进型号卡。</p></div><span class="head-meta">'+unlinkedPromos.length+' 条原帖</span></div><div class="promo-list">'+promoRows+'</div></section>':'')+'<div class="footer"><span>型号、类别与日期以厂商公告、模型卡或官方仓库为准；聚合站只用于发现线索。</span><span>官方宣传快照 '+esc(state.social.updatedAt||'暂无日期')+' · 未核实内容不猜测补入</span></div>'
 }
 function visibleLegacyRankingCategories(){
  var hidden={image:true,coding:true,llm:true,multimodal:true,agents:true};var labels={video:'视频编辑',music:'音乐生成',tts:'语音合成',frontend:'网页生成'};var allowed={video:['video-edit-arena','video-edit-aa']};
@@ -721,24 +798,26 @@ function unifiedRankingsPage(){
 function rankingsPage(){return unifiedRankingsPage()}
 function aihotCategoryName(v){return {'ai-models':'人工智能模型','ai-products':'人工智能产品',industry:'行业动态',paper:'论文',tip:'教程',opinion:'观点'}[v]||v||'行业动态'}
 function feedsPage(){
- var sources=[['aihot','AIHOT 日报','08:00'],['juya','橘鸦 AI 早报','10:00']];
+ var sources=[['aihot','AIHOT 日报','08:00'],['juya','橘鸦 AI 早报','10:00'],['selected','AIHOT 精选','']];
  var active=sources.find(function(x){return x[0]===state.briefingTab});if(!active){active=sources[0];state.briefingTab=active[0]}
- var tabs=sources.map(function(x){return '<button class="tab '+(state.briefingTab===x[0]?'active':'')+'" data-briefing="'+x[0]+'">'+x[1]+' <span class="briefing-time">'+x[2]+'</span></button>'}).join('');
+ var tabs=sources.map(function(x){return '<button class="tab '+(state.briefingTab===x[0]?'active':'')+'" data-briefing="'+x[0]+'">'+x[1]+(x[2]?' <span class="briefing-time">'+x[2]+'</span>':'')+'</button>'}).join('');
  var body='',count=0,updated='',data={},entries=[];
  function digestMarkup(data){
   var items=(data.items||[]).filter(function(x){return matches([x.title,x.summary,x.category,x.sourceName].join(' '))});
   var groups=[];items.forEach(function(x){var key=x.category||'今日要闻';var group=groups.find(function(g){return g.name===key});if(!group){group={name:key,items:[]};groups.push(group)}group.items.push(x)});
-  return groups.map(function(g){return '<section class="briefing-digest-section"><div class="section-head"><div><h2>'+esc(g.name)+'</h2></div></div><div class="briefing-list">'+g.items.map(function(x){return '<article class="briefing-card"><h3>'+esc(x.title||'未命名资讯')+'</h3><p class="briefing-quote">'+esc(x.summary||'来源没有提供摘要。')+'</p>'+modelMentionLinks(x)+'</article>'}).join('')+'</div></section>'}).join('')
+  return groups.map(function(g){return '<section class="briefing-digest-section"><div class="section-head"><div><h2>'+esc(g.name)+'</h2></div></div><div class="briefing-list">'+g.items.map(function(x){return '<article class="briefing-card"><h3>'+esc(x.title||'未命名资讯')+'</h3><p class="briefing-quote">'+esc(x.summary||'来源没有提供摘要。')+'</p>'+'<div class="briefing-original-links">'+briefArticleLinks(x).map(function(l){return '<a href="'+safeUrl(l.url)+'" target="_blank" rel="noopener noreferrer">'+esc(l.label)+' ↗</a>'}).join('')+modelMentionLinks(x)+'</div></article>'}).join('')+'</div></section>'}).join('')
  }
  if(state.briefingTab==='aihot'){
   data=state.aihotDaily||{};entries=data.items||[];count=entries.filter(function(x){return matches([x.title,x.summary,x.category,x.sourceName].join(' '))}).length;updated=data.fetchedAt||'';body=digestMarkup(data);
+ }else if(state.briefingTab==='selected'){
+  data={items:(state.aihot.items||[]).filter(function(x){return x.selected===true}).slice().sort(function(a,b){return String(b.publishedAt||'').localeCompare(String(a.publishedAt||''))}),fetchedAt:state.aihot.updatedAt};entries=data.items;count=entries.filter(function(x){return matches([x.title,x.summary,x.category,x.source&&x.source.name].join(' '))}).length;updated=data.fetchedAt||'';body=entries.filter(function(x){return matches([x.title,x.summary,x.category,x.source&&x.source.name].join(' '))}).map(function(x){var links=x.links||{};return '<article class="briefing-card"><div class="overview-row-meta">'+esc([overviewDateLabel(x.publishedAt),aihotCategoryName(x.category),x.source&&x.source.name||'AIHOT'].join(' · '))+'</div><h3>'+esc(x.title)+'</h3><p class="briefing-quote">'+esc(x.summary||'来源没有提供摘要。')+'</p><div class="briefing-original-links">'+(safeUrl(links.original)!=='#'?'<a href="'+safeUrl(links.original)+'" target="_blank" rel="noopener noreferrer">原文 ↗</a>':'')+(safeUrl(links.aihot)!=='#'?'<a href="'+safeUrl(links.aihot)+'" target="_blank" rel="noopener noreferrer">AIHOT 条目 ↗</a>':'')+modelMentionLinks(x)+'</div></article>'}).join('');
  }else{
   data=state.juyaDaily||{};entries=data.items||[];count=entries.filter(function(x){return matches([x.title,x.summary,x.category].join(' '))}).length;updated=data.fetchedAt||'';body=digestMarkup(data);
   if(!entries.length){var legacy=(state.news.items||[]).filter(function(x){return matches([x.title,x.summary,x.detail,x.category].join(' '))});count=legacy.length;updated=state.news.updatedAt||'';body=legacy.map(function(x,i){var links=(x.links||[]).map(function(l){return '<a href="'+safeUrl(l.url)+'" target="_blank" rel="noopener noreferrer">'+esc(l.label||'原始来源')+' ↗</a>'}).join('');return '<details class="news-card" '+(state.newsExpanded?'open':'')+'><summary><span class="news-index">'+String(i+1).padStart(2,'0')+'</span><span class="news-summary"><strong>'+esc(x.title)+'</strong><span>'+esc(x.category)+' · '+esc(x.status||'今日动态')+'</span></span><span class="news-chevron">⌄</span></summary><div class="news-body"><p>'+esc(x.summary)+'</p><p>'+esc(x.detail)+'</p><div class="news-links">'+links+'</div></div></details>'}).join('')}
  }
- var desc=state.briefingTab==='aihot'?'按 AIHOT 日报原版栏目展示头条与逐条摘要；页面底部提供日报总入口。':'按橘鸦早报原版栏目展开逐条要点与正文摘要；页面底部提供早报归档入口。';
- var sourceUrl=state.briefingTab==='aihot'?'https://aihot.news/daily':'https://daily.juya.uk/archive/';
- return pageHead('行业简报','集中查看 AIHOT 和橘鸦的中文 AI 日报。',''+count+' 条 · '+(updated?'更新 '+esc(date(updated)):'等待同步'))+'<div class="briefing-intro"><span class="briefing-clock">每日更新</span><strong>08:00 AIHOT</strong><i></i><strong>10:00 橘鸦</strong><small>北京时间</small></div><p class="page-desc briefing-description">'+desc+'</p><div class="tabs briefing-tabs">'+tabs+'</div><div class="news-toolbar"><span>'+esc(active[1])+' · '+count+' 条'+(updated?' · 数据时间 '+esc(date(updated)):'')+'</span></div><div class="briefing-list">'+(body||empty('当前没有可展示的内容。请检查下一次自动同步结果。'))+'</div><div class="footer"><span>AIHOT / 橘鸦 · 自动同步由 GitHub Actions 运行</span><a class="text-link" href="'+safeUrl(sourceUrl)+'" target="_blank" rel="noopener noreferrer">打开当前信源 ↗</a></div>'
+ var desc=state.briefingTab==='selected'?'AIHOT 已选动态，按来源发布时间倒序展示；原文与条目分开链接。':state.briefingTab==='aihot'?'按 AIHOT 日报原版栏目展示头条与逐条摘要。':'按橘鸦早报原版栏目展开逐条要点与正文摘要。';
+ var sourceUrl=data.sourceUrl||(state.briefingTab==='selected'?'https://aihot.news/':state.briefingTab==='aihot'?'https://aihot.news/daily':'https://daily.juya.uk/archive/');
+ return pageHead('行业简报','集中查看 AIHOT 精选和两份中文日报。',''+count+' 条 · '+(briefIssueDay(data)?'刊期 '+esc(briefIssueDay(data))+' · ':'')+(updated?'抓取 '+esc(overviewTime(updated)):'等待同步'))+'<div class="briefing-intro"><span class="briefing-clock">每日更新</span><strong>08:00 AIHOT</strong><i></i><strong>10:00 橘鸦</strong><small>北京时间</small></div><p class="page-desc briefing-description">'+desc+'</p><div class="tabs briefing-tabs">'+tabs+'</div><div class="news-toolbar"><span>'+esc(active[1])+' · '+count+' 条'+(updated?' · 数据时间 '+esc(date(updated)):'')+'</span></div><div class="briefing-list">'+(body||empty('当前没有可展示的内容。请检查下一次自动同步结果。'))+'</div><div class="footer"><span>AIHOT / 橘鸦 · 自动同步由 GitHub Actions 运行</span><a class="text-link" href="'+safeUrl(sourceUrl)+'" target="_blank" rel="noopener noreferrer">打开当前信源 ↗</a></div>'
 }
 function topicCard(t){
  var brand=t.group==='内容类型'?'<span class="brand-box topic-type-icon topic-type-'+esc(t.id)+'">'+icon(t.icon||'book')+'</span>':t.group==='技术方向'?'<span class="brand-box topic-brand-icon topic-brand-'+esc(t.id)+'">'+icon(({agent:'brain',coding:'code',multimodal:'spark','image-gen':'image',video:'video',voice:'music','open-source':'layers'})[t.id]||'spark')+'</span>':(t.domain||t.chronicleSourceUrl||t.topicUrl)?brandBox(t.name,t.domain?'https://'+t.domain:(t.chronicleSourceUrl||t.topicUrl),t.id):'<span class="brand-box">'+icon('book')+'</span>';
@@ -850,7 +929,7 @@ function modelPracticePage(){
  var categoryTabs=categoryNames.map(function(x){return '<button class="practice-category-tab '+(category===x?'active':'')+'" data-practice-category="'+esc(x)+'">'+x+'</button>'}).join('');
  var filterTabs=[['all','全部'],['model','模型卡'],['demo','官方演示'],['tutorial','教程']].map(function(x){return '<button class="filter-chip '+(state.modelPracticeType===x[0]?'active':'')+'" data-practice-type="'+x[0]+'">'+x[1]+'</button>'}).join('');
  var emptyMessage=state.modelPracticeType==='all'?'当前分类下没有匹配资料。':'当前'+category+'分类下暂无'+({model:'模型卡',demo:'官方演示',tutorial:'教程'}[state.modelPracticeType]||'资料')+'；可切换“全部”查看其他内容。';
- return pageHead('模型资料','按类型浏览模型卡、官方演示和教程；接口入口放在对应模型卡中。',''+categoryModelNames.length+' 个'+category+'模型 · '+cases.length+' 个演示 · '+tutorials.length+' 份教程')+'<div class="practice-category-tabs" role="tablist" aria-label="模型类型">'+categoryTabs+'</div><div class="practice-toolbar"><span>资料</span><div class="filter-row">'+filterTabs+'</div></div><div class="practice-notice">模型卡提供官方接口入口；教程区只收录提示词指南、使用说明和创作流程。'+esc(linkStatusText)+'</div>'+(modelCards+caseCards+tutorialCards||empty(emptyMessage))+'<div class="footer"><span>按模型类型分开展示 · 来源为厂商官网与官方文档</span><span>内容整理 '+esc(state.modelPractice.updatedAt||'')+'</span></div>'
+ return pageHead('教程与案例','按模型类型浏览官方演示、教程与模型卡；接口入口仍在对应模型卡中。',''+categoryModelNames.length+' 个'+category+'模型 · '+cases.length+' 个演示 · '+tutorials.length+' 份教程')+'<div class="practice-category-tabs" role="tablist" aria-label="模型类型">'+categoryTabs+'</div><div class="practice-toolbar"><span>资料</span><div class="filter-row">'+filterTabs+'</div></div><div class="practice-notice">模型卡提供官方接口入口；教程区只收录提示词指南、使用说明和创作流程。'+esc(linkStatusText)+'</div>'+(modelCards+caseCards+tutorialCards||empty(emptyMessage))+'<div class="footer"><span>按模型类型分开展示 · 来源为厂商官网与官方文档</span><span>内容整理 '+esc(state.modelPractice.updatedAt||'')+'</span></div>'
 }
 function platformCardSummary(p){
  var note=String(p.note||'');
@@ -957,7 +1036,7 @@ function socialPage(){
 content.addEventListener('click',function(e){
  var close=e.target.closest('[data-model-close]');if(close){closeModelDetails();return}
  var open=e.target.closest('[data-model-open]');if(open){state.modelDetailReturn=open.dataset.modelOpen;state.selectedModelId=open.dataset.modelOpen;render();var panel=content.querySelector('.model-detail-panel');if(panel)panel.focus();return}
- var b=e.target.closest('[data-view]');if(b){setView(b.dataset.view);return}
+ var b=e.target.closest('[data-view]');if(b){if(b.dataset.briefingTarget)state.briefingTab=b.dataset.briefingTarget;if(b.dataset.releaseTarget)state.releaseCategory=b.dataset.releaseTarget;setView(b.dataset.view);return}
  b=e.target.closest('[data-practice-category]');if(b){state.practiceCategory=b.dataset.practiceCategory;render();return}
  b=e.target.closest('[data-practice-type]');if(b){state.modelPracticeType=b.dataset.practiceType;render();return}
  b=e.target.closest('[data-aihot-category]');if(b){state.rankPage=0;state.aihotLeaderboard.status='idle';state.aihotLeaderboard.data=null;loadAihotLeaderboard(b.dataset.aihotCategory,'rank');return}

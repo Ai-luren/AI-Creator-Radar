@@ -39,6 +39,10 @@ jobs:
       - name: Test collectors
         run: python -m unittest discover -s tests -v
 
+      - name: Test overview and navigation rendering
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: node --test tests/test_overview.mjs
+
       - name: Probe official sources on overhaul branch (read-only)
         if: github.event_name == 'push' && github.ref == 'refs/heads/feat/radar-freshness-overhaul'
         run: python scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
