@@ -13,10 +13,18 @@ def read(path):
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
 
 
+IDENTITY_REVIEW_KINDS = {
+    "generation-aggregate", "rolling-alias", "evaluation-variant",
+    "unversioned-alias", "service-mode", "leaderboard-snapshot",
+}
+
+
 def gap_kind(family, version):
     """Triage missing evidence without inferring a release date or model identity."""
     if version.get("releaseDate"):
         return "dated-without-evidence"
+    if version.get("recordKind") in IDENTITY_REVIEW_KINDS:
+        return "non-release-identity-review"
     if version.get("historicalMilestones"):
         return "historical-stage-only"
     if family.get("category") == "agent":
@@ -46,6 +54,13 @@ def audit(families, topics, config):
         vendor_counts = by_vendor.setdefault(vendor, Counter())
         vendor_counts["versions"] += 1
         vendor_counts["evidence"] += bool(version.get("releaseEvidence"))
+        record_kind = version.get("recordKind")
+        if record_kind in IDENTITY_REVIEW_KINDS:
+            identity = version.get("identityReview") or {}
+            if not identity.get("reviewedAt") or not identity.get("note"):
+                errors.append(f"Missing identity review: {key}")
+            if version.get("releaseEvidence") or version.get("releaseDate"):
+                errors.append(f"Non-release identity must not have formal release evidence: {key}")
         if not version.get("releaseEvidence"):
             kind = gap_kind(family, version)
             gap_kinds[kind] += 1
@@ -53,6 +68,7 @@ def audit(families, topics, config):
             gaps.append({"modelFamilyId": key[0], "modelVersionId": key[1], "modelName": version["name"],
                          "category": category, "vendor": vendor, "issue": "missing-release-evidence",
                          "reviewKind": kind, "status": version.get("status"),
+                         "recordKind": record_kind, "identityReview": version.get("identityReview"),
                          "hasDate": bool(version.get("releaseDate")), "existingDate": version.get("releaseDate"),
                          "candidateSourceUrl": version.get("releaseUrl"),
                          "historicalStages": [m.get("stage") for m in version.get("historicalMilestones", [])]})
@@ -96,6 +112,7 @@ def audit(families, topics, config):
     return {"families": len(families), "versions": len(versions),
             "chronicleNodes": sum(len(t.get("milestones", [])) for t in topics),
             "explicitHistoricalLinks": len(seen), "historicalMilestones": milestone_count, "missingEvidence": len(gaps),
+            "nonReleaseIdentityRecords": gap_kinds["non-release-identity-review"],
             "categories": {k: dict(v) for k, v in sorted(by_category.items())},
             "gapKinds": dict(sorted(gap_kinds.items())),
             "vendors": {k: dict(v) for k, v in sorted(by_vendor.items())},
