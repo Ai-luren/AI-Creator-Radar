@@ -4,9 +4,8 @@ on:
   push:
     branches: [main]
   schedule:
-    # 08:00 and 10:00 China Standard Time (UTC+8).
+    # 10:00 China Standard Time (UTC+8).
     # GitHub schedule events run on the default branch.
-    - cron: "0 0 * * *"
     - cron: "0 2 * * *"
   workflow_dispatch:
 
@@ -22,7 +21,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - name: Checkout the triggering ref
         uses: actions/checkout@v4
@@ -38,60 +37,71 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Collect official model updates
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_models.py
 
       - name: Build the 30-day release view from canonical model versions
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/build_model_release_digest.py
 
       - name: Update company chronologies from official model sources
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_chronicle_updates.py
 
       - name: Check official model resource links
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/check_model_resources.py
 
       - name: Collect RSS and Awesome resources
-        if: github.event_name != 'schedule' || github.event.schedule == '0 2 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_resources.py
 
       - name: Collect public model leaderboard snapshot
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_rankings.py
 
       - name: Collect Maomu model ranking boards
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_maomu_rankings.py
 
+      - name: Build unified capability rankings
+        if: github.event_name != 'push'
+        run: python scripts/build_unified_rankings.py
+
       - name: Collect AIHOT selected items
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_aihot.py
 
       - name: Collect AIHOT daily digest
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_briefings.py aihot
 
       - name: Collect Juya daily digest
-        if: github.event_name != 'schedule' || github.event.schedule == '0 2 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_briefings.py juya
 
       - name: Collect AIPick video ideas
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_aipick.py
 
       - name: Collect new model evaluation candidates
-        if: github.event_name != 'schedule' || github.event.schedule == '0 0 * * *'
+        if: github.event_name != 'push'
         run: python scripts/collect_model_evaluations.py
 
+      - name: Collect public social trends
+        if: github.event_name != 'push'
+        run: python scripts/collect_social_trends.py
+
       - name: Link exact model mentions across radar data
+        if: github.event_name != 'push'
         run: python scripts/link_model_records.py
 
       - name: Validate shared model references
+        if: github.event_name != 'push'
         run: python scripts/validate_model_links.py
 
       - name: Persist collected data to the triggering branch
+        if: github.event_name != 'push'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

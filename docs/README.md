@@ -10,6 +10,7 @@
 | 修改官方社媒账号快照 | [社媒数据指南](social-monitor-data-guide.md) | `site/data/social-accounts.json` |
 | 理解能力榜的来源和展示口径 | [榜单方法审核](leaderboard-methodology-audit-2026-11-25.md)、[榜单规则](../site/ranking-rules.html) | `site/data/reference-rankings.json`、`site/data/maomu-rankings.json` |
 | 查看综合榜实验与审计依据 | [榜单方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`、`site/data/unified-rankings.json` |
+| 检查每日自动更新和同步范围 | [自动更新说明](automation-runbook.md) | `.github/workflows/update-site.yml` |
 
 ## 数据更新原则
 

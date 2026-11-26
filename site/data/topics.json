@@ -3323,13 +3323,6 @@
             "modelFamilyId": "gpt-image",
             "matchedName": "GPT-Image-2.6"
           }
-        ],
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt-image",
-            "modelVersionId": "gpt-image-2-6-sunburst",
-            "matchedName": "GPT-Image-2.6 Sunburst"
-          }
         ]
       },
       {
@@ -4854,62 +4847,6 @@
         ]
       },
       {
-        "date": "2026-11-16",
-        "kind": "模型发布",
-        "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
-        "summary": "",
-        "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "839af1e97986262326",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-25T08:11:01Z",
-        "modelCategory": "video",
-        "modelMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "modelVersionId": "seedance-2-5",
-            "matchedName": "Seedance 2.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "matchedName": "Seedance"
-          }
-        ]
-      },
-      {
-        "date": "2026-11-09",
-        "kind": "模型发布",
-        "title": "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布",
-        "summary": "",
-        "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5?view_from=homepage_tab",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "02f7888b26ecc3fff0",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-25T08:11:01Z",
-        "modelCategory": "image",
-        "modelMentions": [
-          {
-            "modelFamilyId": "seedream",
-            "modelVersionId": "seedream-5-5",
-            "matchedName": "Seedream 5.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seedream",
-            "matchedName": "Seedream 5.5"
-          }
-        ]
-      },
-      {
         "date": "2026-11-09",
         "kind": "模型",
         "title": "Seedream 5.5 图像生成模型",
@@ -4953,27 +4890,6 @@
           {
             "modelFamilyId": "seedream",
             "matchedName": "Seedream"
-          }
-        ]
-      },
-      {
-        "date": "2026-08-05",
-        "kind": "模型发布",
-        "title": "SeedRealtime 音视频全双工大模型发布：走向全模态自然交互",
-        "summary": "",
-        "url": "https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction?view_from=homepage_tab",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "a58e69516f39f27b5e",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-25T08:11:01Z",
-        "modelCategory": "audio",
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seed-realtime",
-            "matchedName": "SeedRealtime"
           }
         ]
       },
@@ -5409,38 +5325,6 @@
       "video"
     ],
     "milestones": [
-      {
-        "date": "2026-11-18",
-        "kind": "模型卡更新",
-        "title": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise.",
-        "summary": "",
-        "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all",
-        "sourceId": "kuaishou-ir",
-        "sourceName": "Kling 官方发布博客",
-        "sourceUpdateId": "a41a8b12f7a3ba35ab",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-25T08:11:01Z",
-        "modelCategory": "image",
-        "modelMentions": [
-          {
-            "modelFamilyId": "kling-image",
-            "modelVersionId": "kling-image-4-0",
-            "matchedName": "Kling Image 4.0"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "kling",
-            "matchedName": "Kling"
-          },
-          {
-            "modelFamilyId": "kling-image",
-            "matchedName": "Kling Image"
-          }
-        ]
-      },
       {
         "date": "2026-11-18",
         "kind": "模型",
@@ -6774,14 +6658,7 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview",
-        "modelMentions": [
-          {
-            "modelFamilyId": "qwen",
-            "modelVersionId": "qwen4-max",
-            "matchedName": "Qwen4-Max"
-          }
-        ]
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview"
       },
       {
         "date": "2026-10-22",
@@ -7045,21 +6922,6 @@
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
         "verificationUrl": "https://www.alibabacloud.com/help/zh/qwenwork/qwenwork-intro"
-      },
-      {
-        "date": "2026-07-22",
-        "kind": "模型卡更新",
-        "title": "Qwen-Image-3.0: Rich Content, Authentic Details, Deep Knowledge",
-        "summary": "We are launching Qwen-Image-3.0, the third-generation foundational image generation model in the Qwen-Image series. If the keyword for Qwen-Image-1.0 was “Precision”, and the keywords for Qwen-Image-2.0 were “Precision, Variety, Completeness, Beauty, and Authenticity”, then the core of Qwen-Image-3.0 comes down to a single word — “Real” (实). This “Real” is embodied across three dimensions:",
-        "url": "https://www.alibabacloud.com/blog/qwen-image-3-0-rich-content-authentic-details-deep-knowledge_603385",
-        "sourceId": "qwen-image-updates",
-        "sourceName": "阿里云 Qwen-Image-3.0 官方发布文章",
-        "sourceUpdateId": "9485e55c7d9bdb40d2",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-25T08:11:01Z",
-        "modelCategory": "image"
       },
       {
         "date": "2026-07-21",
@@ -7741,7 +7603,7 @@
         "sourceTier": "official-primary",
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-25T08:03:19Z",
+        "collectedAt": "2026-11-25T05:03:21Z",
         "modelCategory": "video",
         "modelFamilyMentions": [
           {
