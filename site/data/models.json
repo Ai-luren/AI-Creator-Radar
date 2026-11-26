@@ -24681,7 +24681,7 @@
     "homepage": "https://deepmind.google/",
     "releaseUrl": "https://deepmind.google/models/model-cards/lyria-3-5/",
     "note": "Google DeepMind 音乐生成模型；版本号仅在官方资料明确公布后更新。",
-    "version": "Lyria 3.5 / Lyria RealTime / Lyria 3",
+    "version": "Lyria 3.5 / Lyria RealTime / Lyria 3 / Lyria（初代） / Lyria 2",
     "region": "海外",
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
@@ -24736,7 +24736,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://deepmind.google/",
-        "releaseUrl": "https://deepmind.google/models/model-cards/lyria-3-5/",
+        "releaseUrl": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
         "modelCardUrl": "https://deepmind.google/models/lyria/",
         "id": "lyria-realtime",
         "name": "Lyria RealTime",
@@ -24744,8 +24744,30 @@
           "lyria"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "Google DeepMind 音乐生成模型；版本号仅在官方资料明确公布后更新。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "Google DeepMind 音乐生成模型；版本号仅在官方资料明确公布后更新。",
+        "historicalMilestones": [
+          {
+            "date": "2025-04-24",
+            "datePrecision": "day",
+            "stage": "official-introduction",
+            "sourceUrl": "https://deepmind.google/blog/music-ai-sandbox-now-with-new-features-and-broader-access/",
+            "sourceName": "Google DeepMind 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-lyria-lyria-realtime-official-introduction-20250424",
+            "summary": "介绍实时交互音乐模型。"
+          },
+          {
+            "date": "2025-05-20",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
+            "sourceName": "Google 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-lyria-lyria-realtime-api-availability-20250520",
+            "summary": "通过 API 和 AI Studio 开放。"
+          }
+        ]
       },
       {
         "id": "lyria-3",
@@ -24766,6 +24788,46 @@
             "verifiedAt": "2026-11-24",
             "chronicleAuditId": "v48-google-0170",
             "summary": "推出新一代音乐生成模型。补充演进节点（原始明细归档）：Lyria 3 发布并在 Gemini App 开放 Beta；Google 发布 Lyria 3 Pro；Lyria 3 与 Lyria 3 Pro 开放开发者 Public Preview；Google 发布 Lyria 3.5。"
+          }
+        ]
+      },
+      {
+        "id": "lyria-1",
+        "name": "Lyria（初代）",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://deepmind.google/blog/transforming-the-future-of-music-creation/",
+        "historicalMilestones": [
+          {
+            "date": "2023-11-16",
+            "datePrecision": "day",
+            "stage": "announcement",
+            "sourceUrl": "https://deepmind.google/blog/transforming-the-future-of-music-creation/",
+            "sourceName": "Google DeepMind 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-lyria-lyria-1-announcement-20231116",
+            "summary": "公布初代 Lyria，并与 YouTube 合作开展音乐生成实验。"
+          }
+        ]
+      },
+      {
+        "id": "lyria-2",
+        "name": "Lyria 2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://cloud.google.com/blog/products/ai-machine-learning/announcing-veo-3-imagen-4-and-lyria-2-on-vertex-ai",
+        "historicalMilestones": [
+          {
+            "date": "2025-05-20",
+            "datePrecision": "day",
+            "stage": "general-availability",
+            "sourceUrl": "https://cloud.google.com/blog/products/ai-machine-learning/announcing-veo-3-imagen-4-and-lyria-2-on-vertex-ai",
+            "sourceName": "Google Cloud 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-lyria-lyria-2-general-availability-20250520",
+            "summary": "Lyria 2 在 Vertex AI 全面开放。"
           }
         ]
       }
@@ -24972,7 +25034,7 @@
     "name": "Suno",
     "vendor": "Suno",
     "category": "music",
-    "version": "Suno V6 / Suno V6 Wild / Suno V6 Mini / Suno V5.5 / Suno V5 / Suno V4.5 / Suno V4 / Suno V3.5 / Suno V3",
+    "version": "Suno V6 / Suno V6 Wild / Suno V6 Mini / Suno V5.5 / Suno V5 / Suno V4.5 / Suno V4 / Suno V3.5 / Suno V3 / Suno V2 / Suno V4.5-all",
     "watched": true,
     "logo": "suno",
     "homepage": "https://suno.com/",
@@ -25039,7 +25101,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://suno.com/",
-        "releaseUrl": "https://suno.com/blog/introducing-v6",
+        "releaseUrl": "https://suno.com/release-notes/introducing-v6",
         "modelCardUrl": "https://suno.com/release-notes",
         "id": "suno-v6-wild",
         "name": "Suno V6 Wild",
@@ -25047,15 +25109,29 @@
           "suno"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "关注音乐模型版本、人声表现、声音控制和 Studio 功能。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "关注音乐模型版本、人声表现、声音控制和 Studio 功能。",
+        "releaseDate": "2026-09-09",
+        "releaseEvidence": {
+          "eventId": "official-suno-suno-v6-wild-20260909",
+          "publishedAt": "2026-09-09",
+          "sourceUrl": "https://suno.com/release-notes/introducing-v6",
+          "sourceName": "Suno 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "V6 系列探索分支，偏向更多样的创意生成。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "music",
+          "modelName": "Suno V6 Wild",
+          "provenance": "本轮核对厂商一手来源"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://suno.com/",
-        "releaseUrl": "https://suno.com/blog/introducing-v6",
+        "releaseUrl": "https://suno.com/release-notes/introducing-v6",
         "modelCardUrl": "https://suno.com/release-notes",
         "id": "suno-v6-mini",
         "name": "Suno V6 Mini",
@@ -25076,8 +25152,22 @@
             "rank": 2
           }
         ],
-        "status": "已发布",
-        "note": "关注音乐模型版本、人声表现、声音控制和 Studio 功能。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "关注音乐模型版本、人声表现、声音控制和 Studio 功能。",
+        "releaseDate": "2026-09-09",
+        "releaseEvidence": {
+          "eventId": "official-suno-suno-v6-mini-20260909",
+          "publishedAt": "2026-09-09",
+          "sourceUrl": "https://suno.com/release-notes/introducing-v6",
+          "sourceName": "Suno 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "V6 系列高效率分支。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "music",
+          "modelName": "Suno V6 Mini",
+          "provenance": "本轮核对厂商一手来源"
+        }
       },
       {
         "id": "suno-v5-5",
@@ -25242,6 +25332,48 @@
           "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
           "sourceRecheckedAt": "2026-11-26"
         }
+      },
+      {
+        "id": "suno-v2",
+        "name": "Suno V2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://suno.com/release-notes/v3-5-early-access-4-minute-songs",
+        "historicalMilestones": [
+          {
+            "date": "2024-05-24",
+            "datePrecision": "day",
+            "stage": "documented-availability",
+            "sourceUrl": "https://suno.com/release-notes/v3-5-early-access-4-minute-songs",
+            "sourceName": "Suno 官方更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-suno-suno-v2-documented-availability-20240524",
+            "summary": "官方 V3.5 早期访问公告确认 V2 已可在版本菜单使用；不是 V2 首发日。"
+          }
+        ]
+      },
+      {
+        "id": "suno-v4-5-all",
+        "name": "Suno V4.5-all",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseUrl": "https://suno.com/release-notes/v4-5-all-a-new-free-model-for-everyone",
+        "releaseDate": "2025-10-21",
+        "releaseEvidence": {
+          "eventId": "official-suno-suno-v4-5-all-20251021",
+          "publishedAt": "2025-10-21",
+          "sourceUrl": "https://suno.com/release-notes/v4-5-all-a-new-free-model-for-everyone",
+          "sourceName": "Suno 官方更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "面向所有用户的免费音乐模型。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "music",
+          "modelName": "Suno V4.5-all",
+          "provenance": "本轮核对厂商一手来源"
+        }
       }
     ],
     "legacyIds": [
@@ -25312,7 +25444,7 @@
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
     "modelCardUrl": "https://www.mureka.ai/",
-    "version": "Mureka V8 / Mureka V9 / Mureka V9.5 / Mureka Remix V9.5",
+    "version": "Mureka V8 / Mureka V9 / Mureka V9.5 / Mureka Remix V9.5 / Mureka 1.0 / Mureka 2.0 / Mureka 3.0 / Mureka 4.0 / Mureka 5.0 / Mureka 5.5 / Mureka V6 / Mureka V7 / Mureka V7.5 / Mureka V7.6 / Mureka O1 / Mureka O2 / Mureka O3",
     "aliases": [
       "Mureka",
       "Mureka V8",
@@ -25326,7 +25458,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://www.mureka.ai/",
-        "releaseUrl": "https://www.mureka.ai/blog_en/mureka-remix-v9-5-is-here.html",
+        "releaseUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
         "modelCardUrl": "https://www.mureka.ai/",
         "id": "mureka-v8",
         "name": "Mureka V8",
@@ -25334,15 +25466,27 @@
           "mureka"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。",
+        "historicalMilestones": [
+          {
+            "date": "2026-01",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+            "sourceName": "昆仑万维半年报公告转载",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v8-release-202601",
+            "summary": "公司回顾确认 2026 年 1 月发布；具体日另需核实。"
+          }
+        ]
       },
       {
         "region": "中国",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://www.mureka.ai/",
-        "releaseUrl": "https://www.mureka.ai/blog_en/mureka-remix-v9-5-is-here.html",
+        "releaseUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
         "modelCardUrl": "https://www.mureka.ai/",
         "id": "mureka-v9",
         "name": "Mureka V9",
@@ -25357,15 +25501,27 @@
             "rank": 4
           }
         ],
-        "status": "已发布",
-        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。",
+        "historicalMilestones": [
+          {
+            "date": "2026-03",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+            "sourceName": "昆仑万维半年报公告转载",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v9-release-202603",
+            "summary": "公司回顾确认 2026 年 3 月推出，保留月份精度。"
+          }
+        ]
       },
       {
         "region": "中国",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://www.mureka.ai/",
-        "releaseUrl": "https://www.mureka.ai/blog_en/mureka-remix-v9-5-is-here.html",
+        "releaseUrl": "https://platform.mureka.ai/docs/en/changelog.html",
         "modelCardUrl": "https://www.mureka.ai/",
         "id": "mureka-v9-5",
         "name": "Mureka V9.5",
@@ -25386,15 +25542,37 @@
             "rank": 3
           }
         ],
-        "status": "已发布",
-        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。",
+        "historicalMilestones": [
+          {
+            "date": "2026-07",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+            "sourceName": "昆仑万维半年报公告转载",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v9-5-release-202607",
+            "summary": "公司记载 7 月 WAIC 期间发布。"
+          },
+          {
+            "date": "2026-08-28",
+            "datePrecision": "day",
+            "stage": "model-update",
+            "sourceUrl": "https://platform.mureka.ai/docs/en/changelog.html",
+            "sourceName": "Mureka 官方 API 日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v9-5-model-update-20260828",
+            "summary": "增强版更新，不是初代 V9.5 首发。"
+          }
+        ]
       },
       {
         "region": "中国",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://www.mureka.ai/",
-        "releaseUrl": "https://www.mureka.ai/blog_en/mureka-remix-v9-5-is-here.html",
+        "releaseUrl": "https://platform.mureka.ai/docs/en/changelog.html",
         "modelCardUrl": "https://www.mureka.ai/",
         "id": "mureka-remix-v9-5",
         "name": "Mureka Remix V9.5",
@@ -25402,8 +25580,288 @@
           "mureka"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "已核验版本包括 V8、V9、V9.5；Remix V9.5 是单独的歌曲改编工作流。",
+        "historicalMilestones": [
+          {
+            "date": "2026-11-12",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.mureka.ai/docs/en/changelog.html",
+            "sourceName": "Mureka 官方 API 日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112",
+            "summary": "Remix API 向所有用户开放新版；11 月 16 日博客是上线后介绍。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-v1",
+        "name": "Mureka 1.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "historicalMilestones": [
+          {
+            "date": "2024-02",
+            "datePrecision": "month",
+            "stage": "early-access",
+            "sourceUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+            "sourceName": "Mureka 官方发展史",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v1-early-access-202402",
+            "summary": "SkyMusic 内测，验证端到端音乐生成。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-v2",
+        "name": "Mureka 2.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "historicalMilestones": [
+          {
+            "date": "2024-04",
+            "datePrecision": "month",
+            "stage": "documented-availability",
+            "sourceUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+            "sourceName": "Mureka 官方发展史",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v2-documented-availability-202404",
+            "summary": "中英文版本接入天工；具体日及公开范围不详。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-v3",
+        "name": "Mureka 3.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "historicalMilestones": [
+          {
+            "date": "2024-06",
+            "datePrecision": "month",
+            "stage": "development-milestone",
+            "sourceUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+            "sourceName": "Mureka 官方发展史",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v3-development-milestone-202406",
+            "summary": "大规模训练推动基座能力形成；未证实公开首发。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-v4",
+        "name": "Mureka 4.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "historicalMilestones": [
+          {
+            "date": "2024-08",
+            "datePrecision": "month",
+            "stage": "development-milestone",
+            "sourceUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+            "sourceName": "Mureka 官方发展史",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v4-development-milestone-202408",
+            "summary": "数据筛选与音频重建能力迭代；具体公开日期未证实。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-v5",
+        "name": "Mureka 5.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "historicalMilestones": [
+          {
+            "date": "2024-11",
+            "datePrecision": "month",
+            "stage": "development-milestone",
+            "sourceUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+            "sourceName": "Mureka 官方发展史",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v5-development-milestone-202411",
+            "summary": "多语言与混合微调阶段，官方将 5.0/5.5 合列。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-v5-5",
+        "name": "Mureka 5.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+        "historicalMilestones": [
+          {
+            "date": "2024-11",
+            "datePrecision": "month",
+            "stage": "development-milestone",
+            "sourceUrl": "https://www.mureka.ai/blog_zh-CN/what-is-mureka.html",
+            "sourceName": "Mureka 官方发展史",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v5-5-development-milestone-202411",
+            "summary": "与 5.0 同属官方列出的多语言迭代阶段。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-v6",
+        "name": "Mureka V6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseUrl": "https://www1.kunlun.com/news/3.html",
+        "releaseDate": "2025-03-26",
+        "releaseEvidence": {
+          "eventId": "official-mureka-mureka-v6-20250326",
+          "publishedAt": "2025-03-26",
+          "sourceUrl": "https://www1.kunlun.com/news/3.html",
+          "sourceName": "昆仑万维官网公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "音乐生成基座模型，支持多语言音乐创作。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "music",
+          "modelName": "Mureka V6",
+          "provenance": "本轮核对厂商一手来源"
+        }
+      },
+      {
+        "id": "mureka-v7",
+        "name": "Mureka V7",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseUrl": "https://www1.kunlun.com/news/3.html",
+        "releaseDate": "2025-07-23",
+        "releaseEvidence": {
+          "eventId": "official-mureka-mureka-v7-20250723",
+          "publishedAt": "2025-07-23",
+          "sourceUrl": "https://www1.kunlun.com/news/3.html",
+          "sourceName": "昆仑万维官网公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "新一代音乐生成模型，提升人声表现与编曲质量。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "music",
+          "modelName": "Mureka V7",
+          "provenance": "本轮核对厂商一手来源"
+        }
+      },
+      {
+        "id": "mureka-v7-5",
+        "name": "Mureka V7.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseUrl": "https://www.kunlun.com/wap/mnews/",
+        "releaseDate": "2025-08-15",
+        "releaseEvidence": {
+          "eventId": "official-mureka-mureka-v7-5-20250815",
+          "publishedAt": "2025-08-15",
+          "sourceUrl": "https://www.kunlun.com/wap/mnews/",
+          "sourceName": "昆仑万维官网公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "进一步优化中文演唱、音色与情感表达。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "music",
+          "modelName": "Mureka V7.5",
+          "provenance": "本轮核对厂商一手来源"
+        }
+      },
+      {
+        "id": "mureka-v7-6",
+        "name": "Mureka V7.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://platform.mureka.ai/docs/en/changelog.html",
+        "historicalMilestones": [
+          {
+            "date": "2025-12-09",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.mureka.ai/docs/en/changelog.html",
+            "sourceName": "Mureka 官方 API 日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-v7-6-api-availability-20251209",
+            "summary": "API 日志确认 V7.6 与 O2 新增；不等同最早产品首发。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-o1",
+        "name": "Mureka O1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseUrl": "https://www1.kunlun.com/news/3.html",
+        "releaseDate": "2025-03-26",
+        "releaseEvidence": {
+          "eventId": "official-mureka-mureka-o1-20250326",
+          "publishedAt": "2025-03-26",
+          "sourceUrl": "https://www1.kunlun.com/news/3.html",
+          "sourceName": "昆仑万维官网公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "音乐推理模型，与 V6 同批正式发布。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "music",
+          "modelName": "Mureka O1",
+          "provenance": "本轮核对厂商一手来源"
+        }
+      },
+      {
+        "id": "mureka-o2",
+        "name": "Mureka O2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://platform.mureka.ai/docs/en/changelog.html",
+        "historicalMilestones": [
+          {
+            "date": "2025-12-09",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.mureka.ai/docs/en/changelog.html",
+            "sourceName": "Mureka 官方 API 日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-o2-api-availability-20251209",
+            "summary": "与 V7.6 同批在 API 上线。"
+          }
+        ]
+      },
+      {
+        "id": "mureka-o3",
+        "name": "Mureka O3",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+        "historicalMilestones": [
+          {
+            "date": "2026-07",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm",
+            "sourceName": "昆仑万维半年报公告转载",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-mureka-mureka-o3-release-202607",
+            "summary": "与 V9.5 同期发布的音乐推理模型。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -25420,7 +25878,7 @@
     "homepage": "https://elevenlabs.io/docs/overview/models/",
     "releaseUrl": "https://elevenlabs.io/blog/eleven-v4",
     "modelCardUrl": "https://elevenlabs.io/docs/overview/models/",
-    "version": "Eleven Multilingual v2 / Eleven Flash v2.5 / Eleven v3 / Eleven v3 Conversational / Eleven v4 / Eleven v4 Turbo / Eleven Turbo v2 / Eleven Multilingual v1",
+    "version": "Eleven Multilingual v2 / Eleven Flash v2.5 / Eleven v3 / Eleven v3 Conversational / Eleven v4 / Eleven v4 Turbo / Eleven Turbo v2 / Eleven Multilingual v1 / Eleven Turbo v2.5 / Eleven Flash v2",
     "aliases": [
       "Eleven TTS",
       "Eleven v4",
@@ -25466,7 +25924,7 @@
         "region": "海外",
         "access": "闭源",
         "homepage": "https://elevenlabs.io/docs/overview/models/",
-        "releaseUrl": "https://elevenlabs.io/blog/eleven-v4",
+        "releaseUrl": "https://elevenlabs.io/blog/meet-flash",
         "modelCardUrl": "https://elevenlabs.io/docs/overview/models/",
         "id": "eleven-flash-v2-5",
         "name": "Eleven Flash v2.5",
@@ -25474,7 +25932,7 @@
           "eleven-tts"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
+        "status": "历史发布已核实；当前可用性待核验",
         "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
         "historicalMilestones": [
           {
@@ -25487,13 +25945,27 @@
             "chronicleAuditId": "v48-elevenlabs-0354",
             "summary": "ElevenLabs 在 2024-12-18 发布 Meet Flash 官方文章，明确 Eleven Flash v2 与 Flash v2.5 可通过 API 调用。该日期对应这一官方公开介绍，不强推为两种型号的最早上线日。"
           }
-        ]
+        ],
+        "releaseDate": "2024-12-18",
+        "releaseEvidence": {
+          "eventId": "official-eleven-tts-eleven-flash-v2-5-20241218",
+          "publishedAt": "2024-12-18",
+          "sourceUrl": "https://elevenlabs.io/blog/meet-flash",
+          "sourceName": "ElevenLabs 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "支持 32 种语言的低延迟语音合成，发布时 API 可用。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "tts",
+          "modelName": "Eleven Flash v2.5",
+          "provenance": "本轮核对厂商一手来源"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "homepage": "https://elevenlabs.io/docs/overview/models/",
-        "releaseUrl": "https://elevenlabs.io/blog/eleven-v3",
+        "releaseUrl": "https://elevenlabs.io/blog/eleven-v3-is-now-generally-available",
         "modelCardUrl": "https://elevenlabs.io/docs/overview/models/",
         "id": "eleven-v3",
         "name": "Eleven v3",
@@ -25501,7 +25973,7 @@
           "eleven-tts"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
+        "status": "历史阶段已核实；正式首发日期待核验",
         "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
         "historicalMilestones": [
           {
@@ -25513,6 +25985,26 @@
             "verifiedAt": "2026-11-24",
             "chronicleAuditId": "v48-elevenlabs-0289",
             "summary": "推出支持表达性语音生成的 Alpha 语音模型。"
+          },
+          {
+            "date": "2025-08-20",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://elevenlabs.io/blog/eleven-v3-alpha-now-available-in-the-api",
+            "sourceName": "ElevenLabs 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-eleven-tts-eleven-v3-api-availability-20250820",
+            "summary": "Alpha 版本开放 API。"
+          },
+          {
+            "date": "2026-02-02",
+            "datePrecision": "day",
+            "stage": "general-availability",
+            "sourceUrl": "https://elevenlabs.io/blog/eleven-v3-is-now-generally-available",
+            "sourceName": "ElevenLabs 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-eleven-tts-eleven-v3-general-availability-20260202",
+            "summary": "正式版全面开放，区别于此前 Alpha 与 API 阶段。"
           }
         ]
       },
@@ -25520,7 +26012,7 @@
         "region": "海外",
         "access": "闭源",
         "homepage": "https://elevenlabs.io/docs/overview/models/",
-        "releaseUrl": "https://elevenlabs.io/blog/eleven-v4",
+        "releaseUrl": "https://elevenlabs.io/blog/introducing-expressive-mode",
         "modelCardUrl": "https://elevenlabs.io/docs/overview/models/",
         "id": "eleven-v3-conversational",
         "name": "Eleven v3 Conversational",
@@ -25528,8 +26020,22 @@
           "eleven-tts"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
+        "releaseDate": "2026-02-10",
+        "releaseEvidence": {
+          "eventId": "official-eleven-tts-eleven-v3-conversational-20260210",
+          "publishedAt": "2026-02-10",
+          "sourceUrl": "https://elevenlabs.io/blog/introducing-expressive-mode",
+          "sourceName": "ElevenLabs 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "基于 Eleven v3 的实时对话语音模型，随 Expressive Mode 推出。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "tts",
+          "modelName": "Eleven v3 Conversational",
+          "provenance": "本轮核对厂商一手来源"
+        }
       },
       {
         "region": "海外",
@@ -25643,6 +26149,50 @@
           "chronicleAuditId": "v48-elevenlabs-0471",
           "chronicleTopicId": "elevenlabs",
           "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "eleven-turbo-v2-5",
+        "name": "Eleven Turbo v2.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseUrl": "https://elevenlabs.io/blog/introducing-turbo-v25",
+        "releaseDate": "2024-07-19",
+        "releaseEvidence": {
+          "eventId": "official-eleven-tts-eleven-turbo-v2-5-20240719",
+          "publishedAt": "2024-07-19",
+          "sourceUrl": "https://elevenlabs.io/blog/introducing-turbo-v25",
+          "sourceName": "ElevenLabs 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "低延迟多语言语音合成。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "tts",
+          "modelName": "Eleven Turbo v2.5",
+          "provenance": "本轮核对厂商一手来源"
+        }
+      },
+      {
+        "id": "eleven-flash-v2",
+        "name": "Eleven Flash v2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseUrl": "https://elevenlabs.io/blog/meet-flash",
+        "releaseDate": "2024-12-18",
+        "releaseEvidence": {
+          "eventId": "official-eleven-tts-eleven-flash-v2-20241218",
+          "publishedAt": "2024-12-18",
+          "sourceUrl": "https://elevenlabs.io/blog/meet-flash",
+          "sourceName": "ElevenLabs 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "面向低延迟英文语音合成，发布时 API 可用。",
+          "access": "发布时官方产品或 API 提供；当前可用性待核验",
+          "category": "tts",
+          "modelName": "Eleven Flash v2",
+          "provenance": "本轮核对厂商一手来源"
         }
       }
     ],
