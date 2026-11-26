@@ -6,11 +6,11 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-26T15:32:13+00:00",
-  "etag": "W/\"v1-items-7afb234725094412\"",
+  "fetchedAt": "2026-11-26T17:35:43+00:00",
+  "etag": "W/\"v1-items-a75910799993baaa\"",
   "schemaVersion": 1,
   "page": {
-    "count": 13,
+    "count": 12,
     "hasMore": false,
     "nextCursor": null
   },
@@ -128,6 +128,29 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/g5yjacklnlbp3v51hkzciksjy"
+      }
+    },
+    {
+      "id": "gc4qp85ij5qzhu53qzkg8quqj",
+      "title": "Karpathy 用 Claude Code 和 Opus 5.5 把美国真实数据做成文明风格游戏地图",
+      "originalTitle": "Wow!",
+      "summary": "Karpathy 分享用 Claude Code 桌面版加 Opus 5.5（开启 ultracode）构建的美国文明风格游戏地图，7 小时生成 45K 行代码，整合 Census、BEA、BLS、EIA、NOAA 等 31 个真实数据源，统一到 25 km 六边形网格。GDP 映射为金产量、城市按真实产业分化，含 19 个视图、524 个都市的 City View 和覆盖 3,100+ 县的 Explorer，已部署在 https://karpathy.ai/usaciv/。作者 Ado 转发并感叹。",
+      "source": {
+        "name": "X：Ado Kukic（Anthropic 开发者关系，Claude Code） (@adocomplete)"
+      },
+      "links": {
+        "aihot": "https://aihot.news/items/gc4qp85ij5qzhu53qzkg8quqj",
+        "original": "https://x.com/adocomplete/status/2125994186252161315"
+      },
+      "publishedAt": "2026-11-26T16:44:47.000Z",
+      "discoveredAt": "2026-11-26T16:53:27.075Z",
+      "category": "tip",
+      "score": 67,
+      "selected": true,
+      "reason": "Karpathy 用 Claude Code 和 Opus 5.5 耗时 7 小时写出 45K 行代码，把美国真实数据做成了文明风格游戏地图，展示了 Agent 长程编码的实际产出。",
+      "attribution": {
+        "name": "AIHOT",
+        "url": "https://aihot.news/items/gc4qp85ij5qzhu53qzkg8quqj"
       }
     },
     {
@@ -266,65 +289,6 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/j0hoj1rlmltoft6okserijp25"
-      }
-    },
-    {
-      "id": "br6usy3mxv1q0mzxhgf9y8qam",
-      "title": "上下文漂移如何影响你的 AI Agent：470 项实验与一个免费的 MCP 解法",
-      "originalTitle": "How Context Drift Impacts Your AI Agents",
-      "summary": "Google AI 开发者 Patrick Kelly 通过 470 个任务实测区分 context rot 与 context drift，在 Gemini 3.8 Flash 和 Gemini Pro 的沙盒中发现：模型在 73% 的运行中内部察觉文件冲突，但 0% 会主动告知用户，95%-100% 的情况下任务级 skill 文件会覆盖 AGENTS.md 的严格规则。",
-      "source": {
-        "name": "Google AI：DEV 作者专属（RSS）"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/br6usy3mxv1q0mzxhgf9y8qam",
-        "original": "https://dev.to/googleai/how-context-drift-impacts-your-ai-agents-1iph"
-      },
-      "publishedAt": "2026-11-25T16:19:30.000Z",
-      "discoveredAt": "2026-11-25T17:08:21.533Z",
-      "category": "tip",
-      "score": 72,
-      "selected": true,
-      "reason": "作者用 470 个任务实测区分上下文腐烂与上下文漂移，并给出零成本可复用的冲突上报工具方案。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/br6usy3mxv1q0mzxhgf9y8qam"
-      },
-      "modelMentions": [
-        {
-          "modelFamilyId": "gemini",
-          "modelVersionId": "gemini-3-8-flash",
-          "matchedName": "Gemini 3.8 Flash"
-        }
-      ],
-      "modelFamilyMentions": [
-        {
-          "modelFamilyId": "gemini",
-          "matchedName": "Gemini 3.8 Flash"
-        }
-      ]
-    },
-    {
-      "id": "h1ja45355xx1xf9rqf89cv1if",
-      "title": "Anthropic 复盘 Messages API 从 Python 迁移到 Rust 的校验方法",
-      "originalTitle": "Migrating our Messages API to Rust",
-      "summary": "Anthropic 介绍如何将 Messages API 从 Python 迁移到 Rust，并把生产系统本身当作校验器。该 API 流量从 2024 年初到 2026 年秋增长约 1800 倍，迁移后每请求 CPU 降低约 70%，首 token 中位时间缩短约 20%，且未停服或冻结功能开发。",
-      "source": {
-        "name": "Anthropic：Research（发表成果 · 网页）"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/h1ja45355xx1xf9rqf89cv1if",
-        "original": "https://www.anthropic.com/research/migrating-api-to-rust"
-      },
-      "publishedAt": "2026-11-24T16:00:00.000Z",
-      "discoveredAt": "2026-11-25T16:46:35.613Z",
-      "category": "tip",
-      "score": 73,
-      "selected": true,
-      "reason": "原文复盘了用生产系统当校验器迁移 API 的完整方法，读者可以借鉴定位和修复重写中的行为差异。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/h1ja45355xx1xf9rqf89cv1if"
       }
     }
   ]

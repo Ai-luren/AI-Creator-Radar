@@ -1,0 +1,39 @@
+{
+  "schema": "scheduler-health/v1",
+  "generatedAt": "2026-11-26T17:36:21.748769+00:00",
+  "nextDueAt": "2026-11-26T18:01:21.748769+00:00",
+  "trigger": {
+    "event": "push",
+    "runId": "45869040326",
+    "attempt": "1",
+    "schedule": "",
+    "scope": ""
+  },
+  "groups": {
+    "models": {
+      "oldestSnapshotAt": "2026-11-26T17:35:44+00:00",
+      "due": false
+    },
+    "selected": {
+      "oldestSnapshotAt": "2026-11-26T17:35:43+00:00",
+      "due": false
+    },
+    "aihot_daily": {
+      "oldestSnapshotAt": "2026-11-26T12:23:00+00:00",
+      "due": false
+    },
+    "juya_daily": {
+      "oldestSnapshotAt": "2026-11-26T12:23:07+00:00",
+      "due": false
+    },
+    "resources": {
+      "oldestSnapshotAt": "2026-11-26T12:22:12+00:00",
+      "due": false
+    },
+    "maintenance": {
+      "oldestSnapshotAt": "2026-11-26T12:22:00+00:00",
+      "due": false
+    }
+  },
+  "policy": "Validated snapshot freshness; heartbeat is not proof every source succeeded."
+}
