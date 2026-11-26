@@ -33,7 +33,7 @@ jobs:
       - name: Validate refresh planning on production snapshots (read only)
         run: python scripts/plan_refresh.py --event schedule --output /tmp/radar-plan.txt
       - name: Validate JavaScript tests
-        run: node --test tests/test_overview.mjs
+        run: node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs
       - name: Validate model references and evidence
         run: |
           python scripts/validate_model_links.py

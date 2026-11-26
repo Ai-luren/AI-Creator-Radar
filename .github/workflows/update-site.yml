@@ -11,16 +11,16 @@ on:
       - 'scripts/link_model_records.py'
       - 'scripts/ranking_identity.py'
       - 'scripts/plan_refresh.py'
+      - 'scripts/scheduler_manifest.py'
       - 'scripts/collection_health.py'
       - 'scripts/run_collection_batch.py'
       - 'config/**'
       - '.github/workflows/update-site.yml'
   schedule:
-    # Every tick checks all persisted timestamps; missed ticks can catch up.
-    - cron: "5,15 0,2 * * *" # 08:05/15 and 10:05/15 Beijing, daily editions only
-    - cron: "7,37 * * * *" # official model discovery, AIHOT selected
-    - cron: "17 2,8,14,20 * * *" # rankings and creator resources, every six hours
-    - cron: "13 2 * * *" # daily maintenance, 10:13 China time
+    # Refresh cron to reactivate a possibly stalled GitHub schedule.
+    # Two off-peak ticks check every group against persisted freshness.
+    - cron: "5,35 * * * *"
+    - cron: "15,25 0,2 * * *" # additional 08:15/25, 10:15/25 China time edition checks
   workflow_dispatch:
     inputs:
       scope:
@@ -165,6 +165,16 @@ jobs:
 
       - name: Audit model and historical evidence coverage
         run: python scripts/audit_model_completeness.py
+
+      - name: Record validated collection heartbeat and next due time
+        if: steps.plan.outputs.collect == 'true'
+        env:
+          RADAR_EVENT: ${{ github.event_name }}
+          RADAR_SCHEDULE: ${{ github.event.schedule || '' }}
+          RADAR_RUN_ID: ${{ github.run_id }}
+          RADAR_RUN_ATTEMPT: ${{ github.run_attempt }}
+          RADAR_SCOPE: ${{ inputs.scope || '' }}
+        run: python scripts/scheduler_manifest.py
 
       - name: Persist collected data to the triggering branch
         id: persist

@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+"""Small validated freshness manifest, generated from actual collected snapshots."""
+from __future__ import annotations
+import os
+import json
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
+try:
+    from scripts.plan_refresh import GROUPS, plan, read_stamp
+except ModuleNotFoundError:
+    from plan_refresh import GROUPS, plan, read_stamp
+
+ROOT = Path(__file__).resolve().parents[1]
+
+def build(data_dir, now, event, run_id, attempt, schedule="", scope=""):
+    due_now = plan(data_dir, "schedule", now=now)
+    # Models are due at most 25 minutes after a successful check. Calculate
+    # the earliest due boundary using the existing planner, not a second SLA.
+    next_due = now
+    for minute in range(31):
+        candidate = now + timedelta(minutes=minute)
+        if any(plan(data_dir, "schedule", now=candidate).values()):
+            next_due = candidate
+            break
+    else:
+        next_due = now + timedelta(minutes=30)
+    groups = {}
+    for group, inputs in GROUPS.items():
+        values = [read_stamp(data_dir, filename, field) for filename, field in inputs]
+        groups[group] = {
+            "oldestSnapshotAt": min(values).isoformat() if all(values) else None,
+            "due": due_now[group],
+        }
+    return {"schema":"scheduler-health/v1", "generatedAt":now.isoformat(),
+            "nextDueAt":next_due.isoformat(), "trigger":{"event":event,"runId":run_id,
+            "attempt":attempt,"schedule":schedule,"scope":scope}, "groups":groups,
+            "policy":"Validated snapshot freshness; heartbeat is not proof every source succeeded."}
+
+def main():
+    data = ROOT / "site/data"
+    now = datetime.now(timezone.utc)
+    result = build(data, now, os.environ.get("RADAR_EVENT",""), os.environ.get("RADAR_RUN_ID",""),
+                   os.environ.get("RADAR_RUN_ATTEMPT",""), os.environ.get("RADAR_SCHEDULE",""),
+                   os.environ.get("RADAR_SCOPE",""))
+    path = data / "scheduler-health.json"
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    tmp.replace(path)
+    print("Scheduler heartbeat:", result["trigger"], "next due:", result["nextDueAt"])
+
+if __name__ == "__main__":
+    main()
