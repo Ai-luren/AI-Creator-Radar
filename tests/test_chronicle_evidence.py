@@ -88,3 +88,31 @@ class AudioStageTests(unittest.TestCase):
             self.assertEqual(result["errors"], [])
             self.assertEqual(result["missingEvidence"], 1)
             self.assertEqual(result["gaps"][0]["reviewKind"], "historical-stage-only")
+
+
+class CatalogIdentityTests(unittest.TestCase):
+    def test_non_release_identity_is_counted_separately(self):
+        family = {"id": "demo", "vendor": "Vendor", "category": "video",
+                  "versions": [{"id": "alias", "name": "Demo Latest",
+                                "recordKind": "rolling-alias",
+                                "identityReview": {"reviewedAt": "2026-11-26", "note": "Rolling alias"}}]}
+        result = audit([family], [], {"links": [], "vendorTopics": {}})
+        self.assertEqual(result["errors"], [])
+        self.assertEqual(result["missingEvidence"], 1)
+        self.assertEqual(result["nonReleaseIdentityRecords"], 1)
+        self.assertEqual(result["gaps"][0]["reviewKind"], "non-release-identity-review")
+
+    def test_non_release_identity_rejects_fabricated_release_date(self):
+        family = {"id": "demo", "vendor": "Vendor", "category": "video",
+                  "versions": [{"id": "aggregate", "name": "Demo series",
+                                "recordKind": "generation-aggregate",
+                                "identityReview": {"reviewedAt": "2026-11-26", "note": "Aggregate"},
+                                "releaseDate": "2026-11-26"}]}
+        result = audit([family], [], {"links": [], "vendorTopics": {}})
+        self.assertTrue(any("Non-release identity" in e for e in result["errors"]))
+
+    def test_non_release_identity_requires_review_note(self):
+        family = {"id": "demo", "vendor": "Vendor", "category": "image",
+                  "versions": [{"id": "variant", "name": "Demo Variant", "recordKind": "evaluation-variant"}]}
+        result = audit([family], [], {"links": [], "vendorTopics": {}})
+        self.assertTrue(any("Missing identity review" in e for e in result["errors"]))
