@@ -71,3 +71,10 @@ test('failed source does not block other modules and missing data is explicit',a
  run("setView('models')");assert.match(node('content').innerHTML,/部分数据未加载/);
  run("setView('feeds')");assert.match(node('content').innerHTML,/行业简报/);
 });
+
+test('overview jumps to distinct confirmed and pending release views',async()=>{
+ const {run,node}=setup();await run('loadData()');
+ assert.match(node('content').innerHTML,/data-release-mode-target="pending"/);
+ run("state.releaseMode='pending';setView('today')");assert.match(node('content').innerHTML,/aria-pressed="true" data-release-mode="pending"/);assert.doesNotMatch(node('content').innerHTML,/class="release-company"/);
+ run("state.releaseMode='confirmed';render()");assert.match(node('content').innerHTML,/aria-pressed="true" data-release-mode="confirmed"/);assert.doesNotMatch(node('content').innerHTML,/<h2>官方动态 · 待复核<\/h2>/);
+});
