@@ -1,6 +1,7 @@
 import unittest
+from unittest.mock import patch
 
-from scripts.collect_briefings import compact_aihot, compact_juya
+from scripts.collect_briefings import compact_aihot, compact_juya, find_juya_url, JUYA_ARCHIVE_URL, JUYA_RSS_URL
 
 
 class BriefingCollectorTests(unittest.TestCase):
@@ -27,6 +28,24 @@ class BriefingCollectorTests(unittest.TestCase):
     def test_changed_aihot_page_fails_closed_if_parser_finds_no_digest(self):
         with self.assertRaises(ValueError):
             compact_aihot("<main><article><h1>Changed page</h1></article></main>", "https://aihot.news/daily", "now")
+
+    @patch("scripts.collect_briefings.request")
+    def test_juya_uses_live_archive_and_latest_dated_official_link(self, fetch):
+        fetch.return_value = b'<a href="/issues/2026-11-24/">old</a><a href="/issues/2026-11-26/">new</a><a href="https://evil.example/issues/2099-01-01/">other</a>'
+        self.assertEqual(find_juya_url(), "https://daily.juya.uk/issues/2026-11-26/")
+        fetch.assert_called_once_with(JUYA_ARCHIVE_URL)
+
+    @patch("scripts.collect_briefings.request")
+    def test_juya_falls_back_to_live_rss_if_archive_unavailable(self, fetch):
+        fetch.side_effect = [OSError("archive unavailable"), b'<rss><channel><item><link>https://daily.juya.uk/issues/2026-11-26/</link></item></channel></rss>']
+        self.assertEqual(find_juya_url(), "https://daily.juya.uk/issues/2026-11-26/")
+        self.assertEqual(fetch.call_args_list[1].args, (JUYA_RSS_URL, "application/rss+xml,application/xml"))
+
+    @patch("scripts.collect_briefings.request")
+    def test_juya_cannot_mark_cached_issue_as_fresh_when_live_indexes_fail(self, fetch):
+        fetch.side_effect = [OSError("offline"), b'<rss><channel/></rss>']
+        with self.assertRaises(ValueError):
+            find_juya_url()
 
 
 if __name__ == "__main__":

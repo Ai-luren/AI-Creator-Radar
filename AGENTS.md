@@ -28,6 +28,9 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Run `python3 scripts/collect_models.py --dry-run` to inspect official model-source collection without writing data.
 - After model collection, run `python3 scripts/build_model_release_digest.py`, `python3 scripts/link_model_records.py`, and `python3 scripts/validate_model_links.py` to regenerate the 30-day view and verify shared references.
 
+- Before changing collection schedules, follow [`docs/automation-runbook.md`](docs/automation-runbook.md); preserve actual snapshot timestamps and test missed-run recovery.
+- For UI changes, follow [`DESIGN.md`](DESIGN.md) and verify both Chromium and WebKit responsive layouts.
+
 ## Cleanup
 
 - Do not delete user-authored or historical data. Move confirmed retired material into `archive/` and keep a short explanation of its status.

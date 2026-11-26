@@ -152,29 +152,45 @@ def compact_aihot(body: bytes | str, source_url: str, fetched_at: str) -> dict:
     return {"source": "AIHOT 日报", "sourceUrl": source_url, "title": title[:300], "fetchedAt": fetched_at, "items": items}
 
 
-def find_juya_url(feed_items_path: Path | None = None) -> str:
-    if feed_items_path and feed_items_path.exists():
-        try:
-            data = json.loads(feed_items_path.read_text(encoding="utf-8"))
-            entries = [x for x in data.get("items", []) if x.get("sourceId") == "juya-daily" and x.get("url")]
-            if entries:
-                return entries[0]["url"]
-        except (OSError, ValueError, TypeError):
-            pass
-    root = parse_html(request(JUYA_ARCHIVE_URL))
-    for anchor in root.find_all("a"):
-        href = anchor.attrs.get("href", "")
-        if re.search(r"/issues/\d{4}-\d{2}-\d{2}/?$", href):
-            return urljoin(JUYA_ARCHIVE_URL, href)
-    # RSS fallback handles archive markup changes while preserving the actual issue link.
+def find_juya_url() -> str:
+    """Read a live official index, never mark a cached old issue freshly discovered."""
+    from urllib.parse import urlsplit
     import xml.etree.ElementTree as ET
-    rss = ET.fromstring(request(JUYA_RSS_URL, "application/rss+xml,application/xml"))
-    for item in rss.iter():
-        if item.tag.rsplit("}", 1)[-1].lower() == "item":
-            for child in list(item):
-                if child.tag.rsplit("}", 1)[-1].lower() == "link" and child.text:
-                    return child.text.strip()
-    raise ValueError("Could not find the latest Juya issue URL")
+
+    def valid_issues(links, base):
+        result = []
+        for link in links:
+            url = urljoin(base, link.strip())
+            parsed = urlsplit(url)
+            if parsed.scheme == "https" and parsed.netloc == "daily.juya.uk" and re.fullmatch(r"/issues/\d{4}-\d{2}-\d{2}/?", parsed.path):
+                result.append(f"https://daily.juya.uk{parsed.path.rstrip('/')}/")
+        return result
+
+    errors = []
+    try:
+        root = parse_html(request(JUYA_ARCHIVE_URL))
+        issues = valid_issues((a.attrs.get("href", "") for a in root.find_all("a")), JUYA_ARCHIVE_URL)
+        if issues:
+            return max(issues)
+        errors.append("official archive contains no issue links")
+    except (OSError, ValueError) as error:
+        errors.append(f"archive: {error}")
+
+    # A fresh RSS response, rather than the repository's previous cached feed,
+    # handles an unreachable archive or changed archive markup.
+    try:
+        rss = ET.fromstring(request(JUYA_RSS_URL, "application/rss+xml,application/xml"))
+        links = [child.text.strip() for item in rss.iter()
+                 if item.tag.rsplit("}", 1)[-1].lower() == "item"
+                 for child in item
+                 if child.tag.rsplit("}", 1)[-1].lower() == "link" and child.text]
+        issues = valid_issues(links, JUYA_RSS_URL)
+        if issues:
+            return max(issues)
+        errors.append("official RSS contains no issue links")
+    except (OSError, ValueError, ET.ParseError) as error:
+        errors.append(f"RSS: {error}")
+    raise ValueError("Could not confirm the latest Juya issue URL: " + "; ".join(errors))
 
 
 def compact_juya(body: bytes | str, source_url: str, fetched_at: str) -> dict:
@@ -223,7 +239,7 @@ def collect(which: str, dry_run: bool = False) -> dict:
         if not dry_run:
             write_snapshot(OUTPUTS["aihot"], result["aihot"])
     if which in {"all", "juya"}:
-        url = find_juya_url(ROOT / "site" / "data" / "feed-items.json")
+        url = find_juya_url()
         result["juya"] = compact_juya(request(url), url, now)
         if not dry_run:
             write_snapshot(OUTPUTS["juya"], result["juya"])
