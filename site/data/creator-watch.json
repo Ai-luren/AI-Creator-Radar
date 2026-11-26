@@ -55,7 +55,16 @@
       "relation": "官方 Creative Partner 目录",
       "focus": "品牌 VFX / UGC",
       "evidence": "https://higgsfield.ai/community/creators",
-      "accounts": []
+      "accounts": [],
+      "accountCandidates": [
+        {
+          "platform": "X",
+          "handle": "@00alpius",
+          "url": "https://x.com/00alpius",
+          "status": "第三方索引自述 Higgsfield Creative Partner；原站返回 403，待本人原页交叉核验",
+          "evidence": "https://www.sotwe.com/00alpius?lang=en"
+        }
+      ]
     },
     {
       "id": "joeysnoisygroup",
@@ -149,6 +158,24 @@
       "name": "公开网页免登录试验",
       "url": "https://github.com/FreshRSS/Extensions",
       "status": "待运行只读探测；不使用付费 API、账号密码或会话 Cookie"
+    },
+    {
+      "brand": "X",
+      "name": "Sotwe 公开索引（Alpius）",
+      "url": "https://www.sotwe.com/00alpius?lang=en",
+      "status": "2026-11-26 可读取近一天动态；无可核验原帖 ID，仅作发现线索"
+    },
+    {
+      "brand": "Instagram",
+      "name": "IGDataHub 公开索引",
+      "url": "https://igdatahub.com/profile/higgsfield.creators/",
+      "status": "品牌页可被搜索索引发现；Kaye、Joey 主页本轮读取失败，不作为正式采集源"
+    },
+    {
+      "brand": "Instagram",
+      "name": "Apify Instagram Post Scraper",
+      "url": "https://apify.com/apify/instagram-post-scraper",
+      "status": "每月免费额度 $5；须授权，尚未运行；仅允许手动测试，禁止自动付费"
     }
   ],
   "reviewQueue": [
@@ -183,6 +210,14 @@
       "reportedDate": "2026-11-21",
       "evidence": "https://www.makeviral.ai/templates/tiny-me-in-a-box-ai-trend",
       "status": "第三方报道，原帖 ID 与发布时间未核验，不进入动态"
+    },
+    {
+      "creator": "alpius",
+      "platform": "X",
+      "title": "CLAUDE — 90 年代动作动画短片，使用 MAGI-2",
+      "reportedDate": null,
+      "evidence": "https://www.sotwe.com/00alpius?lang=en",
+      "status": "2026-11-26 索引显示约15小时前；缺原帖 ID、绝对发布时间及原站可访问性，禁止进入动态"
     }
   ]
 }
