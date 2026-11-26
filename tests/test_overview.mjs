@@ -135,3 +135,11 @@ test('prompt and selection views preserve source and avoid invented scores',asyn
  const {run,node}=setup();await run('loadData()');run("setView('practice',{practiceCategory:'视频',modelPracticeType:'prompt'})");assert.match(node('content').innerHTML,/data-copy-template="product-tvc"/);assert.match(node('content').innerHTML,/官方提示词指南/);assert.match(node('content').innerHTML,/提示词节选/);
  run("state.modelPracticeType='select';render()");assert.match(node('content').innerHTML,/对照能力原榜/);assert.match(node('content').innerHTML,/不生成主观评分/);
 });
+
+test('existing community repositories are reachable in prompt views and global search',async()=>{
+ const {run,node}=setup();await run('loadData()');run("setView('practice',{practiceCategory:'视频',modelPracticeType:'prompt'})");
+ assert.match(node('content').innerHTML,/开源提示词与 Skill 索引/);assert.match(node('content').innerHTML,/LearnPrompt\/awesome-seedance/);
+ assert.ok(run("searchGlobal('Awesome Seedance','resource').length")>0);
+ assert.equal(run("stableCreatorKey('https://example.com/apply')===stableCreatorKey('https://example.com/apply')"),true);
+ run("setView('opportunities',{opportunityTab:'programs'})");assert.match(node('content').innerHTML,/未检测/);
+});

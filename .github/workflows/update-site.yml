@@ -71,6 +71,13 @@ jobs:
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 2 * * *'
         run: python scripts/check_model_resources.py
 
+      - name: Check creator opportunity link reachability
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 2 * * *'
+        run: python scripts/check_creator_links.py
+
+      - name: Validate creator opportunity records
+        run: python scripts/check_creator_links.py --dry-run
+
       - name: Collect RSS and Awesome resources
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_resources.py
