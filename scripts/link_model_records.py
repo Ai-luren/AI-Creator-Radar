@@ -12,6 +12,7 @@ CHRONICLE_CONFIG = ROOT / "config/chronicle-release-links.json"
 
 RECORD_SECTIONS = {
     "site/data/model-evaluations.json": ("items", ("modelName", "title", "summary")),
+    "site/data/model-updates.json": ("items", ("title", "summary")),
     "site/data/aihot-daily.json": ("items", ("title", "summary")),
     "site/data/juya-daily.json": ("items", ("title", "summary")),
     "site/data/aihot-items.json": ("items", ("title", "summary", "reason")),

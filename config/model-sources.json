@@ -148,7 +148,13 @@
       "gpt-live": [
         "re:\\bGPT[- ]Live[- ]?\\d*(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "allowProductAnnouncements": true,
+    "announcementHosts": [
+      "openai.com",
+      "www.openai.com"
+    ],
+    "category": "llm"
   },
   {
     "id": "vidu-api-updates",

@@ -265,3 +265,13 @@ class ModelCollectorTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProductAnnouncementTests(unittest.TestCase):
+    def test_official_rss_can_include_non_model_product_news_without_promoting_it(self):
+        source = {"id":"test","name":"Official","url":"https://official.example/rss","allowProductAnnouncements":True,"announcementHosts":["official.example"],"modelMatches":{}}
+        feed = b'<rss><channel><item><title>Introducing new subscription pricing</title><link>https://official.example/news/pricing</link><pubDate>Fri, 20 Nov 2026 10:00:00 GMT</pubDate></item><item><title>Introducing a new feature</title><link>https://unrelated.example/news</link><pubDate>Fri, 20 Nov 2026 10:00:00 GMT</pubDate></item></channel></rss>'
+        items = rss_items(feed, source)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["updateType"], "product-announcement")
+        self.assertIsNone(make_item(items[0], source, {}, "2026-11-26T00:00:00Z")["modelId"])

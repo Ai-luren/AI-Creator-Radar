@@ -532,11 +532,18 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
         summary = clean_text(child_text(entry, {"description", "summary", "content", "encoded"}))
         model_id = match_model(title, source) or match_model(title + " " + summary, source)
         published = parse_date(child_text(entry, {"pubdate", "published", "date", "created"})) or parse_date(child_text(entry, {"updated"}))
-        if not model_id or not is_release_candidate(title, published, source.get("allowVersionOnly", False)):
+        url = entry_link(entry)
+        model_release = model_id and is_release_candidate(title, published, source.get("allowVersionOnly", False))
+        product = source.get("allowProductAnnouncements") and published and re.search(
+            r"\b(?:introducing|launch(?:ing|es)?|release(?:d)?|availability|pricing|subscription|credits|access|upgrade|update(?:s|d)?|new feature|now available)\b",
+            title, re.I
+        ) and urlsplit(url).scheme == "https" and urlsplit(url).hostname in source.get("announcementHosts", [])
+        if not model_release and not product:
             continue
         results.append({
-            "title": title, "summary": summary, "url": entry_link(entry),
-            "publishedAt": published, "modelId": model_id,
+            "title": title, "summary": summary, "url": url,
+            "publishedAt": published, "modelId": model_id if model_release else None,
+            **({"updateType": "product-announcement"} if not model_release else {}),
         })
     return results
 
@@ -571,7 +578,7 @@ def markdown_news_items(page: str, source: dict) -> list[dict]:
 
 
 def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
-    model_id = raw.get("modelId") or match_model(raw["title"] + " " + raw.get("summary", ""), source)
+    model_id = None if raw.get("updateType") == "product-announcement" else raw.get("modelId") or match_model(raw["title"] + " " + raw.get("summary", ""), source)
     model = models.get(model_id, {})
     url = normalize_url(urljoin(source["url"], raw.get("url") or source["url"]))
     identity = url if url != normalize_url(source["url"]) else source["id"] + "|" + raw["title"].casefold()
@@ -585,7 +592,7 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         version_match = re.search(version_pattern, raw["title"] + " " + raw.get("summary", ""), flags=re.I)
         if version_match:
             version = clean_text(version_match.group(1))
-    update_type = source.get("updateType", "release")
+    update_type = raw.get("updateType") or source.get("updateType", "release")
     title_lower = raw["title"].casefold()
     if update_type in {"release", "model-release", "model-card"} and any(term in title_lower for term in PRE_RELEASE_TERMS):
         update_type = "announcement"
