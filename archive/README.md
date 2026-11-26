@@ -12,3 +12,5 @@
 整理归档时保留原始文件内容；只有经明确确认后才永久删除历史材料。
 
 - [V3–V3.6 设计历史](engineering-history/2026-11-26-design-history-through-v36.md)、[旧 README](engineering-history/2026-11-26-readme-before-v36.md) 和 [旧封面](engineering-history/2026-11-26-readme-hero-before-v36.svg)：保留原文件供追溯，现行规范已收敛至根目录。
+
+现行运行、设计和数据规则以[根 README](../README.md)、[维护索引](../docs/README.md)为准。本目录其他历史 Markdown 保留原时点内容，不随现行调度状态覆盖。

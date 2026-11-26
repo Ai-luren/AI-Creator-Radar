@@ -22,7 +22,7 @@ GitHub 主调度为每小时 05、35 分，另有北京时间 08:15/25、10:15/2
 ## 手动操作
 
 Actions → Publish validated GitHub Pages → Run workflow → main：仅重新验证和发布。
-Actions → Refresh radar data → Run workflow → main：`all`、`models`、`resources`、`maintenance`；旧 `deploy-only` 范围转调独立发布流程。
+Actions → Refresh radar data → Run workflow → main：`due`（仅到期且可重试组）、`all`、`models`、`resources`、`maintenance`；旧 `deploy-only` 范围转调独立发布流程。
 
 ## 故障和通知
 
@@ -41,7 +41,7 @@ Actions → Refresh radar data → Run workflow → main：`all`、`models`、`r
 
 ```sh
 python3 -m unittest discover -s tests -v
-node --test tests/test_overview.mjs
+node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs
 python3 scripts/plan_refresh.py --event schedule --output /tmp/radar-refresh-plan.txt
 python3 scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
 ```
@@ -70,7 +70,7 @@ RADAR_BROWSER_DEPS=/tmp/radar-browser RADAR_SCREENSHOTS=/tmp/radar-webkit RADAR_
 
 ## 日报刊期优先
 
-AIHOT 08:05、08:15，橘鸦 10:05、10:15（北京时间）计划触发只采集到期日报；常规定时继续补采其他过期组。以当天刊期而非单纯抓取时间决定到期；当天刊期成功即停止重复抓取，尚未出现且距上次成功抓取约十分钟则再次检查。日报优先于慢速资源采集。GitHub cron 可能漏跑，尚不承诺准点，需要实际观测。
+AIHOT 08:05、橘鸦 10:05（北京时间）起进入当天刊期判定；额外计划触发 08:15/25、10:15/25 只采集到期日报；常规定时继续补采其他过期组。以当天刊期而非单纯抓取时间决定到期；当天刊期成功即停止重复抓取，尚未出现且距上次成功抓取约十分钟则再次检查。日报优先于慢速资源采集。GitHub cron 可能漏跑，尚不承诺准点，需要实际观测。
 
 ## 回归测试时间基准
 
@@ -83,7 +83,7 @@ Node 页面测试默认使用发布清单 windowEnd 对应北京时间当日末�
 - checkedAt 是尝试时间，lastSuccessfulCheckAt 是最近至少一个模型信源成功读取的时间，lastCompleteCheckAt 是全部请求成功的时间（不代表全网事实完整）。全源失败保留原始更新快照；分组到期检查采用实际成功时间。资源组同时检查 Maomu、统一榜单、AIPick、社媒趋势；维护组检查模型测评。
 - `workflow_dispatch` 新增 `scope=due`，按真实快照到期规划，不强行重抓全部。
 - 备用调度必须来自 GitHub Cron 之外。已提供 `scripts/refresh_watchdog.py`，在有 GitHub CLI 授权的持续在线机器每 15 分钟运行。检测已有运行、40 分钟冷却期及各组快照，固定同一 main SHA 读取，只有确实到期才调度 `scope=due`。API 异常不发起采集。先执行 `python3 scripts/refresh_watchdog.py --dry-run` 验证，再接入本机 launchd 或独立外部调度器。凭据留在 gh 的安全存储；不得写入仓库。脚本存在不代表已安装或持续在线，必须实际验证。
-- 待验证：真实生产采集故障演练、外部备用调度安装和漏跑恢复。GitHub 平台的定时触发仍非实时 SLA。
+- 当前状态：Cloudflare 备用调度已经安装并完成首次生产补采；Mac 备用脚本保留但不建议并行启动。持续故障恢复、长期稳定性仍需验证。GitHub 平台的定时触发仍非实时 SLA。
 
 ## 生产实跑门禁
 
@@ -91,7 +91,7 @@ Node 页面测试默认使用发布清单 windowEnd 对应北京时间当日末�
 
 ## P1 官方信源与自动核验
 
-模型事务顺序为采集 → 严格双源核验 → 上新派生视图 → 厂商发展史。新增智谱官方模型发布日志及 Meta AI 官方博客；Niji 英文博客作为第三种官方访问入口之一（不保证 GitHub runner 可访问）。GLM 日志为模型可用性发现，不能单独证实正式首发。只有明确官方双站点结构化发布日期与发布标题一致的最近记录才自动入库；不满足条件保留候选，不使用付费 LLM。独立备用调度仍需要已授权外部执行环境。
+模型事务顺序为采集 → 严格双源核验 → 上新派生视图 → 厂商发展史。新增智谱官方模型发布日志及 Meta AI 官方博客；Niji 英文博客作为第三种官方访问入口之一（不保证 GitHub runner 可访问）。GLM 日志为模型可用性发现，不能单独证实正式首发。只有明确官方双站点结构化发布日期与发布标题一致的最近记录才自动入库；不满足条件保留候选，不使用付费 LLM。独立备用调度已通过 Cloudflare 授权部署；本段描述的是采集与证据规则，不表示全量信源已核验。
 
 ## 有效采集率（P1）
 
@@ -113,7 +113,7 @@ Node 页面测试默认使用发布清单 windowEnd 对应北京时间当日末�
 
 ## 情报闭环与故障隔离（P1）
 
-结构化辅助数据优先采用开放许可的 LLM World JSON（CC BY 4.0，数据源与许可证随线索保留），只读取事件明确关联的一手链接。辅助源连续失败指数退避，保留上次成功和实际尝试时间。辅助发现、官方原文恢复、派生上新、召回审计组成独立事务；失败不回滚已经成功的官方采集事务。每轮最多核验 12 个允许列表中的官方文章 URL，禁止跨站跳转，严格匹配文章标题、唯一模型家族及明确发布日期；日期冲突、教程、合作案例和未知身份不升级。成功观测保留来源、线索 ID、首次核验日期与最近核验时间，重试失败不伪造成功时间。恢复候选只进入待复核流，不写正式 releaseEvidence，不把外部发布日期、仓库创建日或文章发布日期自动等同首发。样本审计另计直接采集与原文恢复联合命中，避免把缓存当本轮抓取。刷新计划纳入新增快照，缺失快照会触发补跑。此阶段未部署外部调度器或自建 RSSHub。
+结构化辅助数据优先采用开放许可的 LLM World JSON（CC BY 4.0，数据源与许可证随线索保留），只读取事件明确关联的一手链接。辅助源连续失败指数退避，保留上次成功和实际尝试时间。辅助发现、官方原文恢复、派生上新、召回审计组成独立事务；失败不回滚已经成功的官方采集事务。每轮最多核验 12 个允许列表中的官方文章 URL，禁止跨站跳转，严格匹配文章标题、唯一模型家族及明确发布日期；日期冲突、教程、合作案例和未知身份不升级。成功观测保留来源、线索 ID、首次核验日期与最近核验时间，重试失败不伪造成功时间。恢复候选只进入待复核流，不写正式 releaseEvidence，不把外部发布日期、仓库创建日或文章发布日期自动等同首发。样本审计另计直接采集与原文恢复联合命中，避免把缓存当本轮抓取。刷新计划纳入新增快照，缺失快照会触发补跑。本阶段的历史实施未部署外部调度器；目前 Cloudflare 已独立部署，RSSHub 仍只使用可选公共实例。
 
 ## 已有简报与官方候选共享补证（P1）
 
@@ -121,7 +121,7 @@ AIHOT 精选、AIHOT 日报、橘鸦早报和现有官方候选索引直接读�
 
 ## 调度恢复与独立看门狗（P0）
 
-根据 GitHub 官方故障排查，修改停滞的 cron 表达式可重新激活调度；新的每小时 :05/:35 统一到期扫描及 08:15/25、10:15/25 日报重试减少重叠。每次实际采集经完整数据校验后生成 scheduler-health.json（由现有 plan_refresh 计算下一次到期时间），随数据原子提交；心跳不是全部来源成功声明。ops/cloudflare-watchdog 是独立于 GitHub cron 的可部署备份，默认演练，15 分钟检查，超期才触发 scope=due；只读 API 故障不触发，令牌只存 Cloudflare secret。部署与真实 dispatch 需要账户授权，未部署不能声称已恢复无人值守。详见该目录 README。
+根据 GitHub 官方故障排查，修改停滞的 cron 表达式可重新激活调度；新的每小时 :05/:35 统一到期扫描及 08:15/25、10:15/25 日报重试减少重叠。每次实际采集经完整数据校验后生成 scheduler-health.json（由现有 plan_refresh 计算下一次到期时间），随数据原子提交；心跳不是全部来源成功声明。`ops/cloudflare-watchdog` 已正式部署，15 分钟检查，超期才触发 `scope=due`；仅显式 `DRY_RUN=false` 启用写请求，只读 API 故障不触发，令牌只存 Cloudflare Secret。首次端到端运行已成功，长期稳定性仍需观察。详见[调度器说明](../ops/cloudflare-watchdog/README.md)。
 
 ## 日期一致性、历史误报与 Sitemap（P0）
 
@@ -151,3 +151,7 @@ AIHOT 精选、AIHOT 日报、橘鸦早报和现有官方候选索引直接读�
 - 自动到期规划仅对明确记录 degraded 的单一采集组实施有限退避：第一次失败后 15 分钟、第二次及以后 30 分钟。正常或独立其他组不受影响；显式手动范围及采集代码变更时的强制模型实跑不受阻。失败不改写快照日期，缺失或损坏健康记录不抑制补采。
 - 心跳保留原始 due（数据是否到期）与 eligible（当前能否重试）以及 retryAfter；下一次调度根据实际可执行组计算，保持既有 30 分钟上界。既有第三次持续故障告警仍保留。
 - Mac 备用脚本读取同一提交的健康记录以使用同一退避策略，但不建议与已经启用的 Cloudflare 重复部署。
+
+## 日常维护与故障定位
+
+正常使用无需打开 Cloudflare 或保持 Mac 开机（社媒粉丝本机自动化除外）。GitHub Token 到期前替换运行时 Secret；不能使用构建环境变量。运行失败先比较日志时间与部署版本，再查 Secret、API 返回、采集事务、main 提交和线上 siteTree。不要把历史红色事件误认为新部署失败；不要为清除历史日志而关闭报警。线上心跳不可用不代表所有数据已丢失。保留最近有效快照。

@@ -4,14 +4,14 @@
 
 | 要做什么 | 先读 | 关键文件 |
 |---|---|---|
-| 理解整体目录与发布 | 本页、根目录 `AGENTS.md` | `.github/workflows/update-site.yml` |
+| 理解整体目录与发布 | 本页、根目录 `AGENTS.md` | `.github/workflows/update-site.yml`、`.github/workflows/deploy-pages.yml` |
 | 修改当前界面与交互 | [设计系统](../DESIGN.md) | `site/index.html`、`tests/test_browser_visual.mjs` |
 | 修改模型目录或跨模块模型引用 | [模型数据契约](model-data-contract.md) | `site/data/models.json`、`scripts/link_model_records.py` |
 | 审核模型上新与近 30 天列表 | [模型上新指南](model-release-digest-guide.md) | `scripts/build_model_release_digest.py` |
 | 修改官方社媒账号快照 | [社媒数据指南](social-monitor-data-guide.md) | `site/data/social-accounts.json` |
 | 理解能力榜的来源和展示口径 | [榜单方法审核](leaderboard-methodology-audit-2026-11-25.md)、[榜单规则](../site/ranking-rules.html) | `site/data/reference-rankings.json`、`site/data/maomu-rankings.json` |
 | 查看综合榜实验与审计依据 | [榜单方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`、`site/data/unified-rankings.json` |
-| 检查自动更新、漏跑补采和同步范围 | [自动更新说明](automation-runbook.md) | `scripts/plan_refresh.py`、`.github/workflows/update-site.yml` |
+| 检查自动更新、漏跑补采和同步范围 | [自动更新说明](automation-runbook.md)、[Cloudflare 运维指南](../ops/cloudflare-watchdog/README.md) | `scripts/plan_refresh.py`、`scripts/scheduler_manifest.py`、`ops/cloudflare-watchdog/wrangler.toml` |
 
 ## 当前结构（V3.6）
 
@@ -34,12 +34,15 @@
 - **创作资源**：`aipick-data.json`、`awesome-repos.json`、`tutorials.json`、`resource-sources.json`、`resource-status.json`。
 - **创作机会**：`creator-contests.json`、`creator-link-status.json`、`creator-opportunity-discovery.json`。
 - **官方社媒**：`social-accounts.json`、`social-platforms.json`、`social-trends.json`。
+- **发现与证据**：`cross-platform-discovery.json`、`lead-resolution.json`、`model-intake.json`、`model-release-verification-status.json`、`release-recall-status.json`。
+- **运行治理**：`collection-health.json`（尝试、成功和连续失败）、`scheduler-health.json`（到期与可重试边界）、`system-audit.json`（结构和覆盖审计）；线上 `deploy-revision.json` 为发布产物。
 
 ## 本地检查
 
 ```bash
+python3 scripts/preflight.py
 python3 -m unittest discover -s tests -v
-node --test tests/test_overview.mjs
+node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs
 python3 scripts/collect_models.py --dry-run
 python3 scripts/build_model_release_digest.py
 python3 scripts/link_model_records.py
@@ -47,3 +50,7 @@ python3 scripts/validate_model_links.py
 ```
 
 日常文案、来源审核记录保留在 `docs/`；完成任务的临时实施计划归档到 `archive/engineering-history/`，不要把历史叙述加进 `AGENTS.md`。
+
+## 当前生产验收（2026-11-27）
+
+Cloudflare 已部署为正式备用调度器，首次生产补采及 Pages 发布已成功，证据见运行手册。长期稳定性、主分支保护、本机 hook 激活、未核验信源及证据缺口仍需分别跟踪。历史方法提案与审计报告保留当时结论，不作为现行实现说明。

@@ -13,7 +13,7 @@
 
 ## 设计
 
-正式模式每 15 分钟检查一次，2 次只读 API，只有快照超期且没有活动/刚启动的工作流时才 POST dispatch。只读取小型 scheduler-health.json；原始采集成功时间、日报日期仍由 plan_refresh.py 决定。12 分钟冷却，5 分钟超期宽限；GitHub 侧并发锁是最终防重保障。404 仅作为尚无心跳的启动场景；403、429、错误响应、无效时间均 fail closed。缺失或非法的 DRY_RUN 值默认进入演练模式；正式配置明确设为 false。没有公开 webhook、没有服务端持久化凭证，不使用第三方 cron 站点保存令牌。Cloudflare Free 限额和服务条款需以实际账户为准；首次生产补采已于北京时间 2026-11-27 03:03:59 触发并完整成功（Actions 45880790691）；长期可用性仍需观察。
+正式模式每 15 分钟检查一次，2 次只读 API，只有快照超期且没有活动/刚启动的工作流时才 POST dispatch。只读取小型 scheduler-health.json；原始采集成功时间、日报日期仍由 plan_refresh.py 决定。12 分钟冷却，5 分钟超期宽限；GitHub 侧并发锁是最终防重保障。404 仅作为尚无心跳的启动场景；403、429、错误响应、无效时间均 fail closed。缺失或非法的 DRY_RUN 值默认进入演练模式；正式配置明确设为 false。没有公开 webhook；凭证只保存在 Cloudflare 加密运行时 Secret，不使用第三方 cron 站点保存令牌。Cloudflare Free 限额和服务条款需以实际账户为准；首次生产补采已于北京时间 2026-11-27 03:03:59 触发并完整成功（Actions 45880790691）；长期可用性仍需观察。
 
 本地可运行 `node --test tests/test_scheduler_worker.mjs`（从仓库根目录）。撤销：删除 Worker/cron，并撤销细粒度令牌。备用 Mac watchdog 可继续独立使用，避免两个备份同时启用造成重复调度。
 
@@ -28,3 +28,7 @@ https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-eve
 - 持久化日志配置由 Wrangler 文件管理。已通过 Wrangler secret put 绑定的令牌不得写入仓库。自动部署之后仍需检查实际版本及运行日志，不能以构建成功代替端到端验证。
 
 自动采集的单组故障使用 15/30 分钟有限退避；心跳保留实际过期状态与可重试状态，不伪造新鲜度。其他组照常采集。
+
+## 日常操作
+
+生产配置由本目录 wrangler.toml 管理，GitHub main 变更自动部署。正常不需要手动改后台 Cron 或保持本机在线。细粒度令牌到期前在正确 Worker 上执行 `npx wrangler secret put GITHUB_RADAR_TOKEN --name ai-creator-radar` 轮换，终端交互输入，不放入命令行参数。验收依次核对构建版本、部署后的运行日志、实际 Actions run、提交心跳及 Pages 发布；旧错误日志不会因修复自动消失。若需要暂时停用写请求，将 DRY_RUN 改回 true 并经正常部署流程。

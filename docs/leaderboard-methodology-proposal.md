@@ -1,6 +1,6 @@
 # AI 创作者能力榜统一规则（v4 实施版）
 
-> **2026-11-25 状态：** 本文是已被替代的 v4 跨榜合成方案和实现记录，不是当前榜单规则。当前预览改为单来源原榜参考视图，隐藏所有前台跨榜综合分；请以 [方法审计与当前展示口径](leaderboard-methodology-audit-2026-11-25.md) 和 [`../site/ranking-rules.html`](../site/ranking-rules.html) 为准。
+> **2026-11-25 状态：** 本文是已被替代的 v4 跨榜合成方案和实现记录，不是当前榜单规则。现行站点使用单来源原榜参考视图，隐藏所有前台跨榜综合分；请以 [方法审计与当前展示口径](leaderboard-methodology-audit-2026-11-25.md) 和 [`../site/ranking-rules.html`](../site/ranking-rules.html) 为准。
 
 > 历史状态：首版 v4 在本地预览中实现并由多位评审检查过公式和身份匹配，但检查范围不代表外部榜单数据或创作者资格已获权威背书。该方案已退居审计用途，不再作为前台名次。
 
@@ -118,7 +118,7 @@ V4 增加了六类主榜页签和「评分规则与来源」入口；原始榜�
 - 生成器读取 `site/data/reference-rankings.json`、`site/data/maomu-rankings.json` 和模型目录，输出独立派生文件 `site/data/unified-rankings.json`；不改写原始榜快照。
 - `config/unified-ranking-baseline.json` 保存来源参照成员与分数、上游评测版本/口径指纹、快照哈希、类别锚点逐成员逐任务的冻结分数，以及来源校准系数/锚点/快照哈希。普通运行只验证固定校准的当前残差，不重拟系数；来源评测版本或任务口径变化时暂停该来源，待人工复核并升方法版本。
 - `config/unified-ranking-vendor-aliases.json` 记录有官方来源支撑的厂商别名。不同规范化厂商名且未核实为同一实体的同名模型仍分开显示并标记身份待核验；例如 `aorizon` 暂不自动并入 `Alibaba-ATH`。
-- 目前生成器可本地手动运行。GitHub Actions 尚未更新；接入 CI 属于项目明确要求先确认的配置变更，需要单独批准。
+- 历史实施时生成器仅支持本地手动运行。现行 `run_collection_batch.py resources` 已接入 GitHub Actions 的资源事务，派生综合试算仍只作审计，不进入前台名次；参见[运行手册](automation-runbook.md)。
 - 当前没有为所有原榜提供完全版本级匹配。模型库只显示精确版本关联，其他记录仍能在主榜查看，但不会错误地附到同一家族所有版本上。
 
 ## 参考来源

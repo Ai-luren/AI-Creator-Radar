@@ -42,11 +42,12 @@
 - 工程变更先执行 `python3 scripts/preflight.py`；更新主数据或发布视图后用 `--repair-digest` 同步派生数据，并审核差异后一次提交。每个本地 clone 可安装仓库 pre-push 门禁。详见[自动更新与发布说明](docs/automation-runbook.md)。
 
 - 模型目录以 `site/data/models.json` 为唯一规范记录，版本日期与证据优先使用官方来源。自动发现不覆盖已审核事实。
-- 模型与 AIHOT 精选约 30 分钟检查；日报以北京时间真实刊期为准，优先在 08:05/08:15、10:05/10:15 补采；榜单和资源约 6 小时、维护约每日一次。社媒粉丝由本机 21:00 任务尝试采集。
-- GitHub 定时调度可能延迟或漏跑；新鲜度检查失败时保留有效旧快照，不能伪造更新时间。普通 UI push 仅验证并发布已有数据。
+- 模型与 AIHOT 精选约 30 分钟更新；GitHub 每小时 :05/:35 检查到期组。日报按北京时间真实刊期，08:05/10:05 起判定到期，额外在 08:15/25、10:15/25 检查。榜单和资源约 6 小时、维护约每日一次。社媒粉丝由本机 21:00 任务尝试采集，独立云端调度不替代它。
+- Cloudflare Workers 已作为独立备用调度器正式部署，每小时 :02/:17/:32/:47 检查心跳，超期且无活动任务时触发 `scope=due`。首次正式补采 [45880790691](https://github.com/Ai-luren/AI-Creator-Radar/actions/runs/45880790691) 已完成采集、提交与 Pages 发布。GitHub 或外部信源故障仍可能延迟更新，不承诺实时 SLA。
+- 单组失败采用 15/30 分钟有限退避，其他到期组照常运行；保留旧有效快照、真实时间、过期与可重试状态。连续第三次独立失败保留持续事故告警。普通 UI push 仅验证并发布已有数据。
 - 实际发布版本可由线上 `deploy-revision.json` 核对 commit 和 siteTree；无新增数据时也检查已提交网站内容是否漏发，同内容不重复部署。首页数据状态显示构建标识、同步延迟和来源检查信息。
 
-完整采集、手动补采、发布和通知规则见[自动更新说明](docs/automation-runbook.md)。模型证据规则见[上新指南](docs/model-release-digest-guide.md)。
+完整采集、手动补采、发布和通知规则见[自动更新说明](docs/automation-runbook.md)及[Cloudflare 运维指南](ops/cloudflare-watchdog/README.md)。模型证据规则见[上新指南](docs/model-release-digest-guide.md)。
 
 ## 本地运行与验收
 
@@ -55,7 +56,7 @@ Python 3.10+；测试建议与 CI 一致使用 Python 3.12、Node 22。无需额
 ```bash
 python3 scripts/serve_local.py --port 8080
 python3 -m unittest discover -s tests -v
-node --test tests/test_overview.mjs
+node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs
 python3 scripts/validate_model_links.py
 python3 scripts/audit_model_completeness.py
 ```
@@ -76,6 +77,7 @@ python3 scripts/audit_model_completeness.py
 | `scripts/`、`config/` | 采集、构建和来源配置 |
 | `tests/`、`.github/workflows/` | 验证、采集及发布 |
 | `docs/`、`DESIGN.md` | 当前维护指南及设计规范 |
+| `ops/cloudflare-watchdog/` | 独立云端调度代码、版本化配置及授权/恢复说明 |
 | `archive/` | 历史研究与退役材料，不作为运行时输入 |
 
 [维护入口](docs/README.md) · [历史归档](archive/README.md) · [MIT License](LICENSE)
