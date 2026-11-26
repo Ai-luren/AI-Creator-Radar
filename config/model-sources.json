@@ -648,6 +648,7 @@
     },
     "updateType": "model-release",
     "fallbackUrls": [
+      "https://nijijourney.com/en/blog",
       "https://nijijourney.com/zh/blog"
     ]
   },
@@ -896,6 +897,45 @@
       ],
       "gaga-1": [
         "GAGA-1"
+      ]
+    }
+  },
+  {
+    "id": "zai-model-release-notes",
+    "name": "智谱 Z.ai 官方模型发布日志",
+    "type": "dated-headings",
+    "url": "https://docs.z.ai/release-notes/new-released",
+    "vendor": "智谱 / Z.ai",
+    "official": true,
+    "active": true,
+    "dateButtons": true,
+    "updateType": "model-card",
+    "modelMatches": {
+      "glm": [
+        "re:\\bGLM[- ]\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "meta-ai-blog",
+    "name": "Meta AI 官方博客",
+    "type": "html",
+    "url": "https://ai.meta.com/blog/",
+    "vendor": "Meta",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "llama": [
+        "re:\\bLlama\\s+\\d+(?:\\.\\d+)*\\b"
+      ],
+      "muse-image": [
+        "muse image"
+      ],
+      "muse-video": [
+        "muse video"
+      ],
+      "muse": [
+        "muse spark"
       ]
     }
   }
