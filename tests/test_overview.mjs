@@ -329,3 +329,10 @@ test('V3.4 merges only uniquely matched same-day release candidates in display',
  const {run}=setup();const rows=[{date:'2026-11-17',title:'Model A 发布',kind:'模型',verificationStatus:'已确认',modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]},{date:'2026-11-17',title:'Introducing Model A',kind:'模型发布',autoCollected:true,modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]},{date:'2026-11-17',title:'Model A Preview',kind:'模型发布',autoCollected:true,modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]}];
  const result=JSON.parse(run('JSON.stringify(compactChronicleRows('+JSON.stringify(rows)+'))'));assert.equal(result.length,2);assert.equal(result[0]._related.length,1);assert.equal(result[1].title,'Model A Preview');
 });
+
+test('V3.4 shared semantic icons and readable provider labels',()=>{
+ const {run}=setup();assert.equal(run("rankProviderLabel('openai')"),'OpenAI');assert.equal(run("rankProviderLabel('unknown-provider')"),'unknown-provider');assert.match(run("icon('panel')"),/M9 3v18/);assert.match(run("icon('external')"),/stroke-width="1.75"/);
+});
+test('V3.4 each vendor has its own semantic table row group',async()=>{
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video'})");const markup=node('content').innerHTML;assert.ok((markup.match(/<tbody class="model-vendor-group">/g)||[]).length>1);assert.equal((markup.match(/<tbody class="model-vendor-group">/g)||[]).length,(markup.match(/scope="rowgroup"/g)||[]).length);
+});
