@@ -103,4 +103,6 @@ class AutoReleaseVerificationTests(unittest.TestCase):
             self.assertEqual(sync_automatic_confirmations([topic], self.models), 1)
             self.assertEqual(len(topic["milestones"]), 2)
             self.assertIn(historical, topic["milestones"])
+            topic["milestones"].append(event("b"))
             self.assertEqual(sync_automatic_confirmations([topic], self.models), 0)
+            self.assertEqual(len(topic["milestones"]), 2)

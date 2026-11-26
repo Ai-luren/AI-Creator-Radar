@@ -200,11 +200,13 @@ def sync_automatic_confirmations(topics, families):
             ids = set(evidence.get("sourceUpdateIds", []))
             events = topic.get("milestones", [])
             # Explicit audited history, if present, remains authoritative.
-            if any(e.get("automaticReleaseEventId") == evidence["eventId"] for e in events):
-                continue
             matches = [e for e in events if not protected(e) and e.get("sourceUpdateId") in ids
                        and e.get("sourceModelId") == family["id"]
                        and e.get("date") == evidence["publishedAt"]]
+            if any(e.get("automaticReleaseEventId") == evidence["eventId"] for e in events):
+                # A subsequent collection may rediscover the secondary article.
+                topic["milestones"] = [e for e in events if not any(e is m for m in matches)]
+                continue
             if not matches:
                 continue
             primary = next((e for e in matches if e.get("url") == evidence["sourceUrl"]), matches[0])
