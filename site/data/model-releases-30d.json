@@ -390,6 +390,22 @@
       "verifiedAt": "2026-11-25"
     },
     {
+      "id": "official-eleven-scribe-v3-live-medical-20261117",
+      "publishedAt": "2026-11-17",
+      "category": "audio",
+      "vendor": "ElevenLabs",
+      "modelName": "Scribe v3 Live Medical",
+      "summary": "面向医疗语音智能体的实时语音识别，首发为 ElevenAgents 专用。",
+      "access": "发布时 ElevenAgents 提供；当前以官方文档为准",
+      "url": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+      "sourceName": "ElevenLabs 官方发布博客",
+      "modelFamilyId": "eleven-scribe",
+      "modelVersionId": "scribe-v3-live-medical",
+      "evidenceType": "official-release",
+      "verifiedAt": "2026-11-26",
+      "audioSubtype": "语音识别 ASR"
+    },
+    {
       "id": "qwen-qwen4-max-20261116",
       "publishedAt": "2026-11-16",
       "category": "llm",
@@ -590,20 +606,6 @@
   ],
   "pending": [
     {
-      "id": "ab398ce00903a3bc47",
-      "category": "music",
-      "vendor": "Suno",
-      "title": "Introducing the v6 family of music models.",
-      "summary": "v6 is our flagship model and is reliable, precise and consistently delivers polished music across every genre and style. v6-wild is built for exploration and is less predictable and more varied, producing unexpected, textured and ambitious results.",
-      "url": "https://suno.com/release-notes",
-      "sourceName": "Suno 官方更新日志",
-      "publishedAt": null,
-      "discoveredAt": "2026-11-24T09:41:41Z",
-      "modelFamilyId": "suno",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "seedance-25-20261116",
       "category": "video",
       "vendor": "字节跳动 Seed / 即梦",
@@ -632,6 +634,20 @@
       "modelFamilyId": "qwen-audio-realtime",
       "modelVersionId": "qwen-audio-3-1-live",
       "verifiedAt": "2026-11-24"
+    },
+    {
+      "id": "stage-radar-20261126-gpt-live-1-1-api",
+      "stageDate": "2026-11-20",
+      "stage": "api-availability",
+      "category": "audio",
+      "vendor": "OpenAI",
+      "modelName": "GPT-Live-1.1",
+      "summary": "官方开发者公告确认 GPT-Live-1.1 已在 API 可用；公告日期为 11 月 20 日，实际服务开始时间可能更早，非模型首发。",
+      "url": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
+      "sourceName": "OpenAI 官方开发者公告",
+      "modelFamilyId": "gpt-live",
+      "modelVersionId": "gpt-live-1-1",
+      "verifiedAt": "2026-11-26"
     },
     {
       "id": "stage-review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112",

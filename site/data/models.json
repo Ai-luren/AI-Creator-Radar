@@ -30188,7 +30188,7 @@
     "note": "语音转文字，包括录制与实时转写；不同于语音合成。",
     "region": "海外",
     "access": "闭源",
-    "version": "Scribe v3 / Scribe v3 Live",
+    "version": "Scribe v3 / Scribe v3 Live / Scribe v3 Live Medical",
     "versions": [
       {
         "id": "scribe-v3",
@@ -30243,6 +30243,33 @@
           "provenance": "本轮核对厂商一手来源",
           "audioSubtype": "语音识别 ASR"
         }
+      },
+      {
+        "id": "scribe-v3-live-medical",
+        "name": "Scribe v3 Live Medical",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "正式公告已核实；以官方工作区可用性为准",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://elevenlabs.io/docs/overview/models",
+        "releaseUrl": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+        "note": "面向医疗语音智能体的实时转写；初期仅 ElevenAgents。",
+        "releaseDate": "2026-11-17",
+        "releaseEvidence": {
+          "eventId": "official-eleven-scribe-v3-live-medical-20261117",
+          "publishedAt": "2026-11-17",
+          "sourceUrl": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+          "sourceName": "ElevenLabs 官方发布博客",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "面向医疗语音智能体的实时语音识别，首发为 ElevenAgents 专用。",
+          "access": "发布时 ElevenAgents 提供；当前以官方文档为准",
+          "category": "audio",
+          "modelName": "Scribe v3 Live Medical",
+          "provenance": "核对厂商一手来源",
+          "audioSubtype": "语音识别 ASR"
+        }
       }
     ],
     "aliases": [
@@ -30251,5 +30278,134 @@
     "legacyIds": [],
     "leaderboardAliases": [],
     "audioSubtype": "语音识别 ASR"
+  },
+  {
+    "id": "gpt-live",
+    "name": "GPT-Live",
+    "vendor": "OpenAI",
+    "category": "audio",
+    "watched": true,
+    "logo": "openai",
+    "homepage": "https://openai.com/index/introducing-gpt-live/",
+    "releaseUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+    "modelCardUrl": "https://deploymentsafety.openai.com/gpt-live-1-1/alignment",
+    "note": "原生实时全双工语音模型家族，产品推出与 API 开放分开记录。",
+    "region": "海外",
+    "access": "闭源",
+    "version": "GPT-Live-1 / GPT-Live-1 mini / GPT-Live-1.1 / GPT-Live-1.1 Quip",
+    "versions": [
+      {
+        "id": "gpt-live-1",
+        "name": "GPT-Live-1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "发布已核实；当前可用性以官方页面为准",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://openai.com/index/introducing-gpt-live/",
+        "releaseUrl": "https://deploymentsafety.openai.com/gpt-live",
+        "note": "支持自然、全双工实时语音对话，可向后端模型委派任务。",
+        "releaseDate": "2026-07-08",
+        "releaseEvidence": {
+          "eventId": "official-openai-gpt-live-1-20260708",
+          "publishedAt": "2026-07-08",
+          "sourceUrl": "https://deploymentsafety.openai.com/gpt-live",
+          "sourceName": "OpenAI 官方公告 / System Card",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "modelName": "GPT-Live-1",
+          "category": "audio",
+          "summary": "支持自然、全双工实时语音对话，可向后端模型委派任务。",
+          "access": "发布时官方产品提供；当前可用性以官方说明为准",
+          "provenance": "核对厂商一手来源",
+          "audioSubtype": "实时语音交互"
+        }
+      },
+      {
+        "id": "gpt-live-1-mini",
+        "name": "GPT-Live-1 mini",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "发布已核实；当前可用性以官方页面为准",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://openai.com/index/introducing-gpt-live/",
+        "releaseUrl": "https://deploymentsafety.openai.com/gpt-live",
+        "note": "初代 GPT-Live 轻量语音模型。",
+        "releaseDate": "2026-07-08",
+        "releaseEvidence": {
+          "eventId": "official-openai-gpt-live-1-mini-20260708",
+          "publishedAt": "2026-07-08",
+          "sourceUrl": "https://deploymentsafety.openai.com/gpt-live",
+          "sourceName": "OpenAI 官方公告 / System Card",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "modelName": "GPT-Live-1 mini",
+          "category": "audio",
+          "summary": "初代 GPT-Live 轻量语音模型。",
+          "access": "发布时官方产品提供；当前可用性以官方说明为准",
+          "provenance": "核对厂商一手来源",
+          "audioSubtype": "实时语音交互"
+        }
+      },
+      {
+        "id": "gpt-live-1-1",
+        "name": "GPT-Live-1.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "发布已核实；当前可用性以官方页面为准",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://openai.com/index/introducing-gpt-live/",
+        "releaseUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+        "note": "改进多语言口音及语音自然度；先在 ChatGPT 等产品推出，API 后续上线。",
+        "releaseDate": "2026-10-15",
+        "releaseEvidence": {
+          "eventId": "official-openai-gpt-live-1-1-20261015",
+          "publishedAt": "2026-10-15",
+          "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+          "sourceName": "OpenAI 官方公告 / System Card",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "modelName": "GPT-Live-1.1",
+          "category": "audio",
+          "summary": "改进多语言口音及语音自然度；先在 ChatGPT 等产品推出，API 后续上线。",
+          "access": "发布时官方产品提供；当前可用性以官方说明为准",
+          "provenance": "核对厂商一手来源",
+          "audioSubtype": "实时语音交互"
+        },
+        "historicalMilestones": [
+          {
+            "date": "2026-11-20",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
+            "sourceName": "OpenAI 官方开发者公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "radar-20261126-gpt-live-1-1-api",
+            "summary": "官方开发者公告确认 GPT-Live-1.1 已在 API 可用；公告日期为 11 月 20 日，实际服务开始时间可能更早，非模型首发。"
+          }
+        ]
+      },
+      {
+        "id": "gpt-live-1-1-quip",
+        "name": "GPT-Live-1.1 Quip",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "官方模型已确认；独立首发日期待核验",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://openai.com/index/introducing-gpt-live/",
+        "releaseUrl": "https://deploymentsafety.openai.com/gpt-live-1-1/alignment",
+        "note": "官方 System Card 确认 GPT-Live-1.1 Quip 为同系列语音模型；独立首次开放日期未推定。"
+      }
+    ],
+    "aliases": [
+      "GPT-Live",
+      "GPT Live"
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": [],
+    "audioSubtype": "实时语音交互"
   }
 ]

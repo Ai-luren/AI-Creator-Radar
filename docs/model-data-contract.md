@@ -199,3 +199,9 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - Qwen TTS 3.1 Plus 10-21、Flash 10-12、Next 10-22 均早于 30 天窗口起点 10-28，不能为了填满栏目挪到 11 月；Suno v6 的历史日期仍需按官方原始记录审核。
 
 - Scribe v3 两型号使用显式同批次规则；正式发布与已核实服务上线的计数分开。新增固定历史窗口和派生清单一致性测试。
+
+## 音频最终补核（2026-11-26）
+
+- OpenAI GPT-Live 独立家族：1 / 1 mini 的 2026-07-08 官方 System Card；1.1 的 10-15 产品推出，11-20 开发者公告确认 API 可用（公告日期，不推测更早具体开放时间）；Quip 型号由官方 System Card 确认但独立首发日不推断。API 阶段独立于首发统计。
+- ElevenLabs Scribe v3 Live Medical：11-17 官方博客首发，11-23 更新日志确认工作区扩展；后者不算第二次模型发布。新增开发更新日志与 OpenAI 官方开发者公告监控；可访问但零匹配的信源继续明确记录，不宣称全网完备。
+- Suno v6 无日期的重复候选仅按精确原标题、固定来源及既有 9-09 正式证据排除，不把发现时间算作新发布。

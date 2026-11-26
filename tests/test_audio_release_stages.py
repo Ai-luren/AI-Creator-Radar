@@ -15,6 +15,9 @@ class AudioStageTests(unittest.TestCase):
         ids = {r["modelVersionId"] for r in result["verifiedStages"]}
         self.assertIn("qwen-audio-3-1-live", ids)
         self.assertIn("mureka-remix-v9-5", ids)
+        self.assertIn("gpt-live-1-1", ids)
+        self.assertTrue(any(r["modelVersionId"] == "scribe-v3-live-medical" for r in result["items"]))
+        self.assertFalse(any(r["modelFamilyId"] == "suno" and r["title"] == "Introducing the v6 family of music models." for r in result["pending"]))
         self.assertFalse(ids.intersection(r["modelVersionId"] for r in result["items"]))
         self.assertTrue(all("publishedAt" not in r for r in result["verifiedStages"]))
         self.assertTrue(all(r["stage"] == "api-availability" for r in result["verifiedStages"]))

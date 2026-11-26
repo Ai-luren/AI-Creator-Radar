@@ -144,6 +144,9 @@
       ],
       "gpt": [
         "re:\\bGPT[- ]?\\d+(?:\\.\\d+)*\\b"
+      ],
+      "gpt-live": [
+        "re:\\bGPT[- ]Live[- ]?\\d*(?:\\.\\d+)*\\b"
       ]
     }
   },
@@ -825,6 +828,44 @@
       ],
       "qwen-audio-tts": [
         "re:\\bqwen-audio-\\d+(?:\\.\\d+)*-tts\\b"
+      ]
+    }
+  },
+  {
+    "id": "openai-developer-announcements",
+    "name": "OpenAI 开发者官方公告",
+    "type": "rss",
+    "url": "https://community.openai.com/c/announcements/6.rss",
+    "vendor": "OpenAI",
+    "official": true,
+    "active": true,
+    "updateType": "announcement",
+    "modelMatches": {
+      "gpt-live": [
+        "re:\\bGPT[- ]Live[- ]?\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "elevenlabs-changelog",
+    "name": "ElevenLabs 官方开发更新日志",
+    "type": "model-cards",
+    "url": "https://elevenlabs.io/docs/changelog",
+    "vendor": "ElevenLabs",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "maxRowLength": 1500,
+    "modelMatches": {
+      "eleven-sfx": [
+        "re:\\bSFX\\s+v\\d+(?:\\.\\d+)*\\b",
+        "re:\\bSound Effects\\s+v\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-scribe": [
+        "re:\\bScribe\\s+v\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-tts": [
+        "re:\\bEleven\\s+v\\d+(?:\\.\\d+)*\\b"
       ]
     }
   }

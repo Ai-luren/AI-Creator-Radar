@@ -52,6 +52,8 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
         # Equivalent translated URLs or model-card entries with the same model and date.
         # Do not hide a conflicting date, or collapse distinct models on a rolling URL.
         normalized_title = normalize(title)
+        if not published and family["id"] == "suno" and normalized_title == "introducingthev6familyofmusicmodels" and url.rstrip("/") == "https://suno.com/release-notes" and any(v.get("id") == "suno-v6" and v.get("releaseEvidence", {}).get("publishedAt") == "2026-09-09" for v in family.get("versions", [])):
+            continue
         if published and any(
             row["modelFamilyId"] == family["id"]
             and str(row["publishedAt"])[:10] == str(published)[:10]
@@ -82,6 +84,7 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
 # Only explicitly reviewed, recent model-service launches are exposed here.
 # Do not promote generic API updates, beta access or later rollout into first releases.
 VERIFIED_MODEL_STAGES = {
+    ("gpt-live", "gpt-live-1-1", "radar-20261126-gpt-live-1-1-api"),
     ("qwen-audio-realtime", "qwen-audio-3-1-live", "v48-qwen-0001"),
     ("mureka", "mureka-remix-v9-5", "review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112"),
 }
