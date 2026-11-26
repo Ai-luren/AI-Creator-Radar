@@ -1,7 +1,7 @@
 {
-  "lastSuccessfulCheckAt": "2026-11-26T17:11:16Z",
+  "lastSuccessfulCheckAt": "2026-11-26T17:14:35Z",
   "lastCompleteCheckAt": null,
-  "zeroMatchSources": 6,
+  "zeroMatchSources": 5,
   "coverage": {
     "catalogFamilies": 94,
     "configuredFamilies": 66,
@@ -38,12 +38,12 @@
     ]
   },
   "effectiveCoverage": {
-    "reachableSources": 40,
-    "matchingModelSources": 34,
-    "recentDatedModelSources": 12,
-    "distinctMatchingEndpoints": 33,
-    "matchedFamilies": 44,
-    "recentDatedFamilies": 13,
+    "reachableSources": 44,
+    "matchingModelSources": 39,
+    "recentDatedModelSources": 15,
+    "distinctMatchingEndpoints": 38,
+    "matchedFamilies": 50,
+    "recentDatedFamilies": 15,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -58,9 +58,7 @@
       "flux",
       "flux3-video",
       "gaga-1",
-      "gemini-tts",
       "gpt-image",
-      "gpt-live",
       "grok-imagine-image",
       "hailuo",
       "heygen-video",
@@ -69,11 +67,9 @@
       "hunyuan-hy4",
       "imagen",
       "inclusionai-ling",
-      "kling",
       "kling-image",
       "llama",
       "ltx",
-      "lyria",
       "magi-1",
       "mai-code",
       "mai-image",
@@ -81,7 +77,6 @@
       "mimo",
       "minimax-llm",
       "muse-video",
-      "nano-banana",
       "ovhcloud-olala",
       "prismml-bonsai",
       "recraft",
@@ -93,19 +88,18 @@
       "skyreels-v4",
       "step-5",
       "stepaudio-3-tts",
-      "veo",
       "workbuddy"
     ],
     "fallbackSources": 4
   },
-  "checkedAt": "2026-11-26T17:11:16Z",
-  "totalSources": 41,
-  "successSources": 40,
+  "checkedAt": "2026-11-26T17:14:35Z",
+  "totalSources": 45,
+  "successSources": 44,
   "failedSources": 1,
-  "newUpdates": 23,
+  "newUpdates": 11,
   "newRecentDated": 1,
   "newUndated": 0,
-  "newHistorical": 22,
+  "newHistorical": 10,
   "newFutureDated": 0,
   "sources": [
     {
@@ -130,12 +124,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 11,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -160,12 +154,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 38,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -190,12 +184,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 10,
       "latestItemAt": "2026-11-25T01:32:14Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -218,12 +212,42 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 2,
       "latestItemAt": null,
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
+      "error": null
+    },
+    {
+      "matchedModelFamilyIds": [
+        "eleven-scribe"
+      ],
+      "recentDatedModelFamilyIds": [
+        "eleven-scribe"
+      ],
+      "primaryDegraded": false,
+      "id": "elevenlabs-official-rss",
+      "name": "ElevenLabs 官方 RSS",
+      "type": "rss",
+      "url": "https://elevenlabs.io/blog/rss.xml",
+      "effectiveUrl": "https://elevenlabs.io/blog/rss.xml",
+      "attempts": [
+        {
+          "url": "https://elevenlabs.io/blog/rss.xml",
+          "error": null,
+          "itemCount": 1
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
+      "itemCount": 1,
+      "latestItemAt": "2026-11-10T12:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -247,12 +271,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 2,
       "latestItemAt": "2026-09-28T12:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -285,12 +309,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -313,17 +337,27 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 4,
       "latestItemAt": null,
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
-      "matchedModelFamilyIds": [],
-      "recentDatedModelFamilyIds": [],
+      "matchedModelFamilyIds": [
+        "gemini",
+        "gemini-omni-flash",
+        "gemini-tts",
+        "lyria",
+        "nano-banana",
+        "veo"
+      ],
+      "recentDatedModelFamilyIds": [
+        "gemini",
+        "gemini-omni-flash"
+      ],
       "primaryDegraded": false,
       "id": "deepmind-blog",
       "name": "Google DeepMind 官方模型卡",
@@ -334,17 +368,17 @@
         {
           "url": "https://deepmind.google/models/model-cards/",
           "error": null,
-          "itemCount": 0
+          "itemCount": 32
         }
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
-      "itemCount": 0,
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
+      "itemCount": 32,
       "latestItemAt": "2026-11-18T00:00:00Z",
-      "resultStatus": "zero-match",
-      "lastMatchAt": "2026-11-26T17:00:58Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -365,8 +399,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -395,12 +429,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 1,
       "latestItemAt": "2026-11-05T17:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -423,12 +457,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 2,
       "latestItemAt": "2026-10-23T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -449,8 +483,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 0,
       "latestItemAt": "2026-11-20T00:00:00Z",
       "resultStatus": "zero-match",
@@ -478,12 +512,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 3,
       "latestItemAt": "2026-07-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -506,12 +540,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 4,
       "latestItemAt": "2026-10-12T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -544,12 +578,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 5,
       "latestItemAt": "2026-07-24T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -576,12 +610,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-10T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -604,12 +638,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 1,
       "latestItemAt": "2026-08-13T13:33:59Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -634,12 +668,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 10,
       "latestItemAt": "2026-11-17T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -682,12 +716,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 1,
       "latestItemAt": "2026-01-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -712,12 +746,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 10,
       "latestItemAt": "2026-11-26T04:42:57Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -742,41 +776,43 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 11,
       "latestItemAt": "2026-11-17T17:45:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
+      "matchedModelFamilyIds": [
+        "gpt-live"
+      ],
+      "recentDatedModelFamilyIds": [
+        "gpt-live"
+      ],
+      "primaryDegraded": false,
       "id": "openai-developer-announcements",
       "name": "OpenAI 开发者官方公告",
       "type": "rss",
       "url": "https://community.openai.com/c/announcements/6.rss",
-      "effectiveUrl": null,
+      "effectiveUrl": "https://community.openai.com/c/announcements/6.rss",
       "attempts": [
         {
           "url": "https://community.openai.com/c/announcements/6.rss",
-          "error": "HTTPError: HTTP Error 429: Too Many Requests",
-          "itemCount": null
-        },
-        {
-          "url": "https://community.openai.com/c/announcements/6.rss",
-          "error": "HTTPError: HTTP Error 429: Too Many Requests",
-          "itemCount": null
+          "error": null,
+          "itemCount": 3
         }
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T16:57:12Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-20T04:12:19Z",
-      "resultStatus": "failed",
-      "lastMatchAt": "2026-11-26T16:57:12Z",
-      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
+      "error": null
     },
     {
       "matchedModelFamilyIds": [
@@ -800,12 +836,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 5,
       "latestItemAt": "2026-09-22T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -829,12 +865,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 3,
       "latestItemAt": "2026-03-30T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -858,12 +894,40 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 22,
       "latestItemAt": "2026-02-10T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
+      "error": null
+    },
+    {
+      "matchedModelFamilyIds": [
+        "qwen"
+      ],
+      "recentDatedModelFamilyIds": [],
+      "primaryDegraded": false,
+      "id": "qwen-official-rss",
+      "name": "Qwen 官方博客 RSS",
+      "type": "rss",
+      "url": "https://qwenlm.github.io/blog/index.xml",
+      "effectiveUrl": "https://qwenlm.github.io/blog/index.xml",
+      "attempts": [
+        {
+          "url": "https://qwenlm.github.io/blog/index.xml",
+          "error": null,
+          "itemCount": 3
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
+      "itemCount": 3,
+      "latestItemAt": "2024-09-18T16:00:01Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -891,12 +955,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 8,
       "latestItemAt": "2026-08-14T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -919,12 +983,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 10,
       "latestItemAt": "2025-05-29T09:36:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -947,12 +1011,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 1,
       "latestItemAt": "2026-01-22T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -973,8 +1037,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -1003,12 +1067,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 2,
       "latestItemAt": "2026-11-24T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1031,12 +1095,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 12,
       "latestItemAt": "2026-09-09T15:10:20Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1060,12 +1124,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 12,
       "latestItemAt": "2026-10-07T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1086,8 +1150,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -1115,12 +1179,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 11,
       "latestItemAt": "2026-09-21T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1147,13 +1211,64 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
+    },
+    {
+      "matchedModelFamilyIds": [
+        "kling"
+      ],
+      "recentDatedModelFamilyIds": [],
+      "primaryDegraded": false,
+      "id": "kuaishou-company-news",
+      "name": "快手官方公司新闻（可灵）",
+      "type": "html",
+      "url": "https://ir.kuaishou.com/news-events/company-news/",
+      "effectiveUrl": "https://ir.kuaishou.com/news-events/company-news/",
+      "attempts": [
+        {
+          "url": "https://ir.kuaishou.com/news-events/company-news/",
+          "error": null,
+          "itemCount": 1
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
+      "itemCount": 1,
+      "latestItemAt": "2026-08-19T00:00:00Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
+      "error": null
+    },
+    {
+      "id": "zai-official-blog",
+      "name": "智谱 Z.ai 官方博客",
+      "type": "html",
+      "url": "https://z.ai/blog",
+      "effectiveUrl": null,
+      "attempts": [
+        {
+          "url": "https://z.ai/blog",
+          "error": "HTTPError: HTTP Error 404: Not Found",
+          "itemCount": null
+        }
+      ],
+      "active": true,
+      "official": true,
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": null,
+      "itemCount": 0,
+      "latestItemAt": null,
+      "resultStatus": "failed",
+      "lastMatchAt": null,
+      "error": "HTTPError: HTTP Error 404: Not Found"
     },
     {
       "matchedModelFamilyIds": [
@@ -1175,12 +1290,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 7,
       "latestItemAt": "2026-08-26T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1203,12 +1318,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 1,
       "latestItemAt": "2025-09-01T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1229,8 +1344,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -1257,12 +1372,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 5,
       "latestItemAt": "2026-01-26T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1285,12 +1400,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 7,
       "latestItemAt": "2025-11-21T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     },
     {
@@ -1322,12 +1437,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:11:16Z",
-      "lastSuccessAt": "2026-11-26T17:11:16Z",
+      "checkedAt": "2026-11-26T17:14:35Z",
+      "lastSuccessAt": "2026-11-26T17:14:35Z",
       "itemCount": 80,
       "latestItemAt": "2026-11-23T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:11:16Z",
+      "lastMatchAt": "2026-11-26T17:14:35Z",
       "error": null
     }
   ]

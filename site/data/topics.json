@@ -1075,6 +1075,30 @@
         ]
       },
       {
+        "date": "2026-11-10",
+        "kind": "模型发布",
+        "title": "Introducing Scribe v3 and v3 Live, our most accurate speech to text models",
+        "summary": "Scribe v3 and Scribe v3 Live are our most accurate speech to text models for recorded and realtime audio, with 27% fewer word errors than Scribe v2.",
+        "url": "https://elevenlabs.io/blog/scribe-v3",
+        "sourceId": "elevenlabs-official-rss",
+        "sourceName": "ElevenLabs 官方 RSS",
+        "sourceUpdateId": "ef456e7b07534100f9",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "source-date",
+        "sourceModelId": "eleven-scribe",
+        "collectedAt": "2026-11-26T17:14:40Z",
+        "modelCategory": "audio",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-scribe",
+            "modelVersionId": "scribe-v3",
+            "matchedName": "Scribe v3"
+          }
+        ]
+      },
+      {
         "date": "2026-09-28",
         "kind": "模型",
         "title": "ElevenLabs 发布 Eleven v4",
@@ -7703,6 +7727,36 @@
           "video"
         ],
         "verificationUrl": "https://kling.ai/blog/kling-4-ai-video-model",
+        "modelMentions": [
+          {
+            "modelFamilyId": "kling",
+            "modelVersionId": "kling-4-0",
+            "matchedName": "Kling 4.0"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "kling",
+            "matchedName": "Kling"
+          }
+        ]
+      },
+      {
+        "date": "2026-08-19",
+        "kind": "模型发布",
+        "title": "Kling AI Officially Launches Next-Generation Kling 4.0, Raising the Bar for Professional-Grade Video Models",
+        "summary": "",
+        "url": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising",
+        "sourceId": "kuaishou-company-news",
+        "sourceName": "快手官方公司新闻（可灵）",
+        "sourceUpdateId": "927fc577b8f0a068cc",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "source-date",
+        "sourceModelId": "kling",
+        "collectedAt": "2026-11-26T17:14:40Z",
+        "modelCategory": "video",
         "modelMentions": [
           {
             "modelFamilyId": "kling",

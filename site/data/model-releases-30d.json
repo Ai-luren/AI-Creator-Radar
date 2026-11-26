@@ -4,7 +4,7 @@
   "windowDays": 30,
   "windowStart": "2026-10-28",
   "windowEnd": "2026-11-26",
-  "updatedAt": "2026-11-26T17:11:21Z",
+  "updatedAt": "2026-11-26T17:14:40Z",
   "categories": [
     "video",
     "image",
@@ -857,6 +857,20 @@
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "qwen",
       "updateType": "model-card",
+      "verificationStatus": "pending"
+    },
+    {
+      "id": "ef456e7b07534100f9",
+      "category": "audio",
+      "vendor": "ElevenLabs",
+      "title": "Introducing Scribe v3 and v3 Live, our most accurate speech to text models",
+      "summary": "Scribe v3 and Scribe v3 Live are our most accurate speech to text models for recorded and realtime audio, with 27% fewer word errors than Scribe v2.",
+      "url": "https://elevenlabs.io/blog/scribe-v3",
+      "sourceName": "ElevenLabs 官方 RSS",
+      "publishedAt": "2026-11-10T12:00:00Z",
+      "discoveredAt": "2026-11-26T17:14:35Z",
+      "modelFamilyId": "eleven-scribe",
+      "updateType": "release",
       "verificationStatus": "pending"
     },
     {
