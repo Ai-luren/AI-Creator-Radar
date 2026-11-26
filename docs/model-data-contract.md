@@ -169,3 +169,14 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - 本批仅迁移有明确型号、日级日期和已确认审核状态的历史事件；不新增缺乏明确证据的型号，不将预览或快照误算成基础代际首发。全量事实审核及 CI 尚未完成。
 
 官方来源：[OpenAI API 日志](https://developers.openai.com/api/docs/changelog)、[Anthropic 模型公告目录](https://www.anthropic.com/news/models)、[DeepSeek 更新日志](https://api-docs.deepseek.com/updates/)、[Google Argon 有限访问](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)、[Google Argon 扩大开放](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/)、[Kimi 研究目录](https://www.kimi.ai/blog/)、[Kimi Code 更新日志](https://www.kimi.com/code/docs/en/kimi-code/whats-new.html)。
+
+
+## 模型身份与证据收口第八批（2026-11-26）
+
+- 修复 PR 信源诊断工作流 YAML 拼接错误。修复后的 [CI 运行](https://github.com/Ai-luren/AI-Creator-Radar/actions/runs/45782748462) 通过 98 项 Python、19 项 JavaScript 测试及模型引用检查（403 个版本）；只读诊断 33/34 源可访问，Niji 返回 403，另有 7 个零匹配源。可访问不等于覆盖完整，未将诊断计为生产采集成功。
+- 本批新增 MiniMax M2.1，并核验 17 份正式发布证据：MiniMax M1/M2/M2.1/M2.5/M2.7/M3/M3.1 Flash；Muse Spark、1.1/1.2/1.3、Wonder、Wonder Full、Glimmer；Gemini Omni 1.1 Flash、Veo 3.1 Lite、Seedream 4.5。M1 依据 6 月 19 日官方回顾的“两天前”记录 6 月 17 日，保留原报道日期。Seedream 4.5 依据 2025-12-03 官方 BytePlus 公告，不将模型快照编号当作首发日期。
+- GLM-5.3 Flash 与 Qwen3.6 Plus、Qwen3.8 Max/Flash Next 的 27 条原榜别名从错误/粗粒度版本移至明确版本（重复关联去重）；Nex-N2-Pro、Quasar 两种第三方衍生型号的榜单证据移到所属家族 `unresolvedLeaderboardAliases`，原字段保留，不参与精确型号映射。原始榜单数据不删改；派生排名下一次重建后生效。
+- `recordKind` 与 `identityReview` 标记 10 条非独立首发身份：代际汇总、滚动 API 名称、评测配置、未标版本别名、服务档位、榜单快照。审核脚本独立统计，禁止为这些条目填造正式首发日期；仍计入原始目录条目及未附正式发布证据总数。该分类是现有证据下的保守处理，不意味着永久排除新证据。
+- 本批未删除模型 ID、原始排名或历史记录。所有改动待最新 CI 与生产验证；其余未核实型号、Niji 403、零匹配源及其他厂商的混合榜单映射仍需继续处理。
+
+来源：[MiniMax 官方发布目录](https://www.minimax.io/blog)、[Meta AI 研究目录](https://ai.meta.com/research/)、[Muse Wonder](https://research.meta.ai/blog/muse-wonder)、[Veo 3.1 Lite](https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/)、[Gemini Omni 1.1 Flash](https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-omni-1-1-flash/)、[Seedream 4.5](https://www.byteplus.com/en/blog/seedream4-5?type=services)。
