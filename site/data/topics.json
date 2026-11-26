@@ -241,6 +241,23 @@
         ]
       },
       {
+        "date": "2026-09-15",
+        "kind": "模型发布",
+        "title": "Introducing Claude Mythos and Fable 5.1",
+        "summary": "They’re the world’s most advanced models for coding and knowledge work—and their research capabilities offer an early glimpse of how AI models will contribute to scientific progress.",
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+        "sourceId": "anthropic-model-announcements",
+        "sourceName": "Anthropic 官方模型公告目录",
+        "sourceUpdateId": "88973501ffcf51db8b",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "source-date",
+        "sourceModelId": "claude",
+        "collectedAt": "2026-11-26T17:11:21Z",
+        "modelCategory": "llm"
+      },
+      {
         "date": "2026-09",
         "kind": "模型",
         "title": "Claude Fable 5.1 / Mythos 5.1",
@@ -430,6 +447,23 @@
             "matchedName": "Claude Sonnet 4.5"
           }
         ]
+      },
+      {
+        "date": "2025-08-05",
+        "kind": "模型发布",
+        "title": "Claude Opus 4.1",
+        "summary": "Claude Opus 4.1 is an upgrade over Opus 4 in agentic tasks, real-world coding, and reasoning.",
+        "url": "https://www.anthropic.com/news/claude-opus-4-1",
+        "sourceId": "anthropic-model-announcements",
+        "sourceName": "Anthropic 官方模型公告目录",
+        "sourceUpdateId": "8a6b6bef27e4fd8553",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "source-date",
+        "sourceModelId": "claude",
+        "collectedAt": "2026-11-26T17:11:21Z",
+        "modelCategory": "llm"
       },
       {
         "date": "2025-05-22",
@@ -3658,6 +3692,29 @@
           "video"
         ],
         "verificationUrl": "https://www.cnstock.com/commonDetail/764004"
+      },
+      {
+        "date": "2026-08-13",
+        "kind": "模型发布",
+        "title": "MiniMax Music 3.0：新一代开放权重、生产级全能音乐模型",
+        "summary": "今天，我们正式推出新一代音乐生成模型 MiniMax Music 3.0。只需提供一个创意想法和可选的歌词，模型即可在一次生成中完成作曲、编曲、演唱与制作，创作出一首完整的歌曲。",
+        "url": "https://www.minimax.cn/blog/minimax-music-3-0-cn",
+        "sourceId": "minimax-ir",
+        "sourceName": "MiniMax 官方最新发布",
+        "sourceUpdateId": "ad8e9aa9e3d51c90d0",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "source-date",
+        "sourceModelId": "minimax-music",
+        "collectedAt": "2026-11-26T17:11:21Z",
+        "modelCategory": "music",
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "minimax-music",
+            "matchedName": "MiniMax Music 3.0"
+          }
+        ]
       },
       {
         "date": "2026-08-13",
@@ -6977,6 +7034,36 @@
             "modelFamilyId": "seed-realtime",
             "modelVersionId": "seedrealtime",
             "matchedName": "SeedRealtime"
+          }
+        ]
+      },
+      {
+        "date": "2026-07-31",
+        "kind": "模型发布",
+        "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
+        "summary": "",
+        "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+        "sourceId": "seed-official",
+        "sourceName": "字节跳动 Seed 官方动态",
+        "sourceUpdateId": "a4d7de719912e362cc",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "source-date",
+        "sourceModelId": "seedance",
+        "collectedAt": "2026-11-26T17:11:21Z",
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "modelVersionId": "seedance-2-5",
+            "matchedName": "Seedance 2.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
           }
         ]
       },
