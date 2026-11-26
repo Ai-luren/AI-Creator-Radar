@@ -15,6 +15,7 @@ class WatchdogTests(unittest.TestCase):
         self.runs = []
         self.age = 0
         self.fail = False
+        self.health = {}
         self.fields = {name: field for items in GROUPS.values() for name, field in items}
 
     def invoke(self, args, **kwargs):
@@ -32,7 +33,7 @@ class WatchdogTests(unittest.TestCase):
             self.assertTrue(endpoint.endswith("?ref=fixed-sha"))
             filename = endpoint.split("/")[-1].split("?")[0]
             stamp = self.now - timedelta(minutes=self.age)
-            data = {self.fields[filename]: stamp.isoformat(), "title": stamp.date().isoformat()}
+            data = self.health if filename == "collection-health.json" else {self.fields[filename]: stamp.isoformat(), "title": stamp.date().isoformat()}
         return SimpleNamespace(stdout=json.dumps(data))
 
     def run_check(self, dry=False):
@@ -61,3 +62,15 @@ class WatchdogTests(unittest.TestCase):
         with self.assertRaises(subprocess.CalledProcessError):
             self.run_check()
         self.assertEqual(len(self.calls), 1)
+
+
+    def test_backup_watchdog_honors_group_backoff(self):
+        self.age = 120
+        self.health = {"sources": {
+            "models-batch": {"status": "degraded", "consecutiveFailures": 2, "lastAttemptAt": self.now.isoformat()},
+            "aihot-selected": {"status": "degraded", "consecutiveFailures": 2, "lastAttemptAt": self.now.isoformat()},
+        }}
+        # Only the two short-interval groups would otherwise be due.
+        # At 20:00 China time both daily editions are already current.
+        self.assertEqual(self.run_check(), "fresh")
+        self.assertFalse(any(a[1] == "workflow" for a in self.calls))

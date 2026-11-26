@@ -35,3 +35,16 @@ class SchedulerManifestTests(unittest.TestCase):
         self.assertFalse(result["models"])
         self.assertFalse(result["resources"])
         self.assertFalse(result["selected"])
+
+
+    def test_deferred_group_remains_visibly_due_with_real_next_boundary(self):
+        (self.data / "lead-resolution.json").unlink()
+        (self.data / "collection-health.json").write_text(json.dumps({"sources": {
+            "models-batch": {"status": "degraded", "consecutiveFailures": 1,
+                             "lastAttemptAt": self.now.isoformat()}}}), encoding="utf-8")
+        result = build(self.data, self.now, "schedule", "123", "1")
+        self.assertTrue(result["groups"]["models"]["due"])
+        self.assertFalse(result["groups"]["models"]["eligible"])
+        self.assertIsNone(result["groups"]["models"]["oldestSnapshotAt"])
+        self.assertEqual(result["groups"]["models"]["retryAfter"], (self.now + timedelta(minutes=15)).isoformat())
+        self.assertEqual(result["nextDueAt"], (self.now + timedelta(minutes=15)).isoformat())

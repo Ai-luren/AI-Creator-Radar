@@ -38,7 +38,7 @@ def check(gh, repo, now, dry_run=False, invoke=subprocess.run):
             return "cooldown"
     with tempfile.TemporaryDirectory(prefix="radar-watchdog-") as directory:
         data = Path(directory)
-        files = sorted({name for inputs in GROUPS.values() for name, _ in inputs})
+        files = sorted({name for inputs in GROUPS.values() for name, _ in inputs} | {"collection-health.json"})
         # Pin all reads to the same main commit. No mixed snapshot during a data push.
         sha = json.loads(api(f"repos/{repo}/branches/main"))["commit"]["sha"]
         for name in files:
