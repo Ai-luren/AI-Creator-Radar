@@ -94,6 +94,16 @@ class ModelCollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["publishedAt"], "2026-08-13T00:00:00Z")
         self.assertEqual(items[0]["url"], "https://ir.minimax.io/news/music-30")
 
+    def test_heading_enclosing_article_anchor_beats_unrelated_icon(self):
+        page = '<a href="/icons.svg?v=1">Icon</a><a href="/blog/seedance-3"><h2>Introducing Seedance 3.0</h2></a><time datetime="2026-11-26">Nov 26, 2026</time>'
+        items = html_page_items(page, self.source)
+        self.assertEqual(items[0]["url"], "https://seed.example/blog/seedance-3")
+
+    def test_no_article_link_does_not_guess_from_adjacent_navigation(self):
+        page = '<a href="/blog/unrelated">Navigation</a><h2>Introducing Seedance 3.0</h2><time datetime="2026-11-26">Nov 26, 2026</time>'
+        items = html_page_items(page, self.source)
+        self.assertEqual(items[0]["url"], self.source["url"])
+
     def test_html_ignores_unrelated_features(self):
         page = """
         <h2>Introducing Visuals</h2><time datetime="2026-11-17">Nov 17, 2026</time>

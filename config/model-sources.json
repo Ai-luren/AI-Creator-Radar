@@ -30,16 +30,16 @@
     "vendor": "Kling AI",
     "official": true,
     "active": true,
-    "requiredText": "Kling\\s+(?:Image\\s+)?(?:4\\.0|[0-9])",
+    "requiredText": "Kling\\s+(?:Image\\s+)?(?:[0-9])",
     "modelMatches": {
       "kling-image": [
-        "re:^(?:Meet|Introducing|Announcing) Kling Image |^Kling Image [\\d.]+ (?:Is Here|Is Now Available)"
+        "re:\\bKling\\s+Image\\s+\\d+(?:\\.\\d+)*\\b"
       ],
       "kling": [
-        "re:^(?:Meet|Introducing|Announcing) Kling (?:AI )?\\d|^Kling (?:AI )?[\\d.]+ (?:Is Here|Is Now Available)"
+        "re:\\bKling\\s+(?:AI\\s+)?\\d+(?:\\.\\d+)*\\b"
       ]
     },
-    "updateType": "model-card",
+    "updateType": "release",
     "versionPatterns": {
       "kling-image": "Kling\\s+Image\\s+([0-9]+(?:\\.[0-9]+)*)",
       "kling": "Kling\\s+([0-9]+(?:\\.[0-9]+)*)"
@@ -61,11 +61,17 @@
         "lyria"
       ],
       "veo": [
-        "veo"
+        "re:\\bVeo\\b"
       ],
       "gemini-omni-flash": [
-        "gemini omni flash",
+        "re:\\bGemini\\s+Omni\\b",
         "omni flash"
+      ],
+      "gemini-tts": [
+        "re:\\bGemini\\b.{0,45}\\b(?:TTS|text.to.speech)\\b"
+      ],
+      "gemini": [
+        "re:\\bGemini\\s+\\d+(?:\\.\\d+)*\\b"
       ]
     },
     "updateType": "model-card",
@@ -84,16 +90,21 @@
     "active": true,
     "modelMatches": {
       "minimax-h3-image": [
-        "h3-image",
-        "h3 image"
+        "re:\\bH3[- ]Image\\b"
       ],
       "minimax-h3": [
-        "minimax h3",
-        "h3 video"
+        "re:\\bMiniMax\\s+H\\d+(?:\\.\\d+)*\\b",
+        "re:\\bH\\d+(?:\\.\\d+)*\\s+video\\b"
       ],
       "minimax-music": [
-        "minimax music",
-        "music 3.0"
+        "re:\\bMiniMax\\s+Music\\b"
+      ],
+      "minimax-llm": [
+        "re:\\bMiniMax[- ]M\\d+(?:\\.\\d+)*\\b"
+      ],
+      "hailuo": [
+        "re:\\bHailuo\\s*\\d+(?:\\.\\d+)*\\b",
+        "海螺视频模型"
       ]
     }
   },
@@ -113,17 +124,22 @@
   },
   {
     "id": "openai-news",
-    "name": "OpenAI 官方动态",
-    "type": "html",
-    "url": "https://openai.com/news/",
+    "name": "OpenAI 官方新闻 RSS",
+    "type": "rss",
+    "url": "https://openai.com/news/rss.xml",
     "vendor": "OpenAI",
     "official": true,
     "active": true,
     "modelMatches": {
-      "sora": [
-        "sora"
+      "gpt-image": [
+        "re:\\bGPT[- ]Image\\b",
+        "re:\\bChatGPT Images?\\b"
+      ],
+      "gpt": [
+        "re:\\bGPT[- ]?\\d+(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "requiredMatch": true
   },
   {
     "id": "vidu-api-updates",
@@ -137,33 +153,43 @@
     "maxRowLength": 2500,
     "modelMatches": {
       "vidu": [
-        "vidu q4",
-        "viduq4",
-        "vidu q3"
+        "re:\\bVidu\\s*Q\\d+(?:\\.\\d+)*\\b",
+        "re:\\bVidu\\s*\\d+(?:\\.\\d+)*\\b",
+        "re:\\bVidu\\s+(?:New Models?|新模型)"
       ]
     },
     "versionPatterns": {
-      "vidu": "\\b(Q\\d+\\s+Preview)\\b"
+      "vidu": "\\b(Q\\d+(?:\\.\\d+)*(?:\\s+(?:Preview|Pro|Turbo|Fast))?)\\b"
     }
   },
   {
     "id": "qwen-image-updates",
-    "name": "阿里云 Qwen-Image-3.0 官方发布文章",
+    "name": "Qwen 官方发布目录",
     "type": "html",
-    "url": "https://www.alibabacloud.com/blog/qwen-image-3-0-rich-content-authentic-details-deep-knowledge_603385",
+    "url": "https://qwen.ai/news",
     "vendor": "阿里巴巴通义千问",
     "official": true,
     "active": true,
-    "requiredText": "Qwen[- ]Image[- ]3\\.0|Qwen Image 3\\.0",
-    "updateType": "model-card",
+    "updateType": "release",
     "modelMatches": {
+      "qwen-image-edit": [
+        "re:\\bQwen[- ]Image[- ]Edit\\b"
+      ],
       "qwen-image": [
-        "qwen-image-3.0",
-        "qwen image 3.0"
+        "re:\\bQwen[- ]Image\\b"
+      ],
+      "qwen3-tts": [
+        "re:\\bQwen\\d*[- ]TTS\\b"
+      ],
+      "qwen-audio-realtime": [
+        "re:\\bQwen[- ]Audio\\b.{0,40}\\bRealtime\\b"
+      ],
+      "qwen-audio-tts": [
+        "re:\\bQwen[- ]Audio\\b.{0,40}\\bTTS\\b"
+      ],
+      "qwen": [
+        "re:\\bQwen[- ]?\\d+(?:\\.\\d+)*\\b"
       ]
-    },
-    "versionPatterns": {
-      "qwen-image": "Qwen[- ]Image[- ]([0-9]+(?:\\.[0-9]+)*)"
     }
   },
   {
@@ -197,13 +223,14 @@
     "url": "https://pika.art/blog/pika-h3-flex-research",
     "vendor": "Pika",
     "official": true,
-    "active": true,
+    "active": false,
     "updateType": "model-card",
     "modelMatches": {
       "pika-h3-flex": [
         "pika h3 flex"
       ]
-    }
+    },
+    "inactiveReason": "固定旧版本证据链接；对应产品不在当前重点监控范围，保留配置和历史数据。"
   },
   {
     "id": "luma-ray-updates",
@@ -212,7 +239,7 @@
     "url": "https://lumalabs.ai/learning-hub/ray314-user-guide",
     "vendor": "Luma AI",
     "official": true,
-    "active": true,
+    "active": false,
     "updateType": "model-card",
     "modelMatches": {
       "ray3-14": [
@@ -222,7 +249,8 @@
     },
     "versionPatterns": {
       "ray3-14": "Ray\\s*([0-9]+\\.[0-9]+)"
-    }
+    },
+    "inactiveReason": "固定旧版本证据链接；对应产品不在当前重点监控范围，保留配置和历史数据。"
   },
   {
     "id": "meta-models",
@@ -275,7 +303,7 @@
     "allowVersionOnly": true,
     "modelMatches": {
       "claude-code": [
-        "re:v?2\\.1\\.\\d+"
+        "re:^v?\\d+\\.\\d+\\.\\d+(?:[-.][a-z0-9.]+)?$"
       ]
     },
     "versionPatterns": {
@@ -294,7 +322,7 @@
     "allowVersionOnly": true,
     "modelMatches": {
       "qwen-agent": [
-        "re:v?0\\.0\\.\\d+"
+        "re:^v?\\d+\\.\\d+\\.\\d+(?:[-.][a-z0-9.]+)?$"
       ]
     },
     "versionPatterns": {
@@ -319,6 +347,204 @@
     },
     "versionPatterns": {
       "codex": "v?([0-9]+\\.[0-9]+\\.[0-9]+)"
+    }
+  },
+  {
+    "id": "anthropic-model-news",
+    "name": "Anthropic 官方新闻",
+    "type": "html",
+    "url": "https://www.anthropic.com/news",
+    "vendor": "Anthropic",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "claude": [
+        "re:\\bClaude\\s+(?:Opus|Sonnet|Haiku|Fable|Mythos|\\d)"
+      ]
+    }
+  },
+  {
+    "id": "google-gemini-news",
+    "name": "Google Gemini 模型发布",
+    "type": "html",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/",
+    "vendor": "Google",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "nano-banana": [
+        "nano banana"
+      ],
+      "gemini-omni-flash": [
+        "re:\\bGemini\\s+Omni\\b"
+      ],
+      "gemini-tts": [
+        "re:\\bGemini\\b.{0,50}\\b(?:TTS|text.to.speech)\\b"
+      ],
+      "gemini": [
+        "re:\\bGemini\\s+\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "deepseek-news",
+    "name": "DeepSeek 官方更新日志",
+    "type": "html",
+    "url": "https://api-docs.deepseek.com/updates/",
+    "vendor": "DeepSeek",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "deepseek": [
+        "re:\\bDeepSeek[- ](?:V\\d+|R\\d+|[A-Z]\\d+)(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "pixverse-news",
+    "name": "PixVerse 官方新闻",
+    "type": "html",
+    "url": "https://pixverse.ai/en/news",
+    "vendor": "PixVerse",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "pixverse-world": [
+        "re:\\bPixVerse\\b.{0,65}\\bR\\d+(?:\\.\\d+)*\\b",
+        "re:\\bPixVerse\\b.{0,65}\\b(?:world model|世界模型)\\b"
+      ],
+      "pixverse-v6": [
+        "re:\\bPixVerse\\b.{0,65}\\b[VC]\\d+(?:\\.\\d+)*\\b",
+        "re:\\bPixVerse\\b.{0,65}(?:视频模型|video model)"
+      ]
+    }
+  },
+  {
+    "id": "pixverse-zh-blog",
+    "name": "PixVerse 中文官方博客",
+    "type": "html",
+    "url": "https://pixverse.ai/zh/blog",
+    "vendor": "PixVerse",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "pixverse-world": [
+        "re:\\bPixVerse\\b.{0,65}\\bR\\d+(?:\\.\\d+)*\\b",
+        "re:\\bPixVerse\\b.{0,65}\\b(?:world model|世界模型)\\b"
+      ],
+      "pixverse-v6": [
+        "re:\\bPixVerse\\b.{0,65}\\b[VC]\\d+(?:\\.\\d+)*\\b",
+        "re:\\bPixVerse\\b.{0,65}(?:视频模型|video model)"
+      ]
+    }
+  },
+  {
+    "id": "elevenlabs-news",
+    "name": "ElevenLabs 官方博客",
+    "type": "html",
+    "url": "https://elevenlabs.io/blog",
+    "vendor": "ElevenLabs",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "eleven-music": [
+        "re:\\bEleven(?:Labs)?\\s+Music\\b"
+      ],
+      "eleven-tts": [
+        "re:\\bEleven(?:Labs)?\\s+v\\d+(?:\\.\\d+)*\\b",
+        "re:\\bEleven(?:Labs)?\\s+(?:Flash|Turbo|Multilingual)\\s+v?\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "xai-news",
+    "name": "xAI 官方新闻",
+    "type": "html",
+    "url": "https://x.ai/news",
+    "vendor": "xAI",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "grok-imagine-video": [
+        "re:\\bGrok\\s+Imagine\\s+Video\\b"
+      ],
+      "grok-imagine-image": [
+        "re:\\bGrok\\s+Imagine\\s+Image\\b"
+      ],
+      "grok-llm": [
+        "re:\\bGrok\\s+\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "mureka-changelog",
+    "name": "Mureka 官方更新日志",
+    "type": "html",
+    "url": "https://platform.mureka.ai/docs/en/changelog.html",
+    "vendor": "Mureka",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "mureka": [
+        "re:\\bmureka[- ](?:v?\\d+(?:\\.\\d+)*|o\\d+)\\b"
+      ]
+    }
+  },
+  {
+    "id": "midjourney-updates",
+    "name": "Midjourney 官方更新 RSS",
+    "type": "rss",
+    "url": "https://updates.midjourney.com/rss/",
+    "vendor": "Midjourney",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "midjourney": [
+        "re:\\b(?:Midjourney|Niji)\\b.{0,45}\\bv?\\d+(?:\\.\\d+)*\\b",
+        "re:^v\\d+(?:\\.\\d+)*\\s+(?:is now|released|launch)"
+      ]
+    }
+  },
+  {
+    "id": "kimi-announcement",
+    "name": "Kimi 官方公告目录",
+    "type": "html",
+    "url": "https://forum.moonshot.ai/c/announcement/5",
+    "vendor": "Moonshot AI",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "kimi": [
+        "re:\\bKimi\\s+K\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "minimax-blog",
+    "name": "MiniMax 官方研究博客",
+    "type": "html",
+    "url": "https://www.minimax.io/blog",
+    "vendor": "MiniMax",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "minimax-h3-image": [
+        "re:\\bH3[- ]Image\\b"
+      ],
+      "minimax-h3": [
+        "re:\\bMiniMax\\s+H\\d+(?:\\.\\d+)*\\b",
+        "re:\\bH\\d+(?:\\.\\d+)*\\s+video\\b"
+      ],
+      "minimax-music": [
+        "re:\\bMiniMax\\s+Music\\b"
+      ],
+      "minimax-llm": [
+        "re:\\bMiniMax[- ]M\\d+(?:\\.\\d+)*\\b"
+      ],
+      "hailuo": [
+        "re:\\bHailuo\\s*\\d+(?:\\.\\d+)*\\b",
+        "海螺视频模型"
+      ]
     }
   }
 ]

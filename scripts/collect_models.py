@@ -230,14 +230,14 @@ def jsonld_items(page: str, source: dict) -> list[dict]:
             if not title:
                 continue
             description = clean_text(str(obj.get("description") or ""))
-            model_id = match_model(title + " " + description, source)
+            model_id = match_model(title, source) or match_model(title + " " + description, source)
             published = find_date(obj.get("datePublished") or obj.get("dateCreated"))
             if not model_id or not is_release_candidate(title, published):
                 continue
             results.append({
                 "title": title,
                 "summary": description,
-                "url": obj.get("url") or obj.get("mainEntityOfPage") or source["url"],
+                "url": valid_article_url(obj.get("url") or obj.get("mainEntityOfPage"), source["url"]) or source["url"],
                 "publishedAt": published,
             })
     return results
@@ -287,18 +287,23 @@ def find_date_near_title(page: str, title: str) -> str | None:
         if found:
             return min(found, key=lambda item: item[0])[1]
     return None
+def valid_article_url(value: str, base_url: str) -> str:
+    if not isinstance(value, str) or not value.strip():
+        return ""
+    resolved = urljoin(base_url, html.unescape(value))
+    parts = urlsplit(resolved)
+    if parts.scheme != "https" or not parts.netloc or parts.path.lower().endswith(
+        (".svg", ".png", ".jpg", ".jpeg", ".webp", ".css", ".js", ".ico", ".woff", ".woff2")
+    ):
+        return ""
+    return resolved
+
+
 def find_related_url(page: str, title: str, base_url: str) -> str:
-    for match in re.finditer(re.escape(title), page, flags=re.I):
-        snippet = page[max(0, match.start() - 700):min(len(page), match.end() + 1200)]
-        hrefs = re.findall(r"""href=["']([^"']+)["']""", snippet, flags=re.I)
-        candidates = [href for href in hrefs if href and not href.startswith(("javascript:", "mailto:", "#"))]
-        if candidates:
-            candidates.sort(key=lambda href: (
-                0 if any(part in href.lower() for part in ("/blog/", "/news/", "/news-release", "/models/")) else 1,
-                -len(href),
-            ))
-            return urljoin(base_url, html.unescape(candidates[0]))
+    # Do not pick nearby arbitrary hrefs (often navigation, icons, or a different article).
+    # An enclosing anchor or a matching nested anchor is handled by html_page_items.
     return base_url
+
 
 def dedupe_candidates(candidates: list[dict]) -> list[dict]:
     deduped = {}
@@ -379,6 +384,15 @@ def html_page_items(page: str, source: dict) -> list[dict]:
         summary_parts = []
         published_at = find_date(heading["attrs"].get("datetime"))
         article_url = ""
+        enclosing = [
+            block for block in blocks
+            if block["tag"] == "a" and block["sequence"] < heading["sequence"]
+            < block.get("endSequence", block["sequence"] + 1)
+        ]
+        for anchor in reversed(enclosing):
+            article_url = valid_article_url(anchor["attrs"].get("href", ""), source["url"])
+            if article_url:
+                break
         for candidate in nearby:
             attrs = candidate["attrs"]
             if candidate["tag"] == "time":
@@ -395,11 +409,18 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                     or anchor_text.casefold() in title.casefold()
                 ):
                     if not article_url:
-                        article_url = urljoin(source["url"], href)
+                        article_url = valid_article_url(href, source["url"])
         combined = title + " " + " ".join(summary_parts)
-        model_id = match_model(combined, source)
+        model_id = match_model(title, source) or match_model(combined, source)
         published_at = published_at or find_date_near_title(page, title)
-        article_url = article_url or find_related_url(page, title, source["url"])
+        if not article_url:
+            # Accept a direct "Learn more" link only in this heading's own section.
+            for candidate in nearby:
+                if candidate["tag"] == "a" and candidate["text"].strip().casefold() in {"learn more", "read more", "了解更多", "阅读更多", "查看详情"}:
+                    article_url = valid_article_url(candidate["attrs"].get("href", ""), source["url"])
+                    if article_url:
+                        break
+        article_url = article_url or source["url"]
         if model_id and is_release_candidate(title, published_at):
             candidates.append({
                 "title": title,
@@ -426,14 +447,14 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                  for item in nearby if find_date(item.get("attrs", {}).get("datetime")) or find_date(item["text"])),
                 None,
             )
-            if is_release_candidate(title, published_at):
+            article_url = valid_article_url(block["attrs"]["href"], source["url"])
+            if article_url and is_release_candidate(title, published_at):
                 candidates.append({
-                    "title": title, "summary": "", "url": urljoin(source["url"], block["attrs"]["href"]),
+                    "title": title, "summary": "", "url": article_url,
                     "publishedAt": published_at, "modelId": model_id,
                 })
 
-    if not candidates:
-        candidates.extend(jsonld_items(page, source))
+    candidates.extend(jsonld_items(page, source))
     return dedupe_candidates(candidates)
 
 
@@ -446,8 +467,8 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
         if not title:
             continue
         summary = clean_text(child_text(entry, {"description", "summary", "content", "encoded"}))
-        model_id = match_model(title + " " + summary, source)
-        published = parse_date(child_text(entry, {"pubdate", "published", "updated", "date", "created"}))
+        model_id = match_model(title, source) or match_model(title + " " + summary, source)
+        published = parse_date(child_text(entry, {"pubdate", "published", "date", "created"})) or parse_date(child_text(entry, {"updated"}))
         if not model_id or not is_release_candidate(title, published, source.get("allowVersionOnly", False)):
             continue
         results.append({
@@ -550,7 +571,7 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
     changed = []
     dated = sorted(items, key=lambda item: item.get("publishedAt") or "")
     for item in dated:
-        if item.get("updateType") in {"product-release", "announcement", "model-card"}:
+        if item.get("official") is False or item.get("updateType") in {"product-release", "announcement", "model-card"}:
             continue
         model_id = item.get("modelId")
         model = models.get(model_id)
@@ -677,6 +698,7 @@ def main() -> int:
                 "url": source["url"], "active": True, "official": bool(source.get("official", True)),
                 "checkedAt": now_iso, "lastSuccessAt": now_iso, "itemCount": len(incoming),
                 "latestItemAt": max((item.get("publishedAt") or "" for item in incoming), default="") or None,
+                "resultStatus": "matched" if incoming else "zero-match",
                 "error": None,
             })
         else:
@@ -685,6 +707,7 @@ def main() -> int:
                 "url": source["url"], "active": True, "official": bool(source.get("official", True)),
                 "checkedAt": now_iso, "lastSuccessAt": old.get("lastSuccessAt"),
                 "itemCount": old.get("itemCount", 0), "latestItemAt": old.get("latestItemAt"),
+                "resultStatus": "failed",
                 "error": error,
             })
 
@@ -703,6 +726,7 @@ def main() -> int:
                        if item.get("sourceId") == source_entry["id"] and item.get("lastSeenAt") == now_iso]
     version_changes = apply_recent_model_versions(models, recent_incoming, now)
     status = {
+        "zeroMatchSources": sum(e.get("resultStatus") == "zero-match" for e in status_entries),
         "checkedAt": now_iso, "totalSources": len(active), "successSources": success_count,
         "failedSources": len(active) - success_count, "newUpdates": new_count,
         "sources": status_entries,
@@ -713,10 +737,12 @@ def main() -> int:
     if version_changes:
         print("Model versions updated from recent official sources: " + ", ".join(version_changes))
     for entry in status_entries:
-        label = "OK" if not entry["error"] else "WARN"
+        label = "WARN" if entry["error"] or entry.get("resultStatus") == "zero-match" else "OK"
         print(f"[{label}] {entry['name']}: {entry['itemCount']} matched updates"
-              + (f" — {entry['error']}" if entry["error"] else ""))
+              + (f" — {entry['error']}" if entry["error"] else " — no matching items; parser and source need review" if entry.get("resultStatus") == "zero-match" else ""))
 
+    if args.source and not args.dry_run:
+        parser.error("--source requires --dry-run; partial writes would replace full monitor status")
     if not args.dry_run:
         models_output = [models[model["id"]] for model in models_list if model.get("id") in models]
         write_json(UPDATES_FILE, updates)
