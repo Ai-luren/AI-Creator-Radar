@@ -1,35 +1,91 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-26T17:41:00+00:00",
+  "checkedAt": "2026-11-26T17:44:51+00:00",
   "summary": {
-    "uniqueOfficialUrls": 24,
-    "attempted": 1,
+    "uniqueOfficialUrls": 27,
+    "attempted": 10,
     "articleDateVerified": 6,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
-    "unresolved": 12,
-    "notAnnouncement": 2,
+    "unresolved": 14,
+    "notAnnouncement": 3,
     "weakCandidateDatesCorrected": 10
   },
   "items": [
     {
-      "id": "recovery-fe219a0393bdd31ef20b",
-      "urlKey": "https://elevenlabs.io/blog/scribe-v3-live-medical",
-      "url": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+      "id": "recovery-f5390a2aecae5dc01ca9",
+      "urlKey": "https://nijijourney.com/blog/niji-8",
+      "url": "https://nijijourney.com/blog/niji-8",
       "leadIds": [
-        "e6ff391f26f70e890f23"
+        "ecab231e4cc0db197f84"
       ],
       "discoverySourceIds": [
-        "elevenlabs-archive-rss"
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "Niji 8",
+        "Niji V8",
+        "Welcome to Niji 8!"
       ],
       "reportedDates": [
-        "2026-11-17"
+        "2026-11-24"
       ],
-      "checkedAt": "2026-11-26T17:41:00+00:00",
-      "firstAttemptAt": "2026-11-26T17:41:00+00:00",
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
       "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:41:00+00:00",
+      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
+      "status": "fetch-failed",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "recovery-f1db7ce98881d8901597",
+      "urlKey": "https://z.ai/blog/glm-5.4",
+      "url": "https://z.ai/blog/glm-5.4",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
       "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-0f77f061dfedac16453d",
+      "urlKey": "https://docs.z.ai/guides/llm/glm-5.4",
+      "url": "https://docs.z.ai/guides/llm/glm-5.4",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:44:51+00:00",
+      "status": "date-unresolved",
+      "title": "GLM-5.4",
+      "modelId": "glm"
     },
     {
       "id": "recovery-be0aed2f51056a6d6c6f",
@@ -80,6 +136,31 @@
       "category": "llm",
       "articlePublishedAt": "2026-11-12T00:00:00Z",
       "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
+    },
+    {
+      "id": "recovery-2eb810fd1adf8021f21e",
+      "urlKey": "https://sand.ai/blog/magi-2",
+      "url": "https://sand.ai/blog/magi-2",
+      "leadIds": [
+        "dfb358964f6ef7e29df4",
+        "e60abd81042c5811d827"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases",
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "MAGI-2",
+        "MAGI-2: A 480B Frontier Video Generation ModelNovember 24, 2026 · Research"
+      ],
+      "reportedDates": [
+        "2026-11-24"
+      ],
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-26T19:44:51+00:00",
+      "status": "identity-unresolved"
     },
     {
       "id": "recovery-a989f1582084d0cf153c",
@@ -217,25 +298,6 @@
       "articlePublishedAt": "2025-09-23T18:17:00Z"
     },
     {
-      "id": "recovery-2eb810fd1adf8021f21e",
-      "urlKey": "https://sand.ai/blog/magi-2",
-      "url": "https://sand.ai/blog/magi-2",
-      "leadIds": [
-        "e60abd81042c5811d827"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "reportedDates": [
-        "2026-11-24"
-      ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
-      "status": "identity-unresolved"
-    },
-    {
       "id": "recovery-93dc5dee213209423c58",
       "urlKey": "https://deepmind.google/models/model-cards/gemini-4-neon",
       "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
@@ -280,6 +342,30 @@
       "category": "image",
       "articlePublishedAt": "2026-11-17T17:56:46Z",
       "firstVerifiedAt": "2026-11-26T17:29:49+00:00"
+    },
+    {
+      "id": "recovery-fe219a0393bdd31ef20b",
+      "urlKey": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+      "url": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+      "leadIds": [
+        "e6ff391f26f70e890f23"
+      ],
+      "discoverySourceIds": [
+        "elevenlabs-archive-rss"
+      ],
+      "titleHintsChecked": [
+        "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right",
+        "Scribe v3 Live Medical"
+      ],
+      "reportedDates": [
+        "2026-11-17"
+      ],
+      "checkedAt": "2026-11-26T17:44:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:41:00+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-27T17:44:51+00:00",
+      "status": "not-model-announcement",
+      "title": "Scribe v3 Live Medical helps conversational agents get clinical details right"
     },
     {
       "id": "recovery-8f6af8c44a4a1bfb5de3",
@@ -357,13 +443,18 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Seedream 5.5",
+        "生成更真实，百轮编辑更稳定：Seedream 5.5 发布",
+        "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布"
+      ],
       "reportedDates": [
         "2026-11-09"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-26T17:44:51+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-26T19:44:51+00:00",
       "status": "identity-unresolved"
     },
     {
@@ -401,14 +492,19 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Gemini Omni 1.2 Flash"
+      ],
       "reportedDates": [
         "2026-11-05"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-26T17:44:51+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
-      "status": "identity-unresolved"
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-26T19:44:51+00:00",
+      "status": "date-unresolved",
+      "title": "Gemini Omni 1.2 Flash",
+      "modelId": "gemini-omni-flash"
     },
     {
       "id": "recovery-295354ff422b0d4db922",
@@ -421,13 +517,17 @@
       "discoverySourceIds": [
         "llm-world-json"
       ],
+      "titleHintsChecked": [
+        "GPT-Image-2.6 Flare",
+        "GPT-Image-2.6 Sunburst"
+      ],
       "reportedDates": [
         "2026-11-04"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-26T17:44:51+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-26T19:44:51+00:00",
       "status": "identity-unresolved"
     },
     {
@@ -440,15 +540,21 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "MiniMax H3-Image",
+        "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代"
+      ],
       "reportedDates": [
         "2026-11-03"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-26T17:44:51+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-26T19:44:51+00:00",
       "status": "family-unresolved",
-      "title": "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代"
+      "title": "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代",
+      "articlePublishedAt": "2026-11-10T15:00:58Z",
+      "possibleModelFamilyIds": []
     },
     {
       "id": "recovery-a92d7b7ef0e2da4d5922",
@@ -501,15 +607,20 @@
       "discoverySourceIds": [
         "llm-world-json"
       ],
+      "titleHintsChecked": [
+        "Grok Voice 3.0"
+      ],
       "reportedDates": [
         "2026-10-14"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-26T17:44:51+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-26T19:44:51+00:00",
       "status": "family-unresolved",
-      "title": "Introducing Grok Voice 3.0"
+      "title": "Introducing Grok Voice 3.0",
+      "articlePublishedAt": "2026-10-14T00:00:00Z",
+      "possibleModelFamilyIds": []
     },
     {
       "id": "recovery-ef204f120a474233f3b1",
