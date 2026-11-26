@@ -176,3 +176,15 @@ test('canonical history preserves audited combined events and audio subclasses',
 test('active frontend no longer ships unreachable ranking or evaluation renderers',()=>{
  for(const name of ['legacyRankingsPage','aihotLeaderboardPage','evaluationTargets','modelCard','expandTopicMilestones'])assert.ok(!html.includes('function '+name+'('),name);
 });
+
+
+test('creator program evidence ages independently of links and scan candidates stay separate',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');
+ assert.equal(run("programReview({applicationReview:{status:'open',checkedAt:'2026-11-26'}},new Date('2026-11-27T00:00:00Z')).label"),'官方说明开放');
+ assert.equal(run("programReview({applicationReview:{status:'open',checkedAt:'2026-11-26'}},new Date('2026-12-12T00:00:00Z')).key"),'unknown');
+ assert.equal(run("programReview({applicationReview:{status:'application-listed',checkedAt:'2026-11-26'}},new Date('2026-11-27T00:00:00Z')).key"),'unknown');
+ run("state.opportunityDiscovery={checkedAt:'2026-11-26T00:00:00Z',sources:[],programSignals:[{platformId:'demo',scope:'global',sourceUrl:'https://example.com',status:'reachable',signal:'closure-signal'}],candidates:[{title:'Pending Example Festival',url:'https://example.com/contest',sourceName:'Demo',provenance:'directory'}]};setView('opportunities')");
+ assert.equal(run("programReview({platformId:'demo',scope:'global',applicationReview:{status:'open',checkedAt:'2026-11-26',sourceUrl:'https://example.com'}},new Date('2026-11-27T00:00:00Z')).key"),'unknown');
+ assert.match(node('content').innerHTML,/Pending Example Festival/);
+ assert.equal(run("state.opportunityData.items.some(x=>x.title==='Pending Example Festival')"),false);
+});
