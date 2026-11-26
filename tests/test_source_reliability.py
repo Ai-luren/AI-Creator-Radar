@@ -126,3 +126,24 @@ class EffectiveYieldTests(unittest.TestCase):
         self.assertEqual(result["matchedFamilies"], 1)
         self.assertEqual(result["unmatchedFamilies"], ["gpt"])
         self.assertEqual(result["fallbackSources"], 1)
+
+
+    def test_public_article_json_ignores_updated_at(self):
+        import json
+        source = {"url": "https://docs.example/api", "articleUrl": "https://docs.example/version",
+                  "articleId": 42, "modelTitlePattern": r"Niji\s+\d+", "modelMatches": {"midjourney": ["niji"]}}
+        body = json.dumps({"article": {"id": 42, "draft": False, "updated_at": "2026-11-27",
+                            "body": "<h2>Niji 7</h2><p>Niji 7, launched on January 9, 2026, is available.</p>"}})
+        items = collector.version_document_json_items(body, source)
+        self.assertEqual(items[0]["publishedAt"][:10], "2026-01-09")
+        self.assertEqual(items[0]["url"], source["articleUrl"])
+        with self.assertRaises(ValueError):
+            collector.version_document_json_items('{"article":{"id":43,"draft":false,"body":"x"}}', source)
+
+    def test_markdown_release_headings_exclude_minor_feature_updates(self):
+        source = {"url": "https://official.example/changelog.md", "modelTitlePattern": r"Scribe\s+v\d+",
+                  "modelMatches": {"eleven-scribe": ["scribe"]}}
+        page = "## November 9, 2026\n### Scribe v3\nNow available\n### Scribe v3 character limits\nFeature\n## November\n### Scribe v4\n"
+        items = collector.markdown_dated_release_headings(page, source)
+        self.assertEqual([(x["title"], x["publishedAt"][:10]) for x in items], [("Scribe v3", "2026-11-09")])
+        self.assertEqual(items[0]["updateType"], "model-card")

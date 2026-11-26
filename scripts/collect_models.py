@@ -461,6 +461,39 @@ def version_document_items(blocks: list[dict], source: dict) -> list[dict]:
     return dedupe_candidates(results)
 
 
+
+def markdown_dated_release_headings(page: str, source: dict) -> list[dict]:
+    """Explicit full-date sections and exact model headings in a first-party changelog."""
+    results = []
+    day = None
+    for line in page.splitlines():
+        heading = re.match(r"^(#{2,6})\s+(.+?)\s*$", line)
+        if not heading:
+            continue
+        level, title = len(heading.group(1)), clean_text(heading.group(2))
+        if level == 2:
+            day = parse_date(title) if re.fullmatch(r"[A-Za-z]+\s+\d{1,2},\s+20\d{2}", title) else None
+            continue
+        if level != 3 or not day or not re.fullmatch(source.get("modelTitlePattern", r"(?!)"), title, re.I):
+            continue
+        model_id = match_model(title, source)
+        if model_id:
+            results.append({"title": title, "summary": "官方开发日志的型号条目；具体发布阶段待核验。",
+                            "url": source["url"], "publishedAt": day, "modelId": model_id,
+                            "updateType": "model-card"})
+    return dedupe_candidates(results)
+
+
+def version_document_json_items(page: str, source: dict) -> list[dict]:
+    """Use the public help center article API, not the page wrapper or updated_at."""
+    article = json.loads(page).get("article", {})
+    if (article.get("id") != source.get("articleId") or article.get("draft") is not False
+            or not isinstance(article.get("body"), str)):
+        raise ValueError("Unexpected public help-center article")
+    return html_page_items(article["body"], {**source, "type": "version-document",
+                           "url": source["articleUrl"]})
+
+
 def effective_coverage(entries, models):
     """Separate transport success from matched catalog families and recent dated candidates."""
     successful = [e for e in entries if not e.get("error")]
@@ -838,6 +871,10 @@ def fetch_source_once(source: dict) -> tuple[dict, list[dict], str | None]:
                 if not re.search(r"(?m)^\*\*20\d{2}-\d{2}-\d{2}\*\*\s*$", page):
                     raise ValueError("Expected explicit Markdown date sections")
                 items = markdown_dated_model_items(page, source)
+            elif source_type == "markdown-dated-release-headings":
+                items = markdown_dated_release_headings(page, source)
+            elif source_type == "version-document-json":
+                items = version_document_json_items(page, source)
             else:
                 items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
         return source, items, None
@@ -856,7 +893,7 @@ def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
     endpoints = [{"url": primary_url}]
     endpoints.extend({"url": url} for url in source.get("fallbackUrls", []))
     endpoints.extend(source.get("fallbackEndpoints", []))
-    endpoints = list({e["url"]: e for e in endpoints}.values())[:4]
+    endpoints = list({e["url"]: e for e in endpoints}.values())[:5]
     last_error = None
     empty = None
     for endpoint_config in endpoints:
@@ -1020,6 +1057,8 @@ def main() -> int:
         label = "WARN" if entry["error"] or entry.get("resultStatus") == "zero-match" else "OK"
         print(f"[{label}] {entry['name']}: {entry['itemCount']} matched updates"
               + (f" — {entry['error']}" if entry["error"] else " — no matching items; parser and source need review" if entry.get("resultStatus") == "zero-match" else ""))
+        if entry.get("error") or entry.get("resultStatus") == "zero-match" or entry.get("primaryDegraded"):
+            print("  Endpoint attempts:", json.dumps(entry.get("attempts", []), ensure_ascii=False))
 
     if args.source and not args.dry_run:
         parser.error("--source requires --dry-run; partial writes would replace full monitor status")

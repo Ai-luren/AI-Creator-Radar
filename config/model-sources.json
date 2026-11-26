@@ -210,7 +210,21 @@
       "qwen": [
         "re:\\bQwen[- ]?\\d+(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "fallbackOnZeroMatch": true,
+    "fallbackEndpoints": [
+      {
+        "url": "https://raw.githubusercontent.com/QwenLM/Qwen3.8/main/README.md",
+        "type": "markdown-news",
+        "section": "News",
+        "updateType": "model-card",
+        "modelMatches": {
+          "qwen": [
+            "re:\\bQwen[- ]?\\d+(?:\\.\\d+)*\\b"
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "xai-model-updates",
@@ -562,6 +576,19 @@
             "re:^V\\d+(?:\\.\\d+)*$"
           ]
         }
+      },
+      {
+        "url": "https://docs.midjourney.com/api/v2/help_center/en-us/articles/32199405667853.json",
+        "type": "version-document-json",
+        "modelTitlePattern": "V\\d+(?:\\.\\d+)*",
+        "updateType": "model-card",
+        "modelMatches": {
+          "midjourney": [
+            "re:^V\\d+(?:\\.\\d+)*$"
+          ]
+        },
+        "articleId": 32199405667853,
+        "articleUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
       }
     ]
   },
@@ -672,6 +699,14 @@
         "type": "version-document",
         "modelTitlePattern": "Niji\\s+\\d+(?:\\.\\d+)*",
         "updateType": "model-card"
+      },
+      {
+        "url": "https://docs.midjourney.com/api/v2/help_center/en-us/articles/32199405667853.json",
+        "type": "version-document-json",
+        "modelTitlePattern": "Niji\\s+\\d+(?:\\.\\d+)*",
+        "updateType": "model-card",
+        "articleId": 32199405667853,
+        "articleUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
       }
     ]
   },
@@ -897,7 +932,15 @@
       "eleven-tts": [
         "re:\\bEleven\\s+v\\d+(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "fallbackOnZeroMatch": true,
+    "fallbackEndpoints": [
+      {
+        "url": "https://elevenlabs.io/docs/changelog.md",
+        "type": "markdown-dated-release-headings",
+        "modelTitlePattern": "(?:Scribe\\s+v\\d+(?:\\.\\d+)*(?:\\s+Live)?|SFX\\s+v\\d+(?:\\.\\d+)*|Eleven\\s+v\\d+(?:\\.\\d+)*(?:\\s+and\\s+Eleven\\s+v\\d+(?:\\.\\d+)*\\s+Turbo)?)"
+      }
+    ]
   },
   {
     "id": "sandai-research",
