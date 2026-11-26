@@ -1,0 +1,157 @@
+{
+  "schema": "release-recall-benchmark/v1",
+  "reviewedAt": "2026-11-27",
+  "scope": "Fixed purposive sample of official dated model announcements, independently inspected; not exhaustive or random. One sample per publication event, including multiple models in a single event.",
+  "events": [
+    {
+      "id": "seedream-55",
+      "modelFamilyId": "seedream",
+      "eventDate": "2026-11-09",
+      "modelNames": [
+        "Seedream 5.5"
+      ],
+      "sourceUrls": [
+        "https://seed.bytedance.com/en/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+        "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5"
+      ],
+      "titlePatterns": [
+        "Seedream\\s+5\\.5"
+      ]
+    },
+    {
+      "id": "claude-fable-mythos-52",
+      "modelFamilyId": "claude",
+      "eventDate": "2026-11-09",
+      "modelNames": [
+        "Claude Fable 5.2",
+        "Claude Mythos 5.2"
+      ],
+      "sourceUrls": [
+        "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+      ],
+      "titlePatterns": [
+        "Fable\\s+5\\.2",
+        "Mythos\\s+5\\.2"
+      ]
+    },
+    {
+      "id": "gpt-62-astra-sol",
+      "modelFamilyId": "gpt",
+      "eventDate": "2026-11-17",
+      "modelNames": [
+        "GPT-6.2 Astra",
+        "GPT-6.2 Sol"
+      ],
+      "sourceUrls": [
+        "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+      ],
+      "titlePatterns": [
+        "GPT[-‑ ]6\\.2",
+        "Astra",
+        "Sol"
+      ]
+    },
+    {
+      "id": "scribe-medical",
+      "modelFamilyId": "eleven-scribe",
+      "eventDate": "2026-11-17",
+      "modelNames": [
+        "Scribe v3 Live Medical"
+      ],
+      "sourceUrls": [
+        "https://elevenlabs.io/blog/scribe-v3-live-medical",
+        "https://elevenlabs.io/zh/blog/scribe-v3-live-medical"
+      ],
+      "titlePatterns": [
+        "Scribe\\s+v3\\s+Live\\s+Medical"
+      ]
+    },
+    {
+      "id": "kling-image-40",
+      "modelFamilyId": "kling-image",
+      "eventDate": "2026-11-18",
+      "modelNames": [
+        "Kling Image 4.0"
+      ],
+      "sourceUrls": [
+        "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"
+      ],
+      "titlePatterns": [
+        "Kling\\s+Image\\s+4\\.0"
+      ]
+    },
+    {
+      "id": "glm-54",
+      "modelFamilyId": "glm",
+      "eventDate": "2026-11-23",
+      "modelNames": [
+        "GLM-5.4"
+      ],
+      "sourceUrls": [
+        "https://z.ai/blog/glm-5.4",
+        "https://z.ai/blog/glm-5.4?lang=en"
+      ],
+      "titlePatterns": [
+        "GLM[- ]5\\.4"
+      ]
+    },
+    {
+      "id": "niji-8",
+      "modelFamilyId": "midjourney",
+      "eventDate": "2026-11-24",
+      "modelNames": [
+        "Niji 8"
+      ],
+      "sourceUrls": [
+        "https://nijijourney.com/blog/niji-8",
+        "https://nijijourney.com/zh/blog/niji-8"
+      ],
+      "titlePatterns": [
+        "Niji\\s+8"
+      ]
+    },
+    {
+      "id": "magi-2",
+      "modelFamilyId": "magi-2",
+      "eventDate": "2026-11-24",
+      "modelNames": [
+        "MAGI-2"
+      ],
+      "sourceUrls": [
+        "https://sand.ai/blog/magi-2/"
+      ],
+      "titlePatterns": [
+        "MAGI[- ]2(?!\\s+Preview)"
+      ]
+    }
+  ],
+  "negativeControls": [
+    {
+      "id": "seed-audio-conflict",
+      "modelFamilyId": "seed-audio",
+      "sourceUrls": [
+        "https://seed.bytedance.com/en/blog/from-speech-to-audio-creation-introducing-the-seed-audio-1-0-audio-creation-model"
+      ],
+      "note": "Official homepage lists 2026-11-16; article explicitly dated 2026-07-20. Do not infer November first release.",
+      "dateConflict": [
+        "2026-07-20",
+        "2026-11-16"
+      ]
+    },
+    {
+      "id": "kling-racing-tutorial",
+      "sourceUrls": [
+        "https://kling.ai/blog/hitting-redline-make-cinematic-racing-kling4"
+      ],
+      "note": "Tutorial, not release."
+    },
+    {
+      "id": "pixverse-seedance-review",
+      "sourceUrls": [
+        "https://pixverse.ai/en/blog/seedance-2-0-review-prompts-and-use-cases",
+        "https://pixverse.ai/zh/blog/seedance-2-0-review-prompts-and-use-cases"
+      ],
+      "note": "Review of another vendor's model, not PixVerse release."
+    }
+  ]
+}

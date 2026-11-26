@@ -9,6 +9,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
+try:
+    from scripts.collect_models import non_release_title
+except ModuleNotFoundError:
+    from collect_models import non_release_title
+
 ROOT = Path(__file__).resolve().parents[1]
 TOPICS_FILE = ROOT / "site/data/topics.json"
 UPDATES_FILE = ROOT / "site/data/model-updates.json"
@@ -95,7 +100,7 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
     unmatched_vendors: set[str] = set()
     for update in updates:
         update_type = str(update.get("updateType", "release")).casefold()
-        if update.get("official") is not True or update_type not in ALLOWED_UPDATE_TYPES:
+        if update.get("official") is not True or update_type not in ALLOWED_UPDATE_TYPES or non_release_title(update.get("title")):
             continue
         date = parse_date(update.get("publishedAt", ""))
         url = str(update.get("url", "")).strip()
