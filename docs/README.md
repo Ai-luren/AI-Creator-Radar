@@ -5,12 +5,13 @@
 | 要做什么 | 先读 | 关键文件 |
 |---|---|---|
 | 理解整体目录与发布 | 本页、根目录 `AGENTS.md` | `.github/workflows/update-site.yml` |
+| 修改当前界面与交互 | [设计系统](../DESIGN.md) | `site/index.html`、`tests/test_browser_visual.mjs` |
 | 修改模型目录或跨模块模型引用 | [模型数据契约](model-data-contract.md) | `site/data/models.json`、`scripts/link_model_records.py` |
 | 审核模型上新与近 30 天列表 | [模型上新指南](model-release-digest-guide.md) | `scripts/build_model_release_digest.py` |
 | 修改官方社媒账号快照 | [社媒数据指南](social-monitor-data-guide.md) | `site/data/social-accounts.json` |
 | 理解能力榜的来源和展示口径 | [榜单方法审核](leaderboard-methodology-audit-2026-11-25.md)、[榜单规则](../site/ranking-rules.html) | `site/data/reference-rankings.json`、`site/data/maomu-rankings.json` |
 | 查看综合榜实验与审计依据 | [榜单方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`、`site/data/unified-rankings.json` |
-| 检查每日自动更新和同步范围 | [自动更新说明](automation-runbook.md) | `.github/workflows/update-site.yml` |
+| 检查自动更新、漏跑补采和同步范围 | [自动更新说明](automation-runbook.md) | `scripts/plan_refresh.py`、`.github/workflows/update-site.yml` |
 
 ## 数据更新原则
 
@@ -25,6 +26,7 @@
 - **榜单**：`rankings.json`、`ranking-sources.json`、`reference-rankings.json`、`maomu-rankings.json`、`leaderboard-reference-snapshots.json`、`unified-rankings.json`。
 - **简报与动态**：`aihot-*.json`、`juya-daily.json`、`feed-items.json`、`news-today.json`、`topics.json`、`chronicle-updates-status.json`。
 - **创作资源**：`aipick-data.json`、`awesome-repos.json`、`tutorials.json`、`resource-sources.json`、`resource-status.json`。
+- **创作机会**：`creator-contests.json`、`creator-link-status.json`、`creator-opportunity-discovery.json`。
 - **官方社媒**：`social-accounts.json`、`social-platforms.json`、`social-trends.json`。
 
 ## 本地检查
