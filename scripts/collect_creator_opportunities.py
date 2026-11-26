@@ -97,7 +97,7 @@ def candidates(source, page, final_url, known):
         if not url or url in known or urlsplit(url).hostname != urlsplit(final_url).hostname:
             continue
         path = urlsplit(url).path
-        if not re.fullmatch(source["pathPattern"], path) or not KEYWORDS.search(label + " " + path):
+        if not re.fullmatch(source["pathPattern"], path) or not KEYWORDS.search(label + " " + path.rsplit("/", 1)[-1]):
             continue
         title = label if len(label) >= 8 else path.rsplit("/", 1)[-1].replace("-", " ")
         if not 8 <= len(title) <= 240:
