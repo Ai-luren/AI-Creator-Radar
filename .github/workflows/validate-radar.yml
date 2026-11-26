@@ -36,6 +36,7 @@ jobs:
           python scripts/validate_model_links.py
           python scripts/audit_model_completeness.py
           python scripts/check_creator_links.py --dry-run
+          python scripts/collect_creator_opportunities.py --dry-run
       - name: Detect collector or source configuration changes
         id: probe_needed
         if: github.event_name == 'pull_request'
@@ -54,4 +55,24 @@ jobs:
         with:
           name: source-probe
           path: /tmp/radar-source-probe.json
+          retention-days: 7
+
+      - name: Detect creator opportunity collector changes
+        id: opportunities_probe
+        if: github.event_name == 'pull_request'
+        run: |
+          if git diff --name-only HEAD^1 HEAD | grep -Eq '^(config/creator-opportunity-sources\.json|scripts/collect_creator_opportunities\.py)$'; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Read-only opportunity discovery diagnostics
+        if: steps.opportunities_probe.outputs.run == 'true'
+        run: python scripts/collect_creator_opportunities.py --report /tmp/opportunities-probe.json
+      - name: Upload opportunity discovery diagnostics
+        if: steps.opportunities_probe.outputs.run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: opportunities-probe
+          path: /tmp/opportunities-probe.json
           retention-days: 7
