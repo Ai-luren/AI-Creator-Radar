@@ -56,6 +56,7 @@ def main():
                 print(f"::warning::{source} failed; retain last valid snapshot.")
         if alerts:
             stream.write("New persistent incidents: " + ", ".join(alerts) + "\n")
+            print("::warning::Persistent optional-source incident: " + ", ".join(alerts) + "; last valid snapshots retained. See collection-health.json.")
 
 
 if __name__ == "__main__":
