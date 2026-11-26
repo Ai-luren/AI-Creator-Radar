@@ -6901,66 +6901,6 @@
     ],
     "milestones": [
       {
-        "date": "2026-11-16",
-        "kind": "模型发布",
-        "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
-        "summary": "字节 Seed 于 2026 年 7 月 31 日正式发布 Seedance 2.5，重点升级长叙事生成、多模态参考与编辑能力。",
-        "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "seedance-25-20261116",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "video",
-        "modelMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "modelVersionId": "seedance-2-5",
-            "matchedName": "Seedance 2.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "matchedName": "Seedance"
-          }
-        ],
-        "sourceModelId": "seedance",
-        "dateKind": "source-date"
-      },
-      {
-        "date": "2026-11-16",
-        "kind": "模型发布",
-        "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
-        "summary": "",
-        "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "839af1e97986262326",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "seedance",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "video",
-        "modelMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "modelVersionId": "seedance-2-5",
-            "matchedName": "Seedance 2.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "matchedName": "Seedance"
-          }
-        ]
-      },
-      {
         "date": "2026-11-09",
         "kind": "模型发布",
         "title": "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布",
@@ -7099,17 +7039,15 @@
         "date": "2026-07-31",
         "kind": "模型发布",
         "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
-        "summary": "",
+        "summary": "字节 Seed 于 2026 年 7 月 31 日正式发布 Seedance 2.5，重点升级长叙事生成、多模态参考与编辑能力。",
         "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
         "sourceId": "seed-official",
         "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "a4d7de719912e362cc",
+        "sourceUpdateId": "seedance-25-20261116",
         "sourceTier": "official-primary",
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "seedance",
-        "collectedAt": "2026-11-26T17:11:21Z",
+        "collectedAt": "2026-11-24T09:41:51Z",
         "modelCategory": "video",
         "modelMentions": [
           {
@@ -7123,7 +7061,11 @@
             "modelFamilyId": "seedance",
             "matchedName": "Seedance"
           }
-        ]
+        ],
+        "sourceModelId": "seedance",
+        "dateKind": "article-publication-date",
+        "recoveryProofId": "recovery-f58d44a1f0031867aa29",
+        "previousSourceDate": "2026-11-16T00:00:00Z"
       },
       {
         "date": "2026-07-20",

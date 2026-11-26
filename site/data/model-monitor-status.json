@@ -1,7 +1,7 @@
 {
-  "lastSuccessfulCheckAt": "2026-11-26T17:35:44Z",
+  "lastSuccessfulCheckAt": "2026-11-26T17:40:48Z",
   "lastCompleteCheckAt": null,
-  "zeroMatchSources": 6,
+  "zeroMatchSources": 5,
   "coverage": {
     "catalogFamilies": 94,
     "configuredFamilies": 66,
@@ -39,11 +39,11 @@
   },
   "effectiveCoverage": {
     "reachableSources": 43,
-    "matchingModelSources": 37,
-    "recentDatedModelSources": 14,
-    "distinctMatchingEndpoints": 36,
-    "matchedFamilies": 45,
-    "recentDatedFamilies": 14,
+    "matchingModelSources": 38,
+    "recentDatedModelSources": 15,
+    "distinctMatchingEndpoints": 37,
+    "matchedFamilies": 49,
+    "recentDatedFamilies": 15,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -58,7 +58,6 @@
       "flux",
       "flux3-video",
       "gaga-1",
-      "gemini-tts",
       "gpt-image",
       "grok-imagine-image",
       "hailuo",
@@ -72,7 +71,6 @@
       "kling-image",
       "llama",
       "ltx",
-      "lyria",
       "magi-1",
       "mai-code",
       "mai-image",
@@ -80,7 +78,6 @@
       "mimo",
       "minimax-llm",
       "muse-video",
-      "nano-banana",
       "ovhcloud-olala",
       "prismml-bonsai",
       "recraft",
@@ -92,12 +89,11 @@
       "skyreels-v4",
       "step-5",
       "stepaudio-3-tts",
-      "veo",
       "workbuddy"
     ],
     "fallbackSources": 4
   },
-  "checkedAt": "2026-11-26T17:35:44Z",
+  "checkedAt": "2026-11-26T17:40:48Z",
   "totalSources": 45,
   "successSources": 43,
   "failedSources": 2,
@@ -114,6 +110,26 @@
       "recentDatedModelFamilyIds": [
         "claude"
       ],
+      "publicationObservations": [
+        {
+          "modelId": "claude",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+          "publishedAt": "2026-10-18T00:00:00Z"
+        },
+        {
+          "modelId": "claude",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+          "publishedAt": "2026-11-09T00:00:00Z"
+        },
+        {
+          "modelId": "claude",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+          "publishedAt": "2026-10-28T00:00:00Z"
+        }
+      ],
       "primaryDegraded": false,
       "id": "anthropic-model-news",
       "name": "Anthropic 官方新闻",
@@ -129,12 +145,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 11,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -143,6 +159,14 @@
       ],
       "recentDatedModelFamilyIds": [
         "claude"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "claude",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+          "publishedAt": "2026-11-09T00:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "anthropic-model-announcements",
@@ -159,12 +183,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 38,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -173,6 +197,68 @@
       ],
       "recentDatedModelFamilyIds": [
         "claude-code"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.332",
+          "title": "v2.1.332",
+          "publishedAt": "2026-11-25T01:32:14Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.331",
+          "title": "v2.1.331",
+          "publishedAt": "2026-11-23T21:34:41Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.330",
+          "title": "v2.1.330",
+          "publishedAt": "2026-11-20T22:32:56Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.329",
+          "title": "v2.1.329",
+          "publishedAt": "2026-11-19T22:14:41Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.328",
+          "title": "v2.1.328",
+          "publishedAt": "2026-11-19T01:14:04Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.327",
+          "title": "v2.1.327",
+          "publishedAt": "2026-11-17T23:17:45Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.326",
+          "title": "v2.1.326",
+          "publishedAt": "2026-11-16T22:11:05Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325",
+          "title": "v2.1.325",
+          "publishedAt": "2026-11-13T20:40:01Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.323",
+          "title": "v2.1.323",
+          "publishedAt": "2026-11-12T22:12:13Z"
+        },
+        {
+          "modelId": "claude-code",
+          "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.322",
+          "title": "v2.1.322",
+          "publishedAt": "2026-11-10T02:29:43Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "claude-code-releases",
@@ -189,12 +275,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 10,
       "latestItemAt": "2026-11-25T01:32:14Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -202,6 +288,7 @@
         "deepseek"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "deepseek-news",
       "name": "DeepSeek 官方更新日志",
@@ -217,12 +304,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 2,
       "latestItemAt": null,
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -231,6 +318,14 @@
       ],
       "recentDatedModelFamilyIds": [
         "eleven-scribe"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "eleven-scribe",
+          "url": "https://elevenlabs.io/blog/scribe-v3",
+          "title": "Introducing Scribe v3 and v3 Live, our most accurate speech to text models",
+          "publishedAt": "2026-11-10T12:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "elevenlabs-official-rss",
@@ -247,12 +342,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 1,
       "latestItemAt": "2026-11-10T12:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -261,6 +356,7 @@
         "eleven-tts"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "elevenlabs-news",
       "name": "ElevenLabs 官方博客",
@@ -276,12 +372,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 2,
       "latestItemAt": "2026-09-28T12:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -293,6 +389,20 @@
       "recentDatedModelFamilyIds": [
         "eleven-scribe",
         "eleven-sfx"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "eleven-scribe",
+          "url": "https://elevenlabs.io/docs/changelog.md",
+          "title": "Scribe v3",
+          "publishedAt": "2026-11-09T00:00:00Z"
+        },
+        {
+          "modelId": "eleven-sfx",
+          "url": "https://elevenlabs.io/docs/changelog.md",
+          "title": "SFX v3",
+          "publishedAt": "2026-11-02T00:00:00Z"
+        }
       ],
       "primaryDegraded": true,
       "id": "elevenlabs-changelog",
@@ -314,12 +424,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -327,6 +437,7 @@
         "gemini"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "deepmind-news",
       "name": "Google DeepMind 官方新闻",
@@ -342,17 +453,53 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 4,
       "latestItemAt": null,
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
-      "matchedModelFamilyIds": [],
-      "recentDatedModelFamilyIds": [],
+      "matchedModelFamilyIds": [
+        "gemini",
+        "gemini-omni-flash",
+        "gemini-tts",
+        "lyria",
+        "nano-banana",
+        "veo"
+      ],
+      "recentDatedModelFamilyIds": [
+        "gemini",
+        "gemini-omni-flash"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "gemini",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "title": "Gemini 4 Neon",
+          "publishedAt": "2026-11-18T00:00:00Z"
+        },
+        {
+          "modelId": "gemini",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+          "title": "Gemini 4 Carbon",
+          "publishedAt": "2026-11-10T00:00:00Z"
+        },
+        {
+          "modelId": "gemini-omni-flash",
+          "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+          "title": "Gemini Omni 1.2 Flash",
+          "publishedAt": "2026-11-05T00:00:00Z"
+        },
+        {
+          "modelId": "gemini",
+          "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "title": "Gemini 4 Argon",
+          "publishedAt": "2026-10-13T00:00:00Z"
+        }
+      ],
       "primaryDegraded": false,
       "id": "deepmind-blog",
       "name": "Google DeepMind 官方模型卡",
@@ -363,22 +510,23 @@
         {
           "url": "https://deepmind.google/models/model-cards/",
           "error": null,
-          "itemCount": 0
+          "itemCount": 32
         }
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
-      "itemCount": 0,
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
+      "itemCount": 32,
       "latestItemAt": "2026-11-18T00:00:00Z",
-      "resultStatus": "zero-match",
-      "lastMatchAt": "2026-11-26T17:29:42Z",
+      "resultStatus": "matched",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
       "matchedModelFamilyIds": [],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "google-gemini-news",
       "name": "Google Gemini 模型发布",
@@ -394,8 +542,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -408,6 +556,14 @@
       ],
       "recentDatedModelFamilyIds": [
         "gemini-omni-flash"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "gemini-omni-flash",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+          "publishedAt": "2026-11-05T17:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "google-official-feed",
@@ -424,12 +580,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 1,
       "latestItemAt": "2026-11-05T17:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -437,6 +593,14 @@
         "kimi"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [
+        {
+          "modelId": "kimi",
+          "url": "https://forum.moonshot.ai/t/kimi-k3-1-pro-has-launched-start-exploring-now/629",
+          "title": "📢 Kimi K3.1 Pro has launched! Start exploring now!",
+          "publishedAt": "2026-10-23T00:00:00Z"
+        }
+      ],
       "primaryDegraded": false,
       "id": "kimi-announcement",
       "name": "Kimi 官方公告目录",
@@ -452,17 +616,18 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 2,
       "latestItemAt": "2026-10-23T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
       "matchedModelFamilyIds": [],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "kuaishou-ir",
       "name": "Kling 官方发布博客",
@@ -478,8 +643,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 0,
       "latestItemAt": "2026-11-20T00:00:00Z",
       "resultStatus": "zero-match",
@@ -492,6 +657,7 @@
         "muse-image"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "meta-ai-blog",
       "name": "Meta AI 官方博客",
@@ -507,12 +673,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 3,
       "latestItemAt": "2026-07-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -520,6 +686,14 @@
         "muse"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [
+        {
+          "modelId": "muse",
+          "url": "https://research.meta.ai/blog/introducing-muse-spark-1-3",
+          "title": "Muse Spark 1.3",
+          "publishedAt": "2026-10-12T00:00:00Z"
+        }
+      ],
       "primaryDegraded": false,
       "id": "meta-models",
       "name": "Meta Superintelligence Labs 官方模型发布",
@@ -535,12 +709,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 4,
       "latestItemAt": "2026-10-12T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -548,6 +722,7 @@
         "midjourney"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": true,
       "id": "midjourney-updates",
       "name": "Midjourney 官方更新目录",
@@ -573,12 +748,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 5,
       "latestItemAt": "2026-07-24T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -589,6 +764,14 @@
       ],
       "recentDatedModelFamilyIds": [
         "minimax-h3-image"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "minimax-h3-image",
+          "url": "https://www.minimax.cn/blog/minimax-h3-image",
+          "title": "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代",
+          "publishedAt": "2026-11-10T00:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "minimax-ir",
@@ -605,12 +788,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-10T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -618,6 +801,7 @@
         "minimax-music"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "minimax-blog",
       "name": "MiniMax 官方研究博客",
@@ -633,12 +817,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 1,
       "latestItemAt": "2026-08-13T13:33:59Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -647,6 +831,20 @@
       ],
       "recentDatedModelFamilyIds": [
         "mureka"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "mureka",
+          "url": "https://platform.mureka.ai/docs/en/changelog.html",
+          "title": "Duration control for Prompt to song and instrumental generation: Prompt to song and Generate instrumental now accept the optional duration parameter. With mureka-9.5, set a target duration of 2–5 minutes, or omit it or s",
+          "publishedAt": "2026-11-17T00:00:00Z"
+        },
+        {
+          "modelId": "mureka",
+          "url": "https://platform.mureka.ai/docs/en/changelog.html",
+          "title": "Remix API: the mureka-9.5 model is now available to all users ($0.5/song). Supports audio up to 8 minutes, vocal-only / accompaniment-only / instrumental input, optional lyrics, and vocal gender control via prompt. Start",
+          "publishedAt": "2026-11-12T00:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "mureka-changelog",
@@ -663,12 +861,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 10,
       "latestItemAt": "2026-11-17T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -676,6 +874,7 @@
         "midjourney"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": true,
       "id": "niji-blog",
       "name": "Niji Journey 官方博客",
@@ -711,12 +910,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 1,
       "latestItemAt": "2026-01-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -725,6 +924,68 @@
       ],
       "recentDatedModelFamilyIds": [
         "codex"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.7",
+          "title": "0.174.0-alpha.7",
+          "publishedAt": "2026-11-26T04:42:57Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.6",
+          "title": "0.174.0-alpha.6",
+          "publishedAt": "2026-11-25T19:41:38Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.5",
+          "title": "0.174.0-alpha.5",
+          "publishedAt": "2026-11-25T01:23:23Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.4",
+          "title": "0.174.0-alpha.4",
+          "publishedAt": "2026-11-24T23:06:32Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.3",
+          "title": "0.174.0-alpha.3",
+          "publishedAt": "2026-11-24T20:18:38Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.2",
+          "title": "0.174.0-alpha.2",
+          "publishedAt": "2026-11-24T16:21:51Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.1",
+          "title": "0.174.0-alpha.1",
+          "publishedAt": "2026-11-24T01:51:10Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.173.0-alpha.5",
+          "title": "0.173.0-alpha.5",
+          "publishedAt": "2026-11-24T06:48:20Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+          "title": "0.172.0",
+          "publishedAt": "2026-11-24T00:06:41Z"
+        },
+        {
+          "modelId": "codex",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0-alpha.2.1",
+          "title": "0.172.0-alpha.2.1",
+          "publishedAt": "2026-11-23T18:07:33Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "codex-cli-releases",
@@ -741,12 +1002,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 10,
       "latestItemAt": "2026-11-26T04:42:57Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -755,6 +1016,20 @@
       ],
       "recentDatedModelFamilyIds": [
         "gpt"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "gpt",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "title": "Introducing GPT-6.2 Astra and Sol",
+          "publishedAt": "2026-11-17T17:45:00Z"
+        },
+        {
+          "modelId": "gpt",
+          "url": "https://openai.com/index/devrev-enterprise-self-service",
+          "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+          "publishedAt": "2026-11-04T00:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "openai-news",
@@ -771,12 +1046,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 11,
       "latestItemAt": "2026-11-17T17:45:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -785,6 +1060,20 @@
       ],
       "recentDatedModelFamilyIds": [
         "gpt-live"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "gpt-live",
+          "url": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
+          "title": "GPT-Live-1.1 has arrived in the API",
+          "publishedAt": "2026-11-20T04:12:19Z"
+        },
+        {
+          "modelId": "gpt-live",
+          "url": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+          "title": "GPT-Live-1.1 is rolling out with new voices and better accents",
+          "publishedAt": "2026-10-15T19:11:50Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "openai-developer-announcements",
@@ -801,12 +1090,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-20T04:12:19Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -816,6 +1105,7 @@
         "pixverse-world"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "pixverse-zh-blog",
       "name": "PixVerse 中文官方博客",
@@ -831,12 +1121,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 5,
       "latestItemAt": "2026-09-22T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -845,6 +1135,7 @@
         "pixverse-world"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "pixverse-news",
       "name": "PixVerse 英文官方博客",
@@ -860,12 +1151,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 3,
       "latestItemAt": "2026-03-30T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -874,6 +1165,7 @@
         "qwen-image-edit"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "qwen-image-repo",
       "name": "Qwen Image 官方仓库 News",
@@ -889,12 +1181,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 22,
       "latestItemAt": "2026-02-10T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -902,6 +1194,7 @@
         "qwen"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "qwen-official-rss",
       "name": "Qwen 官方博客 RSS",
@@ -917,12 +1210,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 3,
       "latestItemAt": "2024-09-18T16:00:01Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -930,6 +1223,7 @@
         "qwen"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": true,
       "id": "qwen-image-updates",
       "name": "Qwen 官方首页发布目录",
@@ -950,12 +1244,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 8,
       "latestItemAt": "2026-08-14T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -963,6 +1257,7 @@
         "qwen-agent"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "qwen-agent-releases",
       "name": "Qwen-Agent 官方 GitHub Releases",
@@ -978,12 +1273,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 10,
       "latestItemAt": "2025-05-29T09:36:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -991,6 +1286,7 @@
         "qwen3-tts"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "qwen3-tts-releases",
       "name": "Qwen3-TTS 官方发布与版本记录",
@@ -1006,17 +1302,18 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 1,
       "latestItemAt": "2026-01-22T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
       "matchedModelFamilyIds": [],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "qwen-cloud-model-releases",
       "name": "QwenCloud 官方模型发布日志",
@@ -1032,8 +1329,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -1046,6 +1343,14 @@
       ],
       "recentDatedModelFamilyIds": [
         "magi-2"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "magi-2",
+          "url": "https://sand.ai/blog/magi-2",
+          "title": "MAGI-2: A 480B Frontier Video Generation ModelNovember 24, 2026 · Research",
+          "publishedAt": "2026-11-24T00:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "sandai-research",
@@ -1062,12 +1367,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 2,
       "latestItemAt": "2026-11-24T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -1075,6 +1380,7 @@
         "suno"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "suno-release",
       "name": "Suno 官方更新日志",
@@ -1090,12 +1396,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 12,
       "latestItemAt": "2026-09-09T15:10:20Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -1104,6 +1410,7 @@
         "vidu-s2"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "vidu-api-updates",
       "name": "Vidu 官方模型更新日志",
@@ -1119,17 +1426,18 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 12,
       "latestItemAt": "2026-10-07T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
       "matchedModelFamilyIds": [],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "xai-model-updates",
       "name": "xAI Imagine 官方模型更新",
@@ -1145,8 +1453,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -1159,6 +1467,7 @@
         "grok-llm"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "xai-news",
       "name": "xAI 官方新闻",
@@ -1174,12 +1483,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 11,
       "latestItemAt": "2026-09-21T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -1190,6 +1499,14 @@
       ],
       "recentDatedModelFamilyIds": [
         "seedream"
+      ],
+      "publicationObservations": [
+        {
+          "modelId": "seedream",
+          "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+          "title": "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布",
+          "publishedAt": "2026-11-09T00:00:00Z"
+        }
       ],
       "primaryDegraded": false,
       "id": "seed-official",
@@ -1206,12 +1523,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 3,
       "latestItemAt": "2026-11-09T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -1229,7 +1546,7 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
       "lastSuccessAt": "2026-11-26T17:29:42Z",
       "itemCount": 1,
       "latestItemAt": "2026-08-19T00:00:00Z",
@@ -1252,7 +1569,7 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
       "lastSuccessAt": null,
       "itemCount": 0,
       "latestItemAt": null,
@@ -1265,6 +1582,7 @@
         "glm"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "zai-model-release-notes",
       "name": "智谱 Z.ai 官方模型发布日志",
@@ -1280,12 +1598,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 7,
       "latestItemAt": "2026-08-26T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -1293,6 +1611,7 @@
         "tencent-hy-mt"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "hunyuan-mt3-repo",
       "name": "腾讯 Hy-MT3 官方仓库 News",
@@ -1308,17 +1627,18 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 1,
       "latestItemAt": "2025-09-01T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
       "matchedModelFamilyIds": [],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "tencent-model-news",
       "name": "腾讯混元产品动态",
@@ -1334,8 +1654,8 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 0,
       "latestItemAt": null,
       "resultStatus": "zero-match",
@@ -1347,6 +1667,7 @@
         "hunyuan-image"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "hunyuan-image-repo",
       "name": "腾讯混元图像官方仓库 News",
@@ -1362,12 +1683,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 5,
       "latestItemAt": "2026-01-26T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -1375,6 +1696,7 @@
         "hunyuan-video"
       ],
       "recentDatedModelFamilyIds": [],
+      "publicationObservations": [],
       "primaryDegraded": false,
       "id": "hunyuan-video-repo",
       "name": "腾讯混元视频官方仓库 News",
@@ -1390,12 +1712,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 7,
       "latestItemAt": "2025-11-21T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     },
     {
@@ -1412,6 +1734,50 @@
         "qwen",
         "qwen-audio-realtime"
       ],
+      "publicationObservations": [
+        {
+          "modelId": "qwen-audio-realtime",
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "title": "qwen-audio-3.1-live",
+          "publishedAt": "2026-11-23T00:00:00Z"
+        },
+        {
+          "modelId": "qwen",
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "title": "qwen4-max",
+          "publishedAt": "2026-11-16T00:00:00Z"
+        },
+        {
+          "modelId": "qwen",
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "title": "qwen4-max-preview",
+          "publishedAt": "2026-11-11T00:00:00Z"
+        },
+        {
+          "modelId": "qwen-audio-realtime",
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "title": "qwen-audio-3.1-realtime-flash",
+          "publishedAt": "2026-10-27T00:00:00Z"
+        },
+        {
+          "modelId": "qwen-audio-tts",
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "title": "qwen-audio-3.1-tts-next",
+          "publishedAt": "2026-10-22T00:00:00Z"
+        },
+        {
+          "modelId": "qwen-audio-tts",
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "title": "qwen-audio-3.1-tts-plus",
+          "publishedAt": "2026-10-21T00:00:00Z"
+        },
+        {
+          "modelId": "qwen-audio-tts",
+          "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+          "title": "qwen-audio-3.1-tts-flash",
+          "publishedAt": "2026-10-12T00:00:00Z"
+        }
+      ],
       "primaryDegraded": false,
       "id": "alibaba-model-studio",
       "name": "阿里云百炼新模型目录",
@@ -1427,12 +1793,12 @@
       ],
       "active": true,
       "official": true,
-      "checkedAt": "2026-11-26T17:35:44Z",
-      "lastSuccessAt": "2026-11-26T17:35:44Z",
+      "checkedAt": "2026-11-26T17:40:48Z",
+      "lastSuccessAt": "2026-11-26T17:40:48Z",
       "itemCount": 80,
       "latestItemAt": "2026-11-23T00:00:00Z",
       "resultStatus": "matched",
-      "lastMatchAt": "2026-11-26T17:35:44Z",
+      "lastMatchAt": "2026-11-26T17:40:48Z",
       "error": null
     }
   ]

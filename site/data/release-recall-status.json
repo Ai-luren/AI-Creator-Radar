@@ -1,35 +1,36 @@
 {
-  "checkedAt": "2026-11-26T17:35:51.962792+00:00",
+  "checkedAt": "2026-11-26T17:41:00.713734+00:00",
   "sampleReviewedAt": "2026-11-27",
   "sampleScope": "Fixed purposive sample of official dated model announcements, independently inspected; not exhaustive or random. One sample per publication event, including multiple models in a single event.",
-  "collectorCheckedAt": "2026-11-26T17:35:44Z",
+  "collectorCheckedAt": "2026-11-26T17:40:48Z",
+  "directObservationMethod": "raw-source-observations",
   "allSample": {
     "events": 8,
     "discovered": 5,
     "retainedDated": 4,
-    "currentDated": 3,
-    "recoveredDated": 1,
+    "currentDated": 4,
+    "recoveredDated": 2,
     "endToEndDated": 5,
     "canonicalComplete": 8,
     "dateConflicts": 1
   },
-  "recoveryCheckedAt": "2026-11-26T17:35:51+00:00",
+  "recoveryCheckedAt": "2026-11-26T17:41:00+00:00",
   "recoverySummary": {
-    "uniqueOfficialUrls": 23,
+    "uniqueOfficialUrls": 24,
     "attempted": 1,
     "articleDateVerified": 6,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
-    "unresolved": 11,
+    "unresolved": 12,
     "notAnnouncement": 2,
-    "weakCandidateDatesCorrected": 5
+    "weakCandidateDatesCorrected": 10
   },
   "activeWindow": {
     "events": 8,
     "discovered": 5,
     "retainedDated": 4,
-    "currentDated": 3,
-    "recoveredDated": 1,
+    "currentDated": 4,
+    "recoveredDated": 2,
     "endToEndDated": 5,
     "canonicalComplete": 8,
     "dateConflicts": 1
@@ -79,12 +80,12 @@
       "sourceUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-2"
       ],
-      "outcome": "date-mismatch",
+      "outcome": "current-dated",
       "actualDates": [
         "2026-10-18"
       ],
       "dateConflict": true,
-      "currentDated": false,
+      "currentDated": true,
       "retainedDated": false,
       "discovered": true,
       "canonicalComplete": true,
@@ -149,9 +150,9 @@
       "id": "kling-image-40",
       "modelFamilyId": "kling-image",
       "eventDate": "2026-11-18",
-      "recoveredDated": false,
+      "recoveredDated": true,
       "endToEndDated": true,
-      "recoveryFirstVerifiedLagDays": null,
+      "recoveryFirstVerifiedLagDays": 8,
       "modelNames": [
         "Kling Image 4.0"
       ],

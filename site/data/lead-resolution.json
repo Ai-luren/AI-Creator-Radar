@@ -1,37 +1,35 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-26T17:35:51+00:00",
+  "checkedAt": "2026-11-26T17:41:00+00:00",
   "summary": {
-    "uniqueOfficialUrls": 23,
+    "uniqueOfficialUrls": 24,
     "attempted": 1,
     "articleDateVerified": 6,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
-    "unresolved": 11,
+    "unresolved": 12,
     "notAnnouncement": 2,
-    "weakCandidateDatesCorrected": 5
+    "weakCandidateDatesCorrected": 10
   },
   "items": [
     {
-      "id": "recovery-ef204f120a474233f3b1",
-      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-argon",
-      "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "id": "recovery-fe219a0393bdd31ef20b",
+      "urlKey": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+      "url": "https://elevenlabs.io/blog/scribe-v3-live-medical",
       "leadIds": [
-        "df061245b8654b5b5e73"
+        "e6ff391f26f70e890f23"
       ],
       "discoverySourceIds": [
-        "local-official-candidates"
+        "elevenlabs-archive-rss"
       ],
       "reportedDates": [
-        "2026-10-13"
+        "2026-11-17"
       ],
-      "checkedAt": "2026-11-26T17:35:51+00:00",
-      "firstAttemptAt": "2026-11-26T17:35:51+00:00",
+      "checkedAt": "2026-11-26T17:41:00+00:00",
+      "firstAttemptAt": "2026-11-26T17:41:00+00:00",
       "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:35:51+00:00",
-      "status": "date-unresolved",
-      "title": "Gemini 4 Argon",
-      "modelId": "gemini"
+      "nextAttemptAt": "2026-11-26T18:41:00+00:00",
+      "status": "identity-unresolved"
     },
     {
       "id": "recovery-be0aed2f51056a6d6c6f",
@@ -512,6 +510,27 @@
       "nextAttemptAt": "2026-11-26T18:23:36+00:00",
       "status": "family-unresolved",
       "title": "Introducing Grok Voice 3.0"
+    },
+    {
+      "id": "recovery-ef204f120a474233f3b1",
+      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-argon",
+      "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "leadIds": [
+        "df061245b8654b5b5e73"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-10-13"
+      ],
+      "checkedAt": "2026-11-26T17:35:51+00:00",
+      "firstAttemptAt": "2026-11-26T17:35:51+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:35:51+00:00",
+      "status": "date-unresolved",
+      "title": "Gemini 4 Argon",
+      "modelId": "gemini"
     }
   ],
   "candidateDateCorrections": [
@@ -534,10 +553,40 @@
       "proofId": "recovery-5b4c18faabadfb3802c4"
     },
     {
-      "updateId": "a41a8b12f7a3ba35ab",
-      "previousDate": "2026-11-18T00:00:00Z",
-      "articleDate": "2026-11-17T17:56:46Z",
-      "proofId": "recovery-22d3b928da2e6e05e221"
+      "updateId": "8b5c61eca875dc73fd",
+      "previousDate": null,
+      "articleDate": "2026-09-09T15:10:20Z",
+      "proofId": "recovery-7ecefc6567b5334dd990"
+    },
+    {
+      "updateId": "c9a9fe2d0a86aa3c1f",
+      "previousDate": null,
+      "articleDate": "2026-03-26T17:21:00Z",
+      "proofId": "recovery-729b5981c11c6f6a048a"
+    },
+    {
+      "updateId": "07cf0ba0dee97f17f2",
+      "previousDate": null,
+      "articleDate": "2025-09-23T18:17:00Z",
+      "proofId": "recovery-438533b2a7fab7e7ef95"
+    },
+    {
+      "updateId": "seedance-25-20261116",
+      "previousDate": "2026-11-16T00:00:00Z",
+      "articleDate": "2026-07-31T00:00:00Z",
+      "proofId": "recovery-f58d44a1f0031867aa29"
+    },
+    {
+      "updateId": "f58d44a1f0031867aa",
+      "previousDate": "2026-11-16T00:00:00Z",
+      "articleDate": "2026-07-31T00:00:00Z",
+      "proofId": "recovery-f58d44a1f0031867aa29"
+    },
+    {
+      "updateId": "839af1e97986262326",
+      "previousDate": "2026-11-16T00:00:00Z",
+      "articleDate": "2026-07-31T00:00:00Z",
+      "proofId": "recovery-f58d44a1f0031867aa29"
     },
     {
       "updateId": "b6edf533d574346e9f",
