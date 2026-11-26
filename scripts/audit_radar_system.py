@@ -40,7 +40,10 @@ def inspect(data, config, now):
     monitor=data.get("monitor",{})
     coverage=monitor.get("effectiveCoverage",{})
     recall=data.get("recall",{}).get("activeWindow",{})
+    evidence_queue = sorted((g for g in report["gaps"] if g["reviewKind"] == "release-source-review"),
+                            key=lambda g: (g["category"] not in {"video", "image"}, g["vendor"], g["modelFamilyId"], g["modelVersionId"]))
     return {"schema":"radar-system-audit/v1","checkedAt":now.isoformat(),"errors":errors,
+            "releaseEvidenceReview": evidence_queue,
             "counts":{"families":report["families"],"versions":report["versions"],"chronicleNodes":report["chronicleNodes"],
                       "missingEvidence":report["missingEvidence"],"formalReleaseEvidenceGaps":report["gapKinds"].get("release-source-review",0),
                       "confirmedRecentReleases":len(digest.get("items",[])),"pendingRecentCandidates":len(digest.get("pending",[])),

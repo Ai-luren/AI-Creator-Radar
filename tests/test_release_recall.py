@@ -56,3 +56,9 @@ class ReleaseRecallTests(unittest.TestCase):
             self.assertTrue(non_release_title(title))
             self.assertFalse(is_release_candidate(title, "2026-11-23"))
         self.assertTrue(is_release_candidate("Introducing Demo 3", "2026-11-23"))
+
+
+    def test_research_label_date_requires_matching_heading(self):
+        page = '<span>2026-11-23 · Research</span><h1>GLM-5.4: New architecture</h1>'
+        self.assertEqual(article_publication_date(page, "GLM-5.4: New architecture", leading_date=True)[:10], "2026-11-23")
+        self.assertIsNone(article_publication_date(page, "GLM-5.3", leading_date=True))

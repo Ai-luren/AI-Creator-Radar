@@ -731,6 +731,11 @@
         "articleId": 32199405667853,
         "articleUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
       }
+    ],
+    "articleDateCheck": true,
+    "articleHosts": [
+      "nijijourney.com",
+      "www.nijijourney.com"
     ]
   },
   {
@@ -1137,12 +1142,22 @@
     "titleModelOnly": true,
     "articleDateCheck": true,
     "articleHosts": [
-      "z.ai"
+      "z.ai",
+      "autoclaw.z.ai"
     ],
     "modelMatches": {
       "glm": [
         "re:\\bGLM[- ]\\d+(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "fallbackEndpoints": [
+      {
+        "url": "https://autoclaw.z.ai/en/blog/model/",
+        "type": "html",
+        "updateType": "model-card",
+        "titleModelOnly": true
+      }
+    ],
+    "fallbackOnZeroMatch": true
   }
 ]

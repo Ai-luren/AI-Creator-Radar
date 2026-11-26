@@ -48,3 +48,8 @@
 ## 生产采集与证据闭环
 
 定时及 Cloudflare 补采共用 GitHub Actions，不另造发布记录。官方发现、双源正式核验、跨平台线索恢复、近 30 天派生视图和历史关联均保留各自证据与时间语义。自动恢复候选不等于正式首发；明确不满足双源规则时保留待复核。运行健康见 scheduler-health.json / collection-health.json，实际覆盖和固定样本召回见 model-monitor-status.json / release-recall-status.json / system-audit.json。样本命中与全量召回不同；失败退避不修改发布日期或上次成功时间。重建现有派生视图使用 `python3 scripts/preflight.py --repair-digest`，不为通过验证而前移窗口。
+
+
+## 失效源与待审证据（2026-11-27）
+
+官方入口 403/404 以有界退避处理，备用目录是独立候选，服务集成不等于首次发布。正式证据缺口由 system-audit.json 的 releaseEvidenceReview 列出，可据实际候选链接逐项复核。采集故障不修改发布日期，不将相同公告的翻译或镜像当独立证据。
