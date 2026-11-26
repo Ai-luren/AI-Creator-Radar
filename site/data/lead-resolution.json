@@ -1,9 +1,9 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-26T23:17:34+00:00",
+  "checkedAt": "2026-11-26T23:32:42+00:00",
   "summary": {
     "uniqueOfficialUrls": 27,
-    "attempted": 10,
+    "attempted": 3,
     "articleDateVerified": 7,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
@@ -626,10 +626,10 @@
       "reportedDates": [
         "2026-10-26"
       ],
-      "checkedAt": "2026-11-26T19:18:17+00:00",
+      "checkedAt": "2026-11-26T23:32:42+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 3,
-      "nextAttemptAt": "2026-11-26T23:18:17+00:00",
+      "consecutiveUnresolved": 4,
+      "nextAttemptAt": "2026-11-27T07:32:42+00:00",
       "status": "date-unresolved",
       "title": "GPT-6.1Terra",
       "modelId": "gpt"
@@ -651,10 +651,10 @@
       "reportedDates": [
         "2026-10-14"
       ],
-      "checkedAt": "2026-11-26T19:18:17+00:00",
+      "checkedAt": "2026-11-26T23:32:42+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 3,
-      "nextAttemptAt": "2026-11-26T23:18:17+00:00",
+      "consecutiveUnresolved": 4,
+      "nextAttemptAt": "2026-11-27T07:32:42+00:00",
       "status": "family-unresolved",
       "title": "Introducing Grok Voice 3.0",
       "articlePublishedAt": "2026-10-14T00:00:00Z",
@@ -677,10 +677,10 @@
       "reportedDates": [
         "2026-10-13"
       ],
-      "checkedAt": "2026-11-26T19:18:17+00:00",
+      "checkedAt": "2026-11-26T23:32:42+00:00",
       "firstAttemptAt": "2026-11-26T17:35:51+00:00",
-      "consecutiveUnresolved": 3,
-      "nextAttemptAt": "2026-11-26T23:18:17+00:00",
+      "consecutiveUnresolved": 4,
+      "nextAttemptAt": "2026-11-27T07:32:42+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Argon",
       "modelId": "gemini"
