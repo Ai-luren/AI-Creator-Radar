@@ -1,0 +1,122 @@
+{
+  "schema": "cross-platform-discovery/v1",
+  "description": "Auxiliary discovery only. External feed dates and model repository creation dates are never release evidence. Fetch only fixed public endpoints.",
+  "sources": [
+    {
+      "id": "turing-anthropic-feed",
+      "name": "Alan Turing Institute · Anthropic RSS",
+      "type": "rss",
+      "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/anthropic-news.xml",
+      "project": "https://github.com/alan-turing-institute/ai-rss-feeds"
+    },
+    {
+      "id": "olshansk-anthropic-feed",
+      "name": "Olshansk · Anthropic RSS",
+      "type": "rss",
+      "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
+      "project": "https://github.com/Olshansk/rss-feeds"
+    },
+    {
+      "id": "llm-world-feed",
+      "name": "LLM World · 开源发布记录 RSS",
+      "type": "rss",
+      "url": "https://mayoorrnikam.github.io/llm-world/feed.xml",
+      "project": "https://github.com/mayoorrnikam/llm-world"
+    },
+    {
+      "id": "llm-releases-feed",
+      "name": "LLM Releases · 发布跟踪 RSS",
+      "type": "rss",
+      "url": "https://www.llm-releases.com/feed.xml"
+    },
+    {
+      "id": "rsshub-anthropic",
+      "name": "RSSHub · Anthropic News",
+      "type": "rss",
+      "url": "https://rsshub.app/anthropic/news",
+      "project": "https://github.com/DIYgod/RSSHub"
+    },
+    {
+      "id": "hf-zai",
+      "name": "Hugging Face · Z.ai 官方账号",
+      "type": "hf-models",
+      "author": "zai-org",
+      "url": "https://huggingface.co/api/models?author=zai-org&sort=createdAt&direction=-1&limit=20"
+    },
+    {
+      "id": "hf-deepseek",
+      "name": "Hugging Face · DeepSeek 官方账号",
+      "type": "hf-models",
+      "author": "deepseek-ai",
+      "url": "https://huggingface.co/api/models?author=deepseek-ai&sort=createdAt&direction=-1&limit=20"
+    },
+    {
+      "id": "hf-qwen",
+      "name": "Hugging Face · Qwen 官方账号",
+      "type": "hf-models",
+      "author": "Qwen",
+      "url": "https://huggingface.co/api/models?author=Qwen&sort=createdAt&direction=-1&limit=20"
+    },
+    {
+      "id": "hf-tencent",
+      "name": "Hugging Face · 腾讯官方账号",
+      "type": "hf-models",
+      "author": "tencent",
+      "url": "https://huggingface.co/api/models?author=tencent&sort=createdAt&direction=-1&limit=20"
+    }
+  ],
+  "officialArticleHosts": {
+    "www.anthropic.com": [
+      "/news/",
+      "/claude-"
+    ],
+    "anthropic.com": [
+      "/news/",
+      "/claude-"
+    ],
+    "z.ai": [
+      "/blog/"
+    ],
+    "elevenlabs.io": [
+      "/blog/",
+      "/zh/blog/"
+    ],
+    "kling.ai": [
+      "/blog/"
+    ],
+    "nijijourney.com": [
+      "/blog/",
+      "/en/blog/",
+      "/zh/blog/"
+    ],
+    "openai.com": [
+      "/index/"
+    ],
+    "blog.google": [
+      "/innovation-and-ai/"
+    ],
+    "seed.bytedance.com": [
+      "/zh/blog/",
+      "/en/blog/"
+    ],
+    "sand.ai": [
+      "/blog/"
+    ],
+    "qwen.ai": [
+      "/blog"
+    ],
+    "x.ai": [
+      "/news/"
+    ],
+    "www.minimax.io": [
+      "/blog/"
+    ],
+    "minimax.cn": [
+      "/blog/"
+    ],
+    "pixverse.ai": [
+      "/en/blog/",
+      "/zh/blog/"
+    ]
+  }
+}
