@@ -538,36 +538,59 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .news-source-details>div{padding:10px 0;border-bottom:1px solid var(--line)}.news-source-details small{display:block;font-size:12px;margin-top:3px}.news-source-details a{display:inline-block;margin:4px 12px 0 0;color:var(--blue);font-size:12px}
 @media(max-width:1180px){.overview-category-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.overview-category-grid{gap:6px}.overview-category{padding:10px 8px;min-height:44px}.overview-category strong{font-size:16px}.overview-source{min-height:48px}}
+.desktop-nav-toggle{display:none}
+.nav-group-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;border:0;background:transparent;text-align:left;padding:6px 10px 8px;cursor:pointer;min-height:30px}
+.nav-group-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.nav-group-toggle[aria-expanded="false"] svg{transform:rotate(-90deg)}
+.nav-group.group-closed .nav{display:none}
+.nav-group-toggle:hover{color:var(--ink)}
+@media(min-width:761px){
+ .desktop-nav-toggle{display:grid;place-items:center;flex:none;width:36px;height:36px;border:1px solid var(--line);border-radius:var(--radius-control);background:var(--paper);color:var(--muted);cursor:pointer}
+ .desktop-nav-toggle svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+ .desktop-nav-toggle:hover{color:var(--blue);background:var(--blue2)}
+ :root.nav-compact{--side:64px}.nav-compact .sidebar{padding:16px 9px}.nav-compact .brand{padding:4px 0 20px;justify-content:center}.nav-compact .brand-copy,.nav-compact .nav-text,.nav-compact .nav-group-toggle,.nav-compact .side-foot{display:none}
+ .nav-compact .nav-group.group-closed .nav{display:flex}.nav-compact .nav-group{margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}.nav-compact .nav button{justify-content:center;padding:10px 0;min-height:44px}
+ .nav-compact .desktop-nav-toggle svg{transform:scaleX(-1)}
+}
+@media(max-width:760px){.nav-group-toggle{min-height:44px}}
+.overview-section-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}.overview-section-heading h2{font-size:var(--text-section);margin:0}.overview-section-heading span{font-size:var(--text-meta);color:var(--muted)}
+.overview-module-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-bottom:18px}
+.overview-module{min-width:0;display:flex;align-items:center;gap:10px;padding:13px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-card);color:var(--ink);text-align:left;cursor:pointer}
+.overview-module:hover{border-color:var(--blueLine);background:var(--blue2)}.overview-module-icon{display:grid;place-items:center;flex:none;width:32px;height:32px;background:var(--blue2);border-radius:9px;color:var(--blue)}.overview-module-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.overview-module-copy{min-width:0;flex:1}.overview-module-copy strong,.overview-module-copy small{display:block;overflow-wrap:anywhere}.overview-module-copy strong{font-size:14px;font-weight:650}.overview-module-copy small{font-size:12px;color:var(--muted);line-height:1.5}.overview-module-copy .overview-module-count{color:var(--blue);font-variant-numeric:tabular-nums}.overview-module-arrow{font-size:20px;color:var(--muted)}
+.overview-dashboard{margin-bottom:20px}
+@media(max-width:1100px){.overview-module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.overview-module-grid{gap:7px}.overview-module{padding:10px;gap:8px;min-height:74px}.overview-module-icon{width:26px;height:26px}.overview-module-arrow{display:none}.overview-module-copy small{font-size:11px}}
 </style>
 </head>
 <body>
 <div class="app">
 <button type="button" class="nav-backdrop" id="navBackdrop" aria-label="关闭导航" tabindex="-1" hidden></button>
 <aside class="sidebar" id="sidebar">
-  <div class="brand"><div class="brand-mark"><img src="assets/creator-avatar.jpg" alt="Ai路人头像"></div><div><div class="brand-name">AI视频创作台</div></div><button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="关闭导航">×</button></div>
+  <div class="brand"><div class="brand-mark"><img src="assets/creator-avatar.jpg" alt="Ai路人头像"></div><div class="brand-copy"><div class="brand-name">AI视频创作台</div></div><button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="关闭导航">×</button></div>
   <div class="nav-scroll">
-    <section class="nav-group"><div class="nav-label">每日追踪</div><nav class="nav" aria-label="每日追踪">
-      <button class="active" data-view="overview" aria-current="page"><span class="nav-icon" data-icon="grid"></span>今日概览</button>
-      <button data-view="today"><span class="nav-icon" data-icon="brain"></span>近期上新</button>
-      <button data-view="feeds"><span class="nav-icon" data-icon="book"></span>行业简报</button>
-      <button data-view="social"><span class="nav-icon" data-icon="megaphone"></span>官方账号监控</button>
+    <section class="nav-group" data-nav-group="daily"><button type="button" class="nav-label nav-group-toggle" data-nav-group-toggle="daily" aria-controls="nav-daily" aria-expanded="true"><span>每日追踪</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button><nav class="nav" id="nav-daily" aria-label="每日追踪">
+      <button class="active" data-view="overview" aria-current="page" aria-label="今日概览" title="今日概览"><span class="nav-icon" data-icon="grid"></span><span class="nav-text">今日概览</span></button>
+      <button data-view="today" aria-label="近期上新" title="近期上新"><span class="nav-icon" data-icon="brain"></span><span class="nav-text">近期上新</span></button>
+      <button data-view="feeds" aria-label="行业简报" title="行业简报"><span class="nav-icon" data-icon="book"></span><span class="nav-text">行业简报</span></button>
+      <button data-view="social" aria-label="官方账号监控" title="官方账号监控"><span class="nav-icon" data-icon="megaphone"></span><span class="nav-text">官方账号监控</span></button>
     </nav></section>
-    <section class="nav-group"><div class="nav-label">模型研究</div><nav class="nav" aria-label="模型研究">
-      <button data-view="models"><span class="nav-icon" data-icon="layers"></span>模型库</button>
-      <button data-view="rankings"><span class="nav-icon" data-icon="chart"></span>能力榜单</button>
-      <button data-view="topics"><span class="nav-icon" data-icon="grid"></span>厂商发展史</button>
+    <section class="nav-group" data-nav-group="research"><button type="button" class="nav-label nav-group-toggle" data-nav-group-toggle="research" aria-controls="nav-research" aria-expanded="true"><span>模型研究</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button><nav class="nav" id="nav-research" aria-label="模型研究">
+      <button data-view="models" aria-label="模型库" title="模型库"><span class="nav-icon" data-icon="layers"></span><span class="nav-text">模型库</span></button>
+      <button data-view="rankings" aria-label="能力榜单" title="能力榜单"><span class="nav-icon" data-icon="chart"></span><span class="nav-text">能力榜单</span></button>
+      <button data-view="topics" aria-label="厂商发展史" title="厂商发展史"><span class="nav-icon" data-icon="grid"></span><span class="nav-text">厂商发展史</span></button>
     </nav></section>
-    <section class="nav-group"><div class="nav-label">创作资源</div><nav class="nav" aria-label="创作资源">
-      <button data-view="practice"><span class="nav-icon" data-icon="video"></span>教程与案例</button>
-      <button data-view="opportunities"><span class="nav-icon" data-icon="grid"></span>创作机会</button>
-      <button data-view="platforms"><span class="nav-icon" data-icon="wand"></span>创作工具</button>
+    <section class="nav-group" data-nav-group="resources"><button type="button" class="nav-label nav-group-toggle" data-nav-group-toggle="resources" aria-controls="nav-resources" aria-expanded="true"><span>创作资源</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></button><nav class="nav" id="nav-resources" aria-label="创作资源">
+      <button data-view="practice" aria-label="教程与案例" title="教程与案例"><span class="nav-icon" data-icon="video"></span><span class="nav-text">教程与案例</span></button>
+      <button data-view="opportunities" aria-label="创作机会" title="创作机会"><span class="nav-icon" data-icon="grid"></span><span class="nav-text">创作机会</span></button>
+      <button data-view="platforms" aria-label="创作工具" title="创作工具"><span class="nav-icon" data-icon="wand"></span><span class="nav-text">创作工具</span></button>
     </nav></section>
   </div>
   <div class="side-foot">个人创作工作台<br>发现动态 · 研究模型 · 使用创作工具</div>
 </aside>
 <main class="main">
   <header class="topbar">
-    <div style="display:flex;align-items:center;gap:10px;min-width:0"><button type="button" class="mobile-menu" id="mobileMenu" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false">☰</button><div class="crumb">AI视频创作台 <span style="color:#b1bac2"> / </span><strong id="crumbTitle">今日概览</strong></div></div>
+    <div style="display:flex;align-items:center;gap:10px;min-width:0"><button type="button" class="desktop-nav-toggle" id="desktopNavToggle" aria-label="收起侧边栏" aria-controls="sidebar" aria-expanded="true" title="收起侧边栏"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16m6-12-3 3 3 3"/></svg></button><button type="button" class="mobile-menu" id="mobileMenu" aria-label="打开导航" aria-controls="sidebar" aria-expanded="false">☰</button><div class="crumb">AI视频创作台 <span style="color:#b1bac2"> / </span><strong id="crumbTitle">今日概览</strong></div></div>
     <div class="top-right"><button type="button" class="global-search-trigger" id="globalSearchTrigger" aria-label="打开全局搜索"><span>全局搜索</span><kbd>⌘K</kbd></button><label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="searchInput" type="search" aria-label="筛选当前页面" placeholder="筛选当前页面…"></label></div>
   </header>
   <section class="content" id="content"><div class="empty">正在加载工作台数据…</div></section>
@@ -911,8 +934,7 @@ function overviewSummary(now){
  return {confirmed:confirmed,pending:pending,pendingDated:pending.filter(function(x){return !!x.publishedAt}).length,pendingUndated:pending.filter(function(x){return !x.publishedAt}).length,selected:selected};
 }
 function overviewPage(){
- var now=new Date(),today=chinaDay(now),summary=overviewSummary(now),releaseData=state.modelReleaseData,monitor=state.modelMonitorStatus;
- var confirmed=summary.confirmed.filter(releaseEventMatches),allRecent=summary.confirmed;
+ var now=new Date(),today=chinaDay(now),summary=overviewSummary(now),releaseData=state.modelReleaseData,monitor=state.modelMonitorStatus,allRecent=summary.confirmed;
  var releaseMissing=!releaseData||!Array.isArray(releaseData.items),dataDate=releaseData&&releaseData.windowEnd,releaseStale=!!dataDate&&dataDate<today;
  var failed=Object.keys(state.dataErrors).filter(function(k){return ['model-releases-30d.json','model-monitor-status.json','aihot-items.json','aihot-daily.json','juya-daily.json'].includes(k)});
  function action(view,label,attrs){return '<button type="button" class="overview-link" data-view="'+view+'" '+(attrs||'')+'>'+esc(label)+' →</button>'}
@@ -920,28 +942,33 @@ function overviewPage(){
  function sourceLink(url,label){return safeUrl(url)!=='#'?'<a class="overview-row-link" href="'+safeUrl(url)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+' ↗</a>':''}
  function panel(title,sub,rows,button,emptyText){return '<section class="overview-panel"><header class="overview-panel-head"><div><h2>'+esc(title)+'</h2><p>'+esc(sub)+'</p></div>'+button+'</header><div class="overview-list">'+(rows||'<p class="overview-empty">'+esc(emptyText)+'</p>')+'</div></section>'}
  var categories=['video','image','music','tts','audio','llm'];
- var counts=categories.map(function(c){var count=allRecent.filter(function(x){return x.category===c}).length;return '<button class="overview-category" data-view="today" data-release-target="'+c+'" data-release-mode-target="confirmed"><span>'+esc(categoryName(c))+'</span><strong>'+count+'</strong></button>'}).join('');
- // Limit each category to avoid one field occupying the entire home page.
- var seen={};var shown=confirmed.filter(function(x){var c=x.category,limit=c==='llm'?3:c==='video'||c==='image'?3:2;seen[c]=(seen[c]||0)+1;return seen[c]<=limit});
- var recentRows=shown.map(function(x){return row(x.modelName,[overviewDateLabel(x.publishedAt),categoryName(x.category),x.vendor].join(' · '),x.versions.length>1?x.versions.length+' 个型号 · '+x.summary:x.summary,sourceLink(x.url,'官方证据'))}).join('');
+ var counts=categories.map(function(c){var count=allRecent.filter(function(x){return x.category===c}).length;return '<button class="overview-category" data-view="today" data-release-target="'+c+'" data-release-mode-target="confirmed"><span>'+esc(categoryName(c))+'</span><strong>'+esc(releaseMissing?'—':count)+'</strong></button>'}).join('');
+ var confirmed=allRecent.filter(releaseEventMatches),seen={},shortlist=confirmed.filter(function(x){var c=x.category;seen[c]=(seen[c]||0)+1;return seen[c]<=1}).slice(0,4);
+ if(shortlist.length<4)shortlist=shortlist.concat(confirmed.filter(function(x){return !shortlist.includes(x)}).slice(0,4-shortlist.length));
+ var recentRows=shortlist.map(function(x){return row(x.modelName,[overviewDateLabel(x.publishedAt),categoryName(x.category),x.vendor].join(' · '),x.versions.length>1?x.versions.length+' 个型号':'',sourceLink(x.url,'证据'))}).join('');
  var confirmedUrls=new Set(allRecent.flatMap(function(e){return e.versions.map(function(v){return newsUrlKey(v.url)})}).filter(Boolean));
  var news=combinedNews().filter(newsMatches).filter(function(e){return !e.keys.some(function(k){return k.startsWith('url:')&&confirmedUrls.has(k.slice(4))})});
- var ranked=news.slice().sort(function(a,b){return b.day.localeCompare(a.day)||a.priority-b.priority||a.title.localeCompare(b.title,'zh-CN')});
- var featured=ranked.slice(0,8),newsRows=featured.map(function(x){var first=newsEventLinks(x)[0];return row(x.title,[x.day||'日期待确认',x.category,newsEventSourceLine(x)].join(' · '),'',first?sourceLink(first.url,'来源'):'')}).join('');
- var sourceRows=[['aihot','AIHOT 日报',state.aihotDaily],['juya','橘鸦 AI 早报',state.juyaDaily],['selected','AIHOT 精选',{items:(state.aihot.items||[]).filter(function(x){return x.selected===true}),fetchedAt:state.aihot.updatedAt}]].map(function(x){
-  var day=briefIssueDay(x[2]),count=(x[2].items||[]).length,status=day?(day===today?'今日刊期 '+day:'最近刊期 '+day):'最近抓取 '+overviewTime(x[2].fetchedAt);
-  return '<button class="overview-source" data-view="feeds" data-briefing-target="'+x[0]+'"><span><strong>'+esc(x[1])+'</strong><small>'+esc(status)+'</small></span><span>'+count+' 条 →</span></button>'
- }).join('');
+ var featured=news.slice(0,4),newsRows=featured.map(function(x){var first=newsEventLinks(x)[0];return row(x.title,[x.day||'日期待确认',x.category,x.sources.length+' 类来源'].join(' · '),'',first?sourceLink(first.url,'来源'):'')}).join('');
+ var modules=[
+ ['today','近期上新','按发布事件浏览最新模型','brain',releaseMissing?'待加载':allRecent.length+' 个近期事件','data-release-target="all" data-release-mode-target="confirmed"'],
+ ['feeds','行业简报','综合资讯、原始日报与精选','book',combinedNews().length+' 个资讯事件','data-briefing-target="combined"'],
+ ['social','官方账号监控','查品牌账号、平台和官方动态','megaphone','',''],
+ ['models','模型库','具体型号、版本与官方证据','layers','',''],
+ ['rankings','能力榜单','按创作任务比较模型表现','chart','',''],
+ ['topics','厂商发展史','回顾厂商与模型关键演进','grid','',''],
+ ['practice','教程与案例','学习官方案例、教程和提示词','video','',''],
+ ['opportunities','创作机会','比赛与 CPP 合作计划','spark','',''],
+ ['platforms','创作工具','访问常用 AI 创作平台','wand','','']
+ ];
+ var directory=modules.map(function(x){return '<button class="overview-module" data-view="'+x[0]+'" '+x[5]+'><span class="overview-module-icon">'+icon(x[3])+'</span><span class="overview-module-copy"><strong>'+esc(x[1])+'</strong><small>'+esc(x[2])+'</small>'+(x[4]?'<small class="overview-module-count">'+esc(x[4])+'</small>':'')+'</span><span class="overview-module-arrow" aria-hidden="true">›</span></button>'}).join('');
  var monitorAge=monitor?(now.getTime()-Date.parse(monitor.checkedAt))/3600000:Infinity,monitorStale=!Number.isFinite(monitorAge)||monitorAge<0||monitorAge>2;
- return pageHead('今日概览','模型发布与行业重点速览；日期以现有来源记录为准。','北京时间 '+esc(today))+
+ return pageHead('今日概览','发现重要变化，快速进入模型研究与创作资源。','北京时间 '+esc(today))+
  (failed.length?'<p class="overview-notice" role="status">部分概览数据未加载，以下内容可能不完整。请刷新重试。</p>':'')+
  (releaseStale?'<p class="overview-notice">发布清单截止 '+esc(dataDate)+'，并非今日完整数据。</p>':'')+
- '<div class="overview-category-grid" aria-label="近七天发布事件计数">'+counts+'</div>'+
- '<div class="overview-grid overview-dashboard"><div class="overview-column">'+panel('模型发布','近 7 天 · '+allRecent.length+' 个事件 · 创作优先',recentRows,action('today','全部上新','data-release-target="all" data-release-mode-target="confirmed"'),releaseMissing?'发布数据暂不可用。':'近 7 天暂无符合条件的已核实发布证据。')+
- '<p class="overview-note">类别为零表示当前证据清单缺口，不代表没有新模型。每类精选展示，其余见完整上新。</p></div><div class="overview-column">'+panel('重点 AI 资讯','现有三类来源 · 事件归并 · 显示 '+featured.length+' / '+news.length+' 个',newsRows,action('feeds','完整资讯','data-briefing-target="combined"'),'暂无可展示的资讯。')+
- '<section class="overview-panel"><div class="overview-panel-head"><h2>完整日报与精选</h2></div><div class="overview-sources">'+sourceRows+'</div></section></div></div>'+
- '<div class="overview-destination"><button class="overview-link" data-view="opportunities">创作比赛与 CPP →</button><button class="overview-link" data-view="models">模型库 →</button><button class="overview-link" data-view="rankings">能力榜单 →</button></div>'+
- '<details class="source-health"><summary>数据状态 · '+(monitorStale?'信源检查延迟':'最近检查 '+esc(overviewTime(monitor.checkedAt)))+'</summary><p>发布清单生成 '+esc(overviewTime(releaseData&&releaseData.updatedAt))+' · '+(monitor?Number(monitor.failedSources||0)+' 个采集异常':'检查状态暂不可用')+'；待复核不计入正式事件。</p>'+action('today','查看待复核 '+summary.pending.length+' 条','data-release-target="all" data-release-mode-target="pending"')+'</details>'+
+ '<div class="overview-section-heading"><h2>近 7 天 · 模型发布</h2><span>已核实事件数</span></div><div class="overview-category-grid" aria-label="近七天发布事件计数">'+counts+'</div>'+
+ '<div class="overview-grid overview-dashboard"><div class="overview-column">'+panel('模型重点','各类别优先 · 最多 4 个发布事件',recentRows,action('today','全部上新','data-release-target="all" data-release-mode-target="confirmed"'),releaseMissing?'发布数据暂不可用。':'近 7 天暂无符合条件的已核实发布证据。')+'</div><div class="overview-column">'+panel('重点 AI 资讯','近期报道 · 最多 4 个资讯事件',newsRows,action('feeds','完整资讯','data-briefing-target="combined"'),'暂无可展示的资讯。')+'</div></div>'+
+ '<div class="overview-section-heading"><h2>探索工作台</h2><span>9 个功能入口</span></div><div class="overview-module-grid">'+directory+'</div>'+
+ '<details class="source-health"><summary>数据状态 · '+(monitorStale?'信源检查延迟':'最近检查 '+esc(overviewTime(monitor.checkedAt)))+'</summary><p>发布清单生成 '+esc(overviewTime(releaseData&&releaseData.updatedAt))+' · '+(monitor?Number(monitor.failedSources||0)+' 个采集异常':'检查状态暂不可用')+'；类别为零表示当前清单没有已核实证据，不代表没有新模型。待复核不计入正式事件。</p><p>AIHOT 日报刊期 '+esc(briefIssueDay(state.aihotDaily)||'待确认')+' · 橘鸦早报刊期 '+esc(briefIssueDay(state.juyaDaily)||'待确认')+'。</p>'+action('today','查看待复核 '+summary.pending.length+' 条','data-release-target="all" data-release-mode-target="pending"')+'</details>'+
  '<div class="footer"><span>本页仅整理已采集快照，不代表全网实时覆盖。</span></div>';
 }
 
@@ -1447,7 +1474,7 @@ content.addEventListener('click',function(e){
 });
 document.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&String(e.key).toLowerCase()==='k'){e.preventDefault();openGlobalSearch();return}if(document.getElementById('globalSearchDialog').open)return;var panel=content.querySelector('.model-detail-panel');if(!panel)return;if(e.key==='Escape'){closeModelDetails();return}if(e.key==='Tab'){var focusable=Array.from(panel.querySelectorAll('a[href],button:not([disabled]),[tabindex="0"]')).filter(function(x){return x.offsetParent!==null});if(!focusable.length)return;var first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}else if(!panel.contains(document.activeElement)){e.preventDefault();(e.shiftKey?last:first).focus()}}});
 content.addEventListener('change',function(e){var progress=e.target.closest('[data-creator-progress]');if(progress){try{var saved=creatorProgress();saved[progress.dataset.creatorProgress]=progress.value;localStorage.setItem('radar-creator-progress-v1',JSON.stringify(saved));progress.removeAttribute('aria-invalid')}catch(err){progress.setAttribute('aria-invalid','true');progress.insertAdjacentHTML('afterend','<span class="creator-note" role="status">本地存储不可用，未保存。</span>')}return}var select=e.target.closest('[data-model-sort]');if(select){state.modelSort=select.value;render();return}select=e.target.closest('[data-social-platform-filter]');if(select){state.socialRegion=select.value;render();return}select=e.target.closest('[data-topic-category]');if(select){state.topicCategory=select.value;render();return}});
-document.querySelectorAll('#sidebar [data-view]').forEach(function(b){b.addEventListener('click',function(){setView(b.dataset.view)})});
+document.querySelectorAll('#sidebar [data-view]').forEach(function(b){b.addEventListener('click',function(){setView(b.dataset.view);revealActiveNav()})});
 var localFilterTimer;document.getElementById('searchInput').addEventListener('input',function(e){state.query=e.target.value;clearTimeout(localFilterTimer);localFilterTimer=setTimeout(function(){render()},90)});
 document.getElementById('globalSearchTrigger').addEventListener('click',openGlobalSearch);
 document.getElementById('globalSearchClose').addEventListener('click',closeGlobalSearch);
@@ -1456,6 +1483,19 @@ document.getElementById('globalSearchDialog').addEventListener('click',function(
 document.getElementById('globalSearchInput').addEventListener('input',function(){globalActive=0;renderGlobalSearch()});
 document.getElementById('globalSearchInput').addEventListener('keydown',function(e){if(e.isComposing)return;if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();stepGlobal(e.key==='ArrowDown'?1:-1)}else if(e.key==='Enter'){e.preventDefault();selectGlobal(globalActive)}});
 if(window.addEventListener){var scrollSaveTimer;function scheduleScrollSave(){clearTimeout(scrollSaveTimer);var url=window.location.search;scrollSaveTimer=setTimeout(function(){if(url===window.location.search)saveRoute(false)},120)}window.addEventListener('popstate',function(e){clearTimeout(scrollSaveTimer);restoreNavigation(e.state)});window.addEventListener('scroll',scheduleScrollSave,{passive:true});content.addEventListener('scroll',function(e){if(e.target.matches&&e.target.matches('.model-table-wrap'))scheduleScrollSave()},{capture:true,passive:true});window.addEventListener('pagehide',function(){clearTimeout(scrollSaveTimer);saveRoute(false)});}
+var desktopNavCompact=false,navGroupClosed={};
+function loadNavPreference(){
+ try{desktopNavCompact=localStorage.getItem('radar.nav.compact')==='1';var saved=JSON.parse(localStorage.getItem('radar.nav.groups')||'{}');['daily','research','resources'].forEach(function(k){navGroupClosed[k]=saved&&saved[k]===true})}catch(e){}
+}
+function applyNavPreference(){
+ if(!mobileNavMedia)return;
+ var compact=desktopNavCompact&&!mobileNavMedia.matches,toggle=document.getElementById('desktopNavToggle');
+ document.documentElement.classList.toggle('nav-compact',compact);
+ toggle.setAttribute('aria-expanded',String(!compact));toggle.setAttribute('aria-label',compact?'展开侧边栏':'收起侧边栏');toggle.title=compact?'展开侧边栏':'收起侧边栏';
+ document.querySelectorAll('[data-nav-group]').forEach(function(g){var k=g.dataset.navGroup,closed=!compact&&!!navGroupClosed[k];g.classList.toggle('group-closed',closed);g.querySelector('[data-nav-group-toggle]').setAttribute('aria-expanded',String(!closed))});
+}
+function saveNavPreference(){try{localStorage.setItem('radar.nav.compact',desktopNavCompact?'1':'0');localStorage.setItem('radar.nav.groups',JSON.stringify(navGroupClosed))}catch(e){}}
+function revealActiveNav(){if(!mobileNavMedia)return;var active=document.querySelector('#sidebar [data-view="'+state.view+'"]'),g=active&&active.closest('[data-nav-group]');if(g&&navGroupClosed[g.dataset.navGroup]){navGroupClosed[g.dataset.navGroup]=false;saveNavPreference();applyNavPreference()}}
 var mobileNavOpen=false;
 var mobileNavMedia=typeof window.matchMedia==='function'?window.matchMedia('(max-width:760px)'):null;
 function setMobileNav(open,restore){
@@ -1478,6 +1518,8 @@ function setMobileNav(open,restore){
   if(document.activeElement!==toggle)window.requestAnimationFrame(function(){if(!mobileNavOpen&&mobileNavMedia.matches)toggle.focus({preventScroll:true})});
  }
 }
+document.getElementById('desktopNavToggle').addEventListener('click',function(){desktopNavCompact=!desktopNavCompact;saveNavPreference();applyNavPreference()});
+document.querySelectorAll('[data-nav-group-toggle]').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.navGroupToggle;navGroupClosed[k]=!navGroupClosed[k];saveNavPreference();applyNavPreference()})});
 document.getElementById('mobileMenu').addEventListener('click',function(){setMobileNav(!mobileNavOpen,true)});
 document.getElementById('mobileNavClose').addEventListener('click',function(){setMobileNav(false,true)});
 document.getElementById('navBackdrop').addEventListener('click',function(){setMobileNav(false,true)});
@@ -1490,7 +1532,7 @@ document.addEventListener('keydown',function(e){
  if(e.shiftKey&&(active===first||!controls.includes(active))){e.preventDefault();last.focus()}
  else if(!e.shiftKey&&(active===last||!controls.includes(active))){e.preventDefault();first.focus()}
 });
-if(mobileNavMedia){setMobileNav(false,false);if(mobileNavMedia.addEventListener)mobileNavMedia.addEventListener('change',function(){setMobileNav(false,false)});else mobileNavMedia.addListener(function(){setMobileNav(false,false)})}
+if(mobileNavMedia){loadNavPreference();applyNavPreference();revealActiveNav();setMobileNav(false,false);var navViewportChange=function(){setMobileNav(false,false);applyNavPreference();revealActiveNav()};if(mobileNavMedia.addEventListener)mobileNavMedia.addEventListener('change',navViewportChange);else mobileNavMedia.addListener(navViewportChange)}
 loadData().catch(function(e){if(location.protocol==='file:'){var localUrl='http://127.0.0.1:8080/';content.innerHTML='<section class="local-load-error"><h2>正在连接本机预览</h2><p>若本机预览服务已启动，页面会自动跳转；否则请双击项目根目录的启动命令打开完整页面。</p><a href="'+localUrl+'">重试打开 ↗</a></section>';fetch(localUrl,{mode:'no-cors',cache:'no-store'}).then(function(){location.replace(localUrl)}).catch(function(){}) ;return}content.innerHTML='<div class="empty">数据加载失败：'+esc(e.message)+'。请确认网络连接后刷新页面。</div>'});
 </script>
 </body>

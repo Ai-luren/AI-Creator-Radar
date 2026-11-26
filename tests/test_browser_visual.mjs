@@ -50,6 +50,18 @@ try{
    if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
    console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
   });
+  if(viewport.width===1440)await check('desktop folding navigation',async()=>{
+   await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const toggle=page.locator('#desktopNavToggle'),sidebar=page.locator('#sidebar');
+   assert.equal(await toggle.getAttribute('aria-expanded'),'true');const expanded=await sidebar.evaluate(el=>el.getBoundingClientRect().width);
+   await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');assert.ok(await sidebar.evaluate(el=>el.getBoundingClientRect().width)<expanded);
+   await page.screenshot({path:path.join(out,label+'-compact-nav.png')});
+   await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await toggle.getAttribute('aria-expanded'),'false');
+   await sidebar.locator('[data-view="models"]').click();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.evaluate(()=>state.view),'models');
+   await toggle.click();const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
+   await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await group.getAttribute('aria-expanded'),'false');await group.click();
+   assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),true);
+  });
   if(viewport.width<761)await check('mobile navigation',async()=>{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const menu=page.locator('#mobileMenu'),sidebar=page.locator('#sidebar');

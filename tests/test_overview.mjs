@@ -223,9 +223,9 @@ test('combined news merges only primary identities and preserves every report',(
  const merged=events.find(e=>e.rows.length===3);assert.equal(merged.sources.length,3);assert.equal(merged.rows.find(r=>r.source==='AIHOT 精选').day,'2026-11-24');
  assert.notEqual(run("newsUrlKey('https://example.com/notes#v1')"),run("newsUrlKey('https://example.com/notes#v2')"));
 });
-test('overview keeps full source entry points and separates review from main feed',async()=>{
+test('overview exposes all modules without duplicating raw daily feeds',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
- assert.match(markup,/重点 AI 资讯/);assert.match(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
- assert.match(markup,/data-briefing-target="combined"/);assert.match(markup,/data-briefing-target="aihot"/);assert.match(markup,/data-briefing-target="juya"/);assert.match(markup,/data-briefing-target="selected"/);
+ assert.match(markup,/重点 AI 资讯/);assert.match(markup,/探索工作台/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
+ assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds','social','models','rankings','topics','practice','opportunities','platforms'])assert.ok(markup.includes('data-view="'+view+'"'),view);
  run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
