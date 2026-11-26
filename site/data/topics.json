@@ -729,6 +729,20 @@
         "verificationUrl": "https://elevenlabs.io/docs/changelog"
       },
       {
+        "date": "2026-06-15",
+        "kind": "模型",
+        "title": "Eleven Music v2 开放 API",
+        "summary": "官方更新日志确认 music_v2 可在 API 使用；这是已证实的 API 可用日期，不推定全球首发日。",
+        "url": "https://elevenlabs.io/docs/changelog/2026/6/15",
+        "auditId": "radar-20261126-eleven-music-v2-api",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "eventStage": "api-availability"
+      },
+      {
         "date": "2025-08-05",
         "kind": "模型",
         "title": "ElevenLabs 发布 Music",
@@ -3053,6 +3067,19 @@
         ]
       },
       {
+        "date": "2024-08-31",
+        "kind": "模型",
+        "title": "MiniMax Music-01 模型发布",
+        "summary": "官方 Music-01 公告介绍伴奏与人声联合合成。此处记录该型号的公开发布，其他同日命名不重复计数。",
+        "url": "https://www.minimax.io/news/music-01",
+        "auditId": "radar-20261126-minimax-music-01",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ]
+      },
+      {
         "date": "2024-04-17",
         "kind": "模型",
         "title": "MiniMax abab6.5 系列发布：abab6.5 与 abab6.5s",
@@ -4243,6 +4270,20 @@
             "matchedName": "Suno"
           }
         ]
+      },
+      {
+        "date": "2024-05-24",
+        "kind": "模型",
+        "title": "Suno v3.5 开放付费用户早期访问",
+        "summary": "官方公告确认 Pro/Premier 早期访问，5 月 30 日的全面开放是另一阶段。",
+        "url": "https://suno.com/release-notes/v3-5-early-access-4-minute-songs",
+        "auditId": "radar-20261126-suno-v35-early",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "music"
+        ],
+        "eventStage": "early-access"
       },
       {
         "date": "2024-03-21",

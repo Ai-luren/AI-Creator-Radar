@@ -75,3 +75,10 @@ python3 scripts/validate_model_links.py
 - `releaseEvidence.evidenceType = audited-chronicle-release` 记录来自既有已确认历史节点的迁移，包含原 auditId、topic ID 与来源。此操作不等于重新打开并核实原文。
 - 厂商历史的版本引用限制为相应厂商、标题明确出现的完整名称；摘要中的旧版本对比、泛化版本号和衍生型号不能用作发布日期证据。
 - `python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.json` 检查迁移关联并输出缺口，不自动写入型号、日期或许可。缺口也可能是目录中的榜单变体或不在历史范围内的产品，不直接等于遗漏发布。
+
+
+## 谱系补齐与历史阶段
+
+- 新增历史型号不继承当前型号的许可、榜单别名或当前可用状态；未知信息保留未知。PixVerse C1 作为独立家族，不并入 V6；Hailuo 02 基础模型与具体服务档分开。
+- `historicalMilestones[]` 保存有明确证据但不能认作精确正式首发日的事件（月份精度、首次公布、Alpha/预览、早期访问、全面开放、API 可用、官方介绍）。`datePrecision` 保留原始精度；不写入 `releaseDate` 或近期正式上新。详情页单独显示阶段及证据链接。
+- 本轮新查官方来源补充 MiniMax Music-01、Eleven Music v2 的 API 可用、Suno v3.5 的早期访问三个节点；旧节点证据迁移保留原审核日期，部分重新查看的来源另标 `sourceRecheckedAt`，不假称全部重新核验。

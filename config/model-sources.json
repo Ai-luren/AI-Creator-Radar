@@ -409,6 +409,9 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "pixverse-c1": [
+        "re:\\bPixVerse\\b.{0,65}\\bC1\\b"
+      ],
       "pixverse-world": [
         "re:\\bPixVerse\\b.{0,65}\\bR\\d+(?:\\.\\d+)*\\b",
         "re:\\bPixVerse\\b.{0,65}\\b(?:world model|世界模型)\\b"
@@ -428,6 +431,9 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "pixverse-c1": [
+        "re:\\bPixVerse\\b.{0,65}\\bC1\\b"
+      ],
       "pixverse-world": [
         "re:\\bPixVerse\\b.{0,65}\\bR\\d+(?:\\.\\d+)*\\b",
         "re:\\bPixVerse\\b.{0,65}\\b(?:world model|世界模型)\\b"

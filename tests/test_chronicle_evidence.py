@@ -25,3 +25,13 @@ class ChronicleEvidenceTests(unittest.TestCase):
         report = audit(f, [], {"links": [], "vendorTopics": {}})
         self.assertEqual(report["missingEvidence"], 1)
         self.assertFalse(report["gaps"][0]["hasDate"])
+
+
+class HistoricalMilestoneTests(unittest.TestCase):
+    def test_availability_is_not_release_evidence(self):
+        family = {"id": "music", "vendor": "Vendor", "category": "music", "versions": [{"id": "v2", "name": "Music v2", "historicalMilestones": [{"date": "2026-06-15", "datePrecision": "day", "stage": "api-availability", "sourceUrl": "https://example.com/log", "verifiedAt": "2026-11-26", "chronicleAuditId": "audit"}]}]}
+        topic = {"id": "vendor", "milestones": [{"auditId": "audit", "date": "2026-06-15", "url": "https://example.com/log", "verificationDate": "2026-11-26", "verificationStatus": "已确认：型号、日期与事件性质"}]}
+        report = audit([family], [topic], {"links": [], "vendorTopics": {"vendor": ["Vendor"]}})
+        self.assertEqual(report["errors"], [])
+        self.assertEqual(report["historicalMilestones"], 1)
+        self.assertEqual(report["missingEvidence"], 1)

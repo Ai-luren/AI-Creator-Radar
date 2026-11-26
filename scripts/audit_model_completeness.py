@@ -27,6 +27,23 @@ def audit(families, topics, config):
             gaps.append({"modelFamilyId": key[0], "modelVersionId": key[1], "modelName": version["name"],
                          "category": category, "issue": "missing-release-evidence",
                          "hasDate": bool(version.get("releaseDate"))})
+    milestone_count = 0
+    for key, (family, version) in versions.items():
+        for milestone in version.get("historicalMilestones", []):
+            milestone_count += 1
+            aid = milestone.get("chronicleAuditId")
+            if aid not in events:
+                errors.append(f"Unknown historical milestone: {key} / {aid}")
+                continue
+            topic, event = events[aid]
+            if (family["vendor"] not in config["vendorTopics"].get(topic["id"], [])
+                    or milestone.get("date") != event.get("date")
+                    or milestone.get("sourceUrl") != event.get("url")
+                    or milestone.get("verifiedAt") != event.get("verificationDate")
+                    or event.get("autoCollected") or event.get("verificationStatus") != "已确认：型号、日期与事件性质"
+                    or milestone.get("datePrecision") != ("month" if len(event.get("date", "")) == 7 else "day")
+                    or milestone.get("stage") not in {"release", "early-access", "general-availability", "api-availability", "preview", "alpha", "announcement", "official-introduction"}):
+                errors.append(f"Invalid historical milestone: {key} / {aid}")
     seen = set()
     for link in config["links"]:
         key = link["modelFamilyId"], link["modelVersionId"]
@@ -49,7 +66,7 @@ def audit(families, topics, config):
             errors.append(f"Historical evidence mismatch: {key} / {aid}")
     return {"families": len(families), "versions": len(versions),
             "chronicleNodes": sum(len(t.get("milestones", [])) for t in topics),
-            "explicitHistoricalLinks": len(seen), "missingEvidence": len(gaps),
+            "explicitHistoricalLinks": len(seen), "historicalMilestones": milestone_count, "missingEvidence": len(gaps),
             "categories": {k: dict(v) for k, v in sorted(by_category.items())},
             "gaps": gaps, "errors": errors}
 

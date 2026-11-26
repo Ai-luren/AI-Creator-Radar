@@ -192,6 +192,174 @@
       "modelVersionId": "wan-2-2",
       "chronicleAuditId": "v48-qwen-0266",
       "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "suno",
+      "modelVersionId": "suno-v6",
+      "chronicleAuditId": "v48-suno-0058",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "suno",
+      "modelVersionId": "suno-v5-5",
+      "chronicleAuditId": "v48-suno-0157",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "suno",
+      "modelVersionId": "suno-v5",
+      "chronicleAuditId": "v48-suno-0247",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "suno",
+      "modelVersionId": "suno-v4-5",
+      "chronicleAuditId": "v48-suno-0301",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "suno",
+      "modelVersionId": "suno-v4",
+      "chronicleAuditId": "v48-suno-0366",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "suno",
+      "modelVersionId": "suno-v3",
+      "chronicleAuditId": "v48-suno-0421",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "minimax-music",
+      "modelVersionId": "3-0",
+      "chronicleAuditId": "v48-minimax-0078",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "minimax-music",
+      "modelVersionId": "music-2-6",
+      "chronicleAuditId": "v48-minimax-0145",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "minimax-music",
+      "modelVersionId": "music-2-5",
+      "chronicleAuditId": "v48-minimax-0186",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "minimax-music",
+      "modelVersionId": "music-2-0",
+      "chronicleAuditId": "v48-minimax-0227",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "minimax-music",
+      "modelVersionId": "music-1-5",
+      "chronicleAuditId": "v48-minimax-0249",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "minimax-music",
+      "modelVersionId": "music-01",
+      "chronicleAuditId": "radar-20261126-minimax-music-01",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "eleven-music",
+      "modelVersionId": "v2-5",
+      "chronicleAuditId": "v48-elevenlabs-0054",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "eleven-music",
+      "modelVersionId": "eleven-music-v1",
+      "chronicleAuditId": "v48-elevenlabs-0263",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "eleven-tts",
+      "modelVersionId": "eleven-turbo-v2",
+      "chronicleAuditId": "v48-elevenlabs-0443",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "eleven-tts",
+      "modelVersionId": "eleven-multilingual-v1",
+      "chronicleAuditId": "v48-elevenlabs-0471",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "nano-banana",
+      "modelVersionId": "nano-banana-pro",
+      "chronicleAuditId": "v48-google-0216",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "pixverse-c1",
+      "modelVersionId": "pixverse-c1",
+      "chronicleAuditId": "v48-pixverse-0149",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "pixverse-v6",
+      "modelVersionId": "pixverse-v6",
+      "chronicleAuditId": "v48-pixverse-0155",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "pixverse-world",
+      "modelVersionId": "pixverse-r1",
+      "chronicleAuditId": "v48-pixverse-0192",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "hailuo",
+      "modelVersionId": "2-3",
+      "chronicleAuditId": "v48-minimax-0230",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "hailuo",
+      "modelVersionId": "hailuo-02",
+      "chronicleAuditId": "v48-minimax-0281",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "hailuo",
+      "modelVersionId": "hailuo-01",
+      "chronicleAuditId": "v48-minimax-0385",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "minimax-h3",
+      "modelVersionId": "h3",
+      "chronicleAuditId": "v48-minimax-0094",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "kling",
+      "modelVersionId": "kling-2-0",
+      "chronicleAuditId": "v48-kuaishou-0313",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "vidu",
+      "modelVersionId": "vidu-q1",
+      "chronicleAuditId": "v48-vidu-0308",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "vidu",
+      "modelVersionId": "vidu-2-0",
+      "chronicleAuditId": "v48-vidu-0344",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "vidu",
+      "modelVersionId": "vidu-1-5",
+      "chronicleAuditId": "v48-vidu-0368",
+      "sourceField": "url"
     }
   ]
 }
