@@ -5,11 +5,10 @@ workers_dev = false
 preview_urls = false
 
 [triggers]
-# Temporary one-minute dry-run acceptance; restore 15-minute cadence before activation.
-crons = ["* * * * *"]
+crons = ["2,17,32,47 * * * *"]
 
 [vars]
-DRY_RUN = "true"
+DRY_RUN = "false"
 
 [observability.logs]
 enabled = true
