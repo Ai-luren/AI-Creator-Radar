@@ -71,3 +71,20 @@ class EvidenceQueueTests(unittest.TestCase):
         self.assertEqual(result["vendors"]["Vendor"]["evidence"], 1)
         self.assertEqual(result["gaps"][0]["candidateSourceUrl"], "https://example.com/catalog")
         self.assertNotIn("releaseEvidence", families[0]["versions"][0])
+
+
+class AudioStageTests(unittest.TestCase):
+    def test_research_availability_and_updates_do_not_become_release_evidence(self):
+        for stage in ("development-milestone", "documented-availability", "model-update"):
+            milestone = {"date": "2024-11", "datePrecision": "month", "stage": stage,
+                         "sourceUrl": "https://example.com/history", "verifiedAt": "2026-11-26",
+                         "chronicleAuditId": "a"}
+            families = [{"id": "demo", "vendor": "Vendor", "category": "music",
+                         "versions": [{"id": "v1", "name": "Demo 1", "historicalMilestones": [milestone]}]}]
+            topics = [{"id": "vendor", "milestones": [{"auditId": "a", "date": "2024-11",
+                       "url": "https://example.com/history", "verificationDate": "2026-11-26",
+                       "verificationStatus": "已确认：型号、日期与事件性质"}]}]
+            result = audit(families, topics, {"links": [], "vendorTopics": {"vendor": ["Vendor"]}})
+            self.assertEqual(result["errors"], [])
+            self.assertEqual(result["missingEvidence"], 1)
+            self.assertEqual(result["gaps"][0]["reviewKind"], "historical-stage-only")
