@@ -4,7 +4,7 @@
   "windowDays": 30,
   "windowStart": "2026-10-28",
   "windowEnd": "2026-11-26",
-  "updatedAt": "2026-11-26T17:14:40Z",
+  "updatedAt": "2026-11-26T17:23:37Z",
   "categories": [
     "video",
     "image",
@@ -650,20 +650,6 @@
   ],
   "pending": [
     {
-      "id": "e6064d6e415f43c281",
-      "category": "llm",
-      "vendor": "Google",
-      "title": "Introducing Gemini 4 Neon",
-      "summary": "",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
-      "sourceName": "Google DeepMind 官方新闻",
-      "publishedAt": null,
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "gemini",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "c9a9fe2d0a86aa3c1f",
       "category": "music",
       "vendor": "Suno",
@@ -698,20 +684,6 @@
       "title": "Introducing Gemini 3.8 Live with Live Avatar",
       "summary": "I accept Google's Terms and Conditions and acknowledge that my information will be used in accordance with Google's Privacy Policy.",
       "url": "https://deepmind.google/models/gemini/",
-      "sourceName": "Google DeepMind 官方新闻",
-      "publishedAt": null,
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "gemini",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
-      "id": "a523b07bdbe8407311",
-      "category": "llm",
-      "vendor": "Google",
-      "title": "Introducing Gemini 4 Hydrogen",
-      "summary": "",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
       "sourceName": "Google DeepMind 官方新闻",
       "publishedAt": null,
       "discoveredAt": "2026-11-26T12:21:41Z",

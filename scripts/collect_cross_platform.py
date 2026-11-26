@@ -200,7 +200,7 @@ def literal_model_hints(title, families):
         for version in family.get("versions", []):
             name = str(version.get("name") or "").strip()
             if len(name) >= 5 and re.search(r"\d", name):
-                if re.search(r"(?<![A-Za-z0-9.])" + re.escape(name) + r"(?![A-Za-z0-9.]|[-_][A-Za-z0-9])", title, re.I):
+                if re.search(r"(?<![A-Za-z0-9.])" + re.escape(name) + r"(?![A-Za-z0-9.]|[-_][A-Za-z0-9]|\s+(?:turbo|flash|pro|lite|mini|ultra|plus|max|preview|thinking|live|fast|medical)\b)", title, re.I):
                     names.add(name)
     # Nested version prefixes are redundant; multiple independent names are
     # ambiguous in a translated headline, so don't supply a model hint.
@@ -233,6 +233,7 @@ def local_snapshot_leads(source_id, source_name, snapshot, stamp_field, allowed,
             primary = url
             reported = parse_date(item.get("publishedAt") or item.get("firstSeenAt") or item.get("discoveredAt"))
             kind = "existing-candidate-date"
+            observed = parse_date(item.get("lastSeenAt") or item.get("discoveredAt")) or stamp
         else:
             if item.get("category") not in LOCAL_RELEASE_CATEGORIES:
                 continue
@@ -249,13 +250,14 @@ def local_snapshot_leads(source_id, source_name, snapshot, stamp_field, allowed,
                 continue
             reported = parse_date(item.get("publishedAt")) if source_id == "local-aihot-selected" else edition
             kind = "external-report-date" if source_id == "local-aihot-selected" else "briefing-edition-date"
+            observed = stamp
         urls = sorted({u for raw in candidates if (u := article_url(raw, allowed))})
         hints = literal_model_hints(title, families)
         original = clean_text(item.get("originalTitle") or "")
         rows.append({"title": title[:240], "url": primary, "sourceId": source_id, "sourceName": source_name,
                      "reportedAt": reported, "dateKind": kind, "officialArticleUrls": urls[:5],
                      "titleHints": sorted(set(hints + ([original[:240]] if original else []))),
-                     "observedAt": stamp, "verificationStatus": "unverified-lead",
+                     "observedAt": observed, "verificationStatus": "unverified-lead",
                      "attribution": {"name": source_name, "url": snapshot.get("sourceUrl") or primary}})
     return rows, stamp
 
@@ -275,14 +277,15 @@ def merge_local_inputs(result, snapshots, allowed, families, model_sources, now)
                 raise ValueError("Snapshot observation outside retention window")
             accepted = 0
             for row in rows:
-                day = str(row.get("reportedAt") or stamp)[:10]
-                if not cutoff <= day <= today:
+                row_stamp = row["observedAt"]
+                day = str(row.get("reportedAt") or row_stamp)[:10]
+                if not cutoff <= day <= today or not cutoff <= row_stamp[:10] <= today:
                     continue
                 rid = hashlib.sha256((source_id + "|" + row["url"] + "|" + row["title"]).encode()).hexdigest()[:20]
                 old = items.get(rid, {})
                 # Reading the same local file does not refresh its observation time.
-                items[rid] = {"id": rid, **row, "firstSeenAt": old.get("firstSeenAt", stamp),
-                              "lastSeenAt": max(old.get("lastSeenAt", stamp), stamp)}
+                items[rid] = {"id": rid, **row, "firstSeenAt": old.get("firstSeenAt", row_stamp),
+                              "lastSeenAt": max(old.get("lastSeenAt", row_stamp), row_stamp)}
                 accepted += 1
             states.append({"id": source_id, "name": name, "snapshot": filename, "observedAt": stamp,
                            "itemCount": accepted, "error": None})

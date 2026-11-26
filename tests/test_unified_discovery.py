@@ -32,7 +32,7 @@ class UnifiedDiscoveryTests(unittest.TestCase):
     def test_model_name_boundaries_and_multiple_models(self):
         self.assertEqual(literal_model_hints("发布Demo 3.1新模型",self.families),["Demo 3.1"])
         self.assertEqual(literal_model_hints("Demo 3.2",self.families),[])
-        self.assertEqual(literal_model_hints("Demo 3 Turbo",self.families),["Demo 3"])
+        self.assertEqual(literal_model_hints("Demo 3 Turbo",self.families),[])
     def test_direct_candidate_index_does_not_refetch_structured_or_listing(self):
         item={"title":"Introducing Demo 3","official":True,"modelId":"demo","updateType":"release","url":self.url}
         snap={"generatedAt":"2026-11-26T17:00:00Z","items":[item,dict(item,publicationDateKind="feed-published"),dict(item,url=self.sources[0]["url"])]}

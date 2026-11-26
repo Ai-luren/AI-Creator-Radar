@@ -140,6 +140,10 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
             }
             if update.get("category"):
                 next_values["modelCategory"] = update["category"]
+            if not update.get("recoveryProofId") and event.get("recoveryProofId"):
+                event.pop("recoveryProofId", None)
+                event.pop("previousSourceDate", None)
+                updated += 1
             if any(event.get(key) != value for key, value in next_values.items()):
                 event.update(next_values)
                 updated += 1
