@@ -30,6 +30,13 @@ NEW_NAMES = {
     "seedream": r"Seedream \d+(?:\.\d+){0,2}",
     "glm": r"GLM-\d+(?:\.\d+){0,2}",
     "llama": r"Llama \d+(?:\.\d+){0,2}",
+    "kling": r"Kling \d+(?:\.\d+){0,2}",
+    "kling-image": r"Kling Image \d+(?:\.\d+){0,2}",
+    "veo": r"Veo \d+(?:\.\d+){0,2}",
+    "vidu": r"Vidu \d+(?:\.\d+){0,2}",
+    "qwen-image": r"Qwen-Image \d+(?:\.\d+){0,2}",
+    "midjourney": r"Midjourney V?\d+(?:\.\d+){0,2}",
+    "suno": r"Suno V?\d+(?:\.\d+){0,2}",
 }
 STAGE_WARNING = re.compile(
     r"\b(?:preview|alpha|beta|early access|waitlist|coming soon|api|rollout|"
@@ -66,6 +73,18 @@ def host_for(url):
         return None
 
 
+def independent_article_pair(a, b):
+    """Different hostnames alone do not make mirrored articles independent."""
+    first, second = urlsplit(a["sourceUrl"]), urlsplit(b["sourceUrl"])
+    if first.hostname.removeprefix("www.") == second.hostname.removeprefix("www."):
+        return False
+    def path_identity(p):
+        return re.sub(r"^/(?:en|zh|cn|ja|en-us|zh-cn)(?=/)", "", p.path.casefold()).rstrip("/")
+    return (a["sourceId"] != b["sourceId"] and a["sourceUpdateId"] != b["sourceUpdateId"]
+            and a["sourceUrl"] != b["sourceUrl"]
+            and path_identity(first) != path_identity(second))
+
+
 def evidence_item(item, source, status, today):
     if not source or not source.get("active") or source.get("official") is not True:
         return None
@@ -76,6 +95,11 @@ def evidence_item(item, source, status, today):
     if item.get("publicationDateKind") not in DATE_KINDS or not status or status.get("error"):
         return None
     if not item.get("publicationObservedAt") or item["publicationObservedAt"] != status.get("checkedAt"):
+        return None
+    if "publicationObservations" in status and not any(
+            o.get("modelId") == item.get("modelId") and o.get("title") == item.get("title")
+            and o.get("publishedAt") == item.get("publishedAt") and normalize_url(o.get("url") or "") == normalize_url(item.get("url") or "")
+            for o in status["publicationObservations"]):
         return None
     if STAGE_WARNING.search(str(item.get("summary") or "")):
         return None
@@ -138,8 +162,7 @@ def reconcile(families, updates, sources, status, vendor_topics, today):
         label = records[0]["modelName"]
         dates = {p["publishedAt"] for p in records}
         pairs = [(a, b) for i, a in enumerate(records) for b in records[i+1:]
-                 if a["sourceId"] != b["sourceId"] and host_for(a["sourceUrl"]) != host_for(b["sourceUrl"])
-                 and a["sourceUrl"] != b["sourceUrl"] and a["sourceUpdateId"] != b["sourceUpdateId"]]
+                 if independent_article_pair(a, b)]
         reason = None
         if len(dates) != 1 or len(conflicts[(fid, identity)]) > 1:
             reason = "conflicting-publication-dates"
@@ -219,7 +242,7 @@ def automatic_evidence_valid(family, version):
     if (not a.get("sourceId") or not b.get("sourceId") or a["sourceId"] == b["sourceId"]
             or not a.get("sourceUpdateId") or not b.get("sourceUpdateId") or a["sourceUpdateId"] == b["sourceUpdateId"]
             or not host_for(a.get("sourceUrl")) or not host_for(b.get("sourceUrl"))
-            or host_for(a["sourceUrl"]) == host_for(b["sourceUrl"])):
+            or not independent_article_pair(a, b)):
         return False
     return all(p.get("publicationDateKind") in DATE_KINDS and p.get("observedAt")
                and p.get("publishedAt") == day.isoformat()

@@ -38,6 +38,7 @@ jobs:
         run: |
           python scripts/validate_model_links.py
           python scripts/audit_model_completeness.py
+          python scripts/audit_radar_system.py
           python scripts/check_creator_links.py --dry-run
           python scripts/collect_creator_opportunities.py --dry-run
       - name: Package static Pages artifact without deployment
@@ -62,6 +63,7 @@ jobs:
           python scripts/collect_cross_platform.py --dry-run --report /tmp/radar-cross-probe.json
           python scripts/collect_resolve_model_leads.py --dry-run --discovery /tmp/radar-cross-probe.json --report /tmp/radar-proof-probe.json
           python scripts/collect_release_recall.py --dry-run --probe /tmp/radar-source-probe.json --recovery /tmp/radar-proof-probe.json
+          python scripts/collect_model_intake.py --dry-run --resolution /tmp/radar-proof-probe.json
       - name: Upload source diagnostics
         if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.run == 'true')
         uses: actions/upload-artifact@v7
