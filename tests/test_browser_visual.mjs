@@ -26,7 +26,7 @@ try{
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
   const routes=['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
-  async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.message)}}
+  async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled'}).catch(()=>{})}}
   for(const view of routes)await check(view,async()=>{
    const loaded=new Set();const capture=req=>{if(req.url().includes('/data/'))loaded.add(new URL(req.url()).pathname.split('/').pop())};page.on('request',capture);
    await page.goto(base+'?view='+view,{waitUntil:'domcontentloaded'});
@@ -40,7 +40,9 @@ try{
     const result=await page.locator('.model-table').evaluate(t=>({font:parseFloat(getComputedStyle(t).fontSize),vendor:getComputedStyle(t.querySelector('tbody td:first-child')).position,model:getComputedStyle(t.querySelector('tbody td:nth-child(2)')).position,wrap:t.parentElement.clientWidth,table:t.scrollWidth}));
     assert.ok(result.font>=13);assert.equal(result.model,'sticky');if(viewport.width<761){assert.equal(result.vendor,'static');assert.ok(result.table>result.wrap)}
    }
+   if(view==='overview')assert.equal(await page.locator('.overview-dashboard .overview-column').count(),2);
    if(view==='rankings'){
+    const principles=page.locator('.rank-principles details');assert.equal(await principles.evaluate(el=>el.open),false);await principles.locator('summary').click();assert.equal(await principles.evaluate(el=>el.open),true);await principles.locator('summary').click();
     const table=await page.locator('.rank-table').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),header:getComputedStyle(el.querySelector('th')).position,numeric:getComputedStyle(el.querySelector('th:nth-child(3)')).textAlign}));
     assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');
    }
@@ -52,13 +54,15 @@ try{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const menu=page.locator('#mobileMenu'),sidebar=page.locator('#sidebar');
    assert.equal(await menu.getAttribute('aria-expanded'),'false');
-   assert.equal(await sidebar.evaluate(el=>el.inert),true);
+   assert.equal(await sidebar.evaluate(el=>el.inert),true,'closed sidebar must be inert');
    await menu.click();assert.equal(await menu.getAttribute('aria-expanded'),'true');
-   assert.equal(await page.locator('main').evaluate(el=>el.inert),true);
-   assert.equal(await page.locator('#mobileNavClose').evaluate(el=>el===document.activeElement),true);
+   assert.equal(await page.locator('main').evaluate(el=>el.inert),true,'open menu must make main inert');
+   await page.waitForFunction(()=>document.activeElement===document.getElementById('mobileNavClose'),null,{timeout:2000});
+   await page.keyboard.press('Shift+Tab');assert.equal(await sidebar.locator('[data-view]').last().evaluate(el=>el===document.activeElement),true,'reverse Tab must wrap');
+   await page.keyboard.press('Tab');assert.equal(await page.locator('#mobileNavClose').evaluate(el=>el===document.activeElement),true,'Tab must wrap');
    await page.screenshot({path:path.join(out,label+'-mobile-nav.png')});
    await page.keyboard.press('Escape');assert.equal(await menu.getAttribute('aria-expanded'),'false');
-   assert.equal(await menu.evaluate(el=>el===document.activeElement),true);
+   await page.waitForFunction(()=>document.activeElement===document.getElementById('mobileMenu'),null,{timeout:2000});
    await menu.click();await sidebar.locator('[data-view="models"]').click();await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.evaluate(()=>state.view),'models');assert.equal(await menu.getAttribute('aria-expanded'),'false');
    assert.equal(await page.locator('main').evaluate(el=>el.inert),false);

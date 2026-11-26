@@ -110,7 +110,7 @@ class ModelLibrarySchemaTests(unittest.TestCase):
 
     def test_model_ranking_evidence_uses_current_snapshot_rank(self):
         html = (ROOT / "site/index.html").read_text()
-        self.assertIn("var row=(board.rows||[]).find(function(r){return r.name===a.name})", html)
+        self.assertIn("var row=firstBoardRow(board.rows,a.name)", html)
         self.assertIn("Object.assign({},a,{rank:row.rank})", html)
         self.assertIn("return row&&Number(row.rank)>0?", html)
 

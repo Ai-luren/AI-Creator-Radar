@@ -196,3 +196,9 @@ test('board row indexing preserves first-match rank semantics and snapshot isola
  assert.equal(run("(()=>{const rows=[{name:'A',rank:7}];firstBoardRow(rows,'A');return firstBoardRow([{name:'A',rank:2}],'A').rank})()"),2);
  assert.equal(run("firstBoardRow([], 'missing')"),undefined);
 });
+
+ test('rank evidence resolves current snapshot rather than stale aliases',()=>{
+ const {run}=setup();
+ const result=run("JSON.stringify(modelRanksFor({leaderboardAliases:[{source:'reference',boardId:'demo',name:'A',rank:99},{source:'reference',boardId:'demo',name:'B',rank:1}]},[{source:'reference',boardId:'demo',rows:[{name:'A',rank:7},{name:'A',rank:2},{name:'B',rank:0}]}]).map(x=>x.alias.rank))");
+ assert.deepEqual(JSON.parse(result),[7]);
+});
