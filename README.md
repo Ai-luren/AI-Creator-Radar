@@ -96,3 +96,17 @@ python3 scripts/build_unified_rankings.py
 ## 运行与验证
 
 首页仅加载概览快照；其他页面及全局索引按需下载，当前页面生命周期复用请求。开发 PR 运行 `Validate radar changes`，需要联网诊断时手动勾选 `probe_sources`；main 的定时采集部署工作流独立运行。测试失败不会被忽略，也不会关闭 GitHub 通知。浏览器布局测试仍独立保留。
+
+### 正式环境手动验证
+
+在 main 分支的 Actions → Monitor official AI model releases and deploy Pages → Run workflow 中选择 `scope`：
+
+- `models`：模型发现、近期上新、厂商历史与 AIHOT 精选。
+- `resources`：榜单、简报、资源、创意与社媒趋势。
+- `maintenance`：链接检查与模型评测候选。
+- `all`：执行所有采集任务（默认）。
+- `deploy-only`：只验证现有数据并重新发布 Pages，不采集、不提交数据。
+
+AIHOT 精选读取失败后会重试一次；再次失败则保留上次快照，其他通过验证的数据仍可提交和部署。独立的错误报告任务保留失败通知；其他采集器、数据验证及部署失败仍保持原有失败行为。查看 Actions 的具体任务状态，不能仅凭全局红绿判断 Pages 是否部署成功。
+
+生产验收需分别记录 main 首次 push 部署、models/resources/maintenance 定时运行及数据时间戳，并核对线上快照。手动触发成功不代表定时触发成功。
