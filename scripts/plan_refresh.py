@@ -62,7 +62,8 @@ def read_stamp(data_dir, filename, field):
 
 DAILY_HOURS = {"aihot_daily": 8, "juya_daily": 10}
 CHINA = timezone(timedelta(hours=8))
-MORNING_CRON = "5,15 0,2 * * *"
+MORNING_CRON = "5,15 0,2 * * *"  # old workflow attempts may still be rerun
+MORNING_CRONS = {MORNING_CRON, "15,25 0,2 * * *"}
 
 
 def daily_due(data_dir, group, now):
@@ -96,7 +97,7 @@ def plan(data_dir, event, scope="", now=None, schedule=""):
         raise ValueError("Unsupported production event")
     result = {}
     for group, inputs in GROUPS.items():
-        if event == 'schedule' and schedule == MORNING_CRON and group not in DAILY_HOURS:
+        if event == 'schedule' and schedule in MORNING_CRONS and group not in DAILY_HOURS:
             result[group] = False
             continue
         if group in DAILY_HOURS:
