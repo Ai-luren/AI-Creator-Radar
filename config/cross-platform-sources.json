@@ -63,6 +63,15 @@
       "type": "hf-models",
       "author": "tencent",
       "url": "https://huggingface.co/api/models?author=tencent&sort=createdAt&direction=-1&limit=20"
+    },
+    {
+      "id": "llm-world-json",
+      "name": "LLM World · 开源证据索引",
+      "type": "llm-world-json",
+      "url": "https://raw.githubusercontent.com/mayoorrnikam/llm-world/main/data/llm-releases.json",
+      "project": "https://github.com/mayoorrnikam/llm-world",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     }
   ],
   "officialArticleHosts": {
@@ -117,6 +126,25 @@
     "pixverse.ai": [
       "/en/blog/",
       "/zh/blog/"
+    ],
+    "qwenlm.github.io": [
+      "/blog/"
+    ],
+    "deepmind.google": [
+      "/blog/",
+      "/models/model-cards/"
+    ],
+    "api-docs.deepseek.com": [
+      "/news/"
+    ],
+    "www.kimi.ai": [
+      "/blog/"
+    ],
+    "vidu.com": [
+      "/blog/"
+    ],
+    "www.vidu.com": [
+      "/blog/"
     ]
   }
 }

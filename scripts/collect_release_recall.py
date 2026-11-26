@@ -32,9 +32,10 @@ def identity(value):
     return "".join(ch for ch in str(value or "").casefold() if ch.isalnum())
 
 
-def assess(benchmark, updates, status, digest, today):
+def assess(benchmark, updates, status, digest, today, recovery=None):
     source_states = {s["id"]: s for s in status.get("sources", [])}
     checked = status.get("checkedAt")
+    recovery = recovery or {}
     rows = []
     for event in benchmark["events"]:
         family, day = event["modelFamilyId"], event["eventDate"]
@@ -54,7 +55,15 @@ def assess(benchmark, updates, status, digest, today):
         outcome = ("current-dated" if current else "retained-dated-only" if dated else
                    "date-mismatch" if matched and actual_dates else "undated" if matched else
                    "identity-mismatch" if same_article else "not-discovered")
+        recovered = [p for row in recovery.get("items", []) if url_key(row.get("url")) in urls
+                     for p in [row if row.get("status") == "article-date-verified" else row.get("lastVerifiedObservation") or {}]
+                     if p.get("modelId") == family and str(p.get("articlePublishedAt") or "")[:10] == day
+                     and all(re.search(pattern, str(p.get("title") or ""), re.I) for pattern in event["titlePatterns"])]
+        first_days = [str(p.get("firstVerifiedAt") or "")[:10] for p in recovered if p.get("firstVerifiedAt")]
+        lag = (datetime.fromisoformat(min(first_days)).date() - datetime.fromisoformat(day).date()).days if first_days else None
         rows.append({"id": event["id"], "modelFamilyId": family, "eventDate": day,
+                     "recoveredDated": bool(recovered), "endToEndDated": bool(dated or recovered),
+                     "recoveryFirstVerifiedLagDays": lag if lag is not None and lag >= 0 else None,
                      "modelNames": event["modelNames"], "sourceUrls": event["sourceUrls"],
                      "outcome": outcome, "actualDates": actual_dates,
                      "dateConflict": any(d != day for d in actual_dates),
@@ -67,6 +76,8 @@ def assess(benchmark, updates, status, digest, today):
         return {"events": len(rows), "discovered": sum(r["discovered"] for r in rows),
                 "retainedDated": sum(r["retainedDated"] for r in rows),
                 "currentDated": sum(r["currentDated"] for r in rows),
+                "recoveredDated": sum(r["recoveredDated"] for r in rows),
+                "endToEndDated": sum(r["endToEndDated"] for r in rows),
                 "canonicalComplete": sum(r["canonicalComplete"] for r in rows),
                 "dateConflicts": sum(r["dateConflict"] for r in rows)}
     negatives = []
@@ -79,6 +90,7 @@ def assess(benchmark, updates, status, digest, today):
                           "incorrectConfirmedIds": false_confirmed})
     return {"sampleReviewedAt": benchmark["reviewedAt"], "sampleScope": benchmark["scope"],
             "collectorCheckedAt": checked, "allSample": counts(rows),
+            "recoveryCheckedAt": recovery.get("checkedAt"), "recoverySummary": recovery.get("summary", {}),
             "activeWindow": counts([r for r in rows if r["within30Days"]]),
             "events": rows, "negativeControls": negatives}
 
@@ -97,8 +109,10 @@ def main():
         items = read("site/data/model-updates.json")["items"]
         status = read("site/data/model-monitor-status.json")
     now = datetime.now(timezone.utc)
+    recovery_path = ROOT / "site/data/lead-resolution.json"
+    recovery = json.loads(recovery_path.read_text(encoding="utf-8")) if recovery_path.exists() and not args.probe else {}
     result = assess(read("config/release-recall-benchmark.json"), items, status,
-                    read("site/data/model-releases-30d.json"), now.date())
+                    read("site/data/model-releases-30d.json"), now.date(), recovery)
     print("Release sample recall:", json.dumps(result["allSample"], ensure_ascii=False))
     for row in result["events"]:
         print(f"[RECALL] {row['id']}: {row['outcome']}; dates={row['actualDates']}; canonical={row['canonicalComplete']}")

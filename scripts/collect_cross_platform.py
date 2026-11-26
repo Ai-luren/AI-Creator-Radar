@@ -10,7 +10,7 @@ import re
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, parse_qsl, unquote
 import xml.etree.ElementTree as ET
 
 try:
@@ -41,7 +41,12 @@ def article_url(value, allowed):
     if not url:
         return ""
     p = urlsplit(url)
-    return url if any(p.path.startswith(prefix) and p.path != prefix for prefix in allowed.get(p.hostname, [])) else ""
+    path = unquote(p.path)
+    if "\\" in path or any(part in {".", ".."} for part in path.split("/")) or path != p.path:
+        return ""
+    if p.hostname == "qwen.ai" and path == "/blog":
+        return url if any(k == "id" and re.fullmatch(r"[A-Za-z0-9_-]{1,100}", v) for k, v in parse_qsl(p.query)) else ""
+    return url if any(path.startswith(prefix) and path != prefix for prefix in allowed.get(p.hostname, [])) else ""
 
 
 def feed_leads(body, source, allowed):
@@ -85,6 +90,35 @@ def hf_leads(body, source):
     return rows
 
 
+
+def llm_world_leads(body, source, allowed):
+    """Read event-scoped source links; never inherit external release assertions."""
+    data = json.loads(body)
+    if not isinstance(data, dict) or not isinstance(data.get("releases"), list) or not str(data.get("schema_version", "")).startswith("1."):
+        raise ValueError("Unsupported LLM World schema")
+    rows = []
+    for item in data["releases"]:
+        name = str(item.get("model") or "").strip()
+        if not name or len(name) > 160 or not MODEL_SIGNAL.search(name):
+            continue
+        refs = {s.get("id"): s for s in item.get("sources", []) if isinstance(s, dict)}
+        for event in item.get("events", []):
+            stamp = parse_date(event.get("date"))
+            if not stamp or event.get("type") not in {"announcement", "release", "launch", "general_availability", "availability", "open_weights", "open_weights_release"}:
+                continue
+            urls = sorted({url for key in event.get("sources", [])
+                           if (ref := refs.get(key, {})).get("authority") == "primary"
+                           and (url := article_url(ref.get("url"), allowed))})
+            if not urls:
+                continue
+            rows.append({"title": name, "url": urls[0], "sourceId": source["id"], "sourceName": source["name"],
+                         "reportedAt": stamp, "dateKind": "external-dataset-event-date",
+                         "officialArticleUrls": urls[:5], "verificationStatus": "unverified-lead",
+                         "attribution": {"name": "LLM World", "url": source["project"],
+                                         "license": source["license"], "licenseUrl": source["licenseUrl"]}})
+    return sorted(rows, key=lambda row: row["reportedAt"], reverse=True)[:100]
+
+
 def fetch(source, allowed):
     try:
         req = urllib.request.Request(source["url"], headers={"User-Agent": USER_AGENT,
@@ -93,7 +127,12 @@ def fetch(source, allowed):
             body = response.read(MAX_BYTES + 1)
         if len(body) > MAX_BYTES:
             raise ValueError("Source exceeds size limit")
-        rows = hf_leads(body, source) if source["type"] == "hf-models" else feed_leads(body, source, allowed)
+        if source["type"] == "hf-models":
+            rows = hf_leads(body, source)
+        elif source["type"] == "llm-world-json":
+            rows = llm_world_leads(body, source, allowed)
+        else:
+            rows = feed_leads(body, source, allowed)
         return source, rows, None
     except Exception as exc:
         return source, [], f"{type(exc).__name__}: {str(exc)[:180]}"
@@ -102,11 +141,21 @@ def fetch(source, allowed):
 def collect(config, previous, now, fetcher=fetch):
     old = {r["id"]: r for r in previous.get("items", [])}
     statuses = []
+    old_status = {s["id"]: s for s in previous.get("sources", [])}
     stamp = now.isoformat(timespec="seconds")
     cutoff = (now - timedelta(days=45)).date().isoformat()
     today = now.date().isoformat()
+    def due(source):
+        prior = old_status.get(source["id"], {})
+        if prior.get("url") == source["url"] and prior.get("nextAttemptAt") and prior["nextAttemptAt"] > stamp:
+            return False
+        return True
+    active = [source for source in config["sources"] if due(source)]
+    for source in config["sources"]:
+        if not due(source):
+            statuses.append({**old_status[source["id"]], "deferred": True})
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
-        results = list(pool.map(lambda s: fetcher(s, config["officialArticleHosts"]), config["sources"]))
+        results = list(pool.map(lambda s: fetcher(s, config["officialArticleHosts"]), active))
     for source, rows, error in results:
         accepted = 0
         for row in rows:
@@ -118,8 +167,14 @@ def collect(config, previous, now, fetcher=fetch):
             first = old.get(row_id, {}).get("firstSeenAt", stamp)
             old[row_id] = {"id": row_id, **row, "firstSeenAt": first, "lastSeenAt": stamp}
             accepted += 1
+        prior = old_status.get(source["id"], {})
+        failures = int(prior.get("consecutiveFailures", 0)) + 1 if error else 0
+        delay = min(24 * 60, 30 * (2 ** min(failures, 6))) if error else 0
         statuses.append({"id": source["id"], "name": source["name"], "url": source["url"],
-                         "error": error, "itemCount": accepted, "checkedAt": stamp})
+                         "error": error, "itemCount": accepted, "checkedAt": stamp,
+                         "deferred": False, "consecutiveFailures": failures,
+                         "lastSuccessAt": prior.get("lastSuccessAt") if error else stamp,
+                         "nextAttemptAt": (now + timedelta(minutes=delay)).isoformat(timespec="seconds") if delay else None})
     items = [r for r in old.values() if cutoff <= str(r.get("reportedAt") or r.get("firstSeenAt") or "")[:10] <= today]
     items.sort(key=lambda r: (r.get("reportedAt") or r["firstSeenAt"], r["id"]), reverse=True)
     return {"schema": "cross-platform-discovery/v1", "checkedAt": stamp,
