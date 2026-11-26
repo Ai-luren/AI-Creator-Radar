@@ -12,6 +12,7 @@ on:
       - 'scripts/ranking_identity.py'
       - 'scripts/plan_refresh.py'
       - 'scripts/collection_health.py'
+      - 'scripts/run_collection_batch.py'
       - 'config/**'
       - '.github/workflows/update-site.yml'
   schedule:
@@ -29,6 +30,7 @@ on:
         default: all
         options:
           - all
+          - due
           - models
           - resources
           - maintenance
@@ -49,7 +51,8 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       changed: ${{ steps.persist.outputs.changed }}
-    timeout-minutes: 30
+      critical_incident: ${{ steps.health.outputs.critical_incident }}
+    timeout-minutes: 45
     steps:
       - name: Checkout the triggering ref
         uses: actions/checkout@v5
@@ -89,50 +92,11 @@ jobs:
         if: steps.plan.outputs.juya_daily == 'true'
         run: python scripts/collect_briefings.py juya
 
-      - name: Collect official model updates
+      - name: Collect model updates and derived views transactionally
+        id: models_batch
+        continue-on-error: true
         if: steps.plan.outputs.models == 'true'
-        run: python scripts/collect_models.py
-
-      - name: Build the 30-day release view from canonical model versions
-        if: steps.plan.outputs.models == 'true'
-        run: python scripts/build_model_release_digest.py
-
-      - name: Update company chronologies from official model sources
-        if: steps.plan.outputs.models == 'true'
-        run: python scripts/collect_chronicle_updates.py
-
-      - name: Check official model resource links
-        if: steps.plan.outputs.maintenance == 'true'
-        run: python scripts/check_model_resources.py
-
-      - name: Check creator opportunity link reachability
-        if: steps.plan.outputs.maintenance == 'true'
-        run: python scripts/check_creator_links.py
-
-      - name: Scan public creator opportunity sources
-        if: steps.plan.outputs.maintenance == 'true'
-        run: python scripts/collect_creator_opportunities.py
-
-      - name: Validate creator opportunity records
-        run: |
-          python scripts/check_creator_links.py --dry-run
-          python scripts/collect_creator_opportunities.py --dry-run
-
-      - name: Collect RSS and Awesome resources
-        if: steps.plan.outputs.resources == 'true'
-        run: python scripts/collect_resources.py
-
-      - name: Collect public model leaderboard snapshot
-        if: steps.plan.outputs.resources == 'true'
-        run: python scripts/collect_rankings.py
-
-      - name: Collect Maomu model ranking boards
-        if: steps.plan.outputs.resources == 'true'
-        run: python scripts/collect_maomu_rankings.py
-
-      - name: Build unified capability rankings
-        if: steps.plan.outputs.resources == 'true'
-        run: python scripts/build_unified_rankings.py
+        run: python scripts/run_collection_batch.py models
 
       - name: Collect AIHOT selected items
         id: aihot
@@ -146,17 +110,26 @@ jobs:
             python scripts/collect_aihot.py
           fi
 
-      - name: Collect AIPick video ideas
+      - name: Collect resources and rankings in isolated transactions
+        id: resources_batch
+        continue-on-error: true
         if: steps.plan.outputs.resources == 'true'
-        run: python scripts/collect_aipick.py
+        run: python scripts/run_collection_batch.py resources
 
-      - name: Collect new model evaluation candidates
+      - name: Collect maintenance sources in isolated transactions
+        id: maintenance_batch
+        continue-on-error: true
         if: steps.plan.outputs.maintenance == 'true'
-        run: python scripts/collect_model_evaluations.py
+        run: python scripts/run_collection_batch.py maintenance
 
-      - name: Collect public social trends
-        if: steps.plan.outputs.resources == 'true'
-        run: python scripts/collect_social_trends.py
+      - name: Block persistence after a fatal transaction or rollback error
+        if: always() && !cancelled()
+        run: test ! -e .radar-collection-fatal
+
+      - name: Validate creator opportunity records
+        run: |
+          python scripts/check_creator_links.py --dry-run
+          python scripts/collect_creator_opportunities.py --dry-run
 
       - name: Link exact model mentions across radar data
         if: steps.plan.outputs.collect == 'true'
@@ -169,7 +142,10 @@ jobs:
           AIHOT_SELECTED: ${{ steps.aihot.outcome }}
           AIHOT_DAILY: ${{ steps.aihot_daily.outcome }}
           JUYA_DAILY: ${{ steps.juya_daily.outcome }}
-        run: python scripts/collection_health.py --output "$GITHUB_OUTPUT" --summary "$GITHUB_STEP_SUMMARY"
+          MODEL_BATCH: ${{ steps.models_batch.outcome }}
+          RESOURCES_BATCH: ${{ steps.resources_batch.outcome }}
+          MAINTENANCE_BATCH: ${{ steps.maintenance_batch.outcome }}
+        run: python scripts/collection_health.py --critical-output --output "$GITHUB_OUTPUT" --summary "$GITHUB_STEP_SUMMARY"
 
       - name: Test collectors and current data after regeneration
         run: python -m unittest discover -s tests -v
@@ -223,3 +199,14 @@ jobs:
       pages: write
       id-token: write
     uses: ./.github/workflows/deploy-pages.yml
+
+  report-integrity-incident:
+    needs: [collect, publish]
+    if: always() && !cancelled() && needs.collect.result == 'success' && needs.collect.outputs.changed == 'true' && needs.collect.outputs.critical_incident == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Report newly persistent collection incident
+        run: |
+          echo "::error::A collection batch failed three consecutive attempts. Valid snapshots and the incident record were retained; see collection-health.json and collector logs."
+          exit 1

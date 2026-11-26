@@ -11,6 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = {"aihot-selected": "AIHOT_SELECTED", "aihot-daily": "AIHOT_DAILY", "juya-daily": "JUYA_DAILY"}
+CRITICAL_BATCHES = {"models-batch": "MODEL_BATCH", "resources-batch": "RESOURCES_BATCH", "maintenance-batch": "MAINTENANCE_BATCH"}
+SOURCES.update(CRITICAL_BATCHES)
 THRESHOLD = 3
 
 
@@ -38,6 +40,7 @@ def main():
     parser.add_argument("--path", type=Path, default=ROOT / "site/data/collection-health.json")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--summary", type=Path, required=True)
+    parser.add_argument("--critical-output", action="store_true")
     args = parser.parse_args()
     previous = json.loads(args.path.read_text(encoding="utf-8")) if args.path.exists() else {}
     outcomes = {k: os.environ.get(v, "") for k, v in SOURCES.items()}
@@ -48,6 +51,8 @@ def main():
         tmp.replace(args.path)
     with args.output.open("a", encoding="utf-8") as stream:
         stream.write("notify=" + str(bool(alerts)).lower() + "\n")
+        if args.critical_output:
+            stream.write("critical_incident=" + str(any(s in CRITICAL_BATCHES for s in alerts)).lower() + "\n")
     with args.summary.open("a", encoding="utf-8") as stream:
         stream.write("### Optional briefing source health\n")
         for source, record in result["sources"].items():

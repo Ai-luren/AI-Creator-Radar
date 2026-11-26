@@ -15,8 +15,8 @@ GROUPS = {
     "selected": (("aihot-items.json", "fetchedAt"),),
     "aihot_daily": (("aihot-daily.json", "fetchedAt"),),
     "juya_daily": (("juya-daily.json", "fetchedAt"),),
-    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt")),
-    "maintenance": (("model-resource-status.json", "checkedAt"), ("creator-link-status.json", "checkedAt"), ("creator-opportunity-discovery.json", "checkedAt")),
+    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt"), ("maomu-rankings.json", "checkedAt"), ("unified-rankings.json", "calculatedAt"), ("aipick-data.json", "fetchedAt"), ("social-trends.json", "fetchedAt")),
+    "maintenance": (("model-resource-status.json", "checkedAt"), ("creator-link-status.json", "checkedAt"), ("creator-opportunity-discovery.json", "checkedAt"), ("model-evaluations.json", "generatedAt")),
 }
 INTERVAL_MINUTES = {"models": 25, "selected": 25, "aihot_daily": 10, "juya_daily": 10, "resources": 350, "maintenance": 1430}
 MANUAL = {
@@ -28,9 +28,30 @@ MANUAL = {
 }
 
 
+def last_model_success(data):
+    """A failed check never makes the last successful read newer."""
+    if "lastSuccessfulCheckAt" in data:
+        return data["lastSuccessfulCheckAt"]
+    if data.get("successSources") == 0:
+        return max((s["lastSuccessAt"] for s in data.get("sources", [])
+                    if isinstance(s.get("lastSuccessAt"), str)), default=None)
+    return data.get("checkedAt")
+
+
+def model_check_stamps(previous, now, success_count, total):
+    complete = previous.get("lastCompleteCheckAt")
+    if "lastCompleteCheckAt" not in previous and previous.get("successSources", 0) > 0 and previous.get("failedSources") == 0:
+        complete = previous.get("checkedAt")
+    return {
+        "lastSuccessfulCheckAt": now if success_count else last_model_success(previous),
+        "lastCompleteCheckAt": now if total and success_count == total else complete,
+    }
+
+
 def read_stamp(data_dir, filename, field):
     try:
-        value = json.loads((data_dir / filename).read_text(encoding="utf-8")).get(field)
+        data = json.loads((data_dir / filename).read_text(encoding="utf-8"))
+        value = last_model_success(data) if filename == "model-monitor-status.json" and field == "checkedAt" else data.get(field)
         if not isinstance(value, str) or "T" not in value:
             return None
         stamp = datetime.fromisoformat(value.replace("Z", "+00:00"))
@@ -66,6 +87,8 @@ def daily_due(data_dir, group, now):
 
 def plan(data_dir, event, scope="", now=None, schedule=""):
     now = now or datetime.now(timezone.utc)
+    if event == "workflow_dispatch" and scope == "due":
+        event = "schedule"
     if event == "workflow_dispatch":
         selected = MANUAL[scope]
         return {group: group in selected for group in GROUPS}
@@ -91,7 +114,7 @@ def plan(data_dir, event, scope="", now=None, schedule=""):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--event", required=True, choices=("push", "schedule", "workflow_dispatch"))
-    parser.add_argument("--scope", default="", choices=("", *MANUAL))
+    parser.add_argument("--scope", default="", choices=("", "due", *MANUAL))
     parser.add_argument("--schedule", default="")
     parser.add_argument("--data-dir", type=Path, default=ROOT / "site" / "data")
     parser.add_argument("--output", type=Path, required=True)
