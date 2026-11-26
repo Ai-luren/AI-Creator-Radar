@@ -118,6 +118,7 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
             item = queue.setdefault(key, {"url": url, "titles": set(), "leadIds": set(), "sourceIds": set(),
                                          "reportedDates": set(), "latest": ""})
             item["titles"].add(lead["title"])
+            item["titles"].update(t for t in lead.get("titleHints", []) if isinstance(t, str) and t.strip())
             item["leadIds"].add(lead["id"])
             item["sourceIds"].add(lead["sourceId"])
             if lead.get("reportedAt"):
@@ -126,10 +127,17 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
     previous_rows = {r["urlKey"]: r for r in previous.get("items", [])}
     def due(key):
         old = previous_rows.get(key, {})
-        return not old.get("nextAttemptAt") or old["nextAttemptAt"] <= stamp
+        return (not old.get("nextAttemptAt") or old["nextAttemptAt"] <= stamp
+                or (old.get("status") in {"identity-unresolved", "family-unresolved"}
+                    and not set(queue[key]["leadIds"]).issubset(old.get("leadIds", []))))
     # New URLs first; then retries. Recently reported and multi-source leads take precedence.
     ordered = sorted(queue, key=lambda k: (k not in previous_rows, len(queue[k]["sourceIds"]), queue[k]["latest"]), reverse=True)
-    selected = [key for key in ordered if due(key)][:MAX_PROBES]
+    eligible = [key for key in ordered if due(key)]
+    new = [key for key in eligible if key not in previous_rows]
+    retries = sorted((key for key in eligible if key in previous_rows), key=lambda k: previous_rows[k].get("nextAttemptAt") or "")
+    # Prevent a continuous stream of new leads from starving deferred evidence.
+    selected = new[:8] + retries[:4]
+    selected += [key for key in eligible if key not in selected][:MAX_PROBES-len(selected)]
     def probe(key):
         task, old = queue[key], previous_rows.get(key, {})
         try:
@@ -145,9 +153,9 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
                "firstAttemptAt": old.get("firstAttemptAt", stamp), "consecutiveUnresolved": failures,
                "nextAttemptAt": (now + timedelta(minutes=delay)).isoformat(timespec="seconds"), **outcome}
         if state == "article-date-verified":
-            row["firstVerifiedAt"] = old.get("firstVerifiedAt", stamp)
+            row["firstVerifiedAt"] = old.get("firstVerifiedAt") or (old.get("lastVerifiedObservation") or {}).get("firstVerifiedAt") or stamp
         # Preserve last confirmed observation on transient failure without claiming a new successful read.
-        elif old.get("status") == "article-date-verified" or old.get("lastVerifiedObservation"):
+        elif state == "fetch-failed" and (old.get("status") == "article-date-verified" or old.get("lastVerifiedObservation")):
             prior = old.get("lastVerifiedObservation") or {k: old[k] for k in ("title", "modelId", "vendor", "category", "articlePublishedAt", "firstVerifiedAt", "checkedAt")}
             row["lastVerifiedObservation"] = prior
         return key, row
@@ -180,6 +188,38 @@ def candidate_rows(resolution):
     return rows
 
 
+
+def reconcile_candidate_dates(updates, resolution):
+    """Correct weak listing observations in derived views; do not mutate raw evidence."""
+    index = {}
+    for proof in candidate_rows(resolution):
+        key = (proof["modelId"], url_key(proof["url"]))
+        if key[1]:
+            index.setdefault(key, []).append(proof)
+    output = []
+    corrections = []
+    for original in updates:
+        item = dict(original)
+        key = (item.get("modelId"), url_key(item.get("url")))
+        matches = [p for p in index.get(key, [])
+                   if title_agrees(p["title"], item.get("title") or "") or title_agrees(item.get("title") or "", p["title"])]
+        days = {p["publishedAt"][:10] for p in matches}
+        current_day = str(item.get("publishedAt") or "")[:10]
+        if (item.get("official") is True and len(days) == 1
+                and item.get("publicationDateKind") not in {"jsonld-datePublished", "feed-published", "article-explicit-date"}
+                and current_day not in days):
+            proof = matches[0]
+            item["listingPublishedAt"] = item.get("publishedAt")
+            item["publishedAt"] = proof["publishedAt"]
+            item["publicationDateKind"] = "article-explicit-date"
+            item["publicationObservedAt"] = proof["lastSeenAt"]
+            item["recoveryProofId"] = proof["id"]
+            corrections.append({"updateId": item["id"], "previousDate": original.get("publishedAt"),
+                                "articleDate": item["publishedAt"], "proofId": proof["id"]})
+        output.append(item)
+    return output, corrections
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
@@ -193,6 +233,9 @@ def main():
     result = resolve(discovery, {} if args.discovery else read(OUTPUT, {}),
                      read("config/cross-platform-sources.json"), read("config/model-sources.json"),
                      read("site/data/models.json"), datetime.now(timezone.utc))
+    _, corrections = reconcile_candidate_dates(read("site/data/model-updates.json", {}).get("items", []), result)
+    result["candidateDateCorrections"] = corrections
+    result["summary"]["weakCandidateDatesCorrected"] = len(corrections)
     print("Lead resolution:", json.dumps(result["summary"], ensure_ascii=False))
     for row in result["items"]:
         print("[PROOF]", row["url"], row["status"], row.get("articlePublishedAt"), row.get("error", ""))

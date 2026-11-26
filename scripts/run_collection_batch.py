@@ -11,8 +11,10 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+RECOVERY = ("collect_cross_platform", "collect_resolve_model_leads", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall")
 BATCHES = {
-    "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), ("collect_cross_platform", "collect_resolve_model_leads", "build_model_release_digest", "collect_release_recall"))),
+    "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), RECOVERY)),
+    "recovery": (180, (RECOVERY,)),
     "resources": (540, (("collect_resources",), ("collect_rankings", "collect_maomu_rankings", "build_unified_rankings"), ("collect_aipick",), ("collect_social_trends",))),
     "maintenance": (540, (("check_model_resources",), ("check_creator_links",), ("collect_creator_opportunities",), ("collect_model_evaluations",))),
 }

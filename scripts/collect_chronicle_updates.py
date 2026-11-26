@@ -11,8 +11,10 @@ from urllib.parse import urlsplit, urlunsplit
 
 try:
     from scripts.collect_models import non_release_title
+    from scripts.collect_resolve_model_leads import reconcile_candidate_dates
 except ModuleNotFoundError:
     from collect_models import non_release_title
+    from collect_resolve_model_leads import reconcile_candidate_dates
 
 ROOT = Path(__file__).resolve().parents[1]
 TOPICS_FILE = ROOT / "site/data/topics.json"
@@ -133,7 +135,8 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
                 "sourceName": update.get("sourceName", ""),
                 "verificationStatus": PENDING_STATUS,
                 "sourceModelId": model_id,
-                "dateKind": "source-date",
+                "dateKind": "article-publication-date" if update.get("recoveryProofId") else "source-date",
+                **({"recoveryProofId": update["recoveryProofId"], "previousSourceDate": update.get("listingPublishedAt")} if update.get("recoveryProofId") else {}),
             }
             if update.get("category"):
                 next_values["modelCategory"] = update["category"]
@@ -157,7 +160,8 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
             "sourceTier": "official-primary",
             "autoCollected": True,
             "verificationStatus": PENDING_STATUS,
-            "dateKind": "source-date",
+            "dateKind": "article-publication-date" if update.get("recoveryProofId") else "source-date",
+            **({"recoveryProofId": update["recoveryProofId"], "previousSourceDate": update.get("listingPublishedAt")} if update.get("recoveryProofId") else {}),
             "sourceModelId": model_id,
             "collectedAt": checked_at,
         }
@@ -240,7 +244,11 @@ def main() -> int:
     topics = read_json(TOPICS_FILE)
     update_doc = read_json(UPDATES_FILE)
     checked_at = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
-    merged, status = merge_official_updates(topics, update_doc.get("items", []), checked_at)
+    resolution_file = ROOT / "site/data/lead-resolution.json"
+    resolution = read_json(resolution_file) if resolution_file.exists() else {}
+    updates, corrections = reconcile_candidate_dates(update_doc.get("items", []), resolution)
+    merged, status = merge_official_updates(topics, updates, checked_at)
+    status["candidateDateCorrections"] = len(corrections)
     status["automaticallyConfirmed"] = sync_automatic_confirmations(merged, read_json(ROOT / "site/data/models.json"))
     print(
         "Chronicles: {added} official-source nodes added; {considered} updates considered; unmatched vendors: {unmatched}".format(
