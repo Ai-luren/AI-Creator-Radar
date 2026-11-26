@@ -54,3 +54,12 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("cancel-in-progress: true", text)
         self.assertIn("matrix:", text)
         self.assertIn("chromium, webkit", text)
+
+    def test_no_change_collection_can_repair_missing_publication(self):
+        collector = (ROOT / ".github/workflows/update-site.yml").read_text()
+        deploy = (ROOT / ".github/workflows/deploy-pages.yml").read_text()
+        self.assertIn("needs.collect.outputs.publication_status == 'stale'", collector)
+        self.assertIn("steps.persist.outputs.changed != 'true'", collector)
+        self.assertIn("publication_guard.py --write-marker", deploy)
+        self.assertEqual(deploy.count("if: inputs.force || steps.publication.outputs.publication_status != 'current'"), 5)
+        self.assertIn("force:", deploy)

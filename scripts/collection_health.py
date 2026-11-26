@@ -16,21 +16,27 @@ SOURCES.update(CRITICAL_BATCHES)
 THRESHOLD = 3
 
 
-def update_health(previous, outcomes, now):
+def update_health(previous, outcomes, now, run_id=None):
     records = dict(previous.get("sources", {}))
     alerts = []
     for source, outcome in outcomes.items():
         if outcome not in {"success", "failure"}:
             continue
         before = records.get(source, {})
-        failures = 0 if outcome == "success" else int(before.get("consecutiveFailures", 0)) + 1
+        seen = list(before.get("failureRunIds", []))
+        duplicate = outcome == "failure" and bool(run_id) and run_id in seen
+        failures = 0 if outcome == "success" else int(before.get("consecutiveFailures", 0)) + (0 if duplicate else 1)
         records[source] = {
             "lastAttemptAt": now,
             "lastSuccessAt": now if outcome == "success" else before.get("lastSuccessAt"),
             "status": "healthy" if outcome == "success" else "degraded",
             "consecutiveFailures": failures,
         }
-        if failures == THRESHOLD:
+        if outcome == "failure" and run_id:
+            if not duplicate:
+                seen.append(run_id)
+            records[source]["failureRunIds"] = seen[-20:]
+        if failures == THRESHOLD and not duplicate:
             alerts.append(source)
     return {"schemaVersion": 1, "sources": records}, alerts
 
@@ -44,7 +50,7 @@ def main():
     args = parser.parse_args()
     previous = json.loads(args.path.read_text(encoding="utf-8")) if args.path.exists() else {}
     outcomes = {k: os.environ.get(v, "") for k, v in SOURCES.items()}
-    result, alerts = update_health(previous, outcomes, datetime.now(timezone.utc).isoformat(timespec="seconds"))
+    result, alerts = update_health(previous, outcomes, datetime.now(timezone.utc).isoformat(timespec="seconds"), os.environ.get("RADAR_RUN_ID") or None)
     if result != previous and any(v in {"success", "failure"} for v in outcomes.values()):
         tmp = args.path.with_suffix(".tmp")
         tmp.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

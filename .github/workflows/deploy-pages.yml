@@ -10,8 +10,18 @@ on:
       - 'scripts/audit_model_completeness.py'
       - '.github/workflows/deploy-pages.yml'
       - 'scripts/wait_pages_artifact.sh'
+      - 'scripts/publication_guard.py'
   workflow_dispatch:
+    inputs:
+      force:
+        description: "Publish even when the online site tree matches"
+        type: boolean
+        default: true
   workflow_call:
+    inputs:
+      force:
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -52,25 +62,33 @@ jobs:
           node --test tests/test_overview.mjs
           python scripts/validate_model_links.py
           python scripts/audit_model_completeness.py
+      - name: Check whether this site tree is already published
+        id: publication
+        run: python scripts/publication_guard.py --output "$GITHUB_OUTPUT"
       - name: Record revision in the deployment artifact
+        if: inputs.force || steps.publication.outputs.publication_status != 'current'
         run: |
-          python -c 'import json,subprocess; from pathlib import Path; Path("site/deploy-revision.json").write_text(json.dumps({"commit":subprocess.check_output(["git","rev-parse","HEAD"],text=True).strip()})+"\n",encoding="utf-8")'
+          python scripts/publication_guard.py --write-marker
           echo "Publishing $(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
       - name: Configure GitHub Pages
+        if: inputs.force || steps.publication.outputs.publication_status != 'current'
         uses: actions/configure-pages@v6.0.0
       - name: Upload Pages artifact
+        if: inputs.force || steps.publication.outputs.publication_status != 'current'
         id: pages_upload
         uses: actions/upload-pages-artifact@v5.0.0
         with:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: site
       - name: Verify Pages artifact visibility
+        if: inputs.force || steps.publication.outputs.publication_status != 'current'
         env:
           GH_TOKEN: ${{ github.token }}
           PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           PAGES_ARTIFACT_ID: ${{ steps.pages_upload.outputs.artifact_id }}
         run: bash scripts/wait_pages_artifact.sh
       - name: Deploy to GitHub Pages
+        if: inputs.force || steps.publication.outputs.publication_status != 'current'
         id: deployment
         uses: actions/deploy-pages@v5.0.1
         with:
