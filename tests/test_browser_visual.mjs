@@ -110,6 +110,14 @@ try{
    await page.locator('[data-social-view="platforms"]').click();await page.locator('[data-social-platform-filter]').selectOption('platform:X');assert.equal(await page.locator('.social-platform-record').count(),1);
    await page.locator('[data-social-view="posts"]').click();assert.equal(await page.evaluate(()=>state.socialView),'posts');await page.screenshot({path:path.join(out,label+'-social-posts.png')});
   });
+  if(viewport.width!==360)await check('creator watch pilot',async()=>{
+   await page.goto(base+'?view=social&tab=creator-posts',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   assert.equal(await page.locator('.creator-watch-post').count(),0);await page.screenshot({path:path.join(out,label+'-creator-posts.png')});
+   await page.locator('[data-creator-type="教程"]').click();assert.equal(await page.locator('.creator-watch-post').count(),0);
+   await page.locator('[data-social-view="creators"]').click();assert.equal(await page.locator('.creator-watch-card').count(),8);await page.screenshot({path:path.join(out,label+'-creator-library.png')});
+   await page.locator('[data-creator-brand="PixVerse"]').click();assert.equal(await page.locator('.creator-watch-card').count(),3);
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
+  });
   if(viewport.width!==360)await check('search-and-version',async()=>{
    await page.goto(base+'?view=models&category=image',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});await page.waitForFunction(()=>state.indexReady);

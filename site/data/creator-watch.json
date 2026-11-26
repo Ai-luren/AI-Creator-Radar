@@ -1,0 +1,223 @@
+{
+  "schema": "creator-watch/v1",
+  "reviewedAt": "2026-11-26",
+  "mode": "social-first-manual-review",
+  "creators": [
+    {
+      "id": "kaye",
+      "name": "kaye.creatives",
+      "brand": "Higgsfield",
+      "relation": "Higgsfield 合作身份待复核",
+      "focus": "超现实短片 / 角色一致性 / 制作教程",
+      "evidence": "https://www.youtube.com/channel/UCDHy_qf3CJ8azlfbJKEGIHw",
+      "accounts": [
+        {
+          "platform": "Instagram",
+          "role": "主账号 · 成片",
+          "url": "https://www.instagram.com/kaye.creatives/",
+          "evidence": "https://www.youtube.com/watch?v=9ytfzZMnVn8"
+        },
+        {
+          "platform": "YouTube",
+          "role": "补充 · 教程",
+          "url": "https://www.youtube.com/@Kaye.creates",
+          "evidence": "https://kayescreativesspace.com/"
+        },
+        {
+          "platform": "TikTok",
+          "role": "观察 · 短视频",
+          "url": "https://www.tiktok.com/@kaye.creates1",
+          "evidence": "https://www.youtube.com/watch?v=9ytfzZMnVn8"
+        }
+      ],
+      "accountCandidates": [
+        {
+          "platform": "X",
+          "handle": "@KayeCreatives",
+          "url": "https://x.com/KayeCreatives",
+          "status": "第三方索引发现，未核验本人主页"
+        }
+      ]
+    },
+    {
+      "id": "allan_ripley",
+      "name": "allan_ripley",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "AI 电影与叙事",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": []
+    },
+    {
+      "id": "alpius",
+      "name": "alpius",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "品牌 VFX / UGC",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": [],
+      "accountCandidates": [
+        {
+          "platform": "X",
+          "handle": "@00alpius",
+          "url": "https://x.com/00alpius",
+          "status": "第三方索引自述 Higgsfield Creative Partner；原站返回 403，待本人原页交叉核验",
+          "evidence": "https://www.sotwe.com/00alpius?lang=en"
+        }
+      ]
+    },
+    {
+      "id": "joeysnoisygroup",
+      "name": "joeysnoisygroup",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "Skills 与创作教程",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": [],
+      "accountCandidates": [
+        {
+          "platform": "Instagram",
+          "handle": "@joeysnoisygroup",
+          "url": "https://www.instagram.com/joeysnoisygroup/",
+          "status": "公开视频简介的第三方转录含此链接；本人原页待核验",
+          "evidence": "https://videohighlight.com/v/4TXaAnittHs"
+        }
+      ]
+    },
+    {
+      "id": "nyanyanrin",
+      "name": "nyanyanrin",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "AI 动画与漫剧",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": []
+    },
+    {
+      "id": "pixverse-0",
+      "name": "Aldo",
+      "brand": "PixVerse",
+      "relation": "官方文章确认 CPP",
+      "focus": "从创意简报到视频制作 · 官方活动",
+      "evidence": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "accounts": []
+    },
+    {
+      "id": "pixverse-1",
+      "name": "Hidayat",
+      "brand": "PixVerse",
+      "relation": "官方文章确认 CPP",
+      "focus": "从创意简报到视频制作 · 官方活动",
+      "evidence": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "accounts": []
+    },
+    {
+      "id": "pixverse-2",
+      "name": "Serge Donaldson",
+      "brand": "PixVerse",
+      "relation": "官方文章确认 CPP",
+      "focus": "从创意简报到视频制作 · 官方活动",
+      "evidence": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "accounts": []
+    }
+  ],
+  "posts": [],
+  "sources": [
+    {
+      "brand": "Higgsfield",
+      "name": "官方创作者目录",
+      "url": "https://higgsfield.ai/community/creators",
+      "status": "已收录目录作者"
+    },
+    {
+      "brand": "Higgsfield",
+      "name": "创作者博客",
+      "url": "https://higgsfield.ai/community/blogs",
+      "status": "仅用于发现与身份线索，不采集作品"
+    },
+    {
+      "brand": "PixVerse",
+      "name": "官方 CPP 活动文章",
+      "url": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "status": "已收录成员身份；社媒待核验"
+    },
+    {
+      "brand": "Vidu",
+      "name": "官方创作者计划",
+      "url": "https://www.vidu.com/zh/artist-program",
+      "status": "成员名单待核验"
+    },
+    {
+      "brand": "Instagram / X",
+      "name": "社媒原帖采集",
+      "url": "https://developer.x.com/",
+      "status": "待接入；尚无成功采集快照"
+    },
+    {
+      "brand": "Instagram / X",
+      "name": "公开网页免登录试验",
+      "url": "https://github.com/FreshRSS/Extensions",
+      "status": "待运行只读探测；不使用付费 API、账号密码或会话 Cookie"
+    },
+    {
+      "brand": "X",
+      "name": "Sotwe 公开索引（Alpius）",
+      "url": "https://www.sotwe.com/00alpius?lang=en",
+      "status": "2026-11-26 可读取近一天动态；无可核验原帖 ID，仅作发现线索"
+    },
+    {
+      "brand": "Instagram",
+      "name": "IGDataHub 公开索引",
+      "url": "https://igdatahub.com/profile/higgsfield.creators/",
+      "status": "品牌页可被搜索索引发现；Kaye、Joey 主页本轮读取失败，不作为正式采集源"
+    },
+    {
+      "brand": "Instagram",
+      "name": "Apify Instagram Post Scraper",
+      "url": "https://apify.com/apify/instagram-post-scraper",
+      "status": "每月免费额度 $5；须授权，尚未运行；仅允许手动测试，禁止自动付费"
+    }
+  ],
+  "reviewQueue": [
+    {
+      "id": "kaye-workflow",
+      "creator": "kaye",
+      "platform": "YouTube",
+      "type": "教程",
+      "title": "I Made AI Videos That Got 6M Views & Started a Trend — Here's the Exact Workflow",
+      "summary": "从角色设定、场景和镜头提示词到 Seedance 2.5 生成与迭代。",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=9ytfzZMnVn8",
+      "reason": "原帖发布时间及可访问性尚未完成核验，不进入最新动态"
+    },
+    {
+      "id": "kaye-fundamentals",
+      "creator": "kaye",
+      "platform": "YouTube",
+      "type": "教程",
+      "title": "How I Got 11M Views and 30K Subscribers in 3 Days With This AI Workflow",
+      "summary": "创意基本功与 Higgsfield 视频制作流程。",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=f0QIKt9djqs",
+      "reason": "原帖发布时间及可访问性尚未完成核验，不进入最新动态"
+    }
+  ],
+  "discoveryNotes": [
+    {
+      "creator": "kaye",
+      "platform": "Instagram",
+      "title": "It is all an illusion",
+      "reportedDate": "2026-11-21",
+      "evidence": "https://www.makeviral.ai/templates/tiny-me-in-a-box-ai-trend",
+      "status": "第三方报道，原帖 ID 与发布时间未核验，不进入动态"
+    },
+    {
+      "creator": "alpius",
+      "platform": "X",
+      "title": "CLAUDE — 90 年代动作动画短片，使用 MAGI-2",
+      "reportedDate": null,
+      "evidence": "https://www.sotwe.com/00alpius?lang=en",
+      "status": "2026-11-26 索引显示约15小时前；缺原帖 ID、绝对发布时间及原站可访问性，禁止进入动态"
+    }
+  ]
+}
