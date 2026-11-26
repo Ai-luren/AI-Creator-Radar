@@ -690,6 +690,10 @@ button.text-link:focus-visible,.rank-model-link:focus-visible,.v34-control:focus
  .practice-card,.platform-card{padding:12px;gap:6px}.practice-card .practice-links,.platform-card .platform-actions{gap:6px 10px;flex-wrap:wrap}
  .summary-grid>div{grid-template-rows:2.6em auto;gap:3px}
 }
+
+/* Keep related selects on one baseline, including narrow screens. */
+.social-filter-selects{display:flex;align-items:center;gap:12px;min-width:0;flex-wrap:nowrap}.social-filter-selects .social-platform-filter{gap:6px;white-space:nowrap;min-width:0}.social-filter-selects .social-platform-filter select{box-sizing:border-box;height:34px;min-height:34px;min-width:108px;max-width:180px;padding:4px 8px}
+@media(max-width:760px){.social-filter-row{gap:8px}.social-filter-selects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%}.social-filter-selects .social-platform-filter{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px;font-size:11px}.social-filter-selects .social-platform-filter select{width:100%;min-width:0;max-width:none;height:40px;min-height:40px;padding:4px 4px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -1627,11 +1631,11 @@ function socialPage(){
   var size=12,pages=Math.max(1,Math.ceil(rows.length/size)),page=Math.max(0,Math.min(state.socialPageIndex||0,pages-1));state.socialPageIndex=page;
  var overall=socialFollowerTotal(resultAccounts);
  var sortOptions=[['total','粉丝合计'],['priority','关注优先']].concat(visiblePlatforms.map(function(p){return [p,p+' 粉丝']})).map(function(o){return '<option value="'+esc(o[0])+'" '+(sortKey===o[0]?'selected':'')+'>'+esc(o[1])+'</option>'}).join('');
- body='<div class="social-v3-status"><span>'+rows.length+' 个品牌 · '+snapshots+' 个已知粉丝快照 · 粉丝合计'+(overall.count?'：<strong>约 '+socialFollowerFormat(overall.total)+'</strong>':'：—')+'</span><label class="social-platform-filter">排序<select data-social-sort aria-label="粉丝排序">'+sortOptions+'</select></label></div>'+(rows.length?'<div class="social-matrix-wrap"><table class="social-matrix"><thead><tr><th scope="col">品牌</th>'+visiblePlatforms.map(function(p){return '<th scope="col">'+esc(p)+'</th>'}).join('')+'<th scope="col">粉丝合计</th></tr></thead><tbody>'+rows.slice(page*size,(page+1)*size).map(brandRow).join('')+'</tbody></table></div><div class="social-matrix-footer"><span>第 '+(page*size+1)+'–'+Math.min(rows.length,(page+1)*size)+' / '+rows.length+' 个品牌</span><span>当前筛选合计：<strong>'+(overall.count?'约 '+socialFollowerFormat(overall.total):'—')+'</strong></span><span><button type="button" data-social-page="-1" '+(page===0?'disabled':'')+'>上一页</button> '+(page+1)+' / '+pages+' <button type="button" data-social-page="1" '+(page===pages-1?'disabled':'')+'>下一页</button></span></div>':empty('当前筛选没有匹配品牌。'));
+ body='<div class="social-v3-status"><span>'+rows.length+' 个品牌 · '+snapshots+' 个已知粉丝快照 · 粉丝合计'+(overall.count?'：<strong>约 '+socialFollowerFormat(overall.total)+'</strong>':'：—')+'</span></div>'+(rows.length?'<div class="social-matrix-wrap"><table class="social-matrix"><thead><tr><th scope="col">品牌</th>'+visiblePlatforms.map(function(p){return '<th scope="col">'+esc(p)+'</th>'}).join('')+'<th scope="col">粉丝合计</th></tr></thead><tbody>'+rows.slice(page*size,(page+1)*size).map(brandRow).join('')+'</tbody></table></div><div class="social-matrix-footer"><span>第 '+(page*size+1)+'–'+Math.min(rows.length,(page+1)*size)+' / '+rows.length+' 个品牌</span><span>当前筛选合计：<strong>'+(overall.count?'约 '+socialFollowerFormat(overall.total):'—')+'</strong></span><span><button type="button" data-social-page="-1" '+(page===0?'disabled':'')+'>上一页</button> '+(page+1)+' / '+pages+' <button type="button" data-social-page="1" '+(page===pages-1?'disabled':'')+'>下一页</button></span></div>':empty('当前筛选没有匹配品牌。'));
 
  }
  return pageHead('官方账号监控','各平台粉丝快照 · 点击数字访问官方主页。',latest?'最近粉丝快照 '+esc(latest):'暂无粉丝快照')+
- '<div class="social-v3-controls"><div class="social-filter-row"><div class="filter-row">'+categoryTabs+'</div><label class="social-platform-filter">平台<select data-social-platform-filter aria-label="按社交平台筛选">'+platformOptions+'</select></label></div></div>' +body+
+ '<div class="social-v3-controls"><div class="social-filter-row"><div class="filter-row">'+categoryTabs+'</div><div class="social-filter-selects" role="group" aria-label="平台与排序"><label class="social-platform-filter">平台<select data-social-platform-filter aria-label="按社交平台筛选">'+platformOptions+'</select></label><label class="social-platform-filter">排序<select data-social-sort aria-label="粉丝排序">'+sortOptions+'</select></label></div></div></div>' +body+
  '<details class="source-health"><summary>监控范围与数据口径</summary><p>粉丝数为各平台主页快照，不代表实时值。官方搜索入口与待核验账号不计入已核验主页，暂无已核实主页不代表账号不存在。合计仅加总当前筛选范围内已核验、已读取的粉丝/订阅快照；同一主页在合计中去重，但不同平台可能有重复用户，不代表独立受众人数。缺失快照不按零计。</p><p>当前筛选 '+resultAccounts.length+' 个账号位；数据更新 '+esc(state.social.updatedAt||'待确认')+'。</p></details>';
 }
 
