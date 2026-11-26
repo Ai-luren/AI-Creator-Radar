@@ -76,8 +76,14 @@ jobs:
         if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'maintenance')) || github.event.schedule == '13 2 * * *'
         run: python scripts/check_creator_links.py
 
+      - name: Scan public creator opportunity sources
+        if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'maintenance')) || github.event.schedule == '13 2 * * *'
+        run: python scripts/collect_creator_opportunities.py
+
       - name: Validate creator opportunity records
-        run: python scripts/check_creator_links.py --dry-run
+        run: |
+          python scripts/check_creator_links.py --dry-run
+          python scripts/collect_creator_opportunities.py --dry-run
 
       - name: Collect RSS and Awesome resources
         if: (github.event_name == 'workflow_dispatch' && (inputs.scope == 'all' || inputs.scope == 'resources')) || github.event.schedule == '17 2,8,14,20 * * *'
