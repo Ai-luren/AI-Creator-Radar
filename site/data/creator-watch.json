@@ -1,0 +1,173 @@
+{
+  "schema": "creator-watch/v1",
+  "reviewedAt": "2026-11-26",
+  "mode": "manual-reviewed-pilot",
+  "creators": [
+    {
+      "id": "kaye",
+      "name": "kaye.creatives",
+      "brand": "Higgsfield",
+      "relation": "社区作者 · CPP 待核验",
+      "focus": "超现实短片 / 角色一致性 / 制作教程",
+      "evidence": "https://higgsfield.ai/%40kaye_creatives/blogs/kaye-dream-island?from=%2Fcommunity%2Fblogs",
+      "accounts": [
+        {
+          "platform": "Instagram",
+          "role": "主账号 · 成片",
+          "url": "https://www.instagram.com/kaye.creatives/",
+          "evidence": "https://www.youtube.com/watch?v=9ytfzZMnVn8"
+        },
+        {
+          "platform": "YouTube",
+          "role": "补充 · 教程",
+          "url": "https://www.youtube.com/@Kaye.creates",
+          "evidence": "https://kayescreativesspace.com/"
+        },
+        {
+          "platform": "Higgsfield 社区",
+          "role": "补充 · 提示词",
+          "url": "https://higgsfield.ai/%40kaye_creatives/blogs/kaye-dream-island?from=%2Fcommunity%2Fblogs",
+          "evidence": "https://higgsfield.ai/%40kaye_creatives/blogs/kaye-dream-island?from=%2Fcommunity%2Fblogs",
+          "kind": "作品入口"
+        },
+        {
+          "platform": "TikTok",
+          "role": "观察 · 短视频",
+          "url": "https://www.tiktok.com/@kaye.creates1",
+          "evidence": "https://www.youtube.com/watch?v=9ytfzZMnVn8"
+        }
+      ]
+    },
+    {
+      "id": "allan_ripley",
+      "name": "allan_ripley",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "AI 电影与叙事",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": []
+    },
+    {
+      "id": "alpius",
+      "name": "alpius",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "品牌 VFX / UGC",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": []
+    },
+    {
+      "id": "joeysnoisygroup",
+      "name": "joeysnoisygroup",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "Skills 与创作教程",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": []
+    },
+    {
+      "id": "nyanyanrin",
+      "name": "nyanyanrin",
+      "brand": "Higgsfield",
+      "relation": "官方 Creative Partner 目录",
+      "focus": "AI 动画与漫剧",
+      "evidence": "https://higgsfield.ai/community/creators",
+      "accounts": []
+    },
+    {
+      "id": "pixverse-0",
+      "name": "Aldo",
+      "brand": "PixVerse",
+      "relation": "官方文章确认 CPP",
+      "focus": "从创意简报到视频制作 · 官方活动",
+      "evidence": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "accounts": []
+    },
+    {
+      "id": "pixverse-1",
+      "name": "Hidayat",
+      "brand": "PixVerse",
+      "relation": "官方文章确认 CPP",
+      "focus": "从创意简报到视频制作 · 官方活动",
+      "evidence": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "accounts": []
+    },
+    {
+      "id": "pixverse-2",
+      "name": "Serge Donaldson",
+      "brand": "PixVerse",
+      "relation": "官方文章确认 CPP",
+      "focus": "从创意简报到视频制作 · 官方活动",
+      "evidence": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "accounts": []
+    }
+  ],
+  "posts": [
+    {
+      "id": "dream-island",
+      "creator": "kaye",
+      "platform": "Higgsfield 社区",
+      "type": "提示词",
+      "title": "Kaye Dream Island",
+      "summary": "浮空岛创意片的参考视频与局部人物编辑提示词。",
+      "date": "2026-11-24",
+      "url": "https://higgsfield.ai/%40kaye_creatives/blogs/kaye-dream-island?from=%2Fcommunity%2Fblogs"
+    },
+    {
+      "id": "rainbow",
+      "creator": "kaye",
+      "platform": "Higgsfield 社区",
+      "type": "提示词",
+      "title": "Kaye Rainbow",
+      "summary": "云端梦幻场景的参考视频与人物替换工作流。",
+      "date": "2026-11-24",
+      "url": "https://higgsfield.ai/%40kaye_creatives/blogs/kaye-rainbow?from=%2Fcommunity%2Fblogs"
+    },
+    {
+      "id": "kaye-workflow",
+      "creator": "kaye",
+      "platform": "YouTube",
+      "type": "教程",
+      "title": "I Made AI Videos That Got 6M Views & Started a Trend — Here's the Exact Workflow",
+      "summary": "从角色设定、场景和镜头提示词到 Seedance 2.5 生成与迭代。",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=9ytfzZMnVn8"
+    },
+    {
+      "id": "kaye-fundamentals",
+      "creator": "kaye",
+      "platform": "YouTube",
+      "type": "教程",
+      "title": "How I Got 11M Views and 30K Subscribers in 3 Days With This AI Workflow",
+      "summary": "创意基本功与 Higgsfield 视频制作流程。",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=f0QIKt9djqs"
+    }
+  ],
+  "sources": [
+    {
+      "brand": "Higgsfield",
+      "name": "官方创作者目录",
+      "url": "https://higgsfield.ai/community/creators",
+      "status": "已收录目录作者"
+    },
+    {
+      "brand": "Higgsfield",
+      "name": "创作者博客",
+      "url": "https://higgsfield.ai/community/blogs",
+      "status": "已收录单篇作品"
+    },
+    {
+      "brand": "PixVerse",
+      "name": "官方 CPP 活动文章",
+      "url": "https://pixverse.ai/en/blog/five-takeaways-prompt-to-production-with-openai",
+      "status": "已收录成员身份；社媒待核验"
+    },
+    {
+      "brand": "Vidu",
+      "name": "官方创作者计划",
+      "url": "https://www.vidu.com/zh/artist-program",
+      "status": "成员名单待核验"
+    }
+  ]
+}
