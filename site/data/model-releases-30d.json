@@ -4,7 +4,7 @@
   "windowDays": 30,
   "windowStart": "2026-10-28",
   "windowEnd": "2026-11-26",
-  "updatedAt": "2026-11-26T16:57:17Z",
+  "updatedAt": "2026-11-26T17:01:03Z",
   "categories": [
     "video",
     "image",
@@ -941,6 +941,20 @@
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "minimax-h3-image",
       "updateType": "release",
+      "verificationStatus": "pending"
+    },
+    {
+      "id": "a92ed3f2e8c9253282",
+      "category": "audio",
+      "vendor": "ElevenLabs",
+      "title": "SFX v3",
+      "summary": "官方开发日志的型号条目；具体发布阶段待核验。",
+      "url": "https://elevenlabs.io/docs/changelog.md",
+      "sourceName": "ElevenLabs 官方开发更新日志",
+      "publishedAt": "2026-11-02T00:00:00Z",
+      "discoveredAt": "2026-11-26T17:00:58Z",
+      "modelFamilyId": "eleven-sfx",
+      "updateType": "model-card",
       "verificationStatus": "pending"
     }
   ]
