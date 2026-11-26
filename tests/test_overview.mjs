@@ -225,7 +225,7 @@ test('combined news merges only primary identities and preserves every report',(
 });
 test('overview exposes all modules without duplicating raw daily feeds',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
- assert.match(markup,/重点 AI 资讯/);assert.match(markup,/探索工作台/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
+ assert.match(markup,/重点 AI 资讯/);assert.match(markup,/快捷入口/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
  assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds','social','models','rankings','topics','practice','opportunities','platforms'])assert.ok(markup.includes('data-view="'+view+'"'),view);
  run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
