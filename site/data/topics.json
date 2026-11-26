@@ -3323,6 +3323,13 @@
             "modelFamilyId": "gpt-image",
             "matchedName": "GPT-Image-2.6"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt-image",
+            "modelVersionId": "gpt-image-2-6-sunburst",
+            "matchedName": "GPT-Image-2.6 Sunburst"
+          }
         ]
       },
       {
@@ -6658,7 +6665,14 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview"
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen",
+            "modelVersionId": "qwen4-max",
+            "matchedName": "Qwen4-Max"
+          }
+        ]
       },
       {
         "date": "2026-10-22",
