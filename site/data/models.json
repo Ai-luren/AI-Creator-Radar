@@ -91,7 +91,7 @@
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
     "modelCardUrl": "https://www.anthropic.com/news/models",
-    "version": "Claude Opus 5.5 / Claude Sonnet 5.5 / Claude Haiku 5.5 / Claude Fable 5.2 / Claude Mythos 5.2",
+    "version": "Claude Opus 5.5 / Claude Sonnet 5.5 / Claude Haiku 5.5 / Claude Fable 5.2 / Claude Mythos 5.2 / Claude Opus 5 / Claude Fable 5 / Claude Mythos 5 / Claude 3 Haiku / Claude Sonnet 5 / Claude Opus 4.8 / Claude Opus 4.7 / Claude Sonnet 4.6 / Claude Opus 4.6 / Claude Opus 4.5 / Claude Haiku 4.5 / Claude Sonnet 4.5 / Claude Opus 4 / Claude Sonnet 4 / Claude 3.7 Sonnet / Claude 3 Opus / Claude 3 Sonnet / Claude 2 / Claude（初代）",
     "aliases": [
       "Claude 系列",
       "Claude Fable 5.2",
@@ -209,7 +209,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://claude.ai/",
-        "releaseUrl": "https://www.anthropic.com/news",
+        "releaseUrl": "https://www.anthropic.com/claude-sonnet-5-5",
         "modelCardUrl": "https://www.anthropic.com/news/models",
         "id": "claude-sonnet-5-5",
         "name": "Claude Sonnet 5.5",
@@ -295,8 +295,22 @@
             "detailUrl": "https://maomu.com/models/anthropic--claudesonnet55?entry=benchlm%3Abench%3A13"
           }
         ],
-        "status": "已发布",
-        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。",
+        "releaseDate": "2026-09-28",
+        "releaseEvidence": {
+          "eventId": "official-claude-claude-sonnet-5-5-20260928",
+          "publishedAt": "2026-09-28",
+          "sourceUrl": "https://www.anthropic.com/claude-sonnet-5-5",
+          "sourceName": "Anthropic 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Sonnet 5.5 正式可用，面向编程和日常知识工作。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Sonnet 5.5",
+          "provenance": "本轮重新核对官方来源"
+        }
       },
       {
         "region": "海外",
@@ -515,6 +529,454 @@
           "access": "受限提供；Mythos 需申请",
           "category": "llm",
           "modelName": "Claude Mythos 5.2"
+        }
+      },
+      {
+        "id": "claude-opus-5",
+        "name": "Claude Opus 5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-07-24",
+        "releaseUrl": "https://www.anthropic.com/news/claude-opus-5",
+        "releaseEvidence": {
+          "eventId": "official-claude-claude-opus-5-20260724",
+          "publishedAt": "2026-07-24",
+          "sourceUrl": "https://www.anthropic.com/news/claude-opus-5",
+          "sourceName": "Anthropic 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Opus 5 作为通用旗舰模型推出。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Opus 5",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "claude-fable-5",
+        "name": "Claude Fable 5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-06-09",
+        "releaseUrl": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "releaseEvidence": {
+          "eventId": "official-claude-claude-fable-5-20260609",
+          "publishedAt": "2026-06-09",
+          "sourceUrl": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+          "sourceName": "Anthropic 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Fable 5 首次推出；后续访问范围发生变化。",
+          "access": "发布后访问范围变化；当前资格待核验",
+          "category": "llm",
+          "modelName": "Claude Fable 5",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "claude-mythos-5",
+        "name": "Claude Mythos 5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已公布；受限访问，当前资格待核验",
+        "releaseDate": "2026-06-09",
+        "releaseUrl": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+        "releaseEvidence": {
+          "eventId": "official-claude-claude-mythos-5-20260609",
+          "publishedAt": "2026-06-09",
+          "sourceUrl": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+          "sourceName": "Anthropic 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "与 Fable 5 同批公布，访问受限。",
+          "access": "受限访问，非一般公开模型",
+          "category": "llm",
+          "modelName": "Claude Mythos 5",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "claude-3-haiku",
+        "name": "Claude 3 Haiku",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2024-03-13",
+        "releaseUrl": "https://www.anthropic.com/news/claude-3-haiku",
+        "releaseEvidence": {
+          "eventId": "official-claude-claude-3-haiku-20240313",
+          "publishedAt": "2024-03-13",
+          "sourceUrl": "https://www.anthropic.com/news/claude-3-haiku",
+          "sourceName": "Anthropic 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Claude 3 Haiku 正式可用，与 3 月 4 日系列公布区分。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude 3 Haiku",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "claude-sonnet-5",
+        "name": "Claude Sonnet 5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-06-30",
+        "releaseUrl": "https://www.anthropic.com/news/claude-sonnet-5",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-sonnet-5-20260630",
+          "publishedAt": "2026-06-30",
+          "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-5",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Anthropic 发布 Claude Sonnet 5，扩展 Claude 5 系列中面向编码、工具使用与日常专业工作的 Sonnet 中高性能档；位于 Sonnet 4.6 和 Sonnet 5.5 之间。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Sonnet 5",
+          "chronicleAuditId": "v48-anthropic-0112",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-opus-4-8",
+        "name": "Claude Opus 4.8",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-05-28",
+        "releaseUrl": "https://www.anthropic.com/news/claude-opus-4-8",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-opus-4-8-20260528",
+          "publishedAt": "2026-05-28",
+          "sourceUrl": "https://www.anthropic.com/news/claude-opus-4-8",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Opus 4.8 在 Opus 4.7 基础上提升多项评测表现和协作能力。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Opus 4.8",
+          "chronicleAuditId": "v48-anthropic-0125",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-opus-4-7",
+        "name": "Claude Opus 4.7",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-04-16",
+        "releaseUrl": "https://www.anthropic.com/news/claude-opus-4-7",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-opus-4-7-20260416",
+          "publishedAt": "2026-04-16",
+          "sourceUrl": "https://www.anthropic.com/news/claude-opus-4-7",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Opus 4.7 强化长程复杂任务和编码能力，早于 Opus 4.8。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Opus 4.7",
+          "chronicleAuditId": "v48-anthropic-0143",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-sonnet-4-6",
+        "name": "Claude Sonnet 4.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-02-17",
+        "releaseUrl": "https://www.anthropic.com/news/claude-sonnet-4-6",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-sonnet-4-6-20260217",
+          "publishedAt": "2026-02-17",
+          "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-4-6",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Anthropic 发布 Claude Sonnet 4.6，增强编码、计算机操作、长推理、规划和知识工作能力，承接 2025 年的 Sonnet 4.5。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Sonnet 4.6",
+          "chronicleAuditId": "v48-anthropic-0171",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-opus-4-6",
+        "name": "Claude Opus 4.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-02-05",
+        "releaseUrl": "https://www.anthropic.com/news/claude-opus-4-6",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-opus-4-6-20260205",
+          "publishedAt": "2026-02-05",
+          "sourceUrl": "https://www.anthropic.com/news/claude-opus-4-6",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Opus 4.6 面向复杂编程、推理和知识工作，延续旗舰模型迭代。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Opus 4.6",
+          "chronicleAuditId": "v48-anthropic-0180",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-opus-4-5",
+        "name": "Claude Opus 4.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-11-24",
+        "releaseUrl": "https://www.anthropic.com/news/claude-opus-4-5",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-opus-4-5-20251124",
+          "publishedAt": "2025-11-24",
+          "sourceUrl": "https://www.anthropic.com/news/claude-opus-4-5",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Anthropic 发布 Claude Opus 4.5，更新其 Opus 高能力型号产品线，面向复杂推理、软件工程及专业知识工作等高要求任务。该节点是 Claude 4 系列旗舰能力的后续迭代。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Opus 4.5",
+          "chronicleAuditId": "v48-anthropic-0214",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-haiku-4-5",
+        "name": "Claude Haiku 4.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-10-15",
+        "releaseUrl": "https://www.anthropic.com/news/claude-haiku-4-5",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-haiku-4-5-20251015",
+          "publishedAt": "2025-10-15",
+          "sourceUrl": "https://www.anthropic.com/news/claude-haiku-4-5",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Anthropic 发布 Haiku 4.5 经济型高效语言模型，面向大规模、高吞吐和实时交互任务，随后于 2026-10 更新为 Haiku 5.5。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Haiku 4.5",
+          "chronicleAuditId": "v48-anthropic-0236",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-sonnet-4-5",
+        "name": "Claude Sonnet 4.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-09-29",
+        "releaseUrl": "https://www.anthropic.com/news/claude-sonnet-4-5",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-sonnet-4-5-20250929",
+          "publishedAt": "2025-09-29",
+          "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-4-5",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Anthropic 发布 Claude Sonnet 4.5，作为 Sonnet 产品线的重要代际升级，继续强化编码、复杂任务执行和智能体工作流能力。该节点体现 Claude 以持续迭代的中高端型号覆盖日常与专业使用场景。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Sonnet 4.5",
+          "chronicleAuditId": "v48-anthropic-0241",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-opus-4",
+        "name": "Claude Opus 4",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-05-22",
+        "releaseUrl": "https://www.anthropic.com/news/claude-4",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-opus-4-20250522",
+          "publishedAt": "2025-05-22",
+          "sourceUrl": "https://www.anthropic.com/news/claude-4",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "发布 Claude Opus 4 与 Sonnet 4，强化编程和智能体任务。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Opus 4",
+          "chronicleAuditId": "v48-anthropic-0292",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-sonnet-4",
+        "name": "Claude Sonnet 4",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-05-22",
+        "releaseUrl": "https://www.anthropic.com/news/claude-4",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-sonnet-4-20250522",
+          "publishedAt": "2025-05-22",
+          "sourceUrl": "https://www.anthropic.com/news/claude-4",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "发布 Claude Opus 4 与 Sonnet 4，强化编程和智能体任务。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude Sonnet 4",
+          "chronicleAuditId": "v48-anthropic-0292",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-3-7-sonnet",
+        "name": "Claude 3.7 Sonnet",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-02-24",
+        "releaseUrl": "https://www.anthropic.com/news/claude-3-7-sonnet",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-3-7-sonnet-20250224",
+          "publishedAt": "2025-02-24",
+          "sourceUrl": "https://www.anthropic.com/news/claude-3-7-sonnet",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "推出可切换即时回答与扩展思考的混合推理模型。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude 3.7 Sonnet",
+          "chronicleAuditId": "v48-anthropic-0333",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-3-opus",
+        "name": "Claude 3 Opus",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2024-03-04",
+        "releaseUrl": "https://www.anthropic.com/news/claude-3-family",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-3-opus-20240304",
+          "publishedAt": "2024-03-04",
+          "sourceUrl": "https://www.anthropic.com/news/claude-3-family",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "推出 Haiku、Sonnet、Opus 三种规模型号。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude 3 Opus",
+          "chronicleAuditId": "v48-anthropic-0424",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-3-sonnet",
+        "name": "Claude 3 Sonnet",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2024-03-04",
+        "releaseUrl": "https://www.anthropic.com/news/claude-3-family",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-3-sonnet-20240304",
+          "publishedAt": "2024-03-04",
+          "sourceUrl": "https://www.anthropic.com/news/claude-3-family",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "推出 Haiku、Sonnet、Opus 三种规模型号。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude 3 Sonnet",
+          "chronicleAuditId": "v48-anthropic-0424",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-2",
+        "name": "Claude 2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2023-07-11",
+        "releaseUrl": "https://www.anthropic.com/news/claude-2",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-2-20230711",
+          "publishedAt": "2023-07-11",
+          "sourceUrl": "https://www.anthropic.com/news/claude-2",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "升级长文本处理与代码能力，并开放公开使用。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude 2",
+          "chronicleAuditId": "v48-anthropic-0463",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "claude-1",
+        "name": "Claude（初代）",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2023-03-14",
+        "releaseUrl": "https://www.anthropic.com/news/introducing-claude",
+        "releaseEvidence": {
+          "eventId": "chronicle-claude-claude-1-20230314",
+          "publishedAt": "2023-03-14",
+          "sourceUrl": "https://www.anthropic.com/news/introducing-claude",
+          "sourceName": "Anthropic 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Claude 系列首次公开发布，成为 Anthropic 的主要通用语言模型。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Claude（初代）",
+          "chronicleAuditId": "v48-anthropic-0478",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
         }
       }
     ],
@@ -1527,7 +1989,7 @@
     "logo": "deepseek-color",
     "homepage": "https://www.deepseek.com/",
     "releaseUrl": "https://api-docs.deepseek.com/news/news260910/",
-    "version": "DeepSeek V4.1 Pro / DeepSeek V4.1 Flash / DeepSeek V4.1 Flash 1017",
+    "version": "DeepSeek V4.1 Pro / DeepSeek V4.1 Flash / DeepSeek V4.1 Flash 1017 / DeepSeek V4 Pro / DeepSeek V3.2 / DeepSeek V3.2 Speciale / DeepSeek V3.1 / DeepSeek R1 / DeepSeek R1 Zero / DeepSeek V3 / DeepSeek V2.5 / DeepSeek Coder V2 / DeepSeek V2",
     "aliases": [
       "DeepSeek 系列",
       "DeepSeek V4.1 Flash",
@@ -1556,8 +2018,8 @@
           "deepseek"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "官方 API 当前主推 V4.1 Flash；1017 是 2026-10-17 更新的开放权重检查点，不应与基础型号重复计数。"
+        "status": "曾预告；正式上线待核验",
+        "note": "2026-09-10 的 V4.1 Flash 公告提到未来 V4.1 Pro；9 月 14 日后官方继续提供的是 V4 Pro，不是 V4.1 Pro。"
       },
       {
         "region": "中国",
@@ -1608,15 +2070,29 @@
             "detailUrl": "https://maomu.com/models/deepseek--deepseekv41flash1017?entry=benchlm%3Abench%3A23"
           }
         ],
-        "status": "已发布",
-        "note": "官方 API 当前主推 V4.1 Flash；1017 是 2026-10-17 更新的开放权重检查点，不应与基础型号重复计数。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "官方 API 当前主推 V4.1 Flash；1017 是 2026-10-17 更新的开放权重检查点，不应与基础型号重复计数。",
+        "releaseDate": "2026-09-10",
+        "releaseEvidence": {
+          "eventId": "official-deepseek-deepseek-v4-1-flash-20260910",
+          "publishedAt": "2026-09-10",
+          "sourceUrl": "https://api-docs.deepseek.com/news/news260910/",
+          "sourceName": "DeepSeek 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "V4.1 Flash 正式发布，支持视觉理解与高效率推理。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V4.1 Flash",
+          "provenance": "本轮重新核对官方来源"
+        }
       },
       {
         "region": "中国",
         "access": "开源权重",
         "accessNote": "仅部分具体型号提供开放权重；许可证和可商用范围因型号而异。",
         "homepage": "https://www.deepseek.com/",
-        "releaseUrl": "https://api-docs.deepseek.com/news/news260910/",
+        "releaseUrl": "https://api-docs.deepseek.com/news/news261017/",
         "modelCardUrl": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
         "id": "deepseek-v4-1-flash-1017",
         "name": "DeepSeek V4.1 Flash 1017",
@@ -1660,8 +2136,260 @@
             "detailUrl": "https://maomu.com/models/deepseek--deepseekv41flash1017?entry=benchlm%3Abench%3A23"
           }
         ],
-        "status": "已发布",
-        "note": "官方 API 当前主推 V4.1 Flash；1017 是 2026-10-17 更新的开放权重检查点，不应与基础型号重复计数。"
+        "status": "模型更新已核实；V4.1 Flash 同代快照",
+        "note": "2026-10-17 同代更新，不新增基础代际。",
+        "historicalMilestones": [
+          {
+            "date": "2026-10-17",
+            "datePrecision": "day",
+            "stage": "model-update",
+            "sourceUrl": "https://api-docs.deepseek.com/news/news261017/",
+            "sourceName": "DeepSeek 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-deepseek-deepseek-v4-1-flash-1017-model-update-20261017",
+            "summary": "V4.1 Flash 升级为 1017 快照；不重复计为基础模型代际首发。"
+          }
+        ]
+      },
+      {
+        "id": "deepseek-v4-pro",
+        "name": "DeepSeek V4 Pro",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-08-13",
+        "releaseUrl": "https://api-docs.deepseek.com/updates/#date-2026-08-13",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-v4-pro-20260813",
+          "publishedAt": "2026-08-13",
+          "sourceUrl": "https://api-docs.deepseek.com/updates/#date-2026-08-13",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 将 V4 Pro 正式推出，标志着 V4 代际旗舰型号从预览进入正式可用阶段。该节点应与 V4 Pro/Flash 预览版合并理解为同一代际的不同发布阶段。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V4 Pro",
+          "chronicleAuditId": "v48-deepseek-0080",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-v3-2",
+        "name": "DeepSeek V3.2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-12-01",
+        "releaseUrl": "https://api-docs.deepseek.com/updates/#date-2025-12-01",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-v3-2-20251201",
+          "publishedAt": "2025-12-01",
+          "sourceUrl": "https://api-docs.deepseek.com/updates/#date-2025-12-01",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 于 2025-12-01 发布 V3.2 与 V3.2-Speciale。该代际承接 2025-09-29 的 V3.2-Exp 实验版本，后者首次引入 DeepSeek Sparse Attention（DSA）以提升长上下文训练与推理效率；V3.2 将推理能力与工具使用结合，是 DeepSeek 从通用推理模型走向 Agent 能力的重要节点。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V3.2",
+          "chronicleAuditId": "v48-deepseek-0211",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-v3-2-speciale",
+        "name": "DeepSeek V3.2 Speciale",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-12-01",
+        "releaseUrl": "https://api-docs.deepseek.com/updates/#date-2025-12-01",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-v3-2-speciale-20251201",
+          "publishedAt": "2025-12-01",
+          "sourceUrl": "https://api-docs.deepseek.com/updates/#date-2025-12-01",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 于 2025-12-01 发布 V3.2 与 V3.2-Speciale。该代际承接 2025-09-29 的 V3.2-Exp 实验版本，后者首次引入 DeepSeek Sparse Attention（DSA）以提升长上下文训练与推理效率；V3.2 将推理能力与工具使用结合，是 DeepSeek 从通用推理模型走向 Agent 能力的重要节点。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V3.2 Speciale",
+          "chronicleAuditId": "v48-deepseek-0211",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-v3-1",
+        "name": "DeepSeek V3.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-08-21",
+        "releaseUrl": "https://api-docs.deepseek.com/updates/#date-2025-08-21",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-v3-1-20250821",
+          "publishedAt": "2025-08-21",
+          "sourceUrl": "https://api-docs.deepseek.com/updates/#date-2025-08-21",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 发布 V3.1，将思考与非思考模式整合进同一模型，并加强工具调用、代码 Agent 与搜索 Agent 能力。官方随后于 2025-09-22 将其更新为 V3.1-Terminus，改善中英文混杂并优化 Agent 表现；此处将 Terminus 作为同一代际的后续版本说明，不另拆成主线节点。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V3.1",
+          "chronicleAuditId": "v48-deepseek-0254",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-r1",
+        "name": "DeepSeek R1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-01-20",
+        "releaseUrl": "https://deepseek.com/en/news/deepseek-r1/",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-r1-20250120",
+          "publishedAt": "2025-01-20",
+          "sourceUrl": "https://deepseek.com/en/news/deepseek-r1/",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 于 2025-01-20 正式发布 DeepSeek-R1 与 DeepSeek-R1-Zero。R1-Zero 通过大规模强化学习探索不依赖监督式冷启动的推理能力；R1 在此基础上加入冷启动数据与多阶段训练，并开放模型权重、技术报告及多款基于 Qwen/Llama 的蒸馏模型。该发布把 DeepSeek 的推理路线从 2024 年 R1-Lite Preview 推向可下载、可复现的开放模型体系。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek R1",
+          "chronicleAuditId": "v48-deepseek-0343",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-r1-zero",
+        "name": "DeepSeek R1 Zero",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-01-20",
+        "releaseUrl": "https://deepseek.com/en/news/deepseek-r1/",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-r1-zero-20250120",
+          "publishedAt": "2025-01-20",
+          "sourceUrl": "https://deepseek.com/en/news/deepseek-r1/",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 于 2025-01-20 正式发布 DeepSeek-R1 与 DeepSeek-R1-Zero。R1-Zero 通过大规模强化学习探索不依赖监督式冷启动的推理能力；R1 在此基础上加入冷启动数据与多阶段训练，并开放模型权重、技术报告及多款基于 Qwen/Llama 的蒸馏模型。该发布把 DeepSeek 的推理路线从 2024 年 R1-Lite Preview 推向可下载、可复现的开放模型体系。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek R1 Zero",
+          "chronicleAuditId": "v48-deepseek-0343",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-v3",
+        "name": "DeepSeek V3",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2024-12-26",
+        "releaseUrl": "https://github.com/deepseek-ai/DeepSeek-V3",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-v3-20241226",
+          "publishedAt": "2024-12-26",
+          "sourceUrl": "https://github.com/deepseek-ai/DeepSeek-V3",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "推出新一代开源语言模型，公开技术报告与权重。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V3",
+          "chronicleAuditId": "v48-deepseek-0352",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-v2-5",
+        "name": "DeepSeek V2.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2024-09-05",
+        "releaseUrl": "https://api-docs.deepseek.com/updates/",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-v2-5-20240905",
+          "publishedAt": "2024-09-05",
+          "sourceUrl": "https://api-docs.deepseek.com/updates/",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 于 2024-09-05 发布 V2.5，将 V2 Chat 与 Coder-V2 能力合并为一个通用模型，统一通用对话和代码能力。2024-12-10 又推出 V2.5-1210 更新，进一步改善数学、代码、中文写作和推理表现；此处将其作为 V2.5 同代版本更新写入摘要，不单独拆分。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V2.5",
+          "chronicleAuditId": "v48-deepseek-0383",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-coder-v2",
+        "name": "DeepSeek Coder V2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2024-06-17",
+        "releaseUrl": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-coder-v2-20240617",
+          "publishedAt": "2024-06-17",
+          "sourceUrl": "https://github.com/deepseek-ai/DeepSeek-Coder-V2",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek-Coder-V2 于 2024-06-17 公开发布，是基于 DeepSeek-V2 中间检查点继续预训练的 MoE 代码模型，显著增强代码生成、代码理解、修复与数学推理能力，并将支持的编程语言扩展至 338 种。API Changelog 另记录 2024-06-14 的 Coder-V2-0614 服务版本，7 月 24 日又更新为 Coder-V2-0724；本条按模型论文/权重公开时间记录。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek Coder V2",
+          "chronicleAuditId": "v48-deepseek-0403",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "deepseek-v2",
+        "name": "DeepSeek V2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2024-05-06",
+        "releaseUrl": "https://github.com/deepseek-ai/DeepSeek-V2",
+        "releaseEvidence": {
+          "eventId": "chronicle-deepseek-deepseek-v2-20240506",
+          "publishedAt": "2024-05-06",
+          "sourceUrl": "https://github.com/deepseek-ai/DeepSeek-V2",
+          "sourceName": "DeepSeek 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "DeepSeek 于 2024-05-06 发布 V2，采用 Multi-head Latent Attention（MLA）与 DeepSeekMoE 架构，重点提升训练/推理效率并降低服务成本。后续 V2-0517（5 月 17 日）与 V2-0628（6 月 28 日）属于同代更新，分别改善指令遵循、JSON 输出、数学、代码与推理能力，不单独拆成公司史节点。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "DeepSeek V2",
+          "chronicleAuditId": "v48-deepseek-0414",
+          "chronicleTopicId": "deepseek",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
       }
     ],
     "legacyIds": [
@@ -2174,7 +2902,7 @@
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
     "modelCardUrl": "https://deepmind.google/models/model-cards/",
-    "version": "Gemini 3.8 Flash / Gemini 4 Argon / Gemini 4 Carbon / Gemini 4 Hydrogen / Gemini 4 Neon",
+    "version": "Gemini 3.8 Flash / Gemini 4 Argon / Gemini 4 Carbon / Gemini 4 Hydrogen / Gemini 4 Neon / Gemini 3.7 Flash / Gemini 3.5 Flash / Gemini 3 Flash",
     "aliases": [
       "Gemini 系列",
       "Gemini 4 Neon",
@@ -2189,7 +2917,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
-        "releaseUrl": "https://blog.google/products/gemini/",
+        "releaseUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
         "modelCardUrl": "https://deepmind.google/models/model-cards/",
         "id": "gemini-3-8-flash",
         "name": "Gemini 3.8 Flash",
@@ -2247,15 +2975,29 @@
             "detailUrl": "https://maomu.com/models/google--gemini38flash?entry=benchlm%3Abench%3A28"
           }
         ],
-        "status": "已发布",
-        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。",
+        "releaseDate": "2026-09-02",
+        "releaseEvidence": {
+          "eventId": "official-gemini-gemini-3-8-flash-20260902",
+          "publishedAt": "2026-09-02",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "sourceName": "Google 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Gemini 3.8 Flash 正式推出，面向推理与编程。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Gemini 3.8 Flash",
+          "provenance": "本轮重新核对官方来源"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
-        "releaseUrl": "https://blog.google/products/gemini/",
+        "releaseUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
         "modelCardUrl": "https://deepmind.google/models/model-cards/",
         "id": "gemini-4-argon",
         "name": "Gemini 4 Argon",
@@ -2327,8 +3069,30 @@
             "detailUrl": "https://maomu.com/models/google--gemini4argon?entry=benchlm%3Abench%3A10"
           }
         ],
-        "status": "已发布",
-        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。"
+        "status": "有限访问与扩大开放日期已核实",
+        "note": "Gemini 是系列名，包含通用、多模态和轻量型号；具体版本以官方模型卡为准。",
+        "historicalMilestones": [
+          {
+            "date": "2026-09-30",
+            "datePrecision": "day",
+            "stage": "early-access",
+            "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "sourceName": "Google 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-gemini-gemini-4-argon-early-access-20260930",
+            "summary": "初期向经认可的测试者开放，不能等同公众可用。"
+          },
+          {
+            "date": "2026-10-13",
+            "datePrecision": "day",
+            "stage": "general-availability",
+            "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+            "sourceName": "Google 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-gemini-gemini-4-argon-general-availability-20261013",
+            "summary": "官方宣布扩大开放至 Gemini App 与开发者入口；具体权限依套餐。"
+          }
+        ]
       },
       {
         "region": "海外",
@@ -2600,6 +3364,78 @@
           "access": "Gemini API、AI Studio 及企业渠道可用，Gemini 应用和 Antigravity 按订阅开放，官方未提供公开权重",
           "category": "llm",
           "modelName": "Gemini 4 Neon"
+        }
+      },
+      {
+        "id": "gemini-3-7-flash",
+        "name": "Gemini 3.7 Flash",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-08-13",
+        "releaseUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gemini-gemini-3-7-flash-20260813",
+          "publishedAt": "2026-08-13",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+          "sourceName": "Google 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Google 于 2026-08-13 发布 Gemini 3.7 Flash，定位为高效率前沿模型，在速度和成本档位上保持 Flash 定位，同时增强复杂推理、编码和多模态理解。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Gemini 3.7 Flash",
+          "chronicleAuditId": "v48-google-0079",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gemini-3-5-flash",
+        "name": "Gemini 3.5 Flash",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-05-19",
+        "releaseUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gemini-gemini-3-5-flash-20260519",
+          "publishedAt": "2026-05-19",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+          "sourceName": "Google 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Google 于 2026-05-19 在 I/O 2026 发布 Gemini 3.5 Flash，作为 3.5 系列首个公开型号，主打前沿智能、低延迟和复杂 Agentic Workflow 执行能力，尤其面向编码、长程任务与真实工作流。Google 同日宣布该模型在 Gemini App、Search AI Mode、Gemini API、AI Studio、Antigravity 等产品开放。补充演进节点（原始明细归档）：Gemini 3.5 Live Translate 发布；DiffusionGemma 实验模型发布；Gemini 3.1 Flash-Lite Image 模型卡更新；Nano Banana 2 Lite 发布；Gemini Omni Flash 开发者预览开放。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Gemini 3.5 Flash",
+          "chronicleAuditId": "v48-google-0130",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gemini-3-flash",
+        "name": "Gemini 3 Flash",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-12-17",
+        "releaseUrl": "https://blog.google/products-and-platforms/products/gemini/gemini-3-flash/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gemini-gemini-3-flash-20251217",
+          "publishedAt": "2025-12-17",
+          "sourceUrl": "https://blog.google/products-and-platforms/products/gemini/gemini-3-flash/",
+          "sourceName": "Google 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "Google 于 2025-12-17 发布 Gemini 3 Flash，作为 Gemini 3 家族的高效率型号，以较低成本和更快响应提供接近 Pro 档的推理与多模态能力；同日向 Gemini App、Search AI Mode、Gemini API、AI Studio、Vertex AI 与 Antigravity 等入口逐步开放。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Gemini 3 Flash",
+          "chronicleAuditId": "v48-google-gemini-0201",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
         }
       }
     ],
@@ -4848,7 +5684,7 @@
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
     "modelCardUrl": "https://developers.openai.com/api/docs/models/all",
-    "version": "GPT-4o / GPT-5 / GPT-5.1 / GPT-5.2 / GPT-6.1 / GPT-6.1 Terra / GPT-6.2 Astra / GPT-6.2 Sol / GPT-5.3 Codex / GPT-5.5 / GPT-5.5 Instant / GPT-5.5 Pro / GPT-6.2 (November 23)",
+    "version": "GPT-4o / GPT-5 / GPT-5.1 / GPT-5.2 / GPT-6.1 Sol / GPT-6.1 Terra / GPT-6.2 Astra / GPT-6.2 Sol / GPT-5.3 Codex / GPT-5.5 / GPT-5.5 Instant / GPT-5.5 Pro / GPT-6.2 (November 23) / GPT-6 Sol / GPT-6 Luna / GPT-6 Astra / GPT-5.4 / GPT-5.4 Pro / GPT-5.1 Codex Max / GPT-5 Codex / GPT-4.1 / GPT-4.1 Mini / GPT-4.1 Nano / GPT-4",
     "aliases": [
       "GPT 系列",
       "GPT-6.2 Astra",
@@ -5230,10 +6066,10 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/news/",
+        "releaseUrl": "https://developers.openai.com/api/docs/changelog",
         "modelCardUrl": "https://developers.openai.com/api/docs/models/all",
         "id": "gpt-6-1",
-        "name": "GPT-6.1",
+        "name": "GPT-6.1 Sol",
         "legacyIds": [
           "gpt"
         ],
@@ -5302,15 +6138,29 @@
             "detailUrl": "https://maomu.com/models/openai--gpt61sol?entry=benchlm%3Abench%3A8"
           }
         ],
-        "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "保留原目录 ID；现有榜单别名均对应 GPT-6.1 Sol，不等于所有 6.1 型号。",
+        "releaseDate": "2026-09-29",
+        "releaseEvidence": {
+          "eventId": "official-gpt-gpt-6-1-20260929",
+          "publishedAt": "2026-09-29",
+          "sourceUrl": "https://developers.openai.com/api/docs/changelog",
+          "sourceName": "OpenAI 官方 API 日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "GPT-6.1 Sol 发布，定位于复杂编程与专业工作。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-6.1 Sol",
+          "provenance": "本轮重新核对官方来源"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/news/",
+        "releaseUrl": "https://developers.openai.com/api/docs/changelog",
         "modelCardUrl": "https://developers.openai.com/api/docs/models/all",
         "id": "gpt-6-1-terra",
         "name": "GPT-6.1 Terra",
@@ -5382,8 +6232,22 @@
             "detailUrl": "https://maomu.com/models/openai--gpt61terra?entry=benchlm%3Abench%3A9"
           }
         ],
-        "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。",
+        "releaseDate": "2026-10-26",
+        "releaseEvidence": {
+          "eventId": "official-gpt-gpt-6-1-terra-20261026",
+          "publishedAt": "2026-10-26",
+          "sourceUrl": "https://developers.openai.com/api/docs/changelog",
+          "sourceName": "OpenAI 官方 API 日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "GPT-6.1 Terra 发布，面向视觉推理、计算机操作和写作。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-6.1 Terra",
+          "provenance": "本轮重新核对官方来源"
+        }
       },
       {
         "region": "海外",
@@ -5795,6 +6659,270 @@
           "access": "面向符合条件的 ChatGPT 付费方案逐步开放，未公布独立 API 或权重",
           "category": "llm",
           "modelName": "GPT-6.2 (November 23)"
+        }
+      },
+      {
+        "id": "gpt-6-sol",
+        "name": "GPT-6 Sol",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-09-22",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-6-sol-20260922",
+          "publishedAt": "2026-09-22",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 扩展 GPT-6 模型家族，推出 GPT-6 Sol 与 GPT-6 Luna，分别面向日常工作与更高性价比、高吞吐任务。GPT-6 Astra 已于同月初发布；Sol、Luna 作为后续型号属于 GPT-6 第一代家族。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-6 Sol",
+          "chronicleAuditId": "v48-openai-chatgpt-0045",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-6-luna",
+        "name": "GPT-6 Luna",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-09-22",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-6-luna-20260922",
+          "publishedAt": "2026-09-22",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 扩展 GPT-6 模型家族，推出 GPT-6 Sol 与 GPT-6 Luna，分别面向日常工作与更高性价比、高吞吐任务。GPT-6 Astra 已于同月初发布；Sol、Luna 作为后续型号属于 GPT-6 第一代家族。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-6 Luna",
+          "chronicleAuditId": "v48-openai-chatgpt-0045",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-6-astra",
+        "name": "GPT-6 Astra",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-09-03",
+        "releaseUrl": "https://openai.com/index/gpt-6-astra/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-6-astra-20260903",
+          "publishedAt": "2026-09-03",
+          "sourceUrl": "https://openai.com/index/gpt-6-astra/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 推出 GPT-6 Astra，重点提升编码、研究、计算机操作及复杂多步骤工作能力；初期向有限组织开放，随后逐步扩大可用范围。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-6 Astra",
+          "chronicleAuditId": "v48-openai-chatgpt-0061",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-5-4",
+        "name": "GPT-5.4",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-03-05",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-5-4/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-5-4-20260305",
+          "publishedAt": "2026-03-05",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-5-4/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 发布 GPT-5.4，在 ChatGPT 中以 GPT-5.4 Thinking 提供，并同步进入 API 与 Codex；同时推出 GPT-5.4 Pro。该模型整合推理、编程与智能体工作流能力，强化工具使用、软件操作、表格、演示文稿和文档等专业任务。同日推出 GPT-5.4 Pro，mini 与 nano 于 2026-03-17 上线；按同一主要代际整理。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-5.4",
+          "chronicleAuditId": "v48-openai-0161",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-5-4-pro",
+        "name": "GPT-5.4 Pro",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-03-05",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-5-4/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-5-4-pro-20260305",
+          "publishedAt": "2026-03-05",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-5-4/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 发布 GPT-5.4，在 ChatGPT 中以 GPT-5.4 Thinking 提供，并同步进入 API 与 Codex；同时推出 GPT-5.4 Pro。该模型整合推理、编程与智能体工作流能力，强化工具使用、软件操作、表格、演示文稿和文档等专业任务。同日推出 GPT-5.4 Pro，mini 与 nano 于 2026-03-17 上线；按同一主要代际整理。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-5.4 Pro",
+          "chronicleAuditId": "v48-openai-0161",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-5-1-codex-max",
+        "name": "GPT-5.1 Codex Max",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-11-19",
+        "releaseUrl": "https://openai.com/index/gpt-5-1-codex-max/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-5-1-codex-max-20251119",
+          "publishedAt": "2025-11-19",
+          "sourceUrl": "https://openai.com/index/gpt-5-1-codex-max/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 发布 GPT-5.1-Codex-Max，面向长时间运行、项目级的软件工程任务。它原生支持通过 compaction 跨多个上下文窗口持续工作，可用于大型重构、深度调试与多小时智能体循环。同一型号于 2025-12-04 登陆 Responses API；首次发布和 API 上线是两个不同事件阶段。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-5.1 Codex Max",
+          "chronicleAuditId": "v48-openai-0218",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-5-codex",
+        "name": "GPT-5 Codex",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-09-15",
+        "releaseUrl": "https://openai.com/index/introducing-upgrades-to-codex/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-5-codex-20250915",
+          "publishedAt": "2025-09-15",
+          "sourceUrl": "https://openai.com/index/introducing-upgrades-to-codex/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 发布 GPT-5-Codex，这是针对 Codex 中智能体软件工程任务优化的 GPT-5 版本，支持快速交互式修改，也能独立执行更长、更复杂的编码任务，并具备代码审查能力。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-5 Codex",
+          "chronicleAuditId": "v48-openai-0248",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-4-1",
+        "name": "GPT-4.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-04-14",
+        "releaseUrl": "https://openai.com/index/gpt-4-1/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-4-1-20250414",
+          "publishedAt": "2025-04-14",
+          "sourceUrl": "https://openai.com/index/gpt-4-1/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 在 API 推出 GPT-4.1、GPT-4.1 mini 与 GPT-4.1 nano，重点提升编码、指令遵循与长上下文能力，支持最高 1M token 上下文。2025-05-14，GPT-4.1 和 mini 进一步进入 ChatGPT；首次发布与产品开放分开理解。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-4.1",
+          "chronicleAuditId": "v48-openai-chatgpt-0315",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-4-1-mini",
+        "name": "GPT-4.1 Mini",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-04-14",
+        "releaseUrl": "https://openai.com/index/gpt-4-1/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-4-1-mini-20250414",
+          "publishedAt": "2025-04-14",
+          "sourceUrl": "https://openai.com/index/gpt-4-1/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 在 API 推出 GPT-4.1、GPT-4.1 mini 与 GPT-4.1 nano，重点提升编码、指令遵循与长上下文能力，支持最高 1M token 上下文。2025-05-14，GPT-4.1 和 mini 进一步进入 ChatGPT；首次发布与产品开放分开理解。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-4.1 Mini",
+          "chronicleAuditId": "v48-openai-chatgpt-0315",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-4-1-nano",
+        "name": "GPT-4.1 Nano",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-04-14",
+        "releaseUrl": "https://openai.com/index/gpt-4-1/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-4-1-nano-20250414",
+          "publishedAt": "2025-04-14",
+          "sourceUrl": "https://openai.com/index/gpt-4-1/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 在 API 推出 GPT-4.1、GPT-4.1 mini 与 GPT-4.1 nano，重点提升编码、指令遵循与长上下文能力，支持最高 1M token 上下文。2025-05-14，GPT-4.1 和 mini 进一步进入 ChatGPT；首次发布与产品开放分开理解。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-4.1 Nano",
+          "chronicleAuditId": "v48-openai-chatgpt-0315",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "gpt-4",
+        "name": "GPT-4",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2023-03-14",
+        "releaseUrl": "https://openai.com/index/gpt-4-research/",
+        "releaseEvidence": {
+          "eventId": "chronicle-gpt-gpt-4-20230314",
+          "publishedAt": "2023-03-14",
+          "sourceUrl": "https://openai.com/index/gpt-4-research/",
+          "sourceName": "OpenAI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "OpenAI 发布 GPT-4，介绍其在复杂推理、专业考试和指令遵循方面的提升，并首次将图像输入能力纳入 GPT 系列的技术路线；初期图像输入能力并未向所有用户开放。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GPT-4",
+          "chronicleAuditId": "v48-openai-0476",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
         }
       }
     ],
@@ -8041,7 +9169,7 @@
     "homepage": "https://z.ai/",
     "releaseUrl": "https://z.ai/blog/glm-5.4",
     "modelCardUrl": "https://autoclaw.z.ai/en/changelog/",
-    "version": "5.4 / 5.3 / 5.3 Flash / 5.2",
+    "version": "5.4 / GLM-5.3 / GLM-5.3 Flash / GLM-5.2 / GLM-5.1 / GLM-5 / GLM-4.7 / GLM-4.6 / GLM-4.5 / GLM-4.5 Air / ChatGLM2-6B",
     "aliases": [
       "GLM",
       "GLM-5.3",
@@ -8087,7 +9215,7 @@
         "releaseUrl": "https://z.ai/blog/glm-5.3",
         "modelCardUrl": "https://autoclaw.z.ai/en/changelog/",
         "id": "5-3",
-        "name": "5.3",
+        "name": "GLM-5.3",
         "legacyIds": [
           "glm"
         ],
@@ -8212,17 +9340,33 @@
             "detailUrl": "https://maomu.com/models/zai--glm53flash?entry=arena%3Aarena-text%3A39"
           }
         ],
-        "status": "已发布",
-        "note": "智谱 GLM 系列；Flash 是轻量变体，按对应型号页区分权重开放状态。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "智谱 GLM 系列；Flash 是轻量变体，按对应型号页区分权重开放状态。",
+        "releaseDate": "2026-08-14",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-5-3-20260814",
+          "publishedAt": "2026-08-14",
+          "sourceUrl": "https://z.ai/blog/glm-5.3",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱于 2026-08-14 发布 GLM-5.3。该版本与 GLM-5.2 使用相同基础模型，主要通过扩大后训练规模提升复杂编码和长周期 Agent 任务能力；官方称其在部分代码与网络安全基准上有显著提升。GLM-5.3 与 2026-08-26 发布的 GLM-5.3-Flash 是不同型号，后者采用重新训练的原生多模态基础模型。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-5.3",
+          "chronicleAuditId": "v48-zhipu-0077",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
       },
       {
         "region": "中国",
         "access": "开源权重",
         "homepage": "https://z.ai/",
-        "releaseUrl": "https://z.ai/blog/glm-5.3",
+        "releaseUrl": "https://z.ai/blog/glm-5.3-flash",
         "modelCardUrl": "https://autoclaw.z.ai/en/changelog/",
         "id": "5-3-flash",
-        "name": "5.3 Flash",
+        "name": "GLM-5.3 Flash",
         "legacyIds": [
           "glm"
         ],
@@ -8235,17 +9379,33 @@
             "detailUrl": "https://maomu.com/models/zai--glm53flash?entry=livebench%3Alivebench%3A27"
           }
         ],
-        "status": "已发布",
-        "note": "智谱 GLM 系列；Flash 是轻量变体，按对应型号页区分权重开放状态。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "智谱 GLM 系列；Flash 是轻量变体，按对应型号页区分权重开放状态。",
+        "releaseDate": "2026-08-26",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-5-3-flash-20260826",
+          "publishedAt": "2026-08-26",
+          "sourceUrl": "https://z.ai/blog/glm-5.3-flash",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱于 2026-08-26 发布 GLM-5.3-Flash，这是 GLM-5 系列首个原生多模态模型，采用全新训练的基础模型与混合稀疏/线性注意力架构，总参数 320B、激活参数 18B。它兼顾视觉、代码与长周期 Agent 任务，并以更低推理成本扩展 GLM-5 系列的使用场景；与 8 月 14 日的 GLM-5.3 旗舰更新分开记录。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-5.3 Flash",
+          "chronicleAuditId": "v48-zhipu-0071",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
       },
       {
         "region": "中国",
         "access": "开源权重",
         "homepage": "https://z.ai/",
-        "releaseUrl": "https://z.ai/blog/glm-5.3",
+        "releaseUrl": "https://z.ai/blog/glm-5.2",
         "modelCardUrl": "https://autoclaw.z.ai/en/changelog/",
         "id": "5-2",
-        "name": "5.2",
+        "name": "GLM-5.2",
         "legacyIds": [
           "glm"
         ],
@@ -8307,8 +9467,192 @@
             "detailUrl": "https://maomu.com/models/zai--glm52?entry=arena%3Aarena-text%3A40"
           }
         ],
-        "status": "已发布",
-        "note": "智谱 GLM 系列；Flash 是轻量变体，按对应型号页区分权重开放状态。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "智谱 GLM 系列；Flash 是轻量变体，按对应型号页区分权重开放状态。",
+        "releaseDate": "2026-06-16",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-5-2-20260616",
+          "publishedAt": "2026-06-16",
+          "sourceUrl": "https://z.ai/blog/glm-5.2",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 GLM-5.2，继续更新 GLM-5 系列模型能力。该节点先按现有来源记录为模型版本事件，具体新增能力和相对前代的提升以官方发布说明为准。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-5.2",
+          "chronicleAuditId": "v48-zhipu-0118",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "glm-5-1",
+        "name": "GLM-5.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-04-07",
+        "releaseUrl": "https://z.ai/blog/glm-5.1",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-glm-5-1-20260407",
+          "publishedAt": "2026-04-07",
+          "sourceUrl": "https://z.ai/blog/glm-5.1",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 GLM-5.1，作为 GLM-5 系列的后续版本迭代。该记录应重点体现模型代际持续演进；若官方公告仅涉及固定快照或服务端更新，则需进一步确认是否值得独立保留。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-5.1",
+          "chronicleAuditId": "v48-zhipu-0148",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "glm-5",
+        "name": "GLM-5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-02-12",
+        "releaseUrl": "https://z.ai/blog/glm-5",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-glm-5-20260212",
+          "publishedAt": "2026-02-12",
+          "sourceUrl": "https://z.ai/blog/glm-5",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 GLM-5，开启 GLM 新一代基础模型路线。该节点记录模型主代际升级，具体架构、参数、能力和开放方式应以官方发布材料为准。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-5",
+          "chronicleAuditId": "v48-zhipu-0175",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "glm-4-7",
+        "name": "GLM-4.7",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-12-22",
+        "releaseUrl": "https://z.ai/blog/glm-4.7",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-glm-4-7-20251222",
+          "publishedAt": "2025-12-22",
+          "sourceUrl": "https://z.ai/blog/glm-4.7",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 GLM-4.7，延续 GLM-4 系列在通用推理、代码和智能体任务上的升级。该版本是公司模型代际演进的重要节点，具体能力差异应以官方技术报告和模型卡为准。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-4.7",
+          "chronicleAuditId": "v48-zhipu-0197",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "glm-4-6",
+        "name": "GLM-4.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-09-30",
+        "releaseUrl": "https://z.ai/blog/glm-4.6",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-glm-4-6-20250930",
+          "publishedAt": "2025-09-30",
+          "sourceUrl": "https://z.ai/blog/glm-4.6",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 GLM-4.6，作为 GLM-4 系列的后续迭代，继续提升通用模型与编程等专业任务能力。该节点应作为主要模型代际记录，而不是将同一代际的细小接口更新逐项拆分。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-4.6",
+          "chronicleAuditId": "v48-zhipu-0238",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "glm-4-5",
+        "name": "GLM-4.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-07-28",
+        "releaseUrl": "https://z.ai/blog/glm-4.5",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-glm-4-5-20250728",
+          "publishedAt": "2025-07-28",
+          "sourceUrl": "https://z.ai/blog/glm-4.5",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 GLM-4.5 系列及轻量型号 GLM-4.5-Air，强化模型在推理、代码和 Agent 任务上的综合能力。该代际体现 GLM 从通用对话模型向具备复杂任务执行能力的通用智能体底座演进。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-4.5",
+          "chronicleAuditId": "v48-zhipu-0267",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "glm-4-5-air",
+        "name": "GLM-4.5 Air",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-07-28",
+        "releaseUrl": "https://z.ai/blog/glm-4.5",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-glm-4-5-air-20250728",
+          "publishedAt": "2025-07-28",
+          "sourceUrl": "https://z.ai/blog/glm-4.5",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 GLM-4.5 系列及轻量型号 GLM-4.5-Air，强化模型在推理、代码和 Agent 任务上的综合能力。该代际体现 GLM 从通用对话模型向具备复杂任务执行能力的通用智能体底座演进。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "GLM-4.5 Air",
+          "chronicleAuditId": "v48-zhipu-0267",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "chatglm2-6b",
+        "name": "ChatGLM2-6B",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2023-06-25",
+        "releaseUrl": "https://github.com/zai-org/ChatGLM2-6B",
+        "releaseEvidence": {
+          "eventId": "chronicle-glm-chatglm2-6b-20230625",
+          "publishedAt": "2023-06-25",
+          "sourceUrl": "https://github.com/zai-org/ChatGLM2-6B",
+          "sourceName": "智谱 / Z.ai 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "智谱发布 ChatGLM2-6B，作为 ChatGLM 开源对话模型的第二代升级，改进中文/英文对话、数学与代码能力，并扩展上下文长度。该版本延续本地部署和开发者使用路线，为后续 ChatGLM3 及 GLM-4 系列打下基础。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "ChatGLM2-6B",
+          "chronicleAuditId": "v48-zhipu-0465",
+          "chronicleTopicId": "zhipu",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
       }
     ],
     "legacyIds": [
@@ -8763,7 +10107,7 @@
     "homepage": "https://www.moonshot.ai/",
     "releaseUrl": "https://forum.moonshot.ai/c/announcement/5",
     "modelCardUrl": "https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480",
-    "version": "K3.1 Pro / K3 / K2.7",
+    "version": "K3.1 Pro / K3 / Kimi K2.7 Code / Kimi K2.6 / Kimi K2.5 / Kimi K2 Thinking / Kimi K2 Instruct 0905 / Kimi K2 / Kimi K1.5",
     "aliases": [
       "Kimi",
       "Kimi K3.1 Pro",
@@ -8779,7 +10123,7 @@
         "region": "中国",
         "access": "闭源",
         "homepage": "https://www.moonshot.ai/",
-        "releaseUrl": "https://forum.moonshot.ai/c/announcement/5",
+        "releaseUrl": "https://www.kimi.ai/blog/kimi-k3-1-pro",
         "modelCardUrl": "https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480",
         "id": "k3-1-pro",
         "name": "K3.1 Pro",
@@ -8851,14 +10195,28 @@
             "detailUrl": "https://maomu.com/models/moonshot--kimik31pro?entry=arena%3Aarena-text%3A29"
           }
         ],
-        "status": "已发布",
-        "note": "Kimi 大语言模型系列；按官方公告记录 K2.x、K3 与 K3.1 Pro 等代际。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "Kimi 大语言模型系列；按官方公告记录 K2.x、K3 与 K3.1 Pro 等代际。",
+        "releaseDate": "2026-10-24",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k3-1-pro-20261024",
+          "publishedAt": "2026-10-24",
+          "sourceUrl": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+          "sourceName": "Kimi 官方研究博客",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "K3.1 Pro 模型上线；权重开放另有日期。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "K3.1 Pro",
+          "provenance": "本轮重新核对官方来源"
+        }
       },
       {
         "region": "中国",
         "access": "闭源",
         "homepage": "https://www.moonshot.ai/",
-        "releaseUrl": "https://forum.moonshot.ai/c/announcement/5",
+        "releaseUrl": "https://www.kimi.ai/blog/kimi-k3",
         "modelCardUrl": "https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480",
         "id": "k3",
         "name": "K3",
@@ -8923,17 +10281,31 @@
             "detailUrl": "https://maomu.com/models/moonshot--kimik3?entry=arena%3Aarena-text%3A22"
           }
         ],
-        "status": "已发布",
-        "note": "Kimi 大语言模型系列；按官方公告记录 K2.x、K3 与 K3.1 Pro 等代际。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "Kimi 大语言模型系列；按官方公告记录 K2.x、K3 与 K3.1 Pro 等代际。",
+        "releaseDate": "2026-07-16",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k3-20260716",
+          "publishedAt": "2026-07-16",
+          "sourceUrl": "https://www.kimi.ai/blog/kimi-k3",
+          "sourceName": "Kimi 官方研究博客",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "K3 多模态模型推出；完整权重随后开放。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "K3",
+          "provenance": "本轮重新核对官方来源"
+        }
       },
       {
         "region": "中国",
         "access": "闭源",
         "homepage": "https://www.moonshot.ai/",
-        "releaseUrl": "https://forum.moonshot.ai/c/announcement/5",
+        "releaseUrl": "https://www.kimi.com/code/docs/en/kimi-code/whats-new.html",
         "modelCardUrl": "https://forum.moonshot.ai/t/kimi-k3-is-here-our-most-capable-model/480",
         "id": "k2-7",
-        "name": "K2.7",
+        "name": "Kimi K2.7 Code",
         "legacyIds": [
           "kimi"
         ],
@@ -8974,8 +10346,156 @@
             "detailUrl": "https://maomu.com/models/moonshot--kimik27code?entry=benchlm%3Abench%3A88"
           }
         ],
-        "status": "已发布",
-        "note": "Kimi 大语言模型系列；按官方公告记录 K2.x、K3 与 K3.1 Pro 等代际。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "官方 Kimi Code 专用编程型号；保留原目录 ID。",
+        "releaseDate": "2026-06-12",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k2-7-20260612",
+          "publishedAt": "2026-06-12",
+          "sourceUrl": "https://www.kimi.com/code/docs/en/kimi-code/whats-new.html",
+          "sourceName": "Kimi Code 官方更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "面向编程的独立型号发布。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Kimi K2.7 Code",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "k2-6",
+        "name": "Kimi K2.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-04-20",
+        "releaseUrl": "https://www.kimi.ai/blog/kimi-k2-6",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k2-6-20260420",
+          "publishedAt": "2026-04-20",
+          "sourceUrl": "https://www.kimi.ai/blog/kimi-k2-6",
+          "sourceName": "Kimi 官方研究博客",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "K2.6 推出，面向长程任务与编程。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Kimi K2.6",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "k2-5",
+        "name": "Kimi K2.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-01-27",
+        "releaseUrl": "https://www.kimi.ai/blog/kimi-k2-5",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k2-5-20260127",
+          "publishedAt": "2026-01-27",
+          "sourceUrl": "https://www.kimi.ai/blog/kimi-k2-5",
+          "sourceName": "Kimi 官方研究博客",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "K2.5 模型发布。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Kimi K2.5",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "k2-thinking",
+        "name": "Kimi K2 Thinking",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-11-06",
+        "releaseUrl": "https://www.kimi.ai/blog/",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k2-thinking-20251106",
+          "publishedAt": "2025-11-06",
+          "sourceUrl": "https://www.kimi.ai/blog/",
+          "sourceName": "Kimi 官方研究目录",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "K2 Thinking 独立发布。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Kimi K2 Thinking",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "k2-instruct-0905",
+        "name": "Kimi K2 Instruct 0905",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-09-05",
+        "releaseUrl": "https://www.kimi.ai/blog/",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k2-instruct-0905-20250905",
+          "publishedAt": "2025-09-05",
+          "sourceUrl": "https://www.kimi.ai/blog/",
+          "sourceName": "Kimi 官方研究目录",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "K2 Instruct 的 0905 版本更新。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Kimi K2 Instruct 0905",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "k2",
+        "name": "Kimi K2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-07-11",
+        "releaseUrl": "https://www.kimi.ai/blog/kimi-k2",
+        "releaseEvidence": {
+          "eventId": "official-kimi-k2-20250711",
+          "publishedAt": "2025-07-11",
+          "sourceUrl": "https://www.kimi.ai/blog/kimi-k2",
+          "sourceName": "Kimi 官方研究博客",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "K2 开放权重模型推出。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Kimi K2",
+          "provenance": "本轮重新核对官方来源"
+        }
+      },
+      {
+        "id": "k1-5",
+        "name": "Kimi K1.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-01-20",
+        "releaseUrl": "https://www.kimi.ai/blog/kimi-k1-5",
+        "releaseEvidence": {
+          "eventId": "chronicle-kimi-k1-5-20250120",
+          "publishedAt": "2025-01-20",
+          "sourceUrl": "https://www.kimi.ai/blog/kimi-k1-5",
+          "sourceName": "月之暗面 / Moonshot AI 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "月之暗面于 2025-01-20 发布 Kimi K1.5 技术报告与模型，系统介绍通过强化学习扩展推理能力的方法，并展示长思维链、视觉/文本多模态推理和测试时计算扩展。K1.5 是 Kimi 从长上下文助手转向显式推理模型的重要节点。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Kimi K1.5",
+          "chronicleAuditId": "v48-kimi-0342",
+          "chronicleTopicId": "kimi",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
       }
     ],
     "legacyIds": [
@@ -9559,7 +11079,7 @@
     "access": "多版本许可各异",
     "accessNote": "仅部分具体型号提供开放权重；许可证和可商用范围因型号而异。",
     "modelCardUrl": "https://github.com/QwenLM/Qwen3.8",
-    "version": "Qwen3.5 / Qwen3.6 / Qwen3.8 / Qwen4 Max",
+    "version": "Qwen3.5 / Qwen3.6 / Qwen3.8 / Qwen4 Max / Qwen3.6 Plus / Qwen3.8 Max / Qwen3.7 Max / Qwen3.8 Flash Next",
     "aliases": [
       "通义千问 Qwen",
       "Qwen3.8",
@@ -9847,8 +11367,8 @@
             "detailUrl": "https://maomu.com/models/alibaba--qwen3535ba3b?entry=arena%3Aarena-text%3A180"
           }
         ],
-        "status": "已发布",
-        "note": "通义千问包含大语言、多模态、图像和音频模型；各模态型号在对应分类单列。"
+        "status": "代际汇总项；具体型号分别核验",
+        "note": "保留已有榜单关联与目录 ID；多个独立型号共用此历史汇总项，不能将某个子型号日期写成整个代际首发。"
       },
       {
         "region": "中国",
@@ -9962,8 +11482,8 @@
             "detailUrl": "https://maomu.com/models/alibaba--qwen3635ba3b?entry=benchlm%3Abench%3A166"
           }
         ],
-        "status": "已发布",
-        "note": "通义千问包含大语言、多模态、图像和音频模型；各模态型号在对应分类单列。"
+        "status": "代际汇总项；具体型号分别核验",
+        "note": "保留已有榜单关联与目录 ID；多个独立型号共用此历史汇总项，不能将某个子型号日期写成整个代际首发。"
       },
       {
         "region": "中国",
@@ -10154,8 +11674,8 @@
             "detailUrl": "https://maomu.com/models/alibaba--qwen3827b?entry=arena%3Aarena-text%3A113"
           }
         ],
-        "status": "已发布",
-        "note": "通义千问包含大语言、多模态、图像和音频模型；各模态型号在对应分类单列。"
+        "status": "代际汇总项；具体型号分别核验",
+        "note": "保留已有榜单关联与目录 ID；多个独立型号共用此历史汇总项，不能将某个子型号日期写成整个代际首发。"
       },
       {
         "region": "中国",
@@ -10206,6 +11726,102 @@
           "access": "百炼正式版 API 可用，公开权重未证实",
           "category": "llm",
           "modelName": "Qwen4-Max"
+        }
+      },
+      {
+        "id": "qwen3-6-plus",
+        "name": "Qwen3.6 Plus",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-04-02",
+        "releaseUrl": "https://qwen.ai/blog?id=qwen3.6",
+        "releaseEvidence": {
+          "eventId": "chronicle-qwen-qwen3-6-plus-20260402",
+          "publishedAt": "2026-04-02",
+          "sourceUrl": "https://qwen.ai/blog?id=qwen3.6",
+          "sourceName": "阿里巴巴 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "阿里巴巴发布 Qwen3.6-Plus，作为 Qwen3 系列后续型号更新。该节点按当前来源记录为模型发布事件，具体相较前代的变化及服务范围需以官方发布说明为准。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Qwen3.6 Plus",
+          "chronicleAuditId": "v48-qwen-0151",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "qwen3-8-max",
+        "name": "Qwen3.8 Max",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-08-03",
+        "releaseUrl": "https://qwen.ai/blog?id=qwen3.8",
+        "releaseEvidence": {
+          "eventId": "chronicle-qwen-qwen3-8-max-20260803",
+          "publishedAt": "2026-08-03",
+          "sourceUrl": "https://qwen.ai/blog?id=qwen3.8",
+          "sourceName": "阿里巴巴 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "旗舰模型率先开放 API",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Qwen3.8 Max",
+          "chronicleAuditId": "v48-qwen-0091",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "qwen3-7-max",
+        "name": "Qwen3.7 Max",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-05-20",
+        "releaseUrl": "https://qwen.ai/blog?id=qwen3.7",
+        "releaseEvidence": {
+          "eventId": "chronicle-qwen-qwen3-7-max-20260520",
+          "publishedAt": "2026-05-20",
+          "sourceUrl": "https://qwen.ai/blog?id=qwen3.7",
+          "sourceName": "阿里巴巴 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "阿里巴巴发布 Qwen3.7-Max，作为 Qwen 系列面向高能力场景的型号更新。该节点记录模型产品线的后续演进，具体能力与版本关系应由官方模型说明确认。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Qwen3.7 Max",
+          "chronicleAuditId": "v48-qwen-0128",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
+        }
+      },
+      {
+        "id": "qwen3-8-flash-next",
+        "name": "Qwen3.8 Flash Next",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-08-26",
+        "releaseUrl": "https://qwen.ai/blog?id=qwen3.8-flash-next",
+        "releaseEvidence": {
+          "eventId": "chronicle-qwen-qwen3-8-flash-next-20260826",
+          "publishedAt": "2026-08-26",
+          "sourceUrl": "https://qwen.ai/blog?id=qwen3.8-flash-next",
+          "sourceName": "阿里巴巴 历史审核来源",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "summary": "阿里巴巴开放 Qwen3.8-Flash-Next 模型，延续 Qwen 系列面向效率型模型的开放路线。该节点应重点记录其开放权重/代码的范围，以及它在 Qwen 模型家族中的定位。",
+          "access": "当前可用性及许可待独立核验",
+          "category": "llm",
+          "modelName": "Qwen3.8 Flash Next",
+          "chronicleAuditId": "v48-qwen-0069",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本轮重新联网核验"
         }
       }
     ],
