@@ -263,8 +263,27 @@ class ModelCollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["url"], "https://qwen.ai/blog?id=qwen3-tts")
 
 
-if __name__ == "__main__":
-    unittest.main()
+class SandResearchTests(unittest.TestCase):
+    def test_research_card_uses_its_own_date_and_official_article_only(self):
+        source = {
+            "id": "sandai-research", "name": "Sand.ai research",
+            "url": "https://sand.ai/research/", "official": True,
+            "updateType": "announcement", "modelMatches": {"magi-2": ["MAGI-2"]},
+        }
+        page = """
+        <a href="/blog/magi-2/"><h2>MAGI-2: A frontier video model</h2>
+        <span>November 24, 2026 · Research</span></a>
+        <a href="/blog/magi-2-preview/"><h2>MAGI-2 Preview</h2></a>
+        <a href="https://other.example/blog/magi-2/">
+        MAGI-2 November 25, 2026 · Research</a>
+        <a href="/blog/other/">Unrelated November 26, 2026 · Research</a>
+        """
+        items = html_page_items(page, source)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["url"], "https://sand.ai/blog/magi-2/")
+        self.assertEqual(items[0]["publishedAt"], "2026-11-24T00:00:00Z")
+        self.assertEqual(items[0]["modelId"], "magi-2")
+        self.assertEqual(items[0]["updateType"], "announcement")
 
 
 class ProductAnnouncementTests(unittest.TestCase):
@@ -275,3 +294,7 @@ class ProductAnnouncementTests(unittest.TestCase):
         self.assertEqual(len(items), 1)
         self.assertEqual(items[0]["updateType"], "product-announcement")
         self.assertIsNone(make_item(items[0], source, {}, "2026-11-26T00:00:00Z")["modelId"])
+
+
+if __name__ == "__main__":
+    unittest.main()
