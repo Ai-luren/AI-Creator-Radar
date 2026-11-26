@@ -144,6 +144,9 @@
       ],
       "gpt": [
         "re:\\bGPT[- ]?\\d+(?:\\.\\d+)*\\b"
+      ],
+      "gpt-live": [
+        "re:\\bGPT[- ]Live[- ]?\\d*(?:\\.\\d+)*\\b"
       ]
     }
   },
@@ -473,6 +476,13 @@
       "eleven-tts": [
         "re:\\bEleven(?:Labs)?\\s+v\\d+(?:\\.\\d+)*\\b",
         "re:\\bEleven(?:Labs)?\\s+(?:Flash|Turbo|Multilingual)\\s+v?\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-sfx": [
+        "re:\\bSFX\\s+v\\d+(?:\\.\\d+)*\\b",
+        "re:\\bSound Effects\\s+v\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-scribe": [
+        "re:\\bScribe\\s+v\\d+(?:\\.\\d+)*\\b"
       ]
     }
   },
@@ -506,7 +516,8 @@
     "active": true,
     "modelMatches": {
       "mureka": [
-        "re:\\bmureka[- ](?:v?\\d+(?:\\.\\d+)*|o\\d+)\\b"
+        "re:\\bmureka[- ](?:v?\\d+(?:\\.\\d+)*|o\\d+)\\b",
+        "re:\\bRemix\\s+v?\\d+(?:\\.\\d+)*\\b"
       ]
     },
     "updateType": "model-card",
@@ -800,5 +811,62 @@
     },
     "section": "News",
     "updateType": "model-card"
+  },
+  {
+    "id": "qwen-cloud-model-releases",
+    "name": "QwenCloud 官方模型发布日志",
+    "type": "model-cards",
+    "url": "https://docs.qwencloud.com/changelog/models",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "maxRowLength": 1500,
+    "modelMatches": {
+      "qwen-audio-realtime": [
+        "re:\\bqwen-audio-\\d+(?:\\.\\d+)*-(?:realtime|live)\\b"
+      ],
+      "qwen-audio-tts": [
+        "re:\\bqwen-audio-\\d+(?:\\.\\d+)*-tts\\b"
+      ]
+    }
+  },
+  {
+    "id": "openai-developer-announcements",
+    "name": "OpenAI 开发者官方公告",
+    "type": "rss",
+    "url": "https://community.openai.com/c/announcements/6.rss",
+    "vendor": "OpenAI",
+    "official": true,
+    "active": true,
+    "updateType": "announcement",
+    "modelMatches": {
+      "gpt-live": [
+        "re:\\bGPT[- ]Live[- ]?\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "elevenlabs-changelog",
+    "name": "ElevenLabs 官方开发更新日志",
+    "type": "model-cards",
+    "url": "https://elevenlabs.io/docs/changelog",
+    "vendor": "ElevenLabs",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "maxRowLength": 1500,
+    "modelMatches": {
+      "eleven-sfx": [
+        "re:\\bSFX\\s+v\\d+(?:\\.\\d+)*\\b",
+        "re:\\bSound Effects\\s+v\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-scribe": [
+        "re:\\bScribe\\s+v\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-tts": [
+        "re:\\bEleven\\s+v\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
   }
 ]

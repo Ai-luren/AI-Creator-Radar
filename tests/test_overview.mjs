@@ -223,9 +223,50 @@ test('combined news merges only primary identities and preserves every report',(
  const merged=events.find(e=>e.rows.length===3);assert.equal(merged.sources.length,3);assert.equal(merged.rows.find(r=>r.source==='AIHOT 精选').day,'2026-11-24');
  assert.notEqual(run("newsUrlKey('https://example.com/notes#v1')"),run("newsUrlKey('https://example.com/notes#v2')"));
 });
-test('overview keeps full source entry points and separates review from main feed',async()=>{
+test('overview exposes all modules without duplicating raw daily feeds',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
- assert.match(markup,/重点 AI 资讯/);assert.match(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
- assert.match(markup,/data-briefing-target="combined"/);assert.match(markup,/data-briefing-target="aihot"/);assert.match(markup,/data-briefing-target="juya"/);assert.match(markup,/data-briefing-target="selected"/);
+ assert.match(markup,/重点 AI 资讯/);assert.match(markup,/探索工作台/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
+ assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds','social','models','rankings','topics','practice','opportunities','platforms'])assert.ok(markup.includes('data-view="'+view+'"'),view);
  run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
+
+test('release range and order persist in route',async()=>{
+ const {run,node}=setup({query:'?view=today&days=7&sort=date'});await run('loadAllForTests()');assert.equal(run('state.releaseWindow'),'7');assert.equal(run('state.releaseSort'),'date');assert.match(node('content').innerHTML,/data-release-window/);
+});
+
+test('briefing category and practice links keep full resources accessible',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('feeds',{briefingTab:'combined',briefingCategory:'模型'})");assert.match(node('content').innerHTML,/aria-pressed="true" data-briefing-category="模型"/);assert.match(node('content').innerHTML,/完整摘要与来源/);
+ run("setView('practice',{modelPracticeType:'model'})");assert.doesNotMatch(node('content').innerHTML,/模型库详情 ↗/);assert.match(node('content').innerHTML,/模型库详情 →/);
+});
+
+test('social views separate actual verified homepages, search entries and posts',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-brand-record/);assert.match(node('content').innerHTML,/已核验主页/);assert.equal(run("socialAccountState({status:'verified-search'})"),'官方搜索入口');
+ run("setView('social',{socialView:'platforms',socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-platform-record/);assert.doesNotMatch(node('content').innerHTML,/social-brand-record/);
+ run("setView('social',{socialView:'posts',socialRegion:'all'})");assert.match(node('content').innerHTML,/social-post-row/);assert.match(node('content').innerHTML,/原帖发布时间不等于模型首发日期/);
+});
+
+test('reported internal-model concern is industry news, not a release',()=>{
+ const {run}=setup();assert.equal(run("newsCategory({category:'要闻',title:'报道称 OpenAI 和 Anthropic 员工忧内部模型难以安全发布'})"),'行业');
+});
+
+test('library prioritization, history year and review filters retain records',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');assert.equal(run('state.modelSort'),'priority');assert.equal(run("latestDatedVersion({versions:[{name:'unknown'},{name:'old',releaseDate:'2025-01-01'},{name:'new',releaseDate:'2026-01-01'}]}).name"),'new');
+ run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{date:'2025-01-01',title:'Old checked',verificationStatus:'已确认'},{date:'2026-01-01',title:'New checked',verificationStatus:'已确认'},{date:'2026-01-02',title:'Pending discovery',autoCollected:true}]}];setView('topics',{activeTopic:'google',topicYear:'2026',topicReview:'verified'})");assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Old checked|Pending discovery/);
+ run("state.topicReview='all';render()");assert.match(node('content').innerHTML,/Pending discovery/);
+});
+
+test('resource summaries and favorites do not change source data',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('platforms')");assert.match(node('content').innerHTML,/data-platform-favorite/);assert.deepEqual(JSON.parse(run('JSON.stringify(platformFavorites())')),[]);
+ run("setView('opportunities')");assert.match(node('content').innerHTML,/近7天按公告截止/);assert.match(node('content').innerHTML,/已核验开放计划/);
+});
+
+test('verified service stages remain outside release event counts',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');assert.ok(run('Array.isArray(state.modelReleaseData.verifiedStages)'));assert.ok(run("state.modelReleaseData.verifiedStages.every(x=>!state.modelReleases.some(y=>y.id===x.id))"));
+ run("setView('today',{releaseCategory:'music'})");assert.match(node('content').innerHTML,/已核实模型上线阶段|当前时间范围没有已核实/);
+});
+
+test('Scribe variants form one reviewed batch with two preserved versions',()=>{
+ const {run}=setup();const fixtures=['Scribe v3','Scribe v3 Live'].map((modelName,i)=>({id:'asr-'+i,modelFamilyId:'eleven-scribe',modelVersionId:'asr-'+i,modelName,category:'audio',vendor:'ElevenLabs',publishedAt:'2026-11-09'}));const events=JSON.parse(run('JSON.stringify(releaseEvents('+JSON.stringify(fixtures)+'))'));assert.equal(events.length,1);assert.equal(events[0].versions.length,2);assert.equal(events[0].modelName,'Scribe v3 系列');
+});
+
+test('shared summary grid is used by official accounts and opportunities',async()=>{const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-v2-stats summary-grid/);run("setView('opportunities')");assert.match(node('content').innerHTML,/opportunity-summary summary-grid/);});

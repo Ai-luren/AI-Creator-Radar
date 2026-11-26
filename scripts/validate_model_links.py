@@ -57,6 +57,11 @@ def main() -> int:
                          or item.get("modelName") != evidence.get("modelName", version.get("name"))):
             errors.append(f"release {item.get('id')}: digest fields do not match canonical version evidence")
 
+    for item in digest.get("verifiedStages", []):
+        version = version_map.get((item.get("modelFamilyId"), item.get("modelVersionId")))
+        stages = version.get("historicalMilestones", []) if version else []
+        if not any(item.get("id") == "stage-" + str(s.get("chronicleAuditId")) and item.get("stageDate") == s.get("date") and item.get("stage") == s.get("stage") and item.get("url") == s.get("sourceUrl") and item.get("verifiedAt") == s.get("verifiedAt") for s in stages):
+            errors.append(f"verified stage {item.get('id')}: no matching canonical historical milestone")
     practice = read("site/data/model-practice.json")
     for item in practice.get("models", []):
         fid, vid = item.get("modelFamilyId"), item.get("modelVersionId")

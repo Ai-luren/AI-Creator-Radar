@@ -708,6 +708,27 @@
     ],
     "milestones": [
       {
+        "date": "2026-11-17",
+        "kind": "模型",
+        "title": "Scribe v3 Live Medical 发布",
+        "summary": "面向医疗智能体的实时转写模型，初期在 ElevenAgents 提供；11 月 23 日扩展工作区支持，不重复计为首发。",
+        "url": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+        "auditId": "radar-20261126-eleven-scribe-v3-live-medical",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "audio"
+        ],
+        "verificationUrl": "https://elevenlabs.io/docs/changelog/2026/11/23",
+        "modelMentions": [
+          {
+            "modelFamilyId": "eleven-scribe",
+            "modelVersionId": "scribe-v3-live-medical",
+            "matchedName": "Scribe v3 Live Medical"
+          }
+        ]
+      },
+      {
         "date": "2026-09-28",
         "kind": "模型",
         "title": "ElevenLabs 发布 Eleven v4",
@@ -3562,6 +3583,27 @@
       "audio"
     ],
     "milestones": [
+      {
+        "date": "2026-11-20",
+        "kind": "模型服务上线",
+        "title": "GPT-Live-1.1 API 可用官方公告",
+        "summary": "官方开发者公告确认 GPT-Live-1.1 已可通过 API 使用；模型最初于 10 月 15 日在 ChatGPT 等产品推出。公告日不推断实际 API 首次开放时刻。",
+        "url": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
+        "auditId": "radar-20261126-gpt-live-1-1-api",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-26",
+        "modelCategory": [
+          "audio"
+        ],
+        "verificationUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gpt-live",
+            "modelVersionId": "gpt-live-1-1",
+            "matchedName": "GPT-Live-1.1"
+          }
+        ]
+      },
       {
         "date": "2026-11-17",
         "kind": "模型",

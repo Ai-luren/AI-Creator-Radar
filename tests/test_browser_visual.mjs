@@ -21,12 +21,23 @@ const failures=[];
 try{
  for(const viewport of [{width:1440,height:1000},{width:390,height:844},{width:360,height:800}]){
   const label=viewport.width===1440?'desktop':String(viewport.width);
-  const context=await browser.newContext({viewport,locale:'zh-CN',deviceScaleFactor:1,reducedMotion:'reduce'});
-  await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
-  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
-  await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
+  let context,page;const errors=[];
+  // Each scenario begins from a fresh browser context; within a scenario reloads
+  // retain storage/history. A crashed renderer must not poison following scenarios.
   const routes=['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
-  async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled'}).catch(()=>{})}}
+  async function check(name,fn){
+   context=null;page=null;
+   try{
+    context=await browser.newContext({viewport,locale:'zh-CN',deviceScaleFactor:1,reducedMotion:'reduce'});
+    await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
+    page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));
+    await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
+    await fn();console.log('PASS '+label+' '+name)
+   }catch(e){
+    failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);
+    if(page)await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled',timeout:5000}).catch(()=>{})
+   }finally{if(context)await context.close().catch(e=>{failures.push(label+' '+name+' context close: '+e.message)})}
+  }
   for(const view of routes)await check(view,async()=>{
    const loaded=new Set();const capture=req=>{if(req.url().includes('/data/'))loaded.add(new URL(req.url()).pathname.split('/').pop())};page.on('request',capture);
    await page.goto(base+'?view='+view,{waitUntil:'domcontentloaded'});
@@ -42,6 +53,7 @@ try{
    }
    if(view==='overview')assert.equal(await page.locator('.overview-dashboard .overview-column').count(),2);
    if(view==='rankings'){
+    const evidence=page.locator('.rank-row-evidence').first();if(await evidence.count()){await evidence.locator('summary').click();assert.equal(await evidence.evaluate(el=>el.open),true);await evidence.locator('summary').click()}
     const principles=page.locator('.rank-principles details');assert.equal(await principles.evaluate(el=>el.open),false);await principles.locator('summary').click();assert.equal(await principles.evaluate(el=>el.open),true);await principles.locator('summary').click();
     const table=await page.locator('.rank-table').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),header:getComputedStyle(el.querySelector('th')).position,numeric:getComputedStyle(el.querySelector('th:nth-child(3)')).textAlign}));
     assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');
@@ -49,6 +61,18 @@ try{
    if(view==='today')assert.ok(await page.locator('.release-main').count()>0);
    if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
    console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
+  });
+  if(viewport.width===1440)await check('desktop folding navigation',async()=>{
+   await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const toggle=page.locator('#desktopNavToggle'),sidebar=page.locator('#sidebar');
+   assert.equal(await toggle.getAttribute('aria-expanded'),'true');const expanded=await sidebar.evaluate(el=>el.getBoundingClientRect().width);
+   await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);assert.ok(await sidebar.evaluate(el=>el.getBoundingClientRect().width)<expanded);
+   await page.screenshot({path:path.join(out,label+'-compact-nav.png')});
+   await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);
+   await sidebar.locator('[data-view="models"]').click();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.evaluate(()=>state.view),'models');
+   await toggle.click();await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width>=240);const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
+   await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await group.getAttribute('aria-expanded'),'false');await group.click();
+   assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),true);
   });
   if(viewport.width<761)await check('mobile navigation',async()=>{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
@@ -68,6 +92,24 @@ try{
    assert.equal(await page.locator('main').evaluate(el=>el.inert),false);
    await menu.click();await page.locator('#navBackdrop').click({position:{x:viewport.width-10,y:100}});assert.equal(await menu.getAttribute('aria-expanded'),'false');
   });
+  if(viewport.width!==360)await check('release controls',async()=>{
+   await page.goto(base+'?view=today',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.locator('[data-release-window]').selectOption('7');assert.equal(await page.evaluate(()=>state.releaseWindow),'7');
+   await page.locator('[data-release-sort-select]').selectOption('date');assert.equal(await page.evaluate(()=>state.releaseSort),'date');
+   await page.screenshot({path:path.join(out,label+'-release-controls.png')});
+  });
+  if(viewport.width!==360)await check('news category and details',async()=>{
+   await page.goto(base+'?view=feeds',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.locator('[data-briefing-category="模型"]').click();assert.equal(await page.evaluate(()=>state.briefingCategory),'模型');
+   const details=page.locator('.combined-news-card details').first();await details.locator('summary').click();assert.equal(await details.evaluate(el=>el.open),true);
+   await page.screenshot({path:path.join(out,label+'-news-detail.png')});
+  });
+  if(viewport.width!==360)await check('social views',async()=>{
+   await page.goto(base+'?view=social',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const brand=page.locator('.social-brand-record').first();await brand.locator(':scope > summary').click();assert.equal(await brand.evaluate(el=>el.open),true);await page.screenshot({path:path.join(out,label+'-social-brand-expanded.png')});
+   await page.locator('[data-social-view="platforms"]').click();await page.locator('[data-social-platform-filter]').selectOption('platform:X');assert.equal(await page.locator('.social-platform-record').count(),1);
+   await page.locator('[data-social-view="posts"]').click();assert.equal(await page.evaluate(()=>state.socialView),'posts');await page.screenshot({path:path.join(out,label+'-social-posts.png')});
+  });
   if(viewport.width!==360)await check('search-and-version',async()=>{
    await page.goto(base+'?view=models&category=image',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});await page.waitForFunction(()=>state.indexReady);
@@ -83,6 +125,7 @@ try{
    await page.goto(base+'?view=opportunities&tab=programs',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const progress=page.locator('[data-creator-progress]').first();await progress.selectOption('watch');await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-creator-progress]').first().inputValue(),'watch');
    await page.screenshot({path:path.join(out,label+'-programs.png')});
+   await page.goto(base+'?view=platforms',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);const fav=page.locator('[data-platform-favorite]').first(),favoriteId=await fav.getAttribute('data-platform-favorite');await fav.click();await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-platform-favorite="'+favoriteId+'"]').getAttribute('aria-pressed'),'true');
    await page.goto(base+'?view=practice&type=prompt',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);assert.ok(await page.locator('[data-copy-template="product-tvc"]').count());await page.screenshot({path:path.join(out,label+'-prompts.png')});
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
   });
@@ -99,7 +142,7 @@ try{
    await page.keyboard.press('Escape');await page.locator('.model-detail-panel').waitFor({state:'hidden'});assert.equal(await page.evaluate(()=>state.view),'today');
    page.off('request',listener);
   });
-  await check('no runtime errors',async()=>assert.deepEqual(errors,[]));await context.close();
+  await check('no runtime errors',async()=>assert.deepEqual(errors,[]));
  }
 }finally{await browser.close()}
 if(failures.length){console.error(failures.join('\n'));process.exitCode=1}
