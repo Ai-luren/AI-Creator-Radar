@@ -288,9 +288,13 @@ class ArticleMetaParser(HTMLParser):
                 self.dates.append(stamp)
 
 
-def article_publication_date(page, expected_title):
+def article_publication_date(page, expected_title, leading_date=False):
     """Require matching article heading; never use modified dates or neighbouring cards."""
-    parser = BlockParser()
+    # A few publisher templates put a date-only span/div immediately before H1.
+    # Capture those only for a direct, matched article, not for listing pages.
+    class HeaderParser(BlockParser):
+        CAPTURE = BlockParser.CAPTURE | {"span", "div"}
+    parser = HeaderParser() if leading_date else BlockParser()
     parser.feed(page)
     parser.close()
     blocks = sorted(parser.blocks, key=lambda b: b["sequence"])
@@ -312,6 +316,17 @@ def article_publication_date(page, expected_title):
                 if stamp:
                     dates.append(stamp)
     for i in headings:
+        if leading_date:
+            heading_seq = blocks[i]["sequence"]
+            preceding = [b for b in blocks[:i] if b.get("endSequence", b["sequence"] + 1) <= heading_seq
+                         and heading_seq - b.get("endSequence", b["sequence"]) <= 8]
+            # Only exact date-only blocks next to the verified title, not prose/navigation.
+            for b in preceding:
+                value = b["text"].strip()
+                if re.fullmatch(r"(?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}-\d{2}-\d{2}|20\d{2}年\d{1,2}月\d{1,2}日)", value):
+                    stamp = parse_date(value)
+                    if stamp:
+                        dates.append(stamp)
         section = []
         for b in blocks[i+1:i+14]:
             if b["tag"] in {"h1", "h2", "h3", "h4", "h5", "h6"}:

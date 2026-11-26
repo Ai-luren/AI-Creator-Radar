@@ -71,3 +71,13 @@ class IntelligenceLoopTests(unittest.TestCase):
         self.assertEqual(result["allSample"]["currentDated"],0)
         self.assertEqual(result["allSample"]["endToEndDated"],1)
         self.assertEqual(result["events"][0]["recoveryFirstVerifiedLagDays"],3)
+
+
+    def test_compound_heading_and_preceding_publisher_date(self):
+        from scripts.collect_models import article_publication_date
+        article = '<div><span>November 9, 2026</span><h1>Brand Fable 5.2 and Mythos 5.2</h1><p>Intro</p><h2>Other</h2></div>'
+        self.assertTrue(title_agrees("Brand Fable 5.2 and Mythos 5.2", "Introducing Brand Fable 5.2 and Brand Mythos 5.2"))
+        self.assertFalse(title_agrees("Brand Fable 5.3 and Mythos 5.2", "Introducing Brand Fable 5.2 and Brand Mythos 5.2"))
+        self.assertEqual(article_publication_date(article, "Brand Fable 5.2 and Mythos 5.2", leading_date=True)[:10], "2026-11-09")
+        conflict = '<meta property="article:published_time" content="2026-11-10">'+article
+        self.assertIsNone(article_publication_date(conflict, "Brand Fable 5.2 and Mythos 5.2", leading_date=True))

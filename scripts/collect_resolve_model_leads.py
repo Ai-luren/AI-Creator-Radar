@@ -28,8 +28,17 @@ MAX_PROBES = 12
 CATEGORY = {"video", "image", "llm", "music", "tts", "audio"}
 
 
+def compact_heading(title):
+    # Many publishers omit the introductory verb and repeated brand in H1.
+    title = re.sub(r"^(?:introducing|announcing|meet)\s+", "", str(title or "").strip(), flags=re.I)
+    first = re.match(r"^([A-Za-z][A-Za-z0-9-]+)\s+", title)
+    if first:
+        title = re.sub(r"(\band\s+|&\s*)" + re.escape(first.group(1)) + r"\s+", r"\1", title, flags=re.I)
+    return title_identity(title)
+
+
 def title_agrees(actual, expected):
-    if title_identity(actual) == title_identity(expected):
+    if title_identity(actual) == title_identity(expected) or compact_heading(actual) == compact_heading(expected):
         return True
     # Structured dataset model names may be shorter than the publisher headline.
     # Boundary protection prevents matching GPT-6.2 against GPT-6.2.1.
@@ -73,7 +82,7 @@ def parse_article(page, url, titles, sources, catalog, now):
     family = catalog[ids.pop()]
     if family.get("category") not in CATEGORY:
         return {"status": "outside-model-scope", "title": title}
-    stamp = article_publication_date(page, title)
+    stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com"})
     if not stamp:
         return {"status": "date-unresolved", "title": title, "modelId": family["id"]}
     if not (now - timedelta(days=45)).date().isoformat() <= stamp[:10] <= now.date().isoformat():
