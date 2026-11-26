@@ -18,6 +18,12 @@
       "lastSuccessAt": "2026-11-26T12:23:39+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
+    },
+    "models-batch": {
+      "lastAttemptAt": "2026-11-26T16:51:35+00:00",
+      "lastSuccessAt": "2026-11-26T16:51:35+00:00",
+      "status": "healthy",
+      "consecutiveFailures": 0
     }
   }
 }
