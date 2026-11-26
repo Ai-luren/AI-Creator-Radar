@@ -13,20 +13,49 @@ def read(path):
     return json.loads((ROOT / path).read_text(encoding="utf-8"))
 
 
+def gap_kind(family, version):
+    """Triage missing evidence without inferring a release date or model identity."""
+    if version.get("releaseDate"):
+        return "dated-without-evidence"
+    if version.get("historicalMilestones"):
+        return "historical-stage-only"
+    if family.get("category") == "agent":
+        return "agent-product-scope"
+    status = str(version.get("status") or "")
+    if "榜单" in status or "排行榜" in status:
+        return "leaderboard-identity-review"
+    if version.get("derivedFrom") or version.get("provider"):
+        return "provider-variant-review"
+    if "预览" in status or "Preview" in str(version.get("name") or ""):
+        return "preview-stage-review"
+    return "release-source-review"
+
+
 def audit(families, topics, config):
     versions = {(f["id"], v["id"]): (f, v) for f in families for v in f.get("versions", [])}
     events = {e["auditId"]: (t, e) for t in topics for e in t.get("milestones", []) if e.get("auditId")}
     errors, gaps, by_category = [], [], {}
+    gap_kinds, by_vendor = Counter(), {}
     for key, (family, version) in versions.items():
         category = family["category"]
         counts = by_category.setdefault(category, Counter())
         counts["versions"] += 1
         counts["dated"] += bool(version.get("releaseDate"))
         counts["evidence"] += bool(version.get("releaseEvidence"))
+        vendor = family.get("vendor") or "unknown"
+        vendor_counts = by_vendor.setdefault(vendor, Counter())
+        vendor_counts["versions"] += 1
+        vendor_counts["evidence"] += bool(version.get("releaseEvidence"))
         if not version.get("releaseEvidence"):
+            kind = gap_kind(family, version)
+            gap_kinds[kind] += 1
+            vendor_counts["missingEvidence"] += 1
             gaps.append({"modelFamilyId": key[0], "modelVersionId": key[1], "modelName": version["name"],
-                         "category": category, "issue": "missing-release-evidence",
-                         "hasDate": bool(version.get("releaseDate"))})
+                         "category": category, "vendor": vendor, "issue": "missing-release-evidence",
+                         "reviewKind": kind, "status": version.get("status"),
+                         "hasDate": bool(version.get("releaseDate")), "existingDate": version.get("releaseDate"),
+                         "candidateSourceUrl": version.get("releaseUrl"),
+                         "historicalStages": [m.get("stage") for m in version.get("historicalMilestones", [])]})
     milestone_count = 0
     for key, (family, version) in versions.items():
         for milestone in version.get("historicalMilestones", []):
@@ -68,6 +97,8 @@ def audit(families, topics, config):
             "chronicleNodes": sum(len(t.get("milestones", [])) for t in topics),
             "explicitHistoricalLinks": len(seen), "historicalMilestones": milestone_count, "missingEvidence": len(gaps),
             "categories": {k: dict(v) for k, v in sorted(by_category.items())},
+            "gapKinds": dict(sorted(gap_kinds.items())),
+            "vendors": {k: dict(v) for k, v in sorted(by_vendor.items())},
             "gaps": gaps, "errors": errors}
 
 
