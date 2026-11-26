@@ -334,7 +334,7 @@ test('V3.4 shared semantic icons and readable provider labels',()=>{
  const {run}=setup();assert.equal(run("rankProviderLabel('openai')"),'OpenAI');assert.equal(run("rankProviderLabel('unknown-provider')"),'unknown-provider');assert.match(run("icon('panel')"),/M9 3v18/);assert.match(run("icon('external')"),/stroke-width="1.75"/);
 });
 test('V3.4 each vendor has its own semantic table row group',async()=>{
- const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video'})");const markup=node('content').innerHTML;assert.ok((markup.match(/<tbody class="model-vendor-group">/g)||[]).length>1);assert.equal((markup.match(/<tbody class="model-vendor-group">/g)||[]).length,(markup.match(/scope="rowgroup"/g)||[]).length);
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video',modelGrouping:'vendor'})");const markup=node('content').innerHTML;assert.ok((markup.match(/<tbody class="model-vendor-group">/g)||[]).length>1);assert.equal((markup.match(/<tbody class="model-vendor-group">/g)||[]).length,(markup.match(/scope="rowgroup"/g)||[]).length);
 });
 
 test('latest briefing date is shared across sources and fixed before search or categories',()=>{
