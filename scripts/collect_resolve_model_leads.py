@@ -78,7 +78,10 @@ def parse_article(page, url, titles, sources, catalog, now):
         return {"status": "not-model-announcement", "title": title}
     ids = source_families(url, title, sources) & set(catalog)
     if len(ids) != 1:
-        return {"status": "family-unresolved", "title": title}
+        # Record an unclassified official article without fabricating a family.
+        stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com"})
+        return {"status": "family-unresolved", "title": title,
+                "articlePublishedAt": stamp, "possibleModelFamilyIds": sorted(ids)}
     family = catalog[ids.pop()]
     if family.get("category") not in CATEGORY:
         return {"status": "outside-model-scope", "title": title}
@@ -131,7 +134,8 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
         old = previous_rows.get(key, {})
         return (not old.get("nextAttemptAt") or old["nextAttemptAt"] <= stamp
                 or (old.get("status") in {"identity-unresolved", "family-unresolved"}
-                    and not set(queue[key]["leadIds"]).issubset(old.get("leadIds", []))))
+                    and (not set(queue[key]["leadIds"]).issubset(old.get("leadIds", []))
+                         or not set(queue[key]["titles"]).issubset(old.get("titleHintsChecked", [])))))
     # New URLs first; then retries. Recently reported and multi-source leads take precedence.
     ordered = sorted(queue, key=lambda k: (k not in previous_rows, len(queue[k]["sourceIds"]), queue[k]["latest"]), reverse=True)
     eligible = [key for key in ordered if due(key)]
@@ -151,6 +155,7 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
         delay = 24 * 60 if state in {"article-date-verified", "not-model-announcement", "outside-current-window"} else min(24 * 60, 30 * 2 ** min(failures, 6))
         row = {"id": "recovery-" + hashlib.sha256(key.encode()).hexdigest()[:20], "urlKey": key, "url": task["url"],
                "leadIds": sorted(task["leadIds"]), "discoverySourceIds": sorted(task["sourceIds"]),
+               "titleHintsChecked": sorted(task["titles"]),
                "reportedDates": sorted(task["reportedDates"]), "checkedAt": stamp,
                "firstAttemptAt": old.get("firstAttemptAt", stamp), "consecutiveUnresolved": failures,
                "nextAttemptAt": (now + timedelta(minutes=delay)).isoformat(timespec="seconds"), **outcome}

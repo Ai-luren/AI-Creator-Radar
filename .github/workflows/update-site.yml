@@ -166,6 +166,10 @@ jobs:
       - name: Audit model and historical evidence coverage
         run: python scripts/audit_model_completeness.py
 
+      - name: Publish cross-module integrity audit
+        if: steps.plan.outputs.collect == 'true'
+        run: python scripts/audit_radar_system.py --write
+
       - name: Record validated collection heartbeat and next due time
         if: steps.plan.outputs.collect == 'true'
         env:

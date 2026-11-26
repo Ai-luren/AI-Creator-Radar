@@ -20,7 +20,7 @@ class AutoReleaseVerificationTests(unittest.TestCase):
         self.status = {"sources": [{"id": sid, "checkedAt": self.stamp, "error": None} for sid in ("a", "b")]}
         self.updates = [{"id": sid, "sourceId": sid, "official": True, "updateType": "release",
                          "modelId": "seedance", "title": "Seedance 3 officially released",
-                         "url": f"https://{sid}.example/news/model-3", "publishedAt": "2026-11-26T00:00:00Z",
+                         "url": f"https://{sid}.example/news/{sid}-model-3", "publishedAt": "2026-11-26T00:00:00Z",
                          "publicationDateKind": "feed-published", "publicationObservedAt": self.stamp}
                         for sid in ("a", "b")]
 
@@ -106,3 +106,15 @@ class AutoReleaseVerificationTests(unittest.TestCase):
             topic["milestones"].append(event("b"))
             self.assertEqual(sync_automatic_confirmations([topic], self.models), 0)
             self.assertEqual(len(topic["milestones"]), 2)
+
+
+    def test_same_article_path_and_www_alias_are_not_independent(self):
+        self.updates[1]["url"]="https://b.example/news/a-model-3"
+        self.assertEqual(self.run_gate()["confirmed"],[])
+        self.updates[1]["url"]="https://www.a.example/news/b-model-3"
+        self.sources[1]["url"]="https://www.a.example/news"
+        self.assertEqual(self.run_gate()["confirmed"],[])
+
+    def test_cached_structured_date_requires_actual_raw_observation(self):
+        self.status["sources"][0]["publicationObservations"]=[]
+        self.assertEqual(self.run_gate()["confirmed"],[])

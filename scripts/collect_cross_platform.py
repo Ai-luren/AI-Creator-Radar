@@ -14,10 +14,10 @@ from urllib.parse import urlsplit, parse_qsl, unquote
 import xml.etree.ElementTree as ET
 
 try:
-    from scripts.collect_models import (MAX_BYTES, USER_AGENT, SameHostRedirect, clean_text,
+    from scripts.collect_models import (MAX_BYTES, USER_AGENT, SameHostRedirect, BlockParser, clean_text,
         child_text, entry_link, local_name, parse_date, non_release_title, normalize_url, write_json)
 except ModuleNotFoundError:
-    from collect_models import (MAX_BYTES, USER_AGENT, SameHostRedirect, clean_text,
+    from collect_models import (MAX_BYTES, USER_AGENT, SameHostRedirect, BlockParser, clean_text,
         child_text, entry_link, local_name, parse_date, non_release_title, normalize_url, write_json)
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -168,8 +168,83 @@ def sitemap_leads(source, allowed, get_xml=fetch_xml):
     return sorted(entries, key=lambda row: (row["lastModifiedAt"] or "", row["url"]), reverse=True)[:35]
 
 
+
+def public_bytes(url, accept):
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": accept})
+    with urllib.request.build_opener(SameHostRedirect()).open(request, timeout=12) as response:
+        body = response.read(MAX_BYTES + 1)
+    if len(body) > MAX_BYTES:
+        raise ValueError("Public source exceeds size limit")
+    return body
+
+
+def tracker_model_leads(item, source, allowed):
+    """Licensed source pointers only, never import the tracker verdict or dates as evidence."""
+    slug = item.get("slug")
+    name = clean_text(item.get("name") or "")
+    tracked = item.get("tracked") or {}
+    if not isinstance(slug, str) or not re.fullmatch(r"[a-z0-9-]{1,100}", slug) or not name:
+        return []
+    urls = []
+    hints = [name]
+    for record in tracked.get("sources", []):
+        if not isinstance(record, dict) or record.get("kind") != "lab":
+            continue
+        url = article_url(record.get("url"), allowed)
+        if url:
+            urls.append(url)
+            # A cited title can include the publication name in parentheses.
+            title = clean_text(record.get("title") or "")
+            if title:
+                hints.append(re.sub(r"\s*\([^)]{1,80}\)\s*$", "", title)[:240])
+    if not urls:
+        url = article_url(item.get("modelCardUrl"), allowed)
+        if url:
+            urls.append(url)
+    return [{"title": name[:240], "url": "https://isitsota.com/m/" + slug,
+             "sourceId": source["id"], "sourceName": source["name"],
+             "reportedAt": parse_date(tracked.get("announced") or item.get("releaseDate")),
+             "dateKind": "external-tracker-date", "officialArticleUrls": list(dict.fromkeys(urls))[:5],
+             "titleHints": sorted(set(hints)), "verificationStatus": "unverified-lead",
+             "attribution": {"name":"isitsota.com","url":"https://isitsota.com/","license":"CC BY 4.0",
+                             "licenseUrl":"https://creativecommons.org/licenses/by/4.0/"}}]
+
+
+def tracker_leads(source, allowed, get=public_bytes):
+    page = get(source["url"], "text/html").decode("utf-8", errors="replace")
+    parser = BlockParser()
+    parser.feed(page)
+    parser.close()
+    slugs = []
+    for block in sorted(parser.blocks, key=lambda b: b["sequence"]):
+        if block["tag"] != "a":
+            continue
+        parts = urlsplit(block["attrs"].get("href", ""))
+        match = re.fullmatch(r"/m/([a-z0-9-]{1,100})/?", parts.path)
+        if not match or (parts.netloc and parts.hostname != "isitsota.com"):
+            continue
+        slug = match.group(1)
+        if slug not in slugs and MODEL_SIGNAL.search(slug.replace("-", " ")+" "+block["text"]):
+            slugs.append(slug)
+    rows = []
+    errors = []
+    for slug in slugs[:8]:
+        try:
+            item = json.loads(get("https://isitsota.com/v1/models/"+slug, "application/json"))
+            if not isinstance(item, dict) or item.get("slug") != slug:
+                raise ValueError("Tracker model identity mismatch")
+            rows.extend(tracker_model_leads(item, source, allowed))
+        except (ValueError, OSError, TypeError) as exc:
+            errors.append(str(exc)[:100])
+    if errors and not rows:
+        raise ValueError("Tracker detail requests failed: " + errors[0])
+    return rows
+
+
 def fetch(source, allowed):
     try:
+        if source["type"] == "tracked-model-index":
+            return source, tracker_leads(source, allowed), None
         if source["type"] == "sitemap":
             return source, sitemap_leads(source, allowed), None
         req = urllib.request.Request(source["url"], headers={"User-Agent": USER_AGENT,
@@ -200,6 +275,13 @@ def collect(config, previous, now, fetcher=fetch):
         prior = old_status.get(source["id"], {})
         if prior.get("url") == source["url"] and prior.get("nextAttemptAt") and prior["nextAttemptAt"] > stamp:
             return False
+        if prior.get("url") == source["url"] and source.get("minIntervalMinutes") and prior.get("lastSuccessAt"):
+            try:
+                elapsed = now - datetime.fromisoformat(prior["lastSuccessAt"].replace("Z", "+00:00"))
+                if timedelta(0) <= elapsed < timedelta(minutes=source["minIntervalMinutes"]) and not prior.get("error"):
+                    return False
+            except (ValueError, TypeError):
+                pass
         return True
     active = [source for source in config["sources"] if due(source)]
     for source in config["sources"]:
@@ -369,6 +451,16 @@ def main():
     families = json.loads((ROOT / "site/data/models.json").read_text(encoding="utf-8"))
     sources = json.loads((ROOT / "config/model-sources.json").read_text(encoding="utf-8"))
     result = merge_local_inputs(result, snapshots, config["officialArticleHosts"], families, sources, now)
+    for row in result["items"]:
+        # Canonical names in the source title and safe URL slug assist matching,
+        # but the publisher H1 still has to independently confirm that identity.
+        hints = list(row.get("titleHints", []))
+        hints.extend(literal_model_hints(row["title"], families))
+        for url in row.get("officialArticleUrls", []):
+            slug = urlsplit(url).path.rstrip("/").split("/")[-1]
+            hints.extend(literal_model_hints(re.sub(r"[-_]+", " ", slug), families))
+        if hints:
+            row["titleHints"] = sorted(set(hints))[:10]
     print("Cross-platform discovery:", json.dumps({"reachable": sum(s["error"] is None for s in result["sources"]),
           "sources": len(result["sources"]), "retainedLeads": len(result["items"]),
           "officialArticleLeads": sum(bool(r["officialArticleUrls"]) for r in result["items"])}, ensure_ascii=False))

@@ -96,6 +96,14 @@
       "name": "AI News · ElevenLabs 归档 RSS",
       "type": "rss",
       "url": "https://ai-news-ed8ddf.gitlab.io/feed/source/elevenlabs.xml"
+    },
+    {
+      "id": "isitsota-releases",
+      "name": "isitsota · 模型发布证据索引",
+      "type": "tracked-model-index",
+      "url": "https://isitsota.com/releases",
+      "minIntervalMinutes": 120,
+      "license": "CC BY 4.0"
     }
   ],
   "officialArticleHosts": {
@@ -178,6 +186,9 @@
     ],
     "ai.meta.com": [
       "/blog/"
+    ],
+    "docs.z.ai": [
+      "/guides/llm/"
     ]
   }
 }
