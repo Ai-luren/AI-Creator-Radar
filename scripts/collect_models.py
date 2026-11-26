@@ -323,8 +323,9 @@ def article_publication_date(page, expected_title, leading_date=False):
             # Only exact date-only blocks next to the verified title, not prose/navigation.
             for b in preceding:
                 value = b["text"].strip()
-                if re.fullmatch(r"(?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}-\d{2}-\d{2}|20\d{2}年\d{1,2}月\d{1,2}日)", value):
-                    stamp = parse_date(value)
+                match = re.fullmatch(r"((?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}-\d{2}-\d{2}|20\d{2}年\d{1,2}月\d{1,2}日))(?:\s*[·・]\s*(?:Research|研究))?", value, re.I)
+                if match:
+                    stamp = parse_date(match.group(1))
                     if stamp:
                         dates.append(stamp)
         section = []
@@ -357,6 +358,10 @@ class SameHostRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
+def parts_for_leading_date(url):
+    return urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai"}
+
+
 def enrich_article_dates(source, items):
     if not source.get("articleDateCheck"):
         return items
@@ -382,7 +387,7 @@ def enrich_article_dates(source, items):
                 raw = response.read(MAX_BYTES + 1)
             if len(raw) > MAX_BYTES:
                 return
-            stamp = article_publication_date(raw.decode("utf-8", errors="replace"), item["title"])
+            stamp = article_publication_date(raw.decode("utf-8", errors="replace"), item.get("articleTitle") or item["title"], leading_date=parts_for_leading_date(url))
             if stamp:
                 listing = item.get("publishedAt")
                 if listing and listing[:10] != stamp[:10]:
@@ -784,8 +789,13 @@ def niji_release_items(blocks: list[dict], source: dict) -> list[dict]:
         title = clean_text(block["text"])
         if not re.search(rf"(?<![A-Za-z0-9])niji\s*v?{re.escape(version)}(?![A-Za-z0-9.])", title, re.I):
             continue
+        headings = [b["text"] for b in blocks if b["tag"] in {"h1", "h2", "h3", "h4"}
+                    and block["sequence"] < b["sequence"] < block.get("endSequence", block["sequence"] + 1)
+                    and re.search(rf"(?<![A-Za-z0-9])niji\s*v?{re.escape(version)}(?![A-Za-z0-9.])", b["text"], re.I)]
+        article_title = headings[0] if len(set(headings)) == 1 else title if len(title) <= 120 and not headings else None
         results.append({"title": f"Niji {version} 官方发布公告", "summary": title[:520],
-                        "url": url, "publishedAt": None, "modelId": "midjourney"})
+                        "url": url, "publishedAt": None, "modelId": "midjourney",
+                        **({"articleTitle": article_title} if article_title else {})})
     return dedupe_candidates(results)
 
 
@@ -1031,7 +1041,13 @@ def retryable_source_error(error: str) -> bool:
     return bool(re.search(r"HTTP Error (?:408|429|5\d\d)\b|timed? ?out|temporary failure|connection reset", error, re.I))
 
 
-def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
+def fetch_source(source: dict, prior=None, now=None) -> tuple[dict, list[dict], str | None]:
+    """Back off a repeatedly blocked endpoint without suppressing its independent fallback."""
+    now = now or datetime.now(timezone.utc)
+    stamp = now.isoformat(timespec="seconds")
+    fingerprint = hashlib.sha256(json.dumps(source, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    previous = (prior or {}) if (prior or {}).get("sourceConfigHash") == fingerprint else {}
+    old_attempts = {a["url"]: a for a in previous.get("attempts", []) if isinstance(a, dict) and a.get("url")}
     attempts = []
     primary_url = source["url"]
     endpoints = [{"url": primary_url}]
@@ -1040,15 +1056,34 @@ def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
     endpoints = list({e["url"]: e for e in endpoints}.values())[:5]
     last_error = None
     empty = None
+    requested = False
     for endpoint_config in endpoints:
         endpoint = {**source, **endpoint_config}
         url = endpoint["url"]
+        old = old_attempts.get(url, {})
+        try:
+            retry = datetime.fromisoformat(old.get("nextAttemptAt", "").replace("Z", "+00:00"))
+            if old.get("error") and now < retry <= now + timedelta(hours=8):
+                attempts.append({**old, "deferred": True})
+                last_error = old["error"]
+                continue
+        except (ValueError, TypeError, AttributeError):
+            pass
+        requested = True
         for attempt in range(2):
             _, items, error = fetch_source_once(endpoint)
-            attempts.append({"url": url, "error": error, "itemCount": len(items) if error is None else None})
+            record = {"url": url, "error": error, "itemCount": len(items) if error is None else None,
+                      "checkedAt": stamp, "deferred": False}
+            # Access denial and missing routes need a different source, not immediate repeated requests.
+            if error and re.search(r"HTTP Error (?:403|404)\b", error):
+                count = old.get("hardFailures", 0)
+                count = count if type(count) is int and 0 <= count <= 10000 else 0
+                count += 1
+                record.update(hardFailures=count, nextAttemptAt=(now + timedelta(minutes=min(480, 60 * 2 ** min(count - 1, 3)))).isoformat(timespec="seconds"))
+            attempts.append(record)
             if error is None:
                 result = {**endpoint, "primaryUrl": primary_url, "attempts": attempts,
-                          "primaryDegraded": url != primary_url}
+                          "primaryDegraded": url != primary_url, "sourceConfigHash": fingerprint}
                 if items or not source.get("fallbackOnZeroMatch"):
                     return result, items, None
                 empty = empty or result
@@ -1059,7 +1094,8 @@ def fetch_source(source: dict) -> tuple[dict, list[dict], str | None]:
             time.sleep(2)
     if empty:
         return {**empty, "attempts": attempts}, [], None
-    return {**source, "primaryUrl": primary_url, "attempts": attempts}, [], last_error
+    return {**source, "primaryUrl": primary_url, "attempts": attempts,
+            "sourceConfigHash": fingerprint, "sourceDeferred": not requested}, [], last_error
 
 
 def main() -> int:
@@ -1088,7 +1124,7 @@ def main() -> int:
 
     fetched = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=min(8, max(1, len(active)))) as pool:
-        futures = [pool.submit(fetch_source, source) for source in active]
+        futures = [pool.submit(fetch_source, source, None if args.dry_run else old_status.get(source["id"]), now) for source in active]
         for future in concurrent.futures.as_completed(futures):
             fetched.append(future.result())
 
@@ -1146,7 +1182,8 @@ def main() -> int:
                 "primaryDegraded": source.get("primaryDegraded", False),
                 "id": source["id"], "name": source["name"], "type": source.get("type", "html"),
                 "url": source.get("primaryUrl", source["url"]), "effectiveUrl": source["url"],
-                "attempts": source.get("attempts", []), "active": True, "official": bool(source.get("official", True)),
+                "attempts": source.get("attempts", []), "sourceConfigHash": source.get("sourceConfigHash"),
+                "deferred": False, "active": True, "official": bool(source.get("official", True)),
                 "checkedAt": now_iso, "lastSuccessAt": now_iso, "itemCount": len(incoming),
                 "latestItemAt": max((item.get("publishedAt") or "" for item in incoming), default="") or old.get("latestItemAt"),
                 "resultStatus": "matched" if incoming else "zero-match",
@@ -1157,8 +1194,9 @@ def main() -> int:
             status_entries.append({
                 "id": source["id"], "name": source["name"], "type": source.get("type", "html"),
                 "url": source.get("primaryUrl", source["url"]), "effectiveUrl": None,
-                "attempts": source.get("attempts", []), "active": True, "official": bool(source.get("official", True)),
-                "checkedAt": now_iso, "lastSuccessAt": old.get("lastSuccessAt"),
+                "attempts": source.get("attempts", []), "sourceConfigHash": source.get("sourceConfigHash"),
+                "deferred": bool(source.get("sourceDeferred")), "active": True, "official": bool(source.get("official", True)),
+                "checkedAt": old.get("checkedAt") if source.get("sourceDeferred") else now_iso, "lastSuccessAt": old.get("lastSuccessAt"),
                 "itemCount": old.get("itemCount", 0), "latestItemAt": old.get("latestItemAt"),
                 "resultStatus": "failed",
                 "lastMatchAt": old.get("lastMatchAt") or (old.get("lastSuccessAt") if old.get("itemCount") else None),
@@ -1187,7 +1225,9 @@ def main() -> int:
         "coverage": source_coverage(sources, models),
         "effectiveCoverage": effective_coverage(status_entries, models),
         "checkedAt": now_iso, "totalSources": len(active), "successSources": success_count,
-        "failedSources": len(active) - success_count, "newUpdates": new_count,
+        "failedSources": len(active) - success_count,
+        "deferredSources": sum(bool(e.get("deferred")) for e in status_entries),
+        "attemptedFailedSources": sum(bool(e.get("error")) and not e.get("deferred") for e in status_entries), "newUpdates": new_count,
         "newRecentDated": new_recent, "newUndated": new_undated, "newHistorical": new_historical, "newFutureDated": new_future,
         "sources": status_entries,
     }

@@ -147,3 +147,45 @@ class EffectiveYieldTests(unittest.TestCase):
         items = collector.markdown_dated_release_headings(page, source)
         self.assertEqual([(x["title"], x["publishedAt"][:10]) for x in items], [("Scribe v3", "2026-11-09")])
         self.assertEqual(items[0]["updateType"], "model-card")
+
+
+class EndpointBackoffTests(unittest.TestCase):
+    def setUp(self):
+        from datetime import datetime, timezone
+        self.now = datetime(2026, 11, 27, 0, tzinfo=timezone.utc)
+        self.source = {"id": "demo", "url": "https://example.com/blocked",
+                       "fallbackUrls": ["https://example.com/working"]}
+    def test_blocked_primary_is_deferred_but_fallback_still_checked(self):
+        from datetime import timedelta
+        def fetch(s):
+            return s, [], "HTTPError: HTTP Error 403: Forbidden" if s["url"].endswith("blocked") else None
+        with patch.object(collector, "fetch_source_once", side_effect=fetch) as mock:
+            first, _, error = collector.fetch_source(self.source, now=self.now)
+            self.assertIsNone(error)
+            self.assertEqual(mock.call_count, 2)
+            second, _, error = collector.fetch_source(self.source, first, self.now + timedelta(minutes=15))
+            self.assertIsNone(error)
+            self.assertEqual(mock.call_count, 3)
+            self.assertTrue(second["attempts"][0]["deferred"])
+            self.assertEqual(second["attempts"][0]["checkedAt"], first["attempts"][0]["checkedAt"])
+            self.assertTrue(second["primaryDegraded"])
+            collector.fetch_source(self.source, second, self.now + timedelta(hours=1))
+            self.assertEqual(mock.call_count, 5)
+    def test_all_blocked_remain_errors_and_config_change_retries(self):
+        from datetime import timedelta
+        source = {"url": "https://example.com/missing"}
+        with patch.object(collector, "fetch_source_once", return_value=(source, [], "HTTPError: HTTP Error 404: Not Found")) as mock:
+            first, _, error = collector.fetch_source(source, now=self.now)
+            self.assertIsNotNone(error)
+            second, items, error = collector.fetch_source(source, first, self.now + timedelta(minutes=15))
+            self.assertTrue(second["sourceDeferred"])
+            self.assertEqual(items, [])
+            self.assertIn("404", error)
+            self.assertEqual(mock.call_count, 1)
+            collector.fetch_source(dict(source, type="rss"), second, self.now + timedelta(minutes=16))
+            self.assertEqual(mock.call_count, 2)
+    def test_niji_link_retains_real_heading_for_article_verification(self):
+        source = {"url": "https://nijijourney.com/blog", "type": "niji-release-index"}
+        rows = collector.html_page_items('<a href="/blog/niji-8"><h2>Welcome to Niji 8!</h2><p>Details</p></a>', source)
+        self.assertEqual(rows[0]["articleTitle"], "Welcome to Niji 8!")
+        self.assertIsNone(rows[0]["publishedAt"])

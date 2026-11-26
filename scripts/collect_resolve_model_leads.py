@@ -25,7 +25,7 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/lead-resolution.json"
 MAX_PROBES = 12
-RESOLVER_REVISION = 2
+RESOLVER_REVISION = 3
 CATEGORY = {"video", "image", "llm", "music", "tts", "audio"}
 
 
@@ -99,13 +99,13 @@ def parse_article(page, url, titles, sources, catalog, now):
     ids = source_families(url, title, sources) & set(catalog)
     if len(ids) != 1:
         # Record an unclassified official article without fabricating a family.
-        stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com"})
+        stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai"})
         return {"status": "family-unresolved", "title": title,
                 "articlePublishedAt": stamp, "possibleModelFamilyIds": sorted(ids)}
     family = catalog[ids.pop()]
     if family.get("category") not in CATEGORY:
         return {"status": "outside-model-scope", "title": title}
-    stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com"})
+    stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai"})
     if not stamp:
         return {"status": "date-unresolved", "title": title, "modelId": family["id"]}
     day = article_day_stamp(stamp, url)[:10]
@@ -153,7 +153,7 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
     def due(key):
         old = previous_rows.get(key, {})
         return (not old.get("nextAttemptAt") or old["nextAttemptAt"] <= stamp
-                or (old.get("status") == "not-model-announcement" and old.get("resolverRevision", 0) < RESOLVER_REVISION)
+                or (old.get("status") in {"not-model-announcement", "identity-unresolved", "family-unresolved", "date-unresolved"} and old.get("resolverRevision", 0) < RESOLVER_REVISION)
                 or (old.get("status") in {"identity-unresolved", "family-unresolved"}
                     and (not set(queue[key]["leadIds"]).issubset(old.get("leadIds", []))
                          or not set(queue[key]["titles"]).issubset(old.get("titleHintsChecked", [])))))
