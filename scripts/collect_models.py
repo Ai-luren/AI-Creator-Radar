@@ -550,7 +550,7 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
     changed = []
     dated = sorted(items, key=lambda item: item.get("publishedAt") or "")
     for item in dated:
-        if item.get("updateType") == "product-release":
+        if item.get("updateType") in {"product-release", "announcement", "model-card"}:
             continue
         model_id = item.get("modelId")
         model = models.get(model_id)
@@ -564,7 +564,7 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
         if not model or not version or not published:
             continue
         published_dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
-        if published_dt < cutoff:
+        if published_dt < cutoff or published_dt > now:
             continue
         previous_dt = find_date(model.get("versionUpdatedAt"))
         if previous_dt and published_dt < datetime.fromisoformat(previous_dt.replace("Z", "+00:00")):
@@ -572,7 +572,9 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
         structured = model.setdefault("versions", [])
         current = next((entry for entry in structured
                         if entry.get("name") == version or entry.get("id") == re.sub(r"[^a-z0-9]+", "-", version.lower()).strip("-")), None)
-        if current and current.get("releaseDate") == published:
+        if current and (current.get("releaseEvidence") or current.get("releaseDate")):
+            # Never overwrite an existing publication date or reviewed evidence.
+            # Conflicting source announcements remain visible in the discovery stream.
             continue
         if not current:
             version_id = re.sub(r"[^a-z0-9]+", "-", version.lower()).strip("-")
@@ -581,7 +583,7 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
             structured.append(current)
         current["releaseDate"] = published
         current["releaseUrl"] = item.get("url")
-        current["status"] = "官方发布"
+        current["status"] = "官方来源自动收录 · 待复核"
         if model_id and model_id not in current.setdefault("legacyIds", []):
             current["legacyIds"].append(model_id)
         model["version"] = " / ".join(dict.fromkeys(
