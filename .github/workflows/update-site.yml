@@ -2,7 +2,7 @@ name: Monitor official AI model releases and deploy Pages
 
 on:
   push:
-    branches: [main, feat/radar-freshness-overhaul]
+    branches: [main]
   schedule:
     # Stagger jobs away from the top of the hour. Schedules run on main only.
     - cron: "7,37 * * * *" # official model discovery, AIHOT selected
@@ -35,25 +35,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Test collectors
-        run: python -m unittest discover -s tests -v
-
-      - name: Test overview and navigation rendering
-        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
-        run: node --test tests/test_overview.mjs
-
-      - name: Probe official sources on overhaul branch (read-only)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/feat/radar-freshness-overhaul'
-        run: python scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
-
-      - name: Upload read-only source diagnostics
-        if: github.event_name == 'push' && github.ref == 'refs/heads/feat/radar-freshness-overhaul'
-        uses: actions/upload-artifact@v4
-        with:
-          name: source-probe
-          path: /tmp/radar-source-probe.json
-          retention-days: 7
 
       - name: Collect official model updates
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
@@ -121,6 +102,13 @@ jobs:
       - name: Link exact model mentions across radar data
         if: github.event_name != 'push'
         run: python scripts/link_model_records.py
+
+      - name: Test collectors and current data after regeneration
+        run: python -m unittest discover -s tests -v
+
+      - name: Test overview and navigation rendering
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        run: node --test tests/test_overview.mjs
 
       - name: Validate shared model references
         run: python scripts/validate_model_links.py

@@ -20,6 +20,7 @@ try{
   const routes=viewport.width===360?['overview','models','rankings','social','opportunities']:['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
   async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.message)}}
   for(const view of routes)await check(view,async()=>{
+   const loaded=new Set();const capture=req=>{if(req.url().includes('/data/'))loaded.add(new URL(req.url()).pathname.split('/').pop())};page.on('request',capture);
    await page.goto(base+'?view='+view,{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>state.dataReady);
    await page.locator('#content h1').first().waitFor();
@@ -32,10 +33,12 @@ try{
     assert.ok(result.font>=13);assert.equal(result.model,'sticky');if(viewport.width<761){assert.equal(result.vendor,'static');assert.ok(result.table>result.wrap)}
    }
    if(view==='today')assert.ok(await page.locator('.release-main').count()>0);
+   if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
+   console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
   });
   if(viewport.width!==360)await check('search-and-version',async()=>{
    await page.goto(base+'?view=models&category=image',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});
+   await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});await page.waitForFunction(()=>state.indexReady);
    await page.locator('#globalSearchInput').fill('Seedance 2.0');
    await page.locator('[data-global-type="model"]').click();await page.screenshot({path:path.join(out,label+'-search.png')});
    await page.locator('#globalSearchInput').press('Enter');await page.locator('.model-detail-version-selected').waitFor({state:'visible'});

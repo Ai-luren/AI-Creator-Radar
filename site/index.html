@@ -547,20 +547,20 @@ var localLogos={'openai':'openai.svg','chatgpt':'chatgpt.png','anthropic':'anthr
 function logoSource(name,url,logoKey){var key=String(logoKey||'').toLowerCase();if(!key){var n=String(name||'').toLowerCase();key=Object.keys(localLogos).find(function(k){return n===k||n.indexOf(k)>=0})||''}var file=localLogos[key];if(!file){var host=hostOf(url);if(/xiaohongshu|xhslink/.test(host))file='xiaohongshu.svg';else if(/weibo\.com/.test(host))file='weibo.svg';else if(/tapnow\.ai/.test(host))file='tapnow.ico';else if(/qwen\.ai/.test(host))file='qwen.svg';else if(/chatgpt\.com|openai\.com/.test(host))file='openai.svg';else if(/claude\.ai|anthropic\.com/.test(host))file='anthropic.svg'}return file?'./assets/logos/'+file+'?v=6':favicon(url)}
 function modelLogoKey(m){var id=String(m&&m.id||'').toLowerCase(),vendor=String(m&&m.vendor||'');if(/^qwen(?:-|$)/.test(id)||/通义千问|qwen/i.test(vendor))return 'qwen';if(id.indexOf('fish-audio')===0||/fish audio/i.test(vendor))return 'fish-audio';if(id.indexOf('step')===0||/阶跃星辰|stepfun/i.test(vendor))return 'stepfun';if(id==='wan'||id.indexOf('wan-')===0||/通义万相|阿里巴巴通义万相/i.test(vendor))return 'wan';return m&&(m.logo||m.logoKey)||''}
 function initials(v){return String(v||'?').replace(/[^A-Za-z0-9\u4e00-\u9fa5]/g,'').slice(0,2)||'?'}
-function brandBox(name,url,logoKey){var src=logoSource(name,url,logoKey);return '<span class="brand-box">'+(src?'<img src="'+src+'" alt="" loading="eager" decoding="async" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">':'')+'<span class="brand-fallback" style="display:'+(src?'none':'grid')+'">'+esc(initials(name))+'</span></span>'}
+function brandBox(name,url,logoKey){var src=logoSource(name,url,logoKey);return '<span class="brand-box">'+(src?'<img src="'+src+'" alt="" loading="lazy" decoding="async" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">':'')+'<span class="brand-fallback" style="display:'+(src?'none':'grid')+'">'+esc(initials(name))+'</span></span>'}
 function date(v){if(!v)return '日期待确认';var d=new Date(v);if(isNaN(d))return '日期待确认';return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}).format(d)}
 function shortDate(v){if(!v)return '';var d=new Date(v);if(isNaN(d))return '';return new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit'}).format(d)}
 function monthLabel(v){var d=new Date(v);return isNaN(d)?'日期待确认':new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',year:'numeric',month:'long'}).format(d)}
 function categoryName(v){return {video:'视频',image:'图像',llm:'大语言模型',music:'音乐生成',audio:'音频 / 实时语音',tts:'语音合成',agent:'智能体工具'}[v]||'其他'}
 function matches(v){var q=state.query.trim().toLowerCase();return !q||String(v||'').toLowerCase().indexOf(q)>=0}
 function pageHead(title,desc,meta){return '<div class="page-head"><div><h1 class="page-title">'+title+'</h1><p class="page-desc">'+desc+'</p></div><div class="head-meta">'+(meta||'')+'</div></div>'}
-function modelMentionLinks(record){var refs=(record&&record.modelMentions||[]).concat((record&&record.modelFamilyMentions||[]).map(function(ref){return Object.assign({familyOnly:true},ref)}));var seen={},specific={};refs.forEach(function(ref){if(ref.modelVersionId)specific[ref.modelFamilyId]=true});return refs.filter(function(ref){if(ref.familyOnly&&specific[ref.modelFamilyId])return false;var family=state.models.find(function(x){return x.id===ref.modelFamilyId});var version=family&&(family.versions||[]).find(function(x){return x.id===ref.modelVersionId});if(!family||!ref.familyOnly&&!version)return false;var key=family.id+'/'+(ref.modelVersionId||'family');if(seen[key])return false;seen[key]=true;return true}).map(function(ref){return '<button type="button" class="text-link model-mention-link" data-model-open="'+esc(ref.modelFamilyId)+'"'+(ref.modelVersionId?' data-model-version="'+esc(ref.modelVersionId)+'"':'')+'>查看 '+esc(ref.matchedName||'模型系列')+' 详情 ↗</button>'}).join('')}
+function modelMentionLinks(record){var refs=(record&&record.modelMentions||[]).concat((record&&record.modelFamilyMentions||[]).map(function(ref){return Object.assign({familyOnly:true},ref)}));var seen={},specific={};refs.forEach(function(ref){if(ref.modelVersionId)specific[ref.modelFamilyId]=true});return refs.filter(function(ref){if(ref.familyOnly&&specific[ref.modelFamilyId])return false;var family=state.models.find(function(x){return x.id===ref.modelFamilyId});var version=family&&(family.versions||[]).find(function(x){return x.id===ref.modelVersionId});if(dataSettled.models&&(!family||!ref.familyOnly&&!version))return false;if(!routeId(ref.modelFamilyId)||ref.modelVersionId&&!routeId(ref.modelVersionId))return false;var key=ref.modelFamilyId+'/'+(ref.modelVersionId||'family');if(seen[key])return false;seen[key]=true;return true}).map(function(ref){return '<button type="button" class="text-link model-mention-link" data-model-open="'+esc(ref.modelFamilyId)+'"'+(ref.modelVersionId?' data-model-version="'+esc(ref.modelVersionId)+'"':'')+'>查看 '+esc(ref.matchedName||'模型系列')+' 详情 ↗</button>'}).join('')}
 function boardModelLinks(row,board){var refs=[];(state.models||[]).forEach(function(family){(family.versions||[]).forEach(function(version){(version.leaderboardAliases||[]).forEach(function(alias){if(alias.name===row.name&&alias.boardId===board.id)refs.push({family:family,version:version})})})});var seen={};return refs.filter(function(ref){var key=ref.family.id+'/'+ref.version.id;if(seen[key])return false;seen[key]=true;return true}).map(function(ref){return '<button type="button" class="text-link model-mention-link" data-model-open="'+esc(ref.family.id)+'" data-model-version="'+esc(ref.version.id)+'">'+esc(ref.version.name)+' ↗</button>'}).join('')}
 function empty(t){return '<div class="empty">'+esc(t)+'</div>'}
 function readEvaluationWorkflow(){try{return JSON.parse(localStorage.getItem('creator-radar-evaluation-workflow-v1')||'{}')}catch(e){return {}}}
 function writeEvaluationWorkflow(){try{localStorage.setItem('creator-radar-evaluation-workflow-v1',JSON.stringify(state.evaluationWorkflow))}catch(e){}}
 function daysSince(value){var d=new Date(value);return isNaN(d)?Infinity:(Date.now()-d.getTime())/86400000}
-var state={view:'overview',query:'',overviewReady:false,dataReady:false,dataErrors:{},models:[],updates:[],platforms:[],opportunityData:{items:[],discoverySources:[]},promptTemplates:{items:[]},resourceSources:{},creatorLinkStatus:{results:[]},opportunityTab:'contests',opportunityRegion:'all',opportunityCategory:'all',opportunityStatus:'all',programKind:'all',tutorials:[],modelPractice:{items:[]},modelResourceStatus:{},chronicleSync:{},modelPracticeType:'all',practiceCategory:'视频',rankings:{categories:[]},maomuRankings:{categories:[]},referenceRankings:{boards:[]},unifiedRankings:{categories:[]},rankSources:[],topics:[],news:{items:[]},feedItems:[],aihotDaily:{items:[],fetchedAt:'',title:''},juyaDaily:{items:[],fetchedAt:'',title:''},briefingTab:'aihot',evaluations:{targets:[],items:[],status:{},searchState:{}},evaluationCategory:'all',evaluationWindow:'30d',evaluationStatusFilter:'all',evaluationApiFilter:'all',evaluationWorkflow:readEvaluationWorkflow(),aihot:{items:[],status:'idle',updatedAt:'',error:'',etag:''},aihotLeaderboard:{category:'overall',mode:'rank',status:'idle',data:null,error:'',requestKey:''},aihotTopics:{},social:{brands:[],posts:[]},modelReleases:[],modelReleaseData:null,modelMonitorStatus:null,releaseCategory:'all',releaseMode:'all',modelCategory:'video',regionFilter:'all',accessFilter:'all',modelSort:'vendor',selectedModelId:null,selectedVersionId:null,modelDetailReturn:null,rankTab:'image',rankVideoTask:'text-to-video-audio',rankSub:'',rankPage:0,rankExpanded:true,rankSourcesOpen:false,newsExpanded:false,platformCategory:'video',socialRegion:'all',socialCategory:'all',activeTopic:null,topicCategory:'all'};
+var state={view:'overview',query:'',overviewReady:false,dataReady:false,indexReady:false,dataErrors:{},models:[],updates:[],platforms:[],opportunityData:{items:[],discoverySources:[]},promptTemplates:{items:[]},resourceSources:{},creatorLinkStatus:{results:[]},opportunityTab:'contests',opportunityRegion:'all',opportunityCategory:'all',opportunityStatus:'all',programKind:'all',tutorials:[],modelPractice:{items:[]},modelResourceStatus:{},chronicleSync:{},modelPracticeType:'all',practiceCategory:'视频',rankings:{categories:[]},maomuRankings:{categories:[]},referenceRankings:{boards:[]},unifiedRankings:{categories:[]},rankSources:[],topics:[],news:{items:[]},feedItems:[],aihotDaily:{items:[],fetchedAt:'',title:''},juyaDaily:{items:[],fetchedAt:'',title:''},briefingTab:'aihot',evaluations:{targets:[],items:[],status:{},searchState:{}},evaluationCategory:'all',evaluationWindow:'30d',evaluationStatusFilter:'all',evaluationApiFilter:'all',evaluationWorkflow:readEvaluationWorkflow(),aihot:{items:[],status:'idle',updatedAt:'',error:'',etag:''},aihotLeaderboard:{category:'overall',mode:'rank',status:'idle',data:null,error:'',requestKey:''},aihotTopics:{},social:{brands:[],posts:[]},modelReleases:[],modelReleaseData:null,modelMonitorStatus:null,releaseCategory:'all',releaseMode:'all',modelCategory:'video',regionFilter:'all',accessFilter:'all',modelSort:'vendor',selectedModelId:null,selectedVersionId:null,modelDetailReturn:null,rankTab:'image',rankVideoTask:'text-to-video-audio',rankSub:'',rankPage:0,rankExpanded:true,rankSourcesOpen:false,newsExpanded:false,platformCategory:'video',socialRegion:'all',socialCategory:'all',activeTopic:null,topicCategory:'all'};
 var content=document.getElementById('content');
 var labels={overview:'今日概览',today:'近期上新',models:'模型库',practice:'教程与案例',rankings:'能力榜单',feeds:'行业简报',topics:'厂商发展史',social:'官方账号监控',platforms:'创作工具',opportunities:'创作机会'};
 var routeFields={overview:[],today:['releaseCategory','releaseMode'],models:['modelCategory','regionFilter','accessFilter','modelSort'],practice:['practiceCategory','modelPracticeType'],rankings:['rankTab','rankVideoTask','rankSub','rankPage'],feeds:['briefingTab'],topics:['activeTopic','topicCategory'],social:['socialRegion','socialCategory'],platforms:['platformCategory'],opportunities:['opportunityTab','opportunityRegion','opportunityCategory','opportunityStatus','programKind']};
@@ -590,43 +590,71 @@ function restoreNavigation(entry){restoringRoute=true;applyRoute(window.location
 applyRoute(window.location.search);
 if(window.history){window.history.scrollRestoration='manual';var initialEntry=window.history.state;if(initialEntry&&initialEntry.radar)routeScroll=initialEntry.scroll||null;else saveRoute(false)}
 
+// Each active module requests only the snapshots it needs. All callers share one promise per URL.
+var dataRequests={},dataSettled={},activeViewLoad=null,searchLoad=null;
+var dataFiles={
+ release:['model-releases-30d.json',function(x){state.modelReleaseData=x;state.modelReleases=x&&x.items||[]}],
+ monitor:['model-monitor-status.json',function(x){state.modelMonitorStatus=x}],
+ selected:['aihot-items.json',function(x){if(x){state.aihot.items=Array.isArray(x.items)?x.items:[];state.aihot.updatedAt=x.fetchedAt||''}}],
+ aihot:['aihot-daily.json',function(x){if(x)state.aihotDaily=x}],
+ juya:['juya-daily.json',function(x){if(x)state.juyaDaily=x}],
+ models:['models.json',function(x){state.models=Array.isArray(x)?x:[]}],
+ reference:['reference-rankings.json',function(x){if(x)state.referenceRankings=x}],
+ maomu:['maomu-rankings.json',function(x){if(x)state.maomuRankings=x}],
+ topics:['topics.json',function(x){state.topics=Array.isArray(x)?x:[]}],
+ news:['news-today.json',function(x){if(x)state.news=x}],
+ cases:['feed-items.json',function(x){state.feedItems=x&&x.items||[]}],
+ social:['social-accounts.json',function(x){if(x)state.social=x}],
+ platforms:['social-platforms.json',function(x){state.platforms=Array.isArray(x)?x:[]}],
+ practice:['model-practice.json',function(x){if(x)state.modelPractice=x}],
+ tutorials:['tutorials.json',function(x){state.tutorials=Array.isArray(x)?x:[]}],
+ chronicle:['chronicle-updates-status.json',function(x){if(x)state.chronicleSync=x}],
+ resourceStatus:['model-resource-status.json',function(x){if(x)state.modelResourceStatus=x}],
+ ranking:['unified-rankings.json',function(x){if(x)state.unifiedRankings=x}],
+ contests:['creator-contests.json',function(x){if(x)state.opportunityData=x}],
+ prompts:['creator-prompts.json',function(x){if(x)state.promptTemplates=x}],
+ resources:['resource-sources.json',function(x){if(x)state.resourceSources=x}],
+ creatorStatus:['creator-link-status.json',function(x){if(x)state.creatorLinkStatus=x}]
+};
+var viewData={
+ overview:['release','monitor','selected','aihot','juya'],
+ today:['release','monitor','social'],
+ models:['models','reference','maomu'],
+ practice:['practice','tutorials','resourceStatus','prompts','cases','resources','models'],
+ rankings:['ranking'],
+ feeds:['selected','aihot','juya','news'],
+ topics:['topics','chronicle'],
+ social:['social'],
+ platforms:['platforms'],
+ opportunities:['contests','platforms','creatorStatus']
+};
+function currentDataKeys(){return Array.from(new Set((viewData[state.view]||viewData.overview).concat(state.selectedModelId?viewData.models:[])))}
+function requestData(key){
+ if(dataRequests[key])return dataRequests[key];
+ var spec=dataFiles[key],name=spec[0],options={cache:'no-cache'};
+ if(typeof AbortSignal!=='undefined'&&typeof AbortSignal.timeout==='function')options.signal=AbortSignal.timeout(15000);
+ dataRequests[key]=Promise.resolve().then(function(){return fetch(DATA+name+'?schema=1',options)}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(function(x){if(x==null||typeof x!=='object')throw new Error('数据格式无效');spec[1](x)}).catch(function(e){state.dataErrors[name]=String(e.message||e)}).then(function(){dataSettled[key]=true;state.overviewReady=viewData.overview.every(function(k){return dataSettled[k]})});
+ return dataRequests[key];
+}
+function dataReadyFor(keys){return keys.every(function(k){return dataSettled[k]})}
+function ensureViewData(){
+ var keys=currentDataKeys(),signature=keys.join(',');
+ if(dataReadyFor(keys)){state.dataReady=true;return Promise.resolve()}
+ if(activeViewLoad&&activeViewLoad.signature===signature)return activeViewLoad.promise;
+ var task={signature:signature};activeViewLoad=task;
+ task.promise=Promise.all(keys.map(requestData)).then(function(){if(activeViewLoad===task)activeViewLoad=null;if(dataReadyFor(currentDataKeys())){state.dataReady=true;render();if(state.selectedModelId)focusModelVersion(true)}});
+ return task.promise;
+}
+function ensureSearchData(){
+ if(searchLoad)return searchLoad;
+ // Search needs model identities, but not the bulky model-to-board evidence snapshots.
+ var keys=['release','selected','aihot','juya','models','topics','practice','tutorials','cases','platforms','contests','prompts','resources','social','ranking'];
+ searchLoad=Promise.all(keys.map(requestData)).then(function(){state.indexReady=true;buildGlobalIndex();if(document.getElementById('globalSearchDialog').open)renderGlobalSearch()});
+ return searchLoad;
+}
 async function loadData(){
- function trackedJson(name,version,noStore){
-  return fetch(DATA+name+'?v='+version,noStore?{cache:'no-store'}:{}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json()}).then(function(value){if(value==null||typeof value!=='object')throw new Error('数据格式无效');return value}).catch(function(e){state.dataErrors[name]=String(e.message||e);return null});
- }
- // A small first wave: the overview must not wait for the model registry or rankings.
- var first=await Promise.all([trackedJson('model-releases-30d.json',3),trackedJson('model-monitor-status.json',2),trackedJson('aihot-items.json',2),trackedJson('aihot-daily.json',3),trackedJson('juya-daily.json',3)]);
- if(location.protocol==='file:'&&first.every(function(x){return !x}))throw new Error('本地数据暂不可用');
- state.modelReleaseData=first[0]||null;
- state.modelReleases=(state.modelReleaseData&&state.modelReleaseData.items)||[];
- state.modelMonitorStatus=first[1]||null;
- if(first[2]){state.aihot.items=Array.isArray(first[2].items)?first[2].items:[];state.aihot.updatedAt=first[2].fetchedAt||''}
- state.aihotDaily=first[3]||state.aihotDaily;
- state.juyaDaily=first[4]||state.juyaDaily;
- state.overviewReady=true;
- buildGlobalIndex();if(state.view==='overview')render();if(document.getElementById('globalSearchDialog').open)renderGlobalSearch();
- // Remaining modules retain their source contracts, with independent failure handling.
- var loaded=await Promise.all([
-  trackedJson('models.json',6,true),trackedJson('model-updates.json',6,true),trackedJson('rankings.json',5,true),
-  trackedJson('ranking-sources.json',5,true),trackedJson('topics.json',6,true),trackedJson('news-today.json',5,true),
-  trackedJson('reference-rankings.json',5,true),trackedJson('maomu-rankings.json',4),
-  trackedJson('feed-items.json',1),trackedJson('social-accounts.json',16,true),trackedJson('social-platforms.json',5,true),
-  trackedJson('model-evaluations.json',1),trackedJson('model-practice.json',8),trackedJson('tutorials.json',5),
-  trackedJson('chronicle-updates-status.json',1),trackedJson('model-resource-status.json',1),trackedJson('unified-rankings.json',5),trackedJson('creator-contests.json',1),trackedJson('creator-prompts.json',1),trackedJson('resource-sources.json',1),trackedJson('creator-link-status.json',1)
- ]);
- state.models=Array.isArray(loaded[0])?loaded[0]:[];
- state.updates=(loaded[1]&&loaded[1].items)||[];
- state.rankings=loaded[2]||state.rankings;state.rankSources=loaded[3]||[];
- state.topics=Array.isArray(loaded[4])?loaded[4]:[];
- state.news=loaded[5]||state.news;state.referenceRankings=loaded[6]||state.referenceRankings;
- state.maomuRankings=loaded[7]||state.maomuRankings;state.feedItems=(loaded[8]&&loaded[8].items)||[];
- state.social=loaded[9]||state.social;state.platforms=Array.isArray(loaded[10])?loaded[10]:[];
- state.evaluations=loaded[11]||state.evaluations;state.modelPractice=loaded[12]||state.modelPractice;
- state.tutorials=Array.isArray(loaded[13])?loaded[13]:[];
- state.chronicleSync=loaded[14]||state.chronicleSync;state.modelResourceStatus=loaded[15]||state.modelResourceStatus;
- state.unifiedRankings=loaded[16]||state.unifiedRankings;state.opportunityData=loaded[17]||state.opportunityData;state.promptTemplates=loaded[18]||state.promptTemplates;state.resourceSources=loaded[19]||state.resourceSources;state.creatorLinkStatus=loaded[20]||state.creatorLinkStatus;
- state.dataReady=true;
- buildGlobalIndex();if(state.view!=='overview'||state.selectedModelId)render();if(document.getElementById('globalSearchDialog').open)renderGlobalSearch();
+ render();await ensureViewData();
+ if(location.protocol==='file:'&&currentDataKeys().every(function(k){return state.dataErrors[dataFiles[k][0]]}))throw new Error('本地数据暂不可用');
 }
 
 function setView(v,options){
@@ -640,8 +668,8 @@ function setView(v,options){
  window.scrollTo(0,0);saveRoute(true,{scroll:{y:0}});render();window.scrollTo(0,0);
 }
 function openModelDetails(fid,vid){
- var family=state.models.find(function(m){return m.id===fid});if(!family)return;
- if(vid&&!(family.versions||[]).some(function(v){return v.id===vid}))vid=null;
+ if(!routeId(fid))return;var family=state.models.find(function(m){return m.id===fid});if(dataSettled.models&&!family)return;
+ if(vid&&!routeId(vid))vid=null;if(family&&vid&&!(family.versions||[]).some(function(v){return v.id===vid}))vid=null;
  if(state.selectedModelId===fid&&state.selectedVersionId===(vid||null))return;
  var focus={family:fid,version:vid||null};
  saveRoute(false,{focus:focus});state.modelDetailReturn=fid;state.selectedModelId=fid;state.selectedVersionId=vid||null;
@@ -662,7 +690,7 @@ function closeModelDetails(){
 function render(){
  document.querySelectorAll('#sidebar [data-view]').forEach(function(b){var active=b.dataset.view===state.view;b.classList.toggle('active',active);if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
  document.getElementById('crumbTitle').textContent=labels[state.view]||'今日概览';
- if((state.view==='overview'&&!state.selectedModelId)?!state.overviewReady:!state.dataReady){content.innerHTML='<div class="empty" role="status">正在加载'+esc(labels[state.view])+'…</div>';return}
+ state.dataReady=dataReadyFor(currentDataKeys());if(!state.dataReady){content.innerHTML='<div class="empty" role="status">正在加载'+esc(labels[state.view])+'…</div>';ensureViewData();return}
  if(state.view==='overview')content.innerHTML=overviewPage();
  else if(state.view==='today')content.innerHTML=timelinePage();
  else if(state.view==='models')content.innerHTML=modelPage();
@@ -675,8 +703,7 @@ function render(){
  else if(state.view==='opportunities')content.innerHTML=opportunitiesPage();
  else content.innerHTML=overviewPage();
  if(state.view!=='overview'){
-  var deps={today:['model-releases-30d.json','model-monitor-status.json','social-accounts.json'],models:['models.json','reference-rankings.json','maomu-rankings.json'],practice:['model-practice.json','tutorials.json','model-resource-status.json','creator-prompts.json','feed-items.json','resource-sources.json'],rankings:['unified-rankings.json'],feeds:['aihot-daily.json','juya-daily.json','aihot-items.json'],topics:['topics.json','chronicle-updates-status.json'],social:['social-accounts.json'],platforms:['social-platforms.json'],opportunities:['creator-contests.json','social-platforms.json','creator-link-status.json']};
-  var failed=(deps[state.view]||[]).filter(function(n){return state.dataErrors[n]});if(failed.length)content.insertAdjacentHTML('afterbegin','<p class="overview-notice" role="status">部分数据未加载：'+esc(failed.join('、'))+'。当前结果可能不完整，请刷新重试。</p>');
+  var failed=currentDataKeys().map(function(k){return dataFiles[k][0]}).filter(function(n){return state.dataErrors[n]});if(failed.length)content.insertAdjacentHTML('afterbegin','<p class="overview-notice" role="status">部分数据未加载：'+esc(failed.join('、'))+'。当前结果可能不完整，请刷新重试。</p>');
  }
  if(state.selectedModelId){
   var selectedModel=state.models.find(function(m){return m.id===state.selectedModelId});
@@ -760,7 +787,7 @@ function buildGlobalIndex(){
  function external(url){return safeUrl(url)!=='#'?{url:url}:null}
  function route(view,options){return {view:view,options:options||{}}}
  (state.models||[]).forEach(function(f){add('model',f.name,f.vendor+' · '+categoryName(f.category)+' · 家族',(f.aliases||[]).join(' ')+' '+(f.note||''),{family:f.id});(f.versions||[]).forEach(function(v){add('model',v.name,[f.vendor,categoryName(f.category),v.releaseDate||'发布日期待确认'].join(' · '),[f.name,f.id,v.id,(f.aliases||[]).join(' '),v.note,(v.leaderboardAliases||[]).map(function(a){return a.name}).join(' ')].join(' '),{family:f.id,version:v.id})})});
- (state.modelReleases||[]).forEach(function(x){add('release',x.modelName,[x.vendor,x.publishedAt,'已核实'].join(' · '),x.summary,x.modelFamilyId&&state.dataReady?{family:x.modelFamilyId,version:x.modelVersionId}:external(x.url))});
+ (state.modelReleases||[]).forEach(function(x){add('release',x.modelName,[x.vendor,x.publishedAt,'已核实'].join(' · '),x.summary,x.modelFamilyId?{family:x.modelFamilyId,version:x.modelVersionId}:external(x.url))});
  ((state.modelReleaseData||{}).pending||[]).forEach(function(x){add('release',x.title,[x.vendor,x.publishedAt||'发现 '+x.discoveredAt,'待复核'].join(' · '),x.summary,external(x.url))});
  (state.topics||[]).forEach(function(t){if(t.group!=='公司与模型')return;add('topic',t.name,'厂商发展史',t.description,route('topics',{activeTopic:t.id}));(t.milestones||[]).forEach(function(x){add('topic',x.title,[t.name,x.date,x.autoCollected?'待复核':x.verificationStatus||'历史节点'].join(' · '),x.summary,external(x.url)||route('topics',{activeTopic:t.id}))})});
  [state.aihotDaily,state.juyaDaily].forEach(function(d,i){(d.items||[]).forEach(function(x){var link=briefArticleLinks(x)[0];add('news',x.title,[d.source||'日报',briefIssueDay(d),x.category].join(' · '),x.summary,external(link&&link.url)||route('feeds',{briefingTab:i?'juya':'aihot',query:x.title}))})});
@@ -795,11 +822,11 @@ function searchGlobal(query,type){
 function renderGlobalSearch(){
  var input=document.getElementById('globalSearchInput'),q=input.value||'',all=searchGlobal(q,globalType);globalResults=all.slice(0,40);globalActive=Math.max(0,Math.min(globalActive,globalResults.length-1));
  document.getElementById('globalSearchFilters').innerHTML=searchTypes.map(function(t){return '<button type="button" data-global-type="'+t[0]+'" aria-pressed="'+(globalType===t[0])+'">'+t[1]+'</button>'}).join('');
- document.getElementById('globalSearchMeta').textContent=(q.trim()?all.length+' 条匹配'+(all.length>40?' · 显示前40条':''):'输入关键词，搜索已收录的本地数据')+(!state.dataReady?' · 完整索引加载中':Object.keys(state.dataErrors).length?' · 部分数据未加载':'');
- document.getElementById('globalSearchResults').innerHTML=globalResults.map(function(x,i){var type=searchTypes.find(function(t){return t[0]===x.type}),label=x.action.url?'打开来源':'打开详情';return '<button type="button" class="global-result'+(i===globalActive?' current':'')+'" data-global-result="'+i+'"><span class="global-result-type">'+esc(type&&type[1]||x.type)+'</span><span class="global-result-content"><strong>'+esc(x.title)+'</strong><small>'+esc(x.meta)+'</small></span><span class="global-result-action">'+label+(x.action.url?' ↗':' →')+'</span></button>'}).join('')||(q.trim()?'<p class="overview-empty">没有匹配记录。可尝试完整型号、厂商名或较短关键词。</p>':'<p class="overview-empty">例如 Seedance 2.0、Veo、CPP、提示词指南。</p>');
+ document.getElementById('globalSearchMeta').textContent=(q.trim()?all.length+' 条匹配'+(all.length>40?' · 显示前40条':''):'输入关键词，搜索已收录的本地数据')+(!state.indexReady?' · 完整索引加载中':Object.keys(state.dataErrors).length?' · 部分数据未加载':'');
+ document.getElementById('globalSearchResults').innerHTML=globalResults.map(function(x,i){var type=searchTypes.find(function(t){return t[0]===x.type}),label=x.action.url?'打开来源':'打开详情';return '<button type="button" class="global-result'+(i===globalActive?' current':'')+'" data-global-result="'+i+'"><span class="global-result-type">'+esc(type&&type[1]||x.type)+'</span><span class="global-result-content"><strong>'+esc(x.title)+'</strong><small>'+esc(x.meta)+'</small></span><span class="global-result-action">'+label+(x.action.url?' ↗':' →')+'</span></button>'}).join('')||(q.trim()&&!state.indexReady?'<p class="overview-empty">正在加载更多检索资料…</p>':q.trim()?'<p class="overview-empty">没有匹配记录。可尝试完整型号、厂商名或较短关键词。</p>':'<p class="overview-empty">例如 Seedance 2.0、Veo、CPP、提示词指南。</p>');
 }
 function selectGlobal(index){var x=globalResults[index];if(!x)return;closeGlobalSearch();if(x.action.family)openModelDetails(x.action.family,x.action.version);else if(x.action.view)setView(x.action.view,x.action.options);else if(safeUrl(x.action.url)!=='#')window.open(safeUrl(x.action.url),'_blank','noopener,noreferrer')}
-function openGlobalSearch(){var d=document.getElementById('globalSearchDialog');if(d.open)return;globalReturn=document.activeElement;globalActive=0;renderGlobalSearch();d.showModal();document.getElementById('globalSearchInput').focus()}
+function openGlobalSearch(){var d=document.getElementById('globalSearchDialog');if(d.open)return;globalReturn=document.activeElement;globalActive=0;if(!state.indexReady)buildGlobalIndex();renderGlobalSearch();d.showModal();document.getElementById('globalSearchInput').focus();ensureSearchData()}
 function closeGlobalSearch(){var d=document.getElementById('globalSearchDialog');if(d.open)d.close();if(globalReturn&&globalReturn.isConnected)globalReturn.focus({preventScroll:true});globalReturn=null}
 function stepGlobal(delta){if(!globalResults.length)return;globalActive=(globalActive+delta+globalResults.length)%globalResults.length;renderGlobalSearch();var el=document.getElementById('globalSearchResults').querySelector('.current');if(el)el.scrollIntoView({block:'nearest',behavior:'auto'})}
 
@@ -1348,7 +1375,7 @@ document.addEventListener('keydown',function(e){if((e.metaKey||e.ctrlKey)&&Strin
 content.addEventListener('input',function(e){var field=e.target.closest('[data-evaluation-note]');if(field){var saved=state.evaluationWorkflow[field.dataset.evaluationNote]||{};saved.note=field.value;state.evaluationWorkflow[field.dataset.evaluationNote]=saved;writeEvaluationWorkflow();return}field=e.target.closest('[data-evaluation-output]');if(field){var saved=state.evaluationWorkflow[field.dataset.evaluationOutput]||{};saved.output=field.value;state.evaluationWorkflow[field.dataset.evaluationOutput]=saved;writeEvaluationWorkflow();return}field=e.target.closest('[data-evaluation-evidence]');if(field){var saved=state.evaluationWorkflow[field.dataset.evaluationEvidence]||{};saved.apiEvidence=field.value;state.evaluationWorkflow[field.dataset.evaluationEvidence]=saved;writeEvaluationWorkflow()}});
 content.addEventListener('change',function(e){var progress=e.target.closest('[data-creator-progress]');if(progress){try{var saved=creatorProgress();saved[progress.dataset.creatorProgress]=progress.value;localStorage.setItem('radar-creator-progress-v1',JSON.stringify(saved));progress.removeAttribute('aria-invalid')}catch(err){progress.setAttribute('aria-invalid','true');progress.insertAdjacentHTML('afterend','<span class="creator-note" role="status">本地存储不可用，未保存。</span>')}return}var select=e.target.closest('[data-ranking-choice]');if(select){state.rankSub=select.value;state.rankPage=0;render();return}select=e.target.closest('[data-model-sort]');if(select){state.modelSort=select.value;render();return}select=e.target.closest('[data-social-platform-filter]');if(select){state.socialRegion=select.value;render();return}select=e.target.closest('[data-evaluation-api]');if(select){var saved=state.evaluationWorkflow[select.dataset.evaluationApi]||{};saved.apiStatus=select.value;state.evaluationWorkflow[select.dataset.evaluationApi]=saved;writeEvaluationWorkflow();render();return}select=e.target.closest('[data-evaluation-state]');if(select){var saved=state.evaluationWorkflow[select.dataset.evaluationState]||{};saved.status=select.value;state.evaluationWorkflow[select.dataset.evaluationState]=saved;writeEvaluationWorkflow();if(state.evaluationStatusFilter!=='all')render();return}select=e.target.closest('[data-topic-category]');if(select){state.topicCategory=select.value;render();return}});
 document.querySelectorAll('#sidebar [data-view]').forEach(function(b){b.addEventListener('click',function(){setView(b.dataset.view)})});
-document.getElementById('searchInput').addEventListener('input',function(e){state.query=e.target.value;render()});
+var localFilterTimer;document.getElementById('searchInput').addEventListener('input',function(e){state.query=e.target.value;clearTimeout(localFilterTimer);localFilterTimer=setTimeout(function(){render()},90)});
 document.getElementById('globalSearchTrigger').addEventListener('click',openGlobalSearch);
 document.getElementById('globalSearchClose').addEventListener('click',closeGlobalSearch);
 document.getElementById('globalSearchDialog').addEventListener('cancel',function(e){e.preventDefault();closeGlobalSearch()});

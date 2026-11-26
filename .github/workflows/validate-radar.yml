@@ -1,0 +1,48 @@
+name: Validate radar changes
+on:
+  push:
+    branches: [feat/radar-freshness-overhaul]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      probe_sources:
+        description: "Run read-only official source diagnostics"
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: radar-validation-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate Python tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate JavaScript tests
+        run: node --test tests/test_overview.mjs
+      - name: Validate model references and evidence
+        run: |
+          python scripts/validate_model_links.py
+          python scripts/audit_model_completeness.py
+          python scripts/check_creator_links.py --dry-run
+      - name: Optional read-only source probe
+        if: github.event_name == 'workflow_dispatch' && inputs.probe_sources
+        run: python scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
+      - name: Upload source diagnostics
+        if: github.event_name == 'workflow_dispatch' && inputs.probe_sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-probe
+          path: /tmp/radar-source-probe.json
+          retention-days: 7
