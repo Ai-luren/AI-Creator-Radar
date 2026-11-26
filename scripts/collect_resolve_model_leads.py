@@ -25,6 +25,7 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/lead-resolution.json"
 MAX_PROBES = 12
+RESOLVER_REVISION = 2
 CATEGORY = {"video", "image", "llm", "music", "tts", "audio"}
 
 
@@ -65,6 +66,25 @@ def source_families(url, title, sources):
     return families
 
 
+def explicit_body_release(blocks, title, family):
+    """Recognize a same-model launch statement in the article introduction only."""
+    names = {v.get("name", "") for v in family.get("versions", [])}
+    names = sorted((name for name in names if name and re.search(r"\d", name)
+                    and title_agrees(title, name)), key=len, reverse=True)
+    if not names:
+        return False
+    name = names[0]
+    model_pattern = r"[\s_-]+".join(re.escape(p) for p in re.split(r"[\s_-]+", name))
+    vendor_pattern = re.escape(family["vendor"])
+    heading = next((b["sequence"] for b in blocks if b["tag"] == "h1" and b["text"] == title), None)
+    if heading is None:
+        return False
+    paragraphs = [b["text"] for b in blocks if b["tag"] == "p" and heading < b["sequence"] <= heading + 80][:8]
+    pattern = (r"(?:^|[.!?]\s+)Today,\s+(?:" + vendor_pattern + r"\s+(?:is releasing|has released|is launching|has launched|introduces)|we\s+(?:are releasing|have released|are launching|have launched|introduce))\s+"
+               + model_pattern + r"(?=\s*[,.;:!?]|\s*$)")
+    return any(re.search(pattern, p, re.I) for p in paragraphs)
+
+
 def parse_article(page, url, titles, sources, catalog, now):
     parser = BlockParser()
     parser.feed(page)
@@ -92,7 +112,7 @@ def parse_article(page, url, titles, sources, catalog, now):
     if not (now - timedelta(days=45)).date().isoformat() <= day <= now.date().isoformat():
         return {"status": "outside-current-window", "title": title, "articlePublishedAt": stamp,
                 "modelId": family["id"], "vendor": family["vendor"], "category": family["category"]}
-    if not is_release_candidate(title, stamp, True):
+    if not is_release_candidate(title, stamp, True) and not explicit_body_release(sorted(parser.blocks, key=lambda b: b["sequence"]), title, family):
         return {"status": "not-model-announcement", "title": title}
     return {"status": "article-date-verified", "title": title, "modelId": family["id"],
             "vendor": family["vendor"], "category": family["category"], "articlePublishedAt": stamp}
@@ -133,6 +153,7 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
     def due(key):
         old = previous_rows.get(key, {})
         return (not old.get("nextAttemptAt") or old["nextAttemptAt"] <= stamp
+                or (old.get("status") == "not-model-announcement" and old.get("resolverRevision", 0) < RESOLVER_REVISION)
                 or (old.get("status") in {"identity-unresolved", "family-unresolved"}
                     and (not set(queue[key]["leadIds"]).issubset(old.get("leadIds", []))
                          or not set(queue[key]["titles"]).issubset(old.get("titleHintsChecked", [])))))
@@ -155,7 +176,7 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
         delay = 24 * 60 if state in {"article-date-verified", "not-model-announcement", "outside-current-window"} else min(24 * 60, 30 * 2 ** min(failures, 6))
         row = {"id": "recovery-" + hashlib.sha256(key.encode()).hexdigest()[:20], "urlKey": key, "url": task["url"],
                "leadIds": sorted(task["leadIds"]), "discoverySourceIds": sorted(task["sourceIds"]),
-               "titleHintsChecked": sorted(task["titles"]),
+               "titleHintsChecked": sorted(task["titles"]), "resolverRevision": RESOLVER_REVISION,
                "reportedDates": sorted(task["reportedDates"]), "checkedAt": stamp,
                "firstAttemptAt": old.get("firstAttemptAt", stamp), "consecutiveUnresolved": failures,
                "nextAttemptAt": (now + timedelta(minutes=delay)).isoformat(timespec="seconds"), **outcome}

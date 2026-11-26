@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime, timezone, timedelta
 from scripts.collect_cross_platform import local_snapshot_leads, merge_local_inputs, literal_model_hints
-from scripts.collect_resolve_model_leads import resolve, reconcile_candidate_dates, candidate_rows
+from scripts.collect_resolve_model_leads import resolve, reconcile_candidate_dates, candidate_rows, parse_article
 from scripts.run_collection_batch import BATCHES
 
 
@@ -61,3 +61,16 @@ class UnifiedDiscoveryTests(unittest.TestCase):
     def test_recovery_is_independent_transaction_and_updates_derived_views(self):
         self.assertEqual(BATCHES["recovery"][1][0],BATCHES["models"][1][1])
         self.assertIn("collect_chronicle_updates",BATCHES["recovery"][1][0])
+
+    def test_explicit_body_release_requires_same_model_and_present_tense(self):
+        family = {"id":"demo","vendor":"Demo","category":"llm","versions":[{"name":"Demo v3 Medical"}]}
+        catalog = {"demo":family}
+        title = "Demo v3 Medical helps conversational agents"
+        prefix = '<h1>'+title+'</h1><time datetime="2026-11-23">November 23, 2026</time>'
+        def outcome(body):
+            return parse_article(prefix+'<p>'+body+'</p>',self.url,[title],self.sources,catalog,self.now)["status"]
+        self.assertEqual(outcome("Today, Demo is releasing Demo v3 Medical, a specialized model."),"article-date-verified")
+        self.assertEqual(outcome("Today, Demo is releasing Demo v3 Medical Turbo, a specialized model."),"not-model-announcement")
+        self.assertEqual(outcome("Today, Demo is releasing Demo v3 Medical next month."),"not-model-announcement")
+        self.assertEqual(outcome("Last year, Demo released Demo v3 Medical."),"not-model-announcement")
+        self.assertEqual(outcome("Today, another company is releasing Demo v3 Medical."),"not-model-announcement")
