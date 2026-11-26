@@ -18,15 +18,16 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 2
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: "22"
+          package-manager-cache: false
       - name: Validate Python tests
         run: python -m unittest discover -s tests -v
       - name: Validate JavaScript tests
@@ -37,6 +38,12 @@ jobs:
           python scripts/audit_model_completeness.py
           python scripts/check_creator_links.py --dry-run
           python scripts/collect_creator_opportunities.py --dry-run
+      - name: Package static Pages artifact without deployment
+        uses: actions/upload-pages-artifact@v5.0.0
+        with:
+          name: radar-pages-preflight
+          path: site
+          retention-days: 2
       - name: Detect collector or source configuration changes
         id: probe_needed
         if: github.event_name == 'pull_request'
@@ -51,7 +58,7 @@ jobs:
         run: python scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
       - name: Upload source diagnostics
         if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.run == 'true')
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: source-probe
           path: /tmp/radar-source-probe.json
@@ -71,7 +78,7 @@ jobs:
         run: python scripts/collect_creator_opportunities.py --report /tmp/opportunities-probe.json
       - name: Upload opportunity discovery diagnostics
         if: steps.opportunities_probe.outputs.run == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: opportunities-probe
           path: /tmp/opportunities-probe.json
