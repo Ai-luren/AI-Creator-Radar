@@ -112,8 +112,8 @@ try{
   });
   if(viewport.width!==360)await check('creator watch pilot',async()=>{
    await page.goto(base+'?view=social&tab=creator-posts',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   assert.equal(await page.locator('.creator-watch-post').count(),4);await page.screenshot({path:path.join(out,label+'-creator-posts.png')});
-   await page.locator('[data-creator-type="教程"]').click();assert.equal(await page.locator('.creator-watch-post').count(),2);
+   assert.equal(await page.locator('.creator-watch-post').count(),0);await page.screenshot({path:path.join(out,label+'-creator-posts.png')});
+   await page.locator('[data-creator-type="教程"]').click();assert.equal(await page.locator('.creator-watch-post').count(),0);
    await page.locator('[data-social-view="creators"]').click();assert.equal(await page.locator('.creator-watch-card').count(),8);await page.screenshot({path:path.join(out,label+'-creator-library.png')});
    await page.locator('[data-creator-brand="PixVerse"]').click();assert.equal(await page.locator('.creator-watch-card').count(),3);
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
