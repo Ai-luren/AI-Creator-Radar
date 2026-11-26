@@ -20378,7 +20378,22 @@
         "name": "Hailuo 2.3 Fast",
         "legacyIds": [],
         "leaderboardAliases": [],
-        "status": "官方型号"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-10-28",
+        "releaseUrl": "https://www.minimax.io/news/minimax-hailuo-23",
+        "releaseEvidence": {
+          "eventId": "official-hailuo-hailuo-2-3-fast-20251028",
+          "publishedAt": "2025-10-28",
+          "sourceUrl": "https://www.minimax.io/news/minimax-hailuo-23",
+          "sourceName": "MiniMax 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Hailuo 2.3 Fast 同批推出，面向更快、更低成本的批量视频生成。",
+          "access": "发布时官方托管服务可用；当前可用性待核验",
+          "category": "video",
+          "modelName": "Hailuo 2.3 Fast",
+          "provenance": "厂商原文核实；不等于现时可用状态"
+        }
       },
       {
         "id": "hailuo-02-pro",
@@ -20774,7 +20789,7 @@
     "homepage": "https://pixverse.ai/",
     "releaseUrl": "https://pixverse.ai/en/blog/pixverse-launches-v6-advancing-ai-video-generation",
     "modelCardUrl": "https://pixverse.ai/en/blog/pixverse-launches-v6-advancing-ai-video-generation",
-    "version": "PixVerse V5.6 / PixVerse V6",
+    "version": "PixVerse V5.6 / PixVerse V6 / PixVerse V5 / PixVerse V5.5",
     "aliases": [
       "PixVerse",
       "PixVerse V6"
@@ -20787,7 +20802,7 @@
         "region": "中国",
         "access": "闭源",
         "homepage": "https://pixverse.ai/",
-        "releaseUrl": "https://pixverse.ai/en/blog/pixverse-launches-v6-advancing-ai-video-generation",
+        "releaseUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0",
         "modelCardUrl": "https://pixverse.ai/en/blog/pixverse-launches-v6-advancing-ai-video-generation",
         "id": "pixverse-v5-6",
         "name": "PixVerse V5.6",
@@ -20824,8 +20839,20 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "包含 PixVerse V6 视频生成型号。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "包含 PixVerse V6 视频生成型号。",
+        "historicalMilestones": [
+          {
+            "date": "2026-01-26",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+            "sourceName": "PixVerse 官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-pixverse-v6-pixverse-v5-6-api-availability-20260126",
+            "summary": "日志记录 V5.6 发布；2 月 12 日另增加参考生视频支持。"
+          }
+        ]
       },
       {
         "region": "中国",
@@ -20901,6 +20928,46 @@
           "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
           "sourceRecheckedAt": "2026-11-26"
         }
+      },
+      {
+        "id": "pixverse-v5",
+        "name": "PixVerse V5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "historicalMilestones": [
+          {
+            "date": "2025-08-29",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+            "sourceName": "PixVerse 官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-pixverse-v6-pixverse-v5-api-availability-20250829",
+            "summary": "日志记载 V5 发布；不以 API 日志代替全平台首发日。"
+          }
+        ]
+      },
+      {
+        "id": "pixverse-v5-5",
+        "name": "PixVerse V5.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+        "historicalMilestones": [
+          {
+            "date": "2025-12-02",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://docs.platform.pixverse.ai/changelog-2394996m0",
+            "sourceName": "PixVerse 官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-pixverse-v6-pixverse-v5-5-api-availability-20251202",
+            "summary": "日志记载 V5.5 发布；独立于 V5.6。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -22463,7 +22530,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://klingai.com/",
-        "releaseUrl": "https://kling.ai/document-api/updates/api",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
         "modelCardUrl": "https://kling.ai/document-api/updates/api",
         "id": "kling-3-0",
         "name": "Kling 3.0",
@@ -22528,15 +22595,27 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。",
+        "historicalMilestones": [
+          {
+            "date": "2026-02-05",
+            "datePrecision": "day",
+            "stage": "early-access",
+            "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
+            "sourceName": "快手官方投资者公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-kling-kling-3-0-early-access-20260205",
+            "summary": "发布公告确认当时仅 Ultra 用户可提前体验。"
+          }
+        ]
       },
       {
         "region": "中国",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://klingai.com/",
-        "releaseUrl": "https://kling.ai/document-api/updates/api",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
         "modelCardUrl": "https://kling.ai/document-api/updates/api",
         "id": "kling-3-0-omni",
         "name": "Kling 3.0 Omni",
@@ -22587,8 +22666,20 @@
             "detailUrl": "https://artificialanalysis.ai/video/model-families/kling"
           }
         ],
-        "status": "已发布",
-        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。",
+        "historicalMilestones": [
+          {
+            "date": "2026-02-05",
+            "datePrecision": "day",
+            "stage": "early-access",
+            "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-30-model-ushering-era-where-everyone-can-be/",
+            "sourceName": "快手官方投资者公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-kling-kling-3-0-omni-early-access-20260205",
+            "summary": "同批公告明确列出 Video 3.0 Omni，全面开放日待查。"
+          }
+        ]
       },
       {
         "region": "中国",
@@ -22697,9 +22788,9 @@
         "name": "Kling 1.0",
         "legacyIds": [],
         "leaderboardAliases": [],
-        "status": "历史发布记录；当前可用性待核验",
+        "status": "历史阶段已核实；正式首发日期待核验",
         "region": "中国",
-        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-proprietary-video-generation-model-kling",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-comprehensive-ai-models-reshaping-content-and/",
         "note": "快手发布初代可灵 Kling 视频生成大模型，支持文字生成视频、较长视频生成与多种画面比例，开启可灵系列模型发展。",
         "historicalMilestones": [
           {
@@ -22711,6 +22802,16 @@
             "verifiedAt": "2026-11-24",
             "chronicleAuditId": "v48-kuaishou-0406",
             "summary": "快手发布初代可灵 Kling 视频生成大模型，支持文字生成视频、较长视频生成与多种画面比例，开启可灵系列模型发展。"
+          },
+          {
+            "date": "2024-06-06",
+            "datePrecision": "day",
+            "stage": "early-access",
+            "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-comprehensive-ai-models-reshaping-content-and/",
+            "sourceName": "快手官方回顾公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-kling-kling-1-0-early-access-20240606",
+            "summary": "7 月 8 日官方回顾明确文生视频于 6 月 6 日上线；当时为测试阶段。"
           }
         ]
       }
@@ -22972,7 +23073,7 @@
     "region": "中国",
     "access": "闭源",
     "accessNote": "当前主流版本以官方托管服务为主。",
-    "version": "Vidu Q2 / Vidu Q2 Pro / Vidu Q2 Turbo / Vidu Q3 Pro / Vidu Q3 Turbo / Vidu Q4 Preview / Vidu Q1 / Vidu 2.0 / Vidu 1.5",
+    "version": "Vidu Q2 / Vidu Q2 Pro / Vidu Q2 Turbo / Vidu Q3 Pro / Vidu Q3 Turbo / Vidu Q4 Preview / Vidu Q1 / Vidu 2.0 / Vidu 1.5 / Vidu Q2 Pro Fast",
     "modelCardUrl": "https://platform.vidu.com/docs/api-reference/updates",
     "versions": [
       {
@@ -22980,7 +23081,20 @@
         "name": "Vidu Q2",
         "legacyIds": [],
         "leaderboardAliases": [],
-        "status": "历史版本"
+        "status": "官方公告已核实；最早上线日期待核验",
+        "historicalMilestones": [
+          {
+            "date": "2025-09-30",
+            "datePrecision": "day",
+            "stage": "announcement",
+            "sourceUrl": "https://www.prnewswire.com/news-releases/starring-ai-vidu-q2-brings-performances-to-life-302570537.html",
+            "sourceName": "生数科技官方新闻稿",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "v48-vidu-0237",
+            "summary": "生数科技于 2025-09-30 发布 Q2 官方公告；Q2 Pro/Turbo API 日志已记载 9 月 24 日开放，第三方平台 9 月 25 日已宣布接入 Q2。9 月 30 日为公告日，不代表最早可用日。"
+          }
+        ],
+        "releaseUrl": "https://www.prnewswire.com/news-releases/starring-ai-vidu-q2-brings-performances-to-life-302570537.html"
       },
       {
         "id": "vidu-q2-pro",
@@ -23002,7 +23116,20 @@
             "detailUrl": null
           }
         ],
-        "status": "历史版本"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "historicalMilestones": [
+          {
+            "date": "2025-09-24",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.vidu.com/docs/api-reference/updates",
+            "sourceName": "生数科技官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-vidu-vidu-q2-pro-api-availability-20250924",
+            "summary": "新增模型，支持图生视频与首尾帧。"
+          }
+        ],
+        "releaseUrl": "https://platform.vidu.com/docs/api-reference/updates"
       },
       {
         "id": "vidu-q2-turbo",
@@ -23024,7 +23151,20 @@
             "detailUrl": null
           }
         ],
-        "status": "历史版本"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "historicalMilestones": [
+          {
+            "date": "2025-09-24",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.vidu.com/docs/api-reference/updates",
+            "sourceName": "生数科技官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-vidu-vidu-q2-turbo-api-availability-20250924",
+            "summary": "新增模型，支持图生视频与首尾帧。"
+          }
+        ],
+        "releaseUrl": "https://platform.vidu.com/docs/api-reference/updates"
       },
       {
         "id": "vidu-q3-pro",
@@ -23088,7 +23228,20 @@
             "detailUrl": null
           }
         ],
-        "status": "历史版本"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "historicalMilestones": [
+          {
+            "date": "2026-01-27",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.vidu.com/docs/api-reference/updates",
+            "sourceName": "生数科技官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-vidu-vidu-q3-pro-api-availability-20260127",
+            "summary": "官方列为新增模型，支持有声视频生成。"
+          }
+        ],
+        "releaseUrl": "https://platform.vidu.com/docs/api-reference/updates"
       },
       {
         "id": "vidu-q3-turbo",
@@ -23138,7 +23291,20 @@
             "detailUrl": "https://artificialanalysis.ai/video/model-families/vidu"
           }
         ],
-        "status": "历史版本"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "historicalMilestones": [
+          {
+            "date": "2026-02-11",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.vidu.com/docs/api-reference/updates",
+            "sourceName": "生数科技官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-vidu-vidu-q3-turbo-api-availability-20260211",
+            "summary": "生成时间较短，日志同日记录首尾帧支持。"
+          }
+        ],
+        "releaseUrl": "https://platform.vidu.com/docs/api-reference/updates"
       },
       {
         "id": "vidu-q4-preview",
@@ -23267,6 +23433,26 @@
           "chronicleTopicId": "shengshu",
           "provenance": "既有历史审核记录迁移；非本次重新联网核验"
         }
+      },
+      {
+        "id": "vidu-q2-pro-fast",
+        "name": "Vidu Q2 Pro Fast",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "releaseUrl": "https://platform.vidu.com/docs/api-reference/updates",
+        "historicalMilestones": [
+          {
+            "date": "2025-12-02",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://platform.vidu.com/docs/api-reference/updates",
+            "sourceName": "生数科技官方 API 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-vidu-vidu-q2-pro-fast-api-availability-20251202",
+            "summary": "独立低成本 API 型号，支持图生视频与首尾帧。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -23590,7 +23776,7 @@
         "region": "中国",
         "access": "待核验",
         "homepage": "https://wanxai.com/",
-        "releaseUrl": "https://github.com/Wan-Video/Wan2.2",
+        "releaseUrl": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-wan2-6-series-enabling-everyone?_p_lc=1",
         "modelCardUrl": "https://github.com/Wan-Video/Wan2.2",
         "id": "wan-2-6",
         "name": "Wan 2.6",
@@ -23625,8 +23811,22 @@
             "detailUrl": null
           }
         ],
-        "status": "版本待核对",
-        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
+        "releaseDate": "2025-12-16",
+        "releaseEvidence": {
+          "eventId": "official-wan-wan-2-6-20251216",
+          "publishedAt": "2025-12-16",
+          "sourceUrl": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-wan2-6-series-enabling-everyone?_p_lc=1",
+          "sourceName": "阿里云官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Wan2.6 视频系列正式推出，含 T2V、I2V 与 R2V，支持多镜头叙事与有声生成。",
+          "access": "发布时官方托管服务可用；当前可用性待核验",
+          "category": "video",
+          "modelName": "Wan 2.6",
+          "provenance": "厂商原文核实；不等于现时可用状态"
+        }
       },
       {
         "region": "中国",
@@ -26012,7 +26212,22 @@
             "detailUrl": null
           }
         ],
-        "status": "官方发布/目录状态需逐项核验"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-12-16",
+        "releaseUrl": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-wan2-6-series-enabling-everyone?_p_lc=1",
+        "releaseEvidence": {
+          "eventId": "official-wan-image-wan-2-6-image-20251216",
+          "publishedAt": "2025-12-16",
+          "sourceUrl": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-wan2-6-series-enabling-everyone?_p_lc=1",
+          "sourceName": "阿里云官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "官方同批发布 Wan2.6-image 图像生成型号，与 Wan2.6-T2I 并列。",
+          "access": "发布时官方托管服务可用；当前可用性待核验",
+          "category": "image",
+          "modelName": "Wan 2.6 Image",
+          "provenance": "厂商原文核实；不等于现时可用状态"
+        }
       },
       {
         "id": "wan-2-7-image",
@@ -26132,7 +26347,22 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "榜单列出为独立任务名称；与Wan 2.6 Image的产品关系待官方核验"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-12-16",
+        "releaseUrl": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-wan2-6-series-enabling-everyone?_p_lc=1",
+        "releaseEvidence": {
+          "eventId": "official-wan-image-wan2-6-text-to-image-20251216",
+          "publishedAt": "2025-12-16",
+          "sourceUrl": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-wan2-6-series-enabling-everyone?_p_lc=1",
+          "sourceName": "阿里云官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "公告明确列出 Wan2.6-T2I，与 Wan2.6-image 并列。",
+          "access": "发布时官方托管服务可用；当前可用性待核验",
+          "category": "image",
+          "modelName": "Wan2.6 Text to Image",
+          "provenance": "厂商原文核实；不等于现时可用状态"
+        }
       }
     ],
     "legacyIds": [],
