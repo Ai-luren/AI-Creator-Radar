@@ -53,7 +53,7 @@ try{
    }
    if(view==='overview')assert.equal(await page.locator('.overview-dashboard .overview-column').count(),2);
    if(view==='rankings'){
-    const evidence=page.locator('.rank-row-evidence').first();if(await evidence.count()){await evidence.locator('summary').click();assert.equal(await evidence.evaluate(el=>el.open),true);await evidence.locator('summary').click()}
+    assert.equal(await page.locator('.rank-row-evidence').count(),0);const evidence=page.locator('details.rank-board-nav').filter({has:page.locator('summary').filter({hasText:'原榜分数区间与名次范围'})});assert.equal(await evidence.count(),1);assert.equal(await page.locator('.rank-table tbody tr').count(),10);if(viewport.width>=1200){const rect=await page.locator('.rank-table').evaluate(el=>({bottom:el.getBoundingClientRect().bottom,viewport:window.innerHeight,width:el.scrollWidth,container:el.parentElement.clientWidth}));assert.ok(rect.bottom<=rect.viewport,'Top 10 must fit in viewport '+JSON.stringify(rect));assert.ok(rect.width<=rect.container+2,'rank table horizontal overflow');}
     const principles=page.locator('.rank-principles details');assert.equal(await principles.evaluate(el=>el.open),false);await principles.locator('summary').click();assert.equal(await principles.evaluate(el=>el.open),true);await principles.locator('summary').click();
     const table=await page.locator('.rank-table').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),header:getComputedStyle(el.querySelector('th')).position,numeric:getComputedStyle(el.querySelector('th:nth-child(3)')).textAlign}));
     assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');
@@ -64,13 +64,13 @@ try{
   });
   if(viewport.width===1440)await check('desktop folding navigation',async()=>{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   const toggle=page.locator('#desktopNavToggle'),sidebar=page.locator('#sidebar');
+   const sidebar=page.locator('#sidebar'),toggle=sidebar.locator('#desktopNavToggle');
    assert.equal(await toggle.getAttribute('aria-expanded'),'true');const expanded=await sidebar.evaluate(el=>el.getBoundingClientRect().width);
    await toggle.click();assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);assert.ok(await sidebar.evaluate(el=>el.getBoundingClientRect().width)<expanded);
    await page.screenshot({path:path.join(out,label+'-compact-nav.png')});
    await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await toggle.getAttribute('aria-expanded'),'false');await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width<=66);
    await sidebar.locator('[data-view="models"]').click();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.evaluate(()=>state.view),'models');
-   await toggle.click();await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width>=240);const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
+   await toggle.click();await page.waitForFunction(()=>document.getElementById('sidebar').getBoundingClientRect().width>=214);const group=sidebar.locator('[data-nav-group-toggle="resources"]');await group.click();assert.equal(await group.getAttribute('aria-expanded'),'false');assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),false);
    await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await group.getAttribute('aria-expanded'),'false');await group.click();
    assert.equal(await sidebar.locator('[data-view="practice"]').isVisible(),true);
   });
@@ -106,7 +106,7 @@ try{
   });
   if(viewport.width!==360)await check('social views',async()=>{
    await page.goto(base+'?view=social',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   const brand=page.locator('.social-brand-record').first();await brand.locator(':scope > summary').click();assert.equal(await brand.evaluate(el=>el.open),true);await page.screenshot({path:path.join(out,label+'-social-brand-expanded.png')});
+   const brand=page.locator('.social-brand-record').first(),button=brand.locator('[data-social-detail]');assert.equal(await page.locator('.social-matrix th').count(),10);assert.equal(await page.locator('.social-brand-record').count(),12);assert.equal(await page.locator('.social-total').count(),12);await button.click();assert.equal(await button.getAttribute('aria-expanded'),'true');assert.equal(await page.locator('.social-matrix-detail').first().isVisible(),true);await page.screenshot({path:path.join(out,label+'-social-brand-expanded.png')});
    await page.locator('[data-social-view="platforms"]').click();await page.locator('[data-social-platform-filter]').selectOption('platform:X');assert.equal(await page.locator('.social-platform-record').count(),1);
    await page.locator('[data-social-view="posts"]').click();assert.equal(await page.evaluate(()=>state.socialView),'posts');await page.screenshot({path:path.join(out,label+'-social-posts.png')});
   });
