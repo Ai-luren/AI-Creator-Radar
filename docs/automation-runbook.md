@@ -106,3 +106,7 @@ Node 页面测试默认使用发布清单 windowEnd 对应北京时间当日末�
 固定首批八个官方公告样本见 config/release-recall-benchmark.json（独立查阅官方页面，非随机、非全量）。按公告事件而不是型号行计数，严格要求官方文章 URL、规范家族、全部目标型号标题模式、精确日期；本轮命中和仅历史保留分开，目录已确认与自动采集召回分开。冲突、缺日期、身份错误、漏采逐事件追踪；另设三个负样本。样本不反向注入采集数据、不写模型事实。每次模型事务生成 site/data/release-recall-status.json；缺漏报告不会阻止已有健康快照提交。
 
 有限几个官方目录启用最多五篇文章详情复核，限配置的 HTTPS 官方主机；文章明确日期纠正列表误提取的候选日期并保留旧日期。不自动认定首发，article-explicit-date 不属于双源正式核验证据类型。教程、评测不再进入发布候选及新增发展史，既有人工历史节点不删除。Anthropic 增加官方模型公告分类。PR 源诊断可用 collect_release_recall.py --probe /tmp/radar-source-probe.json --dry-run 对照样本。
+
+## 跨平台信源发现（P1）
+
+新增 ElevenLabs、Qwen 官方 RSS；快手公司新闻、Z.ai 官方博客作为额外第一方入口。跨平台发现独立事务读取开源项目生成的 GitHub Raw RSS（Alan Turing Institute、Olshansk）、LLM World、LLM Releases、RSSHub 公共实例，以及 Hugging Face 四个官方组织的公开模型列表；不需要 Token、账号或自建服务器。外部来源单独输出 site/data/cross-platform-discovery.json，记录线索、来源、时间语义、官方原文 URL（严格主机/路径允许列表）、错误及首次/最近发现时间；官方仓库创建时间不等于模型首发时间。辅助源故障不阻止官方模型事务；不将外部 RSS、HF 上传直接写入权威模型库、正式发布或历史。后续可基于线索中的官方原文进一步核验，绝不以外部新闻或生成日期直接晋级。RSSHub 公共实例仅为可选项，失败保留记录。未部署 RSSHub/RSS-Bridge 容器；无需额外付费服务。

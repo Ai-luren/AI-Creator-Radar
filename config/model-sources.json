@@ -1046,5 +1046,103 @@
         "re:\\bClaude\\s+(?:Opus|Sonnet|Haiku|Fable|Mythos|\\d)"
       ]
     }
+  },
+  {
+    "id": "elevenlabs-official-rss",
+    "name": "ElevenLabs 官方 RSS",
+    "url": "https://elevenlabs.io/blog/rss.xml",
+    "type": "rss",
+    "vendor": "ElevenLabs",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "eleven-music": [
+        "re:\\bEleven(?:Labs)?\\s+Music\\b"
+      ],
+      "eleven-tts": [
+        "re:\\bEleven(?:Labs)?\\s+v\\d+(?:\\.\\d+)*\\b",
+        "re:\\bEleven(?:Labs)?\\s+(?:Flash|Turbo|Multilingual)\\s+v?\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-sfx": [
+        "re:\\bSFX\\s+v\\d+(?:\\.\\d+)*\\b",
+        "re:\\bSound Effects\\s+v\\d+(?:\\.\\d+)*\\b"
+      ],
+      "eleven-scribe": [
+        "re:\\bScribe\\s+v\\d+(?:\\.\\d+)*\\b"
+      ]
+    },
+    "titleModelOnly": true
+  },
+  {
+    "id": "qwen-official-rss",
+    "name": "Qwen 官方博客 RSS",
+    "url": "https://qwenlm.github.io/blog/index.xml",
+    "type": "rss",
+    "vendor": "阿里巴巴通义千问",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "qwen-image-edit": [
+        "re:\\bQwen[- ]Image[- ]Edit\\b"
+      ],
+      "qwen-image": [
+        "re:\\bQwen[- ]Image\\b"
+      ],
+      "qwen3-tts": [
+        "re:\\bQwen\\d*[- ]TTS\\b"
+      ],
+      "qwen-audio-realtime": [
+        "re:\\bQwen[- ]Audio\\b.{0,40}\\bRealtime\\b",
+        "re:\\bQwen[- ]Audio[- ]\\d+(?:\\.\\d+)*[- ]Live\\b"
+      ],
+      "qwen-audio-tts": [
+        "re:\\bQwen[- ]Audio\\b.{0,40}\\bTTS\\b"
+      ],
+      "qwen": [
+        "re:\\bQwen[- ]?\\d+(?:\\.\\d+)*\\b"
+      ]
+    },
+    "titleModelOnly": true
+  },
+  {
+    "id": "kuaishou-company-news",
+    "name": "快手官方公司新闻（可灵）",
+    "type": "html",
+    "url": "https://ir.kuaishou.com/news-events/company-news/",
+    "vendor": "Kling AI",
+    "official": true,
+    "active": true,
+    "titleModelOnly": true,
+    "articleDateCheck": true,
+    "articleHosts": [
+      "ir.kuaishou.com"
+    ],
+    "modelMatches": {
+      "kling-image": [
+        "re:\\bKling\\s+Image\\s+\\d+(?:\\.\\d+)*\\b"
+      ],
+      "kling": [
+        "re:\\bKling\\s+(?:AI\\s+)?\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
+  },
+  {
+    "id": "zai-official-blog",
+    "name": "智谱 Z.ai 官方博客",
+    "type": "html",
+    "url": "https://z.ai/blog",
+    "vendor": "智谱 / Z.ai",
+    "official": true,
+    "active": true,
+    "titleModelOnly": true,
+    "articleDateCheck": true,
+    "articleHosts": [
+      "z.ai"
+    ],
+    "modelMatches": {
+      "glm": [
+        "re:\\bGLM[- ]\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
   }
 ]
