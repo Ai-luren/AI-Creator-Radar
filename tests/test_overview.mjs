@@ -315,3 +315,24 @@ test('ranked MAGI-2 has the same model family and version IDs as its release',as
 });
 
 test('daily edition freshness is based on Beijing publication window, not four-hour age',()=>{const {run}=setup();assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T00:10:00Z'},8,new Date('2026-11-26T12:00:00Z'))"),false);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-27T00:04:00Z'},8,new Date('2026-11-27T00:06:00Z'))"),true);assert.equal(run("briefIssueStale({title:'2026-11-26',fetchedAt:'2026-11-26T02:10:00Z'},10,new Date('2026-11-27T01:00:00Z'))"),false);});
+
+test('V3.4 grouped model library preserves flat view and family links',async()=>{
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video'})");
+ assert.match(node('content').innerHTML,/model-table-grouped/);assert.match(node('content').innerHTML,/data-model-group=/);assert.match(node('content').innerHTML,/data-model-open="magi-2"/);
+ run("state.modelGrouping='flat';render()");assert.doesNotMatch(node('content').innerHTML,/model-table-grouped|data-model-group=/);assert.match(node('content').innerHTML,/data-model-open="magi-2"/);
+});
+test('V3.4 chronology keeps evidence in default collapsed disclosure',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=openai'});await run('loadAllForTests()');run("setView('topics',{activeTopic:'openai'})");
+ assert.match(node('content').innerHTML,/<details class="topic-event-disclosure"><summary/);assert.doesNotMatch(node('content').innerHTML,/<details class="topic-event-disclosure" open/);assert.match(node('content').innerHTML,/原始公告/);assert.match(node('content').innerHTML,/data-topic-events="expand"/);
+});
+test('V3.4 merges only uniquely matched same-day release candidates in display',()=>{
+ const {run}=setup();const rows=[{date:'2026-11-17',title:'Model A 发布',kind:'模型',verificationStatus:'已确认',modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]},{date:'2026-11-17',title:'Introducing Model A',kind:'模型发布',autoCollected:true,modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]},{date:'2026-11-17',title:'Model A Preview',kind:'模型发布',autoCollected:true,modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]}];
+ const result=JSON.parse(run('JSON.stringify(compactChronicleRows('+JSON.stringify(rows)+'))'));assert.equal(result.length,2);assert.equal(result[0]._related.length,1);assert.equal(result[1].title,'Model A Preview');
+});
+
+test('V3.4 shared semantic icons and readable provider labels',()=>{
+ const {run}=setup();assert.equal(run("rankProviderLabel('openai')"),'OpenAI');assert.equal(run("rankProviderLabel('unknown-provider')"),'unknown-provider');assert.match(run("icon('panel')"),/M9 3v18/);assert.match(run("icon('external')"),/stroke-width="1.75"/);
+});
+test('V3.4 each vendor has its own semantic table row group',async()=>{
+ const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');run("setView('models',{modelCategory:'video'})");const markup=node('content').innerHTML;assert.ok((markup.match(/<tbody class="model-vendor-group">/g)||[]).length>1);assert.equal((markup.match(/<tbody class="model-vendor-group">/g)||[]).length,(markup.match(/scope="rowgroup"/g)||[]).length);
+});
