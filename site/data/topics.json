@@ -1584,7 +1584,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://deepmind.google/models/imagen/"
+        "verificationUrl": "https://deepmind.google/models/imagen/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "imagen",
+            "modelVersionId": "imagen-4",
+            "matchedName": "Imagen 4"
+          }
+        ]
       },
       {
         "date": "2025-05-20",
@@ -1703,7 +1710,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://deepmind.google/models/imagen/"
+        "verificationUrl": "https://deepmind.google/models/imagen/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "imagen",
+            "modelVersionId": "imagen-3",
+            "matchedName": "Imagen 3"
+          }
+        ]
       },
       {
         "date": "2024-05-14",
@@ -1771,7 +1785,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://blog.google/innovation-and-ai/products/google-imagen-2/"
+        "verificationUrl": "https://blog.google/innovation-and-ai/products/google-imagen-2/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "imagen",
+            "modelVersionId": "imagen-2",
+            "matchedName": "Imagen 2"
+          }
+        ]
       },
       {
         "date": "2023-12-06",
@@ -2412,6 +2433,13 @@
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v8-2",
+            "matchedName": "Midjourney V8.2"
+          }
         ]
       },
       {
@@ -2432,6 +2460,13 @@
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v8-1",
+            "matchedName": "Midjourney V8.1"
+          }
         ]
       },
       {
@@ -2451,6 +2486,13 @@
           {
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
+          }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v8",
+            "matchedName": "Midjourney V8"
           }
         ]
       },
@@ -2473,6 +2515,13 @@
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney-video",
+            "modelVersionId": "midjourney-v1-video",
+            "matchedName": "Midjourney V1 Video"
+          }
         ]
       },
       {
@@ -2492,6 +2541,13 @@
           {
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
+          }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v6-1",
+            "matchedName": "Midjourney V6.1"
           }
         ]
       },
@@ -2513,6 +2569,13 @@
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v6",
+            "matchedName": "Midjourney V6"
+          }
         ]
       },
       {
@@ -2532,6 +2595,13 @@
           {
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
+          }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v5-1",
+            "matchedName": "Midjourney V5.1"
           }
         ]
       },
@@ -2553,6 +2623,13 @@
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v5",
+            "matchedName": "Midjourney V5"
+          }
         ]
       },
       {
@@ -2572,6 +2649,13 @@
           {
             "modelFamilyId": "midjourney",
             "matchedName": "Midjourney"
+          }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "midjourney",
+            "modelVersionId": "midjourney-v4",
+            "matchedName": "Midjourney V4"
           }
         ]
       }
@@ -4712,6 +4796,13 @@
             "modelFamilyId": "seedream",
             "matchedName": "Seedream"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedream",
+            "modelVersionId": "seedream-5-0-flash",
+            "matchedName": "Seedream 5.0 Flash"
+          }
         ]
       },
       {
@@ -4731,6 +4822,13 @@
         "modelFamilyMentions": [
           {
             "modelFamilyId": "seed-realtime",
+            "matchedName": "SeedRealtime"
+          }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "seed-realtime",
+            "modelVersionId": "seedrealtime",
             "matchedName": "SeedRealtime"
           }
         ]
@@ -5052,7 +5150,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed"
+        "verificationUrl": "https://theaiengineering.com/releases/bytedance-seed",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seededit",
+            "modelVersionId": "seededit-3-0",
+            "matchedName": "SeedEdit 3.0"
+          }
+        ]
       },
       {
         "date": "2025-04-16",
@@ -6129,6 +6234,18 @@
             "modelFamilyId": "vidu",
             "matchedName": "Vidu"
           }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "vidu-s2",
+            "modelVersionId": "vidu-s2-avatar",
+            "matchedName": "Vidu S2-Avatar"
+          },
+          {
+            "modelFamilyId": "vidu-s2",
+            "modelVersionId": "vidu-s2-editing",
+            "matchedName": "Vidu S2-Editing"
+          }
         ]
       },
       {
@@ -6431,7 +6548,14 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen-audio-3-1-live"
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen-audio-3-1-live",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-audio-realtime",
+            "modelVersionId": "qwen-audio-3-1-live",
+            "matchedName": "Qwen Audio 3.1 Live"
+          }
+        ]
       },
       {
         "date": "2026-11-11",
@@ -6461,7 +6585,14 @@
           "video",
           "audio"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models"
+        "verificationUrl": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-audio-tts",
+            "modelVersionId": "qwen-audio-3-1-tts-next",
+            "matchedName": "Qwen Audio 3.1 TTS Next"
+          }
+        ]
       },
       {
         "date": "2026-10-21",
@@ -6479,6 +6610,13 @@
           {
             "modelFamilyId": "qwen-audio-tts",
             "matchedName": "Qwen-Audio-3.1-TTS-Flash"
+          }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-audio-tts",
+            "modelVersionId": "qwen-audio-3-1-tts-plus",
+            "matchedName": "Qwen Audio 3.1 TTS Plus"
           }
         ]
       },
@@ -6508,7 +6646,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://github.com/QwenLM/Qwen-Image-2.1"
+        "verificationUrl": "https://github.com/QwenLM/Qwen-Image-2.1",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2-1",
+            "matchedName": "Qwen-Image 2.1"
+          }
+        ]
       },
       {
         "date": "2026-09-18",
@@ -6647,7 +6792,14 @@
           "image",
           "audio"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/image-model"
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/image-model",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-3-0",
+            "matchedName": "Qwen-Image 3.0"
+          }
+        ]
       },
       {
         "date": "2026-08-03",
@@ -6796,6 +6948,11 @@
             "modelFamilyId": "wan-image",
             "modelVersionId": "wan-2-7-image",
             "matchedName": "Wan 2.7 Image"
+          },
+          {
+            "modelFamilyId": "wan-image",
+            "modelVersionId": "wan-2-7-image-pro",
+            "matchedName": "Wan 2.7 Image Pro"
           }
         ],
         "modelFamilyMentions": [
@@ -6841,7 +6998,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://venturebeat.com/technology/open-source-qwen-image-2512-launches-to-compete-with-googles-nano-banana-pro-in-high-quality-ai-image-generation/"
+        "verificationUrl": "https://venturebeat.com/technology/open-source-qwen-image-2512-launches-to-compete-with-googles-nano-banana-pro-in-high-quality-ai-image-generation/",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image-2512",
+            "matchedName": "Qwen-Image (2512)"
+          }
+        ]
       },
       {
         "date": "2025-11-17",
@@ -6900,7 +7064,14 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://github.com/QwenLM/Qwen-Image"
+        "verificationUrl": "https://github.com/QwenLM/Qwen-Image",
+        "modelMentions": [
+          {
+            "modelFamilyId": "qwen-image",
+            "modelVersionId": "qwen-image",
+            "matchedName": "Qwen-Image"
+          }
+        ]
       },
       {
         "date": "2025-07-28",

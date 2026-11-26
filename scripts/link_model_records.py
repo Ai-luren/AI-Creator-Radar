@@ -101,6 +101,22 @@ def chronicle_title_refs(title: str, refs: list[dict], families: list[dict], ven
     return accepted
 
 
+def explicit_chronicle_refs(families: list[dict]) -> dict:
+    """Use already audited evidence/milestone IDs, not bare title or summary matches."""
+    result = {}
+    for family in families:
+        for version in family.get("versions", []):
+            records = [version.get("releaseEvidence") or {}, *version.get("historicalMilestones", [])]
+            for evidence in records:
+                aid = evidence.get("chronicleAuditId")
+                if aid:
+                    result.setdefault(aid, {})[(family["id"], version["id"])] = {
+                        "modelFamilyId": family["id"], "modelVersionId": version["id"],
+                        "matchedName": version["name"],
+                    }
+    return result
+
+
 def apply_records(document, section: str | None, fields: tuple[str, ...], families: list[dict]) -> bool:
     if section is None and isinstance(document, list):
         records = document
@@ -110,6 +126,8 @@ def apply_records(document, section: str | None, fields: tuple[str, ...], famili
         records = document.get(section, [])
     changed = False
     chronology_vendors = {}
+    explicit_refs = explicit_chronicle_refs(families) if section == "milestones" else {}
+    by_family = {f["id"]: f for f in families}
     if section == "milestones" and isinstance(document, list):
         vendor_topics = json.loads(CHRONICLE_CONFIG.read_text(encoding="utf-8"))["vendorTopics"]
         chronology_vendors = {id(record): vendor_topics[parent["id"]] for parent in document if parent.get("id") in vendor_topics for record in parent.get("milestones", [])}
@@ -118,7 +136,14 @@ def apply_records(document, section: str | None, fields: tuple[str, ...], famili
         refs = record_refs(text, families)
         family_mentions = family_refs(text, families)
         if id(record) in chronology_vendors:
-            refs = chronicle_title_refs(str(record.get("title") or ""), refs, families, chronology_vendors[id(record)])
+            vendors = chronology_vendors[id(record)]
+            refs = chronicle_title_refs(str(record.get("title") or ""), refs, families, vendors)
+            merged = {(r["modelFamilyId"], r["modelVersionId"]): r for r in refs}
+            if not record.get("autoCollected") and record.get("verificationStatus") == "已确认：型号、日期与事件性质":
+                for key, ref in explicit_refs.get(record.get("auditId"), {}).items():
+                    if by_family[key[0]].get("vendor") in vendors:
+                        merged[key] = ref
+            refs = [merged[key] for key in sorted(merged)]
         if refs:
             if record.get("modelMentions") != refs:
                 record["modelMentions"] = refs

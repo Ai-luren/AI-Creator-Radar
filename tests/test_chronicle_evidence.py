@@ -35,3 +35,14 @@ class HistoricalMilestoneTests(unittest.TestCase):
         self.assertEqual(report["errors"], [])
         self.assertEqual(report["historicalMilestones"], 1)
         self.assertEqual(report["missingEvidence"], 1)
+
+
+class ExplicitChronicleReferenceTests(unittest.TestCase):
+    def test_shared_audited_event_keeps_two_distinct_versions(self):
+        from scripts.link_model_records import explicit_chronicle_refs
+        family = {"id": "s2", "versions": [
+            {"id": "avatar", "name": "S2-Avatar", "releaseEvidence": {"chronicleAuditId": "event"}},
+            {"id": "editing", "name": "S2-Editing", "historicalMilestones": [{"chronicleAuditId": "event"}]},
+        ]}
+        refs = explicit_chronicle_refs([family])
+        self.assertEqual(set(refs["event"]), {("s2", "avatar"), ("s2", "editing")})

@@ -360,6 +360,90 @@
       "modelVersionId": "vidu-1-5",
       "chronicleAuditId": "v48-vidu-0368",
       "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "midjourney",
+      "modelVersionId": "midjourney-v5-1",
+      "chronicleAuditId": "v48-midjourney-0469",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "midjourney",
+      "modelVersionId": "midjourney-v6-1",
+      "chronicleAuditId": "v48-midjourney-0392",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "midjourney",
+      "modelVersionId": "midjourney-v6",
+      "chronicleAuditId": "v48-midjourney-0437",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "midjourney",
+      "modelVersionId": "midjourney-v8-2",
+      "chronicleAuditId": "v48-midjourney-0097",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "midjourney-video",
+      "modelVersionId": "midjourney-v1-video",
+      "chronicleAuditId": "v48-midjourney-0282",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "imagen",
+      "modelVersionId": "imagen-4",
+      "chronicleAuditId": "v48-google-0296",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "seededit",
+      "modelVersionId": "seededit-3-0",
+      "chronicleAuditId": "v48-bytedance-0287",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "vidu-s2",
+      "modelVersionId": "vidu-s2-avatar",
+      "chronicleAuditId": "v48-vidu-0052",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "vidu-s2",
+      "modelVersionId": "vidu-s2-editing",
+      "chronicleAuditId": "v48-vidu-0052",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "seed-realtime",
+      "modelVersionId": "seedrealtime",
+      "chronicleAuditId": "v48-bytedance-seed-0088",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "seed-audio",
+      "modelVersionId": "seed-audio-1-0",
+      "chronicleAuditId": "v48-bytedance-seed-0101",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "qwen-image",
+      "modelVersionId": "qwen-image",
+      "chronicleAuditId": "v48-qwen-0264",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "qwen-image",
+      "modelVersionId": "qwen-image-2512",
+      "chronicleAuditId": "v48-qwen-0194",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "qwen-image",
+      "modelVersionId": "qwen-image-2-1",
+      "chronicleAuditId": "v48-qwen-0049",
+      "sourceField": "url"
     }
   ]
 }

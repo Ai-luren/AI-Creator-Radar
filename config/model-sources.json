@@ -8,6 +8,9 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "seededit": [
+        "re:\\bSeedEdit\\b"
+      ],
       "seedance": [
         "seedance"
       ],
@@ -54,6 +57,9 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "imagen": [
+        "re:\\bImagen\\s*\\d+\\b"
+      ],
       "nano-banana": [
         "nano banana"
       ],
@@ -152,6 +158,10 @@
     "updateType": "model-card",
     "maxRowLength": 2500,
     "modelMatches": {
+      "vidu-s2": [
+        "re:\\b(?:Vidu\\s+)?S\\d+[- ](?:Avatar|Editing)\\b",
+        "re:\\bVidu\\s+S\\d+\\b"
+      ],
       "vidu": [
         "re:\\bVidu\\s*Q\\d+(?:\\.\\d+)*\\b",
         "re:\\bVidu\\s*\\d+(?:\\.\\d+)*\\b",
@@ -182,7 +192,8 @@
         "re:\\bQwen\\d*[- ]TTS\\b"
       ],
       "qwen-audio-realtime": [
-        "re:\\bQwen[- ]Audio\\b.{0,40}\\bRealtime\\b"
+        "re:\\bQwen[- ]Audio\\b.{0,40}\\bRealtime\\b",
+        "re:\\bQwen[- ]Audio[- ]\\d+(?:\\.\\d+)*[- ]Live\\b"
       ],
       "qwen-audio-tts": [
         "re:\\bQwen[- ]Audio\\b.{0,40}\\bTTS\\b"
@@ -372,6 +383,9 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "imagen": [
+        "re:\\bImagen\\s*\\d+\\b"
+      ],
       "nano-banana": [
         "nano banana"
       ],
@@ -507,6 +521,10 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "midjourney-video": [
+        "re:\\b(?:Midjourney\\s+)?V\\d+\\s+Video\\b",
+        "re:\\bVideo\\s+Model\\b"
+      ],
       "midjourney": [
         "re:\\b(?:Midjourney|Niji)\\b.{0,45}\\bv?\\d+(?:\\.\\d+)*\\b",
         "re:^v\\d+(?:\\.\\d+)*\\s+(?:is now|released|launch)",
@@ -589,7 +607,8 @@
         "re:\\bqwen[- ]audio\\b.{0,30}\\btts\\b"
       ],
       "qwen-audio-realtime": [
-        "re:\\bqwen[- ]audio\\b.{0,30}\\brealtime\\b"
+        "re:\\bqwen[- ]audio\\b.{0,30}\\brealtime\\b",
+        "re:\\bQwen[- ]Audio[- ]\\d+(?:\\.\\d+)*[- ]Live\\b"
       ],
       "qwen": [
         "re:\\bqwen\\d+(?:\\.\\d+)*[- ]"
@@ -652,6 +671,9 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "imagen": [
+        "re:\\bImagen\\s*\\d+\\b"
+      ],
       "nano-banana": [
         "nano banana"
       ],
@@ -682,6 +704,9 @@
     "official": true,
     "active": true,
     "modelMatches": {
+      "imagen": [
+        "re:\\bImagen\\s*\\d+\\b"
+      ],
       "nano-banana": [
         "nano banana"
       ],

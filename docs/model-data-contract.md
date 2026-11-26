@@ -82,3 +82,11 @@ python3 scripts/validate_model_links.py
 - 新增历史型号不继承当前型号的许可、榜单别名或当前可用状态；未知信息保留未知。PixVerse C1 作为独立家族，不并入 V6；Hailuo 02 基础模型与具体服务档分开。
 - `historicalMilestones[]` 保存有明确证据但不能认作精确正式首发日的事件（月份精度、首次公布、Alpha/预览、早期访问、全面开放、API 可用、官方介绍）。`datePrecision` 保留原始精度；不写入 `releaseDate` 或近期正式上新。详情页单独显示阶段及证据链接。
 - 本轮新查官方来源补充 MiniMax Music-01、Eleven Music v2 的 API 可用、Suno v3.5 的早期访问三个节点；旧节点证据迁移保留原审核日期，部分重新查看的来源另标 `sourceRecheckedAt`，不假称全部重新核验。
+
+
+## 创作者谱系第二批清洗
+
+- 新增 Midjourney Video、Imagen、SeedEdit、Vidu S2 独立家族；补 Midjourney V4/V5/V5.1/V6.1/V8.1、Seedream 5.0 Flash、Qwen Audio Live/TTS Next 等明确型号。新增家族/版本不继承当前型号的榜单、许可或可用状态。
+- V8.0/V8.1 Alpha、Imagen 3 首次公布、V4/V5 月份精度、Qwen/Wan 的 API 可用及公测等仍只写历史阶段，不伪造正式发布日期。既有审核记录迁移沿用原核验时间，未重新打开全部官方原文。
+- 按明确 auditId 关联已审核事件的版本，保留一条公告对应多个明确型号的情况。当前源配置同步纳入四个新增家族；新增源匹配规则仍需实测。
+- Vidu Q2 Image Generation 属独立图像能力但当前档案不足以确定规范型号 ID；保留历史节点，不强行创造型号。Seedance 2.5 日期仍存在冲突，保留待核验；不借用其他代际发布日期。
