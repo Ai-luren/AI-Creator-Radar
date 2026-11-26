@@ -183,6 +183,48 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
     return topics, status
 
 
+
+def sync_automatic_confirmations(topics, families):
+    """Promote only matching machine-discovered nodes; never change reviewed history."""
+    mapping = vendor_topics()
+    by_topic = {t["id"]: t for t in topics if t.get("group") == "公司与模型"}
+    synced = 0
+    for family in families:
+        topic = by_topic.get(mapping.get(str(family.get("vendor", "")).casefold()))
+        if not topic:
+            continue
+        for version in family.get("versions", []):
+            evidence = version.get("releaseEvidence") or {}
+            if evidence.get("verificationMethod") != "automatic-dual-official":
+                continue
+            ids = set(evidence.get("sourceUpdateIds", []))
+            events = topic.get("milestones", [])
+            # Explicit audited history, if present, remains authoritative.
+            if any(e.get("automaticReleaseEventId") == evidence["eventId"] for e in events):
+                continue
+            matches = [e for e in events if not protected(e) and e.get("sourceUpdateId") in ids
+                       and e.get("sourceModelId") == family["id"]
+                       and e.get("date") == evidence["publishedAt"]]
+            if not matches:
+                continue
+            primary = next((e for e in matches if e.get("url") == evidence["sourceUrl"]), matches[0])
+            primary.update({
+                "kind": "模型发布",
+                "title": version["name"] + " 正式发布",
+                "url": evidence["sourceUrl"],
+                "sourceName": evidence["sourceName"],
+                "verificationStatus": "自动双源核验 · 非人工复核",
+                "verificationMethod": evidence["verificationMethod"],
+                "automaticReleaseEventId": evidence["eventId"],
+                "corroboratingSources": evidence["corroboratingSources"],
+                "dateKind": "confirmed-release-date",
+                "sourceModelId": family["id"],
+            })
+            topic["milestones"] = [e for e in events if e is primary or not any(e is m for m in matches)]
+            synced += 1
+    return synced
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Append official model updates to company chronologies.")
     parser.add_argument("--dry-run", action="store_true", help="Report changes without writing files.")
@@ -192,6 +234,7 @@ def main() -> int:
     update_doc = read_json(UPDATES_FILE)
     checked_at = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     merged, status = merge_official_updates(topics, update_doc.get("items", []), checked_at)
+    status["automaticallyConfirmed"] = sync_automatic_confirmations(merged, read_json(ROOT / "site/data/models.json"))
     print(
         "Chronicles: {added} official-source nodes added; {considered} updates considered; unmatched vendors: {unmatched}".format(
             added=status["added"], considered=status["officialUpdatesConsidered"],

@@ -159,8 +159,11 @@ def reconcile(families, updates, sources, status, vendor_topics, today):
         if not version and not re.fullmatch(NEW_NAMES.get(fid, r"(?!)"), label, re.I):
             reason = "new-identity-needs-review"
         vid = re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
-        if not version and (not vid or any(v.get("id") == vid or key(v.get("id")) == identity or
-                    any(key(a.get("name")) == identity for a in v.get("leaderboardAliases", [])) for v in versions)):
+        numeric_suffix = re.search(r"\d+(?:\.\d+)*$", label)
+        short_identity = key(numeric_suffix.group(0)) if numeric_suffix else ""
+        if not version and (not vid or any(v.get("id") == vid or key(v.get("id")) in {identity, short_identity}
+                    or key(v.get("name")) in {identity, short_identity}
+                    or any(key(a.get("name")) in {identity, short_identity} for a in v.get("leaderboardAliases", [])) for v in versions)):
             reason = "new-identity-collides-with-existing-version"
         if reason:
             pending.append({"modelFamilyId": fid, "modelName": label, "reason": reason, "evidence": records})
@@ -186,6 +189,42 @@ def reconcile(families, updates, sources, status, vendor_topics, today):
         }
         confirmed.append({"modelFamilyId": fid, "modelVersionId": version["id"], "eventId": version["releaseEvidence"]["eventId"]})
     return {"confirmed": confirmed, "pending": pending}
+
+
+
+def automatic_evidence_valid(family, version):
+    """Validate stored automatic proof, without requiring the source to remain online."""
+    evidence = version.get("releaseEvidence") or {}
+    if evidence.get("verificationMethod") != METHOD:
+        return evidence.get("evidenceType") != METHOD
+    proofs = evidence.get("corroboratingSources")
+    if not isinstance(proofs, list) or len(proofs) != 2 or not all(isinstance(p, dict) for p in proofs):
+        return False
+    a, b = proofs
+    try:
+        day = date.fromisoformat(evidence["publishedAt"])
+        verified = date.fromisoformat(evidence["verifiedAt"])
+        if not day <= verified:
+            return False
+    except (KeyError, TypeError, ValueError):
+        return False
+    if (evidence.get("evidenceType") != METHOD or version.get("releaseDate") != day.isoformat()
+            or version.get("recordKind") or version.get("historicalMilestones")
+            or evidence.get("modelName") != version.get("name")
+            or evidence.get("category") != family.get("category")
+            or evidence.get("sourceUrl") != a.get("sourceUrl")
+            or evidence.get("sourceUpdateIds") != [a.get("sourceUpdateId"), b.get("sourceUpdateId")]
+            or not evidence.get("eventId")):
+        return False
+    if (not a.get("sourceId") or not b.get("sourceId") or a["sourceId"] == b["sourceId"]
+            or not a.get("sourceUpdateId") or not b.get("sourceUpdateId") or a["sourceUpdateId"] == b["sourceUpdateId"]
+            or not host_for(a.get("sourceUrl")) or not host_for(b.get("sourceUrl"))
+            or host_for(a["sourceUrl"]) == host_for(b["sourceUrl"])):
+        return False
+    return all(p.get("publicationDateKind") in DATE_KINDS and p.get("observedAt")
+               and p.get("publishedAt") == day.isoformat()
+               and key(release_name(p.get("title"))) == key(version["name"])
+               and key(p.get("modelName")) == key(version["name"]) for p in proofs)
 
 
 def main():

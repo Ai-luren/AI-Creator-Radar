@@ -6,6 +6,11 @@ import json
 from collections import Counter
 from pathlib import Path
 
+try:
+    from scripts.collect_verify_model_releases import automatic_evidence_valid
+except ModuleNotFoundError:
+    from collect_verify_model_releases import automatic_evidence_valid
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -54,6 +59,8 @@ def audit(families, topics, config):
         vendor_counts = by_vendor.setdefault(vendor, Counter())
         vendor_counts["versions"] += 1
         vendor_counts["evidence"] += bool(version.get("releaseEvidence"))
+        if not automatic_evidence_valid(family, version):
+            errors.append(f"Invalid automatic release proof: {key}")
         record_kind = version.get("recordKind")
         if record_kind in IDENTITY_REVIEW_KINDS:
             identity = version.get("identityReview") or {}

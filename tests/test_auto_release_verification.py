@@ -2,7 +2,9 @@ import copy
 import unittest
 from datetime import date
 
-from scripts.collect_verify_model_releases import reconcile, release_name
+from scripts.collect_verify_model_releases import reconcile, release_name, automatic_evidence_valid
+from scripts.collect_chronicle_updates import sync_automatic_confirmations, PENDING_STATUS
+from unittest.mock import patch
 from scripts.collect_models import rss_items, html_page_items
 
 
@@ -76,3 +78,29 @@ class AutoReleaseVerificationTests(unittest.TestCase):
         items = html_page_items("<h2>Models</h2><button>2026-08-26</button><h3>GLM-5.3-Flash</h3>", source)
         self.assertEqual(items[0]["publishedAt"][:10], "2026-08-26")
         self.assertNotIn("publicationDateKind", items[0])
+
+    def test_existing_short_numeric_identity_is_not_duplicated(self):
+        self.models[0]["versions"][0]["name"] = "3"
+        self.assertEqual(self.run_gate()["confirmed"], [])
+
+    def test_stored_evidence_audit_rejects_tampering(self):
+        self.run_gate()
+        family = self.models[0]
+        version = family["versions"][-1]
+        self.assertTrue(automatic_evidence_valid(family, version))
+        version["releaseEvidence"]["corroboratingSources"][1]["publishedAt"] = "2026-11-24"
+        self.assertFalse(automatic_evidence_valid(family, version))
+
+    def test_chronicle_promotes_only_matching_pending_nodes(self):
+        self.run_gate()
+        def event(sid):
+            return {"sourceUpdateId": sid, "sourceModelId": "seedance", "date": "2026-11-26",
+                    "url": f"https://{sid}.example/news/model-3", "autoCollected": True,
+                    "verificationStatus": PENDING_STATUS}
+        historical = dict(event("other"), auditId="manual", verificationStatus="人工核验")
+        topic = {"id": "vendor", "group": "公司与模型", "milestones": [event("a"), event("b"), historical]}
+        with patch("scripts.collect_chronicle_updates.vendor_topics", return_value={"vendor": "vendor"}):
+            self.assertEqual(sync_automatic_confirmations([topic], self.models), 1)
+            self.assertEqual(len(topic["milestones"]), 2)
+            self.assertIn(historical, topic["milestones"])
+            self.assertEqual(sync_automatic_confirmations([topic], self.models), 0)
