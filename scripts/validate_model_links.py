@@ -100,6 +100,20 @@ def main() -> int:
                 if fid not in family_map:
                     errors.append(f"{relative}: unresolved model family mention {fid}")
 
+    try:
+        from scripts.ranking_identity import primary_boards, attach_rankings, inputs
+    except ModuleNotFoundError:
+        from ranking_identity import primary_boards, attach_rankings, inputs
+    import copy
+    rankings = read("site/data/unified-rankings.json")
+    expected = copy.deepcopy(rankings)
+    counts = attach_rankings(expected, families, *inputs())
+    for actual_board, expected_board in zip(primary_boards(rankings), primary_boards(expected)):
+        for actual, target in zip(actual_board.get("rows", []), expected_board.get("rows", [])):
+            if any(actual.get(k) != target.get(k) for k in ("modelFamilyId", "modelVersionId", "modelLinkStatus")):
+                errors.append(f"ranking identity mismatch: {actual.get('provider')} / {actual.get('name')}")
+    print("Primary ranking identity coverage:", counts)
+
     if errors:
         print("Model link validation failed:", file=sys.stderr)
         for error in errors:

@@ -1058,6 +1058,11 @@ def main():
     baseline["vendorAliasHash"] = vendor_alias_hash
     result = build_rankings(inputs, baseline)
     result["vendorAliasHash"] = vendor_alias_hash
+    try:
+        from scripts.ranking_identity import attach_rankings, inputs as ranking_inputs
+    except ModuleNotFoundError:
+        from ranking_identity import attach_rankings, inputs as ranking_inputs
+    print("Primary ranking identity coverage:", attach_rankings(result, json.loads((ROOT / "site/data/models.json").read_text()), *ranking_inputs()))
     BASELINE.write_text(json.dumps(baseline, ensure_ascii=False, indent=2) + "\n")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
