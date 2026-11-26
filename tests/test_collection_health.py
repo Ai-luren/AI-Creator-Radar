@@ -1,4 +1,10 @@
 import unittest
+import tempfile
+import subprocess
+import os
+import sys
+import json
+from pathlib import Path
 
 from scripts.collection_health import update_health
 
@@ -29,3 +35,33 @@ class CollectionHealthTests(unittest.TestCase):
         state, _ = update_health({}, {"juya-daily": "failure", "aihot-daily": "success"}, "now")
         self.assertEqual(state["sources"]["juya-daily"]["status"], "degraded")
         self.assertEqual(state["sources"]["aihot-daily"]["status"], "healthy")
+
+
+    def test_persistent_incident_cli_warns_without_failing_workflow(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state = root / "health.json"
+            output = root / "output"
+            summary = root / "summary"
+            script = Path(__file__).resolve().parents[1] / "scripts" / "collection_health.py"
+            env = {**os.environ, "AIHOT_SELECTED": "", "AIHOT_DAILY": "failure", "JUYA_DAILY": ""}
+            for attempt in range(1, 5):
+                result = subprocess.run(
+                    [sys.executable, str(script), "--path", str(state), "--output", str(output), "--summary", str(summary)],
+                    env=env, capture_output=True, text=True, check=False,
+                )
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual("Persistent optional-source incident" in result.stdout, attempt == 3)
+                self.assertNotIn("::error::", result.stdout)
+                self.assertEqual(json.loads(state.read_text())["sources"]["aihot-daily"]["consecutiveFailures"], attempt)
+            self.assertEqual(summary.read_text().count("New persistent incidents:"), 1)
+            self.assertEqual(output.read_text().splitlines(), ["notify=false", "notify=false", "notify=true", "notify=false"])
+
+    def test_optional_source_incident_does_not_create_failed_job(self):
+        workflow = (Path(__file__).resolve().parents[1] / ".github/workflows/update-site.yml").read_text()
+        self.assertNotIn("persistent-source-alert:", workflow)
+        self.assertIn("python scripts/collection_health.py", workflow)
+        self.assertIn("python -m unittest discover -s tests -v", workflow)
+        self.assertIn("node --test tests/test_overview.mjs", workflow)
+        self.assertIn("python scripts/validate_model_links.py", workflow)
+        self.assertIn('exit 1', workflow)  # real persistence failures remain blocking
