@@ -29,6 +29,26 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("Concurrent main update won", text)
         self.assertIn("node --test tests/test_overview.mjs", text)
 
+    def test_pages_artifacts_are_isolated_by_run_and_attempt(self):
+        workflow = (ROOT / ".github/workflows/deploy-pages.yml").read_text()
+        caller = (ROOT / ".github/workflows/update-site.yml").read_text()
+        guard = (ROOT / "scripts/wait_pages_artifact.sh").read_text()
+        name = "github-pages-${{ github.run_id }}-${{ github.run_attempt }}"
+        self.assertIn("name: " + name, workflow)
+        self.assertIn("PAGES_ARTIFACT_NAME: " + name, workflow)
+        self.assertIn("artifact_name: " + name, workflow)
+        self.assertIn("steps.pages_upload.outputs.artifact_id", workflow)
+        self.assertIn("actions: read", workflow)
+        self.assertIn("actions: read", caller.split("  publish:", 1)[1])
+        self.assertIn("bash scripts/wait_pages_artifact.sh", workflow)
+        self.assertLess(workflow.index("Verify Pages artifact visibility"),
+                        workflow.index("Deploy to GitHub Pages"))
+        self.assertIn("seq 1 12", guard)
+        self.assertIn("($matches | length) == 1", guard)
+        self.assertIn("$matches[0].expired == false", guard)
+        self.assertIn("($matches[0].id | tostring) == $id", guard)
+        self.assertTrue(guard.rstrip().endswith("exit 1"))
+
     def test_browser_supersedes_old_pr_runs(self):
         text = (ROOT / ".github/workflows/browser-visual.yml").read_text()
         self.assertIn("cancel-in-progress: true", text)

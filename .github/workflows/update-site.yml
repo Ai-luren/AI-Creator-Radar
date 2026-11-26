@@ -217,4 +217,9 @@ jobs:
   publish:
     needs: collect
     if: always() && !cancelled() && github.ref == 'refs/heads/main' && ((github.event_name == 'workflow_dispatch' && inputs.scope == 'deploy-only') || (needs.collect.result == 'success' && needs.collect.outputs.changed == 'true'))
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
     uses: ./.github/workflows/deploy-pages.yml
