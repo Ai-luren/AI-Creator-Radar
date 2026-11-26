@@ -138,8 +138,7 @@
       "gpt": [
         "re:\\bGPT[- ]?\\d+(?:\\.\\d+)*\\b"
       ]
-    },
-    "requiredMatch": true
+    }
   },
   {
     "id": "vidu-api-updates",
@@ -268,7 +267,7 @@
       "muse-video": [
         "muse video"
       ],
-      "muse-spark": [
+      "muse": [
         "muse spark"
       ]
     }
@@ -479,7 +478,7 @@
   {
     "id": "mureka-changelog",
     "name": "Mureka 官方更新日志",
-    "type": "html",
+    "type": "model-cards",
     "url": "https://platform.mureka.ai/docs/en/changelog.html",
     "vendor": "Mureka",
     "official": true,
@@ -488,13 +487,15 @@
       "mureka": [
         "re:\\bmureka[- ](?:v?\\d+(?:\\.\\d+)*|o\\d+)\\b"
       ]
-    }
+    },
+    "updateType": "model-card",
+    "maxRowLength": 1500
   },
   {
     "id": "midjourney-updates",
-    "name": "Midjourney 官方更新 RSS",
-    "type": "rss",
-    "url": "https://updates.midjourney.com/rss/",
+    "name": "Midjourney 官方更新目录",
+    "type": "html",
+    "url": "https://updates.midjourney.com/",
     "vendor": "Midjourney",
     "official": true,
     "active": true,
@@ -503,7 +504,8 @@
         "re:\\b(?:Midjourney|Niji)\\b.{0,45}\\bv?\\d+(?:\\.\\d+)*\\b",
         "re:^v\\d+(?:\\.\\d+)*\\s+(?:is now|released|launch)"
       ]
-    }
+    },
+    "previousFeed": "https://updates.midjourney.com/rss/"
   },
   {
     "id": "kimi-announcement",
@@ -546,5 +548,86 @@
         "海螺视频模型"
       ]
     }
+  },
+  {
+    "id": "alibaba-model-studio",
+    "name": "阿里云百炼新模型目录",
+    "type": "dated-headings",
+    "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
+    "vendor": "阿里巴巴",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "qwen-image-edit": [
+        "re:\\bqwen[- ]image[- ]edit\\b"
+      ],
+      "qwen-image": [
+        "re:\\bqwen[- ]image\\b"
+      ],
+      "wan-image": [
+        "re:\\bwan\\d+(?:\\.\\d+)*[- ]image\\b"
+      ],
+      "wan": [
+        "re:\\bwan\\d+(?:\\.\\d+)*[- ](?:video|t2v|i2v|r2v)\\b"
+      ],
+      "happyhorse": [
+        "re:\\bhappyhorse[- ]\\d+(?:\\.\\d+)*\\b"
+      ],
+      "qwen3-tts": [
+        "re:\\bqwen\\d+[- ]tts\\b"
+      ],
+      "qwen-audio-tts": [
+        "re:\\bqwen[- ]audio\\b.{0,30}\\btts\\b"
+      ],
+      "qwen-audio-realtime": [
+        "re:\\bqwen[- ]audio\\b.{0,30}\\brealtime\\b"
+      ],
+      "qwen": [
+        "re:\\bqwen\\d+(?:\\.\\d+)*[- ]"
+      ]
+    },
+    "updateType": "model-card"
+  },
+  {
+    "id": "niji-blog",
+    "name": "Niji Journey 官方博客",
+    "type": "html",
+    "url": "https://nijijourney.com/zh/blog",
+    "vendor": "Midjourney",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "midjourney": [
+        "re:\\bNiji\\s*v?\\d+(?:\\.\\d+)*\\b"
+      ]
+    },
+    "updateType": "model-card"
+  },
+  {
+    "id": "tencent-model-news",
+    "name": "腾讯混元产品动态",
+    "type": "model-cards",
+    "url": "https://cloud.tencent.com/document/product/1729/97765",
+    "vendor": "腾讯混元",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "hunyuan-hy4": [
+        "re:\\b(?:Tencent\\s+)?HY\\s*4(?:\\.\\d+)*\\b"
+      ],
+      "hunyuan-video": [
+        "re:\\bHunyuan[- ]?Video\\b",
+        "混元视频模型"
+      ],
+      "hunyuan-image": [
+        "re:\\bHunyuan[- ]?Image\\b",
+        "混元图像模型"
+      ],
+      "tencent-hy-mt": [
+        "re:\\b(?:Tencent\\s+)?Hy[- ]MT\\s*\\d*\\b"
+      ]
+    },
+    "updateType": "model-card",
+    "maxRowLength": 2500
   }
 ]

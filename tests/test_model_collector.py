@@ -104,6 +104,20 @@ class ModelCollectorTests(unittest.TestCase):
         items = html_page_items(page, self.source)
         self.assertEqual(items[0]["url"], self.source["url"])
 
+    def test_dated_catalog_preserves_explicit_section_date(self):
+        source = dict(self.source, type="dated-headings")
+        page = '<h2>2026</h2><h3>Seedance 2.9</h3><h3>2026-11-25</h3><h4>Seedance 3.0</h4><p>Some description</p><h3>2026-11-26</h3><h4>Seedream 6.0</h4>'
+        items = html_page_items(page, source)
+        self.assertEqual([(x["title"], x["publishedAt"][:10]) for x in items], [("Seedance 3.0", "2026-11-25"), ("Seedream 6.0", "2026-11-26")])
+        self.assertTrue(all(x["url"] == source["url"] for x in items))
+
+    def test_source_coverage_uses_active_canonical_ids(self):
+        from scripts.collect_models import source_coverage
+        result = source_coverage([dict(self.source, active=True), dict(self.source, active=False, modelMatches={"other": ["other"]})], {"seedance": {}, "other": {}})
+        self.assertEqual(result["configuredFamilies"], 1)
+        self.assertEqual(result["unmappedFamilyIds"], ["seedream"])
+        self.assertEqual(result["unmonitoredFamilyIds"], ["other"])
+
     def test_html_ignores_unrelated_features(self):
         page = """
         <h2>Introducing Visuals</h2><time datetime="2026-11-17">Nov 17, 2026</time>

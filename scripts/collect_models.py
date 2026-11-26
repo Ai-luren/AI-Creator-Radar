@@ -362,12 +362,47 @@ def model_card_items(blocks: list[dict], source: dict) -> list[dict]:
     return dedupe_candidates(results)
 
 
+def dated_heading_items(blocks: list[dict], source: dict) -> list[dict]:
+    """Read explicit date section headings, never infer dates from neighboring articles."""
+    results = []
+    current_date = None
+    for block in blocks:
+        if block["tag"] not in {"h1", "h2", "h3", "h4", "h5", "h6"}:
+            continue
+        title = clean_text(block["text"])
+        if re.fullmatch(r"20\d{2}[./-]\d{1,2}[./-]\d{1,2}", title):
+            current_date = parse_date(title)
+            continue
+        if re.fullmatch(r"20\d{2}", title):
+            current_date = None
+            continue
+        model_id = match_model(title, source)
+        if not current_date or not model_id or len(title) > 220:
+            continue
+        results.append({"title": title, "summary": "官方模型可用性目录条目；具体发布阶段待复核。",
+                        "url": source["url"], "publishedAt": current_date, "modelId": model_id})
+    return dedupe_candidates(results)
+
+
+def source_coverage(sources: list, models: dict) -> dict:
+    configured = {key for source in sources if source.get("active")
+                  for key in source.get("modelMatches", {})}
+    return {
+        "catalogFamilies": len(models),
+        "configuredFamilies": len(configured & set(models)),
+        "unmappedFamilyIds": sorted(configured - set(models)),
+        "unmonitoredFamilyIds": sorted(set(models) - configured),
+    }
+
+
 def html_page_items(page: str, source: dict) -> list[dict]:
     parser = BlockParser()
     parser.feed(page)
     parser.close()
     blocks = sorted(parser.blocks, key=lambda block: block["sequence"])
 
+    if source.get("type") == "dated-headings":
+        return dated_heading_items(blocks, source)
     if source.get("type") == "model-cards":
         return model_card_items(blocks, source)
 
@@ -699,6 +734,7 @@ def main() -> int:
                 "checkedAt": now_iso, "lastSuccessAt": now_iso, "itemCount": len(incoming),
                 "latestItemAt": max((item.get("publishedAt") or "" for item in incoming), default="") or None,
                 "resultStatus": "matched" if incoming else "zero-match",
+                "lastMatchAt": now_iso if incoming else old.get("lastMatchAt") or (old.get("lastSuccessAt") if old.get("itemCount") else None),
                 "error": None,
             })
         else:
@@ -708,6 +744,7 @@ def main() -> int:
                 "checkedAt": now_iso, "lastSuccessAt": old.get("lastSuccessAt"),
                 "itemCount": old.get("itemCount", 0), "latestItemAt": old.get("latestItemAt"),
                 "resultStatus": "failed",
+                "lastMatchAt": old.get("lastMatchAt") or (old.get("lastSuccessAt") if old.get("itemCount") else None),
                 "error": error,
             })
 
@@ -727,6 +764,7 @@ def main() -> int:
     version_changes = apply_recent_model_versions(models, recent_incoming, now)
     status = {
         "zeroMatchSources": sum(e.get("resultStatus") == "zero-match" for e in status_entries),
+        "coverage": source_coverage(sources, models),
         "checkedAt": now_iso, "totalSources": len(active), "successSources": success_count,
         "failedSources": len(active) - success_count, "newUpdates": new_count,
         "sources": status_entries,
@@ -734,6 +772,8 @@ def main() -> int:
     updates = {"generatedAt": now_iso, "items": retained}
     print(f"Model monitor: {success_count}/{len(active)} official sources OK; "
           f"{new_count} new items; {len(retained)} retained.")
+    coverage = status["coverage"]
+    print(f"Source coverage: {coverage['configuredFamilies']}/{coverage['catalogFamilies']} canonical families; {len(coverage['unmappedFamilyIds'])} unmapped IDs.")
     if version_changes:
         print("Model versions updated from recent official sources: " + ", ".join(version_changes))
     for entry in status_entries:
