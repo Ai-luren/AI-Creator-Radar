@@ -101,7 +101,7 @@ test('version deep link and browser back restore originating filters',async()=>{
 });
 test('direct version links survive reload, unknown version degrades to family',async()=>{
  const a=setup({query:'?view=models&model=seedance&version=seedance-2-0'});await a.run('loadAllForTests()');assert.equal(a.run('state.selectedVersionId'),'seedance-2-0');
- const b=setup({query:'?view=models&model=seedance&version=unknown'});await b.run('loadAllForTests()');assert.equal(b.run('state.selectedVersionId'),null);assert.match(b.node('content').innerHTML,/具体型号不存在/);
+ const b=setup({query:'?view=models&model=seedance&version=unknown'});await b.run('loadAllForTests()');assert.equal(b.run('state.selectedVersionId'),null);assert.match(b.node('content').innerHTML,/具体型号不存在/);b.run('render()');assert.match(b.node('content').innerHTML,/具体型号不存在/);b.run("setView('overview')");assert.doesNotMatch(b.node('content').innerHTML,/具体型号不存在/);
 });
 test('page filters and deep links survive browser back',async()=>{
  const {run}=setup();await run('loadAllForTests()');run("setView('today',{releaseMode:'pending'});state.releaseCategory='video';state.query='Seed';render();window.scrollY=380;setView('feeds',{briefingTab:'selected'});window.history.back()");

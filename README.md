@@ -95,4 +95,4 @@ python3 scripts/build_unified_rankings.py
 
 ## 运行与验证
 
-首页仅加载概览快照；其他页面及全局索引按需下载，当前页面生命周期复用请求。开发分支与 PR 运行 `Validate radar changes`，需要联网诊断时手动勾选 `probe_sources`；main 的定时采集部署工作流独立运行。测试失败不会被忽略，也不会关闭 GitHub 通知。浏览器布局测试仍独立保留。
+首页仅加载概览快照；其他页面及全局索引按需下载，当前页面生命周期复用请求。开发 PR 运行 `Validate radar changes`，需要联网诊断时手动勾选 `probe_sources`；main 的定时采集部署工作流独立运行。测试失败不会被忽略，也不会关闭 GitHub 通知。浏览器布局测试仍独立保留。

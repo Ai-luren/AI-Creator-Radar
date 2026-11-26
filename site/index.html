@@ -560,7 +560,7 @@ function empty(t){return '<div class="empty">'+esc(t)+'</div>'}
 function readEvaluationWorkflow(){try{return JSON.parse(localStorage.getItem('creator-radar-evaluation-workflow-v1')||'{}')}catch(e){return {}}}
 function writeEvaluationWorkflow(){try{localStorage.setItem('creator-radar-evaluation-workflow-v1',JSON.stringify(state.evaluationWorkflow))}catch(e){}}
 function daysSince(value){var d=new Date(value);return isNaN(d)?Infinity:(Date.now()-d.getTime())/86400000}
-var state={view:'overview',query:'',overviewReady:false,dataReady:false,indexReady:false,dataErrors:{},models:[],updates:[],platforms:[],opportunityData:{items:[],discoverySources:[]},promptTemplates:{items:[]},resourceSources:{},creatorLinkStatus:{results:[]},opportunityTab:'contests',opportunityRegion:'all',opportunityCategory:'all',opportunityStatus:'all',programKind:'all',tutorials:[],modelPractice:{items:[]},modelResourceStatus:{},chronicleSync:{},modelPracticeType:'all',practiceCategory:'视频',rankings:{categories:[]},maomuRankings:{categories:[]},referenceRankings:{boards:[]},unifiedRankings:{categories:[]},rankSources:[],topics:[],news:{items:[]},feedItems:[],aihotDaily:{items:[],fetchedAt:'',title:''},juyaDaily:{items:[],fetchedAt:'',title:''},briefingTab:'aihot',evaluations:{targets:[],items:[],status:{},searchState:{}},evaluationCategory:'all',evaluationWindow:'30d',evaluationStatusFilter:'all',evaluationApiFilter:'all',evaluationWorkflow:readEvaluationWorkflow(),aihot:{items:[],status:'idle',updatedAt:'',error:'',etag:''},aihotLeaderboard:{category:'overall',mode:'rank',status:'idle',data:null,error:'',requestKey:''},aihotTopics:{},social:{brands:[],posts:[]},modelReleases:[],modelReleaseData:null,modelMonitorStatus:null,releaseCategory:'all',releaseMode:'all',modelCategory:'video',regionFilter:'all',accessFilter:'all',modelSort:'vendor',selectedModelId:null,selectedVersionId:null,modelDetailReturn:null,rankTab:'image',rankVideoTask:'text-to-video-audio',rankSub:'',rankPage:0,rankExpanded:true,rankSourcesOpen:false,newsExpanded:false,platformCategory:'video',socialRegion:'all',socialCategory:'all',activeTopic:null,topicCategory:'all'};
+var state={view:'overview',query:'',overviewReady:false,dataReady:false,indexReady:false,dataErrors:{},models:[],updates:[],platforms:[],opportunityData:{items:[],discoverySources:[]},promptTemplates:{items:[]},resourceSources:{},creatorLinkStatus:{results:[]},opportunityTab:'contests',opportunityRegion:'all',opportunityCategory:'all',opportunityStatus:'all',programKind:'all',tutorials:[],modelPractice:{items:[]},modelResourceStatus:{},chronicleSync:{},modelPracticeType:'all',practiceCategory:'视频',rankings:{categories:[]},maomuRankings:{categories:[]},referenceRankings:{boards:[]},unifiedRankings:{categories:[]},rankSources:[],topics:[],news:{items:[]},feedItems:[],aihotDaily:{items:[],fetchedAt:'',title:''},juyaDaily:{items:[],fetchedAt:'',title:''},briefingTab:'aihot',evaluations:{targets:[],items:[],status:{},searchState:{}},evaluationCategory:'all',evaluationWindow:'30d',evaluationStatusFilter:'all',evaluationApiFilter:'all',evaluationWorkflow:readEvaluationWorkflow(),aihot:{items:[],status:'idle',updatedAt:'',error:'',etag:''},aihotLeaderboard:{category:'overall',mode:'rank',status:'idle',data:null,error:'',requestKey:''},aihotTopics:{},social:{brands:[],posts:[]},modelReleases:[],modelReleaseData:null,modelMonitorStatus:null,releaseCategory:'all',releaseMode:'all',modelCategory:'video',regionFilter:'all',accessFilter:'all',modelSort:'vendor',selectedModelId:null,selectedVersionId:null,routeNotice:'',modelDetailReturn:null,rankTab:'image',rankVideoTask:'text-to-video-audio',rankSub:'',rankPage:0,rankExpanded:true,rankSourcesOpen:false,newsExpanded:false,platformCategory:'video',socialRegion:'all',socialCategory:'all',activeTopic:null,topicCategory:'all'};
 var content=document.getElementById('content');
 var labels={overview:'今日概览',today:'近期上新',models:'模型库',practice:'教程与案例',rankings:'能力榜单',feeds:'行业简报',topics:'厂商发展史',social:'官方账号监控',platforms:'创作工具',opportunities:'创作机会'};
 var routeFields={overview:[],today:['releaseCategory','releaseMode'],models:['modelCategory','regionFilter','accessFilter','modelSort'],practice:['practiceCategory','modelPracticeType'],rankings:['rankTab','rankVideoTask','rankSub','rankPage'],feeds:['briefingTab'],topics:['activeTopic','topicCategory'],social:['socialRegion','socialCategory'],platforms:['platformCategory'],opportunities:['opportunityTab','opportunityRegion','opportunityCategory','opportunityStatus','programKind']};
@@ -571,6 +571,7 @@ var restoringRoute=false,routeScroll=null,routeFocus=null;
 function routeString(p,k){return String(p.get(k)||'').slice(0,180)}
 function routeId(v){return /^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,160}$/.test(v||'')?v:null}
 function applyRoute(search){
+ state.routeNotice='';
  var p=new URLSearchParams(search),v=p.get('view');if(v==='evaluations')v='today';state.view=Object.prototype.hasOwnProperty.call(labels,v)?v:'overview';
  Object.keys(routeDefaults).forEach(function(k){state[k]=routeDefaults[k]});
  (routeFields[state.view]||[]).forEach(function(k){var value=routeString(p,routeNames[k]);if(!value)return;if(routeChoices[k]&&!routeChoices[k].includes(value))return;if(k==='rankPage'){var n=Number(value);if(Number.isInteger(n)&&n>=0&&n<1000)state[k]=n;return}if(k==='activeTopic'){state[k]=routeId(value);return}state[k]=value});
@@ -661,7 +662,7 @@ function setView(v,options){
  if(!Object.prototype.hasOwnProperty.call(labels,v))return;
  options=options||{};saveRoute(false);
  if(state.view!==v){state.query='';document.getElementById('searchInput').value=''}
- state.view=v;state.selectedModelId=null;state.selectedVersionId=null;state.modelDetailReturn=null;state.activeTopic=null;
+ state.view=v;state.routeNotice='';state.selectedModelId=null;state.selectedVersionId=null;state.modelDetailReturn=null;state.activeTopic=null;
  Object.keys(options).forEach(function(k){if((routeFields[v]||[]).includes(k)||k==='query')state[k]=options[k]});
  document.getElementById('searchInput').value=state.query;
  document.getElementById('sidebar').classList.remove('open');
@@ -671,7 +672,7 @@ function openModelDetails(fid,vid){
  if(!routeId(fid))return;var family=state.models.find(function(m){return m.id===fid});if(dataSettled.models&&!family)return;
  if(vid&&!routeId(vid))vid=null;if(family&&vid&&!(family.versions||[]).some(function(v){return v.id===vid}))vid=null;
  if(state.selectedModelId===fid&&state.selectedVersionId===(vid||null))return;
- var focus={family:fid,version:vid||null};
+ state.routeNotice='';var focus={family:fid,version:vid||null};
  saveRoute(false,{focus:focus});state.modelDetailReturn=fid;state.selectedModelId=fid;state.selectedVersionId=vid||null;
  saveRoute(true,{modelOverlay:true});render();focusModelVersion(true);
 }
@@ -683,7 +684,7 @@ function focusModelVersion(moveFocus){
 }
 function closeModelDetails(){
  if(window.history&&window.history.state&&window.history.state.modelOverlay){window.history.back();return}
- var id=state.selectedModelId,vid=state.selectedVersionId;state.selectedModelId=null;state.selectedVersionId=null;state.modelDetailReturn=null;saveRoute(false,{modelOverlay:false});render();
+ var id=state.selectedModelId,vid=state.selectedVersionId;state.routeNotice='';state.selectedModelId=null;state.selectedVersionId=null;state.modelDetailReturn=null;saveRoute(false,{modelOverlay:false});render();
  var trigger=Array.from(content.querySelectorAll('[data-model-open]')).find(function(x){return x.dataset.modelOpen===id&&(!vid||x.dataset.modelVersion===vid)});if(trigger)trigger.focus({preventScroll:true});
 }
 
@@ -707,9 +708,10 @@ function render(){
  }
  if(state.selectedModelId){
   var selectedModel=state.models.find(function(m){return m.id===state.selectedModelId});
-  if(selectedModel){if(state.selectedVersionId&&!(selectedModel.versions||[]).some(function(v){return v.id===state.selectedVersionId})){state.selectedVersionId=null;content.insertAdjacentHTML('afterbegin','<p class="overview-notice">链接中的具体型号不存在，已显示对应家族。</p>')}content.insertAdjacentHTML('beforeend',modelDetails(selectedModel));focusModelVersion(false)}
-  else {content.insertAdjacentHTML('afterbegin','<p class="overview-notice">链接中的模型不存在或目录未加载。</p>');state.selectedModelId=null;state.selectedVersionId=null}
+  if(selectedModel){if(state.selectedVersionId&&!(selectedModel.versions||[]).some(function(v){return v.id===state.selectedVersionId})){state.selectedVersionId=null;state.routeNotice='链接中的具体型号不存在，已显示对应家族。'}content.insertAdjacentHTML('beforeend',modelDetails(selectedModel));focusModelVersion(false)}
+  else {state.routeNotice='链接中的模型不存在或目录未加载。';state.selectedModelId=null;state.selectedVersionId=null}
  }
+ if(state.routeNotice)content.insertAdjacentHTML('afterbegin','<p class="overview-notice" role="status">'+esc(state.routeNotice)+'</p>');
  if(routeScroll){restoreScroll(routeScroll);routeScroll=null}
  if(routeFocus&&!state.selectedModelId){var focus=routeFocus,trigger=Array.from(content.querySelectorAll('[data-model-open]')).find(function(x){return x.dataset.modelOpen===focus.family&&(!focus.version||x.dataset.modelVersion===focus.version)});if(trigger)trigger.focus({preventScroll:true});routeFocus=null}
  saveRoute(false);

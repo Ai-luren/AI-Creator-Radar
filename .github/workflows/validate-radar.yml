@@ -1,7 +1,5 @@
 name: Validate radar changes
 on:
-  push:
-    branches: [feat/radar-freshness-overhaul]
   pull_request:
     branches: [main]
   workflow_dispatch:
