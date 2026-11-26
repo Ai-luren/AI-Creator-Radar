@@ -21,7 +21,8 @@ concurrency:
 
 jobs:
   collect:
-    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
     outputs:
       changed: ${{ steps.persist.outputs.changed }}
     timeout-minutes: 30
@@ -145,7 +146,7 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || needs.collect.outputs.changed == 'true')
     needs: collect
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment:
       name: github-pages
     steps:

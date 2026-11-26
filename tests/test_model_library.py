@@ -147,7 +147,9 @@ class ModelLibrarySchemaTests(unittest.TestCase):
                             for a in next(v for v in self.by_id["suno"]["versions"] if v["id"] == "suno-v6")["leaderboardAliases"]))
         self.assertTrue(any(a["boardId"] == "speech"
                             for a in next(v for v in self.by_id["fish-audio-drama"]["versions"] if v["id"] == "3-preview")["leaderboardAliases"]))
-        self.assertIn("展开型号与变体", html)
+        self.assertIn("data-version-id=", html)
+        self.assertIn("model-detail-version-selected", html)
+        self.assertNotIn("function modelCard(", html)
 
         def ordered_top_ten(category_id, model_category):
             category = next(c for c in self.maomu["categories"] if c["id"] == category_id)

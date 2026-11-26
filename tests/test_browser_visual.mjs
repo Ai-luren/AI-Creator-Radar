@@ -54,6 +54,19 @@ try{
    await page.goto(base+'?view=practice&type=prompt',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);assert.ok(await page.locator('[data-copy-template="product-tvc"]').count());await page.screenshot({path:path.join(out,label+'-prompts.png')});
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
   });
+  if(viewport.width!==360)await check('public history and cold model navigation',async()=>{
+   const local=[];const listener=req=>{if(req.url().includes('/__local/'))local.push(req.url())};page.on('request',listener);
+   await page.goto(base+'?view=topics&topic=google',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.locator('.topic-event').first().waitFor();assert.equal(local.length,0);
+   await page.locator('[data-topic-cat="image"]').click();assert.equal(await page.evaluate(()=>state.topicCategory),'image');
+   await page.screenshot({path:path.join(out,label+'-history.png')});
+   await page.goto(base+'?view=today',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   assert.equal(await page.evaluate(()=>!!dataSettled.models),false);
+   const first=page.locator('.release-model-link').first();const version=await first.getAttribute('data-model-version');await first.click();
+   await page.locator('.model-detail-panel').waitFor({state:'visible'});if(version)assert.equal(await page.locator('.model-detail-version-selected').getAttribute('data-version-id'),version);
+   await page.keyboard.press('Escape');await page.locator('.model-detail-panel').waitFor({state:'hidden'});assert.equal(await page.evaluate(()=>state.view),'today');
+   page.off('request',listener);
+  });
   await check('no runtime errors',async()=>assert.deepEqual(errors,[]));await context.close();
  }
 }finally{await browser.close()}

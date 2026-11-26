@@ -160,3 +160,19 @@ test('model details from recent releases lazily load board evidence',async()=>{
  assert.match(node('content').innerHTML,/model-detail-version-selected" data-version-id="seedance-2-0"/);
  assert.ok(requested.includes('reference-rankings.json'));assert.ok(requested.includes('maomu-rankings.json'));
 });
+
+test('canonical history preserves audited combined events and audio subclasses',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=google'});await run('loadData()');
+ assert.equal(run('isLocalAihot()'),false);
+ assert.equal(run("topicEventCategoryMatches({modelCategory:'music'},'audio',{})"),true);
+ assert.equal(run("topicEventCategoryMatches({modelCategory:['tts']},'audio',{})"),true);
+ run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{auditId:'joint',date:'2026-01-01',title:'Veo 3 and Imagen 4 combined',kind:'模型',verificationStatus:'已确认：型号、日期与事件性质',modelCategory:['image','video']},{date:'2026-01-02',title:'Candidate',kind:'模型发布',autoCollected:true}]}];render()");
+ assert.match(node('content').innerHTML,/Veo 3 and Imagen 4 combined/);
+ assert.match(node('content').innerHTML,/来源日期非首发确认/);
+ run("state.topicCategory='image';state.query='combined';render()");
+ assert.match(node('content').innerHTML,/Veo 3 and Imagen 4 combined/);
+ assert.doesNotMatch(node('content').innerHTML,/<h3[^>]*>.*Candidate/);
+});
+test('active frontend no longer ships unreachable ranking or evaluation renderers',()=>{
+ for(const name of ['legacyRankingsPage','aihotLeaderboardPage','evaluationTargets','modelCard','expandTopicMilestones'])assert.ok(!html.includes('function '+name+'('),name);
+});
