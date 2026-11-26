@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-26T20:33:16.530807+00:00",
+  "checkedAt": "2026-11-26T21:03:25.324050+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1194,10 +1194,10 @@
   "sourceCoverage": {
     "reachableSources": 44,
     "matchingModelSources": 38,
-    "recentDatedModelSources": 15,
+    "recentDatedModelSources": 16,
     "distinctMatchingEndpoints": 37,
-    "matchedFamilies": 45,
-    "recentDatedFamilies": 15,
+    "matchedFamilies": 49,
+    "recentDatedFamilies": 16,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -1212,7 +1212,6 @@
       "flux",
       "flux3-video",
       "gaga-1",
-      "gemini-tts",
       "gpt-image",
       "grok-imagine-image",
       "hailuo",
@@ -1226,7 +1225,6 @@
       "kling-image",
       "llama",
       "ltx",
-      "lyria",
       "magi-1",
       "mai-code",
       "mai-image",
@@ -1234,7 +1232,6 @@
       "mimo",
       "minimax-llm",
       "muse-video",
-      "nano-banana",
       "ovhcloud-olala",
       "prismml-bonsai",
       "recraft",
@@ -1246,7 +1243,6 @@
       "skyreels-v4",
       "step-5",
       "stepaudio-3-tts",
-      "veo",
       "workbuddy"
     ],
     "fallbackSources": 5
