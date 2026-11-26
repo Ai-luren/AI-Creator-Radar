@@ -39,7 +39,7 @@
 - RSS / Atom 配置在 [`config/resource-sources.json`](config/resource-sources.json)；GoodCase 提供案例与 Prompt 预览，橘鸦提供早报，AIHOT 精选单独保留原始出处。
 - GitHub Awesome 模块同步精选仓库的公开元数据，不会自动克隆仓库或复制其中的 Prompt。
 - 官方社媒粉丝数由本机任务在北京时间 21:00 采集；其他已配置的动态采集与榜单派生由 GitHub Actions 执行。
-- GitHub Actions 按快照新鲜度补采：模型与 AIHOT 精选约 30 分钟、日报约 2 小时、榜单与资源约 6 小时、维护约每日一次；main push 也补采超期组。GitHub 定时任务可能延迟或漏跑，首页标注延迟。详细规则见[运行手册](docs/automation-runbook.md)。
+- GitHub Actions 按快照新鲜度补采：模型与 AIHOT 精选约 30 分钟、日报约 2 小时、榜单与资源约 6 小时、维护约每日一次；采集配置变更也补采超期组；普通 UI push 只发布已验证快照。GitHub 定时任务可能延迟或漏跑，首页标注延迟。详细规则见[运行手册](docs/automation-runbook.md)。
 - 原始榜单采集后，Actions 会运行 [`scripts/build_unified_rankings.py`](scripts/build_unified_rankings.py) 重建统一榜单。创作工具与 CPP 目录属于维护型数据；创作机会自动扫描仅发现待审核线索。
 
 ## 本地运行
@@ -92,11 +92,11 @@ python3 scripts/build_unified_rankings.py
 
 ## 运行与验证
 
-首页仅加载概览快照；其他页面及全局索引按需下载，当前页面生命周期复用请求。开发 PR 运行 `Validate radar changes`，需要联网诊断时手动勾选 `probe_sources`；main 的定时采集部署工作流独立运行。测试失败不会被忽略，也不会关闭 GitHub 通知。浏览器布局测试仍独立保留。
+首页仅加载概览快照；其他页面及全局索引按需下载，当前页面生命周期复用请求。开发 PR 运行 `Validate radar changes`，需要联网诊断时手动勾选 `probe_sources`；main 的数据采集和 Pages 发布使用独立工作流。测试失败不会被忽略，也不会关闭 GitHub 通知。浏览器布局测试仍独立保留。
 
 ### 正式环境手动验证
 
-在 main 分支的 Actions → Monitor official AI model releases and deploy Pages → Run workflow 中选择 `scope`：
+在 main 分支的 Actions → Refresh radar data → Run workflow 中选择 `scope`：
 
 - `models`：模型发现、近期上新、厂商历史与 AIHOT 精选。
 - `resources`：榜单、简报、资源、创意与社媒趋势。
@@ -104,7 +104,7 @@ python3 scripts/build_unified_rankings.py
 - `all`：执行所有采集任务（默认）。
 - `deploy-only`：只验证现有数据并重新发布 Pages，不采集、不提交数据。
 
-AIHOT 精选及两份日报失败时保留旧快照并独立报告；其他通过校验的数据可发布。其他采集器、结构校验或部署失败仍会阻止相应流程。
+AIHOT 精选及两份日报失败时保留旧快照；首次及第二次记警告，连续第三次报警一次，恢复后重置。同一事件不重复发失败通知。其他采集器、结构校验或部署失败仍会阻止相应流程。普通网页修改由 Publish validated GitHub Pages 独立发布，不采集外部来源。
 
 生产验收需分别记录 main 首次 push 部署、models/resources/maintenance 定时运行及数据时间戳，并核对线上快照。手动触发成功不代表定时触发成功。
 

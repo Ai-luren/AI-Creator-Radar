@@ -10,7 +10,7 @@ const base='http://127.0.0.1:8765/';
 const out=process.env.RADAR_SCREENSHOTS||'/tmp/radar-screenshots';
 fs.mkdirSync(out,{recursive:true});
 const digest=JSON.parse(fs.readFileSync('site/data/model-releases-30d.json','utf8'));
-const browser=await browserType.launch({headless:true});
+let browser=await browserType.launch({headless:true});
 const overviewFiles=['model-releases-30d.json','model-monitor-status.json','aihot-items.json','aihot-daily.json','juya-daily.json'];
 const overviewBytes=overviewFiles.reduce((n,f)=>n+fs.statSync(path.join('site/data',f)).size,0);
 const htmlBytes=fs.statSync('site/index.html').size;
@@ -26,17 +26,26 @@ try{
   // retain storage/history. A crashed renderer must not poison following scenarios.
   const routes=['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
   async function check(name,fn){
-   context=null;page=null;
-   try{
-    context=await browser.newContext({viewport,locale:'zh-CN',deviceScaleFactor:1,reducedMotion:'reduce'});
-    await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
-    page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));
-    await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
-    await fn();console.log('PASS '+label+' '+name)
-   }catch(e){
-    failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);
-    if(page)await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled',timeout:5000}).catch(()=>{})
-   }finally{if(context)await context.close().catch(e=>{failures.push(label+' '+name+' context close: '+e.message)})}
+   for(let attempt=0;attempt<2;attempt++){
+    context=null;page=null;const errorStart=errors.length;let retry=false;
+    try{
+     if(!browser.isConnected())browser=await browserType.launch({headless:true});
+     context=await browser.newContext({viewport,locale:'zh-CN',deviceScaleFactor:1,reducedMotion:'reduce'});
+     await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
+     page=await context.newPage();page.on('pageerror',e=>errors.push(name+': '+e.message));
+     await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
+     await fn();console.log('PASS '+label+' '+name);return;
+    }catch(e){
+     // Only explicit renderer/process crashes qualify; assertions, JS errors and
+     // ordinary timeouts remain real failures. Retry once in a fresh context.
+     retry=attempt===0&&errors.length===errorStart&&( /page crashed|browser has been closed|browser disconnected/i.test(e.message)||!browser.isConnected());
+     if(retry){console.warn('RETRY '+label+' '+name+': '+e.message);}
+     else{failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.stack);if(page)await page.screenshot({path:path.join(out,label+'-failure-'+name.replaceAll(' ','-')+'.png'),animations:'disabled',timeout:5000}).catch(()=>{})}
+    }finally{
+     if(context)await context.close().catch(e=>{if(!retry)failures.push(label+' '+name+' context close: '+e.message)});
+    }
+    if(!retry)return;
+   }
   }
   for(const view of routes)await check(view,async()=>{
    const loaded=new Set();const capture=req=>{if(req.url().includes('/data/'))loaded.add(new URL(req.url()).pathname.split('/').pop())};page.on('request',capture);
