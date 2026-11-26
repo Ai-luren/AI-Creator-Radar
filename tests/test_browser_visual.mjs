@@ -17,7 +17,7 @@ try{
   await context.route('**/*',route=>route.request().url().startsWith(base)?route.continue():route.abort());
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.clock.setFixedTime(new Date(digest.windowEnd+'T14:00:00+08:00'));
-  const routes=viewport.width===360?['overview','models','rankings','social']:['overview','today','feeds','social','models','rankings','topics','practice','platforms'];
+  const routes=viewport.width===360?['overview','models','rankings','social','opportunities']:['overview','today','feeds','social','models','rankings','topics','practice','platforms','opportunities'];
   async function check(name,fn){try{await fn();console.log('PASS '+label+' '+name)}catch(e){failures.push(label+' '+name+': '+e.message);console.log('FAIL '+label+' '+name+': '+e.message)}}
   for(const view of routes)await check(view,async()=>{
    await page.goto(base+'?view='+view,{waitUntil:'domcontentloaded'});
@@ -43,6 +43,13 @@ try{
    await page.screenshot({path:path.join(out,label+'-version.png')});
    await page.keyboard.press('Escape');await page.locator('.model-detail-panel').waitFor({state:'hidden'});
    assert.equal(await page.evaluate(()=>state.modelCategory),'image');
+  });
+  if(viewport.width!==360)await check('creator workflow',async()=>{
+   await page.goto(base+'?view=opportunities&tab=programs',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const progress=page.locator('[data-creator-progress]').first();await progress.selectOption('watch');await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-creator-progress]').first().inputValue(),'watch');
+   await page.screenshot({path:path.join(out,label+'-programs.png')});
+   await page.goto(base+'?view=practice&type=prompt',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);assert.ok(await page.locator('[data-copy-template="product-tvc"]').count());await page.screenshot({path:path.join(out,label+'-prompts.png')});
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
   });
   await check('no runtime errors',async()=>assert.deepEqual(errors,[]));await context.close();
  }

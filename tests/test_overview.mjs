@@ -122,3 +122,16 @@ test('grouped release list, recent known date and readable briefing preserve sou
  run("setView('models')");assert.match(node('content').innerHTML,/最近发布日期/);assert.match(node('content').innerHTML,/table-scroll-hint/);
  run("setView('feeds')");assert.doesNotMatch(node('content').innerHTML,/class="briefing-intro"/);assert.match(node('content').innerHTML,/briefing-original-links/);
 });
+
+test('creator opportunities distinguish date precision and program registration',async()=>{
+ const {run,node}=setup();await run('loadData()');run("setView('opportunities')");
+ assert.match(node('content').innerHTML,/AI 创作比赛/);assert.match(node('content').innerHTML,/Higgsfield Talent Contest/);
+ assert.equal(run("contestStatus({deadlineDate:'2026-11-26',deadlineAt:'2026-11-26T19:00:00Z'},new Date('2026-11-26T18:59:00Z')).key"),'window');
+ assert.equal(run("contestStatus({deadlineDate:'2026-11-26',deadlineAt:'2026-11-26T19:00:00Z'},new Date('2026-11-26T19:00:00Z')).key"),'closed');
+ assert.equal(run("contestStatus({deadlineDate:'2026-11-26'},new Date('2026-11-26T10:00:00Z')).key"),'unknown');
+ run("state.opportunityTab='programs';render()");assert.match(node('content').innerHTML,/开放状态待确认/);assert.ok(run('creatorPrograms().length')>20);assert.ok(run("searchGlobal('Higgsfield Talent Contest','contest').length")>0);
+});
+test('prompt and selection views preserve source and avoid invented scores',async()=>{
+ const {run,node}=setup();await run('loadData()');run("setView('practice',{practiceCategory:'视频',modelPracticeType:'prompt'})");assert.match(node('content').innerHTML,/data-copy-template="product-tvc"/);assert.match(node('content').innerHTML,/官方提示词指南/);assert.match(node('content').innerHTML,/提示词节选/);
+ run("state.modelPracticeType='select';render()");assert.match(node('content').innerHTML,/对照能力原榜/);assert.match(node('content').innerHTML,/不生成主观评分/);
+});
