@@ -259,3 +259,8 @@ test('resource summaries and favorites do not change source data',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');run("setView('platforms')");assert.match(node('content').innerHTML,/data-platform-favorite/);assert.deepEqual(JSON.parse(run('JSON.stringify(platformFavorites())')),[]);
  run("setView('opportunities')");assert.match(node('content').innerHTML,/近7天按公告截止/);assert.match(node('content').innerHTML,/已核验开放计划/);
 });
+
+test('verified service stages remain outside release event counts',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');assert.ok(run('Array.isArray(state.modelReleaseData.verifiedStages)'));assert.ok(run("state.modelReleaseData.verifiedStages.every(x=>!state.modelReleases.some(y=>y.id===x.id))"));
+ run("setView('today',{releaseCategory:'music'})");assert.match(node('content').innerHTML,/已核实模型上线阶段|当前时间范围没有已核实/);
+});

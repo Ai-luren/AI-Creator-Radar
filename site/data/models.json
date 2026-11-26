@@ -30124,5 +30124,132 @@
     "version": "Vidu S2-Avatar / Vidu S2-Editing",
     "leaderboardAliases": [],
     "releaseUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s2-bringing-real-time-interaction-and-editing-to-ai-video-302879976.html"
+  },
+  {
+    "id": "eleven-sfx",
+    "name": "ElevenLabs Sound Effects",
+    "vendor": "ElevenLabs",
+    "category": "audio",
+    "watched": true,
+    "logo": "",
+    "homepage": "https://elevenlabs.io/blog/sound-effects-v3",
+    "releaseUrl": "https://elevenlabs.io/blog/sound-effects-v3",
+    "modelCardUrl": "https://elevenlabs.io/docs/overview/models",
+    "note": "面向创作音效与环境声音生成；不同于 TTS。",
+    "region": "海外",
+    "access": "闭源",
+    "version": "SFX v3",
+    "versions": [
+      {
+        "id": "eleven-sfx-v3",
+        "name": "SFX v3",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "发布已核实；当前可用性以官方页面为准",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://elevenlabs.io/docs/overview/models",
+        "releaseUrl": "https://elevenlabs.io/blog/sound-effects-v3",
+        "note": "文本生成音效，改善多段提示词遵循、音乐与人声表现。",
+        "releaseDate": "2026-10-29",
+        "releaseEvidence": {
+          "eventId": "official-eleven-eleven-sfx-v3-20261029",
+          "publishedAt": "2026-10-29",
+          "sourceUrl": "https://elevenlabs.io/blog/sound-effects-v3",
+          "sourceName": "ElevenLabs 官方发布 / 更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "文本生成音效，改善多段提示词遵循、音乐与人声表现。",
+          "access": "发布时官方产品或 API 提供",
+          "category": "audio",
+          "modelName": "SFX v3",
+          "provenance": "本轮核对厂商一手来源",
+          "audioSubtype": "音效生成"
+        }
+      }
+    ],
+    "aliases": [
+      "ElevenLabs Sound Effects"
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": [],
+    "audioSubtype": "音效生成"
+  },
+  {
+    "id": "eleven-scribe",
+    "name": "ElevenLabs Scribe",
+    "vendor": "ElevenLabs",
+    "category": "audio",
+    "watched": true,
+    "logo": "",
+    "homepage": "https://elevenlabs.io/docs/overview/models",
+    "releaseUrl": "https://elevenlabs.io/docs/changelog/2026/11/9",
+    "modelCardUrl": "https://elevenlabs.io/docs/overview/models",
+    "note": "语音转文字，包括录制与实时转写；不同于语音合成。",
+    "region": "海外",
+    "access": "闭源",
+    "version": "Scribe v3 / Scribe v3 Live",
+    "versions": [
+      {
+        "id": "scribe-v3",
+        "name": "Scribe v3",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "发布已核实；当前可用性以官方页面为准",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://elevenlabs.io/docs/overview/models",
+        "releaseUrl": "https://elevenlabs.io/docs/changelog/2026/11/9",
+        "note": "录制音频转写与说话人识别；11月9日官方 API 日志确认可用，11月10日博客正式介绍。",
+        "releaseDate": "2026-11-09",
+        "releaseEvidence": {
+          "eventId": "official-eleven-scribe-v3-20261109",
+          "publishedAt": "2026-11-09",
+          "sourceUrl": "https://elevenlabs.io/docs/changelog/2026/11/9",
+          "sourceName": "ElevenLabs 官方发布 / 更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "录制音频转写与说话人识别；11月9日官方 API 日志确认可用，11月10日博客正式介绍。",
+          "access": "发布时官方产品或 API 提供",
+          "category": "audio",
+          "modelName": "Scribe v3",
+          "provenance": "本轮核对厂商一手来源",
+          "audioSubtype": "语音识别 ASR"
+        }
+      },
+      {
+        "id": "scribe-v3-live",
+        "name": "Scribe v3 Live",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "发布已核实；当前可用性以官方页面为准",
+        "region": "海外",
+        "access": "闭源",
+        "homepage": "https://elevenlabs.io/docs/overview/models",
+        "releaseUrl": "https://elevenlabs.io/docs/changelog/2026/11/9",
+        "note": "实时语音转写，支持轮次预测及多语言切换；与 Scribe v3 同批上线。",
+        "releaseDate": "2026-11-09",
+        "releaseEvidence": {
+          "eventId": "official-eleven-scribe-v3-live-20261109",
+          "publishedAt": "2026-11-09",
+          "sourceUrl": "https://elevenlabs.io/docs/changelog/2026/11/9",
+          "sourceName": "ElevenLabs 官方发布 / 更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "实时语音转写，支持轮次预测及多语言切换；与 Scribe v3 同批上线。",
+          "access": "发布时官方产品或 API 提供",
+          "category": "audio",
+          "modelName": "Scribe v3 Live",
+          "provenance": "本轮核对厂商一手来源",
+          "audioSubtype": "语音识别 ASR"
+        }
+      }
+    ],
+    "aliases": [
+      "ElevenLabs Scribe"
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": [],
+    "audioSubtype": "语音识别 ASR"
   }
 ]

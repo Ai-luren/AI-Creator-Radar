@@ -79,6 +79,39 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
     return sorted(candidates.values(), key=lambda item: (item["publishedAt"] or item["discoveredAt"] or "", item["id"]), reverse=True)
 
 
+# Only explicitly reviewed, recent model-service launches are exposed here.
+# Do not promote generic API updates, beta access or later rollout into first releases.
+VERIFIED_MODEL_STAGES = {
+    ("qwen-audio-realtime", "qwen-audio-3-1-live", "v48-qwen-0001"),
+    ("mureka", "mureka-remix-v9-5", "review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112"),
+}
+
+
+def collect_verified_stages(families: list, today: date) -> list:
+    start = today - timedelta(days=29)
+    rows = []
+    for family in families:
+        for version in family.get("versions", []):
+            for stage in version.get("historicalMilestones", []):
+                key = (family["id"], version["id"], stage.get("chronicleAuditId"))
+                if key not in VERIFIED_MODEL_STAGES or stage.get("datePrecision") != "day":
+                    continue
+                if stage.get("stage") != "api-availability" or not stage.get("verifiedAt") or not str(stage.get("sourceUrl", "")).startswith("https://"):
+                    continue
+                day = date.fromisoformat(stage["date"])
+                if not start <= day <= today:
+                    continue
+                rows.append({
+                    "id": "stage-" + key[2], "stageDate": stage["date"], "stage": stage["stage"],
+                    "category": family["category"], "vendor": family["vendor"],
+                    "modelName": version["name"], "summary": stage.get("summary", ""),
+                    "url": stage["sourceUrl"], "sourceName": stage.get("sourceName", "官方来源"),
+                    "modelFamilyId": family["id"], "modelVersionId": version["id"],
+                    "verifiedAt": stage["verifiedAt"],
+                })
+    return sorted(rows, key=lambda x: (x["stageDate"], x["id"]), reverse=True)
+
+
 def build(today: date) -> dict:
     families = json.loads(MODELS.read_text(encoding="utf-8"))
     start = today - timedelta(days=29)
@@ -111,6 +144,7 @@ def build(today: date) -> dict:
                 "modelVersionId": version["id"],
                 "evidenceType": evidence.get("evidenceType", "official-release"),
                 "verifiedAt": evidence.get("verifiedAt", ""),
+                **({"audioSubtype": evidence["audioSubtype"]} if evidence.get("audioSubtype") else {}),
             })
     items.sort(key=lambda item: (item["publishedAt"], item["vendor"], item["modelName"]), reverse=True)
     return {
@@ -122,6 +156,7 @@ def build(today: date) -> dict:
         "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "categories": list(CATEGORIES),
         "items": items,
+        "verifiedStages": collect_verified_stages(families, today),
         "pending": collect_pending(families, json.loads(UPDATES.read_text(encoding="utf-8")).get("items", []) if UPDATES.exists() else [], items, today),
     }
 

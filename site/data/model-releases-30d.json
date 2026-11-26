@@ -465,6 +465,38 @@
       "verifiedAt": "2026-11-25"
     },
     {
+      "id": "official-eleven-scribe-v3-live-20261109",
+      "publishedAt": "2026-11-09",
+      "category": "audio",
+      "vendor": "ElevenLabs",
+      "modelName": "Scribe v3 Live",
+      "summary": "实时语音转写，支持轮次预测及多语言切换；与 Scribe v3 同批上线。",
+      "access": "发布时官方产品或 API 提供",
+      "url": "https://elevenlabs.io/docs/changelog/2026/11/9",
+      "sourceName": "ElevenLabs 官方发布 / 更新日志",
+      "modelFamilyId": "eleven-scribe",
+      "modelVersionId": "scribe-v3-live",
+      "evidenceType": "official-release",
+      "verifiedAt": "2026-11-26",
+      "audioSubtype": "语音识别 ASR"
+    },
+    {
+      "id": "official-eleven-scribe-v3-20261109",
+      "publishedAt": "2026-11-09",
+      "category": "audio",
+      "vendor": "ElevenLabs",
+      "modelName": "Scribe v3",
+      "summary": "录制音频转写与说话人识别；11月9日官方 API 日志确认可用，11月10日博客正式介绍。",
+      "access": "发布时官方产品或 API 提供",
+      "url": "https://elevenlabs.io/docs/changelog/2026/11/9",
+      "sourceName": "ElevenLabs 官方发布 / 更新日志",
+      "modelFamilyId": "eleven-scribe",
+      "modelVersionId": "scribe-v3",
+      "evidenceType": "official-release",
+      "verifiedAt": "2026-11-26",
+      "audioSubtype": "语音识别 ASR"
+    },
+    {
       "id": "anthropic-fable-mythos-52-20261109-claude-mythos-5-2",
       "publishedAt": "2026-11-09",
       "category": "llm",
@@ -538,6 +570,22 @@
       "modelVersionId": "gpt-image-2-6-flare",
       "evidenceType": "official-release",
       "verifiedAt": "2026-11-25"
+    },
+    {
+      "id": "official-eleven-eleven-sfx-v3-20261029",
+      "publishedAt": "2026-10-29",
+      "category": "audio",
+      "vendor": "ElevenLabs",
+      "modelName": "SFX v3",
+      "summary": "文本生成音效，改善多段提示词遵循、音乐与人声表现。",
+      "access": "发布时官方产品或 API 提供",
+      "url": "https://elevenlabs.io/blog/sound-effects-v3",
+      "sourceName": "ElevenLabs 官方发布 / 更新日志",
+      "modelFamilyId": "eleven-sfx",
+      "modelVersionId": "eleven-sfx-v3",
+      "evidenceType": "official-release",
+      "verifiedAt": "2026-11-26",
+      "audioSubtype": "音效生成"
     }
   ],
   "pending": [
@@ -568,6 +616,36 @@
       "modelFamilyId": "seedance",
       "updateType": "release",
       "verificationStatus": "pending"
+    }
+  ],
+  "verifiedStages": [
+    {
+      "id": "stage-v48-qwen-0001",
+      "stageDate": "2026-11-23",
+      "stage": "api-availability",
+      "category": "audio",
+      "vendor": "阿里巴巴通义千问",
+      "modelName": "Qwen Audio 3.1 Live",
+      "summary": "阿里云 Model Studio 于 2026-11-23 上线 Qwen-Audio-3.1-Live，支持文本/语音输入输出、实时全双工对话与函数调用，并可在后台模型执行推理任务期间保持自然语音交互。官方提供 Client 模式与 Responses 模式，并按会话时长计费。这是模型服务首发，不应误写成全新的 Qwen 通用语言旗舰代际。",
+      "url": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+      "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+      "modelFamilyId": "qwen-audio-realtime",
+      "modelVersionId": "qwen-audio-3-1-live",
+      "verifiedAt": "2026-11-24"
+    },
+    {
+      "id": "stage-review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112",
+      "stageDate": "2026-11-12",
+      "stage": "api-availability",
+      "category": "music",
+      "vendor": "昆仑万维",
+      "modelName": "Mureka Remix V9.5",
+      "summary": "Remix API 向所有用户开放新版；11 月 16 日博客是上线后介绍。",
+      "url": "https://platform.mureka.ai/docs/en/changelog.html",
+      "sourceName": "Mureka 官方 API 日志",
+      "modelFamilyId": "mureka",
+      "modelVersionId": "mureka-remix-v9-5",
+      "verifiedAt": "2026-11-26"
     }
   ]
 }

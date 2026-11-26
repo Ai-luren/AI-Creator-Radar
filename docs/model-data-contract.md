@@ -190,3 +190,10 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 ## 资讯事件派生视图（第七轮第二批）
 
 首页与行业简报共享综合资讯事件：明确原文 URL、条目身份、精确规范标题及小范围人工核对的等价来源为去重依据；不使用邻近链接或相似词强行合并。不同查询参数、发布说明锚点保留；仅移除已知追踪参数。原始报道、来源、摘要、刊期和发布时间均保留。综合列表日期是资讯来源记录日期，不是正式模型发布日期。首页与已核实发布事件存在精确相同证据链接时不重复展示；原始来源页不删条目。没有使用付费模型 API。
+
+## 音频专项证据与上线阶段（2026-11-26）
+
+- ElevenLabs SFX v3：2026-10-29 官方发布博客（https://elevenlabs.io/blog/sound-effects-v3），11-02 是开发者 API 介绍及全面开放，不重复计算。
+- Scribe v3 / v3 Live：2026-11-09 官方更新日志（https://elevenlabs.io/docs/changelog/2026/11/9），11-10 中英官方博客（https://elevenlabs.io/blog/scribe-v3）介绍同一批次。记录最早明确的服务发布证据，两型号保留独立 ID；按 ASR 分类，不混入 TTS。
+- Qwen-Audio-3.1-Live 的 11-23 上线已存历史节点（https://docs.qwencloud.com/changelog/models 与 https://www.alibabacloud.com/help/en/model-studio/qwen-audio-3-1-live）；Mureka Remix V9.5 的 11-12 API 全量上线早于 11-16 博客（https://platform.mureka.ai/docs/en/changelog.html 与 https://www.mureka.ai/blog_zh-CN/mureka-remix-v9-5-is-here.html）。仅将两条明确核实的历史阶段派生为 verifiedStages；不写入 releaseDate、releaseEvidence 或正式发布次数，不自动推广普通 API 更新。
+- Qwen TTS 3.1 Plus 10-21、Flash 10-12、Next 10-22 均早于 30 天窗口起点 10-28，不能为了填满栏目挪到 11 月；Suno v6 的历史日期仍需按官方原始记录审核。
