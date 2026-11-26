@@ -549,7 +549,21 @@
       ]
     },
     "previousFeed": "https://updates.midjourney.com/rss/",
-    "allowNamedVersion": true
+    "allowNamedVersion": true,
+    "fallbackOnZeroMatch": true,
+    "fallbackEndpoints": [
+      {
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "type": "version-document",
+        "modelTitlePattern": "V\\d+(?:\\.\\d+)*",
+        "updateType": "model-card",
+        "modelMatches": {
+          "midjourney": [
+            "re:^V\\d+(?:\\.\\d+)*$"
+          ]
+        }
+      }
+    ]
   },
   {
     "id": "kimi-announcement",
@@ -650,6 +664,15 @@
     "fallbackUrls": [
       "https://nijijourney.com/en/blog",
       "https://nijijourney.com/zh/blog"
+    ],
+    "fallbackOnZeroMatch": true,
+    "fallbackEndpoints": [
+      {
+        "url": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "type": "version-document",
+        "modelTitlePattern": "Niji\\s+\\d+(?:\\.\\d+)*",
+        "updateType": "model-card"
+      }
     ]
   },
   {
@@ -903,18 +926,18 @@
   {
     "id": "zai-model-release-notes",
     "name": "智谱 Z.ai 官方模型发布日志",
-    "type": "dated-headings",
-    "url": "https://docs.z.ai/release-notes/new-released",
+    "type": "markdown-dated-models",
+    "url": "https://docs.z.ai/release-notes/new-released.md",
     "vendor": "智谱 / Z.ai",
     "official": true,
     "active": true,
-    "dateButtons": true,
     "updateType": "model-card",
     "modelMatches": {
       "glm": [
         "re:\\bGLM[- ]\\d+(?:\\.\\d+)*\\b"
       ]
-    }
+    },
+    "modelTitlePattern": "GLM[- ]\\d+(?:\\.\\d+)*(?:[- ][A-Za-z0-9]+)*"
   },
   {
     "id": "meta-ai-blog",
