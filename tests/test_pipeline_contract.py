@@ -23,7 +23,9 @@ class PipelineContractTests(unittest.TestCase):
         self.assertNotIn("'site/**'", text)
         self.assertIn("uses: ./.github/workflows/deploy-pages.yml", text)
         self.assertIn("needs.collect.outputs.changed == 'true'", text)
-        self.assertIn("needs.collect.outputs.notify == 'true'", text)
+        self.assertIn("python scripts/collection_health.py", text)
+        self.assertNotIn("persistent-source-alert:", text)
+        self.assertNotIn("needs.collect.outputs.notify", text)
         self.assertIn("Concurrent main update won", text)
         self.assertIn("node --test tests/test_overview.mjs", text)
 
