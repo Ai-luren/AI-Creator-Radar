@@ -13,6 +13,12 @@
 | 查看综合榜实验与审计依据 | [榜单方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`、`site/data/unified-rankings.json` |
 | 检查自动更新、漏跑补采和同步范围 | [自动更新说明](automation-runbook.md) | `scripts/plan_refresh.py`、`.github/workflows/update-site.yml` |
 
+## 当前结构（V3.6）
+
+- 十个入口顺序见 [README](../README.md#功能结构v36) 与 [DESIGN](../DESIGN.md)，教程与案例在最后。
+- 四大展示类与音频子类只改变前端映射，数据字段、原榜任务及版本 ID 不迁移。
+- 首页正式发布统计、近期上新三种模式、最新一天简报、模型库日期倒序，以现行设计规范为准。旧迭代说明已归档，不作为当前开发规则。
+
 ## 数据更新原则
 
 - `site/data/` 是唯一的线上数据目录。采集器只写入这里，不再维护 `data-vN` 镜像。
@@ -33,6 +39,7 @@
 
 ```bash
 python3 -m unittest discover -s tests -v
+node --test tests/test_overview.mjs
 python3 scripts/collect_models.py --dry-run
 python3 scripts/build_model_release_digest.py
 python3 scripts/link_model_records.py

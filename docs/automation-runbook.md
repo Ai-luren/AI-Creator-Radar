@@ -32,6 +32,10 @@ Actions → Refresh radar data → Run workflow → main：`all`、`models`、`r
 - 数据先验证再提交；禁止 force push。并发 main 更新时放弃本轮过时结果，后续补采；权限等非并发推送失败必须报告。
 - 部署通过 Pages 环境后可读取线上 `deploy-revision.json` 确认实际发布的 commit。只通过 PR 测试不等于已经部署；定时准点和外部来源可用性不可保证。
 
+## 提交门禁
+
+本地先运行下面的验证，再完成 Chromium 与 WebKit 检查，最后集中提交。不得因暂时无法运行本地测试而声称通过，不用连续远端提交调试，不修改真实故障报警策略来掩盖失败。验证不代表定时调度按计划触发；漏跑和数据新鲜度另查。
+
 ## 本地验证
 
 ```sh
@@ -39,6 +43,21 @@ python3 -m unittest discover -s tests -v
 node --test tests/test_overview.mjs
 python3 scripts/plan_refresh.py --event schedule --output /tmp/radar-refresh-plan.txt
 python3 scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
+```
+
+浏览器测试使用 CI 同版本 Playwright 1.56.1；在仓库根目录安装隔离依赖并启动静态服务：
+
+```sh
+npm install --prefix /tmp/radar-browser --no-save --package-lock=false playwright@1.56.1
+/tmp/radar-browser/node_modules/.bin/playwright install chromium webkit
+python3 -m http.server 8765 --bind 127.0.0.1 --directory site
+```
+
+另一个终端执行：
+
+```sh
+RADAR_BROWSER_DEPS=/tmp/radar-browser RADAR_SCREENSHOTS=/tmp/radar-chromium RADAR_BROWSER_ENGINE=chromium node tests/test_browser_visual.mjs
+RADAR_BROWSER_DEPS=/tmp/radar-browser RADAR_SCREENSHOTS=/tmp/radar-webkit RADAR_BROWSER_ENGINE=webkit node tests/test_browser_visual.mjs
 ```
 
 - [独立发布](../.github/workflows/deploy-pages.yml)

@@ -28,6 +28,10 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Run `python3 scripts/collect_models.py --dry-run` to inspect official model-source collection without writing data.
 - After model collection, run `python3 scripts/build_model_release_digest.py`, `python3 scripts/link_model_records.py`, and `python3 scripts/validate_model_links.py` to regenerate the 30-day view and verify shared references.
 
+- For UI changes, use the four primary categories in this order: video, image, llm, audio; keep contextual audio subcategories and canonical source category values separate. Formal-release counts exclude service stages and pending records. Keep tutorials and cases last in navigation.
+- Before pushing, run the applicable Python and Node suites, reference checks, and both browser engines. Batch verified changes into one commit; never use remote CI as an iterative debugger. Do not suppress real failures or disable notification workflows. If local verification is unavailable, state the limitation and do not claim it passed.
+- Test date-dependent rendering against controlled time or the actual snapshot; legitimate empty states must not fail.
+- Update README, DESIGN and affected guides together. Archive superseded documentation verbatim; remove only proven unused code/assets. Preserve compatibility routes, source datasets and evidence.
 - Before changing collection schedules, follow [`docs/automation-runbook.md`](docs/automation-runbook.md); preserve actual snapshot timestamps and test missed-run recovery.
 - For UI changes, follow [`DESIGN.md`](DESIGN.md) and verify both Chromium and WebKit responsive layouts.
 
