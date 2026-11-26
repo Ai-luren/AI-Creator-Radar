@@ -512,7 +512,7 @@ def niji_release_items(blocks: list[dict], source: dict) -> list[dict]:
             continue
         version = match.group(1)
         title = clean_text(block["text"])
-        if not re.search(rf"\bniji\s*v?{re.escape(version)}\b", title, re.I):
+        if not re.search(rf"(?<![A-Za-z0-9])niji\s*v?{re.escape(version)}(?![A-Za-z0-9.])", title, re.I):
             continue
         results.append({"title": f"Niji {version} 官方发布公告", "summary": title[:520],
                         "url": url, "publishedAt": None, "modelId": "midjourney"})
