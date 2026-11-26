@@ -1,39 +1,51 @@
 {
   "schema": "scheduler-health/v1",
-  "generatedAt": "2026-11-26T19:05:41.597842+00:00",
-  "nextDueAt": "2026-11-26T19:29:41.597842+00:00",
+  "generatedAt": "2026-11-26T19:12:05.843944+00:00",
+  "nextDueAt": "2026-11-26T19:30:05.843944+00:00",
   "trigger": {
-    "event": "workflow_dispatch",
-    "runId": "45880790691",
+    "event": "push",
+    "runId": "45881725407",
     "attempt": "1",
     "schedule": "",
-    "scope": "due"
+    "scope": ""
   },
   "groups": {
     "models": {
-      "oldestSnapshotAt": "2026-11-26T19:04:09+00:00",
-      "due": false
+      "oldestSnapshotAt": "2026-11-26T19:11:18+00:00",
+      "due": false,
+      "eligible": false,
+      "retryAfter": null
     },
     "selected": {
       "oldestSnapshotAt": "2026-11-26T19:04:09+00:00",
-      "due": false
+      "due": false,
+      "eligible": false,
+      "retryAfter": null
     },
     "aihot_daily": {
       "oldestSnapshotAt": "2026-11-26T12:23:00+00:00",
-      "due": false
+      "due": false,
+      "eligible": false,
+      "retryAfter": null
     },
     "juya_daily": {
       "oldestSnapshotAt": "2026-11-26T12:23:07+00:00",
-      "due": false
+      "due": false,
+      "eligible": false,
+      "retryAfter": null
     },
     "resources": {
       "oldestSnapshotAt": "2026-11-26T19:04:19+00:00",
-      "due": false
+      "due": false,
+      "eligible": false,
+      "retryAfter": null
     },
     "maintenance": {
       "oldestSnapshotAt": "2026-11-26T12:22:00+00:00",
-      "due": false
+      "due": false,
+      "eligible": false,
+      "retryAfter": null
     }
   },
-  "policy": "Validated snapshot freshness; heartbeat is not proof every source succeeded."
+  "policy": "Validated snapshot freshness; due is raw staleness, eligible applies bounded retry backoff. Heartbeat is not proof every source succeeded."
 }
