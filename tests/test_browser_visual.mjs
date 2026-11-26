@@ -59,9 +59,18 @@ try{
     const table=await page.locator('.rank-table').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),header:getComputedStyle(el.querySelector('th')).position,numeric:getComputedStyle(el.querySelector('th:nth-child(3)')).textAlign}));
     assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');
    }
+   if(view==='models'&&viewport.width>=1200){const fit=await page.locator('.model-table').evaluate(el=>({width:el.scrollWidth,container:el.parentElement.clientWidth}));assert.ok(fit.width<=fit.container+2,'model table horizontal overflow '+JSON.stringify(fit));}
    if(view==='today')assert.ok(await page.locator('.release-main').count()>0);
    if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
    console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
+  });
+  await check('video rankings responsive comparison',async()=>{
+   await page.goto(base+'?view=rankings&category=video&task=image-to-video-audio',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const panels=page.locator('.rank-task-panel');assert.equal(await panels.count(),2);
+   const selected=page.locator('.rank-task-selected');assert.equal(await selected.getAttribute('aria-label'),'有声图生视频');
+   if(viewport.width>=1440){assert.equal(await panels.first().isVisible(),true);assert.equal(await panels.last().isVisible(),true);assert.equal(await page.locator('.ranking-task-tabs').isVisible(),false);for(const panel of await panels.all()){const table=panel.locator('.rank-table');if(await table.count()){assert.ok(await table.locator('tbody tr').count()<=10);const fit=await table.evaluate(el=>({width:el.scrollWidth,container:el.parentElement.clientWidth,bottom:el.getBoundingClientRect().bottom,height:innerHeight}));assert.ok(fit.width<=fit.container+2,'video rank horizontal overflow '+JSON.stringify(fit));assert.ok(fit.bottom<=fit.height,'video top ten below fold '+JSON.stringify(fit));}}}
+   else{assert.equal(await panels.first().isVisible(),false);assert.equal(await panels.last().isVisible(),true);await page.locator('[data-rank-video-task="text-to-video-audio"]').click();assert.equal(await panels.first().isVisible(),true);assert.equal(await panels.last().isVisible(),false);}
+   await page.screenshot({path:path.join(out,label+'-video-dual-rank.png')});
   });
   if(viewport.width===1440)await check('desktop folding navigation',async()=>{
    await page.goto(base+'?view=overview',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
