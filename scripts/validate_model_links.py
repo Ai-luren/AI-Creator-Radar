@@ -40,7 +40,7 @@ def main() -> int:
                 if version.get("releaseDate") and str(version["releaseDate"])[:10] != str(evidence.get("publishedAt", ""))[:10]:
                     errors.append(f"{family['id']}/{version_id}: releaseDate conflicts with releaseEvidence.publishedAt")
 
-    digest = read("site/data-v4/model-releases-30d.json")
+    digest = read("site/data/model-releases-30d.json")
     for item in digest.get("items", []):
         fid, vid = item.get("modelFamilyId"), item.get("modelVersionId")
         if fid not in family_map:
@@ -57,11 +57,7 @@ def main() -> int:
                          or item.get("modelName") != evidence.get("modelName", version.get("name"))):
             errors.append(f"release {item.get('id')}: digest fields do not match canonical version evidence")
 
-    compatibility_catalog = read("site/data-v3/models.json")
-    if compatibility_catalog != families:
-        errors.append("site/data-v3/models.json is not synchronized with the canonical catalog")
-
-    practice = read("site/data-v4/model-practice.json")
+    practice = read("site/data/model-practice.json")
     for item in practice.get("models", []):
         fid, vid = item.get("modelFamilyId"), item.get("modelVersionId")
         if fid and fid not in family_map:
@@ -70,14 +66,14 @@ def main() -> int:
             errors.append(f"practice {item.get('id')}: modelVersionId {vid} does not belong to {fid}")
 
     for relative, section in [
-        ("site/data-v4/model-evaluations.json", "items"),
-        ("site/data-v4/aihot-daily.json", "items"),
-        ("site/data-v4/juya-daily.json", "items"),
-        ("site/data-v4/aihot-items.json", "items"),
+        ("site/data/model-evaluations.json", "items"),
+        ("site/data/aihot-daily.json", "items"),
+        ("site/data/juya-daily.json", "items"),
+        ("site/data/aihot-items.json", "items"),
         ("site/data/feed-items.json", "items"),
-        ("site/data-v3/topics.json", "milestones"),
-        ("site/data-v4/social-accounts.json", "posts"),
-        ("site/data-v4/platforms.json", None),
+        ("site/data/topics.json", "milestones"),
+        ("site/data/social-accounts.json", "posts"),
+        ("site/data/social-platforms.json", None),
     ]:
         path = ROOT / relative
         if not path.exists():

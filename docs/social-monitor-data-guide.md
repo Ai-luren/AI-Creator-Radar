@@ -1,6 +1,6 @@
 # 社媒账号监控数据采集指南
 
-本指南供后续 Codex / 其他 agent 更新 `site/data-v4/social-accounts.json` 时遵循。目标是维护模型厂商和模型聚合平台的**官方社媒账号目录与粉丝数快照**，不是把同名账号或搜索结果当成官方账号。
+本指南供后续 Codex / 其他 agent 更新 `site/data/social-accounts.json` 时遵循。目标是维护模型厂商和模型聚合平台的**官方社媒账号目录与粉丝数快照**，不是把同名账号或搜索结果当成官方账号。
 
 ## 监控范围
 
@@ -48,7 +48,7 @@
 4. 验证 JSON：
 
    ```bash
-   python3 -m json.tool site/data-v4/social-accounts.json >/dev/null
+   python3 -m json.tool site/data/social-accounts.json >/dev/null
    ```
 
 5. 再检查每个品牌是否正好有 8 个不同平台位、粉丝数字段是否自洽，以及 `none` / `review` 是否误入粉丝排名。若页面展示或排序逻辑改变，按项目 `AGENTS.md` 中的要求完成相应验证。

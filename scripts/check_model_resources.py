@@ -14,9 +14,9 @@ from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-PRACTICE_FILE = ROOT / "site/data-v4/model-practice.json"
+PRACTICE_FILE = ROOT / "site/data/model-practice.json"
 TUTORIALS_FILE = ROOT / "site/data/tutorials.json"
-OUTPUT_FILE = ROOT / "site/data-v4/model-resource-status.json"
+OUTPUT_FILE = ROOT / "site/data/model-resource-status.json"
 TIMEOUT_SECONDS = 10
 USER_AGENT = "AI-Creator-Radar/2.0 (+https://github.com/Ai-luren/AI-Creator-Radar)"
 

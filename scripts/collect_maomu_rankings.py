@@ -16,7 +16,7 @@ from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "site/data-v4/maomu-rankings.json"
+OUTPUT = ROOT / "site/data/maomu-rankings.json"
 BASE_URL = "https://maomu.com"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; AI-Creator-Radar/1.0)"}
 

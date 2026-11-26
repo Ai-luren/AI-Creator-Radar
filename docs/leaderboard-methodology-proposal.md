@@ -115,7 +115,7 @@ V4 增加了六类主榜页签和「评分规则与来源」入口；原始榜�
 
 ## 实施边界
 
-- 生成器读取 `site/data/reference-rankings.json`、`site/data-v4/maomu-rankings.json` 和模型目录，输出独立派生文件 `site/data-v4/unified-rankings.json`；不改写原始榜快照。
+- 生成器读取 `site/data/reference-rankings.json`、`site/data/maomu-rankings.json` 和模型目录，输出独立派生文件 `site/data/unified-rankings.json`；不改写原始榜快照。
 - `config/unified-ranking-baseline.json` 保存来源参照成员与分数、上游评测版本/口径指纹、快照哈希、类别锚点逐成员逐任务的冻结分数，以及来源校准系数/锚点/快照哈希。普通运行只验证固定校准的当前残差，不重拟系数；来源评测版本或任务口径变化时暂停该来源，待人工复核并升方法版本。
 - `config/unified-ranking-vendor-aliases.json` 记录有官方来源支撑的厂商别名。不同规范化厂商名且未核实为同一实体的同名模型仍分开显示并标记身份待核验；例如 `aorizon` 暂不自动并入 `Alibaba-ATH`。
 - 目前生成器可本地手动运行。GitHub Actions 尚未更新；接入 CI 属于项目明确要求先确认的配置变更，需要单独批准。

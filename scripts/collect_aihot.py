@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch the latest selected AIHOT items into a small local site snapshot."""
+"""Fetch the latest selected AIHOT items into the site data snapshot."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "site" / "data-v4" / "aihot-items.json"
+OUTPUT = ROOT / "site" / "data" / "aihot-items.json"
 API_URL = "https://aihot.news/api/v1/items?mode=selected&window=24h&limit=20"
 ACTOR = "0b482b0d-92b0-493c-8b24-5cac9f005987"
 
@@ -89,7 +89,7 @@ def collect(dry_run: bool = False) -> tuple[int, bool]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Fetch AIHOT selected items for the V4 preview.")
+    parser = argparse.ArgumentParser(description="Fetch AIHOT selected items for the creator radar.")
     parser.add_argument("--dry-run", action="store_true", help="Fetch and validate without writing the snapshot.")
     args = parser.parse_args()
     count, unchanged = collect(dry_run=args.dry_run)

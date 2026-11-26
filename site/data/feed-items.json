@@ -1,6 +1,617 @@
 {
-  "generatedAt": "2026-11-24T12:51:21Z",
+  "generatedAt": "2026-11-25T13:02:00Z",
   "items": [
+    {
+      "id": "4df6cf3b883de4589ec0",
+      "sourceId": "juya-daily",
+      "sourceName": "橘鸦 AI 早报",
+      "category": "news",
+      "title": "2026-11-25",
+      "summary": "ChatGPT 合并 Chat 和 Work，部分用户率先体验；OpenAI 员工宣布 Business 套餐 Fast mode 免费至年底；OpenAI 改进 Dots 审核，减少任务中的额外审批；Antigravity 新版非必要审批减半，Neon 任务快 17%；Anthropic 推出测试功能：artifacts 可装成桌面应用；Cognitio…",
+      "promptPreview": null,
+      "publishedAt": "2026-11-25T01:14:24Z",
+      "url": "https://daily.juya.uk/issues/2026-11-25/",
+      "imageUrl": null,
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "b7a444f4c6e6000fde6b",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "霓虹游戏城里走进墨镜店试戴",
+      "summary": "想象一下，一个 NPC 站在 GTA 风格的商店里，正儿八经地推销你的产品。这种广告我还真会停下来看。我刚打开 CapC…",
+      "promptPreview": "Imagine an NPC giving your product a full sales pitch while standing inside a GTA-style shop. That's a product ad I'd actually stop to watch. I just opened CapCut Web, went to Video Editor, and click…",
+      "publishedAt": "2026-11-24T22:12:15Z",
+      "url": "https://goodcase.ai/cases/nijokestu-seedance-2-5-ai-855290f34827",
+      "imageUrl": "https://goodcase.ai/cases/nijokestu-seedance-2-5-ai-855290f34827/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "ef78d63ca48a45a7f8ab",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "黑衣女剑士街头迎战巨型角兽",
+      "summary": "一场惊心动魄的都市奇幻对决，有电影般的动作场面和震撼的 VFX，还有无畏的武者、黑暗能量和破笼而出的巨兽。使用 Seedance 2.5 制作。提示词…",
+      "promptPreview": "High budget live-action urban fantasy action sequence set on a wide city intersection in front of a modern curved glass office building on a bright sunny day a young East Asian woman with hair tied u…",
+      "publishedAt": "2026-11-24T22:12:14Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-high-budget-live-action-urban-fantasy-action-sequence-set-on-a-wide-city-inters-9e18128a4591",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-high-budget-live-action-urban-fantasy-action-sequence-set-on-a-wide-city-inters-9e18128a4591/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "5960b7a1e334354f6c3b",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "蓝图叠映的现代住宅室内漫游",
+      "summary": "Claude Fable 5.2 真是太厉害了。它能把 2D 建筑图纸变成可以在浏览器里自由探索的照片级 3D 看房体验。这样的项目…",
+      "promptPreview": "1. ROLE < You are an AI agent that finds businesses selling real estate from architectural drawings and turns their 2D floor plans into photorealistic 3D structures that can be explored in a browser…",
+      "publishedAt": "2026-11-24T22:12:13Z",
+      "url": "https://goodcase.ai/cases/seedance-you-are-an-ai-agent-that-finds-businesses-selling-real-estate-from-architectu-3acaf92a415d",
+      "imageUrl": "https://goodcase.ai/cases/seedance-you-are-an-ai-agent-that-finds-businesses-selling-real-estate-from-architectu-3acaf92a415d/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "claude",
+          "modelVersionId": "claude-fable-5-2",
+          "matchedName": "Claude Fable 5.2"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "claude",
+          "matchedName": "Claude Fable 5.2"
+        }
+      ]
+    },
+    {
+      "id": "205ab18bec373cb36b2b",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "游戏店女店员展示耳机与音箱",
+      "summary": "这可能是 GTA 6 里最出人意料的植入广告。一台数码相机摆在虚拟商店里，由 NPC 负责售卖。我想看看 AI …",
+      "promptPreview": "This might be the most unexpected product placement in GTA 6. A digital camera sitting in a virtual shop, with an NPC doing the selling. I wanted to see how AI could turn a regular product into an …",
+      "publishedAt": "2026-11-24T22:12:12Z",
+      "url": "https://goodcase.ai/cases/alifkhanzxx-seedance-2-5-ai-7c42c1122082",
+      "imageUrl": "https://goodcase.ai/cases/alifkhanzxx-seedance-2-5-ai-7c42c1122082/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "eb1401cdf947131574f1",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "黄昏公园里白纱新娘与新郎相拥亲吻",
+      "summary": "两颗心，一段永恒的爱情故事，写在华美的天空下。✨ 在 @openart_ai 上使用 Seedance 2.5 制作 提示词: SEEDANCE 2.5 — 30 seconds, 16:9. <",
+      "promptPreview": null,
+      "publishedAt": "2026-11-24T22:12:10Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-seedance-2-5-30-seconds-16-9-9eb3832623e4",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-seedance-2-5-30-seconds-16-9-9eb3832623e4/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "a55624c6ac6edb00526b",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "GTA风格冲浪店里的潜水面罩发布",
+      "summary": "如果你的下一次新品发布就在 GTA 6 里举行，会怎么样？想象一下，虚拟商店里有个 NPC 在介绍你的产品，还有一段电影感十足、看起来像游戏内…",
+      "promptPreview": "What if your next product launch happened in GTA 6? Picture a virtual store, an NPC introducing your product, and a cinematic showcase that looks like an in-game advertisement. I started by heading…",
+      "publishedAt": "2026-11-24T22:12:09Z",
+      "url": "https://goodcase.ai/cases/atulkumarzz-seedance-2-5-ai-7366dd3fbedd",
+      "imageUrl": "https://goodcase.ai/cases/atulkumarzz-seedance-2-5-ai-7366dd3fbedd/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "bb4d9a833d20d423e521",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "罪恶城电器店里角色拿起橙色产品",
+      "summary": "想象一下，你在逛 GTA 6 时，看到一位 NPC 在推荐你的产品。这种让品牌脱颖而出的方式还挺有趣的。👀 为了呈现这个创意，我把一台普…",
+      "promptPreview": "Imagine scrolling through GTA 6 and seeing an NPC recommend your product. That's a pretty fun way to make a brand stand out. 👀 For this concept, I turned an ordinary digital camera into a virtual…",
+      "publishedAt": "2026-11-24T22:12:07Z",
+      "url": "https://goodcase.ai/cases/viipin8-seedance-2-5-ai-96a2fbd3f75f",
+      "imageUrl": "https://goodcase.ai/cases/viipin8-seedance-2-5-ai-96a2fbd3f75f/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "27c67e4f81c96c9a7be8",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "曼哈顿街头重力翻转的出租车追逐",
+      "summary": "重力一失常，追逐就开始。在 @frameo_ai 上用 Seedance 2.5 体验震撼的电影级动作场面。把想象变成 Hollywood 级视觉…",
+      "promptPreview": "Create a 26-second ultra-realistic Hollywood action sequence featuring @image1 as the protagonist and @image2 as the antagonist. Use the uploaded character references to preserve both characters’ fac…",
+      "publishedAt": "2026-11-24T22:12:06Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-a-26-second-ultra-realistic-hollywood-action-sequence-featuring-as-the-p-2b25365eb96d",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-26-second-ultra-realistic-hollywood-action-sequence-featuring-as-the-p-2b25365eb96d/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "a2008b65bb18b9bf734c",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "东京霓虹夜街的橙球一镜追逐",
+      "summary": "不可能的街头足球射门 ⚽ 在 @dreamina_ai 上使用 Seedance 2.5 制作 #dreamina #dreaminacreators 提示词 : 制作一段 30 秒的照片级写实电影感 o…",
+      "promptPreview": "Create a 30-second photorealistic cinematic one-take chase through a crowded neon-lit Tokyo shopping street at night. A stylish young adult woman with long black hair, wearing a black leather jacket,…",
+      "publishedAt": "2026-11-24T22:12:05Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-photorealistic-cinematic-one-take-chase-through-a-crowded-ne-8dad3fb3e019",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-photorealistic-cinematic-one-take-chase-through-a-crowded-ne-8dad3fb3e019/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "f6c8d2963e9f3ae22654",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "古墓炎武士击败银发暗影术士",
+      "summary": "烈焰与暗影在一场史诗大战中交锋。两名武士，一座古墓，一场让电影级 AI 视频更进一步的对决。使用 Seedance 2.5 制作，平台为 …",
+      "promptPreview": "SAKURA VS RIRI — FLAME SAMURAI'S VICTORY 60 Seconds | 30 Scenes × 2 Seconds | 16:9 | 8K | 60 FPS MASTER INSTRUCTIONS Create an ultra-realistic cinematic 3D action film using Seedance 2.5. Start ex…",
+      "publishedAt": "2026-11-24T22:12:04Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-an-ultra-realistic-cinematic-3d-action-film-using-seedance-2-5-e8b0c750e9aa",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-an-ultra-realistic-cinematic-3d-action-film-using-seedance-2-5-e8b0c750e9aa/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "893f6bf960136121dd08",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "雨天清晨窗边享用自制三明治",
+      "summary": "创作一段 15 秒、超写实、具有电影感的 16:9 生活方式视频，场景设在下雨清晨的 Seoul，一间温馨的公寓里。一位美…",
+      "promptPreview": "Seedance 2.0 Prompt Create a 15-second ultra-photorealistic cinematic 16:9 lifestyle video set in a cozy Seoul apartment during a rainy early morning. A beautiful young Korean woman with long dark …",
+      "publishedAt": "2026-11-24T22:12:02Z",
+      "url": "https://goodcase.ai/cases/iamahmedfaraz66-seedance-2-0-ai-0d276e4db4c6",
+      "imageUrl": "https://goodcase.ai/cases/iamahmedfaraz66-seedance-2-0-ai-0d276e4db4c6/opengraph-image",
+      "creator": "Seedance 2.0 提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "338ec48ab8fc521f4ec8",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "冬日雪乡小屋里的小鸡、蘑菇餐与炉边黑猫",
+      "summary": "雪中乡间的一点魔法、温馨时光，还有可爱的动物伙伴。每一帧都宁静纯粹。使用 Seedance 2.5 制作 提示词：宁静的雪中乡间…",
+      "promptPreview": "A peaceful snowy countryside cottage in beautiful hand-drawn anime style. A person in a green winter coat feeds adorable yellow chicks, prepares a delicious meal with fresh vegetables and mushrooms i…",
+      "publishedAt": "2026-11-24T22:12:01Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-a-peaceful-snowy-countryside-cottage-in-beautiful-hand-drawn-anime-style-f7a96467d486",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-a-peaceful-snowy-countryside-cottage-in-beautiful-hand-drawn-anime-style-f7a96467d486/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "acd2c02cfc0e3c2e32e6",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "暴雨夜玻璃天桥上的红光搏斗",
+      "summary": "停电只是开始。🖤� 在 @ElevenCreative 上使用 Seedance 2.5 制作 #ElevenLabsAmbassador 提示词：制作一段 30 秒的照片级写实 Hollywood 动作…",
+      "promptPreview": "Create a 30-second photorealistic Hollywood action-thriller sequence titled \"THE SKYBRIDGE\". FORMAT: Vertical 9:16, 4K, 60 FPS. Exactly 30 seconds. Six shots, exactly 5 seconds each. Exactly five ha…",
+      "publishedAt": "2026-11-24T22:12:00Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-photorealistic-hollywood-action-thriller-sequence-titled-th-a8b02d8f4967",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-photorealistic-hollywood-action-thriller-sequence-titled-th-a8b02d8f4967/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "0ce0fdf3167dea305308",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "雪中女子强忍泪意紧握衣襟",
+      "summary": "🎬 MiniMax H3 | 微表情测试 — ComfyUI 这次我用了 @GrayNoteLab 的一段提示词，调整了各段时长，让它适配 12 秒的短片，再用 Mi… 运行。",
+      "promptPreview": "【Global Setup】 Photorealistic live-action, cinematic look, 16:9. An outdoor snowy setting, with only female lead A appearing throughout the entire film. The theme is the subtle emotion of holding bac…",
+      "publishedAt": "2026-11-24T22:11:59Z",
+      "url": "https://goodcase.ai/cases/minimax-h3-global-setup-e12b5bdb6c1c",
+      "imageUrl": "https://goodcase.ai/cases/minimax-h3-global-setup-e12b5bdb6c1c/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "minimax-h3",
+          "matchedName": "MiniMax H3"
+        }
+      ]
+    },
+    {
+      "id": "80f669a413377c60ce5d",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "冬夜沙发上的抢毯大战",
+      "summary": "冬天很冷，他俩这场爱情小战却打得火热！🥶🔥 有时候，浪漫就是抢一条毯子……再赢一个吻。💋😌 🎥 使用 @GlbGPT 制作 #GLO…",
+      "promptPreview": "SEEDANCE 2.5 — 16:9 — 30s — \"이불 전쟁 (Blanket War)\" — Korean romantic-comedy short, multi-shot cinematic, Korean dialogue, natural ASMR only (no music, no BGM). REFERENCES Image1 — location (cozy Seou…",
+      "publishedAt": "2026-11-24T22:11:57Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-seedance-2-5-16-9-30s-blanket-war-korean-romantic-comedy-shor-fb00f375aa67",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-seedance-2-5-16-9-30s-blanket-war-korean-romantic-comedy-shor-fb00f375aa67/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "481ef992833bd7ae2936",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "女孩出门一天后回家遇见橘猫",
+      "summary": "使用 seedance 2.5 制作 提示词 👇 制作一部 40 秒的高品质电影感 3D 动画短片，角色富有表现力，光照逼真，环境细节丰…",
+      "promptPreview": "Create a 40-second high-quality cinematic 3D animated short film with expressive characters, realistic lighting, detailed environments, and emotional storytelling. Main Characters: - A cute, chubby…",
+      "publishedAt": "2026-11-24T22:11:55Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-a-40-second-high-quality-cinematic-3d-animated-short-film-with-expressiv-15f39719d652",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-40-second-high-quality-cinematic-3d-animated-short-film-with-expressiv-15f39719d652/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "30a6538be6e20abfe914",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "粉发女子在夜间ATM厅制服持枪劫匪",
+      "summary": "劫匪撞上此生最可怕噩梦的那一刻。@FishCreativeHQ 上的 Seedance 2.5 提示词 角色 女主角 — BO RA（25 岁） 参考图：image_1 一位格外……",
+      "promptPreview": "The moment a robber met his worst nightmare. Seedance 2.5 on @FishCreativeHQ prompt CHARACTERS FEMALE LEAD — BO RA (25 Years Old) Reference: image_1 An exceptionally beautiful 25-year-old Korea…",
+      "publishedAt": "2026-11-24T22:11:54Z",
+      "url": "https://goodcase.ai/cases/just-sharon7-seedance-2-5-ai-2144f966a4c5",
+      "imageUrl": "https://goodcase.ai/cases/just-sharon7-seedance-2-5-ai-2144f966a4c5/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "0efcd33c2989ca262d46",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "雪夜末班，乘客向老站长挥手告别",
+      "summary": "#ElevenLabsAmbassador 40 年来，他向每一列火车挥手道别。最后一晚，火车回来向他道别了 🚂✨ 使用 @ElevenCreative 制作，来自…",
+      "promptPreview": "#ElevenLabsAmbassador For 40 years he waved goodbye to every train. On his last night, the train came back to say goodbye to him 🚂✨ Made with @ElevenCreative by @ElevenLabs : 🎬 Visuals: Seedance …",
+      "publishedAt": "2026-11-24T22:11:52Z",
+      "url": "https://goodcase.ai/cases/0x-zyven-seedance-2-5-ai-53f045f60e5a",
+      "imageUrl": "https://goodcase.ai/cases/0x-zyven-seedance-2-5-ai-53f045f60e5a/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "cd6b3f6281a8ad366fa8",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "屋顶小茶壶机器人用胸口蓝光救起坠星",
+      "summary": "#ElevenLabsAmbassador 为了救一颗坠落的星星，你愿意付出什么？🌟 一个小小的茶壶机器人、一处屋顶，还有一颗需要一点光的星星。我的最新短片，制作…",
+      "promptPreview": "#ElevenLabsAmbassador What would you give to save a falling star? 🌟 A tiny teapot robot, one rooftop and a star that needed a little light. My latest short, built entirely inside @elevencreative b…",
+      "publishedAt": "2026-11-24T22:11:51Z",
+      "url": "https://goodcase.ai/cases/0xdripz-seedance-2-5-ai-88052b9167de",
+      "imageUrl": "https://goodcase.ai/cases/0xdripz-seedance-2-5-ai-88052b9167de/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "bc3f7ecc6409d1cbb49d",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "六机器人分时运营无露脸账号播放攀升",
+      "summary": "卧槽！现在是 Grok Bot 在运营我的 Instagram，已经有 4.1 万粉丝、380 万次观看，而我从没露过脸。机器人做的一条 Reel 触达了 110 万个账号，62 条 Reel…",
+      "promptPreview": "Create 6 bots that together run my faceless Instagram page about [niche], so I grow followers, reach and views without filming or writing anything myself. Give each bot one job and a daily time. Scou…",
+      "publishedAt": "2026-11-24T22:11:50Z",
+      "url": "https://goodcase.ai/cases/grok-imagine-create-6-bots-that-together-run-my-faceless-instagram-page-about-niche-so-i-60d5fb299d33",
+      "imageUrl": "https://goodcase.ai/cases/grok-imagine-create-6-bots-that-together-run-my-faceless-instagram-page-about-niche-so-i-60d5fb299d33/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "grok-llm",
+          "matchedName": "Grok"
+        }
+      ]
+    },
+    {
+      "id": "0ce606a566bb38b421fc",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "萌娃给胖爸爸涂妆扎蝴蝶结",
+      "summary": "使用 seedance 2.5 制作 提示词 👇 制作一部色彩缤纷、受 Pixar 启发的高品质 3D 家庭喜剧动画。保持角色设计一致，富有表现力的…",
+      "promptPreview": "Create a high-quality 3D animated family comedy video in a colorful Pixar-inspired style. Use consistent character designs, expressive facial animations, realistic movements, cinematic lighting, and …",
+      "publishedAt": "2026-11-24T22:11:49Z",
+      "url": "https://goodcase.ai/cases/seedance-2-5-create-a-high-quality-3d-animated-family-comedy-video-in-a-colorful-pixar-inspi-7b25cf5b0f83",
+      "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-high-quality-3d-animated-family-comedy-video-in-a-colorful-pixar-inspi-7b25cf5b0f83/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "1c3606fff856237e09d7",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "几何构成中的麦穗象征解剖",
+      "summary": "我们由什么构成？可见之物的象征性解剖 @TapNow_AI 上的 GPT Image 2.6 提示词 将上传的照片转化为一张高品质、博物馆级的……",
+      "promptPreview": "WHAT ARE WE MADE OF? A Symbolic Anatomy of the Visible GPT Image 2.6 on @TapNow_AI prompt Transform the uploaded photograph into a premium-quality, museum-grade conceptual art poster that investi…",
+      "publishedAt": "2026-11-24T22:11:48Z",
+      "url": "https://goodcase.ai/cases/just-sharon7-gpt-image-2-6-ai-eab939abf101",
+      "imageUrl": "https://goodcase.ai/cases/just-sharon7-gpt-image-2-6-ai-eab939abf101/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z",
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "gpt-image",
+          "matchedName": "GPT Image"
+        }
+      ]
+    },
+    {
+      "id": "8d3d37777c58ab106017",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "不要生成音乐，不要生成字幕。",
+      "summary": "这种风格的视频最早是personality出的，条条都几十万播放，花半小时复刻了一个😂 做法就是Mj生成图片，然后Seedance生成视频，后期把颜色调的艳一点。 我用的图生视频提示词： 不要生成音乐，不要生成字幕。 【画风】奇幻插画质感，整段的画面、颜色、人物和巨城，与首帧一致。天是深钴蓝，草是发亮的嫩绿，阴影偏蓝…",
+      "promptPreview": "不要生成音乐，不要生成字幕。 【画风】奇幻插画质感，整段的画面、颜色、人物和巨城，与首帧一致。天是深钴蓝，草是发亮的嫩绿，阴影偏蓝紫，红围巾是画面里唯一的暖色。 【镜头】整段 7 秒，穿越机贴地高速追拍，运镜又快又顺，中途不减速。 【约束】一镜到底，不切镜。没有文字、字幕、水印。 镜头 1｜开头和首帧一模一样：白衣少年骑着自行车，红围巾向后飘，沿着开满白色小花的陡草坡全速往下冲，右边远处是白色巨…",
+      "publishedAt": "2026-11-24T22:11:46Z",
+      "url": "https://goodcase.ai/cases/seedance-91adc46c8167",
+      "imageUrl": "https://goodcase.ai/cases/seedance-91adc46c8167/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "0b878b2ef99981d2a02e",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "同一游戏过场的三档画质对照",
+      "summary": "一台开了 DLSS 5 的 PC 干翻 GTA 6 所有主机版本。还是同一台 PS5 Pro，只是接上了 PC。帧率从 30 提到 60 fps，打光像电影，一分钱也不用多花。还有…",
+      "promptPreview": "every console version of GTA 6 F*CKED by one PC with DLSS 5 meet the same PS5 Pro, just plugged into a PC: 60 fps instead of 30, movie lighting, $0 extra. and at the bottom Seedance 2.5 reshot it li…",
+      "publishedAt": "2026-11-24T22:11:45Z",
+      "url": "https://goodcase.ai/cases/phosphenq-seedance-2-5-ai-366248e5eed0",
+      "imageUrl": "https://goodcase.ai/cases/phosphenq-seedance-2-5-ai-366248e5eed0/opengraph-image",
+      "creator": null,
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "5658a65b7f09619ab50b",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "暖光复古棚拍中的缎衫女子坐像",
+      "summary": "为上传的参考图中同一位成年女性创作一张高度写实、具有电影感的复古棚拍肖像。…",
+      "promptPreview": "Create a highly photorealistic cinematic vintage studio portrait of the same adult woman shown in the uploaded reference image. Preserve her exact facial identity, recognizable features, natural skin…",
+      "publishedAt": "2026-11-24T22:11:44Z",
+      "url": "https://goodcase.ai/cases/gpt-image-2-6-create-a-highly-photorealistic-cinematic-vintage-studio-portrait-of-the-same-ad-3c4339630eb2",
+      "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-create-a-highly-photorealistic-cinematic-vintage-studio-portrait-of-the-same-ad-3c4339630eb2/opengraph-image",
+      "creator": "ChatGPT 中的 GPT Image 2.6 提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "5b1a73c7361084fc37c9",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "湖畔露营写实照片与复古海报对照",
+      "summary": "\"将照片转换为摄影与插画并置的双风格画面\", \"reference_image\": \"以上传的图片作为唯一的视觉参考来…",
+      "promptPreview": "GPT image 2.6 on ChatGPT. Prompt. { \"task\": \"Dual-style photographic to illustrated transformation\", \"reference_image\": \"Use the uploaded image as the sole source of visual reference.\", \"comp…",
+      "publishedAt": "2026-11-24T22:11:43Z",
+      "url": "https://goodcase.ai/cases/maercihh-gpt-image-2-6-ai-7703f1fc1ebf",
+      "imageUrl": "https://goodcase.ai/cases/maercihh-gpt-image-2-6-ai-7703f1fc1ebf/opengraph-image",
+      "creator": "在 ChatGPT 中使用 GPT image 2.6。提示词。{ \"task\"",
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "940021da84cfb9f2a629",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "罪恶都市日落中的GTA角色加载屏",
+      "summary": "GRAND THEFT AUTO VI 角色变身 | 电影感游戏加载画面。将上传照片中的人物变成一个高度…",
+      "promptPreview": "GRAND THEFT AUTO VI CHARACTER TRANSFORMATION | CINEMATIC GAME LOADING SCREEN Transform the person in the uploaded photograph into a highly detailed, visually striking character illustration inspired…",
+      "publishedAt": "2026-11-24T22:11:42Z",
+      "url": "https://goodcase.ai/cases/gpt-image-2-6-transform-the-person-in-the-uploaded-photograph-into-a-highly-detailed-visuall-81cc795f1ba6",
+      "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-transform-the-person-in-the-uploaded-photograph-into-a-highly-detailed-visuall-81cc795f1ba6/opengraph-image",
+      "creator": "GPT Image 2.6 提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "14cfd659dfab0570921e",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "罪恶城落日棕榈衫男人海报",
+      "summary": "GTA VI | 大胆醒目的 Vice City 角色海报。将上传的参考照片中的人物变成令人惊艳的 Grand Theft A…",
+      "promptPreview": "GTA VI | BOLD VICE CITY CHARACTER POSTER Transform the person in the uploaded reference photograph into a stunning Grand Theft Auto VI-inspired character poster, capturing the bold, glamorous, rebel…",
+      "publishedAt": "2026-11-24T22:11:41Z",
+      "url": "https://goodcase.ai/cases/gpt-image-2-6-transform-the-person-in-the-uploaded-reference-photograph-into-a-stunning-grand-e62a108fa8bf",
+      "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-transform-the-person-in-the-uploaded-reference-photograph-into-a-stunning-grand-e62a108fa8bf/opengraph-image",
+      "creator": "GTA VI 🌆 GPT Image 2.6 提示词",
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
+    {
+      "id": "3d8caa2cd1a487761ba9",
+      "sourceId": "goodcase",
+      "sourceName": "GoodCase.ai",
+      "category": "cases",
+      "title": "男孩为石阶上的女子拉小提琴",
+      "summary": "\"将上传的参考图转换成一幅细腻的手绘水彩插画。\", \"reference_image\": …",
+      "promptPreview": "GPT image 2.6 on ChatGPT. Prompt. { \"task\": \"Transform the uploaded reference image into a delicate, hand-painted watercolor illustration.\", \"reference_image\": { \"instruction\": \"Use the uploaded im…",
+      "publishedAt": "2026-11-24T22:11:40Z",
+      "url": "https://goodcase.ai/cases/maercihh-gpt-image-2-6-ai-2f1fa85ee15d",
+      "imageUrl": "https://goodcase.ai/cases/maercihh-gpt-image-2-6-ai-2f1fa85ee15d/opengraph-image",
+      "creator": "在 ChatGPT 中使用 GPT image 2.6。提示词。{ \"task\"",
+      "tags": [],
+      "discoveredAt": "2026-11-25T13:02:00Z"
+    },
     {
       "id": "cda0ff1d99a419ef2597",
       "sourceId": "juya-daily",
@@ -14,7 +625,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "020fc8e4238e337102be",
@@ -29,7 +640,7 @@
       "imageUrl": "https://goodcase.ai/cases/case-059b579f33f6/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelMentions": [
         {
           "modelFamilyId": "nano-banana",
@@ -57,7 +668,7 @@
       "imageUrl": "https://goodcase.ai/cases/kling-4-0-vs-minimax-h3-5af075ab7310/opengraph-image",
       "creator": "saniaspeaks_",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelMentions": [
         {
           "modelFamilyId": "kling",
@@ -98,7 +709,7 @@
       "imageUrl": "https://goodcase.ai/cases/case-f3eeec6e32d5/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "099f974eb60d850bf6f8",
@@ -113,7 +724,7 @@
       "imageUrl": "https://goodcase.ai/cases/superbike-showroom/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "93edffb580986db5baf1",
@@ -128,7 +739,7 @@
       "imageUrl": "https://goodcase.ai/cases/rain-gear/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "9591e7f6a18e1ea07d83",
@@ -143,7 +754,7 @@
       "imageUrl": "https://goodcase.ai/cases/print-gallery/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "16dd5d01028db37d8e24",
@@ -158,7 +769,7 @@
       "imageUrl": "https://goodcase.ai/cases/soda-bottles/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "eb1277e2fb9b1e13311a",
@@ -173,7 +784,7 @@
       "imageUrl": "https://goodcase.ai/cases/book-library/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "636a1bec0d4b2077ac91",
@@ -188,7 +799,7 @@
       "imageUrl": "https://goodcase.ai/cases/container-portfolio/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "cfe8f1e7d3da71f7abc6",
@@ -203,7 +814,7 @@
       "imageUrl": "https://goodcase.ai/cases/diegocabezas01-gpt-6-2-astra-ai-f47a790368e8/opengraph-image",
       "creator": "GPT-6.2 Astra Ultra",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "692648bc23cf07f50fb5",
@@ -218,7 +829,7 @@
       "imageUrl": "https://goodcase.ai/cases/claude-fable-5-2-build-dusk-depths-a-submarine-hunting-game-as-one-self-contained-html-file-3d722758f907/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelMentions": [
         {
           "modelFamilyId": "claude",
@@ -246,7 +857,7 @@
       "imageUrl": "https://goodcase.ai/cases/gpt-image-create-two-separate-pictures-of-the-same-beautiful-young-woman-from-the-referen-ae2695706735/opengraph-image",
       "creator": "ChatGPT 上的 GPT image 提示词",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "d03864e8277251696356",
@@ -261,7 +872,7 @@
       "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-create-an-exceptionally-beautiful-surrealist-architectural-travel-artwork-featu-498cbf9815de/opengraph-image",
       "creator": "GPT image 2.6 提示词",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "e2e18bcec00495cd27e7",
@@ -276,7 +887,7 @@
       "imageUrl": "https://goodcase.ai/cases/kling-film-look-test-lilith-f4ed15d0130b/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelMentions": [
         {
           "modelFamilyId": "kling-image",
@@ -308,7 +919,7 @@
       "imageUrl": "https://goodcase.ai/cases/gpt-image-2-5-transform-the-person-in-the-uploaded-reference-photograph-into-an-extraordinary-d8b9868ab1a3/opengraph-image",
       "creator": "GTA VI 来了 🤯 GPT Image 2.5 提示词",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "adfb63ed9c2c27ef0f86",
@@ -323,7 +934,7 @@
       "imageUrl": "https://goodcase.ai/cases/inkling-2-mini-create-a-realistic-car-in-a-single-html-file-using-three-js-590060889593/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "cf10d8e6a3712504027a",
@@ -338,7 +949,7 @@
       "imageUrl": "https://goodcase.ai/cases/pixverse-a-beautiful-young-woman-in-a-light-pink-floral-mini-dress-dances-gracefully-and-d63234254086/opengraph-image",
       "creator": "10秒舞蹈视频提示词",
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "7ff16aa95a8d7be05b57",
@@ -353,7 +964,7 @@
       "imageUrl": "https://goodcase.ai/cases/gpt-image-2-6-from-the-image-i-uploaded-create-a-premium-artistic-poster-in-a-vertical-3-4-a-f0e20dcd9dca/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelFamilyMentions": [
         {
           "modelFamilyId": "gpt-image",
@@ -374,7 +985,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-2-5-create-a-30-second-ultra-realistic-cinematic-fantasy-video-16-9-widescreen-wi-4916aa2713af/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelMentions": [
         {
           "modelFamilyId": "seedance",
@@ -402,7 +1013,7 @@
       "imageUrl": "https://goodcase.ai/cases/eliadele-claude-opus-5-5-claude-fable-5-2-gpt-6-2-astra-gemini-4-neon-ai-781cd76b35b5/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "dce803649236de4c0369",
@@ -417,7 +1028,7 @@
       "imageUrl": "https://goodcase.ai/cases/seedance-15-9-16-441779df73c2/opengraph-image",
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelFamilyMentions": [
         {
           "modelFamilyId": "seedance",
@@ -494,7 +1105,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "b1a22f30dc97ec64be9b",
@@ -509,7 +1120,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelFamilyMentions": [
         {
           "modelFamilyId": "grok-llm",
@@ -597,7 +1208,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "bbe5604ba6b302e3f981",
@@ -762,7 +1373,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "7ed85ce57441631a8e82",
@@ -979,7 +1590,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelMentions": [
         {
           "modelFamilyId": "gemini",
@@ -1137,7 +1748,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelFamilyMentions": [
         {
           "modelFamilyId": "kling",
@@ -1493,7 +2104,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z",
+      "discoveredAt": "2026-11-25T13:02:00Z",
       "modelMentions": [
         {
           "modelFamilyId": "fish-audio-s2",
@@ -1693,7 +2304,7 @@
       "imageUrl": null,
       "creator": null,
       "tags": [],
-      "discoveredAt": "2026-11-24T12:51:21Z"
+      "discoveredAt": "2026-11-25T13:02:00Z"
     },
     {
       "id": "770d7bbb1ebbe53357c8",

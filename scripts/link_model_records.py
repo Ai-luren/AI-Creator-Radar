@@ -10,14 +10,14 @@ ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "site/data/models.json"
 
 RECORD_SECTIONS = {
-    "site/data-v4/model-evaluations.json": ("items", ("modelName", "title", "summary")),
-    "site/data-v4/aihot-daily.json": ("items", ("title", "summary")),
-    "site/data-v4/juya-daily.json": ("items", ("title", "summary")),
-    "site/data-v4/aihot-items.json": ("items", ("title", "summary", "reason")),
+    "site/data/model-evaluations.json": ("items", ("modelName", "title", "summary")),
+    "site/data/aihot-daily.json": ("items", ("title", "summary")),
+    "site/data/juya-daily.json": ("items", ("title", "summary")),
+    "site/data/aihot-items.json": ("items", ("title", "summary", "reason")),
     "site/data/feed-items.json": ("items", ("title", "summary")),
-    "site/data-v3/topics.json": ("milestones", ("title", "summary")),
-    "site/data-v4/social-accounts.json": ("posts", ("title", "note")),
-    "site/data-v4/platforms.json": (None, ("name", "type", "note")),
+    "site/data/topics.json": ("milestones", ("title", "summary")),
+    "site/data/social-accounts.json": ("posts", ("title", "note")),
+    "site/data/social-platforms.json": (None, ("name", "type", "note")),
 }
 
 

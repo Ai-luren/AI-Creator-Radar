@@ -24,11 +24,6 @@ MODELS_FILE = ROOT / "site" / "data" / "models.json"
 UPDATES_FILE = ROOT / "site" / "data" / "model-updates.json"
 STATUS_FILE = ROOT / "site" / "data" / "model-monitor-status.json"
 STATE_FILE = ROOT / "site" / "data" / "model-monitor-state.json"
-V3_DIR = ROOT / "site" / "data-v3"
-V3_MODELS_FILE = V3_DIR / "models.json"
-V3_UPDATES_FILE = V3_DIR / "model-updates.json"
-V3_STATUS_FILE = V3_DIR / "model-monitor-status.json"
-V3_STATE_FILE = V3_DIR / "model-monitor-state.json"
 MAX_BYTES = 6 * 1024 * 1024
 MAX_ITEMS_PER_SOURCE = 80
 RETENTION_DAYS = 730
@@ -644,8 +639,7 @@ def main() -> int:
 
     models_list = load_json(MODELS_FILE, [])
     models = {model["id"]: model for model in models_list if model.get("id")}
-    previous_sets = [load_json(path, {"items": []}) for path in (UPDATES_FILE, V3_UPDATES_FILE)]
-    previous = {"items": []}
+    previous_updates = load_json(UPDATES_FILE, {"items": []})
     previous_status = load_json(STATUS_FILE, {"sources": []})
     old_status = {entry.get("id"): entry for entry in previous_status.get("sources", [])}
     now = datetime.now(timezone.utc)
@@ -658,10 +652,9 @@ def main() -> int:
             fetched.append(future.result())
 
     by_id = {}
-    for collection in previous_sets:
-        for item in collection.get("items", []):
-            if item.get("id"):
-                by_id[item["id"]] = merge_item(by_id[item["id"]], item) if item["id"] in by_id else item
+    for item in previous_updates.get("items", []):
+        if item.get("id"):
+            by_id[item["id"]] = item
     status_entries = []
     success_count = 0
     new_count = 0
@@ -728,10 +721,6 @@ def main() -> int:
         write_json(STATUS_FILE, status)
         write_json(STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active]})
         write_json(MODELS_FILE, models_output)
-        write_json(V3_MODELS_FILE, models_output)
-        write_json(V3_UPDATES_FILE, updates)
-        write_json(V3_STATUS_FILE, status)
-        write_json(V3_STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active]})
     return 0
 
 

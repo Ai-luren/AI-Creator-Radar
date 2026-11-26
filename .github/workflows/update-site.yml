@@ -95,33 +95,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add \
-            site/data/models.json \
-            site/data/model-updates.json \
-            site/data/model-monitor-status.json \
-            site/data/model-monitor-state.json \
-            site/data-v3/models.json \
-            site/data-v3/model-updates.json \
-            site/data-v3/model-monitor-status.json \
-            site/data-v3/model-monitor-state.json \
-            site/data-v4/model-releases-30d.json \
-            site/data-v3/topics.json \
-            site/data-v3/chronicle-updates-status.json \
-            site/data/reference-rankings.json \
-            site/data-v3/reference-rankings.json \
-            site/data-v4/aihot-items.json \
-            site/data-v4/aihot-daily.json \
-            site/data-v4/juya-daily.json \
-            site/data-v4/maomu-rankings.json \
-            site/data-v4/model-resource-status.json \
-            site/data-v4/aipick-data.json \
-            site/data-v4/model-evaluations.json \
-            site/data-v4/social-accounts.json \
-            site/data-v4/platforms.json \
-            site/data/feed-items.json \
-            site/data/awesome-repos.json \
-            site/data/resource-status.json \
-            site/data/resource-sources.json
+          git add site/data/
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): refresh models, rankings and resources"
             git push origin "HEAD:${GITHUB_REF_NAME}"
@@ -132,10 +106,6 @@ jobs:
       - name: Configure GitHub Pages
         if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
-
-      - name: Publish the AI video creator workbench as the homepage
-        if: github.ref == 'refs/heads/main'
-        run: cp site/preview-v4.html site/index.html
 
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main'
