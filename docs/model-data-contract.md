@@ -141,3 +141,16 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 - 目录现为 324 个版本，125 份结构化发布证据，51 条历史阶段证据。未重新核实全部旧记录。
 
 来源：[OpenAI 更新日志](https://developers.openai.com/api/docs/changelog)、[Google Nano Banana](https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/)、[Google Nano Banana 2 Lite](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/)、[腾讯混元仓库](https://github.com/Tencent-Hunyuan/HunyuanImage-3.0)、[Midjourney 版本文档](https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version)、[Seedream 2.0 技术页](https://seed.bytedance.com/zh/seedream2_0)、[阿里云模型日志](https://www.alibabacloud.com/help/en/model-studio/newly-released-models)。
+
+
+## 音乐与语音谱系复核第六批（2026-11-26）
+
+- 新补 19 个历史型号（Mureka 13 个、Suno 2 个、Eleven TTS 2 个、Lyria 2 个）、11 份正式发布证据及 21 条历史阶段证据。当前目录 343 版本、136 份正式证据、72 条历史阶段记录。
+- [Mureka 官方发展史](https://www.mureka.ai/blog_zh-CN/what-is-mureka.html) 记载 1.0–7.6 的历史进展；内部研发、内测及已有可用记录不能直接当作公开首发。V6/O1（2025-03-26）、V7（2025-07-23）、V7.5（2025-08-15）依据昆仑官网确认；V7.6/O2 的 API 上线日为 2025-12-09。V8、V9、V9.5/O3 分别保留 2026-01、03、07 月份精度；V9.5 的 8 月 28 日增强版更新及 Remix V9.5 的 11 月 12 日 API 开放是不同事件，不将 11 月 16 日回顾文章当作首发日。
+- Suno V2 仅确认 2024-05-24 已可选择；V4.5-all 及 V6 Wild/Mini 有官方发布日期。Suno V1、V4.5+ 的准确首发仍待查。
+- Eleven Turbo v2.5、Flash v2/v2.5、v3 Conversational 补发布证据；Eleven v3 保留 Alpha、API（2025-08-20）、全面开放（2026-02-02）三个阶段。
+- Lyria 初代公布于 2023-11-16；Lyria 2 在 Vertex AI 全面开放于 2025-05-20；RealTime 于 2025-04-24 公布介绍，5 月 20 日开放 API。
+- 增加 `development-milestone`（研发阶段）、`documented-availability`（已有可用记录）、`model-update`（模型更新），保持历史证据与发布视图分离；历史日期精度由 datePrecision 表示，不以 stage 猜测。
+
+来源：[昆仑官网](https://www1.kunlun.com/news/3.html)、[Mureka API 日志](https://platform.mureka.ai/docs/en/changelog.html)、[昆仑半年报公告转载](https://epaper.cs.com.cn/zgzqb/html/2026-08/20/nw.D110000zgzqb_20260820_1-B081.htm)、[Suno 更新日志](https://suno.com/release-notes)、[ElevenLabs 官方博客](https://elevenlabs.io/blog)、[Google DeepMind 初代 Lyria](https://deepmind.google/blog/transforming-the-future-of-music-creation/)。
+未完成全部音频厂商及旧有记录的再次核验；Mureka TTS V1、Lyria 后续变体、MiniMax Speech、Gemini TTS 等仍需单独核验范围与数据结构。
