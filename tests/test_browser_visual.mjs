@@ -128,6 +128,7 @@ try{
   });
   if(viewport.width!==360)await check('news category and details',async()=>{
    await page.goto(base+'?view=feeds',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   const days=await page.evaluate(()=>({day:latestBriefingDay(),events:combinedNews(latestBriefingDay()).map(x=>x.day)}));assert.ok(days.events.every(d=>d===days.day),'mixed briefing dates');assert.ok(await page.locator('.briefing-digest-section').count()<=1,'multiple briefing days');
    await page.locator('[data-briefing-category="模型"]').click();assert.equal(await page.evaluate(()=>state.briefingCategory),'模型');
    const details=page.locator('.combined-news-card details').first();await details.locator('summary').click();assert.equal(await details.evaluate(el=>el.open),true);
    await page.screenshot({path:path.join(out,label+'-news-detail.png')});
@@ -150,7 +151,7 @@ try{
    assert.equal(await page.evaluate(()=>state.modelCategory),'image');
   });
   if(viewport.width!==360)await check('creator workflow',async()=>{
-   await page.goto(base+'?view=opportunities&tab=programs',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.goto(base+'?view=opportunities&tab=programs',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);const regionFilter=page.locator('[data-opportunity-select="opportunityRegion"]');await regionFilter.selectOption('domestic');assert.equal(await page.evaluate(()=>state.opportunityRegion),'domestic');await regionFilter.selectOption('all');
    const progress=page.locator('[data-creator-progress]').first();await progress.selectOption('watch');await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-creator-progress]').first().inputValue(),'watch');
    await page.screenshot({path:path.join(out,label+'-programs.png')});
    await page.goto(base+'?view=platforms',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);const fav=page.locator('[data-platform-favorite]').first(),favoriteId=await fav.getAttribute('data-platform-favorite');await fav.click();await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-platform-favorite="'+favoriteId+'"]').getAttribute('aria-pressed'),'true');
