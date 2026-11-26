@@ -16,14 +16,20 @@
     "milestones": [
       {
         "date": "2026-11-09",
-        "kind": "模型",
-        "title": "Claude Fable 5.2 与 Claude Mythos 5.2 发布",
-        "summary": "Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2。官方说明这两个名称对应同一个底层模型，但面向不同用途和安全控制；Fable 可供一般用户使用，Mythos 主要面向经过验证的网络安全与生命科学机构。",
+        "kind": "模型发布",
+        "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+        "summary": "Our most capable models for daunting technical work, Claude Fable 5.2 and Claude Mythos 5.2 set a new bar in coding, finance, and the sciences. Announcements",
         "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
-        "auditId": "v48-anthropic-0014",
-        "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.anthropic.com/news/models",
+        "sourceId": "anthropic-model-news",
+        "sourceName": "Anthropic 官方新闻",
+        "sourceUpdateId": "b6edf533d574346e9f",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "article-publication-date",
+        "sourceModelId": "claude",
+        "collectedAt": "2026-11-26T12:21:52Z",
+        "modelCategory": "llm",
         "modelMentions": [
           {
             "modelFamilyId": "claude",
@@ -41,24 +47,20 @@
             "modelFamilyId": "claude",
             "matchedName": "Claude Mythos 5.2"
           }
-        ]
+        ],
+        "recoveryProofId": "recovery-a989f1582084d0cf153c",
+        "previousSourceDate": "2026-10-18T00:00:00Z"
       },
       {
-        "date": "2026-10-18",
-        "kind": "模型发布",
-        "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
-        "summary": "Our most capable models for daunting technical work, Claude Fable 5.2 and Claude Mythos 5.2 set a new bar in coding, finance, and the sciences. Announcements",
+        "date": "2026-11-09",
+        "kind": "模型",
+        "title": "Claude Fable 5.2 与 Claude Mythos 5.2 发布",
+        "summary": "Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2。官方说明这两个名称对应同一个底层模型，但面向不同用途和安全控制；Fable 可供一般用户使用，Mythos 主要面向经过验证的网络安全与生命科学机构。",
         "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
-        "sourceId": "anthropic-model-news",
-        "sourceName": "Anthropic 官方新闻",
-        "sourceUpdateId": "b6edf533d574346e9f",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "claude",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "llm",
+        "auditId": "v48-anthropic-0014",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-24",
+        "verificationUrl": "https://www.anthropic.com/news/models",
         "modelMentions": [
           {
             "modelFamilyId": "claude",
@@ -1537,6 +1539,38 @@
             "modelFamilyId": "gemini",
             "modelVersionId": "gemini-4-hydrogen",
             "matchedName": "Gemini 4 Hydrogen"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "matchedName": "Gemini 4 Carbon"
+          }
+        ]
+      },
+      {
+        "date": "2026-11-10",
+        "kind": "模型发布",
+        "title": "Gemini 4 Carbon is now available",
+        "summary": "",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+        "sourceId": "deepmind-news",
+        "sourceName": "Google DeepMind 官方新闻",
+        "sourceUpdateId": "b94ca56d3c3ea473fd",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "article-publication-date",
+        "recoveryProofId": "recovery-5b4c18faabadfb3802c4",
+        "previousSourceDate": null,
+        "sourceModelId": "gemini",
+        "collectedAt": "2026-11-26T17:29:51Z",
+        "modelCategory": "llm",
+        "modelMentions": [
+          {
+            "modelFamilyId": "gemini",
+            "modelVersionId": "gemini-4-carbon",
+            "matchedName": "Gemini 4 Carbon"
           }
         ],
         "modelFamilyMentions": [

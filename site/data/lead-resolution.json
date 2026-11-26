@@ -1,37 +1,271 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-26T17:23:36+00:00",
+  "checkedAt": "2026-11-26T17:29:49+00:00",
   "summary": {
-    "uniqueOfficialUrls": 10,
-    "attempted": 10,
-    "articleDateVerified": 4,
-    "newlyCheckedVerified": 4,
-    "awaitingProbe": 0,
-    "unresolved": 4,
-    "notAnnouncement": 2
+    "uniqueOfficialUrls": 23,
+    "attempted": 12,
+    "articleDateVerified": 6,
+    "newlyCheckedVerified": 2,
+    "awaitingProbe": 1,
+    "unresolved": 10,
+    "notAnnouncement": 2,
+    "weakCandidateDatesCorrected": 5
   },
   "items": [
     {
-      "id": "recovery-550f4d88633d42452645",
-      "urlKey": "https://www.anthropic.com/news/expanding-partnership-gsa",
-      "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "id": "recovery-5b4c18faabadfb3802c4",
+      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
       "leadIds": [
-        "17beaffacb91f706b08c",
-        "c69166643fbc30c82eff"
+        "bff4b3280ce688e61de2"
       ],
       "discoverySourceIds": [
-        "olshansk-anthropic-feed",
-        "turing-anthropic-feed"
+        "local-official-candidates"
       ],
       "reportedDates": [
-        "2026-10-27"
+        "2026-11-26"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "status": "article-date-verified",
+      "title": "Gemini 4 Carbon is now available",
+      "modelId": "gemini",
+      "vendor": "Google",
+      "category": "llm",
+      "articlePublishedAt": "2026-11-10T00:00:00Z",
+      "firstVerifiedAt": "2026-11-26T17:29:49+00:00"
+    },
+    {
+      "id": "recovery-729b5981c11c6f6a048a",
+      "urlKey": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste",
+      "url": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste",
+      "leadIds": [
+        "988f9d1c9f395f8cec79"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-26"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
       "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
-      "status": "not-model-announcement",
-      "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
+      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "status": "outside-current-window",
+      "title": "Introducing v5.5: Voices, Custom Models, and My Taste",
+      "articlePublishedAt": "2026-03-26T17:21:00Z"
+    },
+    {
+      "id": "recovery-7ecefc6567b5334dd990",
+      "urlKey": "https://suno.com/release-notes/introducing-v6",
+      "url": "https://suno.com/release-notes/introducing-v6",
+      "leadIds": [
+        "80c333fcc30697abc772"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-26"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "status": "outside-current-window",
+      "title": "Introducing v6",
+      "articlePublishedAt": "2026-09-09T15:10:20Z"
+    },
+    {
+      "id": "recovery-438533b2a7fab7e7ef95",
+      "urlKey": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
+      "url": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
+      "leadIds": [
+        "7b7633eb1d4a42b0de25"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-26"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "status": "outside-current-window",
+      "title": "Introducing v5 - the world's best music model",
+      "articlePublishedAt": "2025-09-23T18:17:00Z"
+    },
+    {
+      "id": "recovery-2eb810fd1adf8021f21e",
+      "urlKey": "https://sand.ai/blog/magi-2",
+      "url": "https://sand.ai/blog/magi-2",
+      "leadIds": [
+        "e60abd81042c5811d827"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-24"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-93dc5dee213209423c58",
+      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-neon",
+      "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+      "leadIds": [
+        "a2e1b81fa54cf2c987af"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-18"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "status": "date-unresolved",
+      "title": "Gemini 4 Neon",
+      "modelId": "gemini"
+    },
+    {
+      "id": "recovery-22d3b928da2e6e05e221",
+      "urlKey": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+      "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all",
+      "leadIds": [
+        "3d4b77b75f295cc78239"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-18"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "status": "article-date-verified",
+      "title": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise.",
+      "modelId": "kling-image",
+      "vendor": "Kling AI",
+      "category": "image",
+      "articlePublishedAt": "2026-11-17T17:56:46Z",
+      "firstVerifiedAt": "2026-11-26T17:29:49+00:00"
+    },
+    {
+      "id": "recovery-f58d44a1f0031867aa29",
+      "urlKey": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab",
+      "leadIds": [
+        "11c8dfb572322932a313",
+        "23f1f2ecc4cb8b45aa2a"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-16"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "status": "outside-current-window",
+      "title": "一镜成片，随心参考｜Seedance 2.5 正式发布",
+      "articlePublishedAt": "2026-07-31T00:00:00Z"
+    },
+    {
+      "id": "recovery-e9a194686567e1779632",
+      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-carbon",
+      "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+      "leadIds": [
+        "844f71d9205b0e54b15a"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-10"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "status": "date-unresolved",
+      "title": "Gemini 4 Carbon",
+      "modelId": "gemini"
+    },
+    {
+      "id": "recovery-ddcbda59e5408a91b095",
+      "urlKey": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+      "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+      "leadIds": [
+        "3c10256a5019e5be3718",
+        "d4e6ff026ccf64be6731"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-09"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-a2cadac0f94d0864a5cd",
+      "urlKey": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash",
+      "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+      "leadIds": [
+        "330dfb494620b14fc9be"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-05"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-d493ddc6fdca063ca2e6",
+      "urlKey": "https://www.minimax.cn/blog/minimax-h3-image",
+      "url": "https://www.minimax.cn/blog/minimax-h3-image",
+      "leadIds": [
+        "21d6fd64827847387c45"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "reportedDates": [
+        "2026-11-03"
+      ],
+      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:29:49+00:00",
+      "status": "family-unresolved",
+      "title": "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代"
     },
     {
       "id": "recovery-be0aed2f51056a6d6c6f",
@@ -59,28 +293,6 @@
       "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
     },
     {
-      "id": "recovery-8f6af8c44a4a1bfb5de3",
-      "urlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
-      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
-      "leadIds": [
-        "aa9f4ac4f7e2b5726e42",
-        "c706997129dfe347f996"
-      ],
-      "discoverySourceIds": [
-        "llm-world-json"
-      ],
-      "reportedDates": [
-        "2026-11-17"
-      ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
-      "status": "date-unresolved",
-      "title": "Introducing GPT-6.2 Astra and Sol",
-      "modelId": "gpt"
-    },
-    {
       "id": "recovery-d7c21c501eb23f12ba47",
       "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
@@ -106,14 +318,14 @@
       "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
     },
     {
-      "id": "recovery-1f23fe23a180f18b31eb",
-      "urlKey": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
-      "url": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+      "id": "recovery-a989f1582084d0cf153c",
+      "urlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "leadIds": [
-        "6b15ddd9110bfe6e00e2"
+        "3a9d309f17e3331aaf5c"
       ],
       "discoverySourceIds": [
-        "turing-anthropic-feed"
+        "olshansk-anthropic-feed"
       ],
       "reportedDates": [
         "2026-11-09"
@@ -131,14 +343,58 @@
       "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
     },
     {
-      "id": "recovery-a989f1582084d0cf153c",
-      "urlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
-      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "id": "recovery-550f4d88633d42452645",
+      "urlKey": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
       "leadIds": [
-        "3a9d309f17e3331aaf5c"
+        "17beaffacb91f706b08c",
+        "c69166643fbc30c82eff"
       ],
       "discoverySourceIds": [
-        "olshansk-anthropic-feed"
+        "olshansk-anthropic-feed",
+        "turing-anthropic-feed"
+      ],
+      "reportedDates": [
+        "2026-10-27"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "status": "not-model-announcement",
+      "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
+    },
+    {
+      "id": "recovery-8f6af8c44a4a1bfb5de3",
+      "urlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "leadIds": [
+        "aa9f4ac4f7e2b5726e42",
+        "c706997129dfe347f996"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "reportedDates": [
+        "2026-11-17"
+      ],
+      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-26T18:23:36+00:00",
+      "status": "date-unresolved",
+      "title": "Introducing GPT-6.2 Astra and Sol",
+      "modelId": "gpt"
+    },
+    {
+      "id": "recovery-1f23fe23a180f18b31eb",
+      "urlKey": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+      "url": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+      "leadIds": [
+        "6b15ddd9110bfe6e00e2"
+      ],
+      "discoverySourceIds": [
+        "turing-anthropic-feed"
       ],
       "reportedDates": [
         "2026-11-09"
@@ -235,6 +491,38 @@
       "nextAttemptAt": "2026-11-26T18:23:36+00:00",
       "status": "family-unresolved",
       "title": "Introducing Grok Voice 3.0"
+    }
+  ],
+  "candidateDateCorrections": [
+    {
+      "updateId": "e6064d6e415f43c281",
+      "previousDate": null,
+      "articleDate": "2026-11-18T00:00:00Z",
+      "proofId": "recovery-be0aed2f51056a6d6c6f"
+    },
+    {
+      "updateId": "a523b07bdbe8407311",
+      "previousDate": null,
+      "articleDate": "2026-11-12T00:00:00Z",
+      "proofId": "recovery-d7c21c501eb23f12ba47"
+    },
+    {
+      "updateId": "b94ca56d3c3ea473fd",
+      "previousDate": null,
+      "articleDate": "2026-11-10T00:00:00Z",
+      "proofId": "recovery-5b4c18faabadfb3802c4"
+    },
+    {
+      "updateId": "a41a8b12f7a3ba35ab",
+      "previousDate": "2026-11-18T00:00:00Z",
+      "articleDate": "2026-11-17T17:56:46Z",
+      "proofId": "recovery-22d3b928da2e6e05e221"
+    },
+    {
+      "updateId": "b6edf533d574346e9f",
+      "previousDate": "2026-10-18T00:00:00Z",
+      "articleDate": "2026-11-09T00:00:00Z",
+      "proofId": "recovery-a989f1582084d0cf153c"
     }
   ]
 }

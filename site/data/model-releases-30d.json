@@ -4,7 +4,7 @@
   "windowDays": 30,
   "windowStart": "2026-10-28",
   "windowEnd": "2026-11-26",
-  "updatedAt": "2026-11-26T17:23:37Z",
+  "updatedAt": "2026-11-26T17:29:51Z",
   "categories": [
     "video",
     "image",
@@ -664,20 +664,6 @@
       "verificationStatus": "pending"
     },
     {
-      "id": "b94ca56d3c3ea473fd",
-      "category": "llm",
-      "vendor": "Google",
-      "title": "Gemini 4 Carbon is now available",
-      "summary": "",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
-      "sourceName": "Google DeepMind 官方新闻",
-      "publishedAt": null,
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "gemini",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "af4d0f19fa8b56e83f",
       "category": "llm",
       "vendor": "Google",
@@ -773,6 +759,20 @@
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "gpt-live",
       "updateType": "announcement",
+      "verificationStatus": "pending"
+    },
+    {
+      "id": "a41a8b12f7a3ba35ab",
+      "category": "image",
+      "vendor": "Kling AI",
+      "title": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise.",
+      "summary": "",
+      "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all",
+      "sourceName": "Kling 官方发布博客",
+      "publishedAt": "2026-11-17T17:56:46Z",
+      "discoveredAt": "2026-11-25T08:09:46Z",
+      "modelFamilyId": "kling-image",
+      "updateType": "model-card",
       "verificationStatus": "pending"
     },
     {
