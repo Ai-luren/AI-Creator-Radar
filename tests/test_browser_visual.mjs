@@ -42,6 +42,7 @@ try{
    }
    if(view==='overview')assert.equal(await page.locator('.overview-dashboard .overview-column').count(),2);
    if(view==='rankings'){
+    const evidence=page.locator('.rank-row-evidence').first();if(await evidence.count()){await evidence.locator('summary').click();assert.equal(await evidence.evaluate(el=>el.open),true);await evidence.locator('summary').click()}
     const principles=page.locator('.rank-principles details');assert.equal(await principles.evaluate(el=>el.open),false);await principles.locator('summary').click();assert.equal(await principles.evaluate(el=>el.open),true);await principles.locator('summary').click();
     const table=await page.locator('.rank-table').evaluate(el=>({font:parseFloat(getComputedStyle(el).fontSize),header:getComputedStyle(el.querySelector('th')).position,numeric:getComputedStyle(el.querySelector('th:nth-child(3)')).textAlign}));
     assert.ok(table.font>=13);assert.equal(table.header,'sticky');assert.equal(table.numeric,'right');

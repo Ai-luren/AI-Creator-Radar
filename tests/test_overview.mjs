@@ -248,3 +248,9 @@ test('social views separate actual verified homepages, search entries and posts'
 test('reported internal-model concern is industry news, not a release',()=>{
  const {run}=setup();assert.equal(run("newsCategory({category:'要闻',title:'报道称 OpenAI 和 Anthropic 员工忧内部模型难以安全发布'})"),'行业');
 });
+
+test('library prioritization, history year and review filters retain records',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');assert.equal(run('state.modelSort'),'priority');assert.equal(run("latestDatedVersion({versions:[{name:'unknown'},{name:'old',releaseDate:'2025-01-01'},{name:'new',releaseDate:'2026-01-01'}]}).name"),'new');
+ run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{date:'2025-01-01',title:'Old checked',verificationStatus:'已确认'},{date:'2026-01-01',title:'New checked',verificationStatus:'已确认'},{date:'2026-01-02',title:'Pending discovery',autoCollected:true}]}];setView('topics',{activeTopic:'google',topicYear:'2026',topicReview:'verified'})");assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Old checked|Pending discovery/);
+ run("state.topicReview='all';render()");assert.match(node('content').innerHTML,/Pending discovery/);
+});
