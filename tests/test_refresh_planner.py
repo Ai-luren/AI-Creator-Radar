@@ -16,7 +16,8 @@ class RefreshPlannerTests(unittest.TestCase):
 
     def stamp(self, group, age=0):
         for name, field in GROUPS[group]:
-            (self.data / name).write_text(json.dumps({field: (self.now - timedelta(minutes=age)).isoformat()}), encoding="utf-8")
+            ts = self.now - timedelta(minutes=age)
+            (self.data / name).write_text(json.dumps({field: ts.isoformat(), "title": ts.date().isoformat()}), encoding="utf-8")
 
     def test_missed_cron_recovers_every_overdue_group(self):
         for group in GROUPS:
@@ -42,4 +43,18 @@ class RefreshPlannerTests(unittest.TestCase):
     def test_explicit_scope_and_deploy_only(self):
         self.assertFalse(any(plan(self.data, "workflow_dispatch", "deploy-only", self.now).values()))
         self.assertEqual({k for k, v in plan(self.data, "workflow_dispatch", "models", self.now).items() if v}, {"models", "selected"})
-        self.assertEqual({k for k, v in plan(self.data, "workflow_dispatch", "resources", self.now).items() if v}, {"resources", "briefings"})
+        self.assertEqual({k for k, v in plan(self.data, "workflow_dispatch", "resources", self.now).items() if v}, {"resources", "aihot_daily", "juya_daily"})
+
+    def test_daily_issue_not_fetch_timestamp_drives_independent_morning_refresh(self):
+        morning = datetime(2026, 11, 27, 0, 5, tzinfo=timezone.utc)
+        for group in ("aihot_daily", "juya_daily"):
+            name, field = GROUPS[group][0]
+            (self.data / name).write_text(json.dumps({field: "2026-11-26T23:50:00Z", "title": "2026-11-26"}), encoding="utf-8")
+        result = plan(self.data, "schedule", now=morning, schedule="5,15 0,2 * * *")
+        self.assertTrue(result["aihot_daily"])
+        self.assertFalse(result["juya_daily"])
+        self.assertFalse(result["models"])
+        self.assertTrue(plan(self.data, "schedule", now=morning + timedelta(hours=2))["juya_daily"])
+        name, field = GROUPS["aihot_daily"][0]
+        (self.data / name).write_text(json.dumps({field: morning.isoformat(), "title": "AI 日报 2026 年 11 月 27 日"}), encoding="utf-8")
+        self.assertFalse(plan(self.data, "schedule", now=morning + timedelta(hours=3))["aihot_daily"])

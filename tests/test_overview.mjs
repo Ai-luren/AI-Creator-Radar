@@ -241,7 +241,7 @@ test('briefing category and practice links keep full resources accessible',async
 
 test('social views separate actual verified homepages, search entries and posts',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-matrix/);assert.match(node('content').innerHTML,/social-brand-record/);assert.match(node('content').innerHTML,/粉丝合计/);assert.match(node('content').innerHTML,/已核验主页/);assert.equal(run("socialAccountState({status:'verified-search'})"),'官方搜索入口');
- run("setView('social',{socialView:'platforms',socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-platform-record/);assert.doesNotMatch(node('content').innerHTML,/social-brand-record/);
+ run("setView('social',{socialView:'platforms',socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-brand-record/);assert.doesNotMatch(node('content').innerHTML,/social-platform-record/);
  run("setView('social',{socialView:'posts',socialRegion:'all'})");assert.equal(run('state.socialView'),'brands');assert.match(node('content').innerHTML,/social-brand-record/);assert.doesNotMatch(node('content').innerHTML,/data-social-view="posts"|未去重/);assert.match(node('content').innerHTML,/不同平台可能有重复用户/);assert.equal(setup({query:'?view=social&tab=posts'}).run('state.socialView'),'brands');
 });
 
@@ -269,7 +269,7 @@ test('Scribe variants form one reviewed batch with two preserved versions',()=>{
  const {run}=setup();const fixtures=['Scribe v3','Scribe v3 Live'].map((modelName,i)=>({id:'asr-'+i,modelFamilyId:'eleven-scribe',modelVersionId:'asr-'+i,modelName,category:'audio',vendor:'ElevenLabs',publishedAt:'2026-11-09'}));const events=JSON.parse(run('JSON.stringify(releaseEvents('+JSON.stringify(fixtures)+'))'));assert.equal(events.length,1);assert.equal(events[0].versions.length,2);assert.equal(events[0].modelName,'Scribe v3 系列');
 });
 
-test('platform view renders visible ranking dashboards and opportunities retains summary grid',async()=>{const {run,node}=setup();await run('loadAllForTests()');run("setView('social',{socialView:'platforms'})");const markup=node('content').innerHTML;assert.equal((markup.match(/<section class="social-platform-record">/g)||[]).length,8);assert.doesNotMatch(markup,/<details class="social-platform-record"/);assert.match(markup,/已知粉丝合计/);assert.match(markup,/social-platform-track/);assert.ok((markup.match(/class="social-platform-rank"/g)||[]).length<=40);run("state.socialRegion='platform:X';render()");assert.equal((node('content').innerHTML.match(/<section class="social-platform-record">/g)||[]).length,1);assert.match(node('content').innerHTML,/完整平台排行/);assert.match(node('content').innerHTML,/快照与核验依据/);run("setView('opportunities')");assert.match(node('content').innerHTML,/opportunity-summary summary-grid/);});
+test('single platform filter and sorting remain in brand matrix',async()=>{const {run,node}=setup();await run('loadAllForTests()');run("setView('social',{socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-matrix/);assert.doesNotMatch(node('content').innerHTML,/data-social-view="platforms"|social-platform-record/);assert.match(node('content').innerHTML,/data-platform="X"/);assert.doesNotMatch(node('content').innerHTML,/data-platform="抖音"/);run("state.socialSort='X';render()");assert.match(node('content').innerHTML,/X 粉丝/);run("setView('opportunities')");assert.match(node('content').innerHTML,/opportunity-summary summary-grid/);});
 
  test('follower sums exclude unknown and unverified counts, deduplicate identical accounts and preserve zero',async()=>{const {run}=setup();assert.equal(run("socialFollowerTotal([{status:'verified',platform:'X',url:'https://x.com/a',followers:100},{status:'verified',platform:'X',url:'https://x.com/a',followers:100},{status:'review',platform:'X',url:'https://x.com/b',followers:500},{status:'verified',platform:'YouTube',url:'https://youtube.com/@a',followers:0},{status:'verified',platform:'Instagram',followers:null}]).total"),100);assert.equal(run("socialFollowerTotal([{status:'verified',platform:'X',url:'https://x.com/a',followers:0}]).count"),1);assert.equal(run("socialFollowerFormat(236000)"),'23.6万');});
 
@@ -300,4 +300,16 @@ test('program page renders both pre-collection and post-collection link snapshot
  run("state.creatorLinkStatus={checkedAt:'2026-11-26T12:00:00Z',results:creatorPrograms().map(p=>({url:p.url.split('#')[0],status:'available'}))};render()");
  assert.match(node('content').innerHTML,/链接响应正常/);
  assert.doesNotMatch(node('content').innerHTML,/class="creator-link-health">未检测/);
+});
+
+test('official announcement route loads discovery data and separates it from releases',async()=>{
+ const {run,node,requested}=setup({query:'?view=today&status=announcements'});await run('loadData()');assert.ok(requested.includes('model-updates.json'));assert.match(node('content').innerHTML,/官方公告/);
+ run("state.officialUpdates=[{official:true,title:'Verified source candidate',vendor:'Example',category:'video',url:'https://example.com/news',publishedAt:new Date().toISOString().slice(0,10)},{official:false,title:'Unofficial candidate',url:'https://example.com/rumor',publishedAt:new Date().toISOString().slice(0,10)}];render()");
+ assert.match(node('content').innerHTML,/Verified source candidate/);assert.doesNotMatch(node('content').innerHTML,/Unofficial candidate|class="release-company"/);
+});
+test('ranked MAGI-2 has the same model family and version IDs as its release',async()=>{
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('rankings',{rankTab:'video'})");
+ const exists=run("(state.unifiedRankings.categories.find(c=>c.id==='video').primaryLeaderboards['image-to-video-audio'].rows||[]).some(r=>r.name==='MAGI-2')");
+ if(exists)assert.match(node('content').innerHTML,/data-model-open="magi-2" data-model-version="magi-2"/);
+ assert.equal(run("state.models.find(m=>m.id==='magi-2').versions.find(v=>v.id==='magi-2').releaseEvidence.chronicleTopicId"),'sandai');
 });

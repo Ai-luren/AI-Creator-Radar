@@ -9,12 +9,14 @@ on:
       - 'scripts/build_*.py'
       - 'scripts/check_*.py'
       - 'scripts/link_model_records.py'
+      - 'scripts/ranking_identity.py'
       - 'scripts/plan_refresh.py'
       - 'scripts/collection_health.py'
       - 'config/**'
       - '.github/workflows/update-site.yml'
   schedule:
     # Every tick checks all persisted timestamps; missed ticks can catch up.
+    - cron: "5,15 0,2 * * *" # 08:05/15 and 10:05/15 Beijing, daily editions only
     - cron: "7,37 * * * *" # official model discovery, AIHOT selected
     - cron: "17 2,8,14,20 * * *" # rankings and creator resources, every six hours
     - cron: "13 2 * * *" # daily maintenance, 10:13 China time
@@ -71,7 +73,22 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
           MANUAL_SCOPE: ${{ inputs.scope || '' }}
-        run: python scripts/plan_refresh.py --event "$EVENT_NAME" --scope "$MANUAL_SCOPE" --output "$GITHUB_OUTPUT"
+          SCHEDULE: ${{ github.event.schedule || '' }}
+        run: python scripts/plan_refresh.py --event "$EVENT_NAME" --scope "$MANUAL_SCOPE" --schedule "$SCHEDULE" --output "$GITHUB_OUTPUT"
+
+      - name: Collect AIHOT daily digest
+        id: aihot_daily
+        continue-on-error: true
+        timeout-minutes: 3
+        if: steps.plan.outputs.aihot_daily == 'true'
+        run: python scripts/collect_briefings.py aihot
+
+      - name: Collect Juya daily digest
+        id: juya_daily
+        continue-on-error: true
+        timeout-minutes: 5
+        if: steps.plan.outputs.juya_daily == 'true'
+        run: python scripts/collect_briefings.py juya
 
       - name: Collect official model updates
         if: steps.plan.outputs.models == 'true'
@@ -129,20 +146,6 @@ jobs:
             sleep 10
             python scripts/collect_aihot.py
           fi
-
-      - name: Collect AIHOT daily digest
-        id: aihot_daily
-        continue-on-error: true
-        timeout-minutes: 3
-        if: steps.plan.outputs.briefings == 'true'
-        run: python scripts/collect_briefings.py aihot
-
-      - name: Collect Juya daily digest
-        id: juya_daily
-        continue-on-error: true
-        timeout-minutes: 5
-        if: steps.plan.outputs.briefings == 'true'
-        run: python scripts/collect_briefings.py juya
 
       - name: Collect AIPick video ideas
         if: steps.plan.outputs.resources == 'true'

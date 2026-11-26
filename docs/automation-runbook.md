@@ -13,7 +13,7 @@ GitHub cron 尽力而为，不承诺准点；每个定时触发按快照时间�
 | 组 | 目标 |
 | --- | --- |
 | 模型、AIHOT 精选 | 约 30 分钟 |
-| 两份日报 | 约 2 小时（刊期由源决定） |
+| 两份日报 | 北京时间 08:05/08:15、10:05/10:15 优先，按刊期独立补采 |
 | 榜单及资源 | 约 6 小时 |
 | 维护 | 约 24 小时 |
 
@@ -46,3 +46,8 @@ python3 scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.jso
 - [PR 验证](../.github/workflows/validate-radar.yml)
 - [浏览器验收](../.github/workflows/browser-visual.yml)
 - [社媒采集](social-monitor-data-guide.md)
+
+
+## 日报刊期优先
+
+AIHOT 08:05、08:15，橘鸦 10:05、10:15（北京时间）计划触发只采集到期日报；常规定时继续补采其他过期组。以当天刊期而非单纯抓取时间决定到期；当天刊期成功即停止重复抓取，尚未出现且距上次成功抓取约十分钟则再次检查。日报优先于慢速资源采集。GitHub cron 可能漏跑，尚不承诺准点，需要实际观测。
