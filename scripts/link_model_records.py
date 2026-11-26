@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "site/data/models.json"
+CHRONICLE_CONFIG = ROOT / "config/chronicle-release-links.json"
 
 RECORD_SECTIONS = {
     "site/data/model-evaluations.json": ("items", ("modelName", "title", "summary")),
@@ -80,6 +81,26 @@ def family_refs(text: str, families: list[dict]) -> list[dict]:
     return sorted(found.values(), key=lambda item: item["modelFamilyId"])
 
 
+def chronicle_title_refs(title: str, refs: list[dict], families: list[dict], vendors: list[str]) -> list[dict]:
+    """A chronology event is not evidence for models merely mentioned in its summary."""
+    by_id = {family["id"]: family for family in families}
+    accepted = []
+    for ref in refs:
+        family = by_id.get(ref.get("modelFamilyId"), {})
+        phrase = str(ref.get("matchedName") or "").strip()
+        if family.get("vendor") not in vendors or not phrase:
+            continue
+        if re.fullmatch(r"v?\d+(?:[.\-]\d+)*(?:\s+(?:flash|pro|lite|turbo|fast))?", phrase, re.I):
+            continue
+        pattern = re.escape(phrase)
+        if not re.search(r"(?<![A-Za-z0-9])" + pattern + r"(?![A-Za-z0-9])", title, re.I):
+            continue
+        if re.search(pattern + r"(?:[.-]\d|[- ](?:Flash|Pro|Lite|Turbo|Fast|Codex|Max|Mini|Nano|Omni|Image|Video|TTS|Cyber|Preview)\b)", title, re.I):
+            continue
+        accepted.append(ref)
+    return accepted
+
+
 def apply_records(document, section: str | None, fields: tuple[str, ...], families: list[dict]) -> bool:
     if section is None and isinstance(document, list):
         records = document
@@ -88,10 +109,16 @@ def apply_records(document, section: str | None, fields: tuple[str, ...], famili
     else:
         records = document.get(section, [])
     changed = False
+    chronology_vendors = {}
+    if section == "milestones" and isinstance(document, list):
+        vendor_topics = json.loads(CHRONICLE_CONFIG.read_text(encoding="utf-8"))["vendorTopics"]
+        chronology_vendors = {id(record): vendor_topics[parent["id"]] for parent in document if parent.get("id") in vendor_topics for record in parent.get("milestones", [])}
     for record in records:
         text = " ".join(str(record.get(field, "")) for field in fields)
         refs = record_refs(text, families)
         family_mentions = family_refs(text, families)
+        if id(record) in chronology_vendors:
+            refs = chronicle_title_refs(str(record.get("title") or ""), refs, families, chronology_vendors[id(record)])
         if refs:
             if record.get("modelMentions") != refs:
                 record["modelMentions"] = refs

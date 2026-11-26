@@ -67,3 +67,11 @@ python3 scripts/validate_model_links.py
 - 自动采集不覆盖已有发布日期和人工发布证据，不将预告或模型卡更新时间当作新版本首发日期。
 - 支持视频、图像、语言、音乐、TTS、实时音频六类；智能体工具版本更新仍不混入模型上新。
 - `--check` 比较实质内容而非生成时钟，以便稳定检测派生数据是否陈旧。
+
+
+## 已审核历史证据迁移与完整性检查
+
+- `config/chronicle-release-links.json` 是逐型号明确指定的历史审核迁移清单；不通过摘要或模糊文本匹配推导首发日期。保留既有 `verificationDate`，不伪造本轮重新核验时间。
+- `releaseEvidence.evidenceType = audited-chronicle-release` 记录来自既有已确认历史节点的迁移，包含原 auditId、topic ID 与来源。此操作不等于重新打开并核实原文。
+- 厂商历史的版本引用限制为相应厂商、标题明确出现的完整名称；摘要中的旧版本对比、泛化版本号和衍生型号不能用作发布日期证据。
+- `python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.json` 检查迁移关联并输出缺口，不自动写入型号、日期或许可。缺口也可能是目录中的榜单变体或不在历史范围内的产品，不直接等于遗漏发布。

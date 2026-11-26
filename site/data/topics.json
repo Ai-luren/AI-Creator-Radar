@@ -468,14 +468,7 @@
         "auditId": "v48-deepseek-0056",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://api-docs.deepseek.com/news/news260910/",
-        "modelMentions": [
-          {
-            "modelFamilyId": "recraft",
-            "modelVersionId": "v4-1",
-            "matchedName": "V4.1"
-          }
-        ]
+        "verificationUrl": "https://api-docs.deepseek.com/news/news260910/"
       },
       {
         "date": "2026-08-21",
@@ -489,14 +482,7 @@
         "modelCategory": [
           "image"
         ],
-        "verificationUrl": "https://api-docs.deepseek.com/news/news260821/",
-        "modelMentions": [
-          {
-            "modelFamilyId": "recraft",
-            "modelVersionId": "v4-1",
-            "matchedName": "V4.1"
-          }
-        ]
+        "verificationUrl": "https://api-docs.deepseek.com/news/news260821/"
       },
       {
         "date": "2026-08-13",
@@ -643,14 +629,7 @@
         "auditId": "v48-deepseek-0383",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://github.com/deepseek-ai/DeepSeek-V2.5",
-        "modelMentions": [
-          {
-            "modelFamilyId": "eleven-music",
-            "modelVersionId": "v2-5",
-            "matchedName": "v2.5"
-          }
-        ]
+        "verificationUrl": "https://github.com/deepseek-ai/DeepSeek-V2.5"
       },
       {
         "date": "2024-06-17",
@@ -726,11 +705,6 @@
             "modelFamilyId": "eleven-tts",
             "modelVersionId": "eleven-v4",
             "matchedName": "Eleven v4"
-          },
-          {
-            "modelFamilyId": "eleven-tts",
-            "modelVersionId": "eleven-v4-turbo",
-            "matchedName": "Eleven v4 Turbo"
           }
         ],
         "modelFamilyMentions": [
@@ -752,14 +726,7 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://elevenlabs.io/docs/changelog",
-        "modelMentions": [
-          {
-            "modelFamilyId": "eleven-music",
-            "modelVersionId": "v2-5",
-            "matchedName": "v2.5"
-          }
-        ]
+        "verificationUrl": "https://elevenlabs.io/docs/changelog"
       },
       {
         "date": "2025-08-05",
@@ -808,14 +775,7 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://elevenlabs.io/docs/changelog/2024/12/19",
-        "modelMentions": [
-          {
-            "modelFamilyId": "eleven-music",
-            "modelVersionId": "v2-5",
-            "matchedName": "v2.5"
-          }
-        ]
+        "verificationUrl": "https://elevenlabs.io/docs/changelog/2024/12/19"
       },
       {
         "date": "2023-11-09",
@@ -955,11 +915,6 @@
         "modelMentions": [
           {
             "modelFamilyId": "gemini",
-            "modelVersionId": "gemini-4-carbon",
-            "matchedName": "Gemini 4 Carbon"
-          },
-          {
-            "modelFamilyId": "gemini",
             "modelVersionId": "gemini-4-hydrogen",
             "matchedName": "Gemini 4 Hydrogen"
           }
@@ -1080,11 +1035,6 @@
             "modelFamilyId": "gemini",
             "modelVersionId": "gemini-3-8-flash",
             "matchedName": "Gemini 3.8 Flash"
-          },
-          {
-            "modelFamilyId": "gemini-tts",
-            "modelVersionId": "gemini-3-8-flash-tts",
-            "matchedName": "Gemini 3.8 Flash TTS"
           }
         ],
         "modelFamilyMentions": [
@@ -1284,13 +1234,6 @@
           "audio"
         ],
         "verificationUrl": "https://blog.google/innovation-and-ai/technology/ai/google-io-2026-all-our-announcements/",
-        "modelMentions": [
-          {
-            "modelFamilyId": "nano-banana",
-            "modelVersionId": "nano-banana-2-lite",
-            "matchedName": "Nano Banana 2 Lite"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "gemini-omni-flash",
@@ -1414,13 +1357,6 @@
           "audio"
         ],
         "verificationUrl": "https://www.theverge.com/ai-artificial-intelligence/880584/google-gemini-ai-music-maker-lyria-3-beta",
-        "modelMentions": [
-          {
-            "modelFamilyId": "lyria",
-            "modelVersionId": "lyria-3-5",
-            "matchedName": "Lyria 3.5"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "lyria",
@@ -1499,23 +1435,6 @@
           "image"
         ],
         "verificationUrl": "https://blog.google/innovation-and-ai/products/gemini/gemini-3-image-generation/",
-        "modelMentions": [
-          {
-            "modelFamilyId": "agnes-image-25-flash",
-            "modelVersionId": "2-5-flash",
-            "matchedName": "2.5 Flash"
-          },
-          {
-            "modelFamilyId": "agnes-video-25",
-            "modelVersionId": "2-5-flash",
-            "matchedName": "2.5 Flash"
-          },
-          {
-            "modelFamilyId": "nano-banana",
-            "modelVersionId": "nano-banana-2",
-            "matchedName": "Nano Banana 2"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "nano-banana",
@@ -1567,16 +1486,6 @@
             "modelFamilyId": "veo",
             "modelVersionId": "veo-3-1",
             "matchedName": "Veo 3.1"
-          },
-          {
-            "modelFamilyId": "veo",
-            "modelVersionId": "veo-3-1-fast",
-            "matchedName": "Veo 3.1 Fast"
-          },
-          {
-            "modelFamilyId": "veo",
-            "modelVersionId": "veo-3-1-lite",
-            "matchedName": "Veo 3.1 Lite"
           }
         ]
       },
@@ -1644,11 +1553,6 @@
         "modelMentions": [
           {
             "modelFamilyId": "veo",
-            "modelVersionId": "veo-2",
-            "matchedName": "Veo 2"
-          },
-          {
-            "modelFamilyId": "veo",
             "modelVersionId": "veo-3",
             "matchedName": "Veo 3"
           }
@@ -1681,13 +1585,6 @@
           "image",
           "video",
           "audio"
-        ],
-        "modelMentions": [
-          {
-            "modelFamilyId": "veo",
-            "modelVersionId": "veo-3",
-            "matchedName": "Veo 3"
-          }
         ],
         "modelFamilyMentions": [
           {
@@ -1778,18 +1675,6 @@
         "verificationDate": "2026-11-24",
         "modelCategory": [
           "video"
-        ],
-        "modelMentions": [
-          {
-            "modelFamilyId": "veo",
-            "modelVersionId": "veo-2",
-            "matchedName": "Veo 2"
-          },
-          {
-            "modelFamilyId": "veo",
-            "modelVersionId": "veo-3",
-            "matchedName": "Veo 3"
-          }
         ]
       },
       {
@@ -1953,13 +1838,6 @@
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
         "verificationUrl": "https://durabilitycurve.com/chart/",
-        "modelMentions": [
-          {
-            "modelFamilyId": "muse",
-            "modelVersionId": "muse-spark-1-3",
-            "matchedName": "Muse Spark 1.3"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "muse",
@@ -2983,11 +2861,6 @@
             "modelFamilyId": "hailuo",
             "modelVersionId": "2-3",
             "matchedName": "Hailuo 2.3"
-          },
-          {
-            "modelFamilyId": "hailuo",
-            "modelVersionId": "hailuo-2-3-fast",
-            "matchedName": "Hailuo 2.3 Fast"
           }
         ],
         "modelFamilyMentions": [
@@ -3006,14 +2879,7 @@
         "auditId": "v48-minimax-0231",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.minimax.io/news/minimax-m2",
-        "modelMentions": [
-          {
-            "modelFamilyId": "minimax-llm",
-            "modelVersionId": "minimax-m2",
-            "matchedName": "MiniMax M2"
-          }
-        ]
+        "verificationUrl": "https://www.minimax.io/news/minimax-m2"
       },
       {
         "date": "2025-09-11",
@@ -3323,13 +3189,6 @@
             "modelFamilyId": "gpt-image",
             "matchedName": "GPT-Image-2.6"
           }
-        ],
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt-image",
-            "modelVersionId": "gpt-image-2-6-sunburst",
-            "matchedName": "GPT-Image-2.6 Sunburst"
-          }
         ]
       },
       {
@@ -3416,11 +3275,6 @@
             "modelFamilyId": "gpt",
             "modelVersionId": "gpt-6-1",
             "matchedName": "GPT-6.1"
-          },
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-6-1-terra",
-            "matchedName": "GPT-6.1 Terra"
           }
         ],
         "modelFamilyMentions": [
@@ -3460,13 +3314,6 @@
           "image"
         ],
         "verificationUrl": "https://deploymentsafety.openai.com/chatgpt-images-2-5/new-safety-challenges",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt-image",
-            "modelVersionId": "gpt-image-2-5-sunburst",
-            "matchedName": "GPT Image 2.5 Sunburst"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "gpt-image",
@@ -3497,14 +3344,7 @@
         "modelCategory": [
           "audio"
         ],
-        "verificationUrl": "https://developers.openai.com/api/docs/guides/audio",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5",
-            "matchedName": "GPT-5"
-          }
-        ]
+        "verificationUrl": "https://developers.openai.com/api/docs/guides/audio"
       },
       {
         "date": "2026-04-23",
@@ -3521,11 +3361,6 @@
             "modelFamilyId": "gpt",
             "modelVersionId": "gpt-5-5",
             "matchedName": "GPT-5.5"
-          },
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5-5-pro",
-            "matchedName": "GPT-5.5 Pro"
           }
         ]
       },
@@ -3543,11 +3378,6 @@
         ],
         "verificationUrl": "https://developers.openai.com/api/docs/models/all",
         "modelMentions": [
-          {
-            "modelFamilyId": "gpt-image",
-            "modelVersionId": "gpt-image-1-5",
-            "matchedName": "GPT Image 1.5"
-          },
           {
             "modelFamilyId": "gpt-image",
             "modelVersionId": "gpt-image-2",
@@ -3595,14 +3425,7 @@
         "auditId": "v48-openai-0179",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5-2",
-            "matchedName": "GPT-5.2"
-          }
-        ]
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
       },
       {
         "date": "2026-02-02",
@@ -3633,11 +3456,6 @@
             "modelFamilyId": "gpt-image",
             "modelVersionId": "gpt-image-1-5",
             "matchedName": "GPT Image 1.5"
-          },
-          {
-            "modelFamilyId": "gpt-image",
-            "modelVersionId": "gpt-image-2",
-            "matchedName": "GPT Image 2"
           }
         ],
         "modelFamilyMentions": [
@@ -3674,14 +3492,7 @@
         "auditId": "v48-openai-0218",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5-1",
-            "matchedName": "GPT-5.1"
-          }
-        ]
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
       },
       {
         "date": "2025-11-12",
@@ -3735,14 +3546,7 @@
         "auditId": "v48-openai-0248",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/changelog",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5",
-            "matchedName": "GPT-5"
-          }
-        ]
+        "verificationUrl": "https://developers.openai.com/api/docs/changelog"
       },
       {
         "date": "2025-08-07",
@@ -3771,14 +3575,7 @@
         "auditId": "v49-openai-gpt-5-nano",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-nano",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5",
-            "matchedName": "GPT-5"
-          }
-        ]
+        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-nano"
       },
       {
         "date": "2025-08-07",
@@ -3789,14 +3586,7 @@
         "auditId": "v49-openai-gpt-5-mini",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-mini",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5",
-            "matchedName": "GPT-5"
-          }
-        ]
+        "verificationUrl": "https://developers.openai.com/api/docs/models/gpt-5-mini"
       },
       {
         "date": "2025-08-07",
@@ -3807,14 +3597,7 @@
         "auditId": "v49-openai-gpt-5-pro",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-5",
-            "matchedName": "GPT-5"
-          }
-        ]
+        "verificationUrl": "https://help.openai.com/en/articles/9624314-model-release-notes"
       },
       {
         "date": "2025-08-05",
@@ -3862,11 +3645,6 @@
           "image"
         ],
         "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-4o",
-            "matchedName": "GPT-4o"
-          },
           {
             "modelFamilyId": "gpt-image",
             "modelVersionId": "gpt-image-1",
@@ -4627,11 +4405,6 @@
             "modelFamilyId": "grok-imagine-video",
             "modelVersionId": "grok-imagine-video-1-5",
             "matchedName": "Grok Imagine Video 1.5"
-          },
-          {
-            "modelFamilyId": "heygen-video",
-            "modelVersionId": "video-1",
-            "matchedName": "Video 1"
           }
         ],
         "modelFamilyMentions": [
@@ -5054,13 +4827,6 @@
           "video"
         ],
         "verificationUrl": "https://seed.bytedance.com/en/seed_model_portfolio",
-        "modelMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "modelVersionId": "seedance-2-0",
-            "matchedName": "Seedance 2.0"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "seedance",
@@ -5710,13 +5476,6 @@
           "audio"
         ],
         "verificationUrl": "https://www.stcn.com/article/detail/3617814.html",
-        "modelMentions": [
-          {
-            "modelFamilyId": "mureka",
-            "modelVersionId": "mureka-v8",
-            "matchedName": "Mureka V8"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "mureka",
@@ -5754,13 +5513,6 @@
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
         "verificationUrl": "https://z.ai/blog/glm-5.3",
-        "modelMentions": [
-          {
-            "modelFamilyId": "glm",
-            "modelVersionId": "5-3",
-            "matchedName": "GLM-5.3"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "glm",
@@ -5779,11 +5531,6 @@
         "verificationDate": "2026-11-24",
         "verificationUrl": "https://z.ai/blog/glm-5.2；https://z.ai/blog/glm-5.3-flash",
         "modelMentions": [
-          {
-            "modelFamilyId": "glm",
-            "modelVersionId": "5-2",
-            "matchedName": "GLM-5.2"
-          },
           {
             "modelFamilyId": "glm",
             "modelVersionId": "5-3",
@@ -6371,13 +6118,6 @@
           "video"
         ],
         "verificationUrl": "https://platform.vidu.com/models",
-        "modelMentions": [
-          {
-            "modelFamilyId": "vidu",
-            "modelVersionId": "vidu-q2",
-            "matchedName": "Vidu Q2"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "vidu",
@@ -6665,14 +6405,7 @@
           "image",
           "video"
         ],
-        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview",
-        "modelMentions": [
-          {
-            "modelFamilyId": "qwen",
-            "modelVersionId": "qwen4-max",
-            "matchedName": "Qwen4-Max"
-          }
-        ]
+        "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview"
       },
       {
         "date": "2026-10-22",
@@ -6746,13 +6479,6 @@
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
         "verificationUrl": "https://help.aliyun.com/en/model-studio/compatibility-with-openai-responses-api",
-        "modelMentions": [
-          {
-            "modelFamilyId": "qwen",
-            "modelVersionId": "qwen3-8",
-            "matchedName": "Qwen3.8"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "qwen",
@@ -6770,13 +6496,6 @@
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
         "verificationUrl": "https://github.com/QwenLM/Qwen3.8-Flash-Next/blob/main/README.md",
-        "modelMentions": [
-          {
-            "modelFamilyId": "qwen",
-            "modelVersionId": "qwen3-8",
-            "matchedName": "Qwen3.8"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "qwen",
@@ -6797,13 +6516,6 @@
           "audio"
         ],
         "verificationUrl": "https://help.aliyun.com/en/model-studio/text-generation-model/",
-        "modelMentions": [
-          {
-            "modelFamilyId": "qwen",
-            "modelVersionId": "qwen3-8",
-            "matchedName": "Qwen3.8"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "qwen",
@@ -6848,13 +6560,6 @@
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
         "verificationUrl": "https://github.com/QwenLM/Qwen3.8",
-        "modelMentions": [
-          {
-            "modelFamilyId": "qwen",
-            "modelVersionId": "qwen3-8",
-            "matchedName": "Qwen3.8"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "qwen",
@@ -6912,13 +6617,6 @@
         "auditId": "v48-qwen-0091",
         "verificationStatus": "已确认：型号、日期与事件性质",
         "verificationDate": "2026-11-24",
-        "modelMentions": [
-          {
-            "modelFamilyId": "qwen",
-            "modelVersionId": "qwen3-8",
-            "matchedName": "Qwen3.8"
-          }
-        ],
         "modelFamilyMentions": [
           {
             "modelFamilyId": "qwen",
@@ -7053,11 +6751,6 @@
         ],
         "verificationUrl": "https://www.alibabacloud.com/help/en/model-studio/wan-image-generation-and-editing-api-reference",
         "modelMentions": [
-          {
-            "modelFamilyId": "wan",
-            "modelVersionId": "wan-2-7",
-            "matchedName": "Wan 2.7"
-          },
           {
             "modelFamilyId": "wan-image",
             "modelVersionId": "wan-2-7-image",

@@ -1,0 +1,197 @@
+{
+  "schema": "chronicle-release-links/v1",
+  "vendorTopics": {
+    "anthropic": [
+      "Anthropic"
+    ],
+    "deepseek": [
+      "DeepSeek"
+    ],
+    "elevenlabs": [
+      "ElevenLabs"
+    ],
+    "google": [
+      "Google",
+      "Google DeepMind"
+    ],
+    "meta": [
+      "Meta",
+      "Meta Superintelligence Labs"
+    ],
+    "midjourney": [
+      "Midjourney"
+    ],
+    "minimax": [
+      "MiniMax"
+    ],
+    "openai": [
+      "OpenAI"
+    ],
+    "pixverse": [
+      "PixVerse / 爱诗科技"
+    ],
+    "suno": [
+      "Suno"
+    ],
+    "xai": [
+      "xAI"
+    ],
+    "bytedance": [
+      "字节跳动 Seed",
+      "字节跳动 Seed / 即梦"
+    ],
+    "kuaishou": [
+      "快手",
+      "Kling AI"
+    ],
+    "mureka": [
+      "昆仑万维"
+    ],
+    "zhipu": [
+      "智谱 / Z.ai"
+    ],
+    "kimi": [
+      "月之暗面 / Moonshot AI"
+    ],
+    "shengshu": [
+      "生数科技"
+    ],
+    "tencent": [
+      "腾讯混元"
+    ],
+    "qwen": [
+      "阿里巴巴",
+      "阿里巴巴通义千问",
+      "阿里巴巴通义万相",
+      "Alibaba Cloud Model Studio"
+    ]
+  },
+  "links": [
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-haiku-5-5",
+      "chronicleAuditId": "v48-anthropic-0035",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "claude",
+      "modelVersionId": "claude-opus-5-5",
+      "chronicleAuditId": "v48-anthropic-0046",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "eleven-tts",
+      "modelVersionId": "eleven-v4",
+      "chronicleAuditId": "v48-elevenlabs-0042",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "eleven-tts",
+      "modelVersionId": "eleven-v4-turbo",
+      "chronicleAuditId": "v48-elevenlabs-0042",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "eleven-tts",
+      "modelVersionId": "eleven-multilingual-v2",
+      "chronicleAuditId": "v48-elevenlabs-0458",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "lyria",
+      "modelVersionId": "lyria-3-5",
+      "chronicleAuditId": "v48-google-0096",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "nano-banana",
+      "modelVersionId": "nano-banana-2",
+      "chronicleAuditId": "v48-google-0167",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "veo",
+      "modelVersionId": "veo-3-1",
+      "chronicleAuditId": "v48-google-0235",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "veo",
+      "modelVersionId": "veo-3",
+      "chronicleAuditId": "v48-google-0295",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "veo",
+      "modelVersionId": "veo-2",
+      "chronicleAuditId": "v48-google-0355",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-5-5",
+      "chronicleAuditId": "v48-openai-0138",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-5-2",
+      "chronicleAuditId": "v48-openai-0205",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-5",
+      "chronicleAuditId": "v48-openai-0258",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "gpt",
+      "modelVersionId": "gpt-4o",
+      "chronicleAuditId": "v48-openai-0412",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "pixverse-world",
+      "modelVersionId": "pixverse-r2",
+      "chronicleAuditId": "v48-pixverse-0044",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "seedance",
+      "modelVersionId": "seedance-2-0",
+      "chronicleAuditId": "v48-bytedance-0176",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "seedance",
+      "modelVersionId": "seedance-1-5-pro",
+      "chronicleAuditId": "v48-bytedance-0203",
+      "sourceField": "verificationUrl"
+    },
+    {
+      "modelFamilyId": "seedream",
+      "modelVersionId": "seedream-4-0",
+      "chronicleAuditId": "v48-bytedance-0250",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "seedream",
+      "modelVersionId": "seedream-5-0-pro",
+      "chronicleAuditId": "v48-bytedance-0105",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "hunyuan-image",
+      "modelVersionId": "hunyuanimage-3-0",
+      "chronicleAuditId": "v48-tencent-0242",
+      "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "wan",
+      "modelVersionId": "wan-2-2",
+      "chronicleAuditId": "v48-qwen-0266",
+      "sourceField": "url"
+    }
+  ]
+}

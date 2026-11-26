@@ -114,6 +114,9 @@ jobs:
       - name: Validate shared model references
         run: python scripts/validate_model_links.py
 
+      - name: Audit model and historical evidence coverage
+        run: python scripts/audit_model_completeness.py
+
       - name: Persist collected data to the triggering branch
         id: persist
         if: github.event_name != 'push'
