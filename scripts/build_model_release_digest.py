@@ -19,13 +19,14 @@ CATEGORIES = ("video", "image", "llm", "music", "tts", "audio")
 def collect_pending(families: list, updates: list, confirmed: list, today: date) -> list:
     """Display discovery separately; never infer publication or verification dates."""
     family_map = {family["id"]: family for family in families}
-    for family in families:
-        for legacy in family.get("legacyIds", []):
-            family_map.setdefault(legacy, family)
+    # Only canonical IDs: retired aliases may point to unrelated derivative products.
     confirmed_keys = {
         (row["modelFamilyId"], str(row["publishedAt"])[:10], row["url"])
         for row in confirmed
     }
+    def normalize(value):
+        return "".join(ch for ch in str(value).casefold() if ch.isalnum())
+
     start = today - timedelta(days=29)
     candidates = {}
     for update in updates:
@@ -48,8 +49,21 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
             continue
         if published and (family["id"], str(published)[:10], url) in confirmed_keys:
             continue
-        # Same rolling URL can contain several distinct announcements.
-        key = (family["id"], url, " ".join(title.casefold().split()))
+        # Equivalent translated URLs or model-card entries with the same model and date.
+        # Do not hide a conflicting date, or collapse distinct models on a rolling URL.
+        normalized_title = normalize(title)
+        if published and any(
+            row["modelFamilyId"] == family["id"]
+            and str(row["publishedAt"])[:10] == str(published)[:10]
+            and normalize(row.get("modelName", "")) in normalized_title
+            and normalize(row.get("modelName", ""))
+            for row in confirmed
+        ):
+            continue
+        # Reject static assets accidentally extracted as articles.
+        if url.split("?", 1)[0].lower().endswith((".svg", ".png", ".jpg", ".jpeg", ".webp", ".css", ".js", ".ico")):
+            continue
+        key = (family["id"], str(published or discovered)[:10], normalized_title)
         candidate = {
             "id": update["id"], "category": category,
             "vendor": family.get("vendor") or update.get("vendor", ""),

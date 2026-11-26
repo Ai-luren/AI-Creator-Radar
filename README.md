@@ -38,7 +38,7 @@
 - RSS / Atom 配置在 [`config/resource-sources.json`](config/resource-sources.json)；GoodCase 提供案例与 Prompt 预览，橘鸦提供早报，AIHOT 精选单独保留原始出处。
 - GitHub Awesome 模块同步精选仓库的公开元数据，不会自动克隆仓库或复制其中的 Prompt。
 - 官方社媒粉丝数由本机任务在北京时间 21:00 采集；其他已配置的动态采集与榜单派生由 GitHub Actions 执行。
-- GitHub Actions 每天北京时间 10:00 集中刷新已配置的采集源。`main` 上的普通 push 只运行测试并发布 Pages，不重复采集。
+- GitHub Actions 按任务分级刷新：模型发布和 AIHOT 精选每 30 分钟；榜单、简报及创作资源每 6 小时；维护检查每日北京时间 10:13。定时执行可能受 GitHub 排队和来源可用性影响。`main` 上的普通 push 只运行测试、数据关联验证并发布 Pages，不重复采集。改造分支 push 仅验证，不发布。
 - 原始榜单采集后，Actions 会运行 [`scripts/build_unified_rankings.py`](scripts/build_unified_rankings.py) 重建统一榜单。创作工具与 CPP 目录属于维护型数据，尚无自动发现采集器。
 
 ## 本地运行

@@ -7,7 +7,7 @@ from scripts.collect_models import apply_recent_model_versions
 class FreshnessTests(unittest.TestCase):
     def setUp(self):
         self.family = {"id": "demo", "name": "Demo", "category": "music", "vendor": "Vendor", "legacyIds": ["legacy"]}
-        self.update = {"id": "event", "modelId": "legacy", "official": True,
+        self.update = {"id": "event", "modelId": "demo", "official": True,
                        "updateType": "announcement", "title": "Demo 2 coming soon",
                        "url": "https://example.com/news", "publishedAt": None,
                        "discoveredAt": "2026-11-25T10:00:00Z"}
@@ -21,7 +21,7 @@ class FreshnessTests(unittest.TestCase):
         self.assertEqual(rows[0]["verificationStatus"], "pending")
 
     def test_excludes_unofficial_untracked_old_and_tool_updates(self):
-        rows = [dict(self.update, official=False), dict(self.update, modelId="unknown"),
+        rows = [dict(self.update, official=False), dict(self.update, modelId="unknown"), dict(self.update, modelId="legacy"),
                 dict(self.update, discoveredAt="2026-01-01"), dict(self.update, updateType="product-release")]
         self.assertEqual(collect_pending([self.family], rows, [], self.today), [])
 
@@ -30,6 +30,12 @@ class FreshnessTests(unittest.TestCase):
         self.assertEqual(len(collect_pending([self.family], [row, dict(row, id="other")], [], self.today)), 1)
         confirmed = [{"modelFamilyId": "demo", "publishedAt": "2026-11-25", "url": row["url"]}]
         self.assertEqual(collect_pending([self.family], [row], confirmed, self.today), [])
+
+    def test_reject_static_asset_and_dedupe_translated_article(self):
+        row = dict(self.update, title="Introducing Demo 2", publishedAt="2026-11-25")
+        confirmed = [{"modelFamilyId": "demo", "modelName": "Demo 2", "publishedAt": "2026-11-25", "url": "https://example.com/en/news"}]
+        self.assertEqual(collect_pending([self.family], [row], confirmed, self.today), [])
+        self.assertEqual(collect_pending([self.family], [dict(row, url="https://example.com/icons.svg?v=1")], [], self.today), [])
 
     def test_announcement_and_model_card_do_not_mutate_catalog(self):
         models = {"demo": dict(self.family)}

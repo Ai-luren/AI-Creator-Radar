@@ -2,11 +2,12 @@ name: Monitor official AI model releases and deploy Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/radar-freshness-overhaul]
   schedule:
-    # 10:00 China Standard Time (UTC+8).
-    # GitHub schedule events run on the default branch.
-    - cron: "0 2 * * *"
+    # Stagger jobs away from the top of the hour. Schedules run on main only.
+    - cron: "7,37 * * * *" # official model discovery, AIHOT selected
+    - cron: "17 2,8,14,20 * * *" # rankings and creator resources, every six hours
+    - cron: "13 2 * * *" # daily maintenance, 10:13 China time
   workflow_dispatch:
 
 permissions:
@@ -21,6 +22,8 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.persist.outputs.changed }}
     timeout-minutes: 30
     steps:
       - name: Checkout the triggering ref
@@ -37,59 +40,59 @@ jobs:
         run: python -m unittest discover -s tests -v
 
       - name: Collect official model updates
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
         run: python scripts/collect_models.py
 
       - name: Build the 30-day release view from canonical model versions
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
         run: python scripts/build_model_release_digest.py
 
       - name: Update company chronologies from official model sources
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
         run: python scripts/collect_chronicle_updates.py
 
       - name: Check official model resource links
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 2 * * *'
         run: python scripts/check_model_resources.py
 
       - name: Collect RSS and Awesome resources
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_resources.py
 
       - name: Collect public model leaderboard snapshot
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_rankings.py
 
       - name: Collect Maomu model ranking boards
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_maomu_rankings.py
 
       - name: Build unified capability rankings
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/build_unified_rankings.py
 
       - name: Collect AIHOT selected items
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '7,37 * * * *'
         run: python scripts/collect_aihot.py
 
       - name: Collect AIHOT daily digest
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_briefings.py aihot
 
       - name: Collect Juya daily digest
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_briefings.py juya
 
       - name: Collect AIPick video ideas
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_aipick.py
 
       - name: Collect new model evaluation candidates
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '13 2 * * *'
         run: python scripts/collect_model_evaluations.py
 
       - name: Collect public social trends
-        if: github.event_name != 'push'
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '17 2,8,14,20 * * *'
         run: python scripts/collect_social_trends.py
 
       - name: Link exact model mentions across radar data
@@ -97,10 +100,10 @@ jobs:
         run: python scripts/link_model_records.py
 
       - name: Validate shared model references
-        if: github.event_name != 'push'
         run: python scripts/validate_model_links.py
 
       - name: Persist collected data to the triggering branch
+        id: persist
         if: github.event_name != 'push'
         run: |
           git config user.name "github-actions[bot]"
@@ -109,22 +112,24 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): refresh models, rankings and resources"
             git push origin "HEAD:${GITHUB_REF_NAME}"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No collected data changes."
           fi
 
       - name: Configure GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || steps.persist.outputs.changed == 'true')
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || steps.persist.outputs.changed == 'true')
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
   deploy:
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || needs.collect.outputs.changed == 'true')
     needs: collect
     runs-on: ubuntu-latest
     environment:
