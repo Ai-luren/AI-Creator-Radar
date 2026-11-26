@@ -3387,12 +3387,26 @@
             "detailUrl": "https://maomu.com/models/meta--llama4scout17b16einstruct?entry=arena%3Aarena-text%3A269"
           }
         ],
-        "status": "待核验",
+        "status": "历史发布已核实；当前可用性待核验",
         "region": "海外",
         "access": "开源权重",
         "homepage": "https://ai.meta.com/Llama/",
-        "releaseUrl": "https://ai.meta.com/Llama/",
-        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。"
+        "releaseUrl": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。",
+        "releaseDate": "2025-04-05",
+        "releaseEvidence": {
+          "eventId": "official-llama-llama-4-scout-20250405",
+          "publishedAt": "2025-04-05",
+          "sourceUrl": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "sourceName": "Meta 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "原生多模态 MoE 模型，与 Maverick 同批公开权重。",
+          "access": "开放权重；适用 Llama 许可",
+          "category": "llm",
+          "modelName": "Llama 4 Scout",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "llama-4-maverick",
@@ -3421,12 +3435,26 @@
             "detailUrl": "https://maomu.com/models/meta--llama4maverick17b128einstruct?entry=arena%3Aarena-text%3A259"
           }
         ],
-        "status": "待核验",
+        "status": "历史发布已核实；当前可用性待核验",
         "region": "海外",
         "access": "开源权重",
         "homepage": "https://ai.meta.com/Llama/",
-        "releaseUrl": "https://ai.meta.com/Llama/",
-        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。"
+        "releaseUrl": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。",
+        "releaseDate": "2025-04-05",
+        "releaseEvidence": {
+          "eventId": "official-llama-llama-4-maverick-20250405",
+          "publishedAt": "2025-04-05",
+          "sourceUrl": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+          "sourceName": "Meta 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "原生多模态 MoE 模型，与 Scout 同批公开权重。",
+          "access": "开放权重；适用 Llama 许可",
+          "category": "llm",
+          "modelName": "Llama 4 Maverick",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "llama-3-3",
@@ -3462,12 +3490,26 @@
             "detailUrl": "https://maomu.com/models/meta--llama3370binstruct?entry=arena%3Aarena-text%3A273"
           }
         ],
-        "status": "待核验",
+        "status": "历史发布已核实；当前可用性待核验",
         "region": "海外",
         "access": "开源权重",
         "homepage": "https://ai.meta.com/Llama/",
-        "releaseUrl": "https://ai.meta.com/Llama/",
-        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。"
+        "releaseUrl": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。",
+        "releaseDate": "2024-12-06",
+        "releaseEvidence": {
+          "eventId": "official-llama-llama-3-3-20241206",
+          "publishedAt": "2024-12-06",
+          "sourceUrl": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+          "sourceName": "Meta 官方模型卡",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "70B 指令微调文本模型，模型卡明确列出发布日。",
+          "access": "开放权重；适用 Llama 许可",
+          "category": "llm",
+          "modelName": "Llama 3.3",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       }
     ],
     "legacyIds": [],
@@ -4963,7 +5005,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/news/",
+        "releaseUrl": "https://openai.com/index/gpt-5-1/",
         "modelCardUrl": "https://developers.openai.com/api/docs/models/all",
         "id": "gpt-5-1",
         "name": "GPT-5.1",
@@ -5042,8 +5084,22 @@
             "detailUrl": "https://maomu.com/models/openai--gpt51?entry=benchlm%3Abench%3A86"
           }
         ],
-        "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。",
+        "releaseDate": "2025-11-12",
+        "releaseEvidence": {
+          "eventId": "official-gpt-gpt-5-1-20251112",
+          "publishedAt": "2025-11-12",
+          "sourceUrl": "https://openai.com/index/gpt-5-1/",
+          "sourceName": "OpenAI 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "GPT-5.1 在 ChatGPT 开始推出 Instant 与 Thinking，改善对话和指令遵循。",
+          "access": "官方托管服务",
+          "category": "llm",
+          "modelName": "GPT-5.1",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "region": "海外",
@@ -5535,7 +5591,22 @@
             "detailUrl": "https://maomu.com/models/openai--gpt53codexcodexharness?entry=arena%3Aarena-code%3A106"
           }
         ],
-        "status": "排行榜独立型号；官方版本信息待核验"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-02-05",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-5-3-codex/",
+        "releaseEvidence": {
+          "eventId": "official-gpt-gpt-5-3-codex-20260205",
+          "publishedAt": "2026-02-05",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-5-3-codex/",
+          "sourceName": "OpenAI 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "面向编程与专业工作场景的智能体模型。",
+          "access": "官方托管服务",
+          "category": "llm",
+          "modelName": "GPT-5.3 Codex",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "gpt-5-5",
@@ -5637,7 +5708,22 @@
             "detailUrl": "https://maomu.com/models/openai--gpt55instant?entry=arena%3Aarena-text%3A47"
           }
         ],
-        "status": "榜单原称；厂商版本关系待进一步核实"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-05-05",
+        "releaseUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-5-instant/",
+        "releaseEvidence": {
+          "eventId": "official-gpt-gpt-5-5-instant-20260505",
+          "publishedAt": "2026-05-05",
+          "sourceUrl": "https://openai.com/zh-Hans-CN/index/gpt-5-5-instant/",
+          "sourceName": "OpenAI 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "开始作为 ChatGPT 默认即时模型推出，改善准确性与表达。",
+          "access": "官方托管服务",
+          "category": "llm",
+          "modelName": "GPT-5.5 Instant",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "gpt-5-5-pro",
@@ -5673,7 +5759,22 @@
             "detailUrl": "https://maomu.com/models/openai--gpt55pro?entry=benchlm%3Abench%3A21"
           }
         ],
-        "status": "榜单原称；厂商版本关系待进一步核实"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-04-23",
+        "releaseUrl": "https://openai.com/index/introducing-gpt-5-5/",
+        "releaseEvidence": {
+          "eventId": "official-gpt-gpt-5-5-pro-20260423",
+          "publishedAt": "2026-04-23",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-5-5/",
+          "sourceName": "OpenAI 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "GPT-5.5 Pro 开始向符合条件的 ChatGPT 用户推出；API 次日开放。",
+          "access": "官方托管服务",
+          "category": "llm",
+          "modelName": "GPT-5.5 Pro",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "gpt-6-2-chat",
@@ -16489,10 +16590,25 @@
             "detailUrl": null
           }
         ],
-        "status": "型号映射待核验",
+        "status": "历史发布已核实；当前可用性待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseDate": "2025-04-16",
+        "releaseUrl": "https://seed.bytedance.com/en/tech/seedream3_0",
+        "releaseEvidence": {
+          "eventId": "official-seedream-seedream-3-0-20250416",
+          "publishedAt": "2025-04-16",
+          "sourceUrl": "https://seed.bytedance.com/en/tech/seedream3_0",
+          "sourceName": "字节 Seed 官方发布页",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "正式推出原生高分辨率中英双语图像生成基础模型；技术报告另于 4 月 15 日发布。",
+          "access": "官方托管服务",
+          "category": "image",
+          "modelName": "Seedream 3.0",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "seedream-4-0",
@@ -16808,10 +16924,25 @@
             "detailUrl": null
           }
         ],
-        "status": "型号映射待核验",
+        "status": "历史发布已核实；当前可用性待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseDate": "2026-02-13",
+        "releaseUrl": "https://seed.bytedance.com/zh/blog/deeper-thinking-more-accurate-generation-introducing-seedream-5-0-lite",
+        "releaseEvidence": {
+          "eventId": "official-seedream-seedream-5-0-lite-20260213",
+          "publishedAt": "2026-02-13",
+          "sourceUrl": "https://seed.bytedance.com/zh/blog/deeper-thinking-more-accurate-generation-introducing-seedream-5-0-lite",
+          "sourceName": "字节 Seed 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "增强视觉理解、推理、图像生成与实时检索；发布时已上线即梦及火山方舟体验中心。",
+          "access": "官方托管服务",
+          "category": "image",
+          "modelName": "Seedream 5.0 Lite",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "region": "中国",
@@ -22160,7 +22291,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://klingai.com/",
-        "releaseUrl": "https://kling.ai/document-api/updates/api",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-25-turbo-video-model-industry-leading",
         "modelCardUrl": "https://kling.ai/document-api/updates/api",
         "id": "kling-2-5-turbo",
         "name": "Kling 2.5 Turbo",
@@ -22197,8 +22328,23 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。",
+        "releaseDate": "2025-09-23",
+        "releaseEvidence": {
+          "eventId": "official-kling-kling-2-5-turbo-20250923",
+          "publishedAt": "2025-09-23",
+          "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-launches-25-turbo-video-model-industry-leading",
+          "sourceName": "快手官方投资者公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "9 月 26 日公告明确记载模型于 9 月 23 日发布，升级文生视频与图生视频。",
+          "access": "官方托管服务",
+          "category": "video",
+          "modelName": "Kling 2.5 Turbo",
+          "sourcePublicationDate": "2025-09-26",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "region": "中国",
@@ -22250,7 +22396,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://klingai.com/",
-        "releaseUrl": "https://kling.ai/document-api/updates/api",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-o1-launches-worlds-first-unified-multimodal-video-model-0/",
         "modelCardUrl": "https://kling.ai/document-api/updates/api",
         "id": "kling-o1",
         "name": "Kling O1",
@@ -22294,8 +22440,23 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。",
+        "releaseDate": "2025-12-01",
+        "releaseEvidence": {
+          "eventId": "official-kling-kling-o1-20251201",
+          "publishedAt": "2025-12-01",
+          "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-o1-launches-worlds-first-unified-multimodal-video-model-0/",
+          "sourceName": "快手官方投资者公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "12 月 2 日公告明确记载 12 月 1 日推出统一多模态视频模型。",
+          "access": "官方托管服务",
+          "category": "video",
+          "modelName": "Kling O1",
+          "sourcePublicationDate": "2025-12-02",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "region": "中国",
@@ -22442,9 +22603,23 @@
           "kling"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
+        "status": "历史发布已核实；当前可用性待核验",
         "note": "快手公告确认 10 月 15 日正式上线，9 月 30 日博客为早期体验介绍。",
-        "releaseDate": "2026-10-15"
+        "releaseDate": "2026-10-15",
+        "releaseEvidence": {
+          "eventId": "official-kling-kling-4-0-20261015",
+          "publishedAt": "2026-10-15",
+          "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-officially-launches-next-generation-kling-40-raising/",
+          "sourceName": "快手官方投资者公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "官方公告正文明确记载 10 月 15 日正式发布，支持长叙事生成与多种参考素材。",
+          "access": "官方托管服务",
+          "category": "video",
+          "modelName": "Kling 4.0",
+          "sourcePublicationDate": "2026-10-17",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "kling-2-0",
@@ -25348,8 +25523,22 @@
           "qwen3-tts"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "开放权重 TTS 模型，官方仓库列出 0.6B 与 1.7B 型号及 Base、CustomVoice、VoiceDesign 变体。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "开放权重 TTS 模型，官方仓库列出 0.6B 与 1.7B 型号及 Base、CustomVoice、VoiceDesign 变体。",
+        "releaseDate": "2026-01-22",
+        "releaseEvidence": {
+          "eventId": "official-qwen3-tts-0-6b-20260122",
+          "publishedAt": "2026-01-22",
+          "sourceUrl": "https://github.com/QwenLM/Qwen3-TTS",
+          "sourceName": "Qwen 官方仓库 News",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Qwen3-TTS 0.6B 与 1.7B 同批发布，基于 12Hz tokenizer。",
+          "access": "开放权重",
+          "category": "tts",
+          "modelName": "0.6B",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "region": "中国",
@@ -25364,8 +25553,22 @@
           "qwen3-tts"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "开放权重 TTS 模型，官方仓库列出 0.6B 与 1.7B 型号及 Base、CustomVoice、VoiceDesign 变体。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "开放权重 TTS 模型，官方仓库列出 0.6B 与 1.7B 型号及 Base、CustomVoice、VoiceDesign 变体。",
+        "releaseDate": "2026-01-22",
+        "releaseEvidence": {
+          "eventId": "official-qwen3-tts-1-7b-20260122",
+          "publishedAt": "2026-01-22",
+          "sourceUrl": "https://github.com/QwenLM/Qwen3-TTS",
+          "sourceName": "Qwen 官方仓库 News",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Qwen3-TTS 1.7B 与 0.6B 同批发布，基于 12Hz tokenizer。",
+          "access": "开放权重",
+          "category": "tts",
+          "modelName": "1.7B",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       }
     ],
     "legacyIds": [
@@ -25614,7 +25817,22 @@
             "detailUrl": null
           }
         ],
-        "status": "官方发布/目录状态需逐项核验"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2025-08-19",
+        "releaseUrl": "https://qwenlm.github.io/blog/qwen-image-edit/",
+        "releaseEvidence": {
+          "eventId": "official-qwen-image-edit-qwen-image-edit-20250819",
+          "publishedAt": "2025-08-19",
+          "sourceUrl": "https://qwenlm.github.io/blog/qwen-image-edit/",
+          "sourceName": "Qwen 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "基于 Qwen-Image 的图像编辑模型，支持语义、外观和文字编辑。",
+          "access": "公开权重与官方体验入口",
+          "category": "image",
+          "modelName": "Qwen Image Edit",
+          "provenance": "本轮核对厂商一手来源；发布时状态不等同当前可用性"
+        }
       },
       {
         "id": "qwen-image-edit-plus-2509",
