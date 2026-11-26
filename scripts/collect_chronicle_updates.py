@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Append official model updates to matching company chronologies."""
+"""Append explicitly unreviewed official discovery records, never rewrite audited history."""
 from __future__ import annotations
 
 import argparse
@@ -14,38 +14,19 @@ TOPICS_FILE = ROOT / "site/data/topics.json"
 UPDATES_FILE = ROOT / "site/data/model-updates.json"
 STATUS_FILE = ROOT / "site/data/chronicle-updates-status.json"
 
-VENDOR_TOPIC = {
-    "anthropic": "anthropic",
-    "google": "google",
-    "google deepmind": "google",
-    "meta superintelligence labs": "meta",
-    "minimax": "minimax",
-    "openai": "openai",
-    "suno": "suno",
-    "字节跳动 seed": "bytedance",
-    "字节跳动 seed / 即梦": "bytedance",
-    "快手": "kuaishou",
-    "kling ai": "kuaishou",
-    "阿里巴巴通义千问": "qwen",
-    "生数科技": "shengshu",
-    "pika": "pika",
-}
-AUTO_TOPIC_STUBS = {
-    "pika": {
-        "group": "公司与模型",
-        "id": "pika",
-        "name": "Pika",
-        "description": "Pika 的 AI 视频生成产品与模型发布记录。",
-        "keywords": ["Pika", "Pika Labs"],
-        "topicUrl": "https://pika.art",
-        "domain": "pika.art",
-        "modelCategories": ["video"],
-        "milestones": [],
-        "chronicleSourceVersion": "official-feed-sync",
-        "chronicleSourceUrl": "https://pika.art",
-    }
-}
-ALLOWED_UPDATE_TYPES = {"release", "announcement", "model-card", "api", "pricing"}
+CONFIG_FILE = ROOT / "config/chronicle-release-links.json"
+ALLOWED_UPDATE_TYPES = {"release", "model-release", "announcement"}
+PENDING_STATUS = "官方一手来源自动收录 · 待复核"
+
+def vendor_topics() -> dict:
+    config = json.loads(CONFIG_FILE.read_text(encoding="utf-8"))
+    return {vendor.casefold(): topic for topic, vendors in config["vendorTopics"].items()
+            for vendor in vendors}
+
+def protected(event: dict) -> bool:
+    return (event.get("autoCollected") is not True or bool(event.get("auditId"))
+            or bool(event.get("verificationDate"))
+            or event.get("verificationStatus") != PENDING_STATUS)
 
 
 def read_json(path: Path):
@@ -93,19 +74,16 @@ def event_kind(update_type: str) -> str:
 
 
 def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: str) -> tuple[list[dict], dict]:
-    existing_topic_ids = {topic.get("id") for topic in topics}
-    for topic_id, stub in AUTO_TOPIC_STUBS.items():
-        if topic_id not in existing_topic_ids:
-            topics.append(json.loads(json.dumps(stub, ensure_ascii=False)))
+    mapping = vendor_topics()
     topics_by_id = {topic.get("id"): topic for topic in topics if topic.get("group") == "公司与模型"}
     existing_events_by_id = {
-        str(event.get("sourceUpdateId")): event
+        (topic["id"], str(event.get("sourceUpdateId"))): event
         for topic in topics_by_id.values()
         for event in topic.get("milestones", [])
-        if event.get("sourceUpdateId") and event.get("autoCollected") is True
+        if event.get("sourceUpdateId")
     }
     seen_links = {
-        (normalize_url(str(event.get("url", ""))), str(event.get("date", "")))
+        (topic["id"], normalize_url(str(event.get("url", ""))), str(event.get("date", "")), str(event.get("sourceModelId", "")))
         for topic in topics_by_id.values()
         for event in topic.get("milestones", [])
         if event.get("url")
@@ -123,18 +101,23 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
         url = str(update.get("url", "")).strip()
         vendor = str(update.get("vendor", "")).strip()
         title = str(update.get("title", "")).strip()
-        if not date or not url or not title:
+        parsed_url = urlsplit(url)
+        if not date or date > checked_at[:10] or parsed_url.scheme != "https" or not parsed_url.hostname or not title:
             continue
         considered += 1
-        topic_id = VENDOR_TOPIC.get(vendor.casefold())
+        topic_id = mapping.get(vendor.casefold())
         topic = topics_by_id.get(topic_id)
         if not topic:
             unmatched_vendors.add(vendor or "（厂商缺失）")
             continue
 
         update_id = str(update.get("id", "")).strip()
-        if update_id and update_id in existing_events_by_id:
-            event = existing_events_by_id[update_id]
+        model_id = str(update.get("modelId") or "")
+        event_key = (topic_id, update_id)
+        if update_id and event_key in existing_events_by_id:
+            event = existing_events_by_id[event_key]
+            if protected(event):
+                continue
             next_values = {
                 "date": date,
                 "kind": event_kind(update_type),
@@ -143,7 +126,9 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
                 "url": url,
                 "sourceId": update.get("sourceId", ""),
                 "sourceName": update.get("sourceName", ""),
-                "verificationStatus": "官方一手来源自动收录 · 待复核",
+                "verificationStatus": PENDING_STATUS,
+                "sourceModelId": model_id,
+                "dateKind": "source-date",
             }
             if update.get("category"):
                 next_values["modelCategory"] = update["category"]
@@ -151,8 +136,8 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
                 event.update(next_values)
                 updated += 1
             continue
-        link_key = (normalize_url(url), date)
-        if link_key in seen_links:
+        link_key = (topic_id, normalize_url(url), date, model_id)
+        if link_key in seen_links or (topic_id, normalize_url(url), date, "") in seen_links:
             continue
 
         event = {
@@ -166,15 +151,17 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
             "sourceUpdateId": update_id,
             "sourceTier": "official-primary",
             "autoCollected": True,
-            "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": checked_at,
+            "verificationStatus": PENDING_STATUS,
+            "dateKind": "source-date",
+            "sourceModelId": model_id,
+            "collectedAt": checked_at,
         }
         if update.get("category"):
             event["modelCategory"] = update["category"]
         topic.setdefault("milestones", []).append(event)
         seen_links.add(link_key)
         if update_id:
-            existing_events_by_id[update_id] = event
+            existing_events_by_id[event_key] = event
         added += 1
 
     for topic in topics_by_id.values():
@@ -191,7 +178,7 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
         "added": added,
         "updated": updated,
         "unmatchedVendors": sorted(unmatched_vendors),
-        "policy": "仅追加官方来源采集记录；未人工复核的节点会明确标记，不覆盖人工审核节点。",
+        "policy": "仅收录已配置厂商的模型发布或预告候选；来源日期不等于首发日期；不覆盖人工审核记录、不自动新增厂商。",
     }
     return topics, status
 

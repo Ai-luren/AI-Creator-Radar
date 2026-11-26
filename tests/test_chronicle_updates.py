@@ -62,5 +62,32 @@ class ChronicleUpdateTests(unittest.TestCase):
         self.assertEqual(len(merged[0]["milestones"]), 2)
 
 
+    def test_reviewed_auto_event_and_excluded_vendors_are_not_overwritten(self):
+        event = {"sourceUpdateId": "id1", "autoCollected": True, "auditId": "a1",
+                 "verificationDate": "2026-11-20", "verificationStatus": "已确认：型号、日期与事件性质",
+                 "date": "2026-11-20", "title": "Reviewed", "url": "https://openai.com/reviewed"}
+        self.topics[0]["milestones"].append(event)
+        original = dict(event)
+        base = {"official": True, "publishedAt": "2026-11-21", "title": "Changed",
+                "url": "https://openai.com/changed", "vendor": "OpenAI", "updateType": "model-release"}
+        updates = [dict(base, id="id1"), dict(base, id="api", updateType="api"),
+                   dict(base, id="pricing", updateType="pricing"), dict(base, id="pika", vendor="Pika"),
+                   dict(base, id="future", publishedAt="2027-01-01")]
+        merged, status = chronicles.merge_official_updates(self.topics, updates, "2026-11-24T00:00:00Z")
+        self.assertEqual(event, original)
+        self.assertEqual(status["added"], 0)
+        self.assertEqual(status["updated"], 0)
+        self.assertNotIn("pika", [x["id"] for x in merged])
+
+    def test_distinct_families_on_same_official_page_preserve_candidate_identity(self):
+        base = {"official": True, "publishedAt": "2026-11-21", "title": "Two models",
+                "url": "https://openai.com/combined", "vendor": "OpenAI", "updateType": "model-release"}
+        updates = [dict(base, id="a", modelId="gpt"), dict(base, id="b", modelId="gpt-image")]
+        merged, status = chronicles.merge_official_updates(self.topics, updates, "2026-11-24T00:00:00Z")
+        self.assertEqual(status["added"], 2)
+        self.assertEqual({x.get("sourceModelId") for x in merged[0]["milestones"] if x.get("autoCollected")}, {"gpt", "gpt-image"})
+        self.assertTrue(all(x.get("dateKind") == "source-date" for x in merged[0]["milestones"] if x.get("autoCollected")))
+
+
 if __name__ == "__main__":
     unittest.main()

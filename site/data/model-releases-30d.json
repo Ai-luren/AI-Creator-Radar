@@ -8,7 +8,10 @@
   "categories": [
     "video",
     "image",
-    "llm"
+    "llm",
+    "music",
+    "tts",
+    "audio"
   ],
   "items": [
     {
@@ -535,6 +538,36 @@
       "modelVersionId": "gpt-image-2-6-flare",
       "evidenceType": "official-release",
       "verifiedAt": "2026-11-25"
+    }
+  ],
+  "pending": [
+    {
+      "id": "ab398ce00903a3bc47",
+      "category": "music",
+      "vendor": "Suno",
+      "title": "Introducing the v6 family of music models.",
+      "summary": "v6 is our flagship model and is reliable, precise and consistently delivers polished music across every genre and style. v6-wild is built for exploration and is less predictable and more varied, producing unexpected, textured and ambitious results.",
+      "url": "https://suno.com/release-notes",
+      "sourceName": "Suno 官方更新日志",
+      "publishedAt": null,
+      "discoveredAt": "2026-11-24T09:41:41Z",
+      "modelFamilyId": "suno",
+      "updateType": "release",
+      "verificationStatus": "pending"
+    },
+    {
+      "id": "seedance-25-20261116",
+      "category": "video",
+      "vendor": "字节跳动 Seed / 即梦",
+      "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
+      "summary": "字节 Seed 于 2026 年 7 月 31 日正式发布 Seedance 2.5，重点升级长叙事生成、多模态参考与编辑能力。",
+      "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "sourceName": "字节跳动 Seed 官方动态",
+      "publishedAt": "2026-11-16T00:00:00Z",
+      "discoveredAt": "2026-11-22T00:00:00Z",
+      "modelFamilyId": "seedance",
+      "updateType": "release",
+      "verificationStatus": "pending"
     }
   ]
 }

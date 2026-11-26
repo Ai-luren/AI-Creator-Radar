@@ -186,7 +186,23 @@
           }
         ],
         "status": "已发布",
-        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。"
+        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。",
+        "releaseDate": "2026-09-22",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-anthropic-0046-claude-opus-5-5",
+          "publishedAt": "2026-09-22",
+          "sourceUrl": "https://www.anthropic.com/claude-opus-5-5",
+          "sourceName": "Anthropic / Claude 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Claude Opus 5.5",
+          "category": "llm",
+          "summary": "Anthropic 新一代通用旗舰模型，主要面向编程 Agent 与知识工作；官方称常见工作负载较 Opus 5 更低成本。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-anthropic-0046",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -353,7 +369,23 @@
           }
         ],
         "status": "已发布",
-        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。"
+        "note": "Claude 是模型家族名；Opus、Sonnet、Haiku 等为不同型号线。",
+        "releaseDate": "2026-10-07",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-anthropic-0035-claude-haiku-5-5",
+          "publishedAt": "2026-10-07",
+          "sourceUrl": "https://www.anthropic.com/claude-haiku-5-5",
+          "sourceName": "Anthropic / Claude 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Claude Haiku 5.5",
+          "category": "llm",
+          "summary": "Anthropic 发布 Claude Haiku 5.5，运行成本平均降低约 75%",
+          "access": "闭源",
+          "chronicleAuditId": "v48-anthropic-0035",
+          "chronicleTopicId": "anthropic",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -4798,7 +4830,23 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。",
+        "releaseDate": "2024-05-13",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-openai-0412-gpt-4o",
+          "publishedAt": "2024-05-13",
+          "sourceUrl": "https://openai.com/index/hello-gpt-4o/",
+          "sourceName": "OpenAI / ChatGPT 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "GPT-4o",
+          "category": "llm",
+          "summary": "OpenAI 发布 GPT-4o（omni），将文本、视觉与音频能力整合进单一端到端模型，并强调更低延迟的实时多模态交互。模型先在 ChatGPT 与 API 分阶段开放。同代型号 GPT-4o mini 于 2024-07-18 发布，保留在同一模型家族中；2026-02-13 的 ChatGPT 端退役信息属于产品生命周期，不代表 API 同步停用。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-openai-0412",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -4892,7 +4940,23 @@
           }
         ],
         "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。",
+        "releaseDate": "2025-08-07",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-openai-0258-gpt-5",
+          "publishedAt": "2025-08-07",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-5/",
+          "sourceName": "OpenAI / ChatGPT 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "GPT-5",
+          "category": "llm",
+          "summary": "OpenAI 发布 GPT-5，将快速响应与更深度推理整合进统一模型系统，并在 ChatGPT 中通过路由机制分配任务；同时向 API 开发者开放 GPT-5 系列模型。同日发布 GPT-5 mini、GPT-5 nano；2025-10-06 的 GPT-5 Pro 作为高算力衍生型号纳入 GPT-5 家族。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-openai-0258",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -5087,7 +5151,23 @@
           }
         ],
         "status": "已发布",
-        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。"
+        "note": "以 GPT 系列收录；具体型号按版本保留，榜单中的大小写差异作为别名处理。",
+        "releaseDate": "2025-12-11",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-openai-0205-gpt-5-2",
+          "publishedAt": "2025-12-11",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-5-2/",
+          "sourceName": "OpenAI / ChatGPT 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "GPT-5.2",
+          "category": "llm",
+          "summary": "OpenAI 发布 GPT-5.2，作为 GPT-5 系列旗舰迭代，提升通用智能、指令遵循、准确性、视觉理解、代码生成、工具调用及表格工作能力，并引入 xhigh 推理强度与上下文压缩能力。2025-12-18 推出 GPT-5.2-Codex；2026-01-14 登陆 Responses API，属于同代编码专项支线。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-openai-0205",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -5519,7 +5599,23 @@
             "detailUrl": "https://maomu.com/models/openai--gpt55?entry=benchlm%3Abench%3A24"
           }
         ],
-        "status": "排行榜独立型号；官方版本信息待核验"
+        "status": "排行榜独立型号；官方版本信息待核验",
+        "releaseDate": "2026-04-23",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-openai-0138-gpt-5-5",
+          "publishedAt": "2026-04-23",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-5-5/",
+          "sourceName": "OpenAI / ChatGPT 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "GPT-5.5",
+          "category": "llm",
+          "summary": "OpenAI 发布 GPT-5.5，面向复杂专业工作、智能体编程、计算机操作、在线研究、数据分析与文档制作等长程任务。模型能够规划、调用工具、检查结果并跨软件持续执行；GPT-5.5 Pro 同步推出。GPT-5.5 于 4 月 24 日开始进入 API。同日推出 GPT-5.5 Pro；2026-10-14 的特定产品端退役为生命周期信息，不等于所有接口下线。",
+          "access": "",
+          "chronicleAuditId": "v48-openai-0138",
+          "chronicleTopicId": "openai",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "gpt-5-5-instant",
@@ -7454,7 +7550,23 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "原生音视频全双工模型；保留官方动态入口。"
+        "note": "原生音视频全双工模型；保留官方动态入口。",
+        "releaseDate": "2026-08-05",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-bytedance-seed-0088-seedrealtime",
+          "publishedAt": "2026-08-05",
+          "sourceUrl": "https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction",
+          "sourceName": "字节跳动 / Seed 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "SeedRealtime",
+          "category": "audio",
+          "summary": "Seed 团队于 2026-08-05 发布 SeedRealtime，采用统一架构融合音频、视频与文本，支持连续多模态信息流上的实时交互。官方强调音视频联合理解、主动交互和对话节奏控制；截至官方公告发布时，已在豆包 App 全量上线。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-bytedance-seed-0088",
+          "chronicleTopicId": "bytedance",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       }
     ],
     "legacyIds": [
@@ -11010,7 +11122,7 @@
     "region": "中国",
     "access": "闭源 API",
     "accessNote": "状态按具体型号和许可条款分别核对。",
-    "version": "Qwen Audio 3.1 Realtime Plus / Qwen Audio 3.1 Realtime Flash",
+    "version": "Qwen Audio 3.1 Realtime Plus / Qwen Audio 3.1 Realtime Flash / Qwen Audio 3.1 Live",
     "versions": [
       {
         "id": "qwen-audio-3-1-realtime-plus",
@@ -11035,6 +11147,29 @@
         "homepage": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-realtime-plus",
         "releaseUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-realtime-plus",
         "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。"
+      },
+      {
+        "id": "qwen-audio-3-1-live",
+        "name": "Qwen Audio 3.1 Live",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "中国",
+        "access": "待核验",
+        "note": "实时全双工模型服务；具体可用地区与授权待核验。",
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "historicalMilestones": [
+          {
+            "date": "2026-11-23",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0001",
+            "summary": "阿里云 Model Studio 于 2026-11-23 上线 Qwen-Audio-3.1-Live，支持文本/语音输入输出、实时全双工对话与函数调用，并可在后台模型执行推理任务期间保持自然语音交互。官方提供 Client 模式与 Responses 模式，并按会话时长计费。这是模型服务首发，不应误写成全新的 Qwen 通用语言旗舰代际。"
+          }
+        ]
       }
     ],
     "legacyIds": [],
@@ -12761,7 +12896,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
-        "releaseUrl": "https://deepmind.google/models/gemini-image/",
+        "releaseUrl": "https://blog.google/innovation-and-ai/products/nano-banana-pro/",
         "modelCardUrl": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
         "id": "nano-banana-pro",
         "name": "Nano Banana Pro",
@@ -12848,7 +12983,23 @@
           }
         ],
         "status": "已发布",
-        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。"
+        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。",
+        "releaseDate": "2025-11-20",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-google-0216-nano-banana-pro",
+          "publishedAt": "2025-11-20",
+          "sourceUrl": "https://blog.google/innovation-and-ai/products/nano-banana-pro/",
+          "sourceName": "Google / Gemini Veo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Nano Banana Pro",
+          "category": "image",
+          "summary": "Google 于 2025-11-20 发布 Nano Banana Pro（Gemini 3 Pro Image），以 Gemini 3 Pro 为基础，强化世界知识、复杂指令理解、图像生成与编辑、精准文字渲染和工作室级创作控制。应与 2025-08 的 Nano Banana（Gemini 2.5 Flash Image）及 2026-02 的 Nano Banana 2（Gemini 3.1 Flash Image）区分。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-google-0216",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -12914,7 +13065,23 @@
           }
         ],
         "status": "已发布",
-        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。"
+        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。",
+        "releaseDate": "2026-02-26",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-google-0167-nano-banana-2",
+          "publishedAt": "2026-02-26",
+          "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/",
+          "sourceName": "Google / Gemini Veo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Nano Banana 2",
+          "category": "image",
+          "summary": "Google 于 2026-02-26 发布 Nano Banana 2（正式模型名 Gemini 3.1 Flash Image），将 Nano Banana Pro 的部分世界知识、图像质量和推理能力带入 Flash 速度档，强化快速迭代、文字渲染、主体一致性、图像编辑和生产级规格。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-google-0167",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -14352,7 +14519,7 @@
     "region": "海外",
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
-    "version": "Midjourney V6 / Midjourney V7 / Midjourney V8 / Midjourney V8.2 / Niji 8",
+    "version": "Midjourney V6 / Midjourney V7 / Midjourney V8 / Midjourney V8.2 / Niji 8 / Midjourney V4 / Midjourney V5 / Midjourney V5.1 / Midjourney V6.1 / Midjourney V8.1",
     "modelCardUrl": "https://updates.midjourney.com/version-8-2/",
     "versions": [
       {
@@ -14369,7 +14536,23 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。"
+        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。",
+        "releaseDate": "2023-12-20",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-midjourney-0437-midjourney-v6",
+          "publishedAt": "2023-12-20",
+          "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+          "sourceName": "Midjourney 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Midjourney V6",
+          "category": "image",
+          "summary": "升级文本理解与图像内文字生成。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-midjourney-0437",
+          "chronicleTopicId": "midjourney",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -14401,7 +14584,19 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。"
+        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。",
+        "historicalMilestones": [
+          {
+            "date": "2026-03-17",
+            "datePrecision": "day",
+            "stage": "alpha",
+            "sourceUrl": "https://updates.midjourney.com/v8-alpha/",
+            "sourceName": "Midjourney 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-midjourney-0160",
+            "summary": "V8.0 以 Alpha 形式开放测试，不代表正式 GA。"
+          }
+        ]
       },
       {
         "region": "海外",
@@ -14417,7 +14612,23 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。"
+        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。",
+        "releaseDate": "2026-07-24",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-midjourney-0097-midjourney-v8-2",
+          "publishedAt": "2026-07-24",
+          "sourceUrl": "https://updates.midjourney.com/version-8-2/",
+          "sourceName": "Midjourney 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Midjourney V8.2",
+          "category": "image",
+          "summary": "Midjourney 于 2026-07-24 发布 V8.2 图像主模型，主要更新美学、画质及个性化。官方又于 2026-08-27 开放 V8.2 Edit 图像编辑模型测试，属于同代际独立编辑分支；两者的发布日与能力定位应区别看待，不将后者误记为 7 月已上线。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-midjourney-0097",
+          "chronicleTopicId": "midjourney",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "niji-8",
@@ -14439,6 +14650,129 @@
           "category": "image",
           "modelName": "Niji 8"
         }
+      },
+      {
+        "id": "midjourney-v4",
+        "name": "Midjourney V4",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "图像模型历史节点；当前可用性与许可待核验。",
+        "releaseUrl": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "historicalMilestones": [
+          {
+            "date": "2022-11",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+            "sourceName": "Midjourney 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-midjourney-0487",
+            "summary": "推出新一代图像模型，提升构图与细节表现。"
+          }
+        ]
+      },
+      {
+        "id": "midjourney-v5",
+        "name": "Midjourney V5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "图像模型历史节点；当前可用性与许可待核验。",
+        "releaseUrl": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "historicalMilestones": [
+          {
+            "date": "2023-03",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+            "sourceName": "Midjourney 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-midjourney-0479",
+            "summary": "提升写实表现与提示词遵循能力。"
+          }
+        ]
+      },
+      {
+        "id": "midjourney-v5-1",
+        "name": "Midjourney V5.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "图像模型历史节点；当前可用性与许可待核验。",
+        "releaseUrl": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+        "releaseDate": "2023-05-04",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-midjourney-0469-midjourney-v5-1",
+          "publishedAt": "2023-05-04",
+          "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/33329788681101-Legacy-Features",
+          "sourceName": "Midjourney 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Midjourney V5.1",
+          "category": "image",
+          "summary": "更新默认风格和提示词跟随能力。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-midjourney-0469",
+          "chronicleTopicId": "midjourney",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "midjourney-v6-1",
+        "name": "Midjourney V6.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "图像模型历史节点；当前可用性与许可待核验。",
+        "releaseUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+        "releaseDate": "2024-07-30",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-midjourney-0392-midjourney-v6-1",
+          "publishedAt": "2024-07-30",
+          "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+          "sourceName": "Midjourney 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Midjourney V6.1",
+          "category": "image",
+          "summary": "提升图像细节、人物与生成速度。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-midjourney-0392",
+          "chronicleTopicId": "midjourney",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "midjourney-v8-1",
+        "name": "Midjourney V8.1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "图像模型历史节点；当前可用性与许可待核验。",
+        "releaseUrl": "https://updates.midjourney.com/v8-1-alpha/",
+        "historicalMilestones": [
+          {
+            "date": "2026-04-14",
+            "datePrecision": "day",
+            "stage": "alpha",
+            "sourceUrl": "https://updates.midjourney.com/v8-1-alpha/",
+            "sourceName": "Midjourney 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-midjourney-0144",
+            "summary": "V8 系列更新，改善速度、分辨率和风格表现。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -16118,7 +16452,7 @@
     "name": "Seedream",
     "vendor": "字节跳动 Seed",
     "category": "image",
-    "version": "Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5",
+    "version": "Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 / Seedream 5.0 Flash",
     "watched": true,
     "logo": "seedream",
     "homepage": "https://seed.bytedance.com/zh/models",
@@ -16255,7 +16589,23 @@
         "status": "型号映射待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseDate": "2025-09-09",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-bytedance-0250-seedream-4-0",
+          "publishedAt": "2025-09-09",
+          "sourceUrl": "https://seed.bytedance.com/en/blog/seedream-4-0-officially-released-beyond-drawing-into-imagination",
+          "sourceName": "字节跳动 / Seed 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Seedream 4.0",
+          "category": "image",
+          "summary": "统一文生图与图像编辑能力。",
+          "access": "",
+          "chronicleAuditId": "v48-bytedance-0250",
+          "chronicleTopicId": "bytedance",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "中国",
@@ -16383,7 +16733,23 @@
         "status": "型号映射待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseDate": "2026-07-08",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-bytedance-0105-seedream-5-0-pro",
+          "publishedAt": "2026-07-08",
+          "sourceUrl": "https://seed.bytedance.com/en/blog/beyond-generation-it-understands-design-introducing-seedream-5-0-pro",
+          "sourceName": "字节跳动 / Seed 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Seedream 5.0 Pro",
+          "category": "image",
+          "summary": "推出具备更强推理和设计能力的图像生成模型。",
+          "access": "",
+          "chronicleAuditId": "v48-bytedance-0105",
+          "chronicleTopicId": "bytedance",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "seedream-5-0-lite",
@@ -16497,6 +16863,29 @@
           "category": "image",
           "modelName": "Seedream 5.5"
         }
+      },
+      {
+        "id": "seedream-5-0-flash",
+        "name": "Seedream 5.0 Flash",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "中国",
+        "access": "待核验",
+        "note": "官方月度目录记录高效率图像分支；快照编号不代表首发日。",
+        "releaseUrl": "https://docs.byteplus.com/en/docs/modelark/model-release-announcement",
+        "historicalMilestones": [
+          {
+            "date": "2026-09",
+            "datePrecision": "month",
+            "stage": "api-availability",
+            "sourceUrl": "https://docs.byteplus.com/en/docs/modelark/model-release-announcement",
+            "sourceName": "字节跳动 / Seed 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-bytedance-0064",
+            "summary": "字节跳动 Seedream 5.0 Flash 是 Seedream 5.0 系列的高效率图像生成与编辑型号，支持文生图、单图/多图编辑、交互式标注编辑及图层拆分。BytePlus 官方 2026-09 月度模型发布公告列出该型号；火山方舟于 2026-10-23 的 Agent Plan 功能日志记录接入。模型 ID 末尾的 260915 为快照标识，不能直接认定为全球首次发布日。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -16842,7 +17231,23 @@
             "detailUrl": null
           }
         ],
-        "status": "型号名称来自榜单；官方版本信息待核验"
+        "status": "型号名称来自榜单；官方版本信息待核验",
+        "releaseDate": "2025-09-28",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-tencent-0242-hunyuanimage-3-0",
+          "publishedAt": "2025-09-28",
+          "sourceUrl": "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0",
+          "sourceName": "腾讯 / Hy 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "HunyuanImage 3.0",
+          "category": "image",
+          "summary": "开放权重的原生多模态图像生成模型，支持指令理解与图像编辑。",
+          "access": "",
+          "chronicleAuditId": "v48-tencent-0242",
+          "chronicleTopicId": "tencent",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "hunyuanimage-3-0-instruct",
@@ -17072,7 +17477,24 @@
         "status": "型号映射待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseUrl": "https://qwenlm.github.io/blog/qwen-image/",
+        "releaseDate": "2025-08-04",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-qwen-0264-qwen-image",
+          "publishedAt": "2025-08-04",
+          "sourceUrl": "https://qwenlm.github.io/blog/qwen-image/",
+          "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Qwen-Image",
+          "category": "image",
+          "summary": "通义千问团队推出并开放 20B 文生图基础模型，重点提升复杂文字渲染与图像编辑能力。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-qwen-0264",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "qwen-image-plus-2601",
@@ -17116,7 +17538,24 @@
             "detailUrl": null
           }
         ],
-        "status": "型号名称来自榜单；官方版本信息待核验"
+        "status": "型号名称来自榜单；官方版本信息待核验",
+        "releaseUrl": "https://qwen.ai/blog?id=qwen-image-2512",
+        "releaseDate": "2025-12-31",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-qwen-0194-qwen-image-2512",
+          "publishedAt": "2025-12-31",
+          "sourceUrl": "https://qwen.ai/blog?id=qwen-image-2512",
+          "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Qwen-Image (2512)",
+          "category": "image",
+          "summary": "更新图像生成真实感、文字渲染与人物表现。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-qwen-0194",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "qwen-image-prompt-extend",
@@ -17244,7 +17683,24 @@
         "status": "型号映射待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseUrl": "https://qwen.ai/blog?id=qwen-image-2.1",
+        "releaseDate": "2026-09-20",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-qwen-0049-qwen-image-2-1",
+          "publishedAt": "2026-09-20",
+          "sourceUrl": "https://qwen.ai/blog?id=qwen-image-2.1",
+          "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Qwen-Image 2.1",
+          "category": "image",
+          "summary": "阿里巴巴发布 Qwen-Image-2.1，更新其图像生成模型系列。该节点记录通义万相图像生成路线的版本演进；具体生成质量、编辑能力及模型开放情况应以官方公告和模型卡为准。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-qwen-0049",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "qwen-image-2-1-pro",
@@ -17346,7 +17802,20 @@
         "status": "型号映射待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "historicalMilestones": [
+          {
+            "date": "2026-08-04",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0090",
+            "summary": "阿里云 Model Studio 2026-08-04 上线 Qwen-Image-3.0 标准型号，支持图片生成与编辑、复杂图文排版、多语言文字与批量视觉设计输出；Pro 是同系列服务规格，不另外记作新代际。"
+          }
+        ]
       },
       {
         "id": "qwen-image-3-0-pro",
@@ -18398,7 +18867,7 @@
     "homepage": "https://deepmind.google/models/veo/",
     "releaseUrl": "https://deepmind.google/models/veo/",
     "note": "Google DeepMind 视频模型；支持原生音频、参考图、角色一致性与镜头控制。",
-    "version": "Veo 3 / Veo 3.1 / Veo 3.1 Fast / Veo 3.1 Lite / Veo 3.1 Audio / Veo 2",
+    "version": "Veo 3 / Veo 3.1 / Veo 3.1 Fast / Veo 3.1 Lite / Veo 3.1 Audio / Veo 2 / Veo（初代）",
     "region": "海外",
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
@@ -18447,7 +18916,23 @@
         ],
         "status": "版本待核对",
         "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
-        "accessNote": "当前主流版本以官方托管服务为主。"
+        "accessNote": "当前主流版本以官方托管服务为主。",
+        "releaseDate": "2025-05-20",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-google-0295-veo-3",
+          "publishedAt": "2025-05-20",
+          "sourceUrl": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
+          "sourceName": "Google / Gemini Veo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Veo 3",
+          "category": "video",
+          "summary": "Google 在 I/O 2025 发布 Veo 3，突出视频与环境声音、音效、对白等原生音频联合生成，并与 Flow 等产品联动。相比 Veo 2，这是视频生成能力和创作流程的重要代际升级。补充演进节点（原始明细归档）：Veo 2 增加相机控制、Outpainting 与对象添加/移除等能力；Veo 2 在 Gemini API 与 Google AI Studio 正式可用。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-google-0295",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -18506,7 +18991,23 @@
         ],
         "status": "版本待核对",
         "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
-        "accessNote": "当前主流版本以官方托管服务为主。"
+        "accessNote": "当前主流版本以官方托管服务为主。",
+        "releaseDate": "2025-10-15",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-google-0235-veo-3-1",
+          "publishedAt": "2025-10-15",
+          "sourceUrl": "https://blog.google/innovation-and-ai/products/veo-updates-flow/",
+          "sourceName": "Google / Gemini Veo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Veo 3.1",
+          "category": "video",
+          "summary": "Google 于 2025-10-15 推出 Veo 3.1，提升多图参考、镜头控制、首尾帧衔接以及原生音频生成等能力，并向 Flow、Gemini API 和 Vertex AI 扩展。后续竖屏、4K 与 API/GA 事件合并作为此代际的产品迭代。补充演进节点（原始明细归档）：Veo 3.1 Fast Preview 型号推出；Veo 3.1 Ingredients to Video 增强：竖屏输出与 4K Upscaling；Veo 3.1 Lite 通过 Gemini API 向开发者开放；Veo 3.1 Lite 在 Vertex AI 进入 Public Preview；Veo 3.1 Lite 模型卡发布。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-google-0235",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -18789,7 +19290,45 @@
             "detailUrl": null
           }
         ],
-        "status": "榜单出现的型号名称；官方状态待核验"
+        "status": "榜单出现的型号名称；官方状态待核验",
+        "releaseDate": "2024-12-16",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-google-0355-veo-2",
+          "publishedAt": "2024-12-16",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/video-image-generation-update-december-2024/",
+          "sourceName": "Google / Gemini Veo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Veo 2",
+          "category": "video",
+          "summary": "Google DeepMind 于 2024-12-16 发布 Veo 2，提升真实物理、人物动作和表情、电影镜头语言理解与画面细节；官方发布说明支持最高 4K 分辨率并可生成长视频。该版本先通过 VideoFX 等实验产品逐步开放。",
+          "access": "",
+          "chronicleAuditId": "v48-google-0355",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "veo-1",
+        "name": "Veo（初代）",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://blog.google/innovation-and-ai/technology/ai/google-io-2024-ai-overviews-gemini/",
+        "note": "Google 于 2024 年 I/O 首次公布 Veo 视频生成基础模型，为后续 Veo 2、Veo 3 与 Flow 视频制作工具奠定技术路线。该事件记录模型首次亮相，后续产品开放与 API 更新不拆成独立公司史节点。补充演进节点（原始明细归档）：Veo 初代视频生成模型发布。",
+        "historicalMilestones": [
+          {
+            "date": "2024-05-14",
+            "datePrecision": "day",
+            "stage": "announcement",
+            "sourceUrl": "https://blog.google/innovation-and-ai/technology/ai/google-io-2024-ai-overviews-gemini/",
+            "sourceName": "Google / Gemini Veo 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-google-0409",
+            "summary": "Google 于 2024 年 I/O 首次公布 Veo 视频生成基础模型，为后续 Veo 2、Veo 3 与 Flow 视频制作工具奠定技术路线。该事件记录模型首次亮相，后续产品开放与 API 更新不拆成独立公司史节点。补充演进节点（原始明细归档）：Veo 初代视频生成模型发布。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -19653,7 +20192,7 @@
     "region": "中国",
     "access": "闭源",
     "accessNote": "当前主流版本以官方托管服务为主。",
-    "version": "Hailuo 2.3 / Hailuo 2.3 Fast / Hailuo 02 Pro / Hailuo 02 Standard / Hailuo 02 Fast",
+    "version": "Hailuo 2.3 / Hailuo 2.3 Fast / Hailuo 02 Pro / Hailuo 02 Standard / Hailuo 02 Fast / Hailuo 02 / Hailuo Video-01",
     "modelCardUrl": "https://hailuoai.video/pages/blog/introducing-hailuo-2-3-ai-video-generator",
     "versions": [
       {
@@ -19661,7 +20200,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://hailuoai.video/",
-        "releaseUrl": "https://www.minimax.io/news",
+        "releaseUrl": "https://www.minimax.io/news/minimax-hailuo-23",
         "modelCardUrl": "https://hailuoai.video/pages/blog/introducing-hailuo-2-3-ai-video-generator",
         "id": "2-3",
         "name": "Hailuo 2.3",
@@ -19685,7 +20224,23 @@
           }
         ],
         "status": "已发布",
-        "note": "Hailuo 2.3 / 2.3-Fast；MiniMax 另有开放权重的视频模型 H3，分开记录。"
+        "note": "Hailuo 2.3 / 2.3-Fast；MiniMax 另有开放权重的视频模型 H3，分开记录。",
+        "releaseDate": "2025-10-28",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0230-2-3",
+          "publishedAt": "2025-10-28",
+          "sourceUrl": "https://www.minimax.io/news/minimax-hailuo-23",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Hailuo 2.3",
+          "category": "video",
+          "summary": "MiniMax 于 2025-10-28 发布 Hailuo 2.3，基于 Hailuo 02 迭代，重点提升复杂人体动作、物理运动、动态镜头下的稳定性及多种视觉风格表现。同日推出 Hailuo 2.3 Fast，属于速度/成本取向的服务变体，主要面向更快的批量创作，不是独立基础模型家族。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-minimax-0230",
+          "chronicleTopicId": "minimax",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "hailuo-2-3-fast",
@@ -19752,6 +20307,59 @@
           }
         ],
         "status": "榜单出现的型号名称；官方状态待核验"
+      },
+      {
+        "id": "hailuo-02",
+        "name": "Hailuo 02",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.minimax.io/news/minimax-hailuo-02",
+        "note": "MiniMax 于 2025-06-18 正式发布 Hailuo 02 视频生成模型。官方公布的可用规格为 768p-6s、768p-10s、1080p-6s，支持原生 1080p 输出。Hailuo 02 的核心架构为 Noise-aware Compute Redistribution（NCR）。MiniMax 称，在同等参数量级下，NCR 使训练与推理效率提升 2.5 倍；新模型参数量扩大至前代的 3 倍，训练数据量扩大至前代的 4 倍。官方重点强调复杂指令遵循与复杂物理运动表现。上述效率、参数量、数据量及能力优势均为厂商发布口径，不应直接表述为独立第三方验证结论。注意：原摘要中的“镜头控制”不应作为 Hailuo 02 的核心发布能力。T2V-01-Director 与 I2V-01-Director 属于此前 Video-01 / 01-Director 产品线，官方将其称为 Video-01 系列收官之作；应作为独立模型/功能节点记录，不能混入 Hailuo 02 的发布摘要。",
+        "releaseDate": "2025-06-18",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0281-hailuo-02",
+          "publishedAt": "2025-06-18",
+          "sourceUrl": "https://www.minimax.io/news/minimax-hailuo-02",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Hailuo 02",
+          "category": "video",
+          "summary": "MiniMax 于 2025-06-18 正式发布 Hailuo 02 视频生成模型。官方公布的可用规格为 768p-6s、768p-10s、1080p-6s，支持原生 1080p 输出。Hailuo 02 的核心架构为 Noise-aware Compute Redistribution（NCR）。MiniMax 称，在同等参数量级下，NCR 使训练与推理效率提升 2.5 倍；新模型参数量扩大至前代的 3 倍，训练数据量扩大至前代的 4 倍。官方重点强调复杂指令遵循与复杂物理运动表现。上述效率、参数量、数据量及能力优势均为厂商发布口径，不应直接表述为独立第三方验证结论。注意：原摘要中的“镜头控制”不应作为 Hailuo 02 的核心发布能力。T2V-01-Director 与 I2V-01-Director 属于此前 Video-01 / 01-Director 产品线，官方将其称为 Video-01 系列收官之作；应作为独立模型/功能节点记录，不能混入 Hailuo 02 的发布摘要。",
+          "access": "",
+          "chronicleAuditId": "v48-minimax-0281",
+          "chronicleTopicId": "minimax",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "hailuo-01",
+        "name": "Hailuo Video-01",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.minimax.io/news/Video-01",
+        "note": "MiniMax 于 2024-08-31 正式发布首款 AI 原生视频生成模型 Video-01（招股文件中亦称 Hailuo-01）。官方公布规格为 720p、25fps、单次生成最长 6 秒；官方发布页面及同日 API 公告列出文生视频（T2V）与图生视频（I2V）模式。同日伙伴日公告另使用名称 abab-video-1 描述视频模型发布，但目前没有明确官方映射文件证明 abab-video-1 与 Video-01/Hailuo-01 的命名关系，故将其作为同日相关命名线索，不重复计数为第二个独立模型。第一财经 2024-09-01 的现场报道描述当时产品前端仅提供 T2V，与官方页面/API 所列能力存在发布口径差异；应区分模型/API 支持能力与当时网页产品的实际开放状态。",
+        "releaseDate": "2024-08-31",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0385-hailuo-01",
+          "publishedAt": "2024-08-31",
+          "sourceUrl": "https://www.minimax.io/news/Video-01",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Hailuo Video-01",
+          "category": "video",
+          "summary": "MiniMax 于 2024-08-31 正式发布首款 AI 原生视频生成模型 Video-01（招股文件中亦称 Hailuo-01）。官方公布规格为 720p、25fps、单次生成最长 6 秒；官方发布页面及同日 API 公告列出文生视频（T2V）与图生视频（I2V）模式。同日伙伴日公告另使用名称 abab-video-1 描述视频模型发布，但目前没有明确官方映射文件证明 abab-video-1 与 Video-01/Hailuo-01 的命名关系，故将其作为同日相关命名线索，不重复计数为第二个独立模型。第一财经 2024-09-01 的现场报道描述当时产品前端仅提供 T2V，与官方页面/API 所列能力存在发布口径差异；应区分模型/API 支持能力与当时网页产品的实际开放状态。",
+          "access": "",
+          "chronicleAuditId": "v48-minimax-0385",
+          "chronicleTopicId": "minimax",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
       }
     ],
     "legacyIds": [
@@ -19832,7 +20440,7 @@
         "access": "开源权重",
         "accessNote": "权重采用 MiniMax H3 Community License；“开放权重”不代表 OSI 开源许可，商用、分发前先看协议。",
         "homepage": "https://hailuoai.video/tools/minimax-h3",
-        "releaseUrl": "https://github.com/MiniMax-AI/MiniMax-H3",
+        "releaseUrl": "https://www.minimax.io/blog/minimax-h3",
         "modelCardUrl": "https://github.com/MiniMax-AI/MiniMax-H3",
         "id": "h3",
         "name": "H3",
@@ -19920,7 +20528,23 @@
         ],
         "status": "已发布",
         "note": "开放权重视频与原生音频模型；支持文生、首尾帧和多模态参考生成。",
-        "apiUrl": "https://platform.minimax.cn/docs/api-reference/video-generation-v2-create"
+        "apiUrl": "https://platform.minimax.cn/docs/api-reference/video-generation-v2-create",
+        "releaseDate": "2026-07-31",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0094-h3",
+          "publishedAt": "2026-07-31",
+          "sourceUrl": "https://www.minimax.io/blog/minimax-h3",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "H3",
+          "category": "video",
+          "summary": "MiniMax 于 2026-07-31 发布 H3 通用全模态视频生成模型，统一处理文本、图像、视频与音频参考，生成带原生双声道音频的视频；官方最高规格为 2K、15 秒。官方回顾 Hailuo 01 与 Hailuo 02 为前代。2026-08-03 H3 模型权重进一步开放，属于同一模型的开放阶段，不应计为第二个独立基础模型。模型规格、成本及性能声明以厂商数据为准。",
+          "access": "开源权重",
+          "chronicleAuditId": "v48-minimax-0094",
+          "chronicleTopicId": "minimax",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       }
     ],
     "legacyIds": [
@@ -20128,7 +20752,24 @@
           }
         ],
         "status": "已发布",
-        "note": "包含 PixVerse V6 视频生成型号。"
+        "note": "包含 PixVerse V6 视频生成型号。",
+        "releaseDate": "2026-03-30",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-pixverse-0155-pixverse-v6",
+          "publishedAt": "2026-03-30",
+          "sourceUrl": "https://pixverse.ai/en/blog/pixverse-launches-v6-advancing-ai-video-generation",
+          "sourceName": "拍我 / PixVerse 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "PixVerse V6",
+          "category": "video",
+          "summary": "强化镜头控制、角色表演、多镜头生成与原生音频。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-pixverse-0155",
+          "chronicleTopicId": "pixverse",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
       }
     ],
     "legacyIds": [
@@ -20229,14 +20870,47 @@
         "name": "PixVerse R1",
         "legacyIds": [],
         "leaderboardAliases": [],
-        "status": "官方目录/榜单收录；具体状态以发布方为准"
+        "status": "官方目录/榜单收录；具体状态以发布方为准",
+        "releaseUrl": "https://pixverse.ai/en/blog/pixverse-launches-r1-real-time-world-model",
+        "releaseDate": "2026-01-12",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-pixverse-0192-pixverse-r1",
+          "publishedAt": "2026-01-12",
+          "sourceUrl": "https://pixverse.ai/en/blog/pixverse-launches-r1-real-time-world-model",
+          "sourceName": "拍我 / PixVerse 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "PixVerse R1",
+          "category": "video",
+          "summary": "推出实时交互式世界生成方向模型；日期按官方发布月份记录。",
+          "access": "",
+          "chronicleAuditId": "v48-pixverse-0192",
+          "chronicleTopicId": "pixverse",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "id": "pixverse-r2",
         "name": "PixVerse R2",
         "legacyIds": [],
         "leaderboardAliases": [],
-        "status": "官方目录/榜单收录；具体状态以发布方为准"
+        "status": "官方目录/榜单收录；具体状态以发布方为准",
+        "releaseDate": "2026-09-22",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-pixverse-0044-pixverse-r2",
+          "publishedAt": "2026-09-22",
+          "sourceUrl": "https://pixverse.ai/en/blog/pixverse-introduces-r2-real-time-world-model",
+          "sourceName": "拍我 / PixVerse 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "PixVerse R2",
+          "category": "video",
+          "summary": "PixVerse 发布 R2，继 R1 之后发展持续交互式世界模型，强调更长时段的世界一致性、状态记忆及文本、音频、动作等输入对运行世界的持续影响。与传统固定时长视频生成模型分开分类。",
+          "access": "",
+          "chronicleAuditId": "v48-pixverse-0044",
+          "chronicleTopicId": "pixverse",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       }
     ],
     "legacyIds": [],
@@ -20930,7 +21604,23 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "30 秒长叙事、精准参考与编辑；关注镜头控制、角色一致性与视频更新。"
+        "note": "30 秒长叙事、精准参考与编辑；关注镜头控制、角色一致性与视频更新。",
+        "releaseDate": "2025-12-16",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-bytedance-0203-seedance-1-5-pro",
+          "publishedAt": "2025-12-16",
+          "sourceUrl": "https://seed.bytedance.com/en/blog/sound-and-vision-all-in-one-take-the-official-release-of-seedance-1-5-pro",
+          "sourceName": "字节跳动 / Seed 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Seedance 1.5 Pro",
+          "category": "video",
+          "summary": "Seedance 1.5 Pro 采用音视频联合生成架构。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-bytedance-0203",
+          "chronicleTopicId": "bytedance",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "中国",
@@ -21024,7 +21714,23 @@
           }
         ],
         "status": "已发布",
-        "note": "30 秒长叙事、精准参考与编辑；关注镜头控制、角色一致性与视频更新。"
+        "note": "30 秒长叙事、精准参考与编辑；关注镜头控制、角色一致性与视频更新。",
+        "releaseDate": "2026-02-12",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-bytedance-0176-seedance-2-0",
+          "publishedAt": "2026-02-12",
+          "sourceUrl": "https://seed.bytedance.com/en/blog/official-launch-of-seedance-2-0",
+          "sourceName": "字节跳动 / Seed 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Seedance 2.0",
+          "category": "video",
+          "summary": "统一多模态音视频生成，支持文本、图像、音频与视频参考。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-bytedance-0176",
+          "chronicleTopicId": "bytedance",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "中国",
@@ -21373,7 +22079,7 @@
     "name": "Kling 视频",
     "vendor": "快手",
     "category": "video",
-    "version": "Kling 2.1 / Kling 2.5 Turbo / Kling 2.6 Pro / Kling O1 / Kling 3.0 / Kling 3.0 Omni / Kling 4.0",
+    "version": "Kling 2.1 / Kling 2.5 Turbo / Kling 2.6 Pro / Kling O1 / Kling 3.0 / Kling 3.0 Omni / Kling 4.0 / Kling 2.0 / Kling 1.6 / Kling 1.5 / Kling 1.0",
     "watched": true,
     "logo": "kling",
     "homepage": "https://klingai.com/",
@@ -21739,6 +22445,99 @@
         "status": "已发布",
         "note": "快手公告确认 10 月 15 日正式上线，9 月 30 日博客为早期体验介绍。",
         "releaseDate": "2026-10-15"
+      },
+      {
+        "id": "kling-2-0",
+        "name": "Kling 2.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-advances-20-era-empowering-everyone-tell-great-stories/",
+        "note": "快手于 2025-04-15 全球发布 Kling AI 2.0 视频生成模型。模型升级动态质量、语义响应和画面美学；其中 Kling 2.0 Master 是高阶视频模型分支，进一步提升复杂动作、表情、镜头运动、指令遵循与电影美学。同一场发布会还推出可图/KOLORS 2.0 图像生成模型，但属于图像分支，已单独记录。发布会同步提出 Multi-modal Visual Language（MVL）交互理念，并推出多模态视频编辑能力。",
+        "releaseDate": "2025-04-15",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-kuaishou-0313-kling-2-0",
+          "publishedAt": "2025-04-15",
+          "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-advances-20-era-empowering-everyone-tell-great-stories/",
+          "sourceName": "快手 / Kling 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Kling 2.0",
+          "category": "video",
+          "summary": "快手于 2025-04-15 全球发布 Kling AI 2.0 视频生成模型。模型升级动态质量、语义响应和画面美学；其中 Kling 2.0 Master 是高阶视频模型分支，进一步提升复杂动作、表情、镜头运动、指令遵循与电影美学。同一场发布会还推出可图/KOLORS 2.0 图像生成模型，但属于图像分支，已单独记录。发布会同步提出 Multi-modal Visual Language（MVL）交互理念，并推出多模态视频编辑能力。",
+          "access": "",
+          "chronicleAuditId": "v48-kuaishou-0313",
+          "chronicleTopicId": "kuaishou",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      },
+      {
+        "id": "kling-1-6",
+        "name": "Kling 1.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/11/19/17-01-24/3Q26%20Kuaishou%20MP_EN_FINAL.pdf",
+        "note": "Kling 1.6 于 2024 年第四季度发布。快手官方将其列为模型能力全面跃迁的版本，重点改善文本指令响应、动作与时间序列理解、镜头运动、风格一致性、色彩准确度、光照动态和细节渲染。需区分：模型在 2024 年 12 月进入产品迭代时间线；官方 API 更新日志于 2025-01-07 另记 V1.6 API 模型正式上线。",
+        "historicalMilestones": [
+          {
+            "date": "2024-12",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/11/19/17-01-24/3Q26%20Kuaishou%20MP_EN_FINAL.pdf",
+            "sourceName": "快手 / Kling 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-kuaishou-0362",
+            "summary": "Kling 1.6 于 2024 年第四季度发布。快手官方将其列为模型能力全面跃迁的版本，重点改善文本指令响应、动作与时间序列理解、镜头运动、风格一致性、色彩准确度、光照动态和细节渲染。需区分：模型在 2024 年 12 月进入产品迭代时间线；官方 API 更新日志于 2025-01-07 另记 V1.6 API 模型正式上线。"
+          }
+        ]
+      },
+      {
+        "id": "kling-1-5",
+        "name": "Kling 1.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/11/19/17-01-24/3Q26%20Kuaishou%20MP_EN_FINAL.pdf",
+        "note": "Kling 1.5 于 2024 年 9 月推出，官方投资者时间轴将其列为支持 1080P 视频的重要里程碑。本条按快手官方时间轴保留月份精度，不补造具体日；1.5 后续又陆续增加首尾帧、视频延长、镜头控制等功能，这些后续能力更新另行记录。",
+        "historicalMilestones": [
+          {
+            "date": "2024-09",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://ir.kuaishou.com/system/files-encrypted/nasdaq_kms/assets/2026/11/19/17-01-24/3Q26%20Kuaishou%20MP_EN_FINAL.pdf",
+            "sourceName": "快手 / Kling 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-kuaishou-0384",
+            "summary": "Kling 1.5 于 2024 年 9 月推出，官方投资者时间轴将其列为支持 1080P 视频的重要里程碑。本条按快手官方时间轴保留月份精度，不补造具体日；1.5 后续又陆续增加首尾帧、视频延长、镜头控制等功能，这些后续能力更新另行记录。"
+          }
+        ]
+      },
+      {
+        "id": "kling-1-0",
+        "name": "Kling 1.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-proprietary-video-generation-model-kling",
+        "note": "快手发布初代可灵 Kling 视频生成大模型，支持文字生成视频、较长视频生成与多种画面比例，开启可灵系列模型发展。",
+        "historicalMilestones": [
+          {
+            "date": "2024-06",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kuaishou-unveils-proprietary-video-generation-model-kling",
+            "sourceName": "快手 / Kling 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-kuaishou-0406",
+            "summary": "快手发布初代可灵 Kling 视频生成大模型，支持文字生成视频、较长视频生成与多种画面比例，开启可灵系列模型发展。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -21998,7 +22797,7 @@
     "region": "中国",
     "access": "闭源",
     "accessNote": "当前主流版本以官方托管服务为主。",
-    "version": "Vidu Q2 / Vidu Q2 Pro / Vidu Q2 Turbo / Vidu Q3 Pro / Vidu Q3 Turbo / Vidu Q4 Preview",
+    "version": "Vidu Q2 / Vidu Q2 Pro / Vidu Q2 Turbo / Vidu Q3 Pro / Vidu Q3 Turbo / Vidu Q4 Preview / Vidu Q1 / Vidu 2.0 / Vidu 1.5",
     "modelCardUrl": "https://platform.vidu.com/docs/api-reference/updates",
     "versions": [
       {
@@ -22201,7 +23000,98 @@
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://www.vidu.com/",
         "releaseUrl": "https://www.vidu.com/",
-        "modelCardUrl": "https://platform.vidu.com/docs/api-reference/updates"
+        "modelCardUrl": "https://platform.vidu.com/docs/api-reference/updates",
+        "historicalMilestones": [
+          {
+            "date": "2026-10-07",
+            "datePrecision": "day",
+            "stage": "preview",
+            "sourceUrl": "https://www.prnewswire.com/news-releases/vidu-launches-q4-preview-making-flagship-ai-video-creation-accessible-to-everyone-302901266.html",
+            "sourceName": "生数科技 / Vidu 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-vidu-0033",
+            "summary": "Vidu Q4 Preview 于 2026-10-07 首次公开预览，支持最多 15 张图像参考、最多 3 个音频参考、2K/4K 输出与 10-bit 色深。这是预览版，不是完整 Q4 正式版；当前官方 API 模型目录仍将 Q4 标记为 Preview。"
+          }
+        ]
+      },
+      {
+        "id": "vidu-q1",
+        "name": "Vidu Q1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.prnewswire.com/news-releases/vidu-q1-model-launches-globally-offering-unmatched-realistic-vfx-capabilities-from-generating-cinematic-transitions-to-high-fidelity-sound-effects-with-just-a-few-simple-inputs-302433278.html",
+        "note": "生数科技于 2025-04-21 发布 Vidu Q1，作为 Vidu 视频模型系列的重要代际升级，强化写实 VFX、镜头表现和视频生成质量。2025-07-08 后续更新加入 Reference-to-Video 多参考图能力，最多支持 7 张参考图；该更新属于 Q1 同代能力扩展，不另计为新模型代际。官方宣传的画质、速度与效果比较属于厂商口径。",
+        "releaseDate": "2025-04-21",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-vidu-0308-vidu-q1",
+          "publishedAt": "2025-04-21",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/vidu-q1-model-launches-globally-offering-unmatched-realistic-vfx-capabilities-from-generating-cinematic-transitions-to-high-fidelity-sound-effects-with-just-a-few-simple-inputs-302433278.html",
+          "sourceName": "生数科技 / Vidu 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Vidu Q1",
+          "category": "video",
+          "summary": "生数科技于 2025-04-21 发布 Vidu Q1，作为 Vidu 视频模型系列的重要代际升级，强化写实 VFX、镜头表现和视频生成质量。2025-07-08 后续更新加入 Reference-to-Video 多参考图能力，最多支持 7 张参考图；该更新属于 Q1 同代能力扩展，不另计为新模型代际。官方宣传的画质、速度与效果比较属于厂商口径。",
+          "access": "",
+          "chronicleAuditId": "v48-vidu-0308",
+          "chronicleTopicId": "shengshu",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      },
+      {
+        "id": "vidu-2-0",
+        "name": "Vidu 2.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-announces-vidu-2-0--offering-the-industrys-fastest-generative-video-302351677.html",
+        "note": "Vidu 2.0 于 2025-01-15 发布。官方强调生成速度、成本与易用性，支持通过模板快速生成复杂动作和道具效果；官方新闻稿称生成视频可在 10 秒以内完成。Vidu 2.0 是 1.5 之后的主要代际升级。",
+        "releaseDate": "2025-01-15",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-vidu-0344-vidu-2-0",
+          "publishedAt": "2025-01-15",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-announces-vidu-2-0--offering-the-industrys-fastest-generative-video-302351677.html",
+          "sourceName": "生数科技 / Vidu 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Vidu 2.0",
+          "category": "video",
+          "summary": "Vidu 2.0 于 2025-01-15 发布。官方强调生成速度、成本与易用性，支持通过模板快速生成复杂动作和道具效果；官方新闻稿称生成视频可在 10 秒以内完成。Vidu 2.0 是 1.5 之后的主要代际升级。",
+          "access": "",
+          "chronicleAuditId": "v48-vidu-0344",
+          "chronicleTopicId": "shengshu",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "vidu-1-5",
+        "name": "Vidu 1.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.prnewswire.com/news-releases/vidu-1-5-launch-marks-new-emergence-in-multimodal-ai-to-introduce-groundbreaking-consistency-controls-that-reshape-the-future-of-ai-video-production-302304364.html",
+        "note": "Vidu 1.5 于 2024-11-13 正式发布。核心升级是 Multiple-Entity Consistency，可将人物、物体和环境等多个不同参考实体组合进同一视频，并在复杂主体/场景输入下维持视觉一致性。该能力是后续 Q 系列 Reference-to-Video 的技术前序。",
+        "releaseDate": "2024-11-13",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-vidu-0368-vidu-1-5",
+          "publishedAt": "2024-11-13",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/vidu-1-5-launch-marks-new-emergence-in-multimodal-ai-to-introduce-groundbreaking-consistency-controls-that-reshape-the-future-of-ai-video-production-302304364.html",
+          "sourceName": "生数科技 / Vidu 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Vidu 1.5",
+          "category": "video",
+          "summary": "Vidu 1.5 于 2024-11-13 正式发布。核心升级是 Multiple-Entity Consistency，可将人物、物体和环境等多个不同参考实体组合进同一视频，并在复杂主体/场景输入下维持视觉一致性。该能力是后续 Q 系列 Reference-to-Video 的技术前序。",
+          "access": "",
+          "chronicleAuditId": "v48-vidu-0368",
+          "chronicleTopicId": "shengshu",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       }
     ],
     "legacyIds": [
@@ -22490,7 +23380,23 @@
         ],
         "status": "版本待核对",
         "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
-        "accessNote": "按 Wan 2.2 官方仓库附带的 LICENSE.txt 使用；这是较早的开放权重版本，不代表 Wan 3.0/2.7 同样开放。"
+        "accessNote": "按 Wan 2.2 官方仓库附带的 LICENSE.txt 使用；这是较早的开放权重版本，不代表 Wan 3.0/2.7 同样开放。",
+        "releaseDate": "2025-07-28",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-qwen-0266-wan-2-2",
+          "publishedAt": "2025-07-28",
+          "sourceUrl": "https://github.com/Wan-Video/Wan2.2",
+          "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Wan 2.2",
+          "category": "video",
+          "summary": "Wan 2.2 发布推理代码与权重，支持文生和图生视频。",
+          "access": "开源权重",
+          "chronicleAuditId": "v48-qwen-0266",
+          "chronicleTopicId": "qwen",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "中国",
@@ -22611,7 +23517,19 @@
         ],
         "status": "版本待核对",
         "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
-        "accessNote": "托管/API 型号；与开放权重 Wan 2.2 分开记录。"
+        "accessNote": "托管/API 型号；与开放权重 Wan 2.2 分开记录。",
+        "historicalMilestones": [
+          {
+            "date": "2026-04-03",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0150",
+            "summary": "阿里云 Model Studio 2026-04-03 上线 Wan 2.7 视频生成与编辑系列：T2V、I2V、R2V、VideoEdit。官方描述加强动作与叙事表现、角色场景多素材一致性，以及指令式局部/整体视频修改。各服务后续快照不重复计新一代。"
+          }
+        ]
       },
       {
         "region": "中国",
@@ -22753,7 +23671,29 @@
         ],
         "status": "版本待核对",
         "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
-        "accessNote": "当前文档提供托管/API 接入；公开 GitHub 仓库不等于已发布可下载权重。"
+        "accessNote": "当前文档提供托管/API 接入；公开 GitHub 仓库不等于已发布可下载权重。",
+        "historicalMilestones": [
+          {
+            "date": "2026-08-06",
+            "datePrecision": "day",
+            "stage": "preview",
+            "sourceUrl": "https://www.youtube.com/watch?v=dC5pu8zL2p8",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0087",
+            "summary": "官方公开视频宣布 Wan 3.0 Public Beta；公测与后续 API/商业可用日期分开记录。"
+          },
+          {
+            "date": "2026-08-24",
+            "datePrecision": "day",
+            "stage": "general-availability",
+            "sourceUrl": "https://www.alibabacloud.com/en/news/product/video-generation-model-wan30-officially-launched-nsb?_p_lc=1",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0073",
+            "summary": "阿里云于 2026-08-24 在官方产品公告中确认 Wan 3.0 视频模型正式上线，支持单次最长 30 秒音视频、多模态参考，以及文生、图生、参考生成与编辑。此前 8 月 6 日公测是较早开放阶段；10 月 19 日纳入 Token Plan 属于商业入口扩展。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -22992,7 +23932,7 @@
     "homepage": "https://elevenlabs.io/docs/overview/capabilities/music",
     "releaseUrl": "https://elevenlabs.io/blog/music-v2-5-model",
     "modelCardUrl": "https://elevenlabs.io/docs/overview/capabilities/music",
-    "version": "v2.5",
+    "version": "v2.5 / Eleven Music v1 / Eleven Music v2",
     "aliases": [
       "Eleven Music",
       "Eleven Music v2.5",
@@ -23015,7 +23955,72 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "ElevenLabs 音乐生成模型；v2.5 于 2026-09 发布，API ID 为 music_v2_5。"
+        "note": "ElevenLabs 音乐生成模型；v2.5 于 2026-09 发布，API ID 为 music_v2_5。",
+        "releaseDate": "2026-09-11",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-elevenlabs-0054-v2-5",
+          "publishedAt": "2026-09-11",
+          "sourceUrl": "https://elevenlabs.io/blog/music-v2-5-model",
+          "sourceName": "ElevenLabs 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "v2.5",
+          "category": "music",
+          "summary": "音乐模型升级并成为 ElevenMusic 默认版本，也提供 API。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-elevenlabs-0054",
+          "chronicleTopicId": "elevenlabs",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      },
+      {
+        "id": "eleven-music-v1",
+        "name": "Eleven Music v1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://elevenlabs.io/blog/eleven-music-is-here",
+        "note": "推出首个音乐生成模型。",
+        "releaseDate": "2025-08-05",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-elevenlabs-0263-eleven-music-v1",
+          "publishedAt": "2025-08-05",
+          "sourceUrl": "https://elevenlabs.io/blog/eleven-music-is-here",
+          "sourceName": "ElevenLabs 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Eleven Music v1",
+          "category": "music",
+          "summary": "推出首个音乐生成模型。",
+          "access": "",
+          "chronicleAuditId": "v48-elevenlabs-0263",
+          "chronicleTopicId": "elevenlabs",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "eleven-music-v2",
+        "name": "Eleven Music v2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://elevenlabs.io/docs/changelog/2026/6/15",
+        "note": "官方更新日志确认 music_v2 可在 API 使用；这是已证实的 API 可用日期，不推定全球首发日。",
+        "historicalMilestones": [
+          {
+            "date": "2026-06-15",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://elevenlabs.io/docs/changelog/2026/6/15",
+            "sourceName": "ElevenLabs 官方来源",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "radar-20261126-eleven-music-v2-api",
+            "summary": "官方更新日志确认 music_v2 可在 API 使用；这是已证实的 API 可用日期，不推定全球首发日。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -23033,7 +24038,7 @@
     "homepage": "https://deepmind.google/",
     "releaseUrl": "https://deepmind.google/models/model-cards/lyria-3-5/",
     "note": "Google DeepMind 音乐生成模型；版本号仅在官方资料明确公布后更新。",
-    "version": "Lyria 3.5 / Lyria RealTime",
+    "version": "Lyria 3.5 / Lyria RealTime / Lyria 3",
     "region": "海外",
     "access": "多版本许可各异",
     "accessNote": "当前主流版本以官方托管服务为主。",
@@ -23065,7 +24070,23 @@
           }
         ],
         "status": "已发布",
-        "note": "Google DeepMind 音乐生成模型；版本号仅在官方资料明确公布后更新。"
+        "note": "Google DeepMind 音乐生成模型；版本号仅在官方资料明确公布后更新。",
+        "releaseDate": "2026-07-29",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-google-0096-lyria-3-5",
+          "publishedAt": "2026-07-29",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-labs/lyria-3-5/",
+          "sourceName": "Google / Gemini Veo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Lyria 3.5",
+          "category": "music",
+          "summary": "Google 首次在 Flow Music 宣布 Lyria 3.5，增强音乐表现、歌词、人声和创作控制；2026-09-04 进一步进入 Gemini 应用和 Gemini API。模型首发与产品入口扩展时间分开记。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-google-0096",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -23082,6 +24103,28 @@
         "leaderboardAliases": [],
         "status": "已发布",
         "note": "Google DeepMind 音乐生成模型；版本号仅在官方资料明确公布后更新。"
+      },
+      {
+        "id": "lyria-3",
+        "name": "Lyria 3",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://deepmind.google/models/model-cards/lyria-3/",
+        "note": "推出新一代音乐生成模型。补充演进节点（原始明细归档）：Lyria 3 发布并在 Gemini App 开放 Beta；Google 发布 Lyria 3 Pro；Lyria 3 与 Lyria 3 Pro 开放开发者 Public Preview；Google 发布 Lyria 3.5。",
+        "historicalMilestones": [
+          {
+            "date": "2026-02-18",
+            "datePrecision": "day",
+            "stage": "preview",
+            "sourceUrl": "https://deepmind.google/models/model-cards/lyria-3/",
+            "sourceName": "Google / Gemini Veo 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-google-0170",
+            "summary": "推出新一代音乐生成模型。补充演进节点（原始明细归档）：Lyria 3 发布并在 Gemini App 开放 Beta；Google 发布 Lyria 3 Pro；Lyria 3 与 Lyria 3 Pro 开放开发者 Public Preview；Google 发布 Lyria 3.5。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -23094,7 +24137,7 @@
     "name": "MiniMax Music",
     "vendor": "MiniMax",
     "category": "music",
-    "version": "3.0",
+    "version": "3.0 / MiniMax Music 2.6 / MiniMax Music 2.5 / MiniMax Music 2.0 / MiniMax Music 1.5 / MiniMax Music-01",
     "watched": false,
     "homepage": "https://www.minimax.io/",
     "releaseUrl": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model",
@@ -23122,7 +24165,157 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "MiniMax 音乐生成服务；不再沿用缺少官方依据的“Music 3.0”版本标注。"
+        "note": "MiniMax 音乐生成服务；不再沿用缺少官方依据的“Music 3.0”版本标注。",
+        "releaseDate": "2026-08-13",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0078-3-0",
+          "publishedAt": "2026-08-13",
+          "sourceUrl": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "3.0",
+          "category": "music",
+          "summary": "MiniMax 于 2026-08-13 发布 Music 3.0 并开放模型权重。模型可根据创意概念和可选歌词，在一次生成中完成作曲、编曲、演唱与制作，官方称完整歌曲最长可达 5 分钟。技术路线包括 Global–Local Hybrid-LM、时间结构描述、多层 RVQ、Flow Matching 与 Flow-VAE。本节点记录模型正式发布/权重开放；API 是否更早开放属于另一事件，不能用权重开放日期替代 API 首次可用日期。",
+          "access": "开源权重",
+          "chronicleAuditId": "v48-minimax-0078",
+          "chronicleTopicId": "minimax",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "music-2-6",
+        "name": "MiniMax Music 2.6",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.minimax.io/news/music-26",
+        "note": "MiniMax 于 2026-04-10 发布 Music 2.6。官方以真实创作者案例展示模型在风格控制、编曲表达、声音表现和音乐生成可用性方面的升级。该节点是 Music 系列版本更新，不是新的独立音乐产品。",
+        "releaseDate": "2026-04-10",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0145-music-2-6",
+          "publishedAt": "2026-04-10",
+          "sourceUrl": "https://www.minimax.io/news/music-26",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "MiniMax Music 2.6",
+          "category": "music",
+          "summary": "MiniMax 于 2026-04-10 发布 Music 2.6。官方以真实创作者案例展示模型在风格控制、编曲表达、声音表现和音乐生成可用性方面的升级。该节点是 Music 系列版本更新，不是新的独立音乐产品。",
+          "access": "",
+          "chronicleAuditId": "v48-minimax-0145",
+          "chronicleTopicId": "minimax",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "music-2-5",
+        "name": "MiniMax Music 2.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.minimax.io/news/minimax-music-25",
+        "note": "MiniMax 于 2026-01-28 发布 Music 2.5，重点提升段落级精细控制与高保真音乐表现。2026-03-04 的同代更新增加纯器乐创作能力，扩展到无演唱配乐、氛围音乐和自然声景等场景；这是 Music 2.5 的功能扩展，不是独立的 Music 2.5+ 基础模型或 Music 2.6。",
+        "releaseDate": "2026-01-28",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0186-music-2-5",
+          "publishedAt": "2026-01-28",
+          "sourceUrl": "https://www.minimax.io/news/minimax-music-25",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "MiniMax Music 2.5",
+          "category": "music",
+          "summary": "MiniMax 于 2026-01-28 发布 Music 2.5，重点提升段落级精细控制与高保真音乐表现。2026-03-04 的同代更新增加纯器乐创作能力，扩展到无演唱配乐、氛围音乐和自然声景等场景；这是 Music 2.5 的功能扩展，不是独立的 Music 2.5+ 基础模型或 Music 2.6。",
+          "access": "",
+          "chronicleAuditId": "v48-minimax-0186",
+          "chronicleTopicId": "minimax",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      },
+      {
+        "id": "music-2-0",
+        "name": "MiniMax Music 2.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.minimax.io/news/minimax-music-20",
+        "note": "MiniMax 于 2025-10-31 正式发布 Music 2.0。官方将其定位为新一代音乐生成模型，强化人声情绪表达、不同演唱风格、节奏与乐器编排的融合。原 CSV 日期 2025-10-29 与官方公告日期不符，已更正为 2025-10-31。",
+        "releaseDate": "2025-10-31",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0227-music-2-0",
+          "publishedAt": "2025-10-31",
+          "sourceUrl": "https://www.minimax.io/news/minimax-music-20",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "MiniMax Music 2.0",
+          "category": "music",
+          "summary": "MiniMax 于 2025-10-31 正式发布 Music 2.0。官方将其定位为新一代音乐生成模型，强化人声情绪表达、不同演唱风格、节奏与乐器编排的融合。原 CSV 日期 2025-10-29 与官方公告日期不符，已更正为 2025-10-31。",
+          "access": "",
+          "chronicleAuditId": "v48-minimax-0227",
+          "chronicleTopicId": "minimax",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      },
+      {
+        "id": "music-1-5",
+        "name": "MiniMax Music 1.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.minimax.io/news/minimax-music-15",
+        "note": "MiniMax 于 2025-09-11 发布 Music 1.5，将歌曲生成长度扩展至最长 4 分钟，并强化创作控制、自然人声、分层乐器编排和歌曲结构连贯性。该版本是 Music-01 之后的重要代际更新，早于 Music 2.0。",
+        "releaseDate": "2025-09-11",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-minimax-0249-music-1-5",
+          "publishedAt": "2025-09-11",
+          "sourceUrl": "https://www.minimax.io/news/minimax-music-15",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "MiniMax Music 1.5",
+          "category": "music",
+          "summary": "MiniMax 于 2025-09-11 发布 Music 1.5，将歌曲生成长度扩展至最长 4 分钟，并强化创作控制、自然人声、分层乐器编排和歌曲结构连贯性。该版本是 Music-01 之后的重要代际更新，早于 Music 2.0。",
+          "access": "",
+          "chronicleAuditId": "v48-minimax-0249",
+          "chronicleTopicId": "minimax",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      },
+      {
+        "id": "music-01",
+        "name": "MiniMax Music-01",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://www.minimax.io/news/music-01",
+        "note": "官方 Music-01 公告介绍伴奏与人声联合合成。此处记录该型号的公开发布，其他同日命名不重复计数。",
+        "releaseDate": "2024-08-31",
+        "releaseEvidence": {
+          "eventId": "chronicle-radar-20261126-minimax-music-01-music-01",
+          "publishedAt": "2024-08-31",
+          "sourceUrl": "https://www.minimax.io/news/music-01",
+          "sourceName": "Minimax / Hailuo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-26",
+          "modelName": "MiniMax Music-01",
+          "category": "music",
+          "summary": "官方 Music-01 公告介绍伴奏与人声联合合成。此处记录该型号的公开发布，其他同日命名不重复计数。",
+          "access": "",
+          "chronicleAuditId": "radar-20261126-minimax-music-01",
+          "chronicleTopicId": "minimax",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
       }
     ],
     "legacyIds": [
@@ -23136,7 +24329,7 @@
     "name": "Suno",
     "vendor": "Suno",
     "category": "music",
-    "version": "Suno V6 / Suno V6 Wild / Suno V6 Mini",
+    "version": "Suno V6 / Suno V6 Wild / Suno V6 Mini / Suno V5.5 / Suno V5 / Suno V4.5 / Suno V4 / Suno V3.5 / Suno V3",
     "watched": true,
     "logo": "suno",
     "homepage": "https://suno.com/",
@@ -23180,7 +24373,23 @@
           }
         ],
         "status": "已发布",
-        "note": "关注音乐模型版本、人声表现、声音控制和 Studio 功能。"
+        "note": "关注音乐模型版本、人声表现、声音控制和 Studio 功能。",
+        "releaseDate": "2026-09-09",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-suno-0058-suno-v6",
+          "publishedAt": "2026-09-09",
+          "sourceUrl": "https://suno.com/blog/introducing-v6",
+          "sourceName": "Suno 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Suno V6",
+          "category": "music",
+          "summary": "推出 v6、v6-wild 与 v6-mini，分别面向稳定创作、灵感探索和快速生成。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-suno-0058",
+          "chronicleTopicId": "suno",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -23226,6 +24435,170 @@
         ],
         "status": "已发布",
         "note": "关注音乐模型版本、人声表现、声音控制和 Studio 功能。"
+      },
+      {
+        "id": "suno-v5-5",
+        "name": "Suno V5.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://suno.com/blog/v5-5",
+        "note": "v5.5 加入 Voices、Custom Models 和 My Taste。",
+        "releaseDate": "2026-03-26",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-suno-0157-suno-v5-5",
+          "publishedAt": "2026-03-26",
+          "sourceUrl": "https://suno.com/blog/v5-5",
+          "sourceName": "Suno 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Suno V5.5",
+          "category": "music",
+          "summary": "v5.5 加入 Voices、Custom Models 和 My Taste。",
+          "access": "",
+          "chronicleAuditId": "v48-suno-0157",
+          "chronicleTopicId": "suno",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "suno-v5",
+        "name": "Suno V5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
+        "note": "提升音质、人声自然度、音乐控制和风格理解。",
+        "releaseDate": "2025-09-23",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-suno-0247-suno-v5",
+          "publishedAt": "2025-09-23",
+          "sourceUrl": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
+          "sourceName": "Suno 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Suno V5",
+          "category": "music",
+          "summary": "提升音质、人声自然度、音乐控制和风格理解。",
+          "access": "",
+          "chronicleAuditId": "v48-suno-0247",
+          "chronicleTopicId": "suno",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "suno-v4-5",
+        "name": "Suno V4.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://suno.com/blog/introducing-v4-5",
+        "note": "提升音乐表现力、风格组合与人声表现。",
+        "releaseDate": "2025-05-01",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-suno-0301-suno-v4-5",
+          "publishedAt": "2025-05-01",
+          "sourceUrl": "https://suno.com/blog/introducing-v4-5",
+          "sourceName": "Suno 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Suno V4.5",
+          "category": "music",
+          "summary": "提升音乐表现力、风格组合与人声表现。",
+          "access": "",
+          "chronicleAuditId": "v48-suno-0301",
+          "chronicleTopicId": "suno",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      },
+      {
+        "id": "suno-v4",
+        "name": "Suno V4",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://suno.com/blog/v4",
+        "note": "改进音质、歌词清晰度、歌曲结构，并升级 Covers 与 Personas。",
+        "releaseDate": "2024-11-19",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-suno-0366-suno-v4",
+          "publishedAt": "2024-11-19",
+          "sourceUrl": "https://suno.com/blog/v4",
+          "sourceName": "Suno 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Suno V4",
+          "category": "music",
+          "summary": "改进音质、歌词清晰度、歌曲结构，并升级 Covers 与 Personas。",
+          "access": "",
+          "chronicleAuditId": "v48-suno-0366",
+          "chronicleTopicId": "suno",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "suno-v3-5",
+        "name": "Suno V3.5",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://suno.com/release-notes/v3-5-is-available-to-everyone",
+        "note": "v3.5 先经历早期访问，再向所有用户开放；此处记录全面开放日期。",
+        "historicalMilestones": [
+          {
+            "date": "2024-05-30",
+            "datePrecision": "day",
+            "stage": "general-availability",
+            "sourceUrl": "https://suno.com/release-notes/v3-5-is-available-to-everyone",
+            "sourceName": "Suno 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-suno-0407",
+            "summary": "v3.5 先经历早期访问，再向所有用户开放；此处记录全面开放日期。"
+          },
+          {
+            "date": "2024-05-24",
+            "datePrecision": "day",
+            "stage": "early-access",
+            "sourceUrl": "https://suno.com/release-notes/v3-5-early-access-4-minute-songs",
+            "sourceName": "Suno 官方来源",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "radar-20261126-suno-v35-early",
+            "summary": "官方公告确认 Pro/Premier 早期访问，5 月 30 日的全面开放是另一阶段。"
+          }
+        ]
+      },
+      {
+        "id": "suno-v3",
+        "name": "Suno V3",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://suno.com/blog/v3",
+        "note": "推出新一代音乐生成模型。",
+        "releaseDate": "2024-03-21",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-suno-0421-suno-v3",
+          "publishedAt": "2024-03-21",
+          "sourceUrl": "https://suno.com/blog/v3",
+          "sourceName": "Suno 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Suno V3",
+          "category": "music",
+          "summary": "推出新一代音乐生成模型。",
+          "access": "",
+          "chronicleAuditId": "v48-suno-0421",
+          "chronicleTopicId": "suno",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
       }
     ],
     "legacyIds": [
@@ -23259,7 +24632,23 @@
         "access": "闭源 API",
         "homepage": "https://seed.bytedance.com/en/seedaudio1_0",
         "releaseUrl": "https://seed.bytedance.com/en/seedaudio1_0",
-        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。"
+        "note": "型号已在官方目录或评测榜中出现；发布日期和当前可用状态待逐项核验。",
+        "releaseDate": "2026-07-20",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-bytedance-seed-0101-seed-audio-1-0",
+          "publishedAt": "2026-07-20",
+          "sourceUrl": "https://seed.bytedance.com/en/blog_list/audio",
+          "sourceName": "字节跳动 / Seed 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Seed Audio 1.0",
+          "category": "audio",
+          "summary": "Seed 团队于 2026-07-20 正式发布 Seed Audio 1.0。其统一框架联合建模人声、音效、环境声等元素，面向影视、视频及完整场景的端到端音频创作。该模型是 Seed GenMedia 组合的重要补充。",
+          "access": "闭源 API",
+          "chronicleAuditId": "v48-bytedance-seed-0101",
+          "chronicleTopicId": "bytedance",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       }
     ],
     "legacyIds": [],
@@ -23388,7 +24777,7 @@
     "homepage": "https://elevenlabs.io/docs/overview/models/",
     "releaseUrl": "https://elevenlabs.io/blog/eleven-v4",
     "modelCardUrl": "https://elevenlabs.io/docs/overview/models/",
-    "version": "Eleven Multilingual v2 / Eleven Flash v2.5 / Eleven v3 / Eleven v3 Conversational / Eleven v4 / Eleven v4 Turbo",
+    "version": "Eleven Multilingual v2 / Eleven Flash v2.5 / Eleven v3 / Eleven v3 Conversational / Eleven v4 / Eleven v4 Turbo / Eleven Turbo v2 / Eleven Multilingual v1",
     "aliases": [
       "Eleven TTS",
       "Eleven v4",
@@ -23412,7 +24801,23 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。"
+        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
+        "releaseDate": "2023-08-22",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-elevenlabs-0458-eleven-multilingual-v2",
+          "publishedAt": "2023-08-22",
+          "sourceUrl": "https://elevenlabs.io/blog/eleven-multilingual-v2",
+          "sourceName": "ElevenLabs 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Eleven Multilingual v2",
+          "category": "tts",
+          "summary": "第二代多语言语音生成，扩展至 29 种语言。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-elevenlabs-0458",
+          "chronicleTopicId": "elevenlabs",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -23427,13 +24832,25 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。"
+        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
+        "historicalMilestones": [
+          {
+            "date": "2024-12-18",
+            "datePrecision": "day",
+            "stage": "official-introduction",
+            "sourceUrl": "https://elevenlabs.io/blog/meet-flash",
+            "sourceName": "ElevenLabs 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-elevenlabs-0354",
+            "summary": "ElevenLabs 在 2024-12-18 发布 Meet Flash 官方文章，明确 Eleven Flash v2 与 Flash v2.5 可通过 API 调用。该日期对应这一官方公开介绍，不强推为两种型号的最早上线日。"
+          }
+        ]
       },
       {
         "region": "海外",
         "access": "闭源",
         "homepage": "https://elevenlabs.io/docs/overview/models/",
-        "releaseUrl": "https://elevenlabs.io/blog/eleven-v4",
+        "releaseUrl": "https://elevenlabs.io/blog/eleven-v3",
         "modelCardUrl": "https://elevenlabs.io/docs/overview/models/",
         "id": "eleven-v3",
         "name": "Eleven v3",
@@ -23442,7 +24859,19 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。"
+        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
+        "historicalMilestones": [
+          {
+            "date": "2025-06-03",
+            "datePrecision": "day",
+            "stage": "alpha",
+            "sourceUrl": "https://elevenlabs.io/blog/eleven-v3",
+            "sourceName": "ElevenLabs 官方来源",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-elevenlabs-0289",
+            "summary": "推出支持表达性语音生成的 Alpha 语音模型。"
+          }
+        ]
       },
       {
         "region": "海外",
@@ -23472,7 +24901,23 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。"
+        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
+        "releaseDate": "2026-09-28",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-elevenlabs-0042-eleven-v4",
+          "publishedAt": "2026-09-28",
+          "sourceUrl": "https://elevenlabs.io/blog/eleven-v4",
+          "sourceName": "ElevenLabs 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Eleven v4",
+          "category": "tts",
+          "summary": "ElevenLabs 于 2026-09-28 发布 Eleven v4，同时推出低延迟型号 Eleven v4 Turbo；本次主要提升语音表达力、声音克隆和多语言表现。v4 与 v4 Turbo 是同代不同延迟/服务档，按同一代际记录。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-elevenlabs-0042",
+          "chronicleTopicId": "elevenlabs",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       },
       {
         "region": "海外",
@@ -23487,7 +24932,75 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。"
+        "note": "语音合成模型系列，支持自然语音生成；v4 Turbo 为低延迟变体。",
+        "releaseDate": "2026-09-28",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-elevenlabs-0042-eleven-v4-turbo",
+          "publishedAt": "2026-09-28",
+          "sourceUrl": "https://elevenlabs.io/blog/eleven-v4",
+          "sourceName": "ElevenLabs 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Eleven v4 Turbo",
+          "category": "tts",
+          "summary": "ElevenLabs 于 2026-09-28 发布 Eleven v4，同时推出低延迟型号 Eleven v4 Turbo；本次主要提升语音表达力、声音克隆和多语言表现。v4 与 v4 Turbo 是同代不同延迟/服务档，按同一代际记录。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-elevenlabs-0042",
+          "chronicleTopicId": "elevenlabs",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "eleven-turbo-v2",
+        "name": "Eleven Turbo v2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://elevenlabs.io/blog/turbo-v2-is-here",
+        "note": "ElevenLabs 于 2023-11-09 发布 Turbo v2，面向低延迟语音生成和实时场景。这是独立于后续 Flash 系列的语音模型型号。",
+        "releaseDate": "2023-11-09",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-elevenlabs-0443-eleven-turbo-v2",
+          "publishedAt": "2023-11-09",
+          "sourceUrl": "https://elevenlabs.io/blog/turbo-v2-is-here",
+          "sourceName": "ElevenLabs 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Eleven Turbo v2",
+          "category": "tts",
+          "summary": "ElevenLabs 于 2023-11-09 发布 Turbo v2，面向低延迟语音生成和实时场景。这是独立于后续 Flash 系列的语音模型型号。",
+          "access": "",
+          "chronicleAuditId": "v48-elevenlabs-0443",
+          "chronicleTopicId": "elevenlabs",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "eleven-multilingual-v1",
+        "name": "Eleven Multilingual v1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "海外",
+        "releaseUrl": "https://elevenlabs.io/blog/eleven-multilingual-v1",
+        "note": "ElevenLabs 第一代多语言语音合成，增加法语、德语、印地语等语言。",
+        "releaseDate": "2023-04-27",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-elevenlabs-0471-eleven-multilingual-v1",
+          "publishedAt": "2023-04-27",
+          "sourceUrl": "https://elevenlabs.io/blog/eleven-multilingual-v1",
+          "sourceName": "ElevenLabs 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Eleven Multilingual v1",
+          "category": "tts",
+          "summary": "ElevenLabs 第一代多语言语音合成，增加法语、德语、印地语等语言。",
+          "access": "",
+          "chronicleAuditId": "v48-elevenlabs-0471",
+          "chronicleTopicId": "elevenlabs",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
       }
     ],
     "legacyIds": [
@@ -23719,7 +25232,7 @@
     "homepage": "https://qwen.ai/",
     "releaseUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-tts-plus",
     "modelCardUrl": "https://help.aliyun.com/en/model-studio/models",
-    "version": "Qwen Audio 3.1 TTS Plus / Qwen Audio 3.1 TTS Flash",
+    "version": "Qwen Audio 3.1 TTS Plus / Qwen Audio 3.1 TTS Flash / Qwen Audio 3.1 TTS Next",
     "aliases": [
       "Qwen Audio TTS",
       "Qwen-Audio-3.1-TTS-Plus",
@@ -23742,7 +25255,19 @@
         ],
         "leaderboardAliases": [],
         "status": "已发布",
-        "note": "包含 Qwen Audio 3.1 TTS Plus、TTS Flash 与实时语音系列；阿里云模型目录分别列出 API 型号。"
+        "note": "包含 Qwen Audio 3.1 TTS Plus、TTS Flash 与实时语音系列；阿里云模型目录分别列出 API 型号。",
+        "historicalMilestones": [
+          {
+            "date": "2026-10-21",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0026",
+            "summary": "Qwen-Audio-3.1-TTS-Plus 于 2026-10-21 在阿里云官方更新日志上线，面向专业配音、高质量合成及音色克隆。此前同代低延迟分支 Qwen-Audio-3.1-TTS-Flash 于 2026-10-12 上线；另于 10/22 推出用途扩展的 TTS-Next 统一音频生成模型，后者单独记为新模型分支。"
+          }
+        ]
       },
       {
         "region": "中国",
@@ -23758,6 +25283,29 @@
         "leaderboardAliases": [],
         "status": "已发布",
         "note": "包含 Qwen Audio 3.1 TTS Plus、TTS Flash 与实时语音系列；阿里云模型目录分别列出 API 型号。"
+      },
+      {
+        "id": "qwen-audio-3-1-tts-next",
+        "name": "Qwen Audio 3.1 TTS Next",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "中国",
+        "access": "待核验",
+        "note": "统一音频生成，可同时生成语音、音效与环境声；不与 Plus 合并。",
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "historicalMilestones": [
+          {
+            "date": "2026-10-22",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0024",
+            "summary": "阿里云官方 2026-10-22 国际服务发布记录确认 Qwen-Audio-3.1-TTS-Next。与侧重语音质量的 TTS-Plus 不同，Next 可结合文本、时间戳和参考音频，一次生成语音、音效与环境氛围声，面向影视音频、播客、游戏与短视频内容创作。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -24282,7 +25830,20 @@
             "detailUrl": null
           }
         ],
-        "status": "官方发布/目录状态需逐项核验"
+        "status": "官方发布/目录状态需逐项核验",
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "historicalMilestones": [
+          {
+            "date": "2026-04-01",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0154",
+            "summary": "阿里云 Model Studio 2026-04-01 开放 Wan2.7-Image 和 Image-Pro，支持文生图、连续图像、交互编辑及多图参考生成；这是 Wan 图像分支，不应合并成 Wan2.7 视频模型。"
+          }
+        ]
       },
       {
         "id": "wan-2-7-image-pro",
@@ -24318,7 +25879,20 @@
             "detailUrl": null
           }
         ],
-        "status": "官方发布/目录状态需逐项核验"
+        "status": "官方发布/目录状态需逐项核验",
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+        "historicalMilestones": [
+          {
+            "date": "2026-04-01",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里巴巴 / Qwen HappyHorse Wan 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-qwen-0154",
+            "summary": "阿里云 Model Studio 2026-04-01 开放 Wan2.7-Image 和 Image-Pro，支持文生图、连续图像、交互编辑及多图参考生成；这是 Wan 图像分支，不应合并成 Wan2.7 视频模型。"
+          }
+        ]
       },
       {
         "id": "wan2-6-text-to-image",
@@ -25065,5 +26639,321 @@
     "aliases": [],
     "legacyIds": [],
     "leaderboardAliases": []
+  },
+  {
+    "id": "pixverse-c1",
+    "name": "PixVerse C1",
+    "vendor": "PixVerse / 爱诗科技",
+    "category": "video",
+    "version": "PixVerse C1",
+    "watched": true,
+    "logo": "pixverse",
+    "homepage": "https://pixverse.ai/",
+    "region": "中国",
+    "access": "待核验",
+    "note": "独立面向影视制作的模型，不并入 V6 普通变体。",
+    "aliases": [
+      "PixVerse C1"
+    ],
+    "versions": [
+      {
+        "id": "pixverse-c1",
+        "name": "PixVerse C1",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史发布记录；当前可用性待核验",
+        "region": "中国",
+        "releaseUrl": "https://pixverse.ai/en/blog/pixverse-introduces-c1-ai-video-model-for-film-production",
+        "note": "PixVerse 正式发布 C1，这是其面向影视制作的专用视频模型，重点强化动作与特效、多镜头连续性和分镜转视频能力。C1 是独立视频模型而非 V6 的普通 API 更新。",
+        "access": "闭源",
+        "releaseDate": "2026-04-07",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-pixverse-0149-pixverse-c1",
+          "publishedAt": "2026-04-07",
+          "sourceUrl": "https://pixverse.ai/en/blog/pixverse-introduces-c1-ai-video-model-for-film-production",
+          "sourceName": "拍我 / PixVerse 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "PixVerse C1",
+          "category": "video",
+          "summary": "PixVerse 正式发布 C1，这是其面向影视制作的专用视频模型，重点强化动作与特效、多镜头连续性和分镜转视频能力。C1 是独立视频模型而非 V6 的普通 API 更新。",
+          "access": "闭源",
+          "chronicleAuditId": "v48-pixverse-0149",
+          "chronicleTopicId": "pixverse",
+          "provenance": "本轮核对官方原文与既有历史节点；沿用节点原审核日期",
+          "sourceRecheckedAt": "2026-11-26"
+        }
+      }
+    ],
+    "legacyIds": [],
+    "leaderboardAliases": []
+  },
+  {
+    "id": "midjourney-video",
+    "name": "Midjourney Video",
+    "vendor": "Midjourney",
+    "category": "video",
+    "watched": false,
+    "logo": "midjourney",
+    "homepage": "https://www.midjourney.com/",
+    "region": "海外",
+    "access": "待核验",
+    "note": "独立图生视频模型谱系，不并入图像版本。",
+    "aliases": [
+      "Midjourney Video",
+      "Midjourney V1 Video"
+    ],
+    "legacyIds": [],
+    "versions": [
+      {
+        "id": "midjourney-v1-video",
+        "name": "Midjourney V1 Video",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "首款图生视频模型；不将图像 V1 视作同一模型。",
+        "releaseUrl": "https://updates.midjourney.com/introducing-our-v1-video-model/",
+        "releaseDate": "2025-06-18",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-midjourney-0282-midjourney-v1-video",
+          "publishedAt": "2025-06-18",
+          "sourceUrl": "https://updates.midjourney.com/introducing-our-v1-video-model/",
+          "sourceName": "Midjourney 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Midjourney V1 Video",
+          "category": "video",
+          "summary": "Midjourney 首款视频模型，可将已有图像动画化并控制运动幅度；首发为图生视频，不是文生视频。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-midjourney-0282",
+          "chronicleTopicId": "midjourney",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      }
+    ],
+    "version": "Midjourney V1 Video",
+    "leaderboardAliases": [],
+    "releaseUrl": "https://updates.midjourney.com/introducing-our-v1-video-model/"
+  },
+  {
+    "id": "imagen",
+    "name": "Imagen",
+    "vendor": "Google",
+    "category": "image",
+    "watched": false,
+    "logo": "gemini",
+    "homepage": "https://deepmind.google/models/imagen/",
+    "region": "海外",
+    "access": "待核验",
+    "note": "Google 独立图像生成模型谱系，区别于 Gemini 图像模型 Nano Banana。",
+    "aliases": [
+      "Imagen"
+    ],
+    "legacyIds": [],
+    "versions": [
+      {
+        "id": "imagen-2",
+        "name": "Imagen 2",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "独立图像生成模型；不继承其他版本的许可、状态或评测。",
+        "releaseUrl": "https://cloud.google.com/blog/products/ai-machine-learning/imagen-2-on-vertex-ai-is-now-generally-available",
+        "historicalMilestones": [
+          {
+            "date": "2023-12-13",
+            "datePrecision": "day",
+            "stage": "official-introduction",
+            "sourceUrl": "https://cloud.google.com/blog/products/ai-machine-learning/imagen-2-on-vertex-ai-is-now-generally-available",
+            "sourceName": "Google / Gemini Veo 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-google-0438",
+            "summary": "Google Cloud 于 2023-12-13 公布 Imagen 2，并向获准使用 Vertex AI 的企业客户提供；2024-02-01 进一步进入 Bard、ImageFX、Search 等产品。两者是模型首发和后续产品扩展两个阶段，不能将 2024-02-01 误记为模型首次发布。"
+          }
+        ]
+      },
+      {
+        "id": "imagen-3",
+        "name": "Imagen 3",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "独立图像生成模型；不继承其他版本的许可、状态或评测。",
+        "releaseUrl": "https://blog.google/innovation-and-ai/products/google-generative-ai-veo-imagen-3/",
+        "historicalMilestones": [
+          {
+            "date": "2024-05-14",
+            "datePrecision": "day",
+            "stage": "announcement",
+            "sourceUrl": "https://blog.google/innovation-and-ai/products/google-generative-ai-veo-imagen-3/",
+            "sourceName": "Google / Gemini Veo 官方来源（既有历史审核）",
+            "verifiedAt": "2026-11-24",
+            "chronicleAuditId": "v48-google-0410",
+            "summary": "Google 于 2024-05-14 在 I/O 2024 发布 Imagen 3，并通过 ImageFX 等实验产品逐步开放。模型提升图像细节、构图、文字渲染和提示词遵循；需将模型公告与 ImageFX 实际开放范围分开记录。"
+          }
+        ]
+      },
+      {
+        "id": "imagen-4",
+        "name": "Imagen 4",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "海外",
+        "access": "待核验",
+        "note": "独立图像生成模型；不继承其他版本的许可、状态或评测。",
+        "releaseUrl": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
+        "releaseDate": "2025-05-20",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-google-0296-imagen-4",
+          "publishedAt": "2025-05-20",
+          "sourceUrl": "https://blog.google/innovation-and-ai/products/generative-media-models-io-2025/",
+          "sourceName": "Google / Gemini Veo 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Imagen 4",
+          "category": "image",
+          "summary": "Google 于 2025-05-20 发布 Imagen 4，提升细节、皮肤/毛发/材质表现、文字渲染与多画幅图像生成，支持最高 2K 输出；官方当时预告后续推出更快的 Fast 变体。当前不能仅凭预告就把 Imagen 4 Fast 当成已发布型号。补充演进节点（原始明细归档）：Imagen 4 Ultra 与 Imagen 4 Fast GA 型号进入 API/Vertex AI。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-google-0296",
+          "chronicleTopicId": "google",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      }
+    ],
+    "version": "Imagen 2 / Imagen 3 / Imagen 4",
+    "leaderboardAliases": [],
+    "releaseUrl": "https://cloud.google.com/blog/products/ai-machine-learning/imagen-2-on-vertex-ai-is-now-generally-available"
+  },
+  {
+    "id": "seededit",
+    "name": "SeedEdit",
+    "vendor": "字节跳动 Seed",
+    "category": "image",
+    "watched": true,
+    "logo": "seedream",
+    "homepage": "https://seed.bytedance.com/zh/models",
+    "region": "中国",
+    "access": "待核验",
+    "note": "字节独立图像编辑模型谱系，区别于 Seedream。",
+    "aliases": [
+      "SeedEdit"
+    ],
+    "legacyIds": [],
+    "versions": [
+      {
+        "id": "seededit-3-0",
+        "name": "SeedEdit 3.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "中国",
+        "access": "待核验",
+        "note": "图像编辑与主体一致性。",
+        "releaseUrl": "https://seed.bytedance.com/en/blog/bytedance-released-image-editing-model-seededit-3-0-enhanced-image-consistency-and-usability-rate",
+        "releaseDate": "2025-06-06",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-bytedance-0287-seededit-3-0",
+          "publishedAt": "2025-06-06",
+          "sourceUrl": "https://seed.bytedance.com/en/blog/bytedance-released-image-editing-model-seededit-3-0-enhanced-image-consistency-and-usability-rate",
+          "sourceName": "字节跳动 / Seed 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "SeedEdit 3.0",
+          "category": "image",
+          "summary": "推出侧重图像编辑和主体一致性的模型。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-bytedance-0287",
+          "chronicleTopicId": "bytedance",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      }
+    ],
+    "version": "SeedEdit 3.0",
+    "leaderboardAliases": [],
+    "releaseUrl": "https://seed.bytedance.com/en/blog/bytedance-released-image-editing-model-seededit-3-0-enhanced-image-consistency-and-usability-rate"
+  },
+  {
+    "id": "vidu-s2",
+    "name": "Vidu S2",
+    "vendor": "生数科技",
+    "category": "video",
+    "watched": false,
+    "logo": "",
+    "homepage": "https://platform.vidu.com/models",
+    "region": "中国",
+    "access": "待核验",
+    "note": "实时角色交互和视频流编辑模型，与 Q 系列传统视频生成区分。",
+    "aliases": [
+      "Vidu S2",
+      "S2-Avatar",
+      "S2-Editing"
+    ],
+    "legacyIds": [],
+    "versions": [
+      {
+        "id": "vidu-s2-avatar",
+        "name": "Vidu S2-Avatar",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "中国",
+        "access": "待核验",
+        "note": "实时角色交互；与传统视频生成独立记录。",
+        "releaseUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s2-bringing-real-time-interaction-and-editing-to-ai-video-302879976.html",
+        "releaseDate": "2026-09-15",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-vidu-0052-vidu-s2-avatar",
+          "publishedAt": "2026-09-15",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s2-bringing-real-time-interaction-and-editing-to-ai-video-302879976.html",
+          "sourceName": "生数科技 / Vidu 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Vidu S2-Avatar",
+          "category": "video",
+          "summary": "ShengShu 于 2026-09-15 发布 Vidu S2，包含两个模型：S2-Avatar（实时交互数字角色）与 S2-Editing（实时视频流编辑）。S2-Avatar 将实时输出分辨率由 S1 的 540p 提升至 720p，并允许用户在角色交互过程中引入新的参考图像；S2-Editing 面向输入视频流的实时编辑。新闻稿发布日期为 2026-09-16，实际发布事件日期按公告所述 9/15 记录。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-vidu-0052",
+          "chronicleTopicId": "shengshu",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      },
+      {
+        "id": "vidu-s2-editing",
+        "name": "Vidu S2-Editing",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史记录；当前可用性待核验",
+        "region": "中国",
+        "access": "待核验",
+        "note": "实时视频流编辑；与传统视频生成独立记录。",
+        "releaseUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s2-bringing-real-time-interaction-and-editing-to-ai-video-302879976.html",
+        "releaseDate": "2026-09-15",
+        "releaseEvidence": {
+          "eventId": "chronicle-v48-vidu-0052-vidu-s2-editing",
+          "publishedAt": "2026-09-15",
+          "sourceUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s2-bringing-real-time-interaction-and-editing-to-ai-video-302879976.html",
+          "sourceName": "生数科技 / Vidu 官方来源（历史审核）",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-24",
+          "modelName": "Vidu S2-Editing",
+          "category": "video",
+          "summary": "ShengShu 于 2026-09-15 发布 Vidu S2，包含两个模型：S2-Avatar（实时交互数字角色）与 S2-Editing（实时视频流编辑）。S2-Avatar 将实时输出分辨率由 S1 的 540p 提升至 720p，并允许用户在角色交互过程中引入新的参考图像；S2-Editing 面向输入视频流的实时编辑。新闻稿发布日期为 2026-09-16，实际发布事件日期按公告所述 9/15 记录。",
+          "access": "待核验",
+          "chronicleAuditId": "v48-vidu-0052",
+          "chronicleTopicId": "shengshu",
+          "provenance": "既有历史审核记录迁移；非本次重新联网核验"
+        }
+      }
+    ],
+    "version": "Vidu S2-Avatar / Vidu S2-Editing",
+    "leaderboardAliases": [],
+    "releaseUrl": "https://www.prnewswire.com/news-releases/shengshu-technology-unveils-vidu-s2-bringing-real-time-interaction-and-editing-to-ai-video-302879976.html"
   }
 ]

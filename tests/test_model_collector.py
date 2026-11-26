@@ -94,6 +94,47 @@ class ModelCollectorTests(unittest.TestCase):
         self.assertEqual(items[0]["publishedAt"], "2026-08-13T00:00:00Z")
         self.assertEqual(items[0]["url"], "https://ir.minimax.io/news/music-30")
 
+    def test_heading_enclosing_article_anchor_beats_unrelated_icon(self):
+        page = '<a href="/icons.svg?v=1">Icon</a><a href="/blog/seedance-3"><h2>Introducing Seedance 3.0</h2></a><time datetime="2026-11-26">Nov 26, 2026</time>'
+        items = html_page_items(page, self.source)
+        self.assertEqual(items[0]["url"], "https://seed.example/blog/seedance-3")
+
+    def test_no_article_link_does_not_guess_from_adjacent_navigation(self):
+        page = '<a href="/blog/unrelated">Navigation</a><h2>Introducing Seedance 3.0</h2><time datetime="2026-11-26">Nov 26, 2026</time>'
+        items = html_page_items(page, self.source)
+        self.assertEqual(items[0]["url"], self.source["url"])
+
+    def test_dated_catalog_preserves_explicit_section_date(self):
+        source = dict(self.source, type="dated-headings")
+        page = '<h2>2026</h2><h3>Seedance 2.9</h3><h3>2026-11-25</h3><h4>Seedance 3.0</h4><p>Some description</p><h3>2026-11-26</h3><h4>Seedream 6.0</h4>'
+        items = html_page_items(page, source)
+        self.assertEqual([(x["title"], x["publishedAt"][:10]) for x in items], [("Seedance 3.0", "2026-11-25"), ("Seedream 6.0", "2026-11-26")])
+        self.assertTrue(all(x["url"] == source["url"] for x in items))
+
+    def test_source_coverage_uses_active_canonical_ids(self):
+        from scripts.collect_models import source_coverage
+        result = source_coverage([dict(self.source, active=True), dict(self.source, active=False, modelMatches={"other": ["other"]})], {"seedance": {}, "other": {}})
+        self.assertEqual(result["configuredFamilies"], 1)
+        self.assertEqual(result["unmappedFamilyIds"], ["seedream"])
+        self.assertEqual(result["unmonitoredFamilyIds"], ["other"])
+
+    def test_same_article_can_announce_distinct_model_families(self):
+        from scripts.collect_models import make_item
+        first = {"title": "Introducing Seedance 3.0", "url": "https://seed.example/blog/both", "modelId": "seedance"}
+        second = dict(first, title="Introducing Seedream 6.0", modelId="seedream")
+        self.assertNotEqual(make_item(first, self.source, {}, "2026-11-26")["id"], make_item(second, self.source, {}, "2026-11-26")["id"])
+
+    def test_explicit_named_version_heading(self):
+        source = dict(self.source, allowNamedVersion=True, modelMatches={"midjourney": ["re:^Version"]})
+        page = '<h2><a href="/version-9">Version 9</a></h2><time datetime="2026-11-26">2026-11-26</time>'
+        self.assertEqual(html_page_items(page, source)[0]["title"], "Version 9")
+
+    def test_old_first_seen_is_preserved(self):
+        from scripts.collect_models import merge_item
+        old = {"firstSeenAt": "2026-01-01", "discoveredAt": "2026-01-02"}
+        new = {"firstSeenAt": "2026-11-26", "discoveredAt": "2026-11-26"}
+        self.assertEqual(merge_item(old, new)["firstSeenAt"], "2026-01-01")
+
     def test_html_ignores_unrelated_features(self):
         page = """
         <h2>Introducing Visuals</h2><time datetime="2026-11-17">Nov 17, 2026</time>
