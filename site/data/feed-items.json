@@ -2539,11 +2539,6 @@
       "discoveredAt": "2026-11-22T03:37:26Z",
       "modelMentions": [
         {
-          "modelFamilyId": "heygen-video",
-          "modelVersionId": "video-1",
-          "matchedName": "Video 1"
-        },
-        {
           "modelFamilyId": "kling",
           "modelVersionId": "kling-4-0",
           "matchedName": "Kling 4.0"
@@ -3060,16 +3055,6 @@
       "tags": [],
       "discoveredAt": "2026-11-22T03:34:27Z",
       "modelMentions": [
-        {
-          "modelFamilyId": "agnes-image-25-flash",
-          "modelVersionId": "2-5-flash",
-          "matchedName": "2.5 Flash"
-        },
-        {
-          "modelFamilyId": "agnes-video-25",
-          "modelVersionId": "2-5-flash",
-          "matchedName": "2.5 Flash"
-        },
         {
           "modelFamilyId": "gemini",
           "modelVersionId": "gemini-4-hydrogen",

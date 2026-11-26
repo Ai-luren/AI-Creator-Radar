@@ -22,13 +22,6 @@
       "sourceNames": [
         "DeepSeek 官方更新日志"
       ],
-      "modelMentions": [
-        {
-          "modelFamilyId": "recraft",
-          "modelVersionId": "v4-1",
-          "matchedName": "V4.1"
-        }
-      ],
       "modelFamilyMentions": [
         {
           "modelFamilyId": "deepseek",
@@ -4708,11 +4701,6 @@
           "modelFamilyId": "grok-imagine-video",
           "modelVersionId": "grok-imagine-video-1-5",
           "matchedName": "Grok Imagine Video 1.5"
-        },
-        {
-          "modelFamilyId": "heygen-video",
-          "modelVersionId": "video-1",
-          "matchedName": "Video 1"
         }
       ],
       "modelFamilyMentions": [
@@ -7719,19 +7707,7 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null,
-      "modelMentions": [
-        {
-          "modelFamilyId": "agnes-image-25-flash",
-          "modelVersionId": "2-5-flash",
-          "matchedName": "2.5 Flash"
-        },
-        {
-          "modelFamilyId": "agnes-video-25",
-          "modelVersionId": "2-5-flash",
-          "matchedName": "2.5 Flash"
-        }
-      ]
+      "modelVersion": null
     },
     {
       "id": "9c4f441cf7fb3b7644",
@@ -7750,19 +7726,7 @@
       "sourceName": "Google DeepMind 官方模型卡",
       "official": true,
       "updateType": "model-card",
-      "modelVersion": null,
-      "modelMentions": [
-        {
-          "modelFamilyId": "agnes-image-25-flash",
-          "modelVersionId": "2-5-flash",
-          "matchedName": "2.5 Flash"
-        },
-        {
-          "modelFamilyId": "agnes-video-25",
-          "modelVersionId": "2-5-flash",
-          "matchedName": "2.5 Flash"
-        }
-      ]
+      "modelVersion": null
     },
     {
       "id": "01a8ff9609077a266c",

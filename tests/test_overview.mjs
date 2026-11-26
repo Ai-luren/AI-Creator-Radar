@@ -10,7 +10,13 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const html=fs.readFileSync(path.join(root,'site/index.html'),'utf8');
 const script=html.split('<script>')[1].split('</script>')[0];
 const boot=script.slice(0,script.indexOf('\nloadData().catch('));
-function setup({query='',fail=[],defer}={}){
+// Render historical snapshots deterministically, not against the runner's wall clock.
+const releaseSnapshot=JSON.parse(fs.readFileSync(path.join(root,'site/data/model-releases-30d.json'),'utf8'));
+const snapshotTime=Date.parse(releaseSnapshot.windowEnd+'T23:59:59+08:00');
+assert.ok(Number.isFinite(snapshotTime),'release snapshot requires a valid windowEnd');
+function setup({query='',fail=[],defer,now=snapshotTime}={}){
+ const fixedTime=typeof now==='number'?now:Date.parse(now);assert.ok(Number.isFinite(fixedTime));
+ class SnapshotDate extends Date{constructor(...args){super(...(args.length?args:[fixedTime]))}static now(){return fixedTime}}
  const requested=[];
  const nodes=new Map();
  function node(id){
@@ -18,7 +24,7 @@ function setup({query='',fail=[],defer}={}){
   return nodes.get(id);
  }
  const location={search:query,protocol:'https:'};const entries=[];let cursor=-1;const history={state:null,replaceState(s,_,url){this.state=s;location.search=url.split('#')[0];if(cursor<0){entries.push({state:s,url});cursor=0}else entries[cursor]={state:s,url}},pushState(s,_,url){entries.splice(cursor+1);entries.push({state:s,url});cursor++;this.state=s;location.search=url},back(){if(cursor>0){cursor--;this.state=entries[cursor].state;location.search=entries[cursor].url;vm.runInContext('restoreNavigation(window.history.state)',ctx)}}};
- const ctx=vm.createContext({URL,URLSearchParams,Intl,Date,console,location,window:{location,history,scrollY:0,scrollTo(x,y){this.scrollY=y}},document:{querySelectorAll(){return []},getElementById:node,addEventListener(){}},localStorage:{getItem(){return null}},fetch:async url=>{
+ const ctx=vm.createContext({URL,URLSearchParams,Intl,Date:SnapshotDate,console,location,window:{location,history,scrollY:0,scrollTo(x,y){this.scrollY=y}},document:{querySelectorAll(){return []},getElementById:node,addEventListener(){}},localStorage:{getItem(){return null}},fetch:async url=>{
   const name=url.split('/').pop().split('?')[0];requested.push(name);
   if(defer)await defer(name);
   if(fail.includes(name))return {ok:false,status:503};
@@ -120,7 +126,9 @@ test('rankings search indexes visible source rows and keeps task identity',async
 
 test('grouped release list, recent known date and readable briefing preserve source links',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');run("setView('today')");
- assert.match(node('content').innerHTML,/class="release-main"/);assert.match(node('content').innerHTML,/class="release-actions"/);assert.match(node('content').innerHTML,/data-model-version=/);
+ const hasReleases=run("(state.modelReleases||[]).some(x=>releaseCategoryOrder(x.category)<99&&withinDays(x.publishedAt,30,new Date()))");
+ if(hasReleases){assert.match(node('content').innerHTML,/class="release-main"/);assert.match(node('content').innerHTML,/class="release-actions"/);assert.match(node('content').innerHTML,/data-model-version=/)}
+ else{assert.doesNotMatch(node('content').innerHTML,/class="release-main"/);assert.match(node('content').innerHTML,/最近 30 天没有符合当前筛选的已核实发布事件/)}
  run("setView('models')");assert.match(node('content').innerHTML,/最近发布日期/);assert.match(node('content').innerHTML,/table-scroll-hint/);
  run("setView('feeds')");assert.doesNotMatch(node('content').innerHTML,/class="briefing-intro"/);assert.match(node('content').innerHTML,/briefing-original-links/);
 });
@@ -338,7 +346,7 @@ test('V3.4 each vendor has its own semantic table row group',async()=>{
 });
 
 test('latest briefing date is shared across sources and fixed before search or categories',()=>{
- const {run}=setup();run("state.aihotDaily={title:'AI 日报 2026-11-25',items:[{title:'昨日旧报道',category:'行业',url:'https://example.com/old'}]};state.juyaDaily={title:'AI 早报 2026-11-26',items:[{title:'今日新报道',category:'行业',url:'https://example.com/new'}]};state.aihot={items:[{selected:true,title:'旧精选',publishedAt:'2026-11-25T00:00:00Z'},{selected:true,title:'新精选',publishedAt:'2026-11-26T00:00:00Z'},{selected:true,title:'未注明日期精选'},{selected:false,title:'未选资讯',publishedAt:'2026-11-26T00:00:00Z'}]};");
+ const {run}=setup({now:'2026-11-26T14:00:00+08:00'});run("state.aihotDaily={title:'AI 日报 2026-11-25',items:[{title:'昨日旧报道',category:'行业',url:'https://example.com/old'}]};state.juyaDaily={title:'AI 早报 2026-11-26',items:[{title:'今日新报道',category:'行业',url:'https://example.com/new'}]};state.aihot={items:[{selected:true,title:'旧精选',publishedAt:'2026-11-25T00:00:00Z'},{selected:true,title:'新精选',publishedAt:'2026-11-26T00:00:00Z'},{selected:true,title:'未注明日期精选'},{selected:false,title:'未选资讯',publishedAt:'2026-11-26T00:00:00Z'}]};");
  assert.equal(run('latestBriefingDay()'),'2026-11-26');const events=JSON.parse(run('JSON.stringify(combinedNews(latestBriefingDay()))'));assert.equal(events.length,2);assert.ok(events.every(e=>e.day==='2026-11-26'&&e.rows.every(r=>r.day==='2026-11-26')));assert.equal(run('latestDigest(state.aihotDaily,latestBriefingDay()).items.length'),0);assert.equal(run('latestSelectedNews(latestBriefingDay()).length'),1);run("state.query='昨日旧报道'");assert.equal(run('latestBriefingDay()'),'2026-11-26');assert.equal(run('combinedNews(latestBriefingDay()).filter(newsMatches).length'),0);
 });
 
@@ -368,4 +376,14 @@ test('V3.6 audio leaves are mutually exclusive and overview only counts formal r
   run("setView('today',{releaseMode:"+JSON.stringify(mode)+",releaseCategory:"+JSON.stringify(c)+"})");assert.doesNotMatch(node('content').innerHTML,/\+\s*\d+\s*上线/);
   if(mode==='confirmed')assert.doesNotMatch(node('content').innerHTML,/已核实模型上线阶段/);
  }
+});
+
+test('expired snapshot is a legitimate empty release window, not a broken page',async()=>{
+ const {run,node}=setup({now:snapshotTime+60*86400000});await run('loadAllForTests()');
+ run("setView('today',{releaseMode:'confirmed',releaseWindow:'30',releaseCategory:'all'})");
+ assert.doesNotMatch(node('content').innerHTML,/class="release-main"/);
+ assert.match(node('content').innerHTML,/最近 30 天没有符合当前筛选的已核实发布事件/);
+ run("setView('overview')");
+ assert.equal(run('overviewSummary(new Date()).confirmed.length'),0);
+ assert.match(node('content').innerHTML,/同步延迟/);
 });

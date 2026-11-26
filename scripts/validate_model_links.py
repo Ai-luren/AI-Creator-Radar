@@ -14,6 +14,10 @@ def read(relative: str):
 
 
 def main() -> int:
+    try:
+        from scripts.link_model_records import is_unqualified_version_label
+    except ModuleNotFoundError:
+        from link_model_records import is_unqualified_version_label
     families = read("site/data/models.json")
     errors = []
     family_ids = [family.get("id") for family in families]
@@ -96,6 +100,10 @@ def main() -> int:
                 fid, vid = ref.get("modelFamilyId"), ref.get("modelVersionId")
                 if fid not in family_map or (fid, vid) not in versions:
                     errors.append(f"{relative}: unresolved model mention {fid}/{vid}")
+                # Audited historical milestones can use short catalog labels
+                # backed by explicit evidence. Automatic mentions cannot.
+                if section != "milestones" and is_unqualified_version_label(ref.get("matchedName")):
+                    errors.append(f"{relative}: unqualified automatic model mention {fid}/{vid}")
             for ref in record.get("modelFamilyMentions", []):
                 fid = ref.get("modelFamilyId")
                 if fid not in family_map:
