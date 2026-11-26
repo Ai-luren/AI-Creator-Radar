@@ -9,10 +9,12 @@ from pathlib import Path
 
 try:
     from scripts.collect_models import non_release_title
-    from scripts.collect_resolve_model_leads import candidate_rows
+    from scripts.collect_resolve_model_leads import candidate_rows, reconcile_candidate_dates, title_agrees
+    from scripts.collect_release_recall import url_key
 except ModuleNotFoundError:
     from collect_models import non_release_title
-    from collect_resolve_model_leads import candidate_rows
+    from collect_resolve_model_leads import candidate_rows, reconcile_candidate_dates, title_agrees
+    from collect_release_recall import url_key
 
 ROOT = Path(__file__).resolve().parents[1]
 MODELS = ROOT / "site/data/models.json"
@@ -165,7 +167,13 @@ def build(today: date) -> dict:
             })
     items.sort(key=lambda item: (item["publishedAt"], item["vendor"], item["modelName"]), reverse=True)
     updates = json.loads(UPDATES.read_text(encoding="utf-8")).get("items", []) if UPDATES.exists() else []
-    recovered = candidate_rows(json.loads(RESOLUTION.read_text(encoding="utf-8"))) if RESOLUTION.exists() else []
+    resolution = json.loads(RESOLUTION.read_text(encoding="utf-8")) if RESOLUTION.exists() else {}
+    updates, _ = reconcile_candidate_dates(updates, resolution)
+    recovered = [p for p in candidate_rows(resolution) if not any(
+        u.get("official") is True and u.get("modelId") == p["modelId"]
+        and url_key(u.get("url")) == url_key(p["url"])
+        and str(u.get("publishedAt") or "")[:10] == p["publishedAt"][:10]
+        and (title_agrees(p["title"], u.get("title") or "") or title_agrees(u.get("title") or "", p["title"])) for u in updates)]
     return {
         "schema": "model-release-digest/v2",
         "sourceOfTruth": "site/data/models.json",

@@ -181,6 +181,125 @@ def collect(config, previous, now, fetcher=fetch):
             "sources": statuses, "items": items[:500], "policy": "辅助线索；不计正式发布，不写入模型库/发展史，不以仓库创建日当首发日"}
 
 
+
+# Existing repository snapshots, not extra HTTP requests. Their dates are observation
+# dates or third-party reports, never evidence of first release.
+LOCAL_INPUTS = (
+    ("local-aihot-selected", "AIHOT 精选", "aihot-items.json", "fetchedAt"),
+    ("local-aihot-daily", "AIHOT 日报", "aihot-daily.json", "fetchedAt"),
+    ("local-juya-daily", "橘鸦 AI 早报", "juya-daily.json", "fetchedAt"),
+    ("local-official-candidates", "既有官方候选索引", "model-updates.json", "generatedAt"),
+)
+LOCAL_RELEASE_CATEGORIES = {"ai-models", "模型发布", "模型发布/更新", "模型发布／更新", "模型"}
+
+
+def literal_model_hints(title, families):
+    """Only exact names already present in canonical catalog; no invented versions."""
+    names = set()
+    for family in families:
+        for version in family.get("versions", []):
+            name = str(version.get("name") or "").strip()
+            if len(name) >= 5 and re.search(r"\d", name):
+                if re.search(r"(?<![A-Za-z0-9.])" + re.escape(name) + r"(?![A-Za-z0-9.]|[-_][A-Za-z0-9]|\s+(?:turbo|flash|pro|lite|mini|ultra|plus|max|preview|thinking|live|fast|medical)\b)", title, re.I):
+                    names.add(name)
+    # Nested version prefixes are redundant; multiple independent names are
+    # ambiguous in a translated headline, so don't supply a model hint.
+    names = {n for n in names if not any(n.casefold() != m.casefold() and n.casefold() in m.casefold() for m in names)}
+    return sorted(names) if len(names) == 1 else []
+
+
+def local_snapshot_leads(source_id, source_name, snapshot, stamp_field, allowed, families, model_sources):
+    stamp = parse_date(snapshot.get(stamp_field))
+    if not stamp or not isinstance(snapshot.get("items"), list):
+        raise ValueError("Missing valid snapshot observation or items")
+    edition = parse_date(re.search(r"20\d{2}\s*[-年]\s*\d{1,2}\s*[-月]\s*\d{1,2}", snapshot.get("title", "")).group(0).replace(" ", "")) if re.search(r"20\d{2}\s*[-年]\s*\d{1,2}\s*[-月]\s*\d{1,2}", snapshot.get("title", "")) else None
+    official_index = source_id == "local-official-candidates"
+    listings = {normalize_url(u).rstrip("/") for s in model_sources for u in
+                [s["url"], *s.get("fallbackUrls", []), *(e["url"] for e in s.get("fallbackEndpoints", []))]}
+    rows = []
+    for item in snapshot["items"]:
+        title = clean_text(item.get("title") or "")
+        if not title or non_release_title(title):
+            continue
+        if official_index:
+            if item.get("official") is not True or not item.get("modelId") or item.get("updateType") not in {"release", "model-release", "model-card", "announcement"}:
+                continue
+            if item.get("publicationDateKind") in {"jsonld-datePublished", "feed-published", "article-explicit-date"}:
+                continue
+            url = article_url(item.get("url"), allowed)
+            if not url or url.rstrip("/") in listings:
+                continue
+            candidates = [url]
+            primary = url
+            reported = parse_date(item.get("publishedAt") or item.get("firstSeenAt") or item.get("discoveredAt"))
+            kind = "existing-candidate-date"
+            observed = parse_date(item.get("lastSeenAt") or item.get("discoveredAt")) or stamp
+        else:
+            if item.get("category") not in LOCAL_RELEASE_CATEGORIES:
+                continue
+            links = item.get("links") or []
+            if isinstance(links, dict):
+                candidates = [links.get("original")]
+                primary = https_url(links.get("original")) or https_url(links.get("aihot"))
+            elif isinstance(links, list):
+                candidates = [item.get("url"), *(link.get("url") for link in links if isinstance(link, dict))]
+                primary = https_url(item.get("url")) or next((u for link in candidates if (u := https_url(link))), "")
+            else:
+                continue
+            if not primary:
+                continue
+            reported = parse_date(item.get("publishedAt")) if source_id == "local-aihot-selected" else edition
+            kind = "external-report-date" if source_id == "local-aihot-selected" else "briefing-edition-date"
+            observed = stamp
+        urls = sorted({u for raw in candidates if (u := article_url(raw, allowed))})
+        hints = literal_model_hints(title, families)
+        original = clean_text(item.get("originalTitle") or "")
+        rows.append({"title": title[:240], "url": primary, "sourceId": source_id, "sourceName": source_name,
+                     "reportedAt": reported, "dateKind": kind, "officialArticleUrls": urls[:5],
+                     "titleHints": sorted(set(hints + ([original[:240]] if original else []))),
+                     "observedAt": observed, "verificationStatus": "unverified-lead",
+                     "attribution": {"name": source_name, "url": snapshot.get("sourceUrl") or primary}})
+    return rows, stamp
+
+
+def merge_local_inputs(result, snapshots, allowed, families, model_sources, now):
+    cutoff = (now - timedelta(days=45)).date().isoformat()
+    today = now.date().isoformat()
+    items = {r["id"]: r for r in result["items"]}
+    states = []
+    for source_id, name, filename, field in LOCAL_INPUTS:
+        snap = snapshots.get(filename)
+        try:
+            if not isinstance(snap, dict):
+                raise ValueError("Snapshot missing or invalid")
+            rows, stamp = local_snapshot_leads(source_id, name, snap, field, allowed, families, model_sources)
+            if stamp[:10] > today or stamp[:10] < cutoff:
+                raise ValueError("Snapshot observation outside retention window")
+            accepted = 0
+            for row in rows:
+                row_stamp = row["observedAt"]
+                day = str(row.get("reportedAt") or row_stamp)[:10]
+                if not cutoff <= day <= today or not cutoff <= row_stamp[:10] <= today:
+                    continue
+                rid = hashlib.sha256((source_id + "|" + row["url"] + "|" + row["title"]).encode()).hexdigest()[:20]
+                old = items.get(rid, {})
+                # Reading the same local file does not refresh its observation time.
+                items[rid] = {"id": rid, **row, "firstSeenAt": old.get("firstSeenAt", row_stamp),
+                              "lastSeenAt": max(old.get("lastSeenAt", row_stamp), row_stamp)}
+                accepted += 1
+            states.append({"id": source_id, "name": name, "snapshot": filename, "observedAt": stamp,
+                           "itemCount": accepted, "error": None})
+        except (ValueError, TypeError, AttributeError) as exc:
+            states.append({"id": source_id, "name": name, "snapshot": filename, "itemCount": 0, "error": str(exc)})
+    # Reserve capacity for article-backed candidates, rather than filling the
+    # limited queue with unrelated repository uploads and news mentions.
+    ordered = sorted(items.values(), key=lambda row: (row.get("reportedAt") or row.get("firstSeenAt") or "", row["id"]), reverse=True)
+    bounded = sorted(ordered, key=lambda row: bool(row.get("officialArticleUrls")), reverse=True)[:500]
+    result["items"] = sorted(bounded, key=lambda row: (row.get("reportedAt") or row.get("firstSeenAt") or "", row["id"]), reverse=True)
+    result["localSources"] = states
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
@@ -188,12 +307,24 @@ def main():
     args = parser.parse_args()
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
     old = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.exists() else {}
-    result = collect(config, old, datetime.now(timezone.utc))
+    now = datetime.now(timezone.utc)
+    result = collect(config, old, now)
+    snapshots = {}
+    for _, _, name, _ in LOCAL_INPUTS:
+        try:
+            snapshots[name] = json.loads((ROOT / "site/data" / name).read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            pass
+    families = json.loads((ROOT / "site/data/models.json").read_text(encoding="utf-8"))
+    sources = json.loads((ROOT / "config/model-sources.json").read_text(encoding="utf-8"))
+    result = merge_local_inputs(result, snapshots, config["officialArticleHosts"], families, sources, now)
     print("Cross-platform discovery:", json.dumps({"reachable": sum(s["error"] is None for s in result["sources"]),
           "sources": len(result["sources"]), "retainedLeads": len(result["items"]),
           "officialArticleLeads": sum(bool(r["officialArticleUrls"]) for r in result["items"])}, ensure_ascii=False))
     for s in result["sources"]:
         print("[DISCOVERY]", s["id"], "items=", s["itemCount"], "error=", s["error"])
+    for s in result.get("localSources", []):
+        print("[LOCAL-DISCOVERY]", s["id"], "items=", s["itemCount"], "observed=", s.get("observedAt"), "error=", s["error"])
     if args.report:
         write_json(args.report, result)
     if not args.dry_run:

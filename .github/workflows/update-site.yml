@@ -92,12 +92,6 @@ jobs:
         if: steps.plan.outputs.juya_daily == 'true'
         run: python scripts/collect_briefings.py juya
 
-      - name: Collect model updates and derived views transactionally
-        id: models_batch
-        continue-on-error: true
-        if: steps.plan.outputs.models == 'true'
-        run: python scripts/run_collection_batch.py models
-
       - name: Collect AIHOT selected items
         id: aihot
         continue-on-error: true
@@ -109,6 +103,18 @@ jobs:
             sleep 10
             python scripts/collect_aihot.py
           fi
+
+      - name: Collect model updates and derived views transactionally
+        id: models_batch
+        continue-on-error: true
+        if: steps.plan.outputs.models == 'true'
+        run: python scripts/run_collection_batch.py models
+
+      - name: Recover model leads from freshly collected briefings
+        id: recovery_batch
+        continue-on-error: true
+        if: steps.plan.outputs.models != 'true' && (steps.aihot.outcome == 'success' || steps.aihot_daily.outcome == 'success' || steps.juya_daily.outcome == 'success')
+        run: python scripts/run_collection_batch.py recovery
 
       - name: Collect resources and rankings in isolated transactions
         id: resources_batch
@@ -143,6 +149,7 @@ jobs:
           AIHOT_DAILY: ${{ steps.aihot_daily.outcome }}
           JUYA_DAILY: ${{ steps.juya_daily.outcome }}
           MODEL_BATCH: ${{ steps.models_batch.outcome }}
+          RECOVERY_BATCH: ${{ steps.recovery_batch.outcome }}
           RESOURCES_BATCH: ${{ steps.resources_batch.outcome }}
           MAINTENANCE_BATCH: ${{ steps.maintenance_batch.outcome }}
         run: python scripts/collection_health.py --critical-output --output "$GITHUB_OUTPUT" --summary "$GITHUB_STEP_SUMMARY"
