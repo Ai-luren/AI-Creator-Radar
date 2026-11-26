@@ -63,6 +63,15 @@ def gather_links(contests, platforms):
                 ref = {"kind": "program", "platformId": p["id"], "scope": scope, "name": item.get("programName", "")}
                 for field in ("url", "sourceUrl"):
                     add(item.get(field), ref)
+                review = item.get("applicationReview")
+                if review:
+                    if review.get("status") not in {"open", "application-listed", "closed", "invitation", "unconfirmed"}:
+                        raise ValueError("Unsupported application review status")
+                    if review["status"] != "unconfirmed":
+                        if not review.get("checkedAt") or not review.get("sourceUrl") or not review.get("note"):
+                            raise ValueError("Application review requires date, source and note")
+                        date.fromisoformat(review["checkedAt"])
+                        add(review["sourceUrl"], ref)
     return [{"url": url, "references": refs} for url, refs in sorted(links.items())]
 
 
