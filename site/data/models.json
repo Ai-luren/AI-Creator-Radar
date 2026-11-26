@@ -12931,7 +12931,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
-        "releaseUrl": "https://deepmind.google/models/gemini-image/",
+        "releaseUrl": "https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/",
         "modelCardUrl": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
         "id": "nano-banana",
         "name": "Nano Banana",
@@ -12989,8 +12989,22 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。",
+        "releaseDate": "2025-08-26",
+        "releaseEvidence": {
+          "eventId": "official-nano-banana-nano-banana-20250826",
+          "publishedAt": "2025-08-26",
+          "sourceUrl": "https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/",
+          "sourceName": "Google 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "初代 Nano Banana（Gemini 2.5 Flash Image）在 Gemini 中发布，支持一致性图像编辑。",
+          "access": "官方托管服务",
+          "category": "image",
+          "modelName": "Nano Banana",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "region": "海外",
@@ -13189,7 +13203,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
-        "releaseUrl": "https://deepmind.google/models/gemini-image/",
+        "releaseUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/",
         "modelCardUrl": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
         "id": "nano-banana-2-lite",
         "name": "Nano Banana 2 Lite",
@@ -13247,15 +13261,29 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。",
+        "releaseDate": "2026-06-30",
+        "releaseEvidence": {
+          "eventId": "official-nano-banana-nano-banana-2-lite-20260630",
+          "publishedAt": "2026-06-30",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-flash-nano-banana-2-lite/",
+          "sourceName": "Google 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "发布面向速度与成本优化的 Gemini Image 模型；不要与同篇文章中的 Gemini Omni Flash 公测混淆。",
+          "access": "官方开发者平台",
+          "category": "image",
+          "modelName": "Nano Banana 2 Lite",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://gemini.google.com/",
-        "releaseUrl": "https://deepmind.google/models/gemini-image/",
+        "releaseUrl": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
         "modelCardUrl": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
         "id": "nano-banana-2-1",
         "name": "Nano Banana 2.1",
@@ -13313,8 +13341,20 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "Google 图像模型家族；包含 Nano Banana Pro、Nano Banana 2、2 Lite 和 2.1，不将不同版本重复当作不同厂商。",
+        "historicalMilestones": [
+          {
+            "date": "2026-10-06",
+            "datePrecision": "day",
+            "stage": "official-introduction",
+            "sourceUrl": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
+            "sourceName": "Google DeepMind 官方模型卡",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-nano-banana-nano-banana-2-1-official-introduction-20261006",
+            "summary": "官方模型卡更新时间为 10 月 6 日，不能自动视作首发日。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -14660,7 +14700,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://www.midjourney.com/",
-        "releaseUrl": "https://updates.midjourney.com/",
+        "releaseUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
         "modelCardUrl": "https://updates.midjourney.com/version-8-2/",
         "id": "midjourney-v7",
         "name": "Midjourney V7",
@@ -14668,8 +14708,30 @@
           "midjourney"
         ],
         "leaderboardAliases": [],
-        "status": "已发布",
-        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "Midjourney V8.2；关注风格化图像生成与图像编辑能力。",
+        "historicalMilestones": [
+          {
+            "date": "2025-04-03",
+            "datePrecision": "day",
+            "stage": "release",
+            "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+            "sourceName": "Midjourney 官方版本文档",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-midjourney-midjourney-v7-release-20250403",
+            "summary": "官方版本文档记载首发日为 4 月 3 日；不推定当日为默认版本。"
+          },
+          {
+            "date": "2025-06-17",
+            "datePrecision": "day",
+            "stage": "general-availability",
+            "sourceUrl": "https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version",
+            "sourceName": "Midjourney 官方版本文档",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-midjourney-midjourney-v7-general-availability-20250617",
+            "summary": "官方文档列出默认版本起始时间；此处记录默认切换而非首次开放。"
+          }
+        ]
       },
       {
         "region": "海外",
@@ -15142,17 +15204,32 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "型号映射待核验",
+        "status": "历史模型；API 已于 2026-10-23 停用",
         "region": "海外",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "historicalMilestones": [
+          {
+            "date": "2025-04-23",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://openai.com/index/image-generation-api/",
+            "sourceName": "OpenAI 官方公告",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-gpt-image-gpt-image-1-api-availability-20250423",
+            "summary": "官方公布具备生成与编辑能力的 gpt-image-1 API；不等同于底层 4o 图像能力首次推出。"
+          }
+        ],
+        "releaseUrl": "https://openai.com/index/image-generation-api/",
+        "accessNote": "官方 API 文档确认 gpt-image-1 于 2026-10-23 停用。",
+        "modelCardUrl": "https://developers.openai.com/api/reference/resources/images/methods/generate"
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+        "releaseUrl": "https://openai.com/index/new-chatgpt-images-is-here/",
         "modelCardUrl": "https://developers.openai.com/api/docs/guides/image-prompting",
         "id": "gpt-image-1-5",
         "name": "GPT Image 1.5",
@@ -15182,8 +15259,22 @@
             "detailUrl": "https://artificialanalysis.ai/image/model-families/openai-gpt"
           }
         ],
-        "status": "已发布",
-        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。",
+        "releaseDate": "2025-12-16",
+        "releaseEvidence": {
+          "eventId": "official-gpt-image-gpt-image-1-5-20251216",
+          "publishedAt": "2025-12-16",
+          "sourceUrl": "https://openai.com/index/new-chatgpt-images-is-here/",
+          "sourceName": "OpenAI 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "ChatGPT 新图像模型与 GPT Image 1.5 API 同日上线。",
+          "access": "官方托管服务",
+          "category": "image",
+          "modelName": "GPT Image 1.5",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "id": "gpt-image-1-mini",
@@ -15214,17 +15305,32 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "型号映射待核验",
+        "status": "历史发布已核实；当前可用性待核验",
         "region": "海外",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "releaseDate": "2025-10-06",
+        "releaseUrl": "https://developers.openai.com/api/docs/changelog",
+        "releaseEvidence": {
+          "eventId": "official-gpt-image-gpt-image-1-mini-20251006",
+          "publishedAt": "2025-10-06",
+          "sourceUrl": "https://developers.openai.com/api/docs/changelog",
+          "sourceName": "OpenAI 官方 API 更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "面向低成本图像生成和编辑的独立模型在 DevDay 推出。",
+          "access": "官方托管 API",
+          "category": "image",
+          "modelName": "GPT Image 1 Mini",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+        "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-0/",
         "modelCardUrl": "https://developers.openai.com/api/docs/guides/image-prompting",
         "id": "gpt-image-2",
         "name": "GPT Image 2",
@@ -15254,15 +15360,29 @@
             "detailUrl": "https://artificialanalysis.ai/image/model-families/openai-gpt"
           }
         ],
-        "status": "已发布",
-        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。",
+        "releaseDate": "2026-04-21",
+        "releaseEvidence": {
+          "eventId": "official-gpt-image-gpt-image-2-20260421",
+          "publishedAt": "2026-04-21",
+          "sourceUrl": "https://openai.com/index/introducing-chatgpt-images-2-0/",
+          "sourceName": "OpenAI 官方发布公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "ChatGPT Images 2.0 推出，改善复杂指令、图像文字及视觉表现。",
+          "access": "官方托管服务",
+          "category": "image",
+          "modelName": "GPT Image 2",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+        "releaseUrl": "https://developers.openai.com/api/docs/changelog",
         "modelCardUrl": "https://developers.openai.com/api/docs/guides/image-prompting",
         "id": "gpt-image-2-5-sunburst",
         "name": "GPT Image 2.5 Sunburst",
@@ -15292,15 +15412,29 @@
             "detailUrl": "https://artificialanalysis.ai/image/model-families/openai-gpt"
           }
         ],
-        "status": "已发布",
-        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。",
+        "releaseDate": "2026-09-08",
+        "releaseEvidence": {
+          "eventId": "official-gpt-image-gpt-image-2-5-sunburst-20260908",
+          "publishedAt": "2026-09-08",
+          "sourceUrl": "https://developers.openai.com/api/docs/changelog",
+          "sourceName": "OpenAI 官方 API 更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Sunburst 与 Flare 同日发布，支持生成与编辑。",
+          "access": "官方托管 API",
+          "category": "image",
+          "modelName": "GPT Image 2.5 Sunburst",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "region": "海外",
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+        "releaseUrl": "https://developers.openai.com/api/docs/changelog",
         "modelCardUrl": "https://developers.openai.com/api/docs/guides/image-prompting",
         "id": "gpt-image-2-5-flare",
         "name": "GPT Image 2.5 Flare",
@@ -15330,8 +15464,22 @@
             "detailUrl": "https://artificialanalysis.ai/image/model-families/openai-gpt"
           }
         ],
-        "status": "已发布",
-        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "GPT Image 系列当前型号为 GPT Image 2.6；2.5 是 ChatGPT Images 产品版本名，API另有 Sunburst / Flare 变体。",
+        "releaseDate": "2026-09-08",
+        "releaseEvidence": {
+          "eventId": "official-gpt-image-gpt-image-2-5-flare-20260908",
+          "publishedAt": "2026-09-08",
+          "sourceUrl": "https://developers.openai.com/api/docs/changelog",
+          "sourceName": "OpenAI 官方 API 更新日志",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "Flare 与 Sunburst 同日发布，支持生成与编辑。",
+          "access": "官方托管 API",
+          "category": "image",
+          "modelName": "GPT Image 2.5 Flare",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "region": "海外",
@@ -15439,7 +15587,7 @@
         "region": "海外",
         "access": "闭源",
         "homepage": "https://openai.com/",
-        "releaseUrl": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+        "releaseUrl": "https://developers.openai.com/api/reference/resources/images/methods/generate",
         "modelCardUrl": "https://developers.openai.com/api/docs/guides/image-prompting",
         "id": "chatgpt-image-latest",
         "name": "ChatGPT Image Latest",
@@ -15460,8 +15608,8 @@
             "detailUrl": null
           }
         ],
-        "status": "版本待核对",
-        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。"
+        "status": "滚动 API 别名；不是固定模型版本",
+        "note": "官方 API 列出此滚动名称；不为别名重复计算基础模型发布事件。"
       }
     ],
     "legacyIds": [
@@ -16553,7 +16701,7 @@
     "name": "Seedream",
     "vendor": "字节跳动 Seed",
     "category": "image",
-    "version": "Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 / Seedream 5.0 Flash",
+    "version": "Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 / Seedream 5.0 Flash / Seedream 2.0",
     "watched": true,
     "logo": "seedream",
     "homepage": "https://seed.bytedance.com/zh/models",
@@ -17017,6 +17165,37 @@
             "summary": "字节跳动 Seedream 5.0 Flash 是 Seedream 5.0 系列的高效率图像生成与编辑型号，支持文生图、单图/多图编辑、交互式标注编辑及图层拆分。BytePlus 官方 2026-09 月度模型发布公告列出该型号；火山方舟于 2026-10-23 的 Agent Plan 功能日志记录接入。模型 ID 末尾的 260915 为快照标识，不能直接认定为全球首次发布日。"
           }
         ]
+      },
+      {
+        "id": "seedream-2-0",
+        "name": "Seedream 2.0",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "历史模型；首发日期待核验",
+        "releaseUrl": "https://seed.bytedance.com/zh/seedream2_0",
+        "note": "官方技术页 2025-03-11 公布，称 2024 年 12 月初已接入豆包和即梦；不将技术页日期等同首次上线日。",
+        "historicalMilestones": [
+          {
+            "date": "2024-12",
+            "datePrecision": "month",
+            "stage": "early-access",
+            "sourceUrl": "https://seed.bytedance.com/zh/seedream2_0",
+            "sourceName": "字节 Seed 官方技术资料",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-seedream-2-0-early-access-202412",
+            "summary": "官方技术页回顾 2024 年 12 月初已接入相关产品，保留月份精度；最早首发日未知。"
+          },
+          {
+            "date": "2025-03-11",
+            "datePrecision": "day",
+            "stage": "official-introduction",
+            "sourceUrl": "https://seed.bytedance.com/zh/seedream2_0",
+            "sourceName": "字节 Seed 官方技术资料",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-seedream-2-0-official-introduction-20250311",
+            "summary": "官方技术页详细介绍中英双语图像生成模型，技术资料公开并非初次上线。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -17423,7 +17602,22 @@
             "detailUrl": null
           }
         ],
-        "status": "型号名称来自榜单；官方版本信息待核验"
+        "status": "历史发布已核实；当前可用性待核验",
+        "releaseDate": "2026-01-26",
+        "releaseUrl": "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0",
+        "releaseEvidence": {
+          "eventId": "official-hunyuan-image-hunyuanimage-3-0-instruct-20260126",
+          "publishedAt": "2026-01-26",
+          "sourceUrl": "https://github.com/Tencent-Hunyuan/HunyuanImage-3.0",
+          "sourceName": "腾讯混元官方仓库 News",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-26",
+          "summary": "发布带推理的 Instruct 版本，支持提示增强及图生图编辑。",
+          "access": "开放权重；适用官方许可",
+          "category": "image",
+          "modelName": "HunyuanImage 3.0 Instruct",
+          "provenance": "本轮核对厂商一手来源；不等同现时可用状态"
+        }
       },
       {
         "id": "hunyuanimage-3-5-preview",
@@ -17714,7 +17908,7 @@
         "region": "中国",
         "access": "开源权重",
         "homepage": "https://qwen.ai/",
-        "releaseUrl": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
         "modelCardUrl": "https://huggingface.co/Qwen/Qwen-Image-2.1",
         "id": "qwen-image-2-0",
         "name": "Qwen-Image 2.0",
@@ -17742,8 +17936,20 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "版本待核对",
-        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
+        "historicalMilestones": [
+          {
+            "date": "2026-03-03",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里云 Model Studio 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-qwen-image-qwen-image-2-0-api-availability-20260303",
+            "summary": "国际部署日志列出标准版及 2026-03-03 快照。"
+          }
+        ]
       },
       {
         "region": "中国",
@@ -17751,8 +17957,21 @@
         "name": "Qwen-Image 2.0 Pro",
         "legacyIds": [],
         "leaderboardAliases": [],
-        "status": "榜单名称；官方型号与许可待核验",
-        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。"
+        "status": "历史阶段已核实；正式首发日期待核验",
+        "note": "本地榜单或当前目录出现该型号；官方具体发布日期/许可仍需逐项核验。",
+        "historicalMilestones": [
+          {
+            "date": "2026-03-03",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里云 Model Studio 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-qwen-image-qwen-image-2-0-pro-api-availability-20260303",
+            "summary": "国际部署日志列出 Pro 2026-03-03 快照；不推定此前未发布。"
+          }
+        ],
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models"
       },
       {
         "id": "qwen-image-2-1",
@@ -17862,10 +18081,23 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "型号映射待核验",
+        "status": "历史阶段已核实；正式首发日期待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "historicalMilestones": [
+          {
+            "date": "2026-10-09",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里云 Model Studio 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-qwen-image-qwen-image-2-1-pro-api-availability-20261009",
+            "summary": "官方国际部署日志明确列出该型号。"
+          }
+        ],
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models"
       },
       {
         "id": "qwen-image-2-1-turbo",
@@ -17896,10 +18128,23 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "型号映射待核验",
+        "status": "历史阶段已核实；正式首发日期待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "historicalMilestones": [
+          {
+            "date": "2026-10-09",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里云 Model Studio 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-qwen-image-qwen-image-2-1-turbo-api-availability-20261009",
+            "summary": "官方国际部署日志明确列出该型号。"
+          }
+        ],
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models"
       },
       {
         "id": "qwen-image-3-0",
@@ -17991,10 +18236,33 @@
             "detailUrl": null
           }
         ],
-        "status": "型号映射待核验",
+        "status": "历史阶段已核实；正式首发日期待核验",
         "region": "中国",
         "access": null,
-        "note": "该系列名/榜单出现型号；不推定发布日期或许可。"
+        "note": "该系列名/榜单出现型号；不推定发布日期或许可。",
+        "historicalMilestones": [
+          {
+            "date": "2026-07-20",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里云 Model Studio 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-qwen-image-qwen-image-3-0-pro-api-availability-20260720",
+            "summary": "国际部署日志记载 7 月 20 日，不能与全球部署混为一谈。"
+          },
+          {
+            "date": "2026-08-06",
+            "datePrecision": "day",
+            "stage": "api-availability",
+            "sourceUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models",
+            "sourceName": "阿里云 Model Studio 更新日志",
+            "verifiedAt": "2026-11-26",
+            "chronicleAuditId": "review-20261126-qwen-image-qwen-image-3-0-pro-api-availability-20260806",
+            "summary": "全球部署日志另列 8 月 6 日；保留两个地区节点。"
+          }
+        ],
+        "releaseUrl": "https://www.alibabacloud.com/help/en/model-studio/newly-released-models"
       },
       {
         "id": "qwen-image-2-0-pro-2026-04-22",
