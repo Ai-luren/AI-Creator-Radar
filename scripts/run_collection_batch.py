@@ -14,9 +14,10 @@ ROOT = Path(__file__).resolve().parents[1]
 RECOVERY = ("collect_cross_platform", "collect_source_search", "collect_resolve_model_leads", "collect_model_intake", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall")
 PRODUCT_STATE = ("collect_product_state",)
 RECONCILE = ("collect_event_reconciliation",)
+EVENT_CLAIMS = ("collect_event_claims",)
 BATCHES = {
-    "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), RECOVERY, PRODUCT_STATE, RECONCILE)),
-    "recovery": (180, (RECOVERY, PRODUCT_STATE, RECONCILE)),
+    "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), RECOVERY, PRODUCT_STATE, RECONCILE, EVENT_CLAIMS)),
+    "recovery": (180, (RECOVERY, PRODUCT_STATE, RECONCILE, EVENT_CLAIMS)),
     "resources": (540, (("collect_resources",), ("collect_rankings", "collect_maomu_rankings", "build_unified_rankings"), ("collect_aipick",), ("collect_social_trends",))),
     "maintenance": (540, (("check_model_resources",), ("check_creator_links",), ("collect_creator_opportunities",), ("collect_model_evaluations",))),
 }
