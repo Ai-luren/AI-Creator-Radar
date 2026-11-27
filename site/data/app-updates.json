@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T13:47:55+00:00",
+  "checkedAt": "2026-11-27T14:32:53+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -60,7 +60,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T13:47:55+00:00",
+    "checkedAt": "2026-11-27T14:32:53+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -215,7 +215,7 @@
       "lastSuccessAt": "2026-11-27T13:47:55+00:00",
       "nextAttemptAt": "2026-11-27T14:47:55.652497+00:00"
     },
-    "attemptedThisRun": 1,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
