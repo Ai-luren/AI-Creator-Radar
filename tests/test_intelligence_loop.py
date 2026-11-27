@@ -81,3 +81,57 @@ class IntelligenceLoopTests(unittest.TestCase):
         self.assertEqual(article_publication_date(article, "Brand Fable 5.2 and Mythos 5.2", leading_date=True)[:10], "2026-11-09")
         conflict = '<meta property="article:published_time" content="2026-11-10">'+article
         self.assertIsNone(article_publication_date(conflict, "Brand Fable 5.2 and Mythos 5.2", leading_date=True))
+
+    def test_retry_missing_heading_uses_publisher_locale_without_extra_requests(self):
+        from datetime import timedelta
+        self.url = "https://z.ai/blog/demo-3"
+        self.lead["officialArticleUrls"] = [self.url]
+        self.config = {"officialArticleHosts": {"z.ai": ["/blog/"]},
+                       "articleLocaleQueries": {"z.ai": {"key": "lang", "value": "en"}}}
+        self.sources[0]["url"] = "https://z.ai/blog"
+        calls = []
+        def fetch(url):
+            calls.append(url)
+            return self.page if url.endswith("?lang=en") else "<h1>Loading</h1>"
+        first = self.run_resolution(fetcher=fetch)
+        self.assertEqual(first["items"][0]["status"], "identity-unresolved")
+        second = self.run_resolution(first, fetch, self.now + timedelta(hours=2))
+        self.assertEqual(second["items"][0]["status"], "article-date-verified")
+        self.assertEqual(second["items"][0]["urlKey"], self.url)
+        self.assertEqual(second["items"][0]["url"], self.url + "?lang=en")
+        self.assertEqual(calls, [self.url, self.url + "?lang=en"])
+        third = self.run_resolution(second, fetch, self.now + timedelta(days=2))
+        self.assertEqual(third["items"][0]["status"], "article-date-verified")
+        self.assertEqual(calls[-1], self.url + "?lang=en")
+
+    def test_locale_variant_does_not_evade_access_denial_or_date_conflict(self):
+        from datetime import timedelta
+        self.url = "https://z.ai/blog/demo-3"
+        self.lead["officialArticleUrls"] = [self.url]
+        self.config = {"officialArticleHosts": {"z.ai": ["/blog/"]},
+                       "articleLocaleQueries": {"z.ai": {"key": "lang", "value": "en"}}}
+        self.sources[0]["url"] = "https://z.ai/blog"
+        for failing in ("denied", "conflict"):
+            calls = []
+            def fetch(url):
+                calls.append(url)
+                if failing == "denied":
+                    raise OSError("HTTP 403")
+                return '<meta property="article:published_time" content="2026-11-24">' + self.page
+            first = self.run_resolution(fetcher=fetch)
+            second = self.run_resolution(first, fetch, self.now + timedelta(hours=2))
+            self.assertIn(second["items"][0]["status"], {"fetch-failed", "date-unresolved"})
+            self.assertEqual(calls, [self.url, self.url])
+
+    def test_discovered_url_variants_remain_one_candidate(self):
+        from datetime import timedelta
+        self.lead["officialArticleUrls"] = [self.url, self.url + "?lang=en", "https://untrusted.example/news/model-3"]
+        calls = []
+        def fetch(url):
+            calls.append(url)
+            return self.page if url.endswith("?lang=en") else "<h1>Loading</h1>"
+        first = self.run_resolution(fetcher=fetch)
+        second = self.run_resolution(first, fetch, self.now + timedelta(hours=2))
+        self.assertEqual(second["summary"]["uniqueOfficialUrls"], 1)
+        self.assertEqual(second["items"][0]["status"], "article-date-verified")
+        self.assertEqual(calls, [self.url, self.url + "?lang=en"])
