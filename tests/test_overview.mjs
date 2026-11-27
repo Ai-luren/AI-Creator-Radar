@@ -445,3 +445,18 @@ test('overview release links use exact IDs, preserve grouped family and lazy loa
  assert.doesNotMatch(node('content').innerHTML,/class="overview-model-open"/);
  assert.match(node('content').innerHTML,/href="https:\/\/example.com\/unknown"/);
 });
+
+test('release detail target is shared and never chooses a grouped first version',async()=>{
+ const {run,node}=setup({query:'?view=today&status=confirmed'});await run('loadData()');
+ const rows=[{id:'a',modelFamilyId:'seedance',modelVersionId:'v1',modelName:'A',category:'video',vendor:'ByteDance',evidenceType:'official-release',url:'https://example.com/blog/group'},{id:'b',modelFamilyId:'seedance',modelVersionId:'v2',modelName:'B',category:'video',vendor:'ByteDance',evidenceType:'official-release',url:'https://example.com/blog/group'}];
+ run("state.modelReleases="+JSON.stringify(rows)+".map(x=>({...x,publishedAt:chinaDay(new Date())}));render()");
+ assert.match(node('content').innerHTML,/class="text-link release-model-link" data-model-open="seedance">查看模型家族/);
+ assert.match(node('content').innerHTML,/data-model-open="seedance" data-model-version="v1">型号详情/);
+ assert.match(node('content').innerHTML,/data-model-open="seedance" data-model-version="v2">型号详情/);
+ assert.match(node('content').innerHTML,/href="https:\/\/example.com\/blog\/group"/);
+ run("state.modelReleases=state.modelReleases.slice(0,1);render()");
+ assert.match(node('content').innerHTML,/class="text-link release-model-link" data-model-open="seedance" data-model-version="v1">查看模型版本/);
+ assert.equal(run("releaseDetailTarget({modelFamilyId:'seedance',modelVersionId:'bad id'})"),null);
+ assert.equal(run("releaseDetailTarget({modelFamilyId:'seedance',versions:[{modelFamilyId:'other',modelVersionId:'v1'}]})"),null);
+ assert.equal(run("releaseDetailTarget({modelFamilyId:'seedance',versions:[]})"),null);
+});
