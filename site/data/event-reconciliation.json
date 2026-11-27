@@ -1,9 +1,9 @@
 {
   "schema": "event-reconciliation/v1",
-  "checkedAt": "2026-11-27T05:54:52+00:00",
+  "checkedAt": "2026-11-27T06:04:35+00:00",
   "inputObservations": {
-    "discovery": "2026-11-27T05:54:43+00:00",
-    "resolution": "2026-11-27T05:54:48+00:00"
+    "discovery": "2026-11-27T06:04:28+00:00",
+    "resolution": "2026-11-27T06:04:32+00:00"
   },
   "evidence": [
     {
@@ -1415,6 +1415,17 @@
       "sourceRecordId": "chronicle-gpt-gpt-4-1-mini-20250414"
     },
     {
+      "id": "evidence-6dbbc9bef394c5f722165e0466642ce2b359035f697137dc26fdeb4d33abb796",
+      "claimType": "publisher-service-availability-statement",
+      "modelFamilyId": "midjourney",
+      "modelVersionId": "niji-8",
+      "sourceUrl": "https://x.com/midjourney/status/2125328040624521639",
+      "assertedDate": "2026-11-24",
+      "datePrecision": "publisher-calendar-day",
+      "originalVerificationAt": "2026-11-27T05:54:53+00:00",
+      "sourceRecordId": "publisher-20ef368618aa20adb494dc894ccf50b912d765af1808934cf1f6e5a49574c382"
+    },
+    {
       "id": "evidence-6e239899dac83d2c1404940e54360c3779de066663287603bab24b262e715a8b",
       "claimType": "catalog-release",
       "modelFamilyId": "deepseek",
@@ -2592,6 +2603,17 @@
       "sourceRecordId": "chronicle-v48-suno-0058-suno-v6"
     },
     {
+      "id": "evidence-c368beec32181b41bc791768a7004321163cb3093d59448ed81385f2afa837eb",
+      "claimType": "publisher-service-availability-statement",
+      "modelFamilyId": "glm",
+      "modelVersionId": "5-4",
+      "sourceUrl": "https://www.zhipuai.cn/zh/research/164",
+      "assertedDate": "2026-11-22",
+      "datePrecision": "publisher-calendar-day",
+      "originalVerificationAt": "2026-11-27T05:54:53+00:00",
+      "sourceRecordId": "publisher-21b6ee2dfabb7ab133c51382594db6a3ae6654efa0ad40c8b8bc83d9f0736991"
+    },
+    {
       "id": "evidence-c3c7197ddd8bc95cfe7125dd385b25ef3edbc578b7d0f3c728e75b10df4b4799",
       "claimType": "catalog-release",
       "modelFamilyId": "eleven-tts",
@@ -3711,6 +3733,7 @@
     "evidence-6992439379190354b556783492158f1342c14dc6863fc1356c5cd7244c2169c4",
     "evidence-6a761cfb51cc3b7c130be9c6d12c3cdc1e5ce7f5de4f43f6315a8cc20f388654",
     "evidence-6bc70b75363d0eac1a9be12c27bbdc8b923ee8527d00a3ffad94b9890316b043",
+    "evidence-6dbbc9bef394c5f722165e0466642ce2b359035f697137dc26fdeb4d33abb796",
     "evidence-6e239899dac83d2c1404940e54360c3779de066663287603bab24b262e715a8b",
     "evidence-6e89efae2a77225015a202109deb20d928c184c97951089a87f9a173e71b412e",
     "evidence-6ef28b3b20e0244e88b8e83baf93f107206b4f23e9a4bf842bcf8bbc20ea0b50",
@@ -3818,6 +3841,7 @@
     "evidence-c10a5182d9ffb4486666558d992c24e6401bc746b69cc4dd3777115557d4a673",
     "evidence-c244769ddc0570cd7b06fa7204278668578c44b45fd14a9dfa8ffbaca9c0c6c6",
     "evidence-c31560991d8cf6a025f4d865450e9ac0ffeea164e45883c617262eac29d2fae3",
+    "evidence-c368beec32181b41bc791768a7004321163cb3093d59448ed81385f2afa837eb",
     "evidence-c3c7197ddd8bc95cfe7125dd385b25ef3edbc578b7d0f3c728e75b10df4b4799",
     "evidence-c407f66bd3382545a6c6eb59342e649215cc93d8fe06ecd0c327b49acb212f8a",
     "evidence-c414f26f49803c80e34600fa7d6945368fe350f232fc4f8614b573bc30167c0f",
@@ -4090,7 +4114,7 @@
       "titles": [
         "Grok Voice 3.0"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://x.ai/news/grok-voice-3"
       ],
@@ -4117,7 +4141,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-2"
       ],
@@ -4144,7 +4168,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4345,7 +4369,7 @@
         "Gemini 4 Hydrogen",
         "Gemini 4 Hydrogen — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
       ],
@@ -4407,7 +4431,7 @@
       "titles": [
         "GPT-Live-1.1 — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -4463,7 +4487,7 @@
         "GLM-5.4",
         "Z.ai launches GLM-5.4"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://docs.z.ai/guides/llm/glm-5.4",
         "https://z.ai/blog/glm-5.4"
@@ -4476,7 +4500,10 @@
           "identity-unresolved"
         ]
       },
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00"
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "relatedPublisherStatementEvidenceIds": [
+        "evidence-c368beec32181b41bc791768a7004321163cb3093d59448ed81385f2afa837eb"
+      ]
     },
     {
       "id": "task-37a8cb936ce5ed7e222a95786241ea9440d3d33755e56607c3e5ffb83148ab6e",
@@ -4624,7 +4651,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4732,7 +4759,7 @@
       "titles": [
         "Gemini Decision 1 — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4771,7 +4798,7 @@
       "titles": [
         "Early progress on accelerating drug development with Claude"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4801,7 +4828,7 @@
         "GPT-6.2 Astra — OpenAI",
         "OpenAI releases GPT-6.2 Astra"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -4861,7 +4888,7 @@
       "titles": [
         "Gemini Omni 1.2 Flash — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -5160,7 +5187,7 @@
         "Gemini 4 Carbon — Google DeepMind",
         "Google announces Gemini 4 Carbon"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
       ],
@@ -5249,6 +5276,9 @@
         ]
       },
       "nextAttemptAt": "2026-11-27T09:32:47+00:00",
+      "relatedPublisherStatementEvidenceIds": [
+        "evidence-6dbbc9bef394c5f722165e0466642ce2b359035f697137dc26fdeb4d33abb796"
+      ],
       "sourceSearch": {
         "targetId": "2ebcb011dc5429bb65ce8b57bea0eeca69d29a12b96264f7fdde81e662da79d7",
         "status": "awaiting-search",
@@ -5355,7 +5385,7 @@
       "titles": [
         "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://elevenlabs.io/blog/scribe-v3-live-medical"
       ],
@@ -5382,7 +5412,7 @@
       "titles": [
         "GPT-6-Cyber — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5427,7 +5457,7 @@
         "GPT-Image-2.6 Sunburst",
         "GPT-Image-2.6 Sunburst — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5604,7 +5634,7 @@
         "GPT-Image-2.6 Flare",
         "GPT-Image-2.6 Flare — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5661,7 +5691,7 @@
       "titles": [
         "Muse Ember — Meta AI"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5847,7 +5877,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/claude-fable-and-mythos-5-2"
       ],
@@ -5883,7 +5913,7 @@
         "GPT-6.2 Sol — OpenAI",
         "OpenAI releases GPT-6.2 Sol"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -6017,7 +6047,7 @@
       "titles": [
         "Claude Fable 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -6316,7 +6346,7 @@
       "titles": [
         "GPT-6 Rosalind — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -6346,7 +6376,7 @@
         "Gemini 4 Neon — Google DeepMind",
         "Google releases Gemini 4 Neon"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
       ],
@@ -6410,7 +6440,7 @@
         "GPT-6.1 Terra",
         "OpenAI releases GPT-6.1 Terra"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-1-terra"
       ],
@@ -6452,7 +6482,7 @@
       "titles": [
         "Claude Mythos 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T05:54:43+00:00",
+      "lastSourceObservationAt": "2026-11-27T06:04:28+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -6469,10 +6499,12 @@
     }
   ],
   "summary": {
-    "evidenceCount": 325,
-    "newEvidence": 0,
-    "currentlyReferencedEvidence": 325,
+    "evidenceCount": 327,
+    "newEvidence": 2,
+    "currentlyReferencedEvidence": 327,
     "relatedLeads": 17,
+    "publisherStatementEvidence": 2,
+    "tasksWithPublisherStatementContext": 2,
     "taskStates": {
       "article-date-observed": 5,
       "articles-excluded": 3,
