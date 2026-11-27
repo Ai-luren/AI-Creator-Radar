@@ -135,3 +135,39 @@ class IntelligenceLoopTests(unittest.TestCase):
         self.assertEqual(second["summary"]["uniqueOfficialUrls"], 1)
         self.assertEqual(second["items"][0]["status"], "article-date-verified")
         self.assertEqual(calls, [self.url, self.url + "?lang=en"])
+
+class SandGraphicHeadingTests(unittest.TestCase):
+    def setUp(self):
+        self.url = "https://sand.ai/blog/magi-2/"
+        self.now = datetime(2026,11,28,tzinfo=timezone.utc)
+        self.title = "MAGI-2: A 480B Frontier Video Generation Model"
+        self.sources = [{"id":"sandai-research","url":"https://sand.ai/research/","active":True,"official":True,
+                         "modelMatches":{"magi-2":["re:\\bMAGI[- ]2\\b"]}}]
+        self.catalog = {"magi-2":{"id":"magi-2","vendor":"Sand.ai","category":"video","versions":[
+            {"id":"magi-2-preview","name":"MAGI-2 Preview"},{"id":"magi-2","name":"MAGI-2"}]}}
+        self.page = ('<title>'+self.title+'</title><div><span>November 24, 2026•RESEARCH</span>'
+                     '<h1><img src="logo.svg" alt="">A 480B Frontier<br>Video Generation Model</h1>'
+                     '<p>In August 2026, we released MAGI-2 Preview.</p>'
+                     '<p>Today, we are launching MAGI-2—our flagship model.</p></div>')
+
+    def parse(self, page=None, url=None):
+        return parse_article(page or self.page,url or self.url,["MAGI-2"],self.sources,self.catalog,self.now)
+
+    def test_graphic_heading_recovers_exact_launch_evidence(self):
+        row = self.parse()
+        self.assertEqual(row["status"],"article-date-verified")
+        self.assertEqual(row["title"],self.title)
+        self.assertEqual(row["articlePublishedAt"][:10],"2026-11-24")
+        self.assertEqual(row["publisherReleaseStatement"]["modelName"],"MAGI-2")
+        self.assertEqual(row["publisherReleaseStatement"]["calendarDay"],"2026-11-24")
+        self.assertEqual(row["publisherReleaseStatement"]["statement"],"Today, we are launching MAGI-2")
+        self.assertNotIn("releaseEvidence",row)
+
+    def test_future_preview_missing_title_and_conflicting_dates_do_not_pass(self):
+        for page in [self.page.replace("we are launching MAGI-2—","we will launch MAGI-2—"),
+                     self.page.replace("we are launching MAGI-2—","we are launching MAGI-2 Preview—"),
+                     self.page.replace("<title>"+self.title+"</title>",""),
+                     self.page.replace("A 480B Frontier<br>","A Different Model<br>"),
+                     '<meta property="article:published_time" content="2026-11-25">'+self.page]:
+            self.assertNotEqual(self.parse(page)["status"],"article-date-verified")
+        self.assertEqual(self.parse(url="https://unrelated.example/blog/magi-2/")["status"],"identity-unresolved")

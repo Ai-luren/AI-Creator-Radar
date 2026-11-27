@@ -1,0 +1,5 @@
+# MAGI-2 publisher evidence correction
+
+The [official launch article](https://sand.ai/blog/magi-2/) uses a graphic model mark in the H1, a dated research header and a present-day launch sentence ending the model name with an em dash. The previous resolver only accepted a matching text H1 and rejected that punctuation. It had retained an identity-unresolved task despite the separate research-index date hit.
+
+The scoped Sand.ai fallback requires exactly one H1, a matching publisher document title with the same descriptive suffix, the existing allowed source/family match, a nonconflicting publisher calendar date and affirmative same-model launch wording in the introduction. The original statement and date are retained as a separate observation, not canonical releaseEvidence. Preview and future weight release remain distinct. Resolver revision 5 makes affected unresolved tasks eligible for bounded retry. Tests are markup-shaped fixtures, not a real network acceptance result. Production runner observation and persistence remain required.
