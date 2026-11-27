@@ -50,3 +50,19 @@ class HistoricalEvidenceTests(unittest.TestCase):
         result=self.run_recover(fetcher=lambda _:self.page+'<time datetime="2024-01-04T00:00:00Z">January 4, 2024</time>')
         self.assertEqual(result["tasks"][0]["status"],"article-date-unresolved")
         self.assertEqual(result["summary"]["datedArticleRecords"],0)
+
+
+    def test_replaced_pointer_does_not_erase_or_reuse_old_evidence(self):
+        first=self.run_recover()
+        newer=dict(self.gap,candidateSourceUrl="https://untrusted.example/news/demo")
+        result=self.run_recover(first,gaps=[newer],days=1,fetcher=lambda _:self.fail("unsupported"))
+        self.assertEqual(result["tasks"][0]["evidence"],first["tasks"][0]["evidence"])
+        self.assertEqual(result["tasks"][0]["status"],"unsupported-original-pointer")
+        self.assertEqual(result["summary"]["tasksWithCurrentPointerEvidence"],0)
+
+    def test_later_different_article_date_retains_and_flags_conflict(self):
+        first=self.run_recover()
+        second=self.run_recover(first,days=8,fetcher=lambda _:self.page.replace("2024-01-03","2024-01-04").replace("January 3","January 4"))
+        self.assertEqual(second["tasks"][0]["status"],"article-date-conflict")
+        self.assertEqual(second["tasks"][0]["conflictingArticleDays"],["2024-01-03","2024-01-04"])
+        self.assertEqual(second["summary"]["datedArticleRecords"],2)

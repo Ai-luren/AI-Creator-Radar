@@ -97,7 +97,11 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
         eligible=bool(url and supports_family(url,ident[0],sources))
         same=prior.get("candidateSourceUrl")==raw and prior.get("modelName")==name
         task={**(prior if same else {}),"id":rid,"identity":{"modelFamilyId":ident[0],"modelVersionId":ident[1]},
-              "modelName":name,"candidateSourceUrl":raw,"firstDetectedAt":prior.get("firstDetectedAt") or stamp,"active":True}
+              "modelName":name,"candidateSourceUrl":raw,"firstDetectedAt":prior.get("firstDetectedAt") or stamp,"active":True,
+              "evidence":list(prior.get("evidence",[]))}
+        # A replaced pointer is not a reason to erase earlier verified observations.
+        # It also must not inherit an obsolete probe URL or imply fresh evidence.
+        task.pop("probeUrl",None)
         if not raw:
             task["status"]="missing-original-pointer"
         elif not eligible:
@@ -168,12 +172,18 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
                 if eid not in history:
                     history[eid]={"id":eid,**body,"firstVerifiedAt":stamp}
                 task["evidence"]=sorted(history.values(),key=lambda r:r["id"])
+                days={r["publisherCalendarDay"] for r in task["evidence"] if url_key(r["sourceUrl"])==url_key(url)}
+                if len(days)>1:
+                    task["status"]="article-date-conflict"
+                    task["conflictingArticleDays"]=sorted(days)
     active=[t for t in tasks.values() if t["active"]]
     return {"schema":"historical-evidence/v1","checkedAt":stamp,"tasks":sorted(tasks.values(),key=lambda t:t["id"]),
             "summary":{"activeTasks":len(active),"urlsAttemptedThisRun":attempted,
                        "states":dict(sorted(Counter(t["status"] for t in active).items())),
                        "tasksWithDatedArticleEvidence":sum(bool(t.get("evidence")) for t in active),
-                       "datedArticleRecords":sum(len(t.get("evidence",[])) for t in tasks.values())},
+                       "datedArticleRecords":sum(len(t.get("evidence",[])) for t in tasks.values()),
+                       "tasksWithCurrentPointerEvidence":sum(any(url_key(r["sourceUrl"])==url_key(t.get("probeUrl"))
+                           for r in t.get("evidence",[])) for t in active)},
             "policy":"Repair queue based on existing catalog pointers, not independent recall. Exact publisher heading and date only. No inferred event date or automatic release promotion."}
 
 
