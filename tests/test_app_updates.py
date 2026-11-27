@@ -78,3 +78,17 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(second["queries"][0]["counts"],first["queries"][0]["counts"])
         self.assertEqual(second["queries"][0]["lastSuccessAt"],first["queries"][0]["lastSuccessAt"])
         self.assertEqual(second["service"]["nextAttemptAt"],(self.now+timedelta(hours=14)).isoformat())
+
+    def test_higgs_changelog_dates_stage_and_no_promotions(self):
+        from scripts.collect_app_updates import parse_higgs_changelog
+        page="""<h1>What's new</h1><time>November 24, 2026</time><h2>MAGI-2</h2><ul><li>Feature</li><li>Models</li></ul><p>Video and sound</p>
+        <time>November 21, 2026</time><h2>Editing Room</h2><ul><li>Release</li><li>Video Tools</li></ul>
+        <time>November 2, 2026</time><h2>Higgsfield Mangaka</h2><ul><li>Release</li><li>Image Tools</li></ul>
+        <time>November 1, 2026</time><h2>Black Friday discount</h2><ul><li>Feature</li><li>Billing</li></ul>
+        <h2>Old models</h2><p>Footer</p><script>November 28, 2026</script>"""
+        values=list(parse_higgs_changelog(page,{}).values())
+        self.assertEqual([v["featureName"] for v in values],["MAGI-2","Editing Room","Higgsfield Mangaka"])
+        self.assertEqual(values[0]["updateType"],"model-integration")
+        self.assertEqual(values[2]["publisherCalendarDay"],"2026-11-02")
+        self.assertTrue(all(v["claimType"]=="first-party-product-changelog" for v in values))
+        with self.assertRaises(ValueError):parse_higgs_changelog("<h2>Models</h2>",{})

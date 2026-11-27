@@ -30,6 +30,7 @@ function setup({query='',fail=[],defer,now=snapshotTime}={}){
   if(fail.includes(name))return {ok:false,status:503};
   return {ok:true,json:async()=>JSON.parse(fs.readFileSync(path.join(root,'site/data',name),'utf8'))};
  }});
+ vm.runInContext(fs.readFileSync(path.join(root,'site/creator-intel.js'),'utf8'),ctx);
  vm.runInContext(boot,ctx);
  return {ctx,node,requested,run:s=>vm.runInContext(s==='loadAllForTests()'?'(async()=>{await loadData();await Promise.all(Object.keys(dataFiles).map(requestData));await ensureSearchData();render()})()':s,ctx)};
 }
@@ -459,4 +460,25 @@ test('release detail target is shared and never chooses a grouped first version'
  assert.equal(run("releaseDetailTarget({modelFamilyId:'seedance',modelVersionId:'bad id'})"),null);
  assert.equal(run("releaseDetailTarget({modelFamilyId:'seedance',versions:[{modelFamilyId:'other',modelVersionId:'v1'}]})"),null);
  assert.equal(run("releaseDetailTarget({modelFamilyId:'seedance',versions:[]})"),null);
+});
+
+test('competitor and model intelligence separates publisher from platform integration and deduplicates exact originals',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T00:00:00+08:00'});await run('loadData()');
+ assert.ok(requested.includes('aipick-data.json'));
+ run("state.aihot.items=[{title:'LibTV 上架 MAGI-2',publishedAt:'2026-11-27T05:00:00Z',category:'ai-products',links:{original:'https://x.com/libtv/status/123'}}];state.aipick={items:[{title:'LibTV 上架 MAGI-2',publishedAt:'2026-11-27T05:00:00Z',category:'ai-products',links:{original:'https://twitter.com/libtv/status/123?utm_source=foo'}},{title:'Sand.ai发布MAGI-2',publishedAt:'2026-11-27T05:00:00Z',category:'ai-models',links:{original:'https://sand.ai/blog/magi-2'}}]};render()");
+ assert.match(node('content').innerHTML,/LibTV 上架 MAGI-2/);assert.doesNotMatch(node('content').innerHTML,/Sand.ai发布MAGI-2/);
+ assert.match(node('content').innerHTML,/1 条原文去重/);
+ run("state.briefingTab='vendors';render()");assert.match(node('content').innerHTML,/Sand.ai发布MAGI-2/);assert.doesNotMatch(node('content').innerHTML,/LibTV 上架 MAGI-2/);
+});
+test('hot view preserves original source rank and excludes stale observations',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=hot',now:'2026-11-28T00:00:00+08:00'});await run('loadData()');
+ run("state.aipick={fetchedAt:'2026-11-27T12:00:00Z',hotTopics:[{rank:3,title:'Higgsfield 接入模型',latestAt:'2026-11-27T10:00:00Z',participantCount:6,sourceCount:5,sourceNames:['X · official','抖音'],links:{story:'https://aipick.news/story/demo'}},{rank:1,title:'旧热点',latestAt:'2026-11-20T00:00:00Z'}]};render()");
+ assert.match(node('content').innerHTML,/原榜 3 · 6 位参与者 · 5 个来源/);assert.match(node('content').innerHTML,/报道合集/);assert.doesNotMatch(node('content').innerHTML,/旧热点/);assert.match(node('content').innerHTML,/AIHOT 原榜/);
+});
+
+test('official competitor changelog is distinct from model release and ignores other brand filter',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T00:00:00+08:00'});await run('loadData()');assert.ok(requested.includes('app-updates.json'));
+ run("state.appUpdates={sources:[{id:'higgsfield-changelog',lastSuccessAt:'2026-11-27T12:00:00Z'}],events:[{sourceId:'higgsfield-changelog',claimType:'first-party-product-changelog',featureName:'Higgsfield Mangaka',publisherCalendarDay:'2026-11-02',updateType:'product-release',productArea:'Image Tools',sourceUrl:'https://higgsfield.ai/creator-hub/changelog'}]};render()");
+ assert.match(node('content').innerHTML,/Higgsfield Mangaka/);assert.match(node('content').innerHTML,/2026-11-02 · 产品发布/);
+ run("creatorBrand='LibTV';render()");assert.doesNotMatch(node('content').innerHTML,/Higgsfield Mangaka/);
 });

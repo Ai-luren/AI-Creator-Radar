@@ -235,3 +235,9 @@ GDELT 实测（PR #46 首次诊断）返回 429，已确认退避生效但无候
 AIHOT v1 已公开支持 `mode=all&category=ai-models&window=7d&q=<精确型号>&limit=20`，无需密钥。当前精选/日报仍按原用途，不以全量同步替代本站。自动寻源优先复用已有线索；优先允许一个近期已知型号的 AIHOT 定向查询，AIPick 在主渠道未找到原文或失败时补漏，GDELT 作为末级广域发现，每次总外部搜索不超过1次、AIHOT 全局30分钟与单型号24小时成功间隔。发送 gzip、ETag，遵守 Retry-After，不轮换身份。最多保留2个符合既有官方域名规则的原始链接、规范本地型号名称和出处指针；不存储新接口的标题、摘要、报道日、原始响应，不公开批量复制。原文仍由现有解析器独立核验。无实际候选、失败、304分别记录；不将索引时间算发布证据。现有公开展示授权范围如不明确，应另外确认，不扩大公开再分发。参考 https://aihot.news/agent?tab=api 、https://aihot.news/openapi-v1.json 、https://aihot.news/terms 。
 
 AIPick 的 `/api/v1/items` 同样支持模型分类与关键词；实际已公开采集抖音话题/热点、TikTok、X 创作者和公众号，定位为创作内容补漏，不将两个聚合器计作两个独立原文。AIPick 复用 AIHOT 开源框架，不据此推断完整信源集合独立或全部复制。按原始URL去重；AIPick来源指针必须属于 aipick.news，禁止错标AIHOT。两者共享单次搜索预算、独立退避，未核验指针不晋级；公开转载/批量再分发须取得相应授权。参考 https://aipick.news/about 、https://aipick.news/agent?tab=api 、https://aipick.news/terms 。
+
+## 个人竞品与热点阅读
+
+`serve_local.py` 新增 localhost-only `/__local/creator-intel`，仅访问 AIHOT/AIPick 固定公开 API，用户主动读取，双源独立状态，十分钟内存缓存、ETag、Retry-After、失败退避与响应大小限制；不修改 Mac 21:00 任务、不新建云端写入或公开原始数据副本。公开页读取原有 AIPick 快照并跳转上游。个人/组织内部免费使用和公开镜像授权边界遵守 https://aihot.news/terms ，AIPick 同样不假设公开转载授权。
+
+Higgsfield 官方 Changelog 使用现有产品观察批次，30分钟最小检查间隔，不新增定时器；公开 robots 检查不通过时停止，保留原证据与入口。仅保存明确日期、标题、厂商日志分类，过滤价格/促销，首轮基线不冒充今天上新；模型接入不算厂商首发。实际 runner 是否可读、更新覆盖与延迟须单独验收。
