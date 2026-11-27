@@ -2,6 +2,7 @@ import unittest
 from datetime import datetime, timedelta, timezone
 from urllib.error import HTTPError
 from scripts.collect_source_search import build_targets, parse_results, search, augment_discovery
+from scripts.collect_event_reconciliation import reconcile
 
 class SourceSearchTests(unittest.TestCase):
     def setUp(self):
@@ -75,3 +76,25 @@ class SourceSearchTests(unittest.TestCase):
         second=self.run_search(first,hours=25,fetcher=fail)
         self.assertEqual(second["targets"][0]["results"],first["targets"][0]["results"])
         self.assertEqual(second["summary"]["indexLastSuccessAt"],first["summary"]["indexLastSuccessAt"])
+
+
+    def test_blocked_index_still_associates_existing_evidence_without_promoting(self):
+        evidence = {"id":"old-proof","claimType":"catalog-release","modelFamilyId":"demo","modelVersionId":"v3",
+                    "sourceUrl":"https://official.example/blog/old","assertedDate":"2026-10-01",
+                    "originalVerificationAt":"2026-10-02","datePrecision":"day"}
+        ledger = {"evidence":[evidence]}
+        products = {"sources":[{"id":"registry","url":"https://registry.example/api","lastSuccessAt":"2026-11-26T12:00:00Z",
+                                "entries":{"demo|v3":{"product":{"name":"Demo v3"},"missingChecks":0},
+                                           "demo|live":{"product":{"name":"Demo v3 Live"},"missingChecks":0}}}]}
+        def fail(*args):
+            raise HTTPError("https://api.gdeltproject.org/",429,"rate limit",{},None)
+        result = search(self.families,self.discovery,ledger,products,{},self.allowed,self.now,fail)
+        context = result["targets"][0]["localContext"]
+        self.assertEqual({r["kind"] for r in context},{"catalog-release","catalog-listing-observed"})
+        self.assertEqual(result["summary"]["targetsWithLocalContext"],1)
+        self.assertEqual(result["summary"]["officialCandidates"],0)
+        self.assertEqual(augment_discovery(self.discovery,result),self.discovery)
+        state = reconcile(self.families,self.discovery,{},[],{},self.now,products,result)
+        self.assertEqual(state["tasks"][0]["state"],"needs-source")
+        self.assertEqual(state["tasks"][0]["sourceSearch"]["status"],"index-unavailable")
+        self.assertEqual(state["tasks"][0]["sourceSearch"]["localContextKinds"]["catalog-release"],1)

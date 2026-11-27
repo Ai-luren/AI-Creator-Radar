@@ -97,6 +97,61 @@ def build_targets(families, discovery, reconciliation, product_state):
     return targets
 
 
+def local_context(target, discovery, reconciliation, product_state, index, allowed):
+    """Reuse persisted observations without manufacturing independent evidence.
+
+    Existing catalog facts and prior observations are context, not fresh recall
+    or proof that the reported event occurred. This path requires no network.
+    """
+    obj = target.get("identity") or {}
+    identity = (obj.get("modelFamilyId"), obj.get("modelVersionId"))
+    if not all(identity):
+        return []
+    records = {}
+
+    def add(row):
+        records[stable_id(row["kind"], row["sourceUrl"], row.get("sourceRecordId"),
+                          row.get("assertedDate"))] = row
+
+    for row in reconciliation.get("evidence", []):
+        if (row.get("modelFamilyId"), row.get("modelVersionId")) != identity or not url_key(row.get("sourceUrl")):
+            continue
+        add({"kind": row["claimType"], "sourceUrl": row["sourceUrl"],
+             "sourceRecordId": row["id"], "assertedDate": row.get("assertedDate"),
+             "originalVerificationAt": row.get("originalVerificationAt"),
+             "datePrecision": row.get("datePrecision"), "provenance": "persisted-evidence"})
+    for lead in discovery.get("items", []):
+        if lead.get("dateKind") == "repository-created-at":
+            continue
+        if identify(index, lead.get("title"), lead.get("titleHints") or ()) != identity:
+            continue
+        for raw in lead.get("officialArticleUrls", []):
+            url = article_url(raw, allowed)
+            if url:
+                add({"kind": "original-url-pointer", "sourceUrl": url,
+                     "sourceRecordId": lead["id"], "sourceId": lead["sourceId"],
+                     "assertedDate": None, "originalVerificationAt": None,
+                     "lastObservedAt": lead.get("lastSeenAt") or lead.get("firstSeenAt"),
+                     "provenance": "existing-discovery"})
+    for source in product_state.get("sources", []):
+        if not source.get("lastSuccessAt") or not url_key(source.get("url")):
+            continue
+        for key, entry in source.get("entries", {}).items():
+            product = entry.get("product") or {}
+            if entry.get("missingChecks", 0) or identify(index, product.get("name")) != identity:
+                continue
+            add({"kind": "catalog-listing-observed", "sourceUrl": source["url"],
+                 "sourceRecordId": key, "sourceId": source["id"],
+                 "assertedDate": None, "originalVerificationAt": source["lastSuccessAt"],
+                 "reportedReleaseDate": product.get("reportedReleaseDate"),
+                 "firstObservedAt": entry.get("firstSeenAt"),
+                 "provenance": "product-catalog"})
+    # Retain the explicit distinction between dated primary evidence,
+    # unverified pointers, and third-party product listing observations.
+    return sorted(records.values(), key=lambda r: (r["kind"], r["sourceUrl"],
+                  r.get("sourceRecordId") or ""))[:40]
+
+
 def parse_results(payload, target, allowed, families):
     if not isinstance(payload, dict) or not isinstance(payload.get("articles"), list):
         raise ValueError("Unexpected GDELT response schema")
@@ -204,12 +259,17 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
                           nextAttemptAt=(now+timedelta(hours=24)).isoformat())
             service.update(lastAttemptAt=checked, lastSuccessAt=checked, error=None,
                            consecutiveFailures=0, nextAttemptAt=(now+timedelta(minutes=30)).isoformat())
+    index = model_index(families)
     active_rows = [t for t in targets.values() if t["active"]]
+    for target in active_rows:
+        target["localContext"] = local_context(target, discovery, reconciliation, product_state, index, allowed)
     counts = Counter(t.get("status", "awaiting-search") for t in active_rows)
     return {"schema": "source-search/v1", "checkedAt": checked, "service": service,
             "targets": sorted(targets.values(), key=lambda t: t["id"]),
             "summary": {"activeTargets": len(active_rows), "attemptedThisRun": attempted,
                         "targetStates": dict(sorted(counts.items())),
+                        "targetsWithLocalContext": sum(bool(t["localContext"]) for t in active_rows),
+                        "localContextRecords": sum(len(t["localContext"]) for t in active_rows),
                         "officialCandidates": sum(bool(r.get("officialCandidateUrl")) for t in active_rows for r in t.get("results", [])),
                         "indexReports": sum(not r.get("officialCandidateUrl") for t in active_rows for r in t.get("results", [])),
                         "indexLastSuccessAt": service.get("lastSuccessAt"),
