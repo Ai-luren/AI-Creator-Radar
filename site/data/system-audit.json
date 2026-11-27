@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T03:07:58.644693+00:00",
+  "checkedAt": "2026-11-27T03:12:04.534315+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1129,9 +1129,9 @@
   },
   "sourceCoverage": {
     "reachableSources": 45,
-    "matchingModelSources": 38,
+    "matchingModelSources": 39,
     "recentDatedModelSources": 16,
-    "distinctMatchingEndpoints": 37,
+    "distinctMatchingEndpoints": 38,
     "matchedFamilies": 49,
     "recentDatedFamilies": 16,
     "unmatchedFamilies": [
@@ -1194,8 +1194,8 @@
     "dateConflicts": 0
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T03:07:23+00:00",
-    "resolutionCheckedAt": "2026-11-27T03:07:25+00:00",
+    "discoveryCheckedAt": "2026-11-27T03:11:27+00:00",
+    "resolutionCheckedAt": "2026-11-27T03:11:30+00:00",
     "leadCount": 74,
     "counts": {
       "article-date-observed": 5,
@@ -2169,16 +2169,28 @@
     ],
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
+  "productState": {
+    "checkedAt": "2026-11-27T03:11:31+00:00",
+    "summary": {
+      "configuredSources": 3,
+      "sourcesWithBaseline": 3,
+      "successfulThisRun": 3,
+      "newEvents": 13,
+      "retainedEvents": 13,
+      "listedEntries": 541
+    }
+  },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T03:07:25+00:00",
+    "checkedAt": "2026-11-27T03:11:31+00:00",
     "summary": {
       "evidenceCount": 324,
-      "newEvidence": 324,
+      "newEvidence": 0,
       "currentlyReferencedEvidence": 324,
       "relatedLeads": 17,
       "taskStates": {
         "article-date-observed": 5,
         "articles-excluded": 3,
+        "needs-product-identity": 2,
         "needs-release-evidence": 69,
         "needs-source": 22,
         "probe-unresolved": 9
