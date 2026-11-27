@@ -37,7 +37,7 @@ def task_id(*identity):
     return "task-" + digest(identity)
 
 
-def reconcile(families, discovery, resolution, gaps, previous, now):
+def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None):
     stamp = now.isoformat(timespec="seconds")
     if previous and previous.get("schema") != "event-reconciliation/v1":
         raise ValueError("Unrecognized evidence ledger schema; refusing to replace it")
@@ -156,6 +156,23 @@ def reconcile(families, discovery, resolution, gaps, previous, now):
                    "originalUrls": sorted(raw_urls.values()), "probeStates": states,
                    "nextAttemptAt": next_attempt})
 
+    # Catalog observations are not publication evidence. Stage only recent additions
+    # or recent third-party metadata claims; known catalog identities do not imply omissions.
+    product_state = product_state or {}
+    for event in product_state.get("events", []):
+        if event.get("eventType") not in {"added-to-catalog", "baseline-recent-reported-date"}:
+            continue
+        ident = event.get("identity")
+        if ident and (ident.get("modelFamilyId"), ident.get("modelVersionId")) in versions:
+            continue
+        product = event["product"]
+        save(task_id("product-observation", event["sourceId"], event["productKey"]), {
+            "taskType": "product-observation", "identity": None, "state": "needs-product-identity",
+            "modelName": product.get("name"), "sourceUrl": event["sourceUrl"],
+            "productId": product.get("productId"), "observedAt": event["observedAt"],
+            "reportedReleaseDate": product.get("reportedReleaseDate"), "claimType": "catalog-observation",
+            "sourceEventId": event["id"]})
+
     for gap in gaps:
         if gap.get("reviewKind") != "release-source-review":
             continue
@@ -192,6 +209,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--discovery", type=Path)
     parser.add_argument("--resolution", type=Path)
+    parser.add_argument("--product-state", type=Path)
     args = parser.parse_args()
     def read(path, optional=False):
         if optional and not path.exists():
@@ -204,7 +222,8 @@ def main():
         raise ValueError("Cannot reconcile an invalid canonical catalog")
     result = reconcile(families, read(args.discovery or directory / "cross-platform-discovery.json"),
                        read(args.resolution or directory / "lead-resolution.json"),
-                       report["gaps"], read(OUTPUT, optional=True), datetime.now(timezone.utc))
+                       report["gaps"], read(OUTPUT, optional=True), datetime.now(timezone.utc),
+                       read(args.product_state or directory / "product-state.json", optional=True))
     print("Event reconciliation:", json.dumps(result["summary"], ensure_ascii=False))
     if not args.dry_run:
         write_json(OUTPUT, result)

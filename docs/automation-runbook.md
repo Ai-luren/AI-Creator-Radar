@@ -187,3 +187,7 @@ GitHub Ruleset Protect main（28207187）已确认 Active，目标为默认分�
 ## P1 事件驱动对账第一阶段
 
 模型及简报恢复批次增加独立本地计算事务 `collect_event_reconciliation.py`；复用现有回滚和持久化机制，缺少对账快照纳入 models 到期计划。PR 在线诊断运行 dry-run，不写模型数据；系统审计显示对账摘要。原有固定样本召回保持原口径。该层不增加网络请求、Token 或本地 Mac 依赖；由 GitHub 现有调度和 Cloudflare 看门狗持续运行。新架构先影子运行，正式数据库仍由原有证据门禁保护。详见 [模型数据契约](model-data-contract.md)。
+
+## P1 产品状态独立事务
+
+`collect_product_state.py` 在模型及简报恢复批次独立运行，复用事务保护；各目录至少间隔60分钟，失败退避，保留旧基线及真实 lastSuccessAt。PR 只读诊断保存产品状态报告，生产快照由原有 GitHub 单写者持久化，系统审计列出真实成功源/基线数。该阶段以语言/图像目录试点，视频、音频厂商独立结构化接口尚未覆盖，不宣称全厂商召回。
