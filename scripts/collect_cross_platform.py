@@ -20,6 +20,11 @@ except ModuleNotFoundError:
     from collect_models import (MAX_BYTES, USER_AGENT, SameHostRedirect, BlockParser, clean_text,
         child_text, entry_link, local_name, parse_date, non_release_title, normalize_url, write_json)
 
+try:
+    from scripts.event_identity import associate_leads
+except ModuleNotFoundError:
+    from event_identity import associate_leads
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config/cross-platform-sources.json"
 OUTPUT = ROOT / "site/data/cross-platform-discovery.json"
@@ -461,6 +466,7 @@ def main():
             hints.extend(literal_model_hints(re.sub(r"[-_]+", " ", slug), families))
         if hints:
             row["titleHints"] = sorted(set(hints))[:10]
+    associate_leads(result["items"], families)
     print("Cross-platform discovery:", json.dumps({"reachable": sum(s["error"] is None for s in result["sources"]),
           "sources": len(result["sources"]), "retainedLeads": len(result["items"]),
           "officialArticleLeads": sum(bool(r["officialArticleUrls"]) for r in result["items"])}, ensure_ascii=False))

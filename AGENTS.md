@@ -51,3 +51,5 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Run `node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs tests/test_deploy_verified_pages.cjs` and the Python suite for scheduler changes; a Node mock is not a Cloudflare runtime acceptance test. Do not enable both independent fallback schedulers simultaneously. Main protection and local hook installation must be verified separately; preserve the validated automated data-writer path.
 
 - Keep retired broad-news code/config/tests under the historical archive, not the active collector directories. Run the repository hygiene tests with the normal Python suite; validate current documentation links and do not revive obsolete data outputs.
+
+- P1 event reconciliation is a shadow layer: preserve historical evidence and real original verification times; distinguish article, lifecycle and canonical release facts. Related leads only prioritize existing probes; never invent a source or promote a reported date. Keep fixed benchmark metrics unchanged. See docs/model-data-contract.md.

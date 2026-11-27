@@ -164,6 +164,14 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
             if lead.get("reportedAt"):
                 item["reportedDates"].add(lead["reportedAt"][:10])
             item["latest"] = max(item["latest"], lead.get("reportedAt") or lead.get("firstSeenAt") or "")
+    # Related URLs only affect scheduling when already present as an original
+    # URL of an actual lead. They are not added as additional source evidence.
+    related_counts = {}
+    for lead in discovery.get("items", []):
+        for candidate in lead.get("relatedArticleCandidates", []):
+            key = url_key(candidate.get("url"))
+            if key in queue and set(candidate.get("supportingLeadIds", [])) & queue[key]["leadIds"]:
+                related_counts.setdefault(key, set()).add(lead["id"])
     previous_rows = {r["urlKey"]: r for r in previous.get("items", [])}
     def due(key):
         old = previous_rows.get(key, {})
@@ -173,7 +181,7 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
                     and (not set(queue[key]["leadIds"]).issubset(old.get("leadIds", []))
                          or not set(queue[key]["titles"]).issubset(old.get("titleHintsChecked", [])))))
     # New URLs first; then retries. Recently reported and multi-source leads take precedence.
-    ordered = sorted(queue, key=lambda k: (k not in previous_rows, len(queue[k]["sourceIds"]), queue[k]["latest"]), reverse=True)
+    ordered = sorted(queue, key=lambda k: (k not in previous_rows, len(queue[k]["sourceIds"]), len(related_counts.get(k, ())), queue[k]["latest"]), reverse=True)
     eligible = [key for key in ordered if due(key)]
     new = [key for key in eligible if key not in previous_rows]
     retries = sorted((key for key in eligible if key in previous_rows), key=lambda k: previous_rows[k].get("nextAttemptAt") or "")
