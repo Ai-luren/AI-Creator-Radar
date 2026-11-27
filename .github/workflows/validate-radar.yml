@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: "22"
           package-manager-cache: false
+      - name: One-shot AIPick WeChat query diagnostic
+        if: github.event_name == 'pull_request' && github.head_ref == 'diagnostics/p1-aipick-wechat'
+        run: python scripts/probe_aipick_wechat.py
       - name: Install pinned workflow validator
         run: |
           GOBIN="$RUNNER_TEMP/radar-bin" go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.7
