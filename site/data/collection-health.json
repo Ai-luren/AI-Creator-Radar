@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "sources": {
     "aihot-selected": {
-      "lastAttemptAt": "2026-11-27T16:48:31+00:00",
-      "lastSuccessAt": "2026-11-27T16:48:31+00:00",
+      "lastAttemptAt": "2026-11-27T17:33:17+00:00",
+      "lastSuccessAt": "2026-11-27T17:33:17+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
@@ -32,8 +32,8 @@
       "consecutiveFailures": 0
     },
     "recovery-batch": {
-      "lastAttemptAt": "2026-11-27T07:04:12+00:00",
-      "lastSuccessAt": "2026-11-27T07:04:12+00:00",
+      "lastAttemptAt": "2026-11-27T17:33:17+00:00",
+      "lastSuccessAt": "2026-11-27T17:33:17+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },

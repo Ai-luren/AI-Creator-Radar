@@ -1,6 +1,6 @@
 {
   "schema": "event-claims/v1",
-  "checkedAt": "2026-11-27T17:21:33+00:00",
+  "checkedAt": "2026-11-27T17:32:51+00:00",
   "claims": [
     {
       "id": "claim-0c45f142be97a721c98631cdb5de969fabc199e53c61eeb070230710cf2dc2c6",
@@ -129,16 +129,16 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-26T17:23:36+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-a989f1582084d0cf153c",
           "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
           "firstObservedAt": "2026-11-26T17:23:36+00:00",
-          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -213,16 +213,16 @@
         "evidenceGrade": "official-dated-statement"
       },
       "firstObservedAt": "2026-11-26T17:23:36+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-be0aed2f51056a6d6c6f",
           "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
           "firstObservedAt": "2026-11-26T17:23:36+00:00",
-          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -241,16 +241,16 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-26T17:29:49+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:29:49+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-22d3b928da2e6e05e221",
           "sourceUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all",
           "firstObservedAt": "2026-11-26T17:29:49+00:00",
-          "lastObservedAt": "2026-11-26T17:29:49+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -353,16 +353,16 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-26T17:23:36+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-1f23fe23a180f18b31eb",
           "sourceUrl": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
           "firstObservedAt": "2026-11-26T17:23:36+00:00",
-          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -383,7 +383,7 @@
       "firstObservedAt": "2026-11-27T17:21:30+00:00",
       "lastSuccessfulObservationAt": "2026-11-27T17:21:30+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": true,
+      "currentSuccessfulObservation": false,
       "provenance": [
         {
           "channel": "official-article-recovery",
@@ -437,16 +437,16 @@
         "evidenceGrade": "official-dated-statement"
       },
       "firstObservedAt": "2026-11-26T17:23:36+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-d7c21c501eb23f12ba47",
           "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
           "firstObservedAt": "2026-11-26T17:23:36+00:00",
-          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -556,16 +556,16 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-26T17:23:36+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-a989f1582084d0cf153c",
           "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
           "firstObservedAt": "2026-11-26T17:23:36+00:00",
-          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -584,16 +584,16 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-26T17:29:49+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:29:49+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-5b4c18faabadfb3802c4",
           "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
           "firstObservedAt": "2026-11-26T17:29:49+00:00",
-          "lastObservedAt": "2026-11-26T17:29:49+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -640,16 +640,16 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-26T17:23:36+00:00",
-      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T17:32:46+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": false,
+      "currentSuccessfulObservation": true,
       "provenance": [
         {
           "channel": "official-article-recovery",
           "sourceRecordId": "recovery-1f23fe23a180f18b31eb",
           "sourceUrl": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
           "firstObservedAt": "2026-11-26T17:23:36+00:00",
-          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+          "lastObservedAt": "2026-11-27T17:32:46+00:00"
         }
       ]
     },
@@ -686,18 +686,18 @@
   "releaseStatementReviewCandidates": [],
   "summary": {
     "claims": 24,
-    "newClaims": 1,
+    "newClaims": 0,
     "byType": {
       "announcement-statement": 6,
       "article-publication": 18
     },
-    "currentSuccessfulObservations": 13,
+    "currentSuccessfulObservations": 20,
     "articleDateConflicts": 0,
     "releaseStatementReviewCandidates": 0
   },
   "policy": "Dated publisher statements only; observation and article dates are not inferred event dates. URL/channel duplicates do not count as independent proof. Existing canonical records are not used to manufacture source recall or changed by this shadow layer.",
   "publisherStatements": {
-    "checkedAt": "2026-11-27T17:21:34+00:00",
+    "checkedAt": "2026-11-27T17:32:51+00:00",
     "records": [
       {
         "id": "publisher-20ef368618aa20adb494dc894ccf50b912d765af1808934cf1f6e5a49574c382",

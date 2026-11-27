@@ -1,6 +1,6 @@
 {
   "schema": "cross-platform-discovery/v1",
-  "checkedAt": "2026-11-27T17:21:27+00:00",
+  "checkedAt": "2026-11-27T17:32:42+00:00",
   "sources": [
     {
       "id": "rsshub-anthropic",
@@ -44,10 +44,10 @@
       "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/anthropic-news.xml",
       "error": null,
       "itemCount": 2,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -56,10 +56,10 @@
       "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
       "error": null,
       "itemCount": 3,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -68,10 +68,10 @@
       "url": "https://mayoorrnikam.github.io/llm-world/feed.xml",
       "error": null,
       "itemCount": 15,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -80,10 +80,10 @@
       "url": "https://www.llm-releases.com/feed.xml",
       "error": null,
       "itemCount": 4,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -92,10 +92,10 @@
       "url": "https://huggingface.co/api/models?author=zai-org&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -104,10 +104,10 @@
       "url": "https://huggingface.co/api/models?author=deepseek-ai&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 1,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -116,10 +116,10 @@
       "url": "https://huggingface.co/api/models?author=Qwen&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -128,10 +128,10 @@
       "url": "https://huggingface.co/api/models?author=tencent&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 20,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -140,10 +140,10 @@
       "url": "https://raw.githubusercontent.com/mayoorrnikam/llm-world/main/data/llm-releases.json",
       "error": null,
       "itemCount": 9,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -152,10 +152,10 @@
       "url": "https://elevenlabs.io/sitemap.xml",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -164,10 +164,10 @@
       "url": "https://z.ai/sitemap.xml",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     },
     {
@@ -176,10 +176,10 @@
       "url": "https://ai-news-ed8ddf.gitlab.io/feed/source/elevenlabs.xml",
       "error": null,
       "itemCount": 1,
-      "checkedAt": "2026-11-27T17:21:27+00:00",
+      "checkedAt": "2026-11-27T17:32:42+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T17:21:27+00:00",
+      "lastSuccessAt": "2026-11-27T17:32:42+00:00",
       "nextAttemptAt": null
     }
   ],
@@ -195,7 +195,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-27T05:54:43+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "a61d28a9abeea9f08781",
@@ -543,7 +543,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "599e2ac6b2736845be12",
@@ -556,7 +556,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "8cfda89af3c1ec8318cd",
@@ -590,7 +590,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "ecab231e4cc0db197f84",
@@ -688,7 +688,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "42f2c7b4b6d6dfbcb480",
@@ -701,7 +701,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "cb50dd5b366270f219d5",
@@ -714,7 +714,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "01a9b104c446766c33e8",
@@ -727,7 +727,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "93b212842e365cecfa23",
@@ -740,7 +740,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "3b8fcb1e0ba8dc6cbcf2",
@@ -753,7 +753,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "b4beb1ad4b90029492d4",
@@ -766,7 +766,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "b2149a66374367011d01",
@@ -779,7 +779,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "84e6a4792cdab4d90d11",
@@ -792,7 +792,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "9cb85ddb55afa75ee31a",
@@ -805,7 +805,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "4c53475e2cd1ac2dfd15",
@@ -849,7 +849,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "canonicalModelIdentity": {
         "modelFamilyId": "glm",
         "modelVersionId": "5-4"
@@ -880,7 +880,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-Live-1.1"
       ],
@@ -900,7 +900,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "638d57eb69f83ee9e43e",
@@ -913,7 +913,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "78b98cf855151898e116",
@@ -926,7 +926,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "71cfddfe2c0ce2d2bb20",
@@ -939,7 +939,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "53f5b15549d672e4d5dc",
@@ -952,7 +952,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "86c190cfe8a8c270903b",
@@ -965,7 +965,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "bcc52f937d6347d57b17",
@@ -991,7 +991,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Gemini 4 Neon"
       ],
@@ -1060,7 +1060,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Gemini 4 Neon"
       ],
@@ -1129,7 +1129,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Gemini 4 Neon"
       ],
@@ -1159,7 +1159,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:40:58+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Scribe v3 Live Medical"
       ],
@@ -1179,7 +1179,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-6.2 Astra"
       ],
@@ -1215,7 +1215,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-6.2 Astra"
       ],
@@ -1243,7 +1243,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-6.2 Sol"
       ],
@@ -1263,7 +1263,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-6.2 Sol"
       ],
@@ -1291,7 +1291,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-6.2 Sol"
       ],
@@ -1319,7 +1319,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-6.2 Astra"
       ],
@@ -1409,7 +1409,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Gemini 4 Hydrogen"
       ],
@@ -1429,7 +1429,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Gemini 4 Hydrogen"
       ],
@@ -1457,7 +1457,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "844f71d9205b0e54b15a",
@@ -1524,7 +1524,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Claude Fable 5.2"
       ],
@@ -1546,7 +1546,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "3c10256a5019e5be3718",
@@ -1588,7 +1588,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "35d58d16f28e8e429eec",
@@ -1601,7 +1601,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Claude Mythos 5.2"
       ],
@@ -1621,7 +1621,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "831d8d5909486287cd50",
@@ -1634,7 +1634,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "5a065c561face08ecd05",
@@ -1647,7 +1647,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "canonicalModelIdentity": {
         "modelFamilyId": "gemini-omni-flash",
         "modelVersionId": "gemini-omni-flash-1-2"
@@ -1705,7 +1705,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "canonicalModelIdentity": {
         "modelFamilyId": "gpt-image",
         "modelVersionId": "gpt-image-2-6-sunburst"
@@ -1722,7 +1722,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "canonicalModelIdentity": {
         "modelFamilyId": "gpt-image",
         "modelVersionId": "gpt-image-2-6-sunburst"
@@ -1747,7 +1747,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "canonicalModelIdentity": {
         "modelFamilyId": "gpt-image",
         "modelVersionId": "gpt-image-2-6-flare"
@@ -1780,7 +1780,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "canonicalModelIdentity": {
         "modelFamilyId": "gpt-image",
         "modelVersionId": "gpt-image-2-6-flare"
@@ -1824,7 +1824,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "3679fed3d3f4562d3d7f",
@@ -1858,7 +1858,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Gemini 4 Carbon"
       ],
@@ -1906,7 +1906,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "Gemini 4 Carbon"
       ],
@@ -1936,7 +1936,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "37cb53638933c17aa6ae",
@@ -1949,7 +1949,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "17beaffacb91f706b08c",
@@ -1964,7 +1964,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "9f584387e5fef8db99c3",
@@ -2013,7 +2013,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "titleHints": [
         "GPT-6.1 Terra"
       ],
@@ -2080,7 +2080,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00",
+      "lastSeenAt": "2026-11-27T17:32:42+00:00",
       "canonicalModelIdentity": {
         "modelFamilyId": "deepseek",
         "modelVersionId": "deepseek-v4-1-flash-1017"
@@ -2131,7 +2131,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T17:21:27+00:00"
+      "lastSeenAt": "2026-11-27T17:32:42+00:00"
     },
     {
       "id": "df061245b8654b5b5e73",
