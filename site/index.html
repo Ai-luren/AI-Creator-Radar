@@ -1068,6 +1068,18 @@ function releaseEvents(rows,order){
   return releaseCategoryOrder(a.category)-releaseCategoryOrder(b.category)||(a.category==='llm'?a.priority-b.priority:0)||time||String(a.modelName).localeCompare(String(b.modelName))
  })
 }
+// Shared target policy for overview, verified release events and service stages.
+// Never infer a version from the first member of a multi-version announcement.
+function releaseDetailTarget(event){
+ var family=routeId(event.modelFamilyId),versions=Array.isArray(event.versions)?event.versions:[event];
+ if(!family||!versions.length||versions.some(function(v){return v.modelFamilyId!==family}))return null;
+ var version=versions.length===1?routeId(versions[0].modelVersionId):null;
+ if(versions.length===1&&!version)return null;
+ return {family:family,version:version};
+}
+function releaseDetailAttrs(target){
+ return ' data-model-open="'+esc(target.family)+'"'+(target.version?' data-model-version="'+esc(target.version)+'"':'');
+}
 function releaseEventMatches(x){return matches([x.vendor,x.modelName,x.summary].concat(x.versions.map(function(v){return [v.modelName,v.summary].join(' ')})).join(' '))}
 // News identity is conservative: explicit primary article URLs, exact titles,
 // and audited equivalent official links. Never use nearby/related article links.
@@ -1176,11 +1188,8 @@ function overviewPage(){
  if(shortlist.length<4)shortlist=shortlist.concat(confirmed.filter(function(x){return !shortlist.includes(x)}).slice(0,4-shortlist.length));
  // Navigate only using canonical IDs already present in the verified release digest.
  function releaseModelButton(event){
-  var versions=event.versions||[],family=routeId(event.modelFamilyId);
-  if(!family||!versions.length||versions.some(function(v){return v.modelFamilyId!==family}))return '';
-  var version=versions.length===1?routeId(versions[0].modelVersionId):null;
-  if(versions.length===1&&!version)return '';
-  return '<button type="button" class="overview-model-open" data-model-open="'+esc(family)+'"'+(version?' data-model-version="'+esc(version)+'"':'')+' aria-label="查看 '+esc(event.modelName)+' '+(version?'型号':'家族')+'详情">'+esc(event.modelName||'未命名记录')+'</button>';
+  var target=releaseDetailTarget(event);
+  return target?'<button type="button" class="overview-model-open"'+releaseDetailAttrs(target)+' aria-label="查看 '+esc(event.modelName)+' '+(target.version?'型号':'家族')+'详情">'+esc(event.modelName||'未命名记录')+'</button>':'';
  }
  var recentRows=shortlist.map(function(x){return row(x.modelName,[overviewDateLabel(x.publishedAt),categoryName(x.category),x.vendor].join(' · '),x.versions.length>1?x.versions.length+' 个型号':'',sourceLink(x.url,'证据'),releaseModelButton(x))}).join('');
  // Cross-module duplicates are removed only when the same release is visibly in the shortlist.
@@ -1349,8 +1358,9 @@ function recentReleasesPage(){
  var promoMatches=function(post,model){var relation=String(post.relatedModelId||'').toLowerCase().replace(/[^a-z0-9]/g,''),modelName=String(model.modelName||'').toLowerCase().replace(/[^a-z0-9]/g,'');return (post.relatedModelName&&post.relatedModelName===model.modelName)||(relation&&modelName.indexOf(relation)>=0)};
  function releaseRow(x,isPending,linked,isAnnouncement){
   var stamp=isPending?(x.publishedAt?'来源日期 '+date(x.publishedAt):'发现 '+date(x.discoveredAt)):date(x.publishedAt),source=safeUrl(x.url)!=='#'?'<a href="'+safeUrl(x.url)+'" target="_blank" rel="noopener noreferrer">'+esc(x.sourceName||'官方原文')+' ↗</a>':'';
-  var model=isPending?modelMentionLinks(x):x.modelFamilyId?'<button type="button" class="text-link release-model-link" data-model-open="'+esc(x.modelFamilyId)+'"'+(x.modelVersionId?' data-model-version="'+esc(x.modelVersionId)+'"':'')+'>查看模型版本 →</button>':'';
-  var versions=!isPending&&x.versions&&x.versions.length>1?'<details class="release-version-details"><summary>'+x.versions.length+' 个型号 · 展开版本与证据</summary>'+x.versions.map(function(v){return '<div class="release-version-entry"><strong>'+esc(v.modelName)+'</strong><p>'+esc(v.summary||'')+'</p><small>'+esc(v.access||'开放状态待核对')+'</small> <a href="'+safeUrl(v.url)+'" target="_blank" rel="noopener noreferrer">官方证据 ↗</a> <button class="text-link" data-model-open="'+esc(v.modelFamilyId)+'" data-model-version="'+esc(v.modelVersionId)+'">型号详情 →</button></div>'}).join('')+'</details>':'';
+  var target=isPending?null:releaseDetailTarget(x);
+  var model=isPending?modelMentionLinks(x):target?'<button type="button" class="text-link release-model-link"'+releaseDetailAttrs(target)+'>'+ (target.version?'查看模型版本':'查看模型家族')+' →</button>':'';
+  var versions=!isPending&&x.versions&&x.versions.length>1?'<details class="release-version-details"><summary>'+x.versions.length+' 个型号 · 展开版本与证据</summary>'+x.versions.map(function(v){return '<div class="release-version-entry"><strong>'+esc(v.modelName)+'</strong><p>'+esc(v.summary||'')+'</p><small>'+esc(v.access||'开放状态待核对')+'</small> <a href="'+safeUrl(v.url)+'" target="_blank" rel="noopener noreferrer">官方证据 ↗</a> '+(releaseDetailTarget(v)?'<button type="button" class="text-link"'+releaseDetailAttrs(releaseDetailTarget(v))+'>型号详情 →</button>':'')+'</div>'}).join('')+'</details>':'';
   var demos=(linked||[]).map(function(post){return '<a href="'+safeUrl(post.url)+'" target="_blank" rel="noopener noreferrer">'+esc(post.platform)+' 官方演示 ↗</a>'+modelMentionLinks(post)}).join('');
   return '<article class="release-card"><div class="release-meta"><time>'+esc(stamp)+'</time><small class="release-vendor">'+esc(x.vendor||'')+'</small><span class="pill'+(isPending?'':' blue')+'">'+esc(x.audioSubtype||categoryName(x.category))+'</span>'+(isPending&&!isAnnouncement?'<span class="release-review-label">待复核</span>':'')+'</div><div class="release-main"><h3>'+esc(isPending?x.title:x.modelName)+'</h3><p>'+esc(x.summary||'请查看官方原文。')+'</p>'+versions+(demos?'<div class="launch-links">'+demos+'</div>':'')+'</div><div class="release-actions">'+(!isPending&&(!x.versions||x.versions.length===1)&&x.access?'<p class="release-access">'+esc(x.access)+'</p>':'')+source+model+'</div></article>';
  }
