@@ -56,7 +56,7 @@ Python 3.10+；测试建议与 CI 一致使用 Python 3.12、Node 22。无需额
 ```bash
 python3 scripts/serve_local.py --port 8080
 python3 -m unittest discover -s tests -v
-node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs
+node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs tests/test_deploy_verified_pages.cjs
 python3 scripts/validate_model_links.py
 python3 scripts/audit_model_completeness.py
 ```

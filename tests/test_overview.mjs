@@ -290,7 +290,7 @@ test('single platform filter and sorting remain in brand matrix',async()=>{const
 
 test('overview explicitly identifies delayed snapshots without treating them as current',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');
- run("state.modelMonitorStatus={checkedAt:'2000-01-01T00:00:00Z'};state.aihot.updatedAt='2000-01-01T00:00:00Z';state.aihotDaily.fetchedAt='2000-01-01T00:00:00Z';state.juyaDaily.fetchedAt='2000-01-01T00:00:00Z';state.aihotDaily.title='2000-01-01';state.juyaDaily.title='2000-01-01';setView('overview');render()");
+ run("state.modelMonitorStatus={checkedAt:'2000-01-01T00:00:00Z'};state.aihot.updatedAt='2000-01-01T00:00:00Z';state.aihot.checkedAt='';state.aihotDaily.fetchedAt='2000-01-01T00:00:00Z';state.juyaDaily.fetchedAt='2000-01-01T00:00:00Z';state.aihotDaily.title='2000-01-01';state.juyaDaily.title='2000-01-01';setView('overview');render()");
  assert.match(node('content').innerHTML,/同步延迟 · [^<]*模型信源[^<]*AIHOT 精选[^<]*AIHOT 日报[^<]*橘鸦早报/);
  run("var freshStamp=new Date().toISOString();state.modelMonitorStatus.checkedAt=freshStamp;state.modelReleaseData.updatedAt=freshStamp;state.aihot.updatedAt=freshStamp;state.aihotDaily.fetchedAt=freshStamp;state.juyaDaily.fetchedAt=freshStamp;state.aihotDaily.title=chinaDay(new Date());state.juyaDaily.title=chinaDay(new Date());render()");
  assert.doesNotMatch(node('content').innerHTML,/同步延迟 · /);
@@ -401,4 +401,16 @@ test('a failed model source attempt does not make an old successful read current
  assert.equal(run('modelSuccessStamp(state.modelMonitorStatus)'),'2000-01-01T00:00:00Z');
  assert.match(node('content').innerHTML,/同步延迟 · [^<]*模型信源/);
  assert.match(node('content').innerHTML,/38 个采集异常/);
+});
+
+
+test('AIHOT unchanged content keeps download date but uses successful validation for freshness',()=>{
+ const {run}=setup();
+ run("state.aihot.updatedAt='2026-11-27T00:00:00Z';state.aihot.checkedAt='2026-11-27T02:00:00Z'");
+ assert.equal(run('selectedValidationStamp()'),'2026-11-27T02:00:00Z');
+ assert.equal(run('state.aihot.updatedAt'),'2026-11-27T00:00:00Z');
+ run("state.aihot.checkedAt='2026-11-26T00:00:00Z'");
+ assert.equal(run('selectedValidationStamp()'),'2026-11-27T00:00:00Z');
+ run("state.aihot.checkedAt='invalid'");
+ assert.equal(run('selectedValidationStamp()'),'2026-11-27T00:00:00Z');
 });

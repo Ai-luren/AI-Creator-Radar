@@ -41,7 +41,7 @@ Actions → Refresh radar data → Run workflow → main：`due`（仅到期且�
 
 ```sh
 python3 -m unittest discover -s tests -v
-node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs
+node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs tests/test_deploy_verified_pages.cjs
 python3 scripts/plan_refresh.py --event schedule --output /tmp/radar-refresh-plan.txt
 python3 scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
 ```
