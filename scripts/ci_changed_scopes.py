@@ -3,8 +3,8 @@ import os
 from pathlib import PurePosixPath
 import subprocess
 
-MODEL_FILES = {'model-sources', 'cross-platform-sources', 'release-recall-benchmark', 'chronicle-release-links', 'product-state-sources'}
-MODEL_SCRIPTS = {'collect_models', 'collect_cross_platform', 'collect_resolve_model_leads', 'collect_release_recall', 'collect_verify_model_releases', 'collect_model_intake', 'collect_chronicle_updates', 'build_model_release_digest', 'collect_event_reconciliation', 'event_identity', 'collect_product_state', 'collect_source_search', 'collect_event_claims'}
+MODEL_FILES = {'model-sources', 'cross-platform-sources', 'release-recall-benchmark', 'chronicle-release-links', 'product-state-sources', 'independent-audit-sources'}
+MODEL_SCRIPTS = {'collect_models', 'collect_cross_platform', 'collect_resolve_model_leads', 'collect_release_recall', 'collect_verify_model_releases', 'collect_model_intake', 'collect_chronicle_updates', 'build_model_release_digest', 'collect_event_reconciliation', 'event_identity', 'collect_product_state', 'collect_source_search', 'collect_event_claims', 'collect_independent_audit'}
 
 
 def scopes(paths):

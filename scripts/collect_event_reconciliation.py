@@ -39,7 +39,7 @@ def task_id(*identity):
     return "task-" + digest(identity)
 
 
-def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None, search_state=None):
+def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None, search_state=None, independent=None):
     stamp = now.isoformat(timespec="seconds")
     if previous and previous.get("schema") != "event-reconciliation/v1":
         raise ValueError("Unrecognized evidence ledger schema; refusing to replace it")
@@ -175,6 +175,23 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
             "reportedReleaseDate": product.get("reportedReleaseDate"), "claimType": "catalog-observation",
             "sourceEventId": event["id"]})
 
+    # Independently captured repository misses become review tasks AFTER the
+    # initial audit outcome is fixed. A repository is not a release event.
+    for row in (independent or {}).get("observations", []):
+        if row.get("initialPipelineTag") not in {"text-generation","image-text-to-text","text-to-image","image-to-image",
+                "text-to-video","image-to-video","image-text-to-video","video-to-video","text-to-audio","text-to-speech",
+                "automatic-speech-recognition","audio-to-audio"}:
+            continue
+        if row.get("initialState") == "exact-catalog-match":
+            continue
+        state = ("repository-identity-matched" if row["currentState"] == "exact-catalog-match"
+                 else "needs-repository-identity")
+        save(task_id("independent-repository",row["id"]), {
+            "taskType":"independent-repository","identity":row["currentMatches"][0] if state=="repository-identity-matched" else None,
+            "state":state,"modelName":row["modelName"],"sourceUrl":row["url"],
+            "repositoryCreatedAt":row["repositoryCreatedAt"],"sourceEventId":row["id"],
+            "claimType":"repository-observation","initialAuditState":row["initialState"]})
+
     for gap in gaps:
         if gap.get("reviewKind") != "release-source-review":
             continue
@@ -234,6 +251,7 @@ def main():
     parser.add_argument("--resolution", type=Path)
     parser.add_argument("--product-state", type=Path)
     parser.add_argument("--source-search", type=Path)
+    parser.add_argument("--independent", type=Path)
     args = parser.parse_args()
     def read(path, optional=False):
         if optional and not path.exists():
@@ -249,7 +267,8 @@ def main():
     result = reconcile(families, augment_discovery(discovery, search_state),
                        read(args.resolution or directory / "lead-resolution.json"),
                        report["gaps"], read(OUTPUT, optional=True), datetime.now(timezone.utc),
-                       read(args.product_state or directory / "product-state.json", optional=True), search_state)
+                       read(args.product_state or directory / "product-state.json", optional=True), search_state,
+                       read(args.independent or directory / "independent-coverage.json", optional=True))
     print("Event reconciliation:", json.dumps(result["summary"], ensure_ascii=False))
     if not args.dry_run:
         write_json(OUTPUT, result)
