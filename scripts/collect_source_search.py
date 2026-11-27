@@ -32,7 +32,7 @@ OUTPUT = ROOT / "site/data/source-search.json"
 ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 ATTRIBUTION = {"name": "GDELT DOC 2.0", "url": "https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/"}
 MAX_BYTES = 2 * 1024 * 1024
-OPEN_STATES = {"needs-source", "probe-unresolved", "awaiting-probe", "needs-product-identity"}
+OPEN_STATES = {"needs-source", "probe-unresolved", "awaiting-probe", "needs-product-identity", "needs-repository-identity"}
 
 
 def stable_id(*parts):
@@ -83,7 +83,7 @@ def build_targets(families, discovery, reconciliation, product_state):
         identity = (obj.get("modelFamilyId"), obj.get("modelVersionId"))
         if identity in names:
             add(names[identity], identity, task["id"], task.get("firstDetectedAt"))
-        elif task.get("taskType") == "product-observation":
+        elif task.get("taskType") in {"product-observation", "independent-repository"}:
             add(task.get("modelName"), None, task["id"], task.get("firstDetectedAt"))
     for event in product_state.get("events", []):
         if event.get("eventType") not in {"added-to-catalog", "baseline-recent-reported-date"}:
