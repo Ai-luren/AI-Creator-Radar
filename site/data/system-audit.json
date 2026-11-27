@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T06:05:17.636194+00:00",
+  "checkedAt": "2026-11-27T06:11:20.007200+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1195,7 +1195,7 @@
   },
   "publisherStatementAudit": {
     "errors": [],
-    "checkedAt": "2026-11-27T06:04:35+00:00",
+    "checkedAt": "2026-11-27T06:10:47+00:00",
     "conflicts": [],
     "summary": {
       "records": 2,
@@ -1244,8 +1244,8 @@
     "policy": "Structural integrity and separate availability-statement coverage only. Does not establish first-release dates or replace original article recall."
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T06:04:28+00:00",
-    "resolutionCheckedAt": "2026-11-27T06:04:32+00:00",
+    "discoveryCheckedAt": "2026-11-27T06:10:38+00:00",
+    "resolutionCheckedAt": "2026-11-27T06:10:42+00:00",
     "leadCount": 75,
     "counts": {
       "article-date-observed": 5,
@@ -2234,7 +2234,7 @@
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
   "appUpdates": {
-    "checkedAt": "2026-11-27T06:04:33+00:00",
+    "checkedAt": "2026-11-27T06:10:42+00:00",
     "summary": {
       "configuredSources": 2,
       "successfulThisRun": 0,
@@ -2244,26 +2244,30 @@
     }
   },
   "historicalEvidence": {
-    "checkedAt": "2026-11-27T06:04:34+00:00",
+    "checkedAt": "2026-11-27T06:10:43+00:00",
     "summary": {
       "activeTasks": 69,
-      "urlsAttemptedThisRun": 0,
+      "urlsAttemptedThisRun": 1,
       "states": {
         "identity-mismatch": 6,
         "identity-needs-review": 4,
         "missing-original-pointer": 14,
+        "platform-changelog-evidence-observed": 6,
         "repository-document-evidence-observed": 1,
-        "unsupported-original-pointer": 44
+        "unsupported-original-pointer": 38
       },
       "tasksWithDatedArticleEvidence": 0,
       "datedArticleRecords": 0,
       "repositoryDocumentRequests": 0,
+      "platformChangelogRequests": 1,
+      "platformChangelogEvidenceRecords": 15,
+      "tasksWithPlatformChangelogEvidence": 6,
       "repositoryDocumentEvidenceRecords": 2,
       "tasksWithCurrentPointerEvidence": 0
     }
   },
   "independentCoverage": {
-    "checkedAt": "2026-11-27T06:04:34+00:00",
+    "checkedAt": "2026-11-27T06:10:43+00:00",
     "summary": {
       "configuredSources": 3,
       "successfulThisRun": 0,
@@ -2290,7 +2294,7 @@
     }
   },
   "eventClaims": {
-    "checkedAt": "2026-11-27T06:04:34+00:00",
+    "checkedAt": "2026-11-27T06:10:46+00:00",
     "summary": {
       "claims": 17,
       "newClaims": 0,
@@ -2304,7 +2308,7 @@
     }
   },
   "sourceSearch": {
-    "checkedAt": "2026-11-27T06:04:31+00:00",
+    "checkedAt": "2026-11-27T06:10:40+00:00",
     "summary": {
       "activeTargets": 17,
       "attemptedThisRun": 0,
@@ -2313,7 +2317,7 @@
         "index-unavailable": 1
       },
       "targetsWithLocalContext": 15,
-      "localContextRecords": 69,
+      "localContextRecords": 70,
       "officialCandidates": 0,
       "indexReports": 0,
       "indexLastSuccessAt": null,
@@ -2322,7 +2326,7 @@
     }
   },
   "productState": {
-    "checkedAt": "2026-11-27T06:04:33+00:00",
+    "checkedAt": "2026-11-27T06:10:43+00:00",
     "summary": {
       "configuredSources": 3,
       "sourcesWithBaseline": 3,
@@ -2333,10 +2337,10 @@
     }
   },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T06:04:35+00:00",
+    "checkedAt": "2026-11-27T06:10:47+00:00",
     "summary": {
       "evidenceCount": 327,
-      "newEvidence": 2,
+      "newEvidence": 0,
       "currentlyReferencedEvidence": 327,
       "relatedLeads": 17,
       "publisherStatementEvidence": 2,
