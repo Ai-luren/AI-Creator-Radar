@@ -1,6 +1,6 @@
 {
   "schema": "historical-evidence/v1",
-  "checkedAt": "2026-11-27T03:46:18+00:00",
+  "checkedAt": "2026-11-27T04:02:44+00:00",
   "tasks": [
     {
       "id": "history-04a48fa2a5702ddc791bb6a4be28406666f34807327c68c8812f5004c46ff35b",
@@ -468,7 +468,6 @@
       "evidence": [],
       "repositoryEvidence": [],
       "status": "identity-mismatch",
-      "probeUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
       "lastAttemptAt": "2026-11-27T03:46:18+00:00",
       "error": null,
       "consecutiveFailures": 0,
@@ -476,7 +475,8 @@
         "status": "identity-mismatch",
         "publisherTitle": "Imagine Video 1.5 with References"
       },
-      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00"
+      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00",
+      "probeUrl": "https://x.ai/news/grok-imagine-video-1-5-references"
     },
     {
       "id": "history-5f6ab3965d4c1250e6ab0caa0d5e7126bc2a167d6d2a053b29759c0f2a658dcb",
@@ -603,7 +603,6 @@
       "evidence": [],
       "repositoryEvidence": [],
       "status": "identity-mismatch",
-      "probeUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
       "lastAttemptAt": "2026-11-27T03:46:18+00:00",
       "error": null,
       "consecutiveFailures": 0,
@@ -611,7 +610,8 @@
         "status": "identity-mismatch",
         "publisherTitle": "Imagine Video 1.5 with References"
       },
-      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00"
+      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00",
+      "probeUrl": "https://x.ai/news/grok-imagine-video-1-5-references"
     },
     {
       "id": "history-77d6f47ba5bb25b9ab2892f94cb9c353e64c4164ed200cd49e4fb649309e026d",
@@ -682,7 +682,6 @@
       "evidence": [],
       "repositoryEvidence": [],
       "status": "identity-mismatch",
-      "probeUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
       "lastAttemptAt": "2026-11-27T03:46:18+00:00",
       "error": null,
       "consecutiveFailures": 0,
@@ -690,7 +689,8 @@
         "status": "identity-mismatch",
         "publisherTitle": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise."
       },
-      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00"
+      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00",
+      "probeUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"
     },
     {
       "id": "history-8924e1e377efbe80102069215e318081546db490db7b6abfd7c2b87ce6583ba3",
@@ -803,7 +803,6 @@
       "evidence": [],
       "repositoryEvidence": [],
       "status": "identity-mismatch",
-      "probeUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
       "lastAttemptAt": "2026-11-27T03:46:18+00:00",
       "error": null,
       "consecutiveFailures": 0,
@@ -811,7 +810,8 @@
         "status": "identity-mismatch",
         "publisherTitle": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise."
       },
-      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00"
+      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00",
+      "probeUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise"
     },
     {
       "id": "history-a2d582096f97193a60547b88689215609e8b4cf6dd66a4963bede14c0b4d2f1a",
@@ -1036,7 +1036,6 @@
       "evidence": [],
       "repositoryEvidence": [],
       "status": "identity-mismatch",
-      "probeUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
       "lastAttemptAt": "2026-11-27T03:46:18+00:00",
       "error": null,
       "consecutiveFailures": 0,
@@ -1044,7 +1043,8 @@
         "status": "identity-mismatch",
         "publisherTitle": "Gemini 3.8 text-to-speech says hello"
       },
-      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00"
+      "nextAttemptAt": "2026-12-04T03:46:18.188869+00:00",
+      "probeUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/"
     },
     {
       "id": "history-f3552c7fb114e9b8f5ad307d944c766365c7b16a2d2be70edcd2229aee9a73c5",
@@ -1077,7 +1077,7 @@
   ],
   "summary": {
     "activeTasks": 69,
-    "urlsAttemptedThisRun": 3,
+    "urlsAttemptedThisRun": 0,
     "states": {
       "identity-mismatch": 6,
       "identity-needs-review": 4,

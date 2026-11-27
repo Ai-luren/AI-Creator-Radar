@@ -1,6 +1,6 @@
 {
   "schema": "independent-coverage/v1",
-  "checkedAt": "2026-11-27T03:46:17+00:00",
+  "checkedAt": "2026-11-27T04:02:44+00:00",
   "sources": [
     {
       "author": "ByteDance-Seed",
@@ -276,7 +276,7 @@
       "unmatched-repository": 3
     },
     "unclassifiedPipeline": 2,
-    "cardRequests": 3,
+    "cardRequests": 0,
     "cardRoles": {
       "auxiliary-prompt-expander": 1,
       "research-artifact-bundle": 1,
