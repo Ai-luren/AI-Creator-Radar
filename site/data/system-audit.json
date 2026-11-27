@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T04:32:35.948361+00:00",
+  "checkedAt": "2026-11-27T04:48:21.942608+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1199,8 +1199,8 @@
     "dateConflicts": 0
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T04:31:56+00:00",
-    "resolutionCheckedAt": "2026-11-27T04:31:59+00:00",
+    "discoveryCheckedAt": "2026-11-27T04:47:40+00:00",
+    "resolutionCheckedAt": "2026-11-27T04:47:47+00:00",
     "leadCount": 74,
     "counts": {
       "article-date-observed": 5,
@@ -2175,7 +2175,7 @@
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
   "appUpdates": {
-    "checkedAt": "2026-11-27T04:32:03+00:00",
+    "checkedAt": "2026-11-27T04:47:48+00:00",
     "summary": {
       "configuredSources": 2,
       "successfulThisRun": 0,
@@ -2185,7 +2185,7 @@
     }
   },
   "historicalEvidence": {
-    "checkedAt": "2026-11-27T04:32:03+00:00",
+    "checkedAt": "2026-11-27T04:47:49+00:00",
     "summary": {
       "activeTasks": 69,
       "urlsAttemptedThisRun": 0,
@@ -2204,7 +2204,7 @@
     }
   },
   "independentCoverage": {
-    "checkedAt": "2026-11-27T04:32:03+00:00",
+    "checkedAt": "2026-11-27T04:47:48+00:00",
     "summary": {
       "configuredSources": 3,
       "successfulThisRun": 0,
@@ -2231,21 +2231,21 @@
     }
   },
   "eventClaims": {
-    "checkedAt": "2026-11-27T04:32:04+00:00",
+    "checkedAt": "2026-11-27T04:47:49+00:00",
     "summary": {
       "claims": 17,
-      "newClaims": 1,
+      "newClaims": 0,
       "byType": {
         "announcement-statement": 2,
         "article-publication": 15
       },
-      "currentSuccessfulObservations": 10,
+      "currentSuccessfulObservations": 9,
       "articleDateConflicts": 0,
       "releaseStatementReviewCandidates": 0
     }
   },
   "sourceSearch": {
-    "checkedAt": "2026-11-27T04:31:58+00:00",
+    "checkedAt": "2026-11-27T04:47:46+00:00",
     "summary": {
       "activeTargets": 17,
       "attemptedThisRun": 0,
@@ -2263,7 +2263,7 @@
     }
   },
   "productState": {
-    "checkedAt": "2026-11-27T04:32:03+00:00",
+    "checkedAt": "2026-11-27T04:47:48+00:00",
     "summary": {
       "configuredSources": 3,
       "sourcesWithBaseline": 3,
@@ -2274,10 +2274,10 @@
     }
   },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T04:32:04+00:00",
+    "checkedAt": "2026-11-27T04:47:49+00:00",
     "summary": {
       "evidenceCount": 325,
-      "newEvidence": 1,
+      "newEvidence": 0,
       "currentlyReferencedEvidence": 325,
       "relatedLeads": 17,
       "taskStates": {
@@ -2297,10 +2297,6 @@
     "incorrectConfirmed": 0
   },
   "scopeNote": "Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review.",
-  "dueScopes": [
-    "selected"
-  ],
-  "eligibleScopes": [
-    "selected"
-  ]
+  "dueScopes": [],
+  "eligibleScopes": []
 }

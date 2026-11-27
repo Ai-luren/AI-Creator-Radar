@@ -1,6 +1,6 @@
 {
   "schema": "event-claims/v1",
-  "checkedAt": "2026-11-27T04:32:04+00:00",
+  "checkedAt": "2026-11-27T04:47:49+00:00",
   "claims": [
     {
       "id": "claim-0c45f142be97a721c98631cdb5de969fabc199e53c61eeb070230710cf2dc2c6",
@@ -383,7 +383,7 @@
       "firstObservedAt": "2026-11-27T04:31:59+00:00",
       "lastSuccessfulObservationAt": "2026-11-27T04:31:59+00:00",
       "observedInInput": true,
-      "currentSuccessfulObservation": true,
+      "currentSuccessfulObservation": false,
       "provenance": [
         {
           "channel": "official-article-recovery",
@@ -483,12 +483,12 @@
   "releaseStatementReviewCandidates": [],
   "summary": {
     "claims": 17,
-    "newClaims": 1,
+    "newClaims": 0,
     "byType": {
       "announcement-statement": 2,
       "article-publication": 15
     },
-    "currentSuccessfulObservations": 10,
+    "currentSuccessfulObservations": 9,
     "articleDateConflicts": 0,
     "releaseStatementReviewCandidates": 0
   },
