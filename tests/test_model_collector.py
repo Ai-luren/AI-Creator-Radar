@@ -296,5 +296,36 @@ class ProductAnnouncementTests(unittest.TestCase):
         self.assertIsNone(make_item(items[0], source, {}, "2026-11-26T00:00:00Z")["modelId"])
 
 
+class LocalizedResearchTests(unittest.TestCase):
+    def test_research_index_collects_exact_links_without_inferred_dates(self):
+        source={"id":"zhipu-research-index","type":"zhipu-research-index",
+                "url":"https://www.zhipuai.cn/zh/research","modelMatches":{"glm":["re:\\bGLM[- ]\\d+(?:\\.\\d+)*\\b"]}}
+        page="""<a href="/zh/news/123"><span>2026/11/22</span><h2>GLM-5.4：新架构</h2></a>
+        <a href="/zh/research/124">2026/11/23 GLM-5.5：新模型</a>
+        <a href="/zh/news/125"><h2>新闻汇总 GLM-5.6</h2></a>
+        <a href="https://evil.example/zh/news/126"><h2>GLM-5.7</h2></a>
+        <a href="/zh/news/127"><h2>GLM-5.8</h2><h2>GLM-5.9</h2></a>"""
+        items=html_page_items(page,source)
+        self.assertEqual([x["url"] for x in items],["https://www.zhipuai.cn/zh/news/123","https://www.zhipuai.cn/zh/research/124"])
+        self.assertTrue(all(x["publishedAt"] is None and x["updateType"]=="model-card" for x in items))
+
+    def test_localized_article_date_is_anchored_and_conflicts_rejected(self):
+        from scripts.collect_models import article_publication_date
+        title="GLM-5.4：新架构"
+        page=f"<h1>{title}</h1><p>2026年11月22日</p><h2>更多</h2><p>2026年11月23日</p>"
+        self.assertEqual(article_publication_date(page,title),"2026-11-22T00:00:00Z")
+        conflict=f"<h1>{title}</h1><p>2026/11/22</p><p>2026年11月23日</p>"
+        self.assertIsNone(article_publication_date(conflict,title))
+
+    def test_localized_publisher_clock_and_category_are_date_only(self):
+        from scripts.collect_models import article_publication_date
+        title="GLM-5.4：新架构"
+        page=f"<h1>{title}</h1><div>2026/11/22 16:00<span>基座模型</span></div><p>模型介绍</p><h1>泛Coding</h1>"
+        self.assertEqual(article_publication_date(page,title,leading_date=True,publisher_host="www.zhipuai.cn"),"2026-11-22T00:00:00Z")
+        self.assertIsNone(article_publication_date(page,title,leading_date=True,publisher_host="other.example"))
+        conflict=f"<h1>{title}</h1><div>2026/11/22 16:00基座模型</div><p>2026年11月23日</p>"
+        self.assertIsNone(article_publication_date(conflict,title,leading_date=True,publisher_host="www.zhipuai.cn"))
+
+
 if __name__ == "__main__":
     unittest.main()

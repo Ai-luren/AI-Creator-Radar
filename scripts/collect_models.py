@@ -303,7 +303,7 @@ class ArticleMetaParser(HTMLParser):
                 self.dates.append(stamp)
 
 
-def article_publication_date(page, expected_title, leading_date=False):
+def article_publication_date(page, expected_title, leading_date=False, publisher_host=None):
     """Require matching article heading; never use modified dates or neighbouring cards."""
     # A few publisher templates put a date-only span/div immediately before H1.
     # Capture those only for a direct, matched article, not for listing pages.
@@ -330,6 +330,14 @@ def article_publication_date(page, expected_title, leading_date=False):
                 stamp = parse_date(obj.get("datePublished"))
                 if stamp:
                     dates.append(stamp)
+    def zhipu_header_day(value):
+        # Publisher's actual localized header contains date, time and category.
+        # Keep the displayed calendar day; the page does not specify a timezone.
+        if publisher_host != "www.zhipuai.cn":
+            return None
+        m = re.fullmatch(r"(20\d{2}/\d{1,2}/\d{1,2})\s+(?:[01]\d|2[0-3]):[0-5]\d\s*(?:基座模型|多模态|推理模型|代码模型|Agent|Foundation Model|Multimodal|Reasoning Model|Coding Model)?", value, re.I)
+        return parse_date(m.group(1)) if m else None
+
     for i in headings:
         if leading_date:
             heading_seq = blocks[i]["sequence"]
@@ -338,11 +346,13 @@ def article_publication_date(page, expected_title, leading_date=False):
             # Only exact date-only blocks next to the verified title, not prose/navigation.
             for b in preceding:
                 value = b["text"].strip()
-                match = re.fullmatch(r"((?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}-\d{2}-\d{2}|20\d{2}年\d{1,2}月\d{1,2}日))(?:\s*[·・]\s*(?:Research|研究))?", value, re.I)
+                match = re.fullmatch(r"((?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}[-/]\d{1,2}[-/]\d{1,2}|20\d{2}年\d{1,2}月\d{1,2}日))(?:\s*[·・]\s*(?:Research|研究))?", value, re.I)
                 if match:
                     stamp = parse_date(match.group(1))
                     if stamp:
                         dates.append(stamp)
+                elif zhipu_header_day(value):
+                    dates.append(zhipu_header_day(value))
         section = []
         for b in blocks[i+1:i+14]:
             if b["tag"] in {"h1", "h2", "h3", "h4", "h5", "h6"}:
@@ -354,10 +364,10 @@ def article_publication_date(page, expected_title, leading_date=False):
                 stamp = parse_date(b["attrs"]["datetime"])
             elif re.fullmatch(r"(?:published|publication date|date|发布日期|发布时间|日期)\s*[:：]?", value, re.I) and j+1 < len(section):
                 stamp = parse_date(section[j+1]["text"])
-            elif re.fullmatch(r"(?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}-\d{2}-\d{2})", value):
+            elif re.fullmatch(r"(?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}[-/]\d{1,2}[-/]\d{1,2}|20\d{2}年\d{1,2}月\d{1,2}日)", value):
                 stamp = parse_date(value)
             else:
-                stamp = None
+                stamp = zhipu_header_day(value)
             if stamp:
                 dates.append(stamp)
     if not dates or len({d[:10] for d in dates}) != 1:
@@ -374,7 +384,7 @@ class SameHostRedirect(urllib.request.HTTPRedirectHandler):
 
 
 def parts_for_leading_date(url):
-    return urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai"}
+    return urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai", "www.zhipuai.cn"}
 
 
 def enrich_article_dates(source, items):
@@ -402,7 +412,7 @@ def enrich_article_dates(source, items):
                 raw = response.read(MAX_BYTES + 1)
             if len(raw) > MAX_BYTES:
                 return
-            stamp = article_publication_date(raw.decode("utf-8", errors="replace"), item.get("articleTitle") or item["title"], leading_date=parts_for_leading_date(url))
+            stamp = article_publication_date(raw.decode("utf-8", errors="replace"), item.get("articleTitle") or item["title"], leading_date=parts_for_leading_date(url), publisher_host=urlsplit(url).hostname)
             if stamp:
                 listing = item.get("publishedAt")
                 if listing and listing[:10] != stamp[:10]:
@@ -690,6 +700,8 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                                    "updateType": "announcement"})
         return dedupe_candidates(candidates)
 
+    if source.get("type") == "zhipu-research-index":
+        return zhipu_research_items(blocks, source)
     if source.get("type") == "version-document":
         return version_document_items(blocks, source)
     if source.get("type") == "niji-release-index":
@@ -787,6 +799,46 @@ def html_page_items(page: str, source: dict) -> list[dict]:
 
     candidates.extend(jsonld_items(page, source))
     return dedupe_candidates(candidates)
+
+
+def zhipu_research_items(blocks: list[dict], source: dict) -> list[dict]:
+    """Only real official research/news links, without English release-keyword bias.
+
+    Index timestamps are discovery context, not verified publication dates.
+    A link with an exact model headline is still worth an article probe even
+    when the index has no date. Never manufacture a URL from a model name.
+    """
+    results = []
+    for block in blocks:
+        if block["tag"] != "a":
+            continue
+        url = valid_article_url(block["attrs"].get("href", ""), source["url"])
+        parts = urlsplit(url)
+        if (parts.hostname != "www.zhipuai.cn" or parts.username or parts.password
+                or parts.port not in (None, 443)
+                or not re.fullmatch(r"/(?:zh|en)/(?:news|research)/\d+/?", parts.path)):
+            continue
+        headings = list(dict.fromkeys(
+            clean_text(b["text"]) for b in blocks
+            if b["tag"] in {"h1","h2","h3","h4","h5","h6"}
+            and block["sequence"] < b["sequence"] < block.get("endSequence", block["sequence"]+1)
+            and re.match(r"^GLM[- ]\d+(?:\.\d+)*(?![\d.])", b["text"], re.I)))
+        if len(headings) > 1:
+            continue
+        title = headings[0] if headings else clean_text(block["text"])
+        # Non-heading links may contain their own leading category/date.
+        if not headings:
+            title = re.sub(r"^(?:(?:基座模型|Foundation Model|Agent|多模态|Multimodal AI)\s*)?(?:20\d{2}[./-]\d{1,2}[./-]\d{1,2}\s*)?", "", title, flags=re.I)
+        if (not re.match(r"^GLM[- ]\d+(?:\.\d+)*(?![\d.])", title, re.I)
+                or len(title)>220 or non_release_title(title)):
+            continue
+        family = match_model(title, source)
+        if not family:
+            continue
+        results.append({"title": title, "articleTitle": title, "summary": "",
+                        "url": url, "publishedAt": None, "modelId": family,
+                        "updateType":"model-card"})
+    return dedupe_candidates(results)
 
 
 def niji_release_items(blocks: list[dict], source: dict) -> list[dict]:
