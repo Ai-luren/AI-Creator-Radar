@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T13:02:47+00:00",
+  "checkedAt": "2026-11-27T13:47:55+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -60,7 +60,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T13:02:47+00:00",
+    "checkedAt": "2026-11-27T13:47:55+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -129,7 +129,7 @@
         "label": "海螺",
         "term": "海螺",
         "category": "ai-products",
-        "lastAttemptAt": "2026-11-27T04:20:20+00:00",
+        "lastAttemptAt": "2026-11-27T13:47:55+00:00",
         "counts": {
           "items": 0,
           "wechatOriginalLinks": 0,
@@ -139,11 +139,11 @@
           "hasNextCursor": false
         },
         "countsObservedAt": "2026-11-27T04:20:20+00:00",
-        "status": "observed",
+        "status": "unchanged",
         "etag": "W/\"v1-items-2b8b117a0b96c97f\"",
-        "lastSuccessAt": "2026-11-27T04:20:20+00:00",
+        "lastSuccessAt": "2026-11-27T13:47:55+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T10:20:20.051088+00:00"
+        "nextAttemptAt": "2026-11-27T19:47:55.652497+00:00"
       },
       {
         "id": "vidu-products",
@@ -212,10 +212,10 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T12:32:53+00:00",
-      "nextAttemptAt": "2026-11-27T13:32:53.184359+00:00"
+      "lastSuccessAt": "2026-11-27T13:47:55+00:00",
+      "nextAttemptAt": "2026-11-27T14:47:55.652497+00:00"
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
