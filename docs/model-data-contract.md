@@ -279,3 +279,6 @@ P1 官方可用性声明验收：PR #60 真实 CI 与生产均取得 GLM Coding 
 
 
 独立社媒索引适配器：基于已观察的跨平台线索、精确型号与报道日定位公开日索引，只有原始帖子链接进入 X 官方 oEmbed 复核；遵守 robots，未知或拒绝访问停止，不读取或转载索引全文作为发布事实。Z.ai 官方账号明确 Introducing 型号的帖子产生 announcement-statement，Niji 官方 now live 只产生 service-availability-statement；两者 eventDate 均为 null，不能当作正式首发证据或互相替代。对账账本使用 publisher- 加原声明类型，旧可用性审计样本不变。独立日期索引仅为发现指针，日期以官方 embed 为准。适配器试点与真实runner验证分开。
+
+
+AIHOT 定向索引补证使用 `source-search.json.aihotService` 独立退避与单目标 ETag，仅记录必要原文链接和 `discoveryPointer`，标题是本地规范查询名、报道日期为空；保留出处但不复制聚合摘要。候选仍属未核验发现，不写正式发布日期或自动晋级。原有 GDELT 字段与基准不变。当前只支持既有官方文章白名单；社媒由既有官方声明适配器处理。实际新增贡献以真实生产候选和核验结果为准。

@@ -9,6 +9,8 @@ import argparse
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 import hashlib
+import gzip
+import io
 import json
 from pathlib import Path
 import re
@@ -17,12 +19,12 @@ import urllib.request
 from urllib.parse import urlencode, urlsplit
 
 try:
-    from scripts.collect_models import SameHostRedirect, USER_AGENT, clean_text, non_release_title, write_json
+    from scripts.collect_models import SameHostRedirect, USER_AGENT, clean_text, non_release_title, write_json, access_retry_at
     from scripts.collect_cross_platform import article_url, https_url
     from scripts.collect_release_recall import url_key
     from scripts.event_identity import identify, model_index
 except ModuleNotFoundError:
-    from collect_models import SameHostRedirect, USER_AGENT, clean_text, non_release_title, write_json
+    from collect_models import SameHostRedirect, USER_AGENT, clean_text, non_release_title, write_json, access_retry_at
     from collect_cross_platform import article_url, https_url
     from collect_release_recall import url_key
     from event_identity import identify, model_index
@@ -31,6 +33,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/source-search.json"
 ENDPOINT = "https://api.gdeltproject.org/api/v2/doc/doc"
 ATTRIBUTION = {"name": "GDELT DOC 2.0", "url": "https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/"}
+AIHOT_ENDPOINT = "https://aihot.news/api/v1/items"
+AIHOT_ATTRIBUTION = {"name": "AIHOT", "url": "https://aihot.news"}
 MAX_BYTES = 2 * 1024 * 1024
 OPEN_STATES = {"needs-source", "probe-unresolved", "awaiting-probe", "needs-product-identity", "needs-repository-identity"}
 
@@ -56,7 +60,8 @@ def safe_name(value):
 
 def build_targets(families, discovery, reconciliation, product_state):
     index = model_index(families)
-    names = {(f["id"], v["id"]): v.get("name") for f in families for v in f.get("versions", [])}
+    names = {(f["id"], v["id"]): (safe_name(v.get("name")) or safe_name((v.get("releaseEvidence") or {}).get("modelName")))
+             for f in families for v in f.get("versions", [])}
     targets = {}
 
     def add(name, identity, origin, first):
@@ -220,7 +225,73 @@ def fetch(target, allowed, families):
     return parse_results(json.loads(body), target, allowed, families)
 
 
-def search(families, discovery, reconciliation, product_state, previous, allowed, now, fetcher=fetch):
+def parse_aihot_pointers(payload, target, allowed, families):
+    """Consume bounded results transiently. Keep only original publisher pointers,
+    exact local model labels and attribution, never AIHOT headlines or summaries.
+    """
+    if not isinstance(payload, dict) or not isinstance(payload.get("items"), list):
+        raise ValueError("Unexpected AIHOT response schema")
+    identity = target.get("identity") or {}
+    expected = (identity.get("modelFamilyId"), identity.get("modelVersionId"))
+    if not all(expected):
+        return []
+    index = model_index(families)
+    found = {}
+    for item in payload["items"][:20]:
+        if not isinstance(item, dict) or item.get("category") != "ai-models":
+            continue
+        title = clean_text(item.get("title") or "")
+        original = clean_text(item.get("originalTitle") or "")
+        if not title or non_release_title(title) or (original and non_release_title(original)):
+            continue
+        if identify(index, title, [original] if original else []) != expected:
+            continue
+        links = item.get("links") or {}
+        if not isinstance(links, dict):
+            continue
+        url = article_url(links.get("original"), allowed)
+        canonical = https_url(links.get("aihot"))
+        p = urlsplit(canonical or "")
+        if not url or p.hostname != "aihot.news" or not re.fullmatch(r"/items/[A-Za-z0-9_-]{1,100}", p.path) or p.query or p.fragment:
+            continue
+        key = url_key(url)
+        if not key:
+            continue
+        found[key] = {"url": url, "title": target["query"], "domain": urlsplit(url).hostname,
+                      "indexSeenAt": None, "officialCandidateUrl": url,
+                      "claimType": "index-discovery", "provider": "aihot-targeted",
+                      "attribution": AIHOT_ATTRIBUTION, "discoveryPointer": canonical}
+    return sorted(found.values(), key=lambda r:r["url"])[:2]
+
+
+def fetch_aihot(target, allowed, families, etag=None):
+    query = urlencode({"mode": "all", "category": "ai-models", "window": "7d",
+                       "q": target["query"], "limit": 20})
+    headers = {"Accept": "application/json", "Accept-Encoding": "gzip",
+               "User-Agent": "aihot-api/2.0.0 " + USER_AGENT}
+    if etag:
+        headers["If-None-Match"] = etag
+    req = urllib.request.Request(AIHOT_ENDPOINT+"?"+query, headers=headers)
+    try:
+        with urllib.request.build_opener(SameHostRedirect()).open(req, timeout=15) as response:
+            body = response.read(MAX_BYTES+1)
+            new_etag = response.headers.get("ETag")
+            compressed = response.headers.get("Content-Encoding", "").lower()=="gzip"
+    except urllib.error.HTTPError as exc:
+        if exc.code==304 and etag:
+            return None, etag
+        raise
+    if len(body)>MAX_BYTES:
+        raise ValueError("AIHOT response exceeds size limit")
+    if compressed:
+        with gzip.GzipFile(fileobj=io.BytesIO(body)) as stream:
+            body=stream.read(MAX_BYTES+1)
+    if len(body)>MAX_BYTES:
+        raise ValueError("AIHOT decompressed response exceeds size limit")
+    return parse_aihot_pointers(json.loads(body),target,allowed,families),new_etag
+
+
+def search(families, discovery, reconciliation, product_state, previous, allowed, now, fetcher=fetch, aihot_fetcher=None):
     if previous and previous.get("schema") != "source-search/v1":
         raise ValueError("Unknown source search schema")
     checked = now.isoformat(timespec="seconds")
@@ -281,12 +352,59 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
                           nextAttemptAt=(now+timedelta(hours=24)).isoformat())
             service.update(lastAttemptAt=checked, lastSuccessAt=checked, error=None,
                            consecutiveFailures=0, nextAttemptAt=(now+timedelta(minutes=30)).isoformat())
+    # One total external index search per invocation. Use AIHOT only when
+    # GDELT is in cooldown, with independent target and provider scheduling.
+    # No historical archive or bulk snapshot endpoint is used.
+    aihot_service = dict(previous.get("aihotService", {}))
+    aihot_attempted = 0
+    aihot_due = stamp(aihot_service.get("nextAttemptAt"))
+    recent_cutoff = now - timedelta(days=7)
+    alternatives = [t for t in targets.values() if t["active"] and t.get("identity")
+                    and stamp(t.get("firstDetectedAt")) and stamp(t["firstDetectedAt"])>=recent_cutoff
+                    and not any(r.get("officialCandidateUrl") for r in t.get("results", []))
+                    and (not stamp(t.get("aihotNextAttemptAt")) or stamp(t["aihotNextAttemptAt"])<=now)]
+    alternatives.sort(key=lambda t:(t.get("aihotLastAttemptAt") or "",t["firstDetectedAt"],t["id"]))
+    if aihot_fetcher and not attempted and cooldown and cooldown>now and alternatives and (not aihot_due or aihot_due<=now):
+        target=alternatives[0]
+        aihot_attempted=1
+        attempted=1
+        target["aihotLastAttemptAt"]=checked
+        try:
+            rows,etag=aihot_fetcher(target,allowed,families,target.get("aihotETag"))
+            if rows is not None and not isinstance(rows,list):
+                raise ValueError("Invalid AIHOT pointers")
+            if rows is None and not target.get("aihotETag"):
+                raise ValueError("Unexpected AIHOT 304")
+        except (OSError,ValueError,TypeError) as exc:
+            failures=int(aihot_service.get("consecutiveFailures",0))+1
+            delay=now+timedelta(hours=min(48,6*2**min(failures-1,3)))
+            delay=access_retry_at(exc,now,delay)
+            aihot_service.update(lastAttemptAt=checked,error=f"{type(exc).__name__}: {str(exc)[:160]}",
+                                 consecutiveFailures=failures,nextAttemptAt=delay.isoformat())
+            target.update(aihotStatus="index-unavailable",aihotNextAttemptAt=delay.isoformat())
+        else:
+            if rows is not None:
+                # Replace only AIHOT's own pointer set on successful changed
+                # response; respect withdrawal and do not refresh other sources.
+                retained={url_key(r["url"]):r for r in target.get("results",[]) if r.get("provider")!="aihot-targeted"}
+                prior={url_key(r["url"]):r for r in target.get("results",[]) if r.get("provider")=="aihot-targeted"}
+                for row in rows[:2]:
+                    key=url_key(row["url"])
+                    if key and key not in retained:
+                        retained[key]={**row,"firstObservedAt":prior.get(key,{}).get("firstObservedAt") or checked,
+                                       "lastObservedAt":checked}
+                target["results"]=sorted(retained.values(),key=lambda r:(r["lastObservedAt"],r["url"]),reverse=True)[:40]
+            target.update(aihotETag=etag,aihotLastSuccessAt=checked,
+                          aihotStatus="unchanged" if rows is None else "index-candidates" if rows else "no-matching-index-results",
+                          aihotNextAttemptAt=(now+timedelta(hours=24)).isoformat())
+            aihot_service.update(lastAttemptAt=checked,lastSuccessAt=checked,error=None,
+                                 consecutiveFailures=0,nextAttemptAt=(now+timedelta(minutes=30)).isoformat())
     index = model_index(families)
     active_rows = [t for t in targets.values() if t["active"]]
     for target in active_rows:
         target["localContext"] = local_context(target, discovery, reconciliation, product_state, index, allowed)
     counts = Counter(t.get("status", "awaiting-search") for t in active_rows)
-    return {"schema": "source-search/v1", "checkedAt": checked, "service": service,
+    return {"schema": "source-search/v1", "checkedAt": checked, "service": service, "aihotService": aihot_service,
             "targets": sorted(targets.values(), key=lambda t: t["id"]),
             "summary": {"activeTargets": len(active_rows), "attemptedThisRun": attempted,
                         "targetStates": dict(sorted(counts.items())),
@@ -294,6 +412,10 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
                         "localContextRecords": sum(len(t["localContext"]) for t in active_rows),
                         "officialCandidates": sum(bool(r.get("officialCandidateUrl")) for t in active_rows for r in t.get("results", [])),
                         "indexReports": sum(not r.get("officialCandidateUrl") for t in active_rows for r in t.get("results", [])),
+                        "aihotAttemptedThisRun": aihot_attempted,
+                        "aihotLastSuccessAt": aihot_service.get("lastSuccessAt"),
+                        "aihotError": aihot_service.get("error"),
+                        "aihotPointers": sum(r.get("provider")=="aihot-targeted" for t in active_rows for r in t.get("results", [])),
                         "indexLastSuccessAt": service.get("lastSuccessAt"),
                         "indexError": service.get("error"), "nextIndexAttemptAt": service.get("nextAttemptAt")},
             "policy": "Search only unresolved observed names. Search hits and index observation times are not release facts, and mirrors are not independent official sources."}
@@ -314,12 +436,15 @@ def augment_discovery(discovery, search_state):
             if rid in seen:
                 continue
             seen.add(rid)
+            aihot=result.get("provider")=="aihot-targeted"
             items.append({"id": rid, "title": result["title"], "url": url,
-                          "sourceId": "gdelt-doc", "sourceName": "GDELT DOC 2.0",
+                          "sourceId": "aihot-targeted" if aihot else "gdelt-doc",
+                          "sourceName": "AIHOT 定向寻源" if aihot else "GDELT DOC 2.0",
                           "titleHints": [target["query"]], "officialArticleUrls": [url],
                           "reportedAt": None, "dateKind": "index-observed-only",
                           "firstSeenAt": result["firstObservedAt"], "lastSeenAt": result["lastObservedAt"],
-                          "verificationStatus": "unverified-lead", "attribution": ATTRIBUTION,
+                          "verificationStatus": "unverified-lead", "attribution": AIHOT_ATTRIBUTION if aihot else ATTRIBUTION,
+                          **({"discoveryPointer":result["discoveryPointer"]} if aihot else {}),
                           "searchTargetId": target["id"]})
     return {**discovery, "items": items}
 
@@ -338,7 +463,7 @@ def main():
     result = search(read(directory / "models.json"), read(args.discovery or directory / "cross-platform-discovery.json"),
                     read(directory / "event-reconciliation.json", True),
                     read(args.product_state or directory / "product-state.json", True),
-                    read(OUTPUT, True), config["officialArticleHosts"], datetime.now(timezone.utc))
+                    read(OUTPUT, True), config["officialArticleHosts"], datetime.now(timezone.utc), aihot_fetcher=fetch_aihot)
     print("Source search:", json.dumps(result["summary"], ensure_ascii=False))
     if args.report:
         write_json(args.report, result)

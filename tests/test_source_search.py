@@ -115,3 +115,56 @@ class PublisherChannelPointerTests(unittest.TestCase):
         self.assertEqual({r["sourceUrl"] for r in rows},set(urls[:2]))
         self.assertTrue(all(r["kind"]=="publisher-channel-pointer-unverified" and r["assertedDate"] is None
                             and r["originalVerificationAt"] is None for r in rows))
+
+class AIHOTTargetedTests(unittest.TestCase):
+    setUp=SourceSearchTests.setUp
+    run_search=SourceSearchTests.run_search
+    def payload(self):
+        return {"items":[
+            {"category":"ai-models","title":"Demo v3 released","summary":"Never retain this summary",
+             "links":{"original":"https://official.example/blog/v3","aihot":"https://aihot.news/items/demo"}},
+            {"category":"ai-models","title":"Demo v3 Live released","links":{"original":"https://official.example/blog/live","aihot":"https://aihot.news/items/live"}},
+            {"category":"tip","title":"Demo v3 tutorial","links":{"original":"https://official.example/blog/tutorial","aihot":"https://aihot.news/items/tutorial"}},
+            {"category":"ai-models","title":"Demo v3 released","links":{"original":"https://official.example.evil.test/blog/v3","aihot":"https://aihot.news/items/fake"}},
+            {"category":"ai-models","title":"Demo v3 released","links":{"original":"https://official.example/blog/another","aihot":"https://evil.example/items/fake"}}]}
+
+    def test_targeted_fallback_is_bounded_and_does_not_copy_aihot_text(self):
+        from scripts.collect_source_search import parse_aihot_pointers
+        from datetime import timedelta
+        old=self.run_search(fetcher=lambda *a:(_ for _ in ()).throw(HTTPError("https://api.gdeltproject.org/",429,"limit",{},None)))
+        calls=[]
+        def aihot(target,allowed,families,etag):
+            calls.append(target["query"])
+            return parse_aihot_pointers(self.payload(),target,allowed,families),'"etag"'
+        result=search(self.families,self.discovery,{}, {},old,self.allowed,self.now+timedelta(minutes=5),
+                      lambda *args:self.fail("GDELT cooldown"),aihot_fetcher=aihot)
+        self.assertEqual(calls,["Demo v3"])
+        self.assertEqual(result["summary"]["attemptedThisRun"],1)
+        self.assertEqual(result["summary"]["aihotAttemptedThisRun"],1)
+        self.assertEqual(result["summary"]["aihotPointers"],1)
+        row=result["targets"][0]["results"][0]
+        self.assertEqual(row["title"],"Demo v3")
+        self.assertNotIn("summary",row)
+        self.assertIsNone(row["indexSeenAt"])
+        candidate=augment_discovery(self.discovery,result)["items"][-1]
+        self.assertEqual(candidate["sourceId"],"aihot-targeted")
+        self.assertIsNone(candidate["reportedAt"])
+        self.assertEqual(candidate["discoveryPointer"],"https://aihot.news/items/demo")
+        second=search(self.families,self.discovery,{}, {},result,self.allowed,self.now+timedelta(minutes=10),
+                      lambda *args:self.fail("GDELT cooldown"),aihot_fetcher=lambda *args:self.fail("AIHOT cooldown"))
+        self.assertEqual(second["summary"]["attemptedThisRun"],0)
+
+    def test_short_display_label_uses_exact_full_registered_name(self):
+        families=[{"id":"demo","versions":[{"id":"v3","name":"3","releaseEvidence":{"modelName":"Demo v3"}}]}]
+        self.assertEqual(next(iter(build_targets(families,self.discovery,{},{}).values()))["query"],"Demo v3")
+
+    def test_aihot_retry_after_and_no_new_pointers_on_failure(self):
+        from datetime import timedelta
+        old=self.run_search(fetcher=lambda *a:(_ for _ in ()).throw(HTTPError("https://api.gdeltproject.org/",429,"limit",{},None)))
+        def deny(*args):
+            raise HTTPError("https://aihot.news/",429,"limit",{"Retry-After":"86400"},None)
+        result=search(self.families,self.discovery,{}, {},old,self.allowed,self.now+timedelta(minutes=5),
+                      lambda *args:self.fail("GDELT cooldown"),aihot_fetcher=deny)
+        self.assertEqual(result["summary"]["aihotPointers"],0)
+        self.assertEqual(result["aihotService"]["nextAttemptAt"],(self.now+timedelta(days=1,minutes=5)).isoformat())
+        self.assertIsNone(result["summary"]["aihotLastSuccessAt"])
