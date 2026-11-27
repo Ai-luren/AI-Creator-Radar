@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T02:18:05.298314+00:00",
+  "checkedAt": "2026-11-27T02:37:40.637215+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -676,38 +676,6 @@
       "historicalStages": []
     },
     {
-      "modelFamilyId": "seedance",
-      "modelVersionId": "seedance-2-5",
-      "modelName": "Seedance 2.5",
-      "category": "video",
-      "vendor": "字节跳动 Seed / 即梦",
-      "issue": "missing-release-evidence",
-      "reviewKind": "release-source-review",
-      "status": "已发布",
-      "recordKind": null,
-      "identityReview": null,
-      "hasDate": false,
-      "existingDate": null,
-      "candidateSourceUrl": "https://seed.bytedance.com/zh/",
-      "historicalStages": []
-    },
-    {
-      "modelFamilyId": "kling",
-      "modelVersionId": "kling-2-1",
-      "modelName": "Kling 2.1",
-      "category": "video",
-      "vendor": "快手",
-      "issue": "missing-release-evidence",
-      "reviewKind": "release-source-review",
-      "status": "已发布",
-      "recordKind": null,
-      "identityReview": null,
-      "hasDate": false,
-      "existingDate": null,
-      "candidateSourceUrl": "https://kling.ai/document-api/updates/api",
-      "historicalStages": []
-    },
-    {
       "modelFamilyId": "kling",
       "modelVersionId": "kling-2-6-pro",
       "modelName": "Kling 2.6 Pro",
@@ -731,7 +699,7 @@
       "vendor": "腾讯混元",
       "issue": "missing-release-evidence",
       "reviewKind": "release-source-review",
-      "status": "已发布",
+      "status": "官方开源已确认；首发日待核验",
       "recordKind": null,
       "identityReview": null,
       "hasDate": false,
@@ -1175,29 +1143,29 @@
   "counts": {
     "families": 94,
     "versions": 418,
-    "chronicleNodes": 509,
-    "missingEvidence": 182,
-    "formalReleaseEvidenceGaps": 73,
+    "chronicleNodes": 510,
+    "missingEvidence": 181,
+    "formalReleaseEvidenceGaps": 71,
     "confirmedRecentReleases": 39,
     "pendingRecentCandidates": 15,
     "duplicatePendingCandidates": 0
   },
   "gapKinds": {
     "agent-product-scope": 5,
-    "historical-stage-only": 64,
+    "historical-stage-only": 65,
     "leaderboard-identity-review": 24,
     "non-release-identity-review": 10,
     "preview-stage-review": 5,
     "provider-variant-review": 1,
-    "release-source-review": 73
+    "release-source-review": 71
   },
   "sourceCoverage": {
-    "reachableSources": 44,
-    "matchingModelSources": 39,
-    "recentDatedModelSources": 16,
-    "distinctMatchingEndpoints": 38,
-    "matchedFamilies": 49,
-    "recentDatedFamilies": 16,
+    "reachableSources": 43,
+    "matchingModelSources": 37,
+    "recentDatedModelSources": 14,
+    "distinctMatchingEndpoints": 36,
+    "matchedFamilies": 44,
+    "recentDatedFamilies": 14,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -1212,7 +1180,9 @@
       "flux",
       "flux3-video",
       "gaga-1",
+      "gemini-tts",
       "gpt-image",
+      "gpt-live",
       "grok-imagine-image",
       "hailuo",
       "heygen-video",
@@ -1225,6 +1195,7 @@
       "kling-image",
       "llama",
       "ltx",
+      "lyria",
       "magi-1",
       "mai-code",
       "mai-image",
@@ -1232,6 +1203,7 @@
       "mimo",
       "minimax-llm",
       "muse-video",
+      "nano-banana",
       "ovhcloud-olala",
       "prismml-bonsai",
       "recraft",
@@ -1243,6 +1215,7 @@
       "skyreels-v4",
       "step-5",
       "stepaudio-3-tts",
+      "veo",
       "workbuddy"
     ],
     "fallbackSources": 5
@@ -1262,6 +1235,10 @@
     "incorrectConfirmed": 0
   },
   "scopeNote": "Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review.",
-  "dueScopes": [],
-  "eligibleScopes": []
+  "dueScopes": [
+    "selected"
+  ],
+  "eligibleScopes": [
+    "selected"
+  ]
 }

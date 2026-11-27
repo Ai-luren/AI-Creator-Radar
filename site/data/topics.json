@@ -7071,6 +7071,38 @@
         "verificationUrl": "https://www.bytedance.com/newsroom/dreamina-seedance-2-5-dola-seedream-5"
       },
       {
+        "date": "2026-07-31",
+        "kind": "模型发布",
+        "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
+        "summary": "",
+        "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab",
+        "sourceId": "seed-official",
+        "sourceName": "字节跳动 Seed 官方动态",
+        "sourceUpdateId": "839af1e97986262326",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "article-publication-date",
+        "recoveryProofId": "recovery-f58d44a1f0031867aa29",
+        "previousSourceDate": "2026-11-16T00:00:00Z",
+        "sourceModelId": "seedance",
+        "collectedAt": "2026-11-27T02:37:01Z",
+        "modelCategory": "video",
+        "modelMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "modelVersionId": "seedance-2-5",
+            "matchedName": "Seedance 2.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "seedance",
+            "matchedName": "Seedance"
+          }
+        ]
+      },
+      {
         "date": "2026-07-20",
         "kind": "模型",
         "title": "Seed Audio 1.0 正式发布",
