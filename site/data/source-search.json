@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-27T17:41:17+00:00",
+  "checkedAt": "2026-11-27T17:47:24+00:00",
   "service": {
     "lastAttemptAt": "2026-11-27T16:02:54+00:00",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
@@ -49,7 +49,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -128,7 +128,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:18:03Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         },
         {
@@ -138,7 +138,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -300,7 +300,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -377,7 +377,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:18:03Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -423,7 +423,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -503,7 +503,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -638,7 +638,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:40:56Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         },
         {
@@ -649,6 +649,16 @@
           "assertedDate": null,
           "originalVerificationAt": null,
           "lastObservedAt": "2026-11-27T16:02:46+00:00",
+          "provenance": "existing-discovery"
+        },
+        {
+          "kind": "publisher-channel-pointer-unverified",
+          "sourceUrl": "https://mp.weixin.qq.com/s/JkZM9s6tC_Wz5MKeYcccxw",
+          "sourceRecordId": "33ce1d4e6d53d5fc7b44",
+          "sourceId": "local-aihot-daily",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-26T12:23:00Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -725,7 +735,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -735,7 +745,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:18:03Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         },
         {
@@ -745,7 +755,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:18:03Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -791,7 +801,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:18:03Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -907,7 +917,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -984,7 +994,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:18:03Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         },
         {
@@ -994,7 +1004,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:41:15+00:00",
+          "lastObservedAt": "2026-11-27T17:47:22+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1004,7 +1014,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T17:18:03Z",
+          "lastObservedAt": "2026-11-27T17:47:13Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -1018,7 +1028,7 @@
       "index-unavailable": 3
     },
     "targetsWithLocalContext": 15,
-    "localContextRecords": 71,
+    "localContextRecords": 72,
     "officialCandidates": 0,
     "indexReports": 0,
     "indexLastSuccessAt": null,

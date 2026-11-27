@@ -1,9 +1,10 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T17:41:19+00:00",
+  "checkedAt": "2026-11-27T17:47:25+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
-    "attempted": 1,
+    "attempted": 0,
+    "accessDomainDeferred": 1,
     "articleDateVerified": 9,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
@@ -823,6 +824,17 @@
       "articlePublishedAt": "2026-10-14T00:00:00Z",
       "possibleModelFamilyIds": []
     }
+  ],
+  "accessFaultDomains": {
+    "nijijourney.com/blog": {
+      "blockedUntil": "2026-11-28T01:51:20+00:00",
+      "error": "HTTPError: HTTP Error 403: Forbidden",
+      "sourceUrl": "https://nijijourney.com/blog/niji-8",
+      "observedAt": "2026-11-27T09:51:20+00:00"
+    }
+  },
+  "deferredAccessDomainUrls": [
+    "https://nijijourney.com/blog/niji-8"
   ],
   "candidateDateCorrections": [
     {
