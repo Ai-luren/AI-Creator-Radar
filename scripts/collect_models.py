@@ -346,7 +346,7 @@ def article_publication_date(page, expected_title, leading_date=False, publisher
             # Only exact date-only blocks next to the verified title, not prose/navigation.
             for b in preceding:
                 value = b["text"].strip()
-                match = re.fullmatch(r"((?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}[-/]\d{1,2}[-/]\d{1,2}|20\d{2}年\d{1,2}月\d{1,2}日))(?:\s*[·・]\s*(?:Research|研究))?", value, re.I)
+                match = re.fullmatch(r"((?:[A-Za-z]+\s+\d{1,2},\s+20\d{2}|20\d{2}[-/]\d{1,2}[-/]\d{1,2}|20\d{2}年\d{1,2}月\d{1,2}日))(?:\s*[·・•]\s*(?:Research|研究))?", value, re.I)
                 if match:
                     stamp = parse_date(match.group(1))
                     if stamp:
@@ -384,7 +384,7 @@ class SameHostRedirect(urllib.request.HTTPRedirectHandler):
 
 
 def parts_for_leading_date(url):
-    return urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai", "www.zhipuai.cn"}
+    return urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai", "www.zhipuai.cn", "sand.ai", "www.sand.ai"}
 
 
 def enrich_article_dates(source, items):
