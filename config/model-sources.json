@@ -1163,7 +1163,7 @@
   {
     "id": "zhipu-research-index",
     "name": "智谱国内官网研究动态",
-    "type": "html",
+    "type": "zhipu-research-index",
     "url": "https://www.zhipuai.cn/en/research",
     "vendor": "智谱 / Z.ai",
     "official": true,
@@ -1175,7 +1175,9 @@
       "www.zhipuai.cn"
     ],
     "fallbackUrls": [
-      "https://www.zhipuai.cn/zh/research"
+      "https://www.zhipuai.cn/zh/research",
+      "https://www.zhipuai.cn/zh/news",
+      "https://www.zhipuai.cn/en/news"
     ],
     "fallbackOnZeroMatch": true,
     "modelMatches": {
