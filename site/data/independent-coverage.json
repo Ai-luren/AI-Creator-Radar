@@ -1,6 +1,6 @@
 {
   "schema": "independent-coverage/v1",
-  "checkedAt": "2026-11-27T03:42:10+00:00",
+  "checkedAt": "2026-11-27T03:46:17+00:00",
   "sources": [
     {
       "author": "ByteDance-Seed",
@@ -75,7 +75,27 @@
       "initialMatches": [],
       "initialPipelineTag": "text-to-image",
       "currentState": "unmatched-repository",
-      "currentMatches": []
+      "currentMatches": [],
+      "cardEvidence": [
+        {
+          "id": "card-4398132f64d3dac861180fa5d834c806d8819161726d29498cd899ac77d93d35",
+          "sourceUrl": "https://huggingface.co/ByteDance-Seed/GenFirst/raw/main/README.md",
+          "contentSha256": "fa110c258f6d9e270a7d1898f33fd09a3140a582b16893336ee176306319ebfb",
+          "role": "research-artifact-bundle",
+          "reason": "publisher-describes-multiple-artifacts",
+          "firstObservedAt": "2026-11-27T03:46:17+00:00"
+        }
+      ],
+      "cardReview": {
+        "status": "observed",
+        "lastAttemptAt": "2026-11-27T03:46:17+00:00",
+        "lastSuccessAt": "2026-11-27T03:46:17+00:00",
+        "nextAttemptAt": "2026-12-04T03:46:17.617426+00:00",
+        "currentEvidenceId": "card-4398132f64d3dac861180fa5d834c806d8819161726d29498cd899ac77d93d35",
+        "error": null,
+        "role": "research-artifact-bundle",
+        "reason": "publisher-describes-multiple-artifacts"
+      }
     },
     {
       "repositoryId": "ByteDance-Seed/Cross-Layer-TopK-CLT",
@@ -136,7 +156,37 @@
       "initialMatches": [],
       "initialPipelineTag": "text-generation",
       "currentState": "unmatched-repository",
-      "currentMatches": []
+      "currentMatches": [],
+      "cardEvidence": [
+        {
+          "id": "card-5ce996e05183bed55e45bb37ab1c619a64ee56f2351f10ea8f6b84c4fdfb38be",
+          "sourceUrl": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE/raw/main/README.md",
+          "contentSha256": "b215c9ff2fcc401d34515559cd520f63bfe705df6a9538c9f048e1a6ecaf6e1c",
+          "role": "auxiliary-prompt-expander",
+          "parentRepositoryId": "MiniMaxAI/MiniMax-H3-Image",
+          "parentIdentity": {
+            "modelFamilyId": "minimax-h3-image",
+            "modelVersionId": "minimax-h3-image"
+          },
+          "reason": "explicit-publisher-role-and-parent",
+          "firstObservedAt": "2026-11-27T03:46:17+00:00"
+        }
+      ],
+      "cardReview": {
+        "status": "observed",
+        "lastAttemptAt": "2026-11-27T03:46:17+00:00",
+        "lastSuccessAt": "2026-11-27T03:46:17+00:00",
+        "nextAttemptAt": "2026-12-04T03:46:17.617426+00:00",
+        "currentEvidenceId": "card-5ce996e05183bed55e45bb37ab1c619a64ee56f2351f10ea8f6b84c4fdfb38be",
+        "error": null,
+        "role": "auxiliary-prompt-expander",
+        "parentRepositoryId": "MiniMaxAI/MiniMax-H3-Image",
+        "parentIdentity": {
+          "modelFamilyId": "minimax-h3-image",
+          "modelVersionId": "minimax-h3-image"
+        },
+        "reason": "explicit-publisher-role-and-parent"
+      }
     },
     {
       "repositoryId": "MiniMaxAI/MiniMax-M3.1-Flash",
@@ -180,9 +230,36 @@
       "initialMatches": [],
       "initialPipelineTag": "text-generation",
       "currentState": "unmatched-repository",
-      "currentMatches": []
+      "currentMatches": [],
+      "cardEvidence": [
+        {
+          "id": "card-a861e65730121e83696bd1384a7e387dde7e00d37fb413342e9d78bfc5c7b0dc",
+          "sourceUrl": "https://huggingface.co/ByteDance-Seed/Cola2/raw/main/README.md",
+          "contentSha256": "4c43218f798a85740b148f09f978ae807d2bac0d9c9e5e06bb37389e69ba7840",
+          "role": "standalone-model-candidate",
+          "reason": "publisher-describes-model-and-released-checkpoint",
+          "firstObservedAt": "2026-11-27T03:46:17+00:00"
+        }
+      ],
+      "cardReview": {
+        "status": "observed",
+        "lastAttemptAt": "2026-11-27T03:46:17+00:00",
+        "lastSuccessAt": "2026-11-27T03:46:17+00:00",
+        "nextAttemptAt": "2026-12-04T03:46:17.617426+00:00",
+        "currentEvidenceId": "card-a861e65730121e83696bd1384a7e387dde7e00d37fb413342e9d78bfc5c7b0dc",
+        "error": null,
+        "role": "standalone-model-candidate",
+        "reason": "publisher-describes-model-and-released-checkpoint"
+      }
     }
   ],
+  "cardService": {
+    "consecutiveFailures": 0,
+    "lastAttemptAt": "2026-11-27T03:46:17+00:00",
+    "lastSuccessAt": "2026-11-27T03:46:17+00:00",
+    "error": null,
+    "nextAttemptAt": null
+  },
   "summary": {
     "configuredSources": 3,
     "successfulThisRun": 0,
@@ -198,7 +275,14 @@
       "exact-catalog-match": 2,
       "unmatched-repository": 3
     },
-    "unclassifiedPipeline": 2
+    "unclassifiedPipeline": 2,
+    "cardRequests": 3,
+    "cardRoles": {
+      "auxiliary-prompt-expander": 1,
+      "research-artifact-bundle": 1,
+      "standalone-model-candidate": 1
+    },
+    "cardServiceError": null
   },
   "policy": "Independent repository coverage sample, not release recall. Exact vendor/name matching only; unmatched may be checkpoints, aliases or out-of-catalog products. Initial outcome frozen; no automatic release, date or weights claim. Closed models not represented."
 }

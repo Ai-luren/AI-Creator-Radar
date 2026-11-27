@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T03:42:43.753356+00:00",
+  "checkedAt": "2026-11-27T03:46:51.930158+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1194,8 +1194,8 @@
     "dateConflicts": 0
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T03:42:05+00:00",
-    "resolutionCheckedAt": "2026-11-27T03:42:09+00:00",
+    "discoveryCheckedAt": "2026-11-27T03:46:13+00:00",
+    "resolutionCheckedAt": "2026-11-27T03:46:16+00:00",
     "leadCount": 74,
     "counts": {
       "article-date-observed": 5,
@@ -2170,13 +2170,12 @@
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
   "historicalEvidence": {
-    "checkedAt": "2026-11-27T03:42:10+00:00",
+    "checkedAt": "2026-11-27T03:46:18+00:00",
     "summary": {
       "activeTasks": 69,
       "urlsAttemptedThisRun": 3,
       "states": {
-        "awaiting-probe": 5,
-        "identity-mismatch": 1,
+        "identity-mismatch": 6,
         "identity-needs-review": 4,
         "missing-original-pointer": 14,
         "repository-document-evidence-observed": 1,
@@ -2184,13 +2183,13 @@
       },
       "tasksWithDatedArticleEvidence": 0,
       "datedArticleRecords": 0,
-      "repositoryDocumentRequests": 2,
+      "repositoryDocumentRequests": 0,
       "repositoryDocumentEvidenceRecords": 2,
       "tasksWithCurrentPointerEvidence": 0
     }
   },
   "independentCoverage": {
-    "checkedAt": "2026-11-27T03:42:10+00:00",
+    "checkedAt": "2026-11-27T03:46:17+00:00",
     "summary": {
       "configuredSources": 3,
       "successfulThisRun": 0,
@@ -2206,11 +2205,18 @@
         "exact-catalog-match": 2,
         "unmatched-repository": 3
       },
-      "unclassifiedPipeline": 2
+      "unclassifiedPipeline": 2,
+      "cardRequests": 3,
+      "cardRoles": {
+        "auxiliary-prompt-expander": 1,
+        "research-artifact-bundle": 1,
+        "standalone-model-candidate": 1
+      },
+      "cardServiceError": null
     }
   },
   "eventClaims": {
-    "checkedAt": "2026-11-27T03:42:11+00:00",
+    "checkedAt": "2026-11-27T03:46:19+00:00",
     "summary": {
       "claims": 16,
       "newClaims": 0,
@@ -2224,7 +2230,7 @@
     }
   },
   "sourceSearch": {
-    "checkedAt": "2026-11-27T03:42:07+00:00",
+    "checkedAt": "2026-11-27T03:46:15+00:00",
     "summary": {
       "activeTargets": 18,
       "attemptedThisRun": 0,
@@ -2242,7 +2248,7 @@
     }
   },
   "productState": {
-    "checkedAt": "2026-11-27T03:42:09+00:00",
+    "checkedAt": "2026-11-27T03:46:17+00:00",
     "summary": {
       "configuredSources": 3,
       "sourcesWithBaseline": 3,
@@ -2253,7 +2259,7 @@
     }
   },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T03:42:11+00:00",
+    "checkedAt": "2026-11-27T03:46:19+00:00",
     "summary": {
       "evidenceCount": 324,
       "newEvidence": 0,
@@ -2264,9 +2270,10 @@
         "articles-excluded": 3,
         "needs-product-identity": 2,
         "needs-release-evidence": 69,
-        "needs-repository-identity": 3,
+        "needs-repository-identity": 2,
         "needs-source": 22,
-        "probe-unresolved": 9
+        "probe-unresolved": 9,
+        "repository-auxiliary-classified": 1
       }
     }
   },
