@@ -97,7 +97,7 @@ def main():
     print('Release digest: rebuilt' if changed else 'Release digest: consistent')
     if not (args.digest_only or args.static_only):
         run(sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v')
-        run('node', '--test', 'tests/test_overview.mjs', 'tests/test_scheduler_worker.mjs')
+        run('node', '--test', 'tests/test_overview.mjs', 'tests/test_scheduler_worker.mjs', 'tests/test_deploy_verified_pages.cjs')
         for script in ('validate_model_links', 'audit_model_completeness', 'audit_radar_system'):
             run(sys.executable, f'scripts/{script}.py')
         for script in ('check_creator_links', 'collect_creator_opportunities'):

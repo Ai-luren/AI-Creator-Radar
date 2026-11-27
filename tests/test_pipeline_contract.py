@@ -12,7 +12,8 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("ref: main", text)
         self.assertIn("group: radar-pages-publish", text)
         self.assertIn("node --test tests/test_overview.mjs", text)
-        self.assertIn("actions/deploy-pages@", text)
+        self.assertIn("actions/github-script@v8", text)
+        self.assertIn("deploy_verified_pages.cjs", text)
         self.assertNotIn("python scripts/collect_", text)
         self.assertNotIn("git push", text)
 
@@ -26,7 +27,11 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("python scripts/collection_health.py", text)
         self.assertNotIn("persistent-source-alert:", text)
         self.assertNotIn("needs.collect.outputs.notify", text)
-        self.assertIn("Concurrent main update won", text)
+        persist = (ROOT / "scripts/persist_data.sh").read_text()
+        self.assertIn("bash scripts/persist_data.sh", text)
+        self.assertIn("Concurrent main update won", persist)
+        self.assertIn("timeout 45s git push origin HEAD:main", persist)
+        self.assertNotIn("git push --force", persist)
         self.assertIn("node --test tests/test_overview.mjs", text)
 
     def test_pages_artifacts_are_isolated_by_run_and_attempt(self):
@@ -36,7 +41,8 @@ class PipelineContractTests(unittest.TestCase):
         name = "github-pages-${{ github.run_id }}-${{ github.run_attempt }}"
         self.assertIn("name: " + name, workflow)
         self.assertIn("PAGES_ARTIFACT_NAME: " + name, workflow)
-        self.assertIn("artifact_name: " + name, workflow)
+        self.assertIn("PAGES_ARTIFACT_ID: ${{ steps.pages_upload.outputs.artifact_id }}", workflow)
+        self.assertIn("retries: 0", workflow)
         self.assertIn("steps.pages_upload.outputs.artifact_id", workflow)
         self.assertIn("actions: read", workflow)
         self.assertIn("actions: read", caller.split("  publish:", 1)[1])

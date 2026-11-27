@@ -14,6 +14,7 @@ on:
       - 'scripts/scheduler_manifest.py'
       - 'scripts/collection_health.py'
       - 'scripts/publication_guard.py'
+      - 'scripts/persist_data.sh'
       - 'scripts/run_collection_batch.py'
       - 'config/**'
       - '.github/workflows/update-site.yml'
@@ -190,33 +191,7 @@ jobs:
       - name: Persist collected data to the triggering branch
         id: persist
         if: steps.plan.outputs.collect == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          base="$(git rev-parse HEAD)"
-          git fetch origin main
-          if [ "$(git rev-parse origin/main)" != "$base" ]; then
-            echo "::warning::Main advanced during collection; retain newer committed data and retry on the next scheduled run."
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          git add site/data/
-          if git diff --cached --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          git commit -m "chore(data): refresh models, rankings and resources"
-          if ! git push origin HEAD:main; then
-            git fetch origin main
-            if [ "$(git rev-parse origin/main)" != "$base" ]; then
-              echo "::warning::Concurrent main update won; generated snapshot not published."
-              echo "changed=false" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-            echo "::error::Data push failed without a concurrent main update."
-            exit 1
-          fi
-          echo "changed=true" >> "$GITHUB_OUTPUT"
+        run: bash scripts/persist_data.sh
 
       - name: Detect unpublished committed site on no-change runs
         id: publication

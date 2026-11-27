@@ -52,6 +52,16 @@ def read_stamp(data_dir, filename, field):
     try:
         data = json.loads((data_dir / filename).read_text(encoding="utf-8"))
         value = last_model_success(data) if filename == "model-monitor-status.json" and field == "checkedAt" else data.get(field)
+        # A successful conditional 304 validates the existing representation.
+        # Only selected news supports this field; never reinterpret daily issue dates.
+        if filename == "aihot-items.json" and field == "fetchedAt" and isinstance(data.get("items"), list):
+            try:
+                downloaded = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+                checked = datetime.fromisoformat(str(data.get("checkedAt")).replace("Z", "+00:00"))
+                if downloaded.tzinfo and checked.tzinfo and checked >= downloaded:
+                    value = data["checkedAt"]
+            except (ValueError, TypeError):
+                pass
         if not isinstance(value, str) or "T" not in value:
             return None
         stamp = datetime.fromisoformat(value.replace("Z", "+00:00"))

@@ -42,7 +42,7 @@
 ```bash
 python3 scripts/preflight.py
 python3 -m unittest discover -s tests -v
-node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs
+node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs tests/test_deploy_verified_pages.cjs
 python3 scripts/collect_models.py --dry-run
 python3 scripts/build_model_release_digest.py
 python3 scripts/link_model_records.py
