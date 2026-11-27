@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 try:
     from scripts.audit_model_completeness import audit
+    from scripts.audit_p1_readiness import measure
     from scripts.audit_publisher_statements import inspect_statements
     from scripts.audit_discovery_coverage import inspect_leads
     from scripts.collect_release_recall import url_key
@@ -15,6 +16,7 @@ try:
     from scripts.collect_models import write_json, title_identity
 except ModuleNotFoundError:
     from audit_model_completeness import audit
+    from audit_p1_readiness import measure
     from audit_publisher_statements import inspect_statements
     from audit_discovery_coverage import inspect_leads
     from collect_release_recall import url_key
@@ -48,7 +50,7 @@ def inspect(data, config, now):
     recall=data.get("recall",{}).get("activeWindow",{})
     evidence_queue = sorted((g for g in report["gaps"] if g["reviewKind"] == "release-source-review"),
                             key=lambda g: (g["category"] not in {"video", "image"}, g["vendor"], g["modelFamilyId"], g["modelVersionId"]))
-    return {"schema":"radar-system-audit/v1","checkedAt":now.isoformat(),"errors":errors,
+    result = {"schema":"radar-system-audit/v1","checkedAt":now.isoformat(),"errors":errors,
             "releaseEvidenceReview": evidence_queue,
             "counts":{"families":report["families"],"versions":report["versions"],"chronicleNodes":report["chronicleNodes"],
                       "missingEvidence":report["missingEvidence"],"formalReleaseEvidenceGaps":report["gapKinds"].get("release-source-review",0),
@@ -73,6 +75,9 @@ def inspect(data, config, now):
             "negativeControls":{"checked":len(negatives),"incorrectConfirmed":sum(len(n.get("incorrectConfirmedIds",[])) for n in negatives)},
             "scopeNote":"Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review."}
 
+    result["p1Readiness"]=measure(data,result,now)
+    return result
+
 def main():
     p=argparse.ArgumentParser();p.add_argument("--write",action="store_true");a=p.parse_args()
     directory=ROOT/"site/data"
@@ -81,6 +86,7 @@ def main():
               "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
     for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json"),("reconciliation","event-reconciliation.json"),("product","product-state.json"),("source_search","source-search.json"),("event_claims","event-claims.json"),("independent","independent-coverage.json"),("historical","historical-evidence.json"),("app_updates","app-updates.json")):
         data[key]=read(name) if (directory/name).exists() else {}
+    data["health"]=read("collection-health.json") if (directory/"collection-health.json").exists() else {}
     sample_path=ROOT/"config/publisher-statement-benchmark.json"
     data["publisher_statement_benchmark"]=json.loads(sample_path.read_text(encoding="utf-8")) if sample_path.exists() else {}
     now=datetime.now(timezone.utc)
