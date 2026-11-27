@@ -184,13 +184,17 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
             continue
         if row.get("initialState") == "exact-catalog-match":
             continue
+        card = row.get("cardReview") or {}
         state = ("repository-identity-matched" if row["currentState"] == "exact-catalog-match"
+                 else "repository-auxiliary-classified" if card.get("role") == "auxiliary-prompt-expander"
                  else "needs-repository-identity")
         save(task_id("independent-repository",row["id"]), {
             "taskType":"independent-repository","identity":row["currentMatches"][0] if state=="repository-identity-matched" else None,
             "state":state,"modelName":row["modelName"],"sourceUrl":row["url"],
             "repositoryCreatedAt":row["repositoryCreatedAt"],"sourceEventId":row["id"],
-            "claimType":"repository-observation","initialAuditState":row["initialState"]})
+            "claimType":"repository-observation","initialAuditState":row["initialState"],
+            "modelCardRole":card.get("role"),"modelCardEvidenceId":card.get("currentEvidenceId"),
+            "parentIdentity":card.get("parentIdentity") if state=="repository-auxiliary-classified" else None})
 
     historical_by_identity={(t["identity"]["modelFamilyId"],t["identity"]["modelVersionId"]):t
                             for t in (historical or {}).get("tasks",[]) if t.get("active")}
