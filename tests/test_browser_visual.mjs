@@ -128,9 +128,20 @@ try{
   });
   if(viewport.width!==360)await check('release controls',async()=>{
    await page.goto(base+'?view=today',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   if(viewport.width<761){assert.equal(await page.locator('[data-release-category-select]').isVisible(),true);await page.locator('[data-release-category-select]').selectOption('video');assert.equal(await page.evaluate(()=>state.releaseCategory),'video');await page.locator('[data-release-category-select]').selectOption('all')}assert.equal(await page.locator('[data-release-mode]').count(),3);await page.locator('[data-release-window]').selectOption('7');assert.equal(await page.evaluate(()=>state.releaseWindow),'7');
+   if(viewport.width<761){assert.equal(await page.locator('[data-release-category-select]').isVisible(),true);await page.locator('[data-release-category-select]').selectOption('video');assert.equal(await page.evaluate(()=>state.releaseCategory),'video');await page.locator('[data-release-category-select]').selectOption('all')}assert.deepEqual(await page.locator('[data-release-mode]').evaluateAll(els=>els.map(el=>el.dataset.releaseMode)),['confirmed','pending','announcements','apps']);await page.locator('[data-release-window]').selectOption('7');assert.equal(await page.evaluate(()=>state.releaseWindow),'7');
    await page.locator('[data-release-sort-select]').selectOption('date');assert.equal(await page.evaluate(()=>state.releaseSort),'date');
    await page.screenshot({path:path.join(out,label+'-release-controls.png')});
+   await page.locator('[data-release-mode="apps"]').click();await page.waitForFunction(()=>state.dataReady&&state.appUpdates);
+   assert.equal(await page.locator('[data-release-mode="apps"]').getAttribute('aria-pressed'),'true');
+   assert.ok(new URL(page.url()).searchParams.get('status')==='apps');
+   assert.equal(await page.getByRole('link',{name:'官方更新日志 ↗',exact:true}).count(),1);
+   assert.equal(await page.getByRole('link',{name:'官方教程专区 ↗',exact:true}).count(),1);
+   assert.equal(await page.getByRole('link',{name:'即梦 / 字节专题 ↗',exact:true}).getAttribute('href'),'https://aipick.news/topics/doubao');
+   assert.ok(await page.getByRole('heading',{name:'SeedAudio 1.5 已在即梦界面出现',exact:true}).isVisible());
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'app updates horizontal overflow');
+   await page.screenshot({path:path.join(out,label+'-app-updates.png')});
+   await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady&&state.appUpdates);assert.equal(await page.evaluate(()=>state.releaseMode),'apps');
+   await page.locator('[data-release-mode="confirmed"]').click();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-release-window]').isVisible(),true);
   });
   if(viewport.width!==360)await check('news category and details',async()=>{
    await page.goto(base+'?view=feeds',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
