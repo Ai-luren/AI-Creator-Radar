@@ -87,3 +87,5 @@ python3 scripts/audit_model_completeness.py
 
 AIHOT 条件请求返回 304 时保留原下载时间，仅刷新成功验证时间，避免不必要的重复采集。发布采用已校验的精确 Pages artifact ID；同一数据提交只进行有限网络重试，不覆盖并发提交。
 P1 事件对账采用影子层：关联同型号线索、保留已有证据、持续记录待补证任务；不修改正式发布门槛。详见[模型数据契约](docs/model-data-contract.md)。
+
+结构化产品状态监控独立于新闻网页：公开目录差分仅作为候选线索，详细语义见[模型数据契约](docs/model-data-contract.md)。

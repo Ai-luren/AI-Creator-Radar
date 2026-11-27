@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GROUPS = {
-    "models": (("model-monitor-status.json", "checkedAt"), ("chronicle-updates-status.json", "checkedAt"), ("model-releases-30d.json", "updatedAt"), ("cross-platform-discovery.json", "checkedAt"), ("lead-resolution.json", "checkedAt"), ("model-intake.json", "checkedAt"), ("release-recall-status.json", "checkedAt"), ("model-release-verification-status.json", "checkedAt"), ("event-reconciliation.json", "checkedAt")),
+    "models": (("model-monitor-status.json", "checkedAt"), ("chronicle-updates-status.json", "checkedAt"), ("model-releases-30d.json", "updatedAt"), ("cross-platform-discovery.json", "checkedAt"), ("lead-resolution.json", "checkedAt"), ("model-intake.json", "checkedAt"), ("release-recall-status.json", "checkedAt"), ("model-release-verification-status.json", "checkedAt"), ("event-reconciliation.json", "checkedAt"), ("product-state.json", "checkedAt")),
     "selected": (("aihot-items.json", "fetchedAt"),),
     "aihot_daily": (("aihot-daily.json", "fetchedAt"),),
     "juya_daily": (("juya-daily.json", "fetchedAt"),),
