@@ -975,6 +975,8 @@
     "name": "Sand.ai 官方研究与发布目录",
     "type": "html",
     "url": "https://sand.ai/research/",
+    "fallbackUrls": ["https://sandai.cn/research"],
+    "fallbackOnZeroMatch": true,
     "vendor": "Sand.ai",
     "official": true,
     "active": true,
