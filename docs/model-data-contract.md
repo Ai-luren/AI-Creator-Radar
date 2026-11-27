@@ -267,3 +267,5 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 2026-11-27 在线诊断：原解析依赖目录标题空格及正文 p/li，导致两个真实声明均未恢复。修正为从实际链接 slug 作严格身份线索（原帖仍必须核验），目录周榜作为有界回退；国内文章正文捕获匹配标题后的可见开篇文本，允许 div/span 与句子边界，不读取脚本，不匹配后续章节。上线前仍须真实 runner 同时取得两条声明，单元测试绿灯不够。
 
 P1 官方可用性声明验收：PR #60 真实 CI 与生产均取得 GLM Coding Plan 2026-11-22、Niji 8 官方 X 2026-11-24 两条声明，保留原固定文章召回6/8。`publisher-statement-benchmark.json` 为独立两条可用性声明审计样本，仅审计读取，不注入采集；原文召回和首发指标不替换。`audit_publisher_statements` 验证稳定ID、精确身份、源与发现指针、原始哈希格式、时间顺序、阶段与日期冲突，隔离同源异日。`event-reconciliation` 将合格声明纳入持久证据账本并链接同型号任务作为上下文，原公告/日期/正式证据缺口仍保持原状态。生产先执行事件声明事务再运行 reconciliation，使当轮证据可见。完整 CI 与生产验证仍为门禁。
+
+历史阶段补证新增阿里云百炼官方模型上架与更新日志（https://help.aliyun.com/zh/model-studio/newly-released-models），按已核对的6个 Wan/Qwen Audio 精确产品ID、地域标题、年份、日期、模型标题解析；不把带快照后缀的型号映射为基础版本，不借用跨区域日期，忽略未来日期。类型为 platform-changelog-listing-or-update，非首次发布；保留全部地域与日期、原始内容哈希和首次验证时间，1次请求覆盖多任务、7天复核、失败退避、保持旧证据。纳入既有每轮3请求预算和历史补证任务上下文，不关闭正式发布缺口。

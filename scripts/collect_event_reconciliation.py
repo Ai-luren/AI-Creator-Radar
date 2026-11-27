@@ -224,6 +224,8 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
              "candidateSourceUrl": gap.get("candidateSourceUrl"), "existingDate": gap.get("existingDate"),
              "historicalRepair": {"status": historical_by_identity.get((fid,vid),{}).get("status"),
                                   "evidenceIds": [r["id"] for r in historical_by_identity.get((fid,vid),{}).get("evidence",[])],
+                                  "platformEvidenceIds": [r["id"] for r in historical_by_identity.get((fid,vid),{}).get("platformEvidence",[])],
+                                  "repositoryEvidenceIds": [r["id"] for r in historical_by_identity.get((fid,vid),{}).get("repositoryEvidence",[])],
                                   "nextAttemptAt": historical_by_identity.get((fid,vid),{}).get("nextAttemptAt")}})
 
     for tid, old in old_tasks.items():
