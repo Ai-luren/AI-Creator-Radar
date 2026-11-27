@@ -1,13 +1,13 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T16:48:02+00:00",
+  "checkedAt": "2026-11-27T17:32:46+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
-    "attempted": 0,
-    "articleDateVerified": 8,
-    "newlyCheckedVerified": 0,
+    "attempted": 12,
+    "articleDateVerified": 9,
+    "newlyCheckedVerified": 6,
     "awaitingProbe": 0,
-    "unresolved": 14,
+    "unresolved": 13,
     "notAnnouncement": 2,
     "weakCandidateDatesCorrected": 10
   },
@@ -17,18 +17,26 @@
       "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
       "leadIds": [
-        "1b7321ac8d720e8a5de2"
+        "1b7321ac8d720e8a5de2",
+        "f0da6afdbe295ae0c80a"
       ],
       "discoverySourceIds": [
-        "llm-world-json"
+        "llm-world-json",
+        "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Gemini 4 Neon",
+        "Introducing Gemini 4 Neon"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
-        "2026-11-18"
+        "2026-11-18",
+        "2026-11-26"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "article-date-verified",
       "title": "Introducing Gemini 4 Neon",
       "modelId": "gemini",
@@ -42,18 +50,26 @@
       "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
       "leadIds": [
+        "3c46f0487a309e286c8e",
         "d5fac904fcdff033002d"
       ],
       "discoverySourceIds": [
-        "llm-world-json"
+        "llm-world-json",
+        "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Gemini 4 Hydrogen",
+        "Introducing Gemini 4 Hydrogen"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
-        "2026-11-12"
+        "2026-11-12",
+        "2026-11-26"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "article-date-verified",
       "title": "Introducing Gemini 4 Hydrogen",
       "modelId": "gemini",
@@ -65,7 +81,7 @@
     {
       "id": "recovery-2eb810fd1adf8021f21e",
       "urlKey": "https://sand.ai/blog/magi-2",
-      "url": "https://sand.ai/blog/magi-2/",
+      "url": "https://sand.ai/blog/magi-2",
       "leadIds": [
         "dfb358964f6ef7e29df4",
         "e60abd81042c5811d827"
@@ -78,33 +94,53 @@
         "MAGI-2",
         "MAGI-2: A 480B Frontier Video Generation ModelNovember 24, 2026 · Research"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-24"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "identity-unresolved"
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "article-date-verified",
+      "title": "MAGI-2: A 480B Frontier Video Generation Model",
+      "modelId": "magi-2",
+      "vendor": "Sand.ai",
+      "category": "video",
+      "articlePublishedAt": "2026-11-24T00:00:00Z",
+      "titleMethod": "publisher-document-title-plus-heading-and-launch",
+      "publisherReleaseStatement": {
+        "modelName": "MAGI-2",
+        "statement": "Today, we are launching MAGI-2",
+        "calendarDay": "2026-11-24",
+        "kind": "explicit-present-day-launch"
+      },
+      "firstVerifiedAt": "2026-11-27T17:21:30+00:00"
     },
     {
       "id": "recovery-a989f1582084d0cf153c",
       "urlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "leadIds": [
-        "3a9d309f17e3331aaf5c"
+        "3a9d309f17e3331aaf5c",
+        "ea3af0628b4aba76d41b"
       ],
       "discoverySourceIds": [
+        "local-official-candidates",
         "olshansk-anthropic-feed"
       ],
+      "titleHintsChecked": [
+        "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
+        "2026-10-18",
         "2026-11-09"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "article-date-verified",
       "title": "Claude Fable 5.2 and Mythos 5.2",
       "modelId": "claude",
@@ -128,14 +164,14 @@
       "titleHintsChecked": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-27"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-28T02:41:49+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "not-model-announcement",
       "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
     },
@@ -154,14 +190,14 @@
         "GPT-6.2 Astra",
         "GPT-6.2 Sol"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-17"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Introducing GPT-6.2 Astra and Sol",
       "modelId": "gpt"
@@ -179,14 +215,14 @@
       "titleHintsChecked": [
         "Gemini 4 Neon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-18"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Neon",
       "modelId": "gemini"
@@ -206,14 +242,14 @@
         "GPT-Image-2.6 Flare",
         "GPT-Image-2.6 Sunburst"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-04"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "identity-unresolved"
     },
     {
@@ -229,21 +265,21 @@
       "titleHintsChecked": [
         "Gemini 4 Carbon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-28"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-28T02:41:49+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "not-model-announcement",
       "title": "Gemini 4 Carbon: our next frontier model"
     },
     {
       "id": "recovery-f1db7ce98881d8901597",
       "urlKey": "https://z.ai/blog/glm-5.4",
-      "url": "https://z.ai/blog/glm-5.4?lang=en",
+      "url": "https://z.ai/blog/glm-5.4",
       "leadIds": [
         "4c53475e2cd1ac2dfd15"
       ],
@@ -255,14 +291,14 @@
         "GLM-5.4 docs",
         "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-23"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "identity-unresolved"
     },
     {
@@ -280,14 +316,14 @@
         "GLM-5.4 docs",
         "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-23"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "GLM-5.4",
       "modelId": "glm"
@@ -305,14 +341,14 @@
       "titleHintsChecked": [
         "Gemini Omni 1.2 Flash"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-05"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini Omni 1.2 Flash",
       "modelId": "gemini-omni-flash"
@@ -330,14 +366,14 @@
       "titleHintsChecked": [
         "GPT-6.1 Terra"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-26"
       ],
-      "checkedAt": "2026-11-27T03:02:54+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "GPT-6.1Terra",
       "modelId": "gpt"
@@ -355,14 +391,14 @@
       "titleHintsChecked": [
         "Gemini 4 Argon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-13"
       ],
-      "checkedAt": "2026-11-27T03:02:54+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:35:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Argon",
       "modelId": "gemini"
@@ -434,13 +470,18 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Gemini 4 Carbon",
+        "Gemini 4 Carbon is now available"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-26"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "article-date-verified",
       "title": "Gemini 4 Carbon is now available",
       "modelId": "gemini",
@@ -459,16 +500,23 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Introducing v5.5: Voices, Custom Models, and My Taste"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-26"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "outside-current-window",
       "title": "Introducing v5.5: Voices, Custom Models, and My Taste",
-      "articlePublishedAt": "2026-03-26T17:21:00Z"
+      "articlePublishedAt": "2026-03-26T17:21:00Z",
+      "modelId": "suno",
+      "vendor": "Suno",
+      "category": "music"
     },
     {
       "id": "recovery-7ecefc6567b5334dd990",
@@ -480,16 +528,23 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Introducing v6"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-26"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "outside-current-window",
       "title": "Introducing v6",
-      "articlePublishedAt": "2026-09-09T15:10:20Z"
+      "articlePublishedAt": "2026-09-09T15:10:20Z",
+      "modelId": "suno",
+      "vendor": "Suno",
+      "category": "music"
     },
     {
       "id": "recovery-438533b2a7fab7e7ef95",
@@ -501,16 +556,23 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Introducing v5 - the world's best music model"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-26"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "outside-current-window",
       "title": "Introducing v5 - the world's best music model",
-      "articlePublishedAt": "2025-09-23T18:17:00Z"
+      "articlePublishedAt": "2025-09-23T18:17:00Z",
+      "modelId": "suno",
+      "vendor": "Suno",
+      "category": "music"
     },
     {
       "id": "recovery-f5390a2aecae5dc01ca9",
@@ -548,13 +610,18 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Kling Image 4.0",
+        "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise."
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-18"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "article-date-verified",
       "title": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise.",
       "modelId": "kling-image",
@@ -604,16 +671,24 @@
       "discoverySourceIds": [
         "local-official-candidates"
       ],
+      "titleHintsChecked": [
+        "Seedance 2.5",
+        "一镜成片，随心参考：Seedance 2.5 正式发布"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-16"
       ],
-      "checkedAt": "2026-11-26T17:29:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-27T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "outside-current-window",
       "title": "一镜成片，随心参考｜Seedance 2.5 正式发布",
-      "articlePublishedAt": "2026-07-31T00:00:00Z"
+      "articlePublishedAt": "2026-07-31T00:00:00Z",
+      "modelId": "seedance",
+      "vendor": "字节跳动 Seed / 即梦",
+      "category": "video"
     },
     {
       "id": "recovery-e9a194686567e1779632",
@@ -628,14 +703,14 @@
       "titleHintsChecked": [
         "Gemini 4 Carbon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-10"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Carbon",
       "modelId": "gemini"
@@ -643,7 +718,7 @@
     {
       "id": "recovery-ddcbda59e5408a91b095",
       "urlKey": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
-      "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5?view_from=homepage_tab",
+      "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
       "leadIds": [
         "3c10256a5019e5be3718",
         "d4e6ff026ccf64be6731"
@@ -656,14 +731,14 @@
         "生成更真实，百轮编辑更稳定：Seedream 5.5 发布",
         "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-09"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "identity-unresolved"
     },
     {
@@ -676,13 +751,17 @@
       "discoverySourceIds": [
         "turing-anthropic-feed"
       ],
+      "titleHintsChecked": [
+        "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
+      ],
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-09"
       ],
-      "checkedAt": "2026-11-26T17:23:36+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-27T17:23:36+00:00",
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "article-date-verified",
       "title": "Claude Fable 5.2 and Mythos 5.2",
       "modelId": "claude",
@@ -705,14 +784,14 @@
         "MiniMax H3-Image",
         "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-03"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:32:46+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
       "status": "family-unresolved",
       "title": "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代",
       "articlePublishedAt": "2026-11-10T15:00:58Z",
