@@ -427,3 +427,21 @@ test('briefings load only the three current snapshots and never request retired 
  await run('ensureSearchData()');
  assert.ok(!requested.includes('news-today.json'));
 });
+
+test('overview release links use exact IDs, preserve grouped family and lazy loading',async()=>{
+ const {run,node,requested}=setup();await run('loadData()');
+ assert.equal(requested.length,5);
+ assert.ok(!requested.includes('models.json'));
+ run("state.modelReleaseData={items:[],pending:[],windowEnd:chinaDay(new Date())};state.modelReleases=[{id:'one',modelFamilyId:'seedance',modelVersionId:'seedance-2-0',modelName:'Seedance 2.0',category:'video',vendor:'ByteDance',publishedAt:chinaDay(new Date()),url:'https://example.com/release'}];render()");
+ assert.match(node('content').innerHTML,/data-model-open="seedance" data-model-version="seedance-2-0"/);
+ assert.match(node('content').innerHTML,/href="https:\/\/example.com\/release"/);
+ run("openModelDetails('seedance','seedance-2-0')");await run('ensureViewData()');
+ assert.match(node('content').innerHTML,/model-detail-version-selected" data-version-id="seedance-2-0"/);
+ run('closeModelDetails()');assert.equal(run('state.view'),'overview');
+ run("state.modelReleases=[{id:'a',modelFamilyId:'seedance',modelVersionId:'v1',modelName:'A',category:'video',vendor:'ByteDance',publishedAt:chinaDay(new Date()),evidenceType:'official-release',url:'https://example.com/blog/group'},{id:'b',modelFamilyId:'seedance',modelVersionId:'v2',modelName:'B',category:'video',vendor:'ByteDance',publishedAt:chinaDay(new Date()),evidenceType:'official-release',url:'https://example.com/blog/group'}];render()");
+ assert.match(node('content').innerHTML,/data-model-open="seedance" aria-label="查看 A \/ B 家族详情"/);
+ assert.doesNotMatch(node('content').innerHTML,/data-model-version="v[12]"/);
+ run("state.modelReleases=[{id:'unknown',modelFamilyId:'bad id',modelVersionId:'v1',modelName:'Unknown',category:'video',vendor:'Unknown',publishedAt:chinaDay(new Date()),url:'https://example.com/unknown'}];render()");
+ assert.doesNotMatch(node('content').innerHTML,/class="overview-model-open"/);
+ assert.match(node('content').innerHTML,/href="https:\/\/example.com\/unknown"/);
+});
