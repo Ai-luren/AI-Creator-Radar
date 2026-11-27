@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: "22"
           package-manager-cache: false
+      - name: One-shot official publisher evidence diagnostic
+        if: github.event_name == 'pull_request' && github.head_ref == 'diagnostics/p1-publisher-event-proof'
+        run: python scripts/probe_publisher_events.py
       - name: Install pinned workflow validator
         run: |
           GOBIN="$RUNNER_TEMP/radar-bin" go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.7
