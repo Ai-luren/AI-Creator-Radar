@@ -41,6 +41,26 @@
       "expectedName": "即梦",
       "minIntervalMinutes": 360,
       "links": []
+    },
+    {
+      "id": "higgsfield-changelog",
+      "name": "Higgsfield · 官方更新日志",
+      "vendor": "Higgsfield",
+      "url": "https://higgsfield.ai/creator-hub/changelog",
+      "type": "higgs-changelog",
+      "minIntervalMinutes": 30,
+      "links": [
+        {
+          "kind": "New drops / 产品入口",
+          "url": "https://higgsfield.ai/",
+          "access": "首页推荐，不等于完整更新历史"
+        },
+        {
+          "kind": "官方 Blog",
+          "url": "https://higgsfield.ai/blog/editorials",
+          "access": "产品详解与使用说明"
+        }
+      ]
     }
   ],
   "reviewedObservations": [

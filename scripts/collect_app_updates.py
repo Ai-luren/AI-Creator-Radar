@@ -3,6 +3,7 @@
 from __future__ import annotations
 import argparse
 from datetime import datetime, timedelta, timezone
+from urllib.robotparser import RobotFileParser
 from html.parser import HTMLParser
 import hashlib
 import json
@@ -23,7 +24,8 @@ except ModuleNotFoundError:
 ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/"site/data/app-updates.json"
 MAX_BYTES=6*1024*1024
-ALLOWED={"https://jimeng.jianying.com/ai-tool/home"}
+HIGGS_CHANGELOG="https://higgsfield.ai/creator-hub/changelog"
+ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG}
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
 class VisibleText(HTMLParser):
@@ -74,6 +76,86 @@ def parse_surface(page,source):
     if not labels:
         raise ValueError("No explicit model labels in readable app surface")
     return labels
+
+
+class ChangelogText(VisibleText):
+    def __init__(self):
+        super().__init__()
+        self.tokens=[]
+        self.heading=None
+    def handle_starttag(self,tag,attrs):
+        super().handle_starttag(tag,attrs)
+        if tag=="h2" and not any(v for _,v in self.stack):
+            self.heading=[]
+    def handle_endtag(self,tag):
+        if tag=="h2" and self.heading is not None:
+            self.tokens.append(("heading"," ".join(" ".join(self.heading).split())))
+            self.heading=None
+        super().handle_endtag(tag)
+    def handle_data(self,data):
+        if any(v for _,v in self.stack):
+            return
+        value=" ".join(data.split())
+        if not value:
+            return
+        if self.heading is not None:
+            self.heading.append(value)
+        else:
+            self.tokens.append(("text",value))
+
+def parse_higgs_changelog(page,source):
+    p=ChangelogText()
+    p.feed(page)
+    p.close()
+    tokens=p.tokens
+    if not any(kind=="text" and value in {"What's new","What’s new"} for kind,value in tokens):
+        raise ValueError("Missing changelog heading")
+    day=None
+    rows=[]
+    current=None
+    for kind,value in tokens:
+        if kind=="text":
+            try:
+                parsed=datetime.strptime(value,"%B %d, %Y").date().isoformat()
+            except ValueError:
+                parsed=None
+            if parsed:
+                day=parsed
+                current=None
+                continue
+        if kind=="heading":
+            current={"day":day,"title":value,"tags":[]} if day else None
+            if current:
+                rows.append(current)
+            continue
+        if current is not None and len(current["tags"])<8:
+            current["tags"].append(value)
+    # Require an actual dated changelog structure, not generic homepage navigation.
+    valid=[r for r in rows if r["tags"] and r["tags"][0] in {"Release","Feature","Improvement","Fix","Announcement"}]
+    if not valid:
+        raise ValueError("No dated product changelog entries")
+    newest=max(r["day"] for r in valid)
+    cutoff=(datetime.fromisoformat(newest)-timedelta(days=30)).date().isoformat()
+    output={}
+    for row in valid:
+        title=row["title"]
+        stage=row["tags"][0]
+        if row["day"]<cutoff or not title or len(title)>180 or stage not in {"Release","Feature","Improvement"}:
+            continue
+        # Suppress price/credit-only announcements, not mixed technical updates.
+        if re.search(r"black friday|(?:^|\b)(?:pricing|discount|sale|credits?|subscription|bonus|deal|unlimited)(?:\b|$)|refund|promo",title,re.I):
+            continue
+        product=row["tags"][1] if len(row["tags"])>1 and len(row["tags"][1])<=45 else ""
+        # A platform's Models tag denotes model integration, not publisher release.
+        kind="model-integration" if product=="Models" else "product-feature" if stage=="Feature" else "product-release" if stage=="Release" else "product-improvement"
+        key=hashlib.sha256((row["day"]+"|"+title).encode()).hexdigest()
+        output[key]={"featureName":title,"publisherCalendarDay":row["day"],"updateType":kind,
+                     "productArea":product,"publisherLabel":stage,"category":"app",
+                     "claimType":"first-party-product-changelog"}
+    if not output:
+        raise ValueError("No relevant recent product changelog entries")
+    return output
+
 
 APPLE_LOOKUP="https://itunes.apple.com/lookup?id=6503676563&country=cn&entity=software"
 AIPICK_QUERIES={
@@ -205,11 +287,24 @@ def fetch(source):
         if source["url"] not in ALLOWED:
             raise ValueError("Unapproved app surface")
         url=source["url"]
+    if source.get("type")=="higgs-changelog":
+        # Do not bypass denied or unreadable crawling rules.
+        robots=urllib.request.Request("https://higgsfield.ai/robots.txt",headers={"User-Agent":USER_AGENT,"Accept":"text/plain"})
+        with urllib.request.build_opener(SameHostRedirect()).open(robots,timeout=8) as response:
+            raw=response.read(256*1024+1)
+        if len(raw)>256*1024 or b"<html" in raw.lower():
+            raise ValueError("Invalid robots response")
+        rules=RobotFileParser()
+        rules.parse(raw.decode("utf-8").splitlines())
+        if not rules.can_fetch(USER_AGENT,url):
+            raise ValueError("Changelog robots policy disallows access")
     req=urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
     with urllib.request.build_opener(SameHostRedirect()).open(req,timeout=18) as response:
         data=response.read(MAX_BYTES+1)
     if len(data)>MAX_BYTES:
         raise ValueError("App surface exceeds byte limit")
+    if source.get("type")=="higgs-changelog":
+        return parse_higgs_changelog(data.decode("utf-8"),source)
     return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
 
 def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
@@ -247,6 +342,8 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
             if k not in entries:
                 if value.get("claimType")=="first-party-store-version":
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
+                elif value.get("claimType")=="first-party-product-changelog":
+                    kind="new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry"
                 else:
                     kind="new-visible-label" if old.get("lastSuccessAt") else "baseline-visible-label"
                 eid=hashlib.sha256((spec["id"]+"|"+k+"|"+stamp).encode()).hexdigest()
