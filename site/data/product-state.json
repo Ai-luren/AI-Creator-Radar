@@ -1,6 +1,6 @@
 {
   "schema": "product-state/v1",
-  "checkedAt": "2026-11-27T21:06:09+00:00",
+  "checkedAt": "2026-11-27T21:47:56+00:00",
   "sources": [
     {
       "id": "models-dev",
@@ -2064,12 +2064,12 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T20:18:24+00:00",
-      "lastSuccessAt": "2026-11-27T20:18:24+00:00",
+      "checkedAt": "2026-11-27T21:47:56+00:00",
+      "lastSuccessAt": "2026-11-27T21:47:56+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T21:18:24.294802+00:00",
+      "nextAttemptAt": "2026-11-27T22:47:56.085713+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -4421,16 +4421,6 @@
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
           "missingChecks": 0
         },
-        "qwen|qwen/qwen3-235b-a22b-thinking-2507": {
-          "product": {
-            "providerId": "qwen",
-            "productId": "qwen/qwen3-235b-a22b-thinking-2507",
-            "name": "Qwen: Qwen3 235B A22B Thinking 2507",
-            "providerRecordCreatedAt": "2025-07-25T13:19:17+00:00"
-          },
-          "firstSeenAt": "2026-11-27T03:11:31+00:00",
-          "missingChecks": 0
-        },
         "qwen|qwen/qwen3-30b-a3b": {
           "product": {
             "providerId": "qwen",
@@ -5150,14 +5140,24 @@
           },
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
           "missingChecks": 0
+        },
+        "qwen|qwen/qwen3-235b-a22b-thinking-2507": {
+          "product": {
+            "providerId": "qwen",
+            "productId": "qwen/qwen3-235b-a22b-thinking-2507",
+            "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+            "providerRecordCreatedAt": "2025-07-25T13:19:17+00:00"
+          },
+          "firstSeenAt": "2026-11-27T03:11:31+00:00",
+          "missingChecks": 1
         }
       },
-      "checkedAt": "2026-11-27T20:18:24+00:00",
-      "lastSuccessAt": "2026-11-27T20:18:24+00:00",
+      "checkedAt": "2026-11-27T21:47:56+00:00",
+      "lastSuccessAt": "2026-11-27T21:47:56+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T21:18:24.294802+00:00",
+      "nextAttemptAt": "2026-11-27T22:47:56.085713+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5500,12 +5500,12 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T20:18:24+00:00",
-      "lastSuccessAt": "2026-11-27T20:18:24+00:00",
+      "checkedAt": "2026-11-27T21:47:56+00:00",
+      "lastSuccessAt": "2026-11-27T21:47:56+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T21:18:24.294802+00:00",
+      "nextAttemptAt": "2026-11-27T22:47:56.085713+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     }
   ],
@@ -5938,10 +5938,10 @@
   "summary": {
     "configuredSources": 3,
     "sourcesWithBaseline": 3,
-    "successfulThisRun": 0,
+    "successfulThisRun": 3,
     "newEvents": 0,
     "retainedEvents": 17,
-    "listedEntries": 545
+    "listedEntries": 544
   },
   "policy": "Public catalog observations only; never equate provider creation, reported metadata, first observation, addition or absence with formal launch, availability or withdrawal."
 }
