@@ -227,7 +227,8 @@ def main():
         from publisher_statement_recovery import collect_statements
     result["publisherStatements"] = collect_statements(result["claims"], read(directory / "models.json"),
                                                        read(OUTPUT, optional=True).get("publisherStatements", {}),
-                                                       datetime.now(timezone.utc))
+                                                       datetime.now(timezone.utc),
+                                                       discovery=read(directory / "cross-platform-discovery.json", optional=True))
     print("Publisher statements:", json.dumps(result["publisherStatements"], ensure_ascii=False))
     print("Event claims:", json.dumps(result["summary"], ensure_ascii=False))
     if args.report:

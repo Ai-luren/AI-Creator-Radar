@@ -43,3 +43,22 @@ class StatementAuditTests(unittest.TestCase):
         self.assertEqual(len(result["tasks"][0]["relatedPublisherStatementEvidenceIds"]),1)
         self.assertEqual(result["evidence"][0]["claimType"],"publisher-service-availability-statement")
         self.assertEqual(result["evidence"][0]["datePrecision"],"publisher-calendar-day")
+
+    def test_announcement_never_becomes_availability_or_release(self):
+        fact={**self.record["fact"],"claimType":"announcement-statement",
+              "sourceUrl":"https://x.com/zai_org/status/1234567890123","publisherAccount":"zai_org",
+              "publisherCalendarDay":"2026-11-23","evidenceGrade":"official-dated-social-statement","service":None}
+        record={**self.record,"id":statement_id(fact),"fact":fact,
+                "discovery":{"channel":"public-daily-index-pointer",
+                             "sourceUrl":"https://www.advanceintelligence.ai/2026-11-23/all","sourceRecordId":"lead"}}
+        snap={**self.snapshot,"records":[record]}
+        usable,report=inspect_statements(snap,self.families,self.now,{"events":[{"id":"availability",**self.record["fact"]}]})
+        self.assertFalse(report["errors"])
+        self.assertEqual(len(usable),1)
+        self.assertEqual(report["availabilitySample"]["matched"],0)
+        result=reconcile(self.families,{}, {}, [], {}, self.now,publisher_statements=snap)
+        self.assertEqual(result["evidence"][0]["claimType"],"publisher-announcement-statement")
+        forged=deepcopy(snap)
+        forged["records"][0]["fact"]["claimType"]="service-availability-statement"
+        forged["records"][0]["id"]=statement_id(forged["records"][0]["fact"])
+        self.assertTrue(inspect_statements(forged,self.families,self.now)[1]["errors"])
