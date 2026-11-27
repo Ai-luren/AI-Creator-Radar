@@ -207,3 +207,59 @@ class SandLocalizedDiscoveryTests(unittest.TestCase):
             self.assertEqual(row["updateType"],"announcement")
             self.assertNotIn("releaseEvidence",row)
             self.assertNotIn("publicationDateKind",row)
+
+class AccessDomainRoutingTests(unittest.TestCase):
+    def test_denied_locales_skip_without_blocking_independent_api(self):
+        from unittest.mock import patch
+        from scripts.collect_models import fetch_source
+        cfg = {"id":"niji","url":"https://nijijourney.com/blog",
+               "fallbackUrls":["https://nijijourney.com/en/blog","https://nijijourney.com/zh/blog",
+                               "https://docs.midjourney.com/hc/en-us/articles/test",
+                               "https://docs.midjourney.com/api/v2/help_center/articles/test.json"],
+               "fallbackOnZeroMatch":True}
+        calls=[]
+        def fetch(source):
+            url=source["url"];calls.append(url)
+            return (source,[{"title":"Niji 8"}],None) if "/api/" in url else (source,[],"HTTPError: HTTP Error 403: Forbidden")
+        with patch("scripts.collect_models.fetch_source_once",side_effect=fetch):
+            state, rows, error=fetch_source(cfg,now=datetime(2026,11,28,tzinfo=timezone.utc))
+        self.assertEqual(calls,[cfg["url"],cfg["fallbackUrls"][2],cfg["fallbackUrls"][3]])
+        self.assertIsNone(error)
+        self.assertEqual(len(rows),1)
+        self.assertEqual(sum(a.get("skipReason")=="access-domain-cooldown" for a in state["attempts"]),2)
+
+    def test_resolver_403_reallocates_budget_and_preserves_observations(self):
+        from datetime import timedelta
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        urls=["https://official.example/blog/a","https://official.example/zh/blog/b",
+              "https://other.example/news/c"]
+        config={"officialArticleHosts":{"official.example":["/blog/","/zh/blog/"],"other.example":["/news/"]}}
+        sources=[{"id":str(i),"url":url,"active":True,"official":True,"modelMatches":{"demo":["Demo"]}} for i,url in enumerate(urls)]
+        discovery={"items":[{"id":str(i),"title":"Demo 3","sourceId":"feed",
+                             "officialArticleUrls":[url],"reportedAt":"2026-11-27"} for i,url in enumerate(urls)]}
+        family=[{"id":"demo","vendor":"Demo","category":"llm"}]
+        calls=[]
+        def fetch(url):
+            calls.append(url)
+            if "official.example" in url:
+                raise OSError("HTTP 403")
+            return '<h1>Introducing Demo 3</h1><time datetime="2026-11-27">November 27, 2026</time>'
+        first=resolve(discovery,{},config,sources,family,now,fetch)
+        self.assertEqual(first["summary"]["attempted"],2)
+        self.assertEqual(first["summary"]["accessDomainDeferred"],1)
+        self.assertEqual(first["summary"]["articleDateVerified"],1)
+        self.assertEqual(sum("official.example" in u for u in calls),1)
+        second=resolve(discovery,first,config,sources,family,now+timedelta(minutes=10),
+                       lambda url:self.fail("cooldown must not request"))
+        self.assertEqual(second["summary"]["attempted"],0)
+        self.assertEqual(second["items"],first["items"])
+        self.assertEqual(second["accessFaultDomains"],first["accessFaultDomains"])
+
+    def test_429_honors_retry_after_and_404_does_not_open_domain(self):
+        from scripts.collect_models import access_fault_code, access_retry_at
+        from urllib.error import HTTPError
+        from datetime import timedelta
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        error=HTTPError("https://official.example/blog/a",429,"rate limit",{"Retry-After":"86400"},None)
+        self.assertEqual(access_retry_at(error,now,now+timedelta(hours=6)),now+timedelta(days=1))
+        self.assertIsNone(access_fault_code(HTTPError("https://official.example/blog/a",404,"missing",{},None)))

@@ -273,3 +273,6 @@ P1 官方可用性声明验收：PR #60 真实 CI 与生产均取得 GLM Coding 
 联合型号声明：对明确的 `Introducing/Announcing` 或中性纯并列名单，逐段全匹配规范型号（后续简称仅继承标题首个全名的字面前缀并唯一匹配）；跨家族、歧义、未知变体、比较及其他后缀不采用联合解析。明确介绍名单为每个型号产生同一原文的 announcement-statement，中性名单只为 article-publication。保留原标题、原观察和既有声明，不能当成多个独立原文或首发时间，也不修改原始召回指标。适用于同一公告包含多个型号的通用问题，不使用样本预设身份。
 
 独立事实首轮审核（2026-11-27）：固定生产快照 aa6ef242f4d5e262709fe169a7b78b0ca8a856b7 的39条近期正式发布中，另取8个非原始召回样本，直接阅读官方来源，身份与公告日8/8、身份/日期/阶段7/8。样本非随机，不代表全站99%。`config/independent-fact-reviews.json` 保留最初观察和错误；系统审计分开报告初始准确率与当前已审事实一致性，后者不是新独立样本。实证发现 Cognition SWE-2 Flash 正式发布漏记、MAI Image 2.7及Flash公开预览误入正式发布。纠正保持模型身份、原始正式证据审核存档和日期；使用 `modelOnlyStages` 显式审核映射承载不单列厂商发展史的已核验阶段（既有历史节点ID字段保留兼容），不得借此伪造正式发布；11月17日两条预览仅进官方公告阶段视图，10月27日仅模型详情。未确认全面开放日保持未知。不新增 Microsoft/Cognition 厂商发展史。独立事实门禁仍待更大独立样本和动态漏报验证。
+
+
+跨渠道故障域：`lead-resolution.json.accessFaultDomains` 保存按主机/路径族的实际403/429观察与冷却结束时间；`deferredAccessDomainUrls` 为跳过的规范文章URL，`summary.attempted` 只计真实探测。旧证据及原始观察时间保留。`source-search.json` 中 `publisher-channel-pointer-unverified` 只是既有发现的社媒/公众号链接，日期和原文验证均为null，不是新来源证明或发布阶段。拒绝伪域名、非HTTPS、凭据及非帖子链接。不能将公开索引转载或源数量当作独立证据，原固定基准不修改。

@@ -97,6 +97,21 @@ def build_targets(families, discovery, reconciliation, product_state):
     return targets
 
 
+def unverified_channel_pointer(raw):
+    """Retain a discovered original social/WeChat URL, not an official proof."""
+    try:
+        p = urlsplit(raw or "")
+        if p.scheme != "https" or p.username or p.password or p.port not in (None, 443):
+            return None
+        if p.hostname in {"x.com", "twitter.com", "www.x.com", "www.twitter.com"} and re.fullmatch(r"/[A-Za-z0-9_]{1,15}/status/[0-9]{10,25}/?", p.path):
+            return "https://x.com" + p.path.rstrip("/")
+        if p.hostname == "mp.weixin.qq.com" and re.fullmatch(r"/s/[A-Za-z0-9_-]{8,100}", p.path):
+            return "https://mp.weixin.qq.com" + p.path
+    except (ValueError, TypeError):
+        pass
+    return None
+
+
 def local_context(target, discovery, reconciliation, product_state, index, allowed):
     """Reuse persisted observations without manufacturing independent evidence.
 
@@ -125,6 +140,13 @@ def local_context(target, discovery, reconciliation, product_state, index, allow
             continue
         if identify(index, lead.get("title"), lead.get("titleHints") or ()) != identity:
             continue
+        channel = unverified_channel_pointer(lead.get("url"))
+        if channel:
+            add({"kind": "publisher-channel-pointer-unverified", "sourceUrl": channel,
+                 "sourceRecordId": lead["id"], "sourceId": lead["sourceId"],
+                 "assertedDate": None, "originalVerificationAt": None,
+                 "lastObservedAt": lead.get("lastSeenAt") or lead.get("firstSeenAt"),
+                 "provenance": "existing-discovery"})
         for raw in lead.get("officialArticleUrls", []):
             url = article_url(raw, allowed)
             if url:

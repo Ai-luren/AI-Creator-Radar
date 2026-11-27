@@ -98,3 +98,20 @@ class SourceSearchTests(unittest.TestCase):
         self.assertEqual(state["tasks"][0]["state"],"needs-source")
         self.assertEqual(state["tasks"][0]["sourceSearch"]["status"],"index-unavailable")
         self.assertEqual(state["tasks"][0]["sourceSearch"]["localContextKinds"]["catalog-release"],1)
+
+class PublisherChannelPointerTests(unittest.TestCase):
+    def test_social_and_wechat_are_context_not_evidence(self):
+        from scripts.collect_source_search import local_context
+        from scripts.event_identity import model_index
+        families=[{"id":"demo","versions":[{"id":"v3","name":"Demo v3"}]}]
+        target={"identity":{"modelFamilyId":"demo","modelVersionId":"v3"}}
+        urls=["https://x.com/demo/status/1234567890123456789",
+              "https://mp.weixin.qq.com/s/Abcdef012345",
+              "https://x.com.evil.example/demo/status/1234567890123456789",
+              "https://x.com/demo"]
+        discovery={"items":[{"id":str(i),"title":"Demo v3 released","sourceId":"feed","url":url,
+                             "firstSeenAt":"2026-11-27T00:00:00Z"} for i,url in enumerate(urls)]}
+        rows=local_context(target,discovery,{}, {},model_index(families),{})
+        self.assertEqual({r["sourceUrl"] for r in rows},set(urls[:2]))
+        self.assertTrue(all(r["kind"]=="publisher-channel-pointer-unverified" and r["assertedDate"] is None
+                            and r["originalVerificationAt"] is None for r in rows))

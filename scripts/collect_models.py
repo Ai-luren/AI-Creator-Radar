@@ -1100,12 +1100,56 @@ def fetch_source_once(source: dict) -> tuple[dict, list[dict], str | None]:
                 items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
         return source, enrich_article_dates(source, items), None
     except Exception as exc:
-        return source, [], f"{type(exc).__name__}: {str(exc)[:220]}"
+        error = f"{type(exc).__name__}: {str(exc)[:220]}"
+        if isinstance(exc, urllib.error.HTTPError) and exc.code == 429 and exc.headers:
+            retry = str(exc.headers.get("Retry-After", "")).strip()
+            if retry and len(retry) <= 80 and not re.search(r"[\r\n]", retry):
+                error += "; Retry-After: " + retry
+        return source, [], error
+
+
+def access_fault_domain(url):
+    """Group language variants of a route, not unrelated HTML and API routes."""
+    parts = urlsplit(url)
+    segments = [p.casefold() for p in parts.path.split("/") if p]
+    if segments and re.fullmatch(r"(?:en|zh|ja|ko|fr|es|de)(?:-[a-z]{2,4})?", segments[0]):
+        segments.pop(0)
+    return (parts.hostname or "").lower() + "/" + (segments[0] if segments else "")
+
+
+def access_fault_code(error):
+    code = getattr(error, "code", None)
+    if code in (403, 429):
+        return code
+    m = re.search(r"\bHTTP(?: Error)?\s+(403|429)\b", str(error or ""), re.I)
+    return int(m[1]) if m else None
+
+
+def access_retry_at(error, now, minimum):
+    """Never request ahead of a provider's Retry-After."""
+    value = getattr(error, "headers", None)
+    value = value.get("Retry-After", "") if value else ""
+    if not value:
+        m = re.search(r"; Retry-After: ([^\r\n]+)$", str(error or ""))
+        value = m[1] if m else ""
+    if str(value).isdigit():
+        try:
+            return max(minimum, now + timedelta(seconds=int(value)))
+        except OverflowError:
+            return datetime.max.replace(tzinfo=timezone.utc)
+    if value:
+        try:
+            retry = email.utils.parsedate_to_datetime(value)
+            if retry.tzinfo is not None:
+                return max(minimum, retry)
+        except (ValueError, TypeError, OverflowError):
+            pass
+    return minimum
 
 
 def retryable_source_error(error: str) -> bool:
     # Do not retry 403, invalid XML, or deterministic parsing errors.
-    return bool(re.search(r"HTTP Error (?:408|429|5\d\d)\b|timed? ?out|temporary failure|connection reset", error, re.I))
+    return bool(re.search(r"HTTP Error (?:408|5\d\d)\b|timed? ?out|temporary failure|connection reset", error, re.I))
 
 
 def fetch_source(source: dict, prior=None, now=None) -> tuple[dict, list[dict], str | None]:
@@ -1116,6 +1160,17 @@ def fetch_source(source: dict, prior=None, now=None) -> tuple[dict, list[dict], 
     previous = (prior or {}) if (prior or {}).get("sourceConfigHash") == fingerprint else {}
     old_attempts = {a["url"]: a for a in previous.get("attempts", []) if isinstance(a, dict) and a.get("url")}
     attempts = []
+    blocked = {}
+    for old in old_attempts.values():
+        if old.get("skipReason") or not access_fault_code(old.get("error")):
+            continue
+        try:
+            retry = datetime.fromisoformat(old.get("nextAttemptAt", "").replace("Z", "+00:00"))
+            domain = access_fault_domain(old["url"])
+            if retry > now and (domain not in blocked or retry > blocked[domain][0]):
+                blocked[domain] = (retry, old)
+        except (ValueError, TypeError, AttributeError):
+            pass
     primary_url = source["url"]
     endpoints = [{"url": primary_url}]
     endpoints.extend({"url": url} for url in source.get("fallbackUrls", []))
@@ -1128,6 +1183,18 @@ def fetch_source(source: dict, prior=None, now=None) -> tuple[dict, list[dict], 
         endpoint = {**source, **endpoint_config}
         url = endpoint["url"]
         old = old_attempts.get(url, {})
+        domain = access_fault_domain(url)
+        if domain in blocked:
+            until, cause = blocked[domain]
+            if cause["url"] == url:
+                attempts.append({**cause, "deferred": True})
+            else:
+                attempts.append({"url": url, "deferred": True, "skipReason": "access-domain-cooldown",
+                                 "blockedByUrl": cause["url"], "checkedAt": old.get("checkedAt"),
+                                 "itemCount": old.get("itemCount"), "error": old.get("error"),
+                                 "nextAttemptAt": until.isoformat(timespec="seconds")})
+            last_error = cause["error"]
+            continue
         try:
             retry = datetime.fromisoformat(old.get("nextAttemptAt", "").replace("Z", "+00:00"))
             if old.get("error") and now < retry <= now + timedelta(hours=8):
@@ -1147,6 +1214,14 @@ def fetch_source(source: dict, prior=None, now=None) -> tuple[dict, list[dict], 
                 count = count if type(count) is int and 0 <= count <= 10000 else 0
                 count += 1
                 record.update(hardFailures=count, nextAttemptAt=(now + timedelta(minutes=min(480, 60 * 2 ** min(count - 1, 3)))).isoformat(timespec="seconds"))
+            code = access_fault_code(error)
+            if code:
+                minimum = now + timedelta(hours=6 if code == 429 else 1)
+                if record.get("nextAttemptAt"):
+                    minimum = max(minimum, datetime.fromisoformat(record["nextAttemptAt"]))
+                retry = access_retry_at(error, now, minimum)
+                record["nextAttemptAt"] = retry.isoformat(timespec="seconds")
+                blocked[domain] = (retry, record)
             attempts.append(record)
             if error is None:
                 result = {**endpoint, "primaryUrl": primary_url, "attempts": attempts,
