@@ -39,7 +39,7 @@ def task_id(*identity):
     return "task-" + digest(identity)
 
 
-def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None, search_state=None, independent=None):
+def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None, search_state=None, independent=None, historical=None):
     stamp = now.isoformat(timespec="seconds")
     if previous and previous.get("schema") != "event-reconciliation/v1":
         raise ValueError("Unrecognized evidence ledger schema; refusing to replace it")
@@ -192,6 +192,8 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
             "repositoryCreatedAt":row["repositoryCreatedAt"],"sourceEventId":row["id"],
             "claimType":"repository-observation","initialAuditState":row["initialState"]})
 
+    historical_by_identity={(t["identity"]["modelFamilyId"],t["identity"]["modelVersionId"]):t
+                            for t in (historical or {}).get("tasks",[]) if t.get("active")}
     for gap in gaps:
         if gap.get("reviewKind") != "release-source-review":
             continue
@@ -199,7 +201,10 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
         save(task_id("release-gap", fid, vid), {"taskType": "release-gap",
              "identity": {"modelFamilyId": fid, "modelVersionId": vid},
              "state": "needs-release-evidence", "modelName": gap.get("modelName"),
-             "candidateSourceUrl": gap.get("candidateSourceUrl"), "existingDate": gap.get("existingDate")})
+             "candidateSourceUrl": gap.get("candidateSourceUrl"), "existingDate": gap.get("existingDate"),
+             "historicalRepair": {"status": historical_by_identity.get((fid,vid),{}).get("status"),
+                                  "evidenceIds": [r["id"] for r in historical_by_identity.get((fid,vid),{}).get("evidence",[])],
+                                  "nextAttemptAt": historical_by_identity.get((fid,vid),{}).get("nextAttemptAt")}})
 
     for tid, old in old_tasks.items():
         if tid in tasks:
@@ -252,6 +257,7 @@ def main():
     parser.add_argument("--product-state", type=Path)
     parser.add_argument("--source-search", type=Path)
     parser.add_argument("--independent", type=Path)
+    parser.add_argument("--historical", type=Path)
     args = parser.parse_args()
     def read(path, optional=False):
         if optional and not path.exists():
@@ -268,7 +274,8 @@ def main():
                        read(args.resolution or directory / "lead-resolution.json"),
                        report["gaps"], read(OUTPUT, optional=True), datetime.now(timezone.utc),
                        read(args.product_state or directory / "product-state.json", optional=True), search_state,
-                       read(args.independent or directory / "independent-coverage.json", optional=True))
+                       read(args.independent or directory / "independent-coverage.json", optional=True),
+                       read(args.historical or directory / "historical-evidence.json", optional=True))
     print("Event reconciliation:", json.dumps(result["summary"], ensure_ascii=False))
     if not args.dry_run:
         write_json(OUTPUT, result)
