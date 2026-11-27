@@ -2267,6 +2267,25 @@
         "verificationUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-3-developers/"
       },
       {
+        "date": "2025-11-17",
+        "kind": "模型",
+        "title": "Veo 3.1 Fast 在 Vertex AI 正式开放",
+        "summary": "Vertex AI 发布日志明确 Fast 型号进入 GA；型号生命周期文档确认 stable endpoint veo-3.1-fast-generate-001 的发布日期。",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+        "auditId": "review-20261127-veo-fast-ga",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-27",
+        "modelCategory": "video",
+        "verificationUrl": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=en",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1-fast",
+            "matchedName": "Veo 3.1 Fast"
+          }
+        ]
+      },
+      {
         "date": "2025-10-15",
         "kind": "模型",
         "title": "Google 发布 Veo 3.1，强化镜头控制与视频编辑",
@@ -2285,6 +2304,25 @@
             "modelFamilyId": "veo",
             "modelVersionId": "veo-3-1",
             "matchedName": "Veo 3.1"
+          }
+        ]
+      },
+      {
+        "date": "2025-10-15",
+        "kind": "模型",
+        "title": "Veo 3.1 Fast 在 Vertex AI 进入预览",
+        "summary": "Vertex AI 发布日志列出 Veo 3.1 Fast Preview；此为公开预览阶段，不推断其他平台首发日。",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+        "auditId": "review-20261127-veo-fast-preview",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-27",
+        "modelCategory": "video",
+        "verificationUrl": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=en",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1-fast",
+            "matchedName": "Veo 3.1 Fast"
           }
         ]
       },

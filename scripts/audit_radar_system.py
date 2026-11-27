@@ -8,11 +8,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 try:
     from scripts.audit_model_completeness import audit
+    from scripts.audit_discovery_coverage import inspect_leads
     from scripts.collect_release_recall import url_key
     from scripts.plan_refresh import plan
     from scripts.collect_models import write_json, title_identity
 except ModuleNotFoundError:
     from audit_model_completeness import audit
+    from audit_discovery_coverage import inspect_leads
     from collect_release_recall import url_key
     from plan_refresh import plan
     from collect_models import write_json, title_identity
@@ -49,6 +51,7 @@ def inspect(data, config, now):
                       "confirmedRecentReleases":len(digest.get("items",[])),"pendingRecentCandidates":len(digest.get("pending",[])),
                       "duplicatePendingCandidates":sum(n-1 for n in pending_keys.values() if n>1)},
             "gapKinds":report["gapKinds"],"sourceCoverage":coverage,"sampleRecall":recall,
+            "externalLeadCoverage":inspect_leads(data.get("discovery",{}),data.get("resolution",{})),
             "negativeControls":{"checked":len(negatives),"incorrectConfirmed":sum(len(n.get("incorrectConfirmedIds",[])) for n in negatives)},
             "scopeNote":"Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review."}
 
@@ -58,6 +61,8 @@ def main():
     def read(name):return json.loads((directory/name).read_text(encoding="utf-8"))
     data={k:read(v) for k,v in {"models":"models.json","topics":"topics.json","digest":"model-releases-30d.json",
               "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
+    for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json")):
+        data[key]=read(name) if (directory/name).exists() else {}
     now=datetime.now(timezone.utc)
     report=inspect(data,json.loads((ROOT/"config/chronicle-release-links.json").read_text(encoding="utf-8")),now)
     report["dueScopes"]=[k for k,v in plan(directory,"schedule",now=now,respect_backoff=False).items() if v]

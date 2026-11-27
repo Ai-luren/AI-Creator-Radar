@@ -13,12 +13,12 @@ from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 try:
     from scripts.collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, match_model, non_release_title, is_release_candidate, write_json)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json)
     from scripts.collect_cross_platform import article_url
     from scripts.collect_release_recall import url_key, article_day_stamp
 except ModuleNotFoundError:
     from collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, match_model, non_release_title, is_release_candidate, write_json)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json)
     from collect_cross_platform import article_url
     from collect_release_recall import url_key, article_day_stamp
 
@@ -27,15 +27,6 @@ OUTPUT = ROOT / "site/data/lead-resolution.json"
 MAX_PROBES = 12
 RESOLVER_REVISION = 4
 CATEGORY = {"video", "image", "llm", "music", "tts", "audio"}
-
-
-def compact_heading(title):
-    # Many publishers omit the introductory verb and repeated brand in H1.
-    title = re.sub(r"^(?:introducing|announcing|meet)\s+", "", str(title or "").strip(), flags=re.I)
-    first = re.match(r"^([A-Za-z][A-Za-z0-9-]+)\s+", title)
-    if first:
-        title = re.sub(r"(\band\s+|&\s*)" + re.escape(first.group(1)) + r"\s+", r"\1", title, flags=re.I)
-    return title_identity(title)
 
 
 def title_agrees(actual, expected):

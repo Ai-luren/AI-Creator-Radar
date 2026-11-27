@@ -274,6 +274,21 @@ def title_identity(value):
     return "".join(ch for ch in clean_text(value).casefold() if ch.isalnum())
 
 
+def compact_heading(title):
+    # Many publishers omit the introductory verb and repeated brand in H1.
+    title = re.sub(r"^(?:introducing|announcing|meet)\s+", "", str(title or "").strip(), flags=re.I)
+    first = re.match(r"^([A-Za-z][A-Za-z0-9-]+)\s+", title)
+    if first:
+        title = re.sub(r"(\band\s+|&\s*)" + re.escape(first.group(1)) + r"\s+", r"\1", title, flags=re.I)
+    return title_identity(title)
+
+
+def exact_article_heading(actual, expected, allow_compact=False):
+    """Allow publisher heading formatting, never a model/version substring."""
+    a, b = title_identity(actual), title_identity(expected)
+    return bool(a and b and (a == b or (allow_compact and compact_heading(actual) == compact_heading(expected))))
+
+
 class ArticleMetaParser(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -298,9 +313,9 @@ def article_publication_date(page, expected_title, leading_date=False):
     parser.feed(page)
     parser.close()
     blocks = sorted(parser.blocks, key=lambda b: b["sequence"])
-    title = title_identity(expected_title)
-    headings = [i for i, b in enumerate(blocks) if b["tag"] == "h1" and title and title_identity(b["text"]) == title]
-    if not headings:
+    headings = [i for i, b in enumerate(blocks) if b["tag"] == "h1"
+                and exact_article_heading(b["text"], expected_title, allow_compact=leading_date)]
+    if not headings or len({title_identity(blocks[i]["text"]) for i in headings}) != 1:
         return None
     metadata = ArticleMetaParser()
     metadata.feed(page)
@@ -311,7 +326,7 @@ def article_publication_date(page, expected_title, leading_date=False):
         except (ValueError, TypeError):
             continue
         for obj in walk_jsonld(payload):
-            if title_identity(str(obj.get("headline") or "")) == title:
+            if exact_article_heading(str(obj.get("headline") or ""), expected_title, allow_compact=leading_date):
                 stamp = parse_date(obj.get("datePublished"))
                 if stamp:
                     dates.append(stamp)
