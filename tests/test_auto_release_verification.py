@@ -186,3 +186,31 @@ class AutoReleaseVerificationTests(unittest.TestCase):
                          {"vendor":["Vendor"]},self.today,{})
         self.assertEqual(result["proofLedger"],[])
         self.assertEqual(result["confirmed"],[])
+
+
+    def test_all_deferred_cached_sources_cannot_promote_in_production(self):
+        state=self.raw_status({"a","b"},self.stamp)
+        for source in state["sources"]:
+            source["deferred"]=True
+        result=reconcile(self.models,self.updates,self.sources,state,{"vendor":["Vendor"]},self.today,{})
+        self.assertEqual(result["confirmed"],[])
+        self.assertEqual(result["proofLedgerSummary"]["currentValidatedProofs"],0)
+
+    def test_uncaptured_deferred_source_cannot_be_second_proof(self):
+        state=self.raw_status({"a","b"},self.stamp)
+        state["sources"][1]["deferred"]=True
+        result=reconcile(self.models,self.updates,self.sources,state,{"vendor":["Vendor"]},self.today,{})
+        self.assertEqual(result["confirmed"],[])
+        self.assertEqual(result["proofLedgerSummary"]["records"],1)
+
+    def test_later_stage_warning_quarantines_matching_headline(self):
+        first=reconcile(self.models,self.updates,self.sources,self.raw_status({"a"},self.stamp),
+                        {"vendor":["Vendor"]},self.today,{})
+        next_stamp="2026-11-27T03:00:00Z"
+        self.updates[0]["summary"]="Limited access preview"
+        for item in self.updates:
+            item["publicationObservedAt"]=next_stamp
+        result=reconcile(self.models,self.updates,self.sources,self.raw_status({"a","b"},next_stamp),
+                         {"vendor":["Vendor"]},self.today,first)
+        self.assertEqual(result["confirmed"],[])
+        self.assertEqual(result["proofLedgerSummary"]["quarantined"],1)

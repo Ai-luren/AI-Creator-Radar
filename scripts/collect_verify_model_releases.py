@@ -229,7 +229,14 @@ def reconcile(families, updates, sources, status, vendor_topics, today, previous
                     continue
                 if (obs.get("modelId") != record["modelFamilyId"]
                         or obs.get("title") != proof["title"]
-                        or str(obs.get("publishedAt") or "")[:10] != proof["publishedAt"]):
+                        or str(obs.get("publishedAt") or "")[:10] != proof["publishedAt"]
+                        or any(u.get("sourceId") == proof["sourceId"]
+                               and normalize_url(u.get("url") or "") == proof["sourceUrl"]
+                               and u.get("title") == obs.get("title")
+                               and u.get("publishedAt") == obs.get("publishedAt")
+                               and u.get("publicationObservedAt") == checked
+                               and STAGE_WARNING.search(str(u.get("summary") or ""))
+                               for u in updates)):
                     record["quarantineReason"] = "later-publisher-observation-conflict"
                     break
         captured = {(r["modelFamilyId"], proof_key(r["proof"]), r["sourceConfigHash"]): r
@@ -239,15 +246,24 @@ def reconcile(families, updates, sources, status, vendor_topics, today, previous
                 state = source_status[proof["sourceId"]]
                 # Legacy cached rows are insufficient for future cross-run use.
                 if ("publicationObservations" not in state or state.get("deferred")
-                        or (status.get("checkedAt") and state.get("checkedAt") != status["checkedAt"])):
+                        or not status.get("checkedAt") or state.get("checkedAt") != status["checkedAt"]):
                     continue
                 source = source_by_id[proof["sourceId"]]
                 record = ledger_record(identity[0], proof, source)
+                if not prior_eligible(record, source, fam_by_id.get(identity[0]), vendor_group, today):
+                    continue
                 match = (identity[0], proof_key(proof), record["sourceConfigHash"])
                 if match not in captured:
                     ledger[record["id"]] = record
                     captured[match] = record
                 current_keys.add((identity, proof_key(proof)))
+        # The ordinary grouping may include a previously successful deferred
+        # source. In production it must pass the same persisted-proof gate as
+        # all other retained observations, never count as a new read.
+        for identity in list(groups):
+            groups[identity] = [p for p in groups[identity] if (identity, proof_key(p)) in current_keys]
+            if not groups[identity]:
+                del groups[identity]
         for record in ledger.values():
             proof = record["proof"]
             fid = record["modelFamilyId"]
