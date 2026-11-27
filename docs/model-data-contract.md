@@ -289,3 +289,5 @@ AIHOT 定向索引补证使用 `source-search.json.aihotService` 独立退避与
 聚合器优先路由：AIHOT 作为近期模型主力发现入口，AIPick 仅对主渠道已尝试未取得合格原文或主渠道故障的任务补漏，GDELT 末级。独立服务健康与 ETag，单轮总查询预算不变；相同原始URL仅保留一条候选，平台报道数不等于独立证据数。AIPick 同样只保存原始链接、规范查询名和出处，不公开复制新获取的摘要。现有精选展示不扩大范围。
 
 产品设计情报共用 `app-updates.json` 的 `first-party-product-changelog` 记录；`role=competitor` 明确平台角色，`publisherCalendarDay` 为原厂日志日，`observedAt` 为真实观察时间，`releaseDate=null`。无明确接入表述的记录归 product-update；只读入口为 navigation-only，永不生成自动证据或成功记录。品牌视图从该配置投影，不额外创建产品数据真值。
+
+`targetedDiscovery.providerServices` 分别保存 AIHOT/AIPick 状态，`selectedProductFeatures` / `selectedModelIntegrations` 仅统计限定样本的选中报道。`aggregateCoverage` / `skipReason` 明确等待、样本覆盖或缺口；跳过直接探测不更新官方观察时间或成功次数。相同原文及报道聚类不等于独立事实。

@@ -115,3 +115,27 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertIsNone(result["sources"][0]["lastSuccessAt"])
         self.assertEqual(result["summary"]["successfulThisRun"],0)
         self.assertEqual(result["events"],[])
+
+    def test_aggregate_first_coverage_defers_only_after_both_provider_queries(self):
+        from scripts.collect_app_updates import aggregate_coverage
+        spec={"aggregateQueryIds":["a","b"]}
+        def row(key,provider,features,models):
+            return {"id":key,"provider":provider,"status":"observed","lastAttemptAt":self.now.isoformat(),"lastSuccessAt":self.now.isoformat(),"counts":{"selectedProductFeatures":features,"selectedModelIntegrations":models}}
+        first=row("a","AIHOT",0,4)
+        second=row("b","AIPick",3,0)
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first]},self.now)["status"],"awaiting-aggregate")
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now)["status"],"aggregate-covered-sample")
+        second["counts"]["selectedProductFeatures"]=0
+        result=aggregate_coverage(spec,{"queries":[first,second]},self.now)
+        self.assertEqual(result["status"],"aggregate-gap")
+        self.assertEqual(result["missingLanes"],["selectedProductFeatures"])
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now+timedelta(hours=13))["status"],"awaiting-aggregate")
+
+    def test_aggregate_first_skips_direct_probe_and_preserves_existing_events(self):
+        cfg={"sources":[{**self.spec,"aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":480,"globalIntervalMinutes":25,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
+        first=collect(cfg,{},self.now,lambda *_:self.fail("wait for both aggregate queries"),lambda *_:({"selectedProductFeatures":2,"selectedModelIntegrations":0},"a"))
+        self.assertEqual(first["sources"][0]["skipReason"],"awaiting-aggregate")
+        second=collect(cfg,first,self.now+timedelta(minutes=30),lambda *_:self.fail("no duplicate probe when both lanes covered"),lambda *_:({"selectedProductFeatures":0,"selectedModelIntegrations":2},"b"))
+        self.assertEqual(second["sources"][0]["skipReason"],"aggregate-covered-sample")
+        self.assertEqual(second["summary"]["successfulThisRun"],0)
+        self.assertEqual(second["events"],[])

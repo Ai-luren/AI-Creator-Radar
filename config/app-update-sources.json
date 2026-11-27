@@ -48,7 +48,7 @@
       "vendor": "Higgsfield",
       "url": "https://higgsfield.ai/creator-hub/changelog",
       "type": "higgs-changelog",
-      "minIntervalMinutes": 30,
+      "minIntervalMinutes": 360,
       "links": [
         {
           "kind": "New drops / 产品入口",
@@ -61,7 +61,11 @@
           "access": "产品详解与使用说明"
         }
       ],
-      "role": "competitor"
+      "role": "competitor",
+      "aggregateQueryIds": [
+        "higgsfield-aihot",
+        "higgsfield-aipick"
+      ]
     },
     {
       "id": "flova-changelog",
@@ -70,8 +74,12 @@
       "role": "competitor",
       "url": "https://www.flova.ai/en/docs/changelog/",
       "type": "dated-changelog",
-      "minIntervalMinutes": 30,
-      "links": []
+      "minIntervalMinutes": 360,
+      "links": [],
+      "aggregateQueryIds": [
+        "flova-aihot",
+        "flova-aipick"
+      ]
     },
     {
       "id": "tapnow-changelog",
@@ -80,8 +88,12 @@
       "role": "competitor",
       "url": "https://docs.tapnow.ai/en/docs/changelog",
       "type": "dated-changelog",
-      "minIntervalMinutes": 120,
-      "links": []
+      "minIntervalMinutes": 360,
+      "links": [],
+      "aggregateQueryIds": [
+        "tapnow-aihot",
+        "tapnow-aipick"
+      ]
     },
     {
       "id": "libtv-entry",
@@ -117,8 +129,8 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "intervalMinutes": 360,
-    "globalIntervalMinutes": 60,
+    "intervalMinutes": 480,
+    "globalIntervalMinutes": 25,
     "queries": [
       {
         "id": "jimeng-products",
@@ -160,6 +172,54 @@
         "label": "Sand.ai",
         "term": "Sand.ai",
         "category": "ai-models"
+      },
+      {
+        "id": "higgsfield-aihot",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "higgsfield-aipick",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIPick"
+      },
+      {
+        "id": "flova-aihot",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "flova-aipick",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIPick"
+      },
+      {
+        "id": "tapnow-aihot",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "tapnow-aipick",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIPick"
+      },
+      {
+        "id": "libtv-aihot",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "libtv-aipick",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIPick"
       }
     ]
   }

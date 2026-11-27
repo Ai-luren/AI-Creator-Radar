@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-11-27T18:24:38.518894+00:00",
+  "checkedAt": "2026-11-27T18:32:38.729126+00:00",
   "sampleReviewedAt": "2026-11-27",
   "sampleScope": "Fixed purposive sample of official dated model announcements, independently inspected; not exhaustive or random. One sample per publication event, including multiple models in a single event.",
-  "collectorCheckedAt": "2026-11-27T18:23:32Z",
+  "collectorCheckedAt": "2026-11-27T18:32:08Z",
   "directObservationMethod": "raw-source-observations",
   "allSample": {
     "events": 8,
@@ -14,10 +14,10 @@
     "canonicalComplete": 8,
     "dateConflicts": 0
   },
-  "recoveryCheckedAt": "2026-11-27T18:24:36+00:00",
+  "recoveryCheckedAt": "2026-11-27T18:32:38+00:00",
   "recoverySummary": {
     "uniqueOfficialUrls": 30,
-    "attempted": 1,
+    "attempted": 0,
     "accessDomainDeferred": 1,
     "articleDateVerified": 9,
     "newlyCheckedVerified": 0,
