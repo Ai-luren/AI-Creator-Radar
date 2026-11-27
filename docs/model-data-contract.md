@@ -225,3 +225,9 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 ## 调度与运行状态契约
 
 `collection-health.json` 记录各采集组最后尝试、最后成功与连续失败次数；`scheduler-health.json` 的 schema 保持 scheduler-health/v1，包含生成时间、下一次可执行到期时间及触发记录。组级 due 表示实际快照到期，eligible 表示满足退避条件可执行，retryAfter 为暂缓边界（无暂缓时 null）。新字段兼容旧快照，不改变模型、版本、发布证据或已有日期。system-audit.json 的 dueScopes 为真实过期组，eligibleScopes 为可立即重试组。不得把调度成功等同于模型事实已核验；详见 [运行手册](automation-runbook.md)。
+
+## P1 事件身份与证据账本（影子层）
+
+`event-reconciliation.json` 是后台对账快照，不是第二份权威模型库。已有正式证据按 family/version + catalog-release 记录，历史阶段使用 historical-*，已验证文章日期使用 article-publication；三者不能互相替代。证据 ID 为完整记录的确定性 SHA-256，保存原始核验时间、日期精度、来源、原记录 ID；重复读取不追加同一事实。旧证据不因访问失败删除，当前引用和历史证据分开；同型号旧新正式日期差异明确列出，不自动选择。已有审核记录迁移不代表本轮重新核验。原始外部线索按唯一精确型号、同报道日关联，仅作候选，不混同阶段，原文链接归属不变，禁止同源重复计证。账本不存第三方全文，不改正式视图。
+
+对账任务 ID 按型号/报道日或未分类线索、历史正式证据缺口生成，保留首次发现和实际探测状态；超出输入窗口不等于修复。关联的原文仅提升已有真实 URL 的探测优先级；缺少任何公开原文的线索仍标记 needs-source，当前未部署额外搜索服务。历史证据更正、撤回和自动晋级规则后续单独验收。

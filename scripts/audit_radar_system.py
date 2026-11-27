@@ -52,6 +52,8 @@ def inspect(data, config, now):
                       "duplicatePendingCandidates":sum(n-1 for n in pending_keys.values() if n>1)},
             "gapKinds":report["gapKinds"],"sourceCoverage":coverage,"sampleRecall":recall,
             "externalLeadCoverage":inspect_leads(data.get("discovery",{}),data.get("resolution",{})),
+            "eventReconciliation":{"checkedAt":data.get("reconciliation",{}).get("checkedAt"),
+                                   "summary":data.get("reconciliation",{}).get("summary",{})},
             "negativeControls":{"checked":len(negatives),"incorrectConfirmed":sum(len(n.get("incorrectConfirmedIds",[])) for n in negatives)},
             "scopeNote":"Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review."}
 
@@ -61,7 +63,7 @@ def main():
     def read(name):return json.loads((directory/name).read_text(encoding="utf-8"))
     data={k:read(v) for k,v in {"models":"models.json","topics":"topics.json","digest":"model-releases-30d.json",
               "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
-    for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json")):
+    for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json"),("reconciliation","event-reconciliation.json")):
         data[key]=read(name) if (directory/name).exists() else {}
     now=datetime.now(timezone.utc)
     report=inspect(data,json.loads((ROOT/"config/chronicle-release-links.json").read_text(encoding="utf-8")),now)
