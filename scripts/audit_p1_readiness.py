@@ -98,7 +98,7 @@ def measure(data,report,now):
                               "missingIds":[r["id"] for r in recall.get("events",[]) if not r.get("endToEndDated")]},
         "availabilityStatementPilot":{"status":"pass" if availability.get("events")==2 and availability.get("matched")==2 else "incomplete",
                                      "matched":availability.get("matched"),"events":availability.get("events")},
-        "sameStageEventRecall":{"status":"not-measured","reason":"No independently reviewed same-stage event benchmark and matcher for all eight cases; article and availability samples cannot be added."},
+        "sameStageEventRecall":report.get("sameStageRecall",{"status":"not-measured","reason":"No independently reviewed same-stage event benchmark and matcher for all eight cases; article and availability samples cannot be added."}),
         "independentFactAccuracy":{"status":"not-measured","reason":"Repository identity observations are not audited release facts; need independently adjudicated positive and negative release events.",
                                    "repositorySamples":ind.get("inScopeRepositorySamples"),
                                    "repositoryExactMatches":ind.get("currentStates",{}).get("exact-catalog-match",0),

@@ -48,3 +48,12 @@ class P1ReadinessTests(unittest.TestCase):
         self.assertEqual(gate["factReview"]["initialStrictAccuracy"],0)
         self.assertEqual(gate["factReview"]["currentAlignedWithReviewedFacts"],1)
         self.assertFalse(result["engineeringReady"])
+
+    def test_same_stage_result_is_separate_from_fixed_article_recall(self):
+        report={**self.report,"sameStageRecall":{"status":"pass","events":8,"matched":8}}
+        data={"recall":{"allSample":{"events":8,"endToEndDated":6,"dateConflicts":0}}}
+        r=measure(data,report,self.now)
+        self.assertEqual(r["gates"]["fixedArticleRecall"]["matched"],6)
+        self.assertEqual(r["gates"]["sameStageEventRecall"]["matched"],8)
+        self.assertNotIn("sameStageEventRecall",r["blockingGates"])
+        self.assertFalse(r["engineeringReady"])
