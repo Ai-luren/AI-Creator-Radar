@@ -9,6 +9,9 @@ import json
 from pathlib import Path
 import re
 import urllib.request
+import urllib.error
+from urllib.parse import urlencode, urlsplit
+from collections import Counter
 
 try:
     from scripts.collect_models import SameHostRedirect, USER_AGENT, write_json
@@ -72,17 +75,144 @@ def parse_surface(page,source):
         raise ValueError("No explicit model labels in readable app surface")
     return labels
 
+APPLE_LOOKUP="https://itunes.apple.com/lookup?id=6503676563&country=cn&entity=software"
+AIPICK_QUERIES={
+    ("即梦","ai-products"),("SeedAudio",None),("可灵","ai-products"),
+    ("海螺","ai-products"),("Vidu","ai-products"),("PixVerse","ai-products"),("Sand.ai","ai-models")
+}
+
+
+def parse_store(payload,source):
+    if not isinstance(payload,dict) or payload.get("resultCount")!=1 or not isinstance(payload.get("results"),list) or len(payload["results"])!=1:
+        raise ValueError("Store lookup did not return exactly one result")
+    row=payload["results"][0]
+    if not isinstance(row,dict) or row.get("trackId")!=source["trackId"] or source["expectedName"] not in str(row.get("trackName") or ""):
+        raise ValueError("Store app identity mismatch")
+    version=row.get("version")
+    stamp=parse_stamp(row.get("currentVersionReleaseDate"))
+    if not isinstance(version,str) or not re.fullmatch(r"\d+(?:\.\d+){1,4}",version) or not stamp:
+        raise ValueError("Store version/date missing or invalid")
+    notes=row.get("releaseNotes")
+    notes=notes if isinstance(notes,str) else ""
+    # Do not republish version-note text. A changed hash signals review of
+    # the official store page, not a model release or specific feature.
+    digest=hashlib.sha256(notes.encode()).hexdigest() if notes else None
+    key="ios-"+version+"-"+(digest or "no-notes")
+    return {key:{"storeVersion":version,"storeVersionReleasedAt":stamp.isoformat(),
+                 "notesSha256":digest,"hasReleaseNotes":bool(notes),"category":"app",
+                 "claimType":"first-party-store-version"}}
+
+
+def fetch_target(spec,etag):
+    term,category=spec["term"],spec.get("category")
+    if (term,category) not in AIPICK_QUERIES:
+        raise ValueError("Unapproved targeted query")
+    params={"mode":"all","window":"7d","by":"published","q":term,"limit":30}
+    if category:
+        params["category"]=category
+    headers={"Accept":"application/json","User-Agent":USER_AGENT}
+    if etag:
+        headers["If-None-Match"]=etag
+    request=urllib.request.Request("https://aipick.news/api/v1/items?"+urlencode(params),headers=headers)
+    try:
+        with urllib.request.build_opener(SameHostRedirect()).open(request,timeout=15) as response:
+            raw=response.read(MAX_BYTES+1)
+            if len(raw)>MAX_BYTES:
+                raise ValueError("Targeted query response too large")
+            payload=json.loads(raw)
+            if not isinstance(payload,dict) or not isinstance(payload.get("items"),list) or len(payload["items"])>30:
+                raise ValueError("Unexpected targeted query schema")
+            rows=payload["items"]
+            domains=Counter()
+            exact=0
+            for row in rows:
+                if not isinstance(row,dict):
+                    raise ValueError("Invalid targeted query row")
+                links=row.get("links") or {}
+                if not isinstance(links,dict):
+                    raise ValueError("Invalid targeted query links")
+                original=links.get("original")
+                host=urlsplit(original).hostname if isinstance(original,str) else None
+                domains["wechat" if host=="mp.weixin.qq.com" else "other" if host else "missing"]+=1
+                exact+=term.casefold() in (str(row.get("title") or "")+" "+str(row.get("originalTitle") or "")).casefold()
+            # Persist aggregate observation counts only, never article content,
+            # URLs, IDs, summaries or original titles from the query results.
+            return {"items":len(rows),"wechatOriginalLinks":domains["wechat"],
+                    "otherOriginalLinks":domains["other"],"missingOriginalLinks":domains["missing"],
+                    "exactTitleMatches":exact,"hasNextCursor":bool(payload.get("nextCursor"))},response.headers.get("ETag","")
+    except urllib.error.HTTPError as exc:
+        if exc.code==304 and etag:
+            return None,etag
+        raise
+
+
+def collect_targeted(config,previous,now,fetcher=fetch_target):
+    if not config:
+        return {}
+    stamp=now.isoformat(timespec="seconds")
+    old={q["id"]:q for q in previous.get("queries",[])}
+    rows=[]
+    for spec in config["queries"]:
+        prior=old.get(spec["id"],{})
+        if prior.get("term")!=spec["term"] or prior.get("category")!=spec.get("category"):
+            prior={}
+        rows.append({**prior,**spec})
+    service=dict(previous.get("service",{}))
+    cooldown=parse_stamp(service.get("nextAttemptAt"))
+    due=[r for r in rows if not parse_stamp(r.get("nextAttemptAt")) or parse_stamp(r["nextAttemptAt"])<=now]
+    due.sort(key=lambda r:(r.get("nextAttemptAt") or "",r["id"]))
+    attempted=0
+    if due and (not cooldown or cooldown<=now):
+        row=due[0]
+        attempted=1
+        row["lastAttemptAt"]=stamp
+        try:
+            result,etag=fetcher(row,row.get("etag",""))
+            if result is None and "counts" not in row:
+                raise ValueError("304 without prior counts")
+        except (OSError,ValueError,TypeError) as exc:
+            failures=int(service.get("consecutiveFailures",0))+1
+            delay=min(1440,60*2**min(failures-1,4))
+            if isinstance(exc,urllib.error.HTTPError):
+                if exc.code in (403,429,503):
+                    delay=max(delay,360)
+                retry=exc.headers.get("Retry-After","") if exc.headers else ""
+                if str(retry).isdigit():
+                    delay=max(delay,(int(retry)+59)//60)
+            retry_at=(now+timedelta(minutes=delay)).isoformat()
+            row.update(status="unavailable",error=type(exc).__name__,nextAttemptAt=retry_at)
+            service.update(consecutiveFailures=failures,error=type(exc).__name__,nextAttemptAt=retry_at)
+        else:
+            if result is not None:
+                row["counts"]=result
+                row["countsObservedAt"]=stamp
+            row.update(status="unchanged" if result is None else "observed",etag=etag,lastSuccessAt=stamp,error=None,
+                       nextAttemptAt=(now+timedelta(minutes=config["intervalMinutes"])).isoformat())
+            service.update(consecutiveFailures=0,error=None,lastSuccessAt=stamp,
+                           nextAttemptAt=(now+timedelta(minutes=config["globalIntervalMinutes"])).isoformat())
+    return {"source":"AIPick","checkedAt":stamp,"queries":rows,"service":service,
+            "attemptedThisRun":attempted,
+            "policy":"Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."}
+
+
 def fetch(source):
-    if source["url"] not in ALLOWED:
-        raise ValueError("Unapproved app surface")
-    req=urllib.request.Request(source["url"],headers={"Accept":"text/html","User-Agent":USER_AGENT})
+    is_store=source.get("type")=="apple-store-version"
+    if is_store:
+        if source.get("lookupUrl")!=APPLE_LOOKUP or source.get("trackId")!=6503676563:
+            raise ValueError("Unapproved store lookup")
+        url=APPLE_LOOKUP
+    else:
+        if source["url"] not in ALLOWED:
+            raise ValueError("Unapproved app surface")
+        url=source["url"]
+    req=urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
     with urllib.request.build_opener(SameHostRedirect()).open(req,timeout=18) as response:
         data=response.read(MAX_BYTES+1)
     if len(data)>MAX_BYTES:
         raise ValueError("App surface exceeds byte limit")
-    return parse_surface(data.decode("utf-8"),source)
+    return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
 
-def collect(config,previous,now,fetcher=fetch):
+def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
     stamp=now.isoformat(timespec="seconds")
@@ -92,6 +222,7 @@ def collect(config,previous,now,fetcher=fetch):
     for spec in config["sources"]:
         old=prior.get(spec["id"],{})
         row={**old,**{k:spec[k] for k in ("id","name","vendor","url","links")}}
+        row["type"]=spec.get("type","visible-model-labels")
         entries=old.get("entries",{})
         next_at=parse_stamp(old.get("nextAttemptAt"))
         if next_at and next_at>now:
@@ -114,19 +245,23 @@ def collect(config,previous,now,fetcher=fetch):
             prev=entries.get(k,{})
             merged[k]={**value,"firstObservedAt":prev.get("firstObservedAt") or stamp,"lastObservedAt":stamp,"visibleInLatestRead":True}
             if k not in entries:
-                kind="new-visible-label" if old.get("lastSuccessAt") else "baseline-visible-label"
+                if value.get("claimType")=="first-party-store-version":
+                    kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
+                else:
+                    kind="new-visible-label" if old.get("lastSuccessAt") else "baseline-visible-label"
                 eid=hashlib.sha256((spec["id"]+"|"+k+"|"+stamp).encode()).hexdigest()
                 events[eid]={"id":eid,"sourceId":spec["id"],"sourceUrl":spec["url"],"kind":kind,
                              "observedAt":stamp,"releaseDate":None,**value}
         sources.append({**row,"entries":merged,"checkedAt":stamp,"lastSuccessAt":stamp,"status":"observed",
                         "error":None,"deferred":False,"consecutiveFailures":0,
                         "nextAttemptAt":(now+timedelta(minutes=spec["minIntervalMinutes"])).isoformat()})
-    return {"schema":"app-updates/v1","checkedAt":stamp,"sources":sources,
+    targeted=collect_targeted(config.get("targetedDiscovery"),previous.get("targetedDiscovery",{}),now,target_fetcher)
+    return {"schema":"app-updates/v1","checkedAt":stamp,"sources":sources,"targetedDiscovery":targeted,
             "reviewedObservations":config.get("reviewedObservations",[]),
             "events":sorted(events.values(),key=lambda e:(e["observedAt"],e["id"]),reverse=True),
             "summary":{"configuredSources":len(config["sources"]),"successfulThisRun":sum(not s.get("deferred") and s["status"]=="observed" for s in sources),
                        "baselineSources":sum(bool(s.get("lastSuccessAt")) for s in sources),
-                       "listedModels":sum(sum(v.get("visibleInLatestRead",False) for v in s["entries"].values()) for s in sources),
+                       "listedModels":sum(sum(v.get("visibleInLatestRead",False) and v.get("claimType")=="first-party-visible-label" for v in s["entries"].values()) for s in sources),
                        "reviewedObservations":len(config.get("reviewedObservations",[]))},
             "policy":"App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only."}
 
@@ -140,6 +275,7 @@ def main():
     print("App updates:",json.dumps(result["summary"],ensure_ascii=False))
     for source in result["sources"]:
         print("[APP]",source["id"],source["status"],"error=",source.get("error"))
+    print("AIPick targeted coverage:",json.dumps({"attempted":result["targetedDiscovery"].get("attemptedThisRun"),"queries":[{k:q.get(k) for k in ("id","status","counts","lastSuccessAt","error")} for q in result["targetedDiscovery"].get("queries",[])]},ensure_ascii=False))
     if a.report:
         write_json(a.report,result)
     if not a.dry_run:

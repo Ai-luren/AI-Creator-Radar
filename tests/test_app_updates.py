@@ -34,3 +34,47 @@ class AppUpdatesTests(unittest.TestCase):
         result=self.run_collect(page="登录")
         self.assertEqual(result["summary"]["successfulThisRun"],0)
         self.assertEqual(result["summary"]["reviewedObservations"],1)
+
+
+    def test_store_observation_is_not_model_release(self):
+        from scripts.collect_app_updates import parse_store
+        spec={"trackId":6503676563,"expectedName":"即梦"}
+        payload={"resultCount":1,"results":[{"trackId":6503676563,"trackName":"即梦 AI","version":"3.2.1",
+            "currentVersionReleaseDate":"2026-11-26T00:00:00Z","releaseNotes":"New model and feature"}]}
+        records=parse_store(payload,spec)
+        row=next(iter(records.values()))
+        self.assertEqual(row["storeVersion"],"3.2.1")
+        self.assertEqual(row["claimType"],"first-party-store-version")
+        self.assertNotIn("modelName",row)
+        self.assertNotIn("releaseNotes",row)
+        payload["results"][0]["trackId"]=123
+        with self.assertRaises(ValueError):
+            parse_store(payload,spec)
+
+    def test_targeted_query_keeps_counts_not_articles_and_respects_cooldown(self):
+        from scripts.collect_app_updates import collect_targeted
+        cfg={"intervalMinutes":360,"globalIntervalMinutes":60,"queries":[{"id":"a","term":"即梦","category":"ai-products"},{"id":"b","term":"Sand.ai","category":"ai-models"}]}
+        calls=[]
+        def fetch(spec,etag):
+            calls.append(spec["id"])
+            return {"items":11,"wechatOriginalLinks":7,"otherOriginalLinks":4,"missingOriginalLinks":0,"exactTitleMatches":11,"hasNextCursor":False},"tag"
+        first=collect_targeted(cfg,{},self.now,fetch)
+        blocked=collect_targeted(cfg,first,self.now+timedelta(minutes=30),fetch)
+        second=collect_targeted(cfg,blocked,self.now+timedelta(hours=1),fetch)
+        self.assertEqual(calls,["a","b"])
+        self.assertEqual(second["queries"][0]["counts"]["wechatOriginalLinks"],7)
+        later=collect_targeted(cfg,second,self.now+timedelta(hours=6),lambda spec,etag:(None,etag))
+        self.assertEqual(later["queries"][0]["countsObservedAt"],first["queries"][0]["countsObservedAt"])
+        self.assertEqual(later["queries"][0]["status"],"unchanged")
+
+    def test_targeted_rate_limit_does_not_erase_last_good_counts(self):
+        from scripts.collect_app_updates import collect_targeted
+        from urllib.error import HTTPError
+        cfg={"intervalMinutes":360,"globalIntervalMinutes":60,"queries":[{"id":"a","term":"即梦","category":"ai-products"}]}
+        first=collect_targeted(cfg,{},self.now,lambda *_:({"items":0,"wechatOriginalLinks":0},"tag"))
+        def fail(*args):
+            raise HTTPError("https://aipick.news/",429,"limit",{"Retry-After":"28800"},None)
+        second=collect_targeted(cfg,first,self.now+timedelta(hours=6),fail)
+        self.assertEqual(second["queries"][0]["counts"],first["queries"][0]["counts"])
+        self.assertEqual(second["queries"][0]["lastSuccessAt"],first["queries"][0]["lastSuccessAt"])
+        self.assertEqual(second["service"]["nextAttemptAt"],(self.now+timedelta(hours=14)).isoformat())

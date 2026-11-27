@@ -29,6 +29,18 @@
           "access": "读取时跳转登录，保留入口"
         }
       ]
+    },
+    {
+      "id": "jimeng-ios-cn",
+      "name": "即梦 AI · iOS 中国区",
+      "vendor": "字节跳动",
+      "url": "https://apps.apple.com/cn/app/id6503676563",
+      "type": "apple-store-version",
+      "lookupUrl": "https://itunes.apple.com/lookup?id=6503676563&country=cn&entity=software",
+      "trackId": 6503676563,
+      "expectedName": "即梦",
+      "minIntervalMinutes": 360,
+      "links": []
     }
   ],
   "reviewedObservations": [
@@ -45,5 +57,53 @@
       "observationMethod": "人工核对 · 用户界面截图与公开搜索页面记录",
       "note": "截图显示 New；公开页面不同抓取结果存在差异。首次上架日、全量可用性及权益未确认。"
     }
-  ]
+  ],
+  "targetedDiscovery": {
+    "source": "AIPick",
+    "intervalMinutes": 360,
+    "globalIntervalMinutes": 60,
+    "queries": [
+      {
+        "id": "jimeng-products",
+        "label": "即梦",
+        "term": "即梦",
+        "category": "ai-products"
+      },
+      {
+        "id": "jimeng-seedaudio",
+        "label": "SeedAudio",
+        "term": "SeedAudio"
+      },
+      {
+        "id": "kling-products",
+        "label": "可灵",
+        "term": "可灵",
+        "category": "ai-products"
+      },
+      {
+        "id": "hailuo-products",
+        "label": "海螺",
+        "term": "海螺",
+        "category": "ai-products"
+      },
+      {
+        "id": "vidu-products",
+        "label": "Vidu",
+        "term": "Vidu",
+        "category": "ai-products"
+      },
+      {
+        "id": "pixverse-products",
+        "label": "PixVerse",
+        "term": "PixVerse",
+        "category": "ai-products"
+      },
+      {
+        "id": "sand-models",
+        "label": "Sand.ai",
+        "term": "Sand.ai",
+        "category": "ai-models"
+      }
+    ]
+  }
 }
