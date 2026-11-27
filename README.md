@@ -81,3 +81,6 @@ python3 scripts/audit_model_completeness.py
 | `archive/` | 历史研究与退役材料，不作为运行时输入 |
 
 [维护入口](docs/README.md) · [历史归档](archive/README.md) · [MIT License](LICENSE)
+
+
+AIHOT 条件请求返回 304 时保留原下载时间，仅刷新成功验证时间，避免不必要的重复采集。发布采用已校验的精确 Pages artifact ID；同一数据提交只进行有限网络重试，不覆盖并发提交。

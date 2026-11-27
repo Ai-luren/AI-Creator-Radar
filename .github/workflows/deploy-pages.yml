@@ -10,6 +10,7 @@ on:
       - 'scripts/audit_model_completeness.py'
       - '.github/workflows/deploy-pages.yml'
       - 'scripts/wait_pages_artifact.sh'
+      - 'scripts/deploy_verified_pages.cjs'
       - 'scripts/publication_guard.py'
   workflow_dispatch:
     inputs:
@@ -90,6 +91,11 @@ jobs:
       - name: Deploy to GitHub Pages
         if: inputs.force || steps.publication.outputs.publication_status != 'current'
         id: deployment
-        uses: actions/deploy-pages@v5.0.1
+        uses: actions/github-script@v8
+        env:
+          PAGES_ARTIFACT_ID: ${{ steps.pages_upload.outputs.artifact_id }}
         with:
-          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+          retries: 0
+          script: |
+            const deploy = require('./scripts/deploy_verified_pages.cjs')
+            await deploy({github, context, core, artifactId: process.env.PAGES_ARTIFACT_ID})

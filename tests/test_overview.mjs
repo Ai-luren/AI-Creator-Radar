@@ -243,7 +243,14 @@ test('release range and order persist in route',async()=>{
 });
 
 test('briefing category and practice links keep full resources accessible',async()=>{
- const {run,node}=setup();await run('loadAllForTests()');run("setView('feeds',{briefingTab:'combined',briefingCategory:'模型'})");assert.match(node('content').innerHTML,/aria-pressed="true" data-briefing-category="模型"/);assert.match(node('content').innerHTML,/完整摘要与来源/);
+ const {run,node}=setup({now:'2026-11-27T02:00:00Z'});await run('loadAllForTests()');
+ // New day with only a non-model selected article must show a legitimate empty filter.
+ run("state.aihotDaily={title:'AI 日报 2026-11-26',items:[]};state.juyaDaily={title:'AI 早报 2026-11-26',items:[]};state.aihot={items:[{title:'观点示例',selected:true,category:'opinion',publishedAt:'2026-11-27T00:00:00Z'}]};setView('feeds',{briefingTab:'combined',briefingCategory:'模型'})");
+ assert.match(node('content').innerHTML,/aria-pressed="true" data-briefing-category="模型"/);
+ assert.match(node('content').innerHTML,/当前筛选下暂无综合资讯/);
+ // Explicit same-day model fixture verifies the expandable summary and source link.
+ run("state.aihot.items.push({title:'模型发布示例',summary:'确定的摘要',selected:true,category:'ai-models',publishedAt:'2026-11-27T01:00:00Z',links:{original:'https://example.com/model'}});render()");
+ assert.match(node('content').innerHTML,/完整摘要与来源/);assert.match(node('content').innerHTML,/https:\/\/example\.com\/model/);
  run("setView('practice',{modelPracticeType:'model'})");assert.doesNotMatch(node('content').innerHTML,/模型库详情 ↗/);assert.match(node('content').innerHTML,/模型库详情 →/);
 });
 

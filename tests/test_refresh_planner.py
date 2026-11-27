@@ -102,3 +102,23 @@ class RefreshPlannerTests(unittest.TestCase):
             self.assertTrue(plan(self.data, "schedule", now=self.now)["models"])
         path.write_text("invalid json", encoding="utf-8")
         self.assertTrue(plan(self.data, "schedule", now=self.now)["models"])
+
+
+    def test_successful_304_revalidates_selected_snapshot_without_changing_download_date(self):
+        self.stamp("selected", 120)
+        path = self.data / "aihot-items.json"
+        payload = json.loads(path.read_text())
+        original = payload["fetchedAt"]
+        payload.update(items=[], checkedAt=self.now.isoformat())
+        path.write_text(json.dumps(payload))
+        self.assertFalse(plan(self.data, "schedule", now=self.now)["selected"])
+        self.assertTrue(plan(self.data, "schedule", now=self.now + timedelta(minutes=25))["selected"])
+        self.assertEqual(json.loads(path.read_text())["fetchedAt"], original)
+        for invalid in ("bad", (self.now - timedelta(hours=3)).isoformat(), (self.now + timedelta(minutes=5)).isoformat()):
+            payload["checkedAt"] = invalid
+            path.write_text(json.dumps(payload))
+            self.assertTrue(plan(self.data, "schedule", now=self.now)["selected"])
+        payload["checkedAt"] = self.now.isoformat()
+        del payload["items"]
+        path.write_text(json.dumps(payload))
+        self.assertTrue(plan(self.data, "schedule", now=self.now)["selected"])
