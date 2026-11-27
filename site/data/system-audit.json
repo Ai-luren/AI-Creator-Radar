@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T01:41:10.461461+00:00",
+  "checkedAt": "2026-11-27T02:03:22.916352+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1193,10 +1193,10 @@
   },
   "sourceCoverage": {
     "reachableSources": 44,
-    "matchingModelSources": 37,
+    "matchingModelSources": 38,
     "recentDatedModelSources": 15,
-    "distinctMatchingEndpoints": 36,
-    "matchedFamilies": 44,
+    "distinctMatchingEndpoints": 37,
+    "matchedFamilies": 45,
     "recentDatedFamilies": 15,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
@@ -1212,7 +1212,6 @@
       "flux",
       "flux3-video",
       "gaga-1",
-      "gemini",
       "gemini-tts",
       "gpt-image",
       "grok-imagine-image",
