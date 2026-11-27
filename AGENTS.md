@@ -53,3 +53,12 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Keep retired broad-news code/config/tests under the historical archive, not the active collector directories. Run the repository hygiene tests with the normal Python suite; validate current documentation links and do not revive obsolete data outputs.
 
 - P1 event reconciliation is a shadow layer: preserve historical evidence and real original verification times; distinguish article, lifecycle and canonical release facts. Related leads only prioritize existing probes; never invent a source or promote a reported date. Keep fixed benchmark metrics unchanged. See docs/model-data-contract.md.
+
+
+## Source strategy
+
+- Optimize effective event coverage, not HTTP success or source count. When an endpoint is denied, empty or repeatedly unproductive, prefer genuinely independent permitted alternatives and reuse existing aggregated clues before writing new scrapers.
+- Use AIHOT and other aggregators for discovery, not canonical release truth. Respect their published access and reuse rules; do not mirror or bulk redistribute. Prefer targeted queries, original publisher links, conditional requests and bounded retry; independently validate model identity, date and stage.
+- Before adding a collector or audit layer, compare a configuration change, a reused adapter, and simpler cross-domain approaches. Measure unique verified contribution, latency and request/maintenance cost; remove only demonstrably redundant routes, preserve evidence and negative controls. Do not repeatedly repair one blocked URL when an equivalent publisher source works.
+
+- Prefer AIHOT for model/industry discovery, AIPick for creator-oriented complementary discovery, and Juya or direct official sources for gaps. Shared framework or a repeated original URL never constitutes an independent confirmation. Reuse one adapter and shared budget rather than duplicate collectors. Free public reading APIs do not authorize wholesale public redistribution; keep new aggregator use bounded to original links and separately verified facts.
