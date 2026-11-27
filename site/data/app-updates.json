@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T04:47:48+00:00",
+  "checkedAt": "2026-11-27T05:17:54+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -23,10 +23,10 @@
       "lastSuccessAt": null,
       "error": "ValueError: Expected app navigation absent; login, client-rendered shell or changed template",
       "status": "probe-unavailable",
-      "checkedAt": "2026-11-27T04:12:48+00:00",
-      "deferred": true,
-      "consecutiveFailures": 1,
-      "nextAttemptAt": "2026-11-27T05:12:48.474018+00:00",
+      "checkedAt": "2026-11-27T05:17:54+00:00",
+      "deferred": false,
+      "consecutiveFailures": 2,
+      "nextAttemptAt": "2026-11-27T07:17:54.298282+00:00",
       "type": "visible-model-labels"
     },
     {
@@ -60,7 +60,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T04:47:48+00:00",
+    "checkedAt": "2026-11-27T05:17:54+00:00",
     "queries": [
       {
         "id": "jimeng-products",
