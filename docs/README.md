@@ -30,7 +30,7 @@
 
 - **模型**：`models.json`、`model-updates.json`、`model-monitor-*.json`、`model-evaluations.json`、`model-practice.json`、`model-resource-status.json`、`model-releases-30d.json`。
 - **榜单**：`rankings.json`、`ranking-sources.json`、`reference-rankings.json`、`maomu-rankings.json`、`leaderboard-reference-snapshots.json`、`unified-rankings.json`。
-- **简报与动态**：`aihot-*.json`、`juya-daily.json`、`feed-items.json`、`news-today.json`、`topics.json`、`chronicle-updates-status.json`。
+- **简报与动态**：`aihot-*.json`、`juya-daily.json`、`feed-items.json`、`topics.json`、`chronicle-updates-status.json`。
 - **创作资源**：`aipick-data.json`、`awesome-repos.json`、`tutorials.json`、`resource-sources.json`、`resource-status.json`。
 - **创作机会**：`creator-contests.json`、`creator-link-status.json`、`creator-opportunity-discovery.json`。
 - **官方社媒**：`social-accounts.json`、`social-platforms.json`、`social-trends.json`。
@@ -59,3 +59,4 @@ Cloudflare 已部署为正式备用调度器，首次生产补采及 Pages 发�
 ## 仓库卫生
 
 现行文档相对文件链接与退役采集器隔离由 Python 回归测试自动检查。旧版综合新闻采集器及配套材料见 [历史归档](../archive/legacy-news/README.md)，不在生产任务或发布包中运行。
+旧版 `site/data/news-today.json` 快照暂保留用于历史追溯，不参与现行简报或全局检索的数据加载；迁移或删除快照须先核查外部引用。
