@@ -13,13 +13,15 @@ from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 try:
     from scripts.collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date,
+        access_fault_domain, access_fault_code, access_retry_at)
     from scripts.collect_cross_platform import article_url
     from scripts.collect_release_recall import url_key, article_day_stamp
     from scripts.collect_source_search import augment_discovery
 except ModuleNotFoundError:
     from collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date,
+        access_fault_domain, access_fault_code, access_retry_at)
     from collect_cross_platform import article_url
     from collect_release_recall import url_key, article_day_stamp
     from collect_source_search import augment_discovery
@@ -231,6 +233,24 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
             if key in queue and set(candidate.get("supportingLeadIds", [])) & queue[key]["leadIds"]:
                 related_counts.setdefault(key, set()).add(lead["id"])
     previous_rows = {r["urlKey"]: r for r in previous.get("items", [])}
+    # Preserve observed failures across process runs, never refresh their clocks
+    # for skipped requests. A locale sibling shares the same access fault domain.
+    domains = {}
+    def remember_fault(domain, record):
+        try:
+            until = datetime.fromisoformat(str(record.get("blockedUntil") or "").replace("Z", "+00:00"))
+            if until.tzinfo and until > now and access_fault_code(record.get("error")):
+                prior = domains.get(domain)
+                if not prior or until > prior[0]:
+                    domains[domain] = (until, record)
+        except (ValueError, TypeError, AttributeError):
+            pass
+    for domain, record in previous.get("accessFaultDomains", {}).items():
+        remember_fault(domain, record)
+    for old in previous_rows.values():
+        if old.get("status") == "fetch-failed" and access_fault_code(old.get("error")) and old.get("url"):
+            remember_fault(access_fault_domain(old["url"]), {"blockedUntil": old.get("nextAttemptAt"),
+                           "error": old["error"], "sourceUrl": old["url"], "observedAt": old.get("checkedAt")})
     def due(key):
         old = previous_rows.get(key, {})
         return (not old.get("nextAttemptAt") or old["nextAttemptAt"] <= stamp
@@ -244,24 +264,32 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
     new = [key for key in eligible if key not in previous_rows]
     retries = sorted((key for key in eligible if key in previous_rows), key=lambda k: previous_rows[k].get("nextAttemptAt") or "")
     # Prevent a continuous stream of new leads from starving deferred evidence.
-    selected = new[:8] + retries[:4]
-    selected += [key for key in eligible if key not in selected][:MAX_PROBES-len(selected)]
+    priority = new[:8] + retries[:4]
+    priority += [key for key in eligible if key not in priority]
     def probe(key):
         task, old = queue[key], previous_rows.get(key, {})
         request_url = choose_article_url(task, old, config)
+        access_error = None
         try:
             outcome = parse_article(fetcher(request_url), request_url, sorted(task["titles"]), sources, catalog, now)
         except (OSError, ValueError, TypeError) as exc:
             outcome = {"status": "fetch-failed", "error": f"{type(exc).__name__}: {str(exc)[:180]}"}
+            if access_fault_code(exc):
+                access_error = exc
         state = outcome["status"]
         failures = 0 if state == "article-date-verified" else int(old.get("consecutiveUnresolved", 0)) + 1
         delay = 24 * 60 if state in {"article-date-verified", "not-model-announcement", "outside-current-window"} else min(24 * 60, 30 * 2 ** min(failures, 6))
+        next_attempt = now + timedelta(minutes=delay)
+        if access_error is not None:
+            if access_fault_code(access_error) == 429:
+                next_attempt = max(next_attempt, now + timedelta(hours=6))
+            next_attempt = access_retry_at(access_error, now, next_attempt)
         row = {"id": "recovery-" + hashlib.sha256(key.encode()).hexdigest()[:20], "urlKey": key, "url": request_url,
                "leadIds": sorted(task["leadIds"]), "discoverySourceIds": sorted(task["sourceIds"]),
                "titleHintsChecked": sorted(task["titles"]), "resolverRevision": RESOLVER_REVISION,
                "reportedDates": sorted(task["reportedDates"]), "checkedAt": stamp,
                "firstAttemptAt": old.get("firstAttemptAt", stamp), "consecutiveUnresolved": failures,
-               "nextAttemptAt": (now + timedelta(minutes=delay)).isoformat(timespec="seconds"), **outcome}
+               "nextAttemptAt": next_attempt.isoformat(timespec="seconds"), **outcome}
         if state == "article-date-verified":
             row["firstVerifiedAt"] = old.get("firstVerifiedAt") or (old.get("lastVerifiedObservation") or {}).get("firstVerifiedAt") or stamp
         # Preserve last confirmed observation on transient failure without claiming a new successful read.
@@ -271,16 +299,48 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
                 prior["publisherReleaseStatement"] = old["publisherReleaseStatement"]
             row["lastVerifiedObservation"] = prior
         return key, row
+    # Schedule one request per access domain in each wave. A denied domain
+    # relinquishes its remaining budget to independent channels in this run.
+    current = {}
+    deferred = set()
+    remaining = list(priority)
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-        current = dict(pool.map(probe, selected))
+        while remaining and len(current) < MAX_PROBES:
+            wave = []
+            wave_domains = set()
+            keep = []
+            capacity = min(4, MAX_PROBES - len(current))
+            for key in remaining:
+                domain = access_fault_domain(choose_article_url(queue[key], previous_rows.get(key, {}), config))
+                if domain in domains:
+                    deferred.add(key)
+                elif len(wave) < capacity and domain not in wave_domains:
+                    wave.append(key)
+                    wave_domains.add(domain)
+                else:
+                    keep.append(key)
+            remaining = keep
+            if not wave:
+                break
+            for key, row in pool.map(probe, wave):
+                current[key] = row
+                if row.get("status") == "fetch-failed" and access_fault_code(row.get("error")):
+                    domain = access_fault_domain(row["url"])
+                    remember_fault(domain, {"blockedUntil": row["nextAttemptAt"], "error": row["error"],
+                                           "sourceUrl": row["url"], "observedAt": row["checkedAt"]})
+    # Count skipped URLs even when they were not due individually.
+    deferred.update(key for key in queue if key not in current and
+                    access_fault_domain(choose_article_url(queue[key], previous_rows.get(key, {}), config)) in domains)
     rows = [current.get(key) or previous_rows[key] for key in ordered if key in current or key in previous_rows]
-    counts = {"uniqueOfficialUrls": len(queue), "attempted": len(selected),
+    counts = {"uniqueOfficialUrls": len(queue), "attempted": len(current), "accessDomainDeferred": len(deferred),
               "articleDateVerified": sum(r["status"] == "article-date-verified" for r in rows),
               "newlyCheckedVerified": sum(r["status"] == "article-date-verified" for r in current.values()),
               "awaitingProbe": len(queue) - len(rows),
               "unresolved": sum(r["status"] not in {"article-date-verified", "not-model-announcement", "outside-current-window"} for r in rows),
               "notAnnouncement": sum(r["status"] == "not-model-announcement" for r in rows)}
-    return {"schema": "lead-resolution/v1", "checkedAt": stamp, "summary": counts, "items": rows[:500]}
+    return {"schema": "lead-resolution/v1", "checkedAt": stamp, "summary": counts, "items": rows[:500],
+            "accessFaultDomains": {k: record for k, (_, record) in sorted(domains.items())},
+            "deferredAccessDomainUrls": sorted(deferred)}
 
 
 def candidate_rows(resolution):
