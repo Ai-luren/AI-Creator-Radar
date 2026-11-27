@@ -156,6 +156,8 @@ jobs:
           RESOURCES_BATCH: ${{ steps.resources_batch.outcome }}
           MAINTENANCE_BATCH: ${{ steps.maintenance_batch.outcome }}
           RADAR_RUN_ID: ${{ github.run_id }}
+          RADAR_EVENT: ${{ github.event_name }}
+          RADAR_RUN_ATTEMPT: ${{ github.run_attempt }}
         run: python scripts/collection_health.py --critical-output --output "$GITHUB_OUTPUT" --summary "$GITHUB_STEP_SUMMARY"
 
       - name: Reconcile derived release digest after all upstream writes

@@ -84,3 +84,36 @@ class CollectionHealthTests(unittest.TestCase):
         self.assertEqual(state["sources"]["models-batch"]["consecutiveFailures"], 0)
         state, alerts = update_health(state, {"models-batch": "failure"}, "new", "run-4")
         self.assertEqual(state["sources"]["models-batch"]["consecutiveFailures"], 1)
+
+
+    def test_production_episode_persists_after_scheduled_recovery(self):
+        state,_=update_health({},{"models-batch":"failure"},"2026-11-27T06:00:00+00:00","100","schedule","1")
+        state,_=update_health(state,{"models-batch":"failure"},"2026-11-27T06:01:00+00:00","100","schedule","2")
+        self.assertEqual(state["incidentSummary"]["observedIncidents"],1)
+        self.assertEqual(len(state["incidents"][0]["failedRunIds"]),1)
+        self.assertEqual(len(state["incidents"][0]["failedAttempts"]),2)
+        state,_=update_health(state,{"models-batch":"skipped"},"2026-11-27T06:05:00+00:00","101","schedule","1")
+        self.assertEqual(state["incidentSummary"]["openIncidents"],1)
+        state,_=update_health(state,{"models-batch":"success"},"2026-11-27T06:30:00+00:00","102","schedule","1")
+        self.assertEqual(state["incidentSummary"]["closedIncidents"],1)
+        self.assertEqual(state["incidentSummary"]["scheduledRecoveries"],1)
+        self.assertEqual(state["incidentSummary"]["maxRecoverySeconds"],1800)
+        self.assertEqual(state["sources"]["models-batch"]["consecutiveFailures"],0)
+        self.assertEqual(state["incidents"][0]["openedAt"],"2026-11-27T06:00:00+00:00")
+
+    def test_dispatch_is_not_automatically_certified_and_legacy_is_not_new(self):
+        state,_=update_health({},{"aihot-daily":"failure"},"2026-11-27T01:00:00+00:00")
+        state,_=update_health(state,{"aihot-daily":"success"},"2026-11-27T02:00:00+00:00","200","workflow_dispatch","1")
+        self.assertEqual(state["incidentSummary"]["leftCensoredIncidents"],1)
+        self.assertEqual(state["incidentSummary"]["observedIncidents"],0)
+        self.assertIsNone(state["incidentSummary"]["scheduledRecoveryShareOfClosed"])
+        state,_=update_health(state,{"aihot-daily":"failure"},"2026-11-27T03:00:00+00:00","201","schedule","1")
+        state,_=update_health(state,{"aihot-daily":"success"},"2026-11-27T04:00:00+00:00","202","workflow_dispatch","1")
+        self.assertEqual(state["incidentSummary"]["observedIncidents"],1)
+        self.assertEqual(state["incidentSummary"]["scheduledRecoveries"],0)
+        self.assertEqual(state["incidentSummary"]["otherOrUnknownTriggerRecoveries"],1)
+
+    def test_empty_production_cohort_is_not_perfect_recovery(self):
+        state,_=update_health({},{"models-batch":"success"},"2026-11-27T06:00:00+00:00","300","push","1")
+        self.assertEqual(state["incidentSummary"]["observedIncidents"],0)
+        self.assertIsNone(state["incidentSummary"]["scheduledRecoveryShareOfClosed"])
