@@ -53,6 +53,17 @@ class PrimaryRankingProjectionTests(unittest.TestCase):
             for board in category.get("primaryLeaderboards", {}).values():
                 self.assertIsNone(board)
 
+    def test_missing_video_task_does_not_break_other_task(self):
+        inputs = copy.deepcopy(self.inputs)
+        inputs["primary"].pop("aa-video-i2v-audio-20261125")
+        candidate = project(inputs, self.aliases, self.keys,
+                            self.families, self.identity_inputs)
+        video = next(row for row in candidate["categories"] if row["id"] == "video")
+        self.assertIsNone(video["primaryLeaderboards"]["image-to-video-audio"])
+        self.assertTrue(video["primaryLeaderboard"]["rows"])
+        self.assertTrue(all("modelLinkStatus" in row for row in video["primaryLeaderboard"]["rows"]))
+        self.assertEqual(video["primaryLeaderboard"], video["primaryLeaderboards"]["text-to-video-audio"])
+
 
 if __name__ == "__main__":
     unittest.main()
