@@ -1,11 +1,11 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-27T09:06:02+00:00",
+  "checkedAt": "2026-11-27T09:51:05+00:00",
   "service": {
-    "lastAttemptAt": "2026-11-27T03:17:22+00:00",
+    "lastAttemptAt": "2026-11-27T09:51:05+00:00",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
-    "consecutiveFailures": 1,
-    "nextAttemptAt": "2026-11-27T09:17:22.562668+00:00"
+    "consecutiveFailures": 2,
+    "nextAttemptAt": "2026-11-27T15:51:05.628515+00:00"
   },
   "targets": [
     {
@@ -28,7 +28,7 @@
           "sourceRecordId": "openai|openai/gpt-image-2.6-flare",
           "sourceId": "openrouter-images",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -49,10 +49,13 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         }
-      ]
+      ],
+      "lastAttemptAt": "2026-11-27T09:51:05+00:00",
+      "status": "index-unavailable",
+      "nextAttemptAt": "2026-11-27T15:51:05.628515+00:00"
     },
     {
       "id": "1aff7a8d28b89ea8bec8d39356d74a73ae3cbbb72e2c9c0ed82bf9723ae8ead9",
@@ -82,7 +85,7 @@
           "sourceRecordId": "google|gemini-4-hydrogen",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-12",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -93,7 +96,7 @@
           "sourceRecordId": "google|google/gemini-4-hydrogen",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -104,7 +107,7 @@
           "sourceRecordId": "google|google/gemini-4-hydrogen:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -125,7 +128,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:02:31Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -135,7 +138,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -251,7 +254,7 @@
           "sourceRecordId": "openai|gpt-6.1-terra",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-10-26",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -262,7 +265,7 @@
           "sourceRecordId": "openai|openai/gpt-6.1-terra",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -273,7 +276,7 @@
           "sourceRecordId": "openai|openai/gpt-6.1-terra:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -294,7 +297,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -319,7 +322,7 @@
           "sourceRecordId": "google|gemini-4-argon",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-10-13",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -330,7 +333,7 @@
           "sourceRecordId": "google|google/gemini-4-argon",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -341,7 +344,7 @@
           "sourceRecordId": "google|google/gemini-4-argon:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -371,7 +374,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T08:17:32Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -396,7 +399,7 @@
           "sourceRecordId": "openai|openai/gpt-image-2.6-sunburst",
           "sourceId": "openrouter-images",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -417,7 +420,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -443,7 +446,7 @@
           "sourceRecordId": "openai|gpt-6.2-astra",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-17",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -454,7 +457,7 @@
           "sourceRecordId": "openai|gpt-6.2-astra-healthcare",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-24",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -465,7 +468,7 @@
           "sourceRecordId": "openai|openai/gpt-6.2-astra",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -476,7 +479,7 @@
           "sourceRecordId": "openai|openai/gpt-6.2-astra:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -497,7 +500,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -540,7 +543,7 @@
           "sourceRecordId": "anthropic|claude-fable-5-2",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-09",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -551,7 +554,7 @@
           "sourceRecordId": "anthropic|anthropic/claude-fable-5.2",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -562,7 +565,7 @@
           "sourceRecordId": "anthropic|anthropic/claude-fable-5.2:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -624,7 +627,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:02:31Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -668,7 +671,7 @@
           "sourceRecordId": "google|gemini-4-neon",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-18",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -679,7 +682,7 @@
           "sourceRecordId": "google|google/gemini-4-neon",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -690,7 +693,7 @@
           "sourceRecordId": "google|google/gemini-4-neon:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -711,7 +714,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -721,7 +724,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:02:31Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -731,7 +734,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T08:17:32Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -756,7 +759,7 @@
           "sourceRecordId": "google|google/gemini-omni-1.2-flash",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -777,7 +780,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T08:17:32Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -839,7 +842,7 @@
           "sourceRecordId": "openai|gpt-6.2-sol",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-17",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -850,7 +853,7 @@
           "sourceRecordId": "openai|gpt-6.2-sol-healthcare",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-24",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -861,7 +864,7 @@
           "sourceRecordId": "openai|openai/gpt-6.2-sol",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -872,7 +875,7 @@
           "sourceRecordId": "openai|openai/gpt-6.2-sol:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -893,7 +896,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -927,7 +930,7 @@
           "sourceRecordId": "google|gemini-4-carbon",
           "sourceId": "models-dev",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": "2026-11-10",
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -938,7 +941,7 @@
           "sourceRecordId": "google|google/gemini-4-carbon",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -949,7 +952,7 @@
           "sourceRecordId": "google|google/gemini-4-carbon:batch",
           "sourceId": "openrouter-models",
           "assertedDate": null,
-          "originalVerificationAt": "2026-11-27T07:36:59+00:00",
+          "originalVerificationAt": "2026-11-27T09:06:05+00:00",
           "reportedReleaseDate": null,
           "firstObservedAt": "2026-11-27T03:11:31+00:00",
           "provenance": "product-catalog"
@@ -970,7 +973,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:02:31Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -980,7 +983,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T09:05:56+00:00",
+          "lastObservedAt": "2026-11-27T09:51:03+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -990,7 +993,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-27T08:17:32Z",
+          "lastObservedAt": "2026-11-27T09:47:40Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -998,10 +1001,10 @@
   ],
   "summary": {
     "activeTargets": 17,
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "targetStates": {
-      "awaiting-search": 16,
-      "index-unavailable": 1
+      "awaiting-search": 15,
+      "index-unavailable": 2
     },
     "targetsWithLocalContext": 15,
     "localContextRecords": 70,
@@ -1009,7 +1012,7 @@
     "indexReports": 0,
     "indexLastSuccessAt": null,
     "indexError": "HTTPError: HTTP Error 429: Too Many Requests",
-    "nextIndexAttemptAt": "2026-11-27T09:17:22.562668+00:00"
+    "nextIndexAttemptAt": "2026-11-27T15:51:05.628515+00:00"
   },
   "policy": "Search only unresolved observed names. Search hits and index observation times are not release facts, and mirrors are not independent official sources."
 }

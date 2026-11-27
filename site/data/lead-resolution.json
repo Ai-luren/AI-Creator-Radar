@@ -1,9 +1,9 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T09:06:04+00:00",
+  "checkedAt": "2026-11-27T09:51:20+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
-    "attempted": 0,
+    "attempted": 1,
     "articleDateVerified": 8,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
@@ -527,14 +527,14 @@
         "Niji V8",
         "Welcome to Niji 8!"
       ],
-      "resolverRevision": 3,
+      "resolverRevision": 4,
       "reportedDates": [
         "2026-11-24"
       ],
-      "checkedAt": "2026-11-27T01:32:47+00:00",
+      "checkedAt": "2026-11-27T09:51:20+00:00",
       "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-27T09:32:47+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-28T01:51:20+00:00",
       "status": "fetch-failed",
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
