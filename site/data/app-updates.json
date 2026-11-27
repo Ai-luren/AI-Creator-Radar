@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T22:33:00+00:00",
+  "checkedAt": "2026-11-27T23:17:48+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -45,17 +45,17 @@
           "category": "app",
           "claimType": "first-party-store-version",
           "firstObservedAt": "2026-11-27T04:20:20+00:00",
-          "lastObservedAt": "2026-11-27T16:48:03+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         }
       },
-      "checkedAt": "2026-11-27T16:48:03+00:00",
-      "lastSuccessAt": "2026-11-27T16:48:03+00:00",
+      "checkedAt": "2026-11-27T23:17:48+00:00",
+      "lastSuccessAt": "2026-11-27T23:17:48+00:00",
       "status": "observed",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T22:48:03.254277+00:00"
+      "nextAttemptAt": "2026-11-28T05:17:48.414578+00:00"
     },
     {
       "id": "higgsfield-changelog",
@@ -85,7 +85,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "36bca30f42738e865dce3c748317f1b0ae6a9c369328beb082f50b388e4d4969": {
@@ -97,7 +97,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "ae0d20c2266a423c2e762003ccffc8d4f1054ec14068702f6be67b5789514699": {
@@ -109,7 +109,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "33ac2ee61ce9c72d040f7caa7127b5353fa866269882c22bb7ac6532a1341d0e": {
@@ -121,7 +121,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "867d2ffecf84da5ae5b346f7cac1881dd3d4c686423743a5f93cc7ed79f20e79": {
@@ -133,7 +133,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "7e40fcc58809982830c01e54b2cdb31dbbbd9337da32b65a457e40b469d6e332": {
@@ -145,7 +145,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "52f183ff576e5c6f6a199bbbda6a3749cb370e09528de018ae8d4225ee239937": {
@@ -157,7 +157,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "66450b0719ee01d9ee133065d8315786e660bdf026d102aafee34517582a2cdd": {
@@ -169,7 +169,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "d3d01bc6c266ae43fc0c14bc756b19f7fb246bd25feb92dc39ffffd298bf493a": {
@@ -181,7 +181,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "33a020f1b0690d1e2b8e6134829b11e6b0e9c36c2273e46c6efb3f3e40900a64": {
@@ -193,7 +193,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "da786fca769cfb3e47747fcf73302b8bbc8dbc208f67f397f201e27d408cb815": {
@@ -205,7 +205,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "6c7f672210dc3ad7c6b6bc6e67cebb6954f85d74f2b640cbc907d643d5c7fc5c": {
@@ -217,7 +217,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "a4b9e358efbb0912bd84b83bf5ba4864b7bae0dbf942a6580dab10f24ca8a7f7": {
@@ -229,7 +229,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "0212cd750112006a5b4007078cd23a0b7add9d9c3770b94c4da2e020173d7e1e": {
@@ -241,7 +241,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "58f10009d20e020388e9d8835c5806c166832f82dddf6c84c441aa13a4290667": {
@@ -253,7 +253,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "cf9994cc13605ece94da96b8b9fd9f7700e4577c8f6e9447ad3630951d6b303f": {
@@ -265,7 +265,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "e5c9a9ba0e9cfda062027f3e152c4755de366cf92bcd56e0f36f5d2124ac3231": {
@@ -277,7 +277,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "f514eca393a9cd09a565a6f98b325740a712081acc8b459113d414ab5b3908a7": {
@@ -289,7 +289,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "aaf0add2b80d17b810dc8195e14e69dee92408f1fc35f38a1f04865c251f8e41": {
@@ -301,7 +301,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "ea755cfdeee8f0528cd5f7539dc2ea68bfc10c4d1588534f3bb2c294d4cc4bb5": {
@@ -313,7 +313,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "940808b0e1af62316c2249d2673d9c706bf636e563f235fe5a60503a3b51717c": {
@@ -325,7 +325,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "edb57e1a89e0b6282596cf554140205ac92f9cbcbfb4673510c693f0df7fe9a6": {
@@ -337,7 +337,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "82891f9f6806ce9af35a7cc85358768afdab17228014cc6ea6b4bf7d6374dcd7": {
@@ -349,7 +349,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "8be03a1eb9945a4fc53bf5b3b1f7cae5acb5dbacf817269e595aa1ecab6a9f65": {
@@ -361,7 +361,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T18:32:38+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         },
         "ecfb15a4e339844ce2ad16efef142378149d1be1d4649b5be92c506bc2171542": {
@@ -385,22 +385,22 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-27T22:33:00+00:00",
-          "lastObservedAt": "2026-11-27T22:33:00+00:00",
+          "lastObservedAt": "2026-11-27T23:17:48+00:00",
           "visibleInLatestRead": true
         }
       },
-      "checkedAt": "2026-11-27T22:33:00+00:00",
-      "lastSuccessAt": "2026-11-27T22:33:00+00:00",
+      "checkedAt": "2026-11-27T23:17:48+00:00",
+      "lastSuccessAt": "2026-11-27T23:17:48+00:00",
       "status": "observed",
       "error": null,
       "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T23:03:00.887543+00:00"
+      "nextAttemptAt": "2026-11-27T23:47:48.414578+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T22:33:00+00:00",
+    "checkedAt": "2026-11-27T23:17:48+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -469,7 +469,7 @@
         "label": "海螺",
         "term": "海螺",
         "category": "ai-products",
-        "lastAttemptAt": "2026-11-27T13:47:55+00:00",
+        "lastAttemptAt": "2026-11-27T23:17:48+00:00",
         "counts": {
           "items": 0,
           "wechatOriginalLinks": 0,
@@ -481,9 +481,9 @@
         "countsObservedAt": "2026-11-27T04:20:20+00:00",
         "status": "unchanged",
         "etag": "W/\"v1-items-2b8b117a0b96c97f\"",
-        "lastSuccessAt": "2026-11-27T13:47:55+00:00",
+        "lastSuccessAt": "2026-11-27T23:17:48+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T19:47:55.652497+00:00"
+        "nextAttemptAt": "2026-11-28T05:17:48.414578+00:00"
       },
       {
         "id": "vidu-products",
@@ -552,10 +552,10 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T21:47:54+00:00",
-      "nextAttemptAt": "2026-11-27T22:47:54.120721+00:00"
+      "lastSuccessAt": "2026-11-27T23:17:48+00:00",
+      "nextAttemptAt": "2026-11-28T00:17:48.414578+00:00"
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -981,7 +981,7 @@
   ],
   "summary": {
     "configuredSources": 3,
-    "successfulThisRun": 1,
+    "successfulThisRun": 2,
     "baselineSources": 2,
     "listedModels": 0,
     "reviewedObservations": 1

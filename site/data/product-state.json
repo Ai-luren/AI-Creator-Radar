@@ -1,6 +1,6 @@
 {
   "schema": "product-state/v1",
-  "checkedAt": "2026-11-27T22:33:01+00:00",
+  "checkedAt": "2026-11-27T23:17:49+00:00",
   "sources": [
     {
       "id": "models-dev",
@@ -2064,12 +2064,12 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T21:47:56+00:00",
-      "lastSuccessAt": "2026-11-27T21:47:56+00:00",
+      "checkedAt": "2026-11-27T23:17:49+00:00",
+      "lastSuccessAt": "2026-11-27T23:17:49+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T22:47:56.085713+00:00",
+      "nextAttemptAt": "2026-11-28T00:17:49.761826+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5149,15 +5149,15 @@
             "providerRecordCreatedAt": "2025-07-25T13:19:17+00:00"
           },
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
-          "missingChecks": 1
+          "missingChecks": 2
         }
       },
-      "checkedAt": "2026-11-27T21:47:56+00:00",
-      "lastSuccessAt": "2026-11-27T21:47:56+00:00",
+      "checkedAt": "2026-11-27T23:17:49+00:00",
+      "lastSuccessAt": "2026-11-27T23:17:49+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T22:47:56.085713+00:00",
+      "nextAttemptAt": "2026-11-28T00:17:49.761826+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5500,16 +5500,37 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T21:47:56+00:00",
-      "lastSuccessAt": "2026-11-27T21:47:56+00:00",
+      "checkedAt": "2026-11-27T23:17:49+00:00",
+      "lastSuccessAt": "2026-11-27T23:17:49+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T22:47:56.085713+00:00",
+      "nextAttemptAt": "2026-11-28T00:17:49.761826+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     }
   ],
   "events": [
+    {
+      "id": "31f1e98a08484e9e43515de2444939630bf02676bcd73d8c157b2bb5813a4920",
+      "sourceId": "openrouter-models",
+      "sourceUrl": "https://openrouter.ai/api/v1/models",
+      "attribution": {
+        "name": "OpenRouter",
+        "url": "https://openrouter.ai/docs/api/api-reference/models/get-models"
+      },
+      "eventType": "absent-from-catalog",
+      "observedAt": "2026-11-27T23:17:49+00:00",
+      "productKey": "qwen|qwen/qwen3-235b-a22b-thinking-2507",
+      "product": {
+        "providerId": "qwen",
+        "productId": "qwen/qwen3-235b-a22b-thinking-2507",
+        "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+        "providerRecordCreatedAt": "2025-07-25T13:19:17+00:00"
+      },
+      "previousProduct": null,
+      "identity": null,
+      "claimType": "catalog-observation"
+    },
     {
       "id": "c431da093c49c817705484ed5535050bd5aa660b3e4e8e5ac349d94ed8864292",
       "sourceId": "models-dev",
@@ -5938,9 +5959,9 @@
   "summary": {
     "configuredSources": 3,
     "sourcesWithBaseline": 3,
-    "successfulThisRun": 0,
-    "newEvents": 0,
-    "retainedEvents": 17,
+    "successfulThisRun": 3,
+    "newEvents": 1,
+    "retainedEvents": 18,
     "listedEntries": 544
   },
   "policy": "Public catalog observations only; never equate provider creation, reported metadata, first observation, addition or absence with formal launch, availability or withdrawal."
