@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T03:18:09.781964+00:00",
+  "checkedAt": "2026-11-27T03:23:51.924762+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1129,11 +1129,11 @@
   },
   "sourceCoverage": {
     "reachableSources": 45,
-    "matchingModelSources": 39,
-    "recentDatedModelSources": 16,
-    "distinctMatchingEndpoints": 38,
-    "matchedFamilies": 49,
-    "recentDatedFamilies": 16,
+    "matchingModelSources": 37,
+    "recentDatedModelSources": 15,
+    "distinctMatchingEndpoints": 36,
+    "matchedFamilies": 44,
+    "recentDatedFamilies": 15,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -1148,6 +1148,8 @@
       "flux",
       "flux3-video",
       "gaga-1",
+      "gemini",
+      "gemini-tts",
       "gpt-image",
       "grok-imagine-image",
       "hailuo",
@@ -1161,6 +1163,7 @@
       "kling-image",
       "llama",
       "ltx",
+      "lyria",
       "magi-1",
       "mai-code",
       "mai-image",
@@ -1168,6 +1171,7 @@
       "mimo",
       "minimax-llm",
       "muse-video",
+      "nano-banana",
       "ovhcloud-olala",
       "prismml-bonsai",
       "recraft",
@@ -1179,6 +1183,7 @@
       "skyreels-v4",
       "step-5",
       "stepaudio-3-tts",
+      "veo",
       "workbuddy"
     ],
     "fallbackSources": 5
@@ -1194,8 +1199,8 @@
     "dateConflicts": 0
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T03:17:20+00:00",
-    "resolutionCheckedAt": "2026-11-27T03:17:35+00:00",
+    "discoveryCheckedAt": "2026-11-27T03:23:22+00:00",
+    "resolutionCheckedAt": "2026-11-27T03:23:25+00:00",
     "leadCount": 74,
     "counts": {
       "article-date-observed": 5,
@@ -2169,11 +2174,25 @@
     ],
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
+  "eventClaims": {
+    "checkedAt": "2026-11-27T03:23:26+00:00",
+    "summary": {
+      "claims": 16,
+      "newClaims": 16,
+      "byType": {
+        "announcement-statement": 2,
+        "article-publication": 14
+      },
+      "currentSuccessfulObservations": 9,
+      "articleDateConflicts": 0,
+      "releaseStatementReviewCandidates": 0
+    }
+  },
   "sourceSearch": {
-    "checkedAt": "2026-11-27T03:17:22+00:00",
+    "checkedAt": "2026-11-27T03:23:24+00:00",
     "summary": {
       "activeTargets": 16,
-      "attemptedThisRun": 1,
+      "attemptedThisRun": 0,
       "targetStates": {
         "awaiting-search": 15,
         "index-unavailable": 1
@@ -2188,7 +2207,7 @@
     }
   },
   "productState": {
-    "checkedAt": "2026-11-27T03:17:36+00:00",
+    "checkedAt": "2026-11-27T03:23:25+00:00",
     "summary": {
       "configuredSources": 3,
       "sourcesWithBaseline": 3,
@@ -2199,7 +2218,7 @@
     }
   },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T03:17:37+00:00",
+    "checkedAt": "2026-11-27T03:23:26+00:00",
     "summary": {
       "evidenceCount": 324,
       "newEvidence": 0,

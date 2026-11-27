@@ -1,0 +1,468 @@
+{
+  "schema": "event-claims/v1",
+  "checkedAt": "2026-11-27T03:23:26+00:00",
+  "claims": [
+    {
+      "id": "claim-0c45f142be97a721c98631cdb5de969fabc199e53c61eeb070230710cf2dc2c6",
+      "fact": {
+        "modelFamilyId": "gpt-live",
+        "modelVersionId": "gpt-live-1-1",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "GPT-Live-1.1 is rolling out with new voices and better accents",
+        "sourceUrlKey": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+        "articlePublishedAt": "2026-10-15T19:11:50Z",
+        "publisherCalendarDay": "2026-10-15",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:openai-developer-announcements",
+          "sourceRecordId": "7da833b2efddae371a",
+          "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-3021000895e513ef308421e416260321878afc5a105c000fbeecc226eb113ebe",
+      "fact": {
+        "modelFamilyId": "glm",
+        "modelVersionId": "5-3-flash",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "GLM-5.3-Flash: More Intelligence with Less Compute",
+        "sourceUrlKey": "https://autoclaw.z.ai/en/blog/model/glm-5.3-flash",
+        "articlePublishedAt": "2026-11-19T05:23:56Z",
+        "publisherCalendarDay": "2026-11-19",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:zai-official-blog",
+          "sourceRecordId": "5a535246782e7978fb",
+          "sourceUrl": "https://autoclaw.z.ai/en/blog/model/glm-5.3-flash/",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-6069826715d5881b9b07065d1a84fd853201bb0bc4871318416bd80e4f15e3bf",
+      "fact": {
+        "modelFamilyId": "eleven-scribe",
+        "modelVersionId": "scribe-v3",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Introducing Scribe v3 and v3 Live, our most accurate speech to text models",
+        "sourceUrlKey": "https://elevenlabs.io/blog/scribe-v3",
+        "articlePublishedAt": "2026-11-10T12:00:00Z",
+        "publisherCalendarDay": "2026-11-10",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:elevenlabs-official-rss",
+          "sourceRecordId": "ef456e7b07534100f9",
+          "sourceUrl": "https://elevenlabs.io/blog/scribe-v3",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-6101145ee9339e14f7bfa1d7d68ef2cf5ab5f5ccae1f597094335ab05bd43bf5",
+      "fact": {
+        "modelFamilyId": "glm",
+        "modelVersionId": "5-4",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Meet GLM-5.4 in AutoClaw",
+        "sourceUrlKey": "https://autoclaw.z.ai/en/blog/model/GLM-5.4",
+        "articlePublishedAt": "2026-11-23T09:39:22Z",
+        "publisherCalendarDay": "2026-11-23",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:zai-official-blog",
+          "sourceRecordId": "e9050b86b978f082d4",
+          "sourceUrl": "https://autoclaw.z.ai/en/blog/model/GLM-5.4/",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-64e04e80d4f2555cc4719bb2cc8b0d347a68701f02fcc60d4e260ddfb2b1b83a",
+      "fact": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-neon",
+        "claimType": "announcement-statement",
+        "service": null,
+        "publisherTitle": "Introducing Gemini 4 Neon",
+        "sourceUrlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon",
+        "articlePublishedAt": "2026-11-18T00:00:00Z",
+        "publisherCalendarDay": "2026-11-18",
+        "eventDate": null,
+        "evidenceGrade": "official-dated-statement"
+      },
+      "firstObservedAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-be0aed2f51056a6d6c6f",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "firstObservedAt": "2026-11-26T17:23:36+00:00",
+          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+        }
+      ]
+    },
+    {
+      "id": "claim-7d564d1fb4f36bae0cbcee4652fe1eacf0827271d3264b1968311a9cc4072379",
+      "fact": {
+        "modelFamilyId": "kling-image",
+        "modelVersionId": "kling-image-4-0",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Meet Kling Image 4.0 | Stunningly realistic. Sharp. Precise",
+        "sourceUrlKey": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+        "articlePublishedAt": "2026-11-17T17:56:46Z",
+        "publisherCalendarDay": "2026-11-18",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-26T17:29:49+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:29:49+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-22d3b928da2e6e05e221",
+          "sourceUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all",
+          "firstObservedAt": "2026-11-26T17:29:49+00:00",
+          "lastObservedAt": "2026-11-26T17:29:49+00:00"
+        }
+      ]
+    },
+    {
+      "id": "claim-842c8d0266dc79d87402b63e2629b0654fd885e44324269daa48bfafd09870e9",
+      "fact": {
+        "modelFamilyId": "gemini-omni-flash",
+        "modelVersionId": "gemini-omni-flash-1-2",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+        "sourceUrlKey": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash",
+        "articlePublishedAt": "2026-11-05T17:00:00Z",
+        "publisherCalendarDay": "2026-11-05",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:google-official-feed",
+          "sourceRecordId": "b2cab39b783d8ad409",
+          "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-8a7ae463731be99a7ba6283d166630c58452aff8dda26612fd4c153bb57c0f0a",
+      "fact": {
+        "modelFamilyId": "gpt-live",
+        "modelVersionId": "gpt-live-1-1",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "GPT-Live-1.1 has arrived in the API",
+        "sourceUrlKey": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
+        "articlePublishedAt": "2026-11-20T04:12:19Z",
+        "publisherCalendarDay": "2026-11-20",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:openai-developer-announcements",
+          "sourceRecordId": "9b4e4228387e830531",
+          "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-8cb999b39b0d7a3de532d19d97e2af8e5841f6864ec76c7481e9f8def5a1ee48",
+      "fact": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-1",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+        "sourceUrlKey": "https://openai.com/index/devrev-enterprise-self-service",
+        "articlePublishedAt": "2026-11-04T00:00:00Z",
+        "publisherCalendarDay": "2026-11-04",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:openai-news",
+          "sourceRecordId": "8e450599cbb0276aac",
+          "sourceUrl": "https://openai.com/index/devrev-enterprise-self-service",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-903b95a7c6db24eb270db9ab937a3c3c20c6d0ca5991ecea792b96b5502f226e",
+      "fact": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-fable-5-2",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Claude Fable 5.2 and Mythos 5.2",
+        "sourceUrlKey": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+        "articlePublishedAt": "2026-11-09T00:00:00Z",
+        "publisherCalendarDay": "2026-11-09",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-1f23fe23a180f18b31eb",
+          "sourceUrl": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+          "firstObservedAt": "2026-11-26T17:23:36+00:00",
+          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+        }
+      ]
+    },
+    {
+      "id": "claim-96cfcb44e41270042fef9498b89fc3338b78f7667028fee93abff12290a5cd33",
+      "fact": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-astra",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Introducing GPT-6.2 Astra and Sol",
+        "sourceUrlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+        "articlePublishedAt": "2026-11-17T17:45:00Z",
+        "publisherCalendarDay": "2026-11-17",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:openai-news",
+          "sourceRecordId": "a72931a6134adb8d46",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-9db321c91e335c6bec9f45b51514addef152a4d18c1a06165842355b5821009d",
+      "fact": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-hydrogen",
+        "claimType": "announcement-statement",
+        "service": null,
+        "publisherTitle": "Introducing Gemini 4 Hydrogen",
+        "sourceUrlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen",
+        "articlePublishedAt": "2026-11-12T00:00:00Z",
+        "publisherCalendarDay": "2026-11-12",
+        "eventDate": null,
+        "evidenceGrade": "official-dated-statement"
+      },
+      "firstObservedAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-d7c21c501eb23f12ba47",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "firstObservedAt": "2026-11-26T17:23:36+00:00",
+          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+        }
+      ]
+    },
+    {
+      "id": "claim-bc292ab16be14ac54874c481360130ce72175975efdfe9846ebbf077e708019b",
+      "fact": {
+        "modelFamilyId": "seedream",
+        "modelVersionId": "seedream-5-5",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布",
+        "sourceUrlKey": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+        "articlePublishedAt": "2026-11-09T00:00:00Z",
+        "publisherCalendarDay": "2026-11-09",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T03:23:12Z",
+      "lastSuccessfulObservationAt": "2026-11-27T03:23:12Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:seed-official",
+          "sourceRecordId": "ddcbda59e5408a91b0",
+          "sourceUrl": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
+          "firstObservedAt": "2026-11-27T03:23:12Z",
+          "lastObservedAt": "2026-11-27T03:23:12Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-d7a53577293b9f3dd40e176423edf60bc8f1ca9673356ff7b0010f9f8bde5800",
+      "fact": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-fable-5-2",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Claude Fable 5.2 and Mythos 5.2",
+        "sourceUrlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "articlePublishedAt": "2026-11-09T00:00:00Z",
+        "publisherCalendarDay": "2026-11-09",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-a989f1582084d0cf153c",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "firstObservedAt": "2026-11-26T17:23:36+00:00",
+          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+        }
+      ]
+    },
+    {
+      "id": "claim-e546c1e5b7b8452b9f1ec28baae72a6871b54d19b92b1e2f6078281077073356",
+      "fact": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-carbon",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Gemini 4 Carbon is now available",
+        "sourceUrlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available",
+        "articlePublishedAt": "2026-11-10T00:00:00Z",
+        "publisherCalendarDay": "2026-11-10",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-26T17:29:49+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:29:49+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-5b4c18faabadfb3802c4",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "firstObservedAt": "2026-11-26T17:29:49+00:00",
+          "lastObservedAt": "2026-11-26T17:29:49+00:00"
+        }
+      ]
+    },
+    {
+      "id": "claim-eb7a1c1a910020566fa85bec573ce834af5b6f1daee41ea979eabae7bde51f2d",
+      "fact": {
+        "modelFamilyId": "eleven-scribe",
+        "modelVersionId": "scribe-v3-live-medical",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Scribe v3 Live Medical helps conversational agents get clinical details right",
+        "sourceUrlKey": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+        "articlePublishedAt": "2026-11-17T12:00:00Z",
+        "publisherCalendarDay": "2026-11-17",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-26T17:48:59+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:48:59+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-fe219a0393bdd31ef20b",
+          "sourceUrl": "https://elevenlabs.io/blog/scribe-v3-live-medical",
+          "firstObservedAt": "2026-11-26T17:48:59+00:00",
+          "lastObservedAt": "2026-11-26T17:48:59+00:00"
+        }
+      ]
+    }
+  ],
+  "articleDateConflicts": [],
+  "releaseStatementReviewCandidates": [],
+  "summary": {
+    "claims": 16,
+    "newClaims": 16,
+    "byType": {
+      "announcement-statement": 2,
+      "article-publication": 14
+    },
+    "currentSuccessfulObservations": 9,
+    "articleDateConflicts": 0,
+    "releaseStatementReviewCandidates": 0
+  },
+  "policy": "Dated publisher statements only; observation and article dates are not inferred event dates. URL/channel duplicates do not count as independent proof. Existing canonical records are not used to manufacture source recall or changed by this shadow layer."
+}
