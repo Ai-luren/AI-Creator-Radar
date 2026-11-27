@@ -59,4 +59,4 @@
 - Seedance 2.5：正式发布日为 2026-07-31（Seed 发布正文与字节跳动 Dreamina 同日公告）；原首页 2026-11-16 日期保留为原始观察，不进入正式上新。模型库与厂商历史链接同一审核记录。
 - Kling 2.1：原已核实的 2025-05 发布月份同步到型号历史阶段；不猜测具体日期，不计入精确日首发。
 - HunyuanVideo 1.5：独立仓库记载 2025-11-20 公开推理代码及权重，主仓库记载 2025-11-21 发布，保留冲突、暂不填正式首发日期。参考 https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5 和 https://github.com/Tencent-Hunyuan/HunyuanVideo 。
-- 增加 Seed 官方视觉分类索引 https://seed.bytedance.com/en/blog_list/visual 。该入口与 Seed 首页同属一个发布方，不能视作自动双源确认的独立证明。真实采集覆盖及固定样本召回仍须由运行记录确认。
+- 探测 Seed 官方视觉分类索引 https://seed.bytedance.com/en/blog_list/visual ：页面可访问但现有服务端采集器实跑匹配数为 0，因此不加入正式轮询。该入口与 Seed 首页同属一个发布方，不能视作独立双源证据。保留原有采集入口；真实有效覆盖与召回仍以运行记录为准。
