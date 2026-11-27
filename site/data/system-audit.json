@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T04:13:25.171499+00:00",
+  "checkedAt": "2026-11-27T04:20:54.784450+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1129,11 +1129,11 @@
   },
   "sourceCoverage": {
     "reachableSources": 45,
-    "matchingModelSources": 38,
-    "recentDatedModelSources": 15,
-    "distinctMatchingEndpoints": 37,
-    "matchedFamilies": 45,
-    "recentDatedFamilies": 15,
+    "matchingModelSources": 39,
+    "recentDatedModelSources": 16,
+    "distinctMatchingEndpoints": 38,
+    "matchedFamilies": 49,
+    "recentDatedFamilies": 16,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -1148,7 +1148,6 @@
       "flux",
       "flux3-video",
       "gaga-1",
-      "gemini-tts",
       "gpt-image",
       "grok-imagine-image",
       "hailuo",
@@ -1162,7 +1161,6 @@
       "kling-image",
       "llama",
       "ltx",
-      "lyria",
       "magi-1",
       "mai-code",
       "mai-image",
@@ -1170,7 +1168,6 @@
       "mimo",
       "minimax-llm",
       "muse-video",
-      "nano-banana",
       "ovhcloud-olala",
       "prismml-bonsai",
       "recraft",
@@ -1182,7 +1179,6 @@
       "skyreels-v4",
       "step-5",
       "stepaudio-3-tts",
-      "veo",
       "workbuddy"
     ],
     "fallbackSources": 5
@@ -1198,8 +1194,8 @@
     "dateConflicts": 0
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T04:12:44+00:00",
-    "resolutionCheckedAt": "2026-11-27T04:12:47+00:00",
+    "discoveryCheckedAt": "2026-11-27T04:20:16+00:00",
+    "resolutionCheckedAt": "2026-11-27T04:20:19+00:00",
     "leadCount": 74,
     "counts": {
       "article-date-observed": 5,
@@ -2174,17 +2170,17 @@
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
   "appUpdates": {
-    "checkedAt": "2026-11-27T04:12:48+00:00",
+    "checkedAt": "2026-11-27T04:20:20+00:00",
     "summary": {
-      "configuredSources": 1,
-      "successfulThisRun": 0,
-      "baselineSources": 0,
+      "configuredSources": 2,
+      "successfulThisRun": 1,
+      "baselineSources": 1,
       "listedModels": 0,
       "reviewedObservations": 1
     }
   },
   "historicalEvidence": {
-    "checkedAt": "2026-11-27T04:12:51+00:00",
+    "checkedAt": "2026-11-27T04:20:21+00:00",
     "summary": {
       "activeTasks": 69,
       "urlsAttemptedThisRun": 0,
@@ -2203,7 +2199,7 @@
     }
   },
   "independentCoverage": {
-    "checkedAt": "2026-11-27T04:12:51+00:00",
+    "checkedAt": "2026-11-27T04:20:21+00:00",
     "summary": {
       "configuredSources": 3,
       "successfulThisRun": 0,
@@ -2230,7 +2226,7 @@
     }
   },
   "eventClaims": {
-    "checkedAt": "2026-11-27T04:12:52+00:00",
+    "checkedAt": "2026-11-27T04:20:22+00:00",
     "summary": {
       "claims": 16,
       "newClaims": 0,
@@ -2244,7 +2240,7 @@
     }
   },
   "sourceSearch": {
-    "checkedAt": "2026-11-27T04:12:46+00:00",
+    "checkedAt": "2026-11-27T04:20:18+00:00",
     "summary": {
       "activeTargets": 17,
       "attemptedThisRun": 0,
@@ -2262,18 +2258,18 @@
     }
   },
   "productState": {
-    "checkedAt": "2026-11-27T04:12:50+00:00",
+    "checkedAt": "2026-11-27T04:20:21+00:00",
     "summary": {
       "configuredSources": 3,
       "sourcesWithBaseline": 3,
-      "successfulThisRun": 3,
+      "successfulThisRun": 0,
       "newEvents": 0,
       "retainedEvents": 13,
       "listedEntries": 541
     }
   },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T04:12:52+00:00",
+    "checkedAt": "2026-11-27T04:20:21+00:00",
     "summary": {
       "evidenceCount": 324,
       "newEvidence": 0,

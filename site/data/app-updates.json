@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T04:12:48+00:00",
+  "checkedAt": "2026-11-27T04:20:20+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -24,11 +24,110 @@
       "error": "ValueError: Expected app navigation absent; login, client-rendered shell or changed template",
       "status": "probe-unavailable",
       "checkedAt": "2026-11-27T04:12:48+00:00",
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 1,
-      "nextAttemptAt": "2026-11-27T05:12:48.474018+00:00"
+      "nextAttemptAt": "2026-11-27T05:12:48.474018+00:00",
+      "type": "visible-model-labels"
+    },
+    {
+      "id": "jimeng-ios-cn",
+      "name": "即梦 AI · iOS 中国区",
+      "vendor": "字节跳动",
+      "url": "https://apps.apple.com/cn/app/id6503676563",
+      "links": [],
+      "type": "apple-store-version",
+      "entries": {
+        "ios-2.4.3-2ffc51481cd881f2ec613180547277cdf06c2ca0978fba8c16da6eb9d20171df": {
+          "storeVersion": "2.4.3",
+          "storeVersionReleasedAt": "2026-11-23T03:04:45+00:00",
+          "notesSha256": "2ffc51481cd881f2ec613180547277cdf06c2ca0978fba8c16da6eb9d20171df",
+          "hasReleaseNotes": true,
+          "category": "app",
+          "claimType": "first-party-store-version",
+          "firstObservedAt": "2026-11-27T04:20:20+00:00",
+          "lastObservedAt": "2026-11-27T04:20:20+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-27T04:20:20+00:00",
+      "lastSuccessAt": "2026-11-27T04:20:20+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-27T10:20:20.051088+00:00"
     }
   ],
+  "targetedDiscovery": {
+    "source": "AIPick",
+    "checkedAt": "2026-11-27T04:20:20+00:00",
+    "queries": [
+      {
+        "id": "jimeng-products",
+        "label": "即梦",
+        "term": "即梦",
+        "category": "ai-products"
+      },
+      {
+        "id": "jimeng-seedaudio",
+        "label": "SeedAudio",
+        "term": "SeedAudio"
+      },
+      {
+        "id": "kling-products",
+        "label": "可灵",
+        "term": "可灵",
+        "category": "ai-products"
+      },
+      {
+        "id": "hailuo-products",
+        "label": "海螺",
+        "term": "海螺",
+        "category": "ai-products",
+        "lastAttemptAt": "2026-11-27T04:20:20+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false
+        },
+        "countsObservedAt": "2026-11-27T04:20:20+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-2b8b117a0b96c97f\"",
+        "lastSuccessAt": "2026-11-27T04:20:20+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-27T10:20:20.051088+00:00"
+      },
+      {
+        "id": "vidu-products",
+        "label": "Vidu",
+        "term": "Vidu",
+        "category": "ai-products"
+      },
+      {
+        "id": "pixverse-products",
+        "label": "PixVerse",
+        "term": "PixVerse",
+        "category": "ai-products"
+      },
+      {
+        "id": "sand-models",
+        "label": "Sand.ai",
+        "term": "Sand.ai",
+        "category": "ai-models"
+      }
+    ],
+    "service": {
+      "consecutiveFailures": 0,
+      "error": null,
+      "lastSuccessAt": "2026-11-27T04:20:20+00:00",
+      "nextAttemptAt": "2026-11-27T05:20:20.051088+00:00"
+    },
+    "attemptedThisRun": 1,
+    "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
+  },
   "reviewedObservations": [
     {
       "id": "jimeng-seedaudio-1-5-20261127-observation",
@@ -44,11 +143,26 @@
       "note": "截图显示 New；公开页面不同抓取结果存在差异。首次上架日、全量可用性及权益未确认。"
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "id": "f18c61f3cf7e4d5bfb9c8a3b3394f3e616fc8a3f8ddcfc64a5a4df1d070af631",
+      "sourceId": "jimeng-ios-cn",
+      "sourceUrl": "https://apps.apple.com/cn/app/id6503676563",
+      "kind": "baseline-store-version",
+      "observedAt": "2026-11-27T04:20:20+00:00",
+      "releaseDate": null,
+      "storeVersion": "2.4.3",
+      "storeVersionReleasedAt": "2026-11-23T03:04:45+00:00",
+      "notesSha256": "2ffc51481cd881f2ec613180547277cdf06c2ca0978fba8c16da6eb9d20171df",
+      "hasReleaseNotes": true,
+      "category": "app",
+      "claimType": "first-party-store-version"
+    }
+  ],
   "summary": {
-    "configuredSources": 1,
-    "successfulThisRun": 0,
-    "baselineSources": 0,
+    "configuredSources": 2,
+    "successfulThisRun": 1,
+    "baselineSources": 1,
     "listedModels": 0,
     "reviewedObservations": 1
   },
