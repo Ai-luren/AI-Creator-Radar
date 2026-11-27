@@ -20,7 +20,21 @@ class AudioStageTests(unittest.TestCase):
         self.assertFalse(any(r["modelFamilyId"] == "suno" and r["title"] == "Introducing the v6 family of music models." for r in result["pending"]))
         self.assertFalse(ids.intersection(r["modelVersionId"] for r in result["items"]))
         self.assertTrue(all("publishedAt" not in r for r in result["verifiedStages"]))
-        self.assertTrue(all(r["stage"] == "api-availability" for r in result["verifiedStages"]))
+        expected = {
+            "qwen-audio-3-1-live": ("api-availability", "2026-11-23"),
+            "mureka-remix-v9-5": ("api-availability", "2026-11-12"),
+            "gpt-live-1-1": ("api-availability", "2026-11-20"),
+            "mai-image-2-7": ("preview", "2026-11-17"),
+            "mai-image-2-7-flash": ("preview", "2026-11-17"),
+        }
+        self.assertEqual(len(result["verifiedStages"]), len(expected))
+        self.assertEqual(
+            {r["modelVersionId"]: (r["stage"], r["stageDate"]) for r in result["verifiedStages"]},
+            expected,
+        )
+        for row in result["verifiedStages"]:
+            if row["stage"] == "preview":
+                self.assertEqual(row["url"], "https://microsoft.ai/news/introducing-mai-image-2-7/")
 
     def test_window_and_unknown_stages(self):
         families = json.loads((ROOT / "site/data/models.json").read_text(encoding="utf-8"))

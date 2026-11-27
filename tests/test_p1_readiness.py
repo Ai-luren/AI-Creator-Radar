@@ -33,3 +33,18 @@ class P1ReadinessTests(unittest.TestCase):
         self.assertEqual(r["sourceHealth"]["successfulWithinTwoHours"],1)
         self.assertEqual(r["sourceHealth"]["persistentBatchIncidents"],["models-batch"])
         self.assertEqual(r["gates"]["sevenDayProduction"]["status"],"not-started")
+
+
+    def test_independent_review_retains_initial_errors_after_fix(self):
+        row={"id":"demo/v","modelFamilyId":"demo","modelVersionId":"v","expectedName":"Demo v3",
+             "expectedDay":"2026-11-17","expectedStage":"preview","sourceUrls":["https://official.example/preview"],
+             "initialObserved":{"url":"https://official.example/preview"},
+             "initialIdentityDateCorrect":True,"initialStageCorrect":False}
+        data={"independent_fact_reviews":{"records":[row]},
+              "models":[{"id":"demo","versions":[{"id":"v","historicalMilestones":[{"date":"2026-11-17","stage":"preview","sourceUrl":"https://official.example/preview","verifiedAt":"2026-11-27"}]}]}]}
+        result=measure(data,self.report,self.now)
+        gate=result["gates"]["independentFactAccuracy"]
+        self.assertEqual(gate["status"],"incomplete")
+        self.assertEqual(gate["factReview"]["initialStrictAccuracy"],0)
+        self.assertEqual(gate["factReview"]["currentAlignedWithReviewedFacts"],1)
+        self.assertFalse(result["engineeringReady"])

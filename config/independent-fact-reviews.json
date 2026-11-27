@@ -1,0 +1,259 @@
+{
+  "schema": "independent-fact-review/v1",
+  "reviewedAt": "2026-11-27",
+  "snapshotCommit": "aa6ef242f4d5e262709fe169a7b78b0ca8a856b7",
+  "snapshotModelBlob": "d92e27652ec84d975cb302bf4c571e6d8ec874b0",
+  "selection": "Purposive eight rows out of the original 39 recent formal-release rows, excluding the original eight recall events, covering eight publishers and image, LLM and audio. Not random or representative; cannot certify 99% or population recall. Evidence was read independently from original publisher pages, not from the production parser. Scope: precise model identity, dated documented event and release-vs-preview stage; not every technical claim or proof of earliest worldwide access.",
+  "records": [
+    {
+      "id": "cognition-swe/swe-2-1",
+      "modelFamilyId": "cognition-swe",
+      "modelVersionId": "swe-2-1",
+      "expectedName": "SWE-2.1",
+      "expectedDay": "2026-11-24",
+      "expectedStage": "release",
+      "sourceUrls": [
+        "https://cognition.com/blog/swe-2-1",
+        "https://cognition.com/blog"
+      ],
+      "reviewNote": "Official article dated November 24 explicitly releases the model; Devin Desktop, Cloud and CLI available.",
+      "initialObserved": {
+        "id": "cognition-swe-swe-2-1-20261124",
+        "modelName": "SWE-2.1",
+        "publishedAt": "2026-11-24",
+        "evidenceType": "official-release",
+        "access": "Devin Desktop、Cloud 和 CLI 可用，官方未提供公开权重",
+        "url": "https://cognition.com/blog/swe-2-1"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": true
+    },
+    {
+      "id": "prismml-bonsai/ternary-bonsai-2-5-27b",
+      "modelFamilyId": "prismml-bonsai",
+      "modelVersionId": "ternary-bonsai-2-5-27b",
+      "expectedName": "Ternary Bonsai 2.5 27B",
+      "expectedDay": "2026-11-24",
+      "expectedStage": "release",
+      "sourceUrls": [
+        "https://prismml.com/news/bonsai-2-5-27b",
+        "https://prismml.com/news/prismml-launches-ternary-bonsai-2-5-27b"
+      ],
+      "reviewNote": "Official technical announcement dated November 24, weights available that day under Apache 2.0.",
+      "initialObserved": {
+        "id": "prismml-bonsai-ternary-bonsai-2-5-27b-20261124",
+        "modelName": "Ternary Bonsai 2.5 27B",
+        "publishedAt": "2026-11-24",
+        "evidenceType": "official-release",
+        "access": "Apache 2.0 公开权重，支持 GGUF 本地部署",
+        "url": "https://prismml.com/news/bonsai-2-5-27b"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": true
+    },
+    {
+      "id": "sensenova-u/sensenova-u1-6",
+      "modelFamilyId": "sensenova-u",
+      "modelVersionId": "sensenova-u1-6",
+      "expectedName": "SenseNova U1.6",
+      "expectedDay": "2026-11-24",
+      "expectedStage": "release",
+      "sourceUrls": [
+        "https://sensetime.com/cn/news/sensenova-u1-6-open-source-20261124-1152"
+      ],
+      "reviewNote": "Article explicitly announces release and open weights on the displayed calendar day.",
+      "initialObserved": {
+        "id": "sensenova-u-sensenova-u1-6-20261124",
+        "modelName": "SenseNova U1.6",
+        "publishedAt": "2026-11-24",
+        "evidenceType": "official-release",
+        "access": "8B 版本公开权重，Apache 2.0",
+        "url": "https://sensetime.com/cn/news/sensenova-u1-6-open-source-20261124-1152"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": true
+    },
+    {
+      "id": "minimax-h3-image/minimax-h3-image",
+      "modelFamilyId": "minimax-h3-image",
+      "modelVersionId": "minimax-h3-image",
+      "expectedName": "MiniMax H3-Image",
+      "expectedDay": "2026-11-10",
+      "expectedStage": "release",
+      "sourceUrls": [
+        "https://www.minimax.cn/blog/minimax-h3-image",
+        "https://ir.minimax.cn/news-events/new-releases"
+      ],
+      "reviewNote": "Official article and company news directory identify November 10 release and open weights.",
+      "initialObserved": {
+        "id": "minimax-h3-image-20261111-minimax-h3-image",
+        "modelName": "MiniMax H3-Image",
+        "publishedAt": "2026-11-10",
+        "evidenceType": "official-release",
+        "access": "开放权重，可通过 MiniMax API、MiniMax Code 和海螺使用",
+        "url": "https://minimax.cn/blog/minimax-h3-image"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": true
+    },
+    {
+      "id": "gemini/gemini-4-hydrogen",
+      "modelFamilyId": "gemini",
+      "modelVersionId": "gemini-4-hydrogen",
+      "expectedName": "Gemini 4 Hydrogen",
+      "expectedDay": "2026-11-12",
+      "expectedStage": "release",
+      "sourceUrls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"
+      ],
+      "reviewNote": "November 12 announcement and rollout across product/API surfaces; November 16 update is not the release date.",
+      "initialObserved": {
+        "id": "gemini-gemini-4-hydrogen-20261112",
+        "modelName": "Gemini 4 Hydrogen",
+        "publishedAt": "2026-11-12",
+        "evidenceType": "official-release",
+        "access": "通过 Gemini API 和 Gemini 应用等渠道使用，官方未提供公开权重",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": true
+    },
+    {
+      "id": "qwen/qwen4-max",
+      "modelFamilyId": "qwen",
+      "modelVersionId": "qwen4-max",
+      "expectedName": "Qwen4-Max",
+      "expectedDay": "2026-11-16",
+      "expectedStage": "release",
+      "sourceUrls": [
+        "https://www.alibabagroup.com/en-US/document-2060139246777270272",
+        "https://help.aliyun.com/en/model-studio/qwen4-max",
+        "https://help.aliyun.com/en/model-studio/qwen4-max-preview"
+      ],
+      "reviewNote": "Group announcement confirms November 16 production model and API availability; November 11 preview distinct.",
+      "initialObserved": {
+        "id": "qwen-qwen4-max-20261116",
+        "modelName": "Qwen4-Max",
+        "publishedAt": "2026-11-16",
+        "evidenceType": "official-release",
+        "access": "百炼正式版 API 可用，公开权重未证实",
+        "url": "https://qwen.ai/blog?id=qwen4-max"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": true
+    },
+    {
+      "id": "eleven-sfx/eleven-sfx-v3",
+      "modelFamilyId": "eleven-sfx",
+      "modelVersionId": "eleven-sfx-v3",
+      "expectedName": "SFX v3",
+      "expectedDay": "2026-10-29",
+      "expectedStage": "release",
+      "sourceUrls": [
+        "https://elevenlabs.io/blog/sound-effects-v3",
+        "https://elevenlabs.io/zh/blog/sound-effects-v3"
+      ],
+      "reviewNote": "Published October 29; explicitly available in ElevenCreative and ElevenAPI; October 30 modified date is not release.",
+      "initialObserved": {
+        "id": "official-eleven-eleven-sfx-v3-20261029",
+        "modelName": "SFX v3",
+        "publishedAt": "2026-10-29",
+        "evidenceType": "official-release",
+        "access": "发布时官方产品或 API 提供",
+        "url": "https://elevenlabs.io/blog/sound-effects-v3"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": true
+    },
+    {
+      "id": "mai-image/mai-image-2-7",
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7",
+      "expectedName": "MAI Image 2.7",
+      "expectedDay": "2026-11-17",
+      "expectedStage": "preview",
+      "sourceUrls": [
+        "https://microsoft.ai/news/introducing-mai-image-2-7/",
+        "https://microsoft.ai/news/mai-image-2-7-debut/"
+      ],
+      "reviewNote": "November 17 Foundry public preview; prior editing preview October 27. Formal release field is inconsistent with current contract.",
+      "initialObserved": {
+        "id": "mai-image-mai-image-2-7-20261117",
+        "modelName": "MAI Image 2.7",
+        "publishedAt": "2026-11-17",
+        "evidenceType": "official-release",
+        "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
+        "url": "https://microsoft.ai/news/introducing-mai-image-2-7/"
+      },
+      "initialIdentityDateCorrect": true,
+      "initialStageCorrect": false
+    }
+  ],
+  "additionalFindings": [
+    {
+      "id": "cognition-swe/swe-2-flash",
+      "type": "confirmed-catalog-omission",
+      "sourceUrls": [
+        "https://cognition.com/blog/swe-2-flash",
+        "https://cognition.com/blog"
+      ],
+      "day": "2026-11-04",
+      "stage": "release",
+      "note": "Original model catalog contains only SWE-2.1, and recent confirmed, pending and raw updates lack the independently discovered SWE-2 Flash. Official article dated November 4 explicitly available in Devin Desktop and CLI."
+    },
+    {
+      "id": "mai-image/mai-image-2-7-flash",
+      "type": "same-stage-error-outside-sample",
+      "sourceUrls": [
+        "https://microsoft.ai/news/introducing-mai-image-2-7/"
+      ],
+      "day": "2026-11-17",
+      "stage": "preview",
+      "note": "Same announcement explicitly identifies Flash as public preview. Original catalog and confirmed digest treat it as official release."
+    },
+    {
+      "id": "qwen/qwen4-max-preview",
+      "type": "stage-coverage-gap-not-a-formal-release-omission",
+      "sourceUrls": [
+        "https://help.aliyun.com/en/model-studio/qwen4-max-preview",
+        "https://docs.modelstudio.console.aliyun.com/en/model-studio/qwen4-max-preview"
+      ],
+      "day": "2026-11-11",
+      "stage": "preview",
+      "note": "Original model note mentions prior preview and pending candidate exists, no verified stage. Do not infer distinct model release or alter production November 16 date."
+    },
+    {
+      "id": "previous-mai-image-2-7",
+      "type": "preserved-original-formal-evidence",
+      "record": {
+        "eventId": "mai-image-mai-image-2-7-20261117",
+        "publishedAt": "2026-11-17",
+        "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+        "sourceName": "Microsoft AI 官方公告",
+        "evidenceType": "official-release",
+        "verifiedAt": "2026-11-25",
+        "summary": "面向高质量图片生成与精确局部编辑。",
+        "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
+        "category": "image",
+        "modelName": "MAI Image 2.7"
+      }
+    },
+    {
+      "id": "previous-mai-image-2-7-flash",
+      "type": "preserved-original-formal-evidence",
+      "record": {
+        "eventId": "mai-image-mai-image-2-7-flash-20261117",
+        "publishedAt": "2026-11-17",
+        "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+        "sourceName": "Microsoft AI 官方公告",
+        "evidenceType": "official-release",
+        "verifiedAt": "2026-11-25",
+        "summary": "面向大量出图与快速编辑，侧重速度和成本。",
+        "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
+        "category": "image",
+        "modelName": "MAI Image 2.7 Flash"
+      }
+    }
+  ]
+}

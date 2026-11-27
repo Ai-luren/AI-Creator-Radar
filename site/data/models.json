@@ -16082,7 +16082,7 @@
         "region": "海外",
         "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
         "homepage": "https://playground.microsoft.ai/",
-        "releaseUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+        "releaseUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
         "modelCardUrl": "https://microsoft.ai/pdf/MAI-Image-2.7-Model-Card.pdf",
         "id": "mai-image-2-7",
         "name": "MAI-Image 2.7",
@@ -16140,27 +16140,36 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
+        "status": "公开预览；正式发布日待核验",
         "note": "微软图像生成模型；2.7 与 2.7 Flash 当前标注为 Preview，目录还保留 2.6、2.5 系列。",
-        "releaseDate": "2026-11-17",
-        "releaseEvidence": {
-          "eventId": "mai-image-mai-image-2-7-20261117",
-          "publishedAt": "2026-11-17",
-          "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
-          "sourceName": "Microsoft AI 官方公告",
-          "evidenceType": "official-release",
-          "verifiedAt": "2026-11-25",
-          "summary": "面向高质量图片生成与精确局部编辑。",
-          "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
-          "category": "image",
-          "modelName": "MAI Image 2.7"
-        }
+        "historicalMilestones": [
+          {
+            "date": "2026-10-27",
+            "datePrecision": "day",
+            "stage": "preview",
+            "sourceUrl": "https://microsoft.ai/news/mai-image-2-7-debut/",
+            "sourceName": "Microsoft AI 官方公告",
+            "verifiedAt": "2026-11-27",
+            "chronicleAuditId": "model-stage-mai-image-2-7-20261027",
+            "summary": "编辑功能已在 Arena、Artificial Analysis 与 MAI Playground 预览；文生图当时尚未开放。"
+          },
+          {
+            "date": "2026-11-17",
+            "datePrecision": "day",
+            "stage": "preview",
+            "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+            "sourceName": "Microsoft AI 官方公告",
+            "verifiedAt": "2026-11-27",
+            "chronicleAuditId": "model-stage-mai-image-2-7-20261117",
+            "summary": "Microsoft Foundry 及合作平台公开预览；不等同正式首发。"
+          }
+        ]
       },
       {
         "region": "海外",
         "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
         "homepage": "https://playground.microsoft.ai/",
-        "releaseUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+        "releaseUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
         "modelCardUrl": "https://microsoft.ai/pdf/MAI-Image-2.7-Model-Card.pdf",
         "id": "mai-image-2-7-flash",
         "name": "MAI-Image 2.7 Flash",
@@ -16190,21 +16199,20 @@
             "detailUrl": "https://artificialanalysis.ai/image/leaderboard/text-to-image"
           }
         ],
-        "status": "已发布",
+        "status": "公开预览；正式发布日待核验",
         "note": "微软图像生成模型；2.7 与 2.7 Flash 当前标注为 Preview，目录还保留 2.6、2.5 系列。",
-        "releaseDate": "2026-11-17",
-        "releaseEvidence": {
-          "eventId": "mai-image-mai-image-2-7-flash-20261117",
-          "publishedAt": "2026-11-17",
-          "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
-          "sourceName": "Microsoft AI 官方公告",
-          "evidenceType": "official-release",
-          "verifiedAt": "2026-11-25",
-          "summary": "面向大量出图与快速编辑，侧重速度和成本。",
-          "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
-          "category": "image",
-          "modelName": "MAI Image 2.7 Flash"
-        }
+        "historicalMilestones": [
+          {
+            "date": "2026-11-17",
+            "datePrecision": "day",
+            "stage": "preview",
+            "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+            "sourceName": "Microsoft AI 官方公告",
+            "verifiedAt": "2026-11-27",
+            "chronicleAuditId": "model-stage-mai-image-2-7-flash-20261117",
+            "summary": "Microsoft Foundry 及合作平台公开预览；不等同正式首发。"
+          }
+        ]
       }
     ],
     "legacyIds": [
@@ -29487,6 +29495,28 @@
           "access": "Devin Desktop、Cloud 和 CLI 可用，官方未提供公开权重",
           "category": "llm",
           "modelName": "SWE-2.1"
+        }
+      },
+      {
+        "id": "swe-2-flash",
+        "name": "SWE-2 Flash",
+        "legacyIds": [],
+        "leaderboardAliases": [],
+        "status": "已发布",
+        "releaseDate": "2026-11-04",
+        "access": "Devin Desktop 与 CLI 可用；权重仅计划向行业伙伴及研究人员安全分享，未确认公开下载",
+        "releaseUrl": "https://cognition.com/blog/swe-2-flash",
+        "releaseEvidence": {
+          "eventId": "cognition-swe-swe-2-flash-20261104",
+          "publishedAt": "2026-11-04",
+          "sourceUrl": "https://cognition.com/blog/swe-2-flash",
+          "sourceName": "Cognition 官方公告",
+          "evidenceType": "official-release",
+          "verifiedAt": "2026-11-27",
+          "summary": "面向低延迟、低成本软件工程任务的编码语言模型，区别于 SWE-2.1 及其推理速度档位。",
+          "access": "Devin Desktop 与 CLI 可用；权重未确认公开下载",
+          "category": "llm",
+          "modelName": "SWE-2 Flash"
         }
       }
     ],
