@@ -11029,70 +11029,9 @@
     "topicUrl": "https://aihot.news/topics/engineering"
   },
   {
-    "group": "公司与模型",
-    "id": "pika",
-    "name": "Pika",
-    "description": "Pika 的 AI 视频生成产品与模型发布记录。",
-    "keywords": [
-      "Pika",
-      "Pika Labs"
-    ],
-    "topicUrl": "https://pika.art",
-    "domain": "pika.art",
-    "modelCategories": [
-      "video"
-    ],
-    "milestones": [
-      {
-        "date": "2026-10-29",
-        "kind": "模型卡更新",
-        "title": "Introducing Pika H3 Flex",
-        "summary": "Our post-trained MiniMax H3 model, built for creative iteration — up to 12 references, five separate audio stems, finishing at up to 4K, and open weights.",
-        "url": "https://pika.art/blog/pika-chatgpt-plugin",
-        "sourceId": "pika-h3-flex-updates",
-        "sourceName": "Pika H3 Flex 官方发布",
-        "sourceUpdateId": "7f5d917745d3dc6294",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-24T09:44:12Z",
-        "modelCategory": "video",
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "minimax-h3",
-            "matchedName": "MiniMax H3"
-          }
-        ]
-      },
-      {
-        "date": "2026-10-29",
-        "kind": "模型卡更新",
-        "title": "Introducing Pika H3 Flex",
-        "summary": "Our post-trained MiniMax H3 model, built for creative iteration — up to 12 references, five separate audio stems, finishing at up to 4K, and open weights.",
-        "url": "https://pika.art/icons.svg?v=2fd5c0f1",
-        "sourceId": "pika-h3-flex-updates",
-        "sourceName": "Pika H3 Flex 官方发布",
-        "sourceUpdateId": "8eda5a42fcf10f678f",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-25T05:03:21Z",
-        "modelCategory": "video",
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "minimax-h3",
-            "matchedName": "MiniMax H3"
-          }
-        ]
-      }
-    ],
-    "chronicleSourceVersion": "official-feed-sync",
-    "chronicleSourceUrl": "https://pika.art"
-  },
-  {
     "id": "sandai",
     "name": "Sand.ai / MAGI",
-    "description": "自回归视频、音视频联合生成及 MoE 视频模型。正式发布、研究预览、权重开放分别记录。GAGA-1 已有官方介绍，首发日期待核验。",
+    "description": "自回归视频、音画同步生成及 MoE 视频模型。正式发布、研究预览、权重开放分别记录。",
     "keywords": [
       "Sand.ai",
       "Sand AI",
@@ -11208,6 +11147,37 @@
           {
             "modelFamilyId": "davinci-magihuman",
             "matchedName": "daVinci-MagiHuman"
+          }
+        ]
+      },
+      {
+        "date": "2025-10",
+        "kind": "模型",
+        "title": "GAGA-1 音画同步生成模型推出",
+        "summary": "面向人物对话与表演的音画同步视频生成模型。2025-10-10 已有媒体报道上线；创始人后续采访明确称 10 月 11 日发布 Gaga 线上产品。两者口径不同，仅确认模型于 2025 年 10 月推出，不指定精确首发日。",
+        "url": "https://sand.ai/about-us/",
+        "verificationUrl": "https://finance.sina.com.cn/stock/t/2025-11-03/doc-infwckpi5524441.shtml",
+        "additionalEvidenceUrls": [
+          "https://www.bianews.com/news/details?id=222655",
+          "https://www.oschina.net/news/376786"
+        ],
+        "auditId": "review-20261127-sandai-gaga-1-202510",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-27",
+        "modelCategory": [
+          "video"
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "gaga-1",
+            "matchedName": "GAGA-1"
+          }
+        ],
+        "modelMentions": [
+          {
+            "modelFamilyId": "gaga-1",
+            "modelVersionId": "gaga-1",
+            "matchedName": "GAGA-1"
           }
         ]
       },

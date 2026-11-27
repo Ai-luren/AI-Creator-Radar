@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import unittest
 from pathlib import Path
 
@@ -87,6 +88,25 @@ class ChronicleUpdateTests(unittest.TestCase):
         self.assertEqual(status["added"], 2)
         self.assertEqual({x.get("sourceModelId") for x in merged[0]["milestones"] if x.get("autoCollected")}, {"gpt", "gpt-image"})
         self.assertTrue(all(x.get("dateKind") == "source-date" for x in merged[0]["milestones"] if x.get("autoCollected")))
+
+    def test_chronicle_scope_excludes_pika_and_retains_month_precision_gaga(self):
+        root=MODULE_PATH.parent.parent
+        topics=json.loads((root/"site/data/topics.json").read_text())
+        self.assertNotIn("pika",{t["id"] for t in topics})
+        self.assertNotIn("pika",chronicles.vendor_topics())
+        sand=next(t for t in topics if t["id"]=="sandai")
+        nodes=[n for n in sand["milestones"] if "GAGA-1" in n["title"]]
+        self.assertEqual(len(nodes),1)
+        self.assertEqual(nodes[0]["date"],"2025-10")
+        self.assertEqual(nodes[0]["modelMentions"][0]["modelFamilyId"],"gaga-1")
+        families=json.loads((root/"site/data/models.json").read_text())
+        model=next(f for f in families if f["id"]=="gaga-1")
+        self.assertIn("gaga-1",{v["id"] for v in model["versions"]})
+        updates=[{"id":"pika-test","official":True,"updateType":"release","vendor":"Pika",
+                  "title":"Pika 4 released","publishedAt":"2026-11-27","url":"https://pika.art/blog/test"}]
+        merged,_=chronicles.merge_official_updates(topics,updates,"2026-11-27T04:00:00Z")
+        self.assertNotIn("pika",{t["id"] for t in merged})
+        self.assertEqual(len([n for n in next(t for t in merged if t["id"]=="sandai")["milestones"] if "GAGA-1" in n["title"]]),1)
 
 
 if __name__ == "__main__":
