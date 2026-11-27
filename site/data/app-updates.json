@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T07:27:11+00:00",
+  "checkedAt": "2026-11-27T07:36:59+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -24,7 +24,7 @@
       "error": "ValueError: Expected app navigation absent; login, client-rendered shell or changed template",
       "status": "probe-unavailable",
       "checkedAt": "2026-11-27T07:27:11+00:00",
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 3,
       "nextAttemptAt": "2026-11-27T11:27:11.680685+00:00",
       "type": "visible-model-labels"
@@ -60,7 +60,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T07:27:11+00:00",
+    "checkedAt": "2026-11-27T07:36:59+00:00",
     "queries": [
       {
         "id": "jimeng-products",

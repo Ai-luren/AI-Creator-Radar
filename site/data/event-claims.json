@@ -1,6 +1,6 @@
 {
   "schema": "event-claims/v1",
-  "checkedAt": "2026-11-27T07:27:15+00:00",
+  "checkedAt": "2026-11-27T07:37:00+00:00",
   "claims": [
     {
       "id": "claim-0c45f142be97a721c98631cdb5de969fabc199e53c61eeb070230710cf2dc2c6",
@@ -17,7 +17,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -26,7 +26,7 @@
           "sourceRecordId": "7da833b2efddae371a",
           "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
         }
       ]
     },
@@ -45,7 +45,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -54,7 +54,91 @@
           "sourceRecordId": "5a535246782e7978fb",
           "sourceUrl": "https://autoclaw.z.ai/en/blog/model/glm-5.3-flash/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-39f021d238bf9edeaaa72e2383694fc3ede230701c5d3860342a58ba3f5ed438",
+      "fact": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-fable-5-2",
+        "claimType": "announcement-statement",
+        "service": null,
+        "publisherTitle": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+        "sourceUrlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "articlePublishedAt": "2026-11-09T00:00:00Z",
+        "publisherCalendarDay": "2026-11-09",
+        "eventDate": null,
+        "evidenceGrade": "official-dated-statement"
+      },
+      "firstObservedAt": "2026-11-27T07:36:45Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:anthropic-model-news",
+          "sourceRecordId": "b6edf533d574346e9f",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "firstObservedAt": "2026-11-27T07:36:45Z",
+          "lastObservedAt": "2026-11-27T07:36:45Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-3bd3b100d1ab0ad8087906567cfdac3c6d7bd892c74458d1767ca5f9c4450932",
+      "fact": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-mythos-5-2",
+        "claimType": "announcement-statement",
+        "service": null,
+        "publisherTitle": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
+        "sourceUrlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "articlePublishedAt": "2026-11-09T00:00:00Z",
+        "publisherCalendarDay": "2026-11-09",
+        "eventDate": null,
+        "evidenceGrade": "official-dated-statement"
+      },
+      "firstObservedAt": "2026-11-27T07:36:45Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:anthropic-model-news",
+          "sourceRecordId": "b6edf533d574346e9f",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "firstObservedAt": "2026-11-27T07:36:45Z",
+          "lastObservedAt": "2026-11-27T07:36:45Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-40b736fa241636bfd610a65e1350da23f422cd4cc10adeaf244013e4505e209d",
+      "fact": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-mythos-5-2",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Claude Fable 5.2 and Mythos 5.2",
+        "sourceUrlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+        "articlePublishedAt": "2026-11-09T00:00:00Z",
+        "publisherCalendarDay": "2026-11-09",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-a989f1582084d0cf153c",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "firstObservedAt": "2026-11-26T17:23:36+00:00",
+          "lastObservedAt": "2026-11-26T17:23:36+00:00"
         }
       ]
     },
@@ -73,7 +157,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -82,7 +166,7 @@
           "sourceRecordId": "ef456e7b07534100f9",
           "sourceUrl": "https://elevenlabs.io/blog/scribe-v3",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
         }
       ]
     },
@@ -101,7 +185,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -110,7 +194,7 @@
           "sourceRecordId": "e9050b86b978f082d4",
           "sourceUrl": "https://autoclaw.z.ai/en/blog/model/GLM-5.4/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
         }
       ]
     },
@@ -185,7 +269,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -194,7 +278,7 @@
           "sourceRecordId": "b2cab39b783d8ad409",
           "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
         }
       ]
     },
@@ -213,7 +297,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -222,7 +306,7 @@
           "sourceRecordId": "9b4e4228387e830531",
           "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
         }
       ]
     },
@@ -241,7 +325,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -250,7 +334,7 @@
           "sourceRecordId": "8e450599cbb0276aac",
           "sourceUrl": "https://openai.com/index/devrev-enterprise-self-service",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
         }
       ]
     },
@@ -298,8 +382,8 @@
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
       "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
-      "observedInInput": true,
-      "currentSuccessfulObservation": true,
+      "observedInInput": false,
+      "currentSuccessfulObservation": false,
       "provenance": [
         {
           "channel": "official-collector:openai-news",
@@ -339,6 +423,34 @@
       ]
     },
     {
+      "id": "claim-b285261af5c4699a35087e1206a50aa34ade96248df1d6c32e2311a571a4eb7e",
+      "fact": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-sol",
+        "claimType": "announcement-statement",
+        "service": null,
+        "publisherTitle": "Introducing GPT-6.2 Astra and Sol",
+        "sourceUrlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+        "articlePublishedAt": "2026-11-17T17:45:00Z",
+        "publisherCalendarDay": "2026-11-17",
+        "eventDate": null,
+        "evidenceGrade": "official-dated-statement"
+      },
+      "firstObservedAt": "2026-11-27T07:36:45Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:openai-news",
+          "sourceRecordId": "a72931a6134adb8d46",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "firstObservedAt": "2026-11-27T07:36:45Z",
+          "lastObservedAt": "2026-11-27T07:36:45Z"
+        }
+      ]
+    },
+    {
       "id": "claim-bc292ab16be14ac54874c481360130ce72175975efdfe9846ebbf077e708019b",
       "fact": {
         "modelFamilyId": "seedream",
@@ -353,7 +465,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T07:26:26Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -362,7 +474,7 @@
           "sourceRecordId": "ddcbda59e5408a91b0",
           "sourceUrl": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T07:26:26Z"
+          "lastObservedAt": "2026-11-27T07:36:45Z"
         }
       ]
     },
@@ -477,24 +589,80 @@
           "lastObservedAt": "2026-11-26T17:48:59+00:00"
         }
       ]
+    },
+    {
+      "id": "claim-f80b88c516d41df84e407d2c5114f18fbd461eeda43554a11d6a644f5b976a75",
+      "fact": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-mythos-5-2",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "Claude Fable 5.2 and Mythos 5.2",
+        "sourceUrlKey": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+        "articlePublishedAt": "2026-11-09T00:00:00Z",
+        "publisherCalendarDay": "2026-11-09",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-26T17:23:36+00:00",
+      "lastSuccessfulObservationAt": "2026-11-26T17:23:36+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": false,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-1f23fe23a180f18b31eb",
+          "sourceUrl": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+          "firstObservedAt": "2026-11-26T17:23:36+00:00",
+          "lastObservedAt": "2026-11-26T17:23:36+00:00"
+        }
+      ]
+    },
+    {
+      "id": "claim-faac09308cb7627be57fef808d3277d947d548ab827b5a0f9e22ab3085b47d5a",
+      "fact": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-astra",
+        "claimType": "announcement-statement",
+        "service": null,
+        "publisherTitle": "Introducing GPT-6.2 Astra and Sol",
+        "sourceUrlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+        "articlePublishedAt": "2026-11-17T17:45:00Z",
+        "publisherCalendarDay": "2026-11-17",
+        "eventDate": null,
+        "evidenceGrade": "official-dated-statement"
+      },
+      "firstObservedAt": "2026-11-27T07:36:45Z",
+      "lastSuccessfulObservationAt": "2026-11-27T07:36:45Z",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-collector:openai-news",
+          "sourceRecordId": "a72931a6134adb8d46",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "firstObservedAt": "2026-11-27T07:36:45Z",
+          "lastObservedAt": "2026-11-27T07:36:45Z"
+        }
+      ]
     }
   ],
   "articleDateConflicts": [],
   "releaseStatementReviewCandidates": [],
   "summary": {
-    "claims": 17,
-    "newClaims": 0,
+    "claims": 23,
+    "newClaims": 6,
     "byType": {
-      "announcement-statement": 2,
-      "article-publication": 15
+      "announcement-statement": 6,
+      "article-publication": 17
     },
-    "currentSuccessfulObservations": 9,
+    "currentSuccessfulObservations": 12,
     "articleDateConflicts": 0,
     "releaseStatementReviewCandidates": 0
   },
   "policy": "Dated publisher statements only; observation and article dates are not inferred event dates. URL/channel duplicates do not count as independent proof. Existing canonical records are not used to manufacture source recall or changed by this shadow layer.",
   "publisherStatements": {
-    "checkedAt": "2026-11-27T07:27:16+00:00",
+    "checkedAt": "2026-11-27T07:37:00+00:00",
     "records": [
       {
         "id": "publisher-20ef368618aa20adb494dc894ccf50b912d765af1808934cf1f6e5a49574c382",
