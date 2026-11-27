@@ -6,11 +6,11 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-27T08:17:32+00:00",
-  "etag": "W/\"v1-items-a73d399a42cd6c76\"",
+  "fetchedAt": "2026-11-27T11:17:46+00:00",
+  "etag": "W/\"v1-items-3ba098d7e5ad0fee\"",
   "schemaVersion": 1,
   "page": {
-    "count": 4,
+    "count": 3,
     "hasMore": false,
     "nextCursor": null
   },
@@ -83,30 +83,6 @@
         "name": "AIHOT",
         "url": "https://aihot.news/items/jcdfpftbam647yhc210dbace9"
       }
-    },
-    {
-      "id": "hdvt6wswzycj78wnr7r43xn6o",
-      "title": "蚂蚁 inclusionAI 开源 Ming-Image-0.2-Design 图像生成模型",
-      "originalTitle": "inclusionAI/Ming-Image-0.2-Design",
-      "summary": "蚂蚁 inclusionAI 在 Hugging Face 发布并开源 Ming-Image-0.2-Design，改进复杂构图、光照和文字渲染，可用于电商主图、UI 设计稿和空间效果图。",
-      "source": {
-        "name": "蚂蚁 inclusionAI：HuggingFace 新模型"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/hdvt6wswzycj78wnr7r43xn6o",
-        "original": "https://huggingface.co/inclusionAI/Ming-Image-0.2-Design"
-      },
-      "publishedAt": "2026-11-25T04:02:44.000Z",
-      "discoveredAt": "2026-11-26T10:33:39.306Z",
-      "category": "ai-models",
-      "score": 61,
-      "selected": true,
-      "reason": "官方发布页给出能力改进、榜单排名和部署参数，读者可以据此判断它在设计出图场景中的实际用法。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/hdvt6wswzycj78wnr7r43xn6o"
-      }
     }
-  ],
-  "checkedAt": "2026-11-27T10:32:39+00:00"
+  ]
 }

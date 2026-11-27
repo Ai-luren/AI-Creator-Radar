@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T10:36:07+00:00",
+  "checkedAt": "2026-11-27T11:18:14+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -53,14 +53,14 @@
       "lastSuccessAt": "2026-11-27T10:36:07+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-27T16:36:07.719505+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T10:36:07+00:00",
+    "checkedAt": "2026-11-27T11:18:14+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -176,16 +176,31 @@
         "id": "sand-models",
         "label": "Sand.ai",
         "term": "Sand.ai",
-        "category": "ai-models"
+        "category": "ai-models",
+        "lastAttemptAt": "2026-11-27T11:18:14+00:00",
+        "counts": {
+          "items": 11,
+          "wechatOriginalLinks": 7,
+          "otherOriginalLinks": 4,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 11,
+          "hasNextCursor": false
+        },
+        "countsObservedAt": "2026-11-27T11:18:14+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-00cdcd77a89425f5\"",
+        "lastSuccessAt": "2026-11-27T11:18:14+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-27T17:18:14.814714+00:00"
       }
     ],
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T09:51:21+00:00",
-      "nextAttemptAt": "2026-11-27T10:51:21.149341+00:00"
+      "lastSuccessAt": "2026-11-27T11:18:14+00:00",
+      "nextAttemptAt": "2026-11-27T12:18:14.814714+00:00"
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -221,7 +236,7 @@
   ],
   "summary": {
     "configuredSources": 2,
-    "successfulThisRun": 1,
+    "successfulThisRun": 0,
     "baselineSources": 1,
     "listedModels": 0,
     "reviewedObservations": 1
