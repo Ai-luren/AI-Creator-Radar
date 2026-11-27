@@ -31,6 +31,8 @@ TASKS = {"text-generation","image-text-to-text","text-to-image","image-to-image"
          "text-to-video","image-to-video","image-text-to-video","video-to-video",
          "text-to-audio","text-to-speech","automatic-speech-recognition","audio-to-audio"}
 MAX_BYTES = 4 * 1024 * 1024
+CARD_MAX_BYTES = 512 * 1024
+CARD_BUDGET = 3
 
 
 def normalized(name):
@@ -93,7 +95,102 @@ def fetch(spec, config, now):
     return parse_rows(json.loads(raw),author,now,config["windowDays"],config["limitPerSource"])
 
 
-def audit(config, families, vendor_topics, previous, now, fetcher=fetch):
+def fetch_card(row):
+    repo=row["repositoryId"]
+    if (not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+",repo)
+            or repo.split("/",1)[0] not in AUTHORS
+            or any(part in {".",".."} for part in repo.split("/"))
+            or repo.split("/",1)[0]!=row["author"]):
+        raise ValueError("Unapproved model-card identity")
+    url="https://huggingface.co/"+repo+"/raw/main/README.md"
+    req=urllib.request.Request(url,headers={"Accept":"text/plain","User-Agent":USER_AGENT})
+    with urllib.request.build_opener(SameHostRedirect()).open(req,timeout=12) as response:
+        raw=response.read(CARD_MAX_BYTES+1)
+    if len(raw)>CARD_MAX_BYTES:
+        raise ValueError("Model card too large")
+    return raw.decode("utf-8"),url
+
+
+def classify_card(row, content, index):
+    """Conservative, explicit model-card roles; never infer a release date."""
+    # Ignore fenced code and YAML front matter. Only exact repository heading
+    # plus affirmative prose can establish a role; tags alone are insufficient.
+    text=re.sub(r"\A---\s*\n.*?\n---\s*\n","",content,flags=re.S)
+    text=re.sub(r"(?ms)^\s*"+chr(96)*3+r"[^\n]*\n.*?^\s*"+chr(96)*3+r"[^\n]*","",text)
+    headings=re.findall(r"(?m)^#\s+([^\n]+?)\s*$",text)
+    name=row["modelName"]
+    if len(headings)!=1 or headings[0].strip()!=name:
+        return {"role":"unresolved","reason":"model-card-heading-mismatch"}
+    prose=re.sub(r"\s+"," ",text)
+    model=re.escape(name)
+    author=re.escape(row["author"])
+    # Require an explicit same-organization parent link, matching its display
+    # name and a unique already-canonical identity. Never use name suffix alone.
+    pattern=rf"(?<![\w.-]){model} provides prompt expansion \(PE\) for \[([A-Za-z0-9_.-]+)\]\(https://huggingface\.co/{author}/([A-Za-z0-9_.-]+)\)\."
+    matches=set(re.findall(pattern,prose))
+    if len(matches)==1:
+        label,parent=next(iter(matches))
+        match_state,parents=state_for(index,parent)
+        if label==parent and parent!=name and match_state=="exact-catalog-match":
+            return {"role":"auxiliary-prompt-expander","parentRepositoryId":row["author"]+"/"+parent,
+                    "parentIdentity":parents[0],"reason":"explicit-publisher-role-and-parent"}
+        return {"role":"unresolved","reason":"auxiliary-parent-identity-unresolved"}
+    # A bundle or research release is retained as a review item, not silently
+    # excluded. Do not turn the existence of a checkpoint into a launch date.
+    if (re.search(r"\bTwo kinds of artifact are published\b",prose,re.I)
+            and re.search(r"\bEnd-to-end VAEs\b",prose,re.I)
+            and re.search(r"\bGenerative priors\b",prose,re.I)):
+        return {"role":"research-artifact-bundle","reason":"publisher-describes-multiple-artifacts"}
+    if (re.search(rf"(?<![\w.-]){model} is a[n]? [A-Za-z -]{{0,80}}language model\b",prose,re.I)
+            and re.search(r"\breleased checkpoint\b",prose,re.I)
+            and re.search(r"\bweight files\b",prose,re.I)):
+        return {"role":"standalone-model-candidate","reason":"publisher-describes-model-and-released-checkpoint"}
+    return {"role":"unresolved","reason":"no-explicit-supported-role"}
+
+
+def audit_cards(observations,indexes,previous,now,fetcher):
+    stamp=now.isoformat(timespec="seconds")
+    service=dict(previous.get("cardService",{}))
+    next_attempt=parse_stamp(service.get("nextAttemptAt"))
+    attempted=0
+    if fetcher is None or (next_attempt and next_attempt>now):
+        return service,attempted
+    due=[r for r in observations.values() if r["author"] in indexes
+         and r.get("initialPipelineTag") in TASKS and r["currentState"]!="exact-catalog-match"
+         and parse_stamp(r["repositoryCreatedAt"])>=now-timedelta(days=45)
+         and (not parse_stamp((r.get("cardReview") or {}).get("nextAttemptAt"))
+              or parse_stamp(r["cardReview"]["nextAttemptAt"])<=now)]
+    due.sort(key=lambda r:((r.get("cardReview") or {}).get("nextAttemptAt") or r["firstObservedAt"],r["id"]))
+    for row in due[:CARD_BUDGET]:
+        old=row.get("cardReview") or {}
+        attempted+=1
+        try:
+            content,url=fetcher(row)
+            expected="https://huggingface.co/"+row["repositoryId"]+"/raw/main/README.md"
+            if url!=expected or not isinstance(content,str):
+                raise ValueError("Unexpected card provenance")
+            result=classify_card(row,content,indexes[row["author"]])
+        except (OSError,ValueError,TypeError) as exc:
+            count=int(service.get("consecutiveFailures",0))+1
+            retry=(now+timedelta(hours=min(24,6*2**min(count-1,2)))).isoformat()
+            error=f"{type(exc).__name__}: {str(exc)[:160]}"
+            row["cardReview"]={**old,"status":"fetch-failed","lastAttemptAt":stamp,
+                               "nextAttemptAt":retry,"error":error}
+            service.update(consecutiveFailures=count,lastAttemptAt=stamp,nextAttemptAt=retry,error=error)
+            break
+        proof={"sourceUrl":url,"contentSha256":hashlib.sha256(content.encode()).hexdigest(),**result}
+        eid="card-"+hashlib.sha256(json.dumps(proof,sort_keys=True,ensure_ascii=False).encode()).hexdigest()
+        history={x["id"]:x for x in row.get("cardEvidence",[])}
+        history.setdefault(eid,{"id":eid,**proof,"firstObservedAt":stamp})
+        row["cardEvidence"]=sorted(history.values(),key=lambda x:x["id"])
+        row["cardReview"]={"status":"observed","lastAttemptAt":stamp,"lastSuccessAt":stamp,
+                           "nextAttemptAt":(now+timedelta(days=7)).isoformat(),
+                           "currentEvidenceId":eid,"error":None,**result}
+        service.update(consecutiveFailures=0,lastAttemptAt=stamp,lastSuccessAt=stamp,error=None,nextAttemptAt=None)
+    return service,attempted
+
+
+def audit(config, families, vendor_topics, previous, now, fetcher=fetch, card_fetcher=None):
     if previous and previous.get("schema")!="independent-coverage/v1":
         raise ValueError("Unknown independent audit schema")
     stamp=now.isoformat(timespec="seconds")
@@ -136,7 +233,7 @@ def audit(config, families, vendor_topics, previous, now, fetcher=fetch):
             prior=observations.get(rid,{})
             state,matches=state_for(indexes[author],row["modelName"])
             # Preserve initial denominator and outcome, never rewrite after remediation.
-            observations[rid]={**row,"id":rid,"author":author,"vendorTopic":spec["vendorTopic"],
+            observations[rid]={**prior,**row,"id":rid,"author":author,"vendorTopic":spec["vendorTopic"],
                                "firstObservedAt":prior.get("firstObservedAt") or stamp,
                                "lastObservedAt":stamp,
                                "initialState":prior.get("initialState") or state,
@@ -152,12 +249,23 @@ def audit(config, families, vendor_topics, previous, now, fetcher=fetch):
         if row["author"] in indexes:
             state,matches=state_for(indexes[row["author"]],row["modelName"])
             row["currentState"],row["currentMatches"]=state,matches
+    # Recheck the canonical parent before treating a retained auxiliary role
+    # as resolved; a deleted/ambiguous parent is never sufficient.
+    for row in observations.values():
+        card=row.get("cardReview") or {}
+        parent=card.get("parentRepositoryId")
+        if card.get("role")=="auxiliary-prompt-expander" and parent and row["author"] in indexes:
+            match_state,matches=state_for(indexes[row["author"]],parent.split("/",1)[1])
+            if match_state!="exact-catalog-match" or matches[0]!=card.get("parentIdentity"):
+                row["cardReview"]={**card,"role":"unresolved","reason":"canonical-parent-changed","nextAttemptAt":stamp}
+    card_service,card_attempts=audit_cards(observations,indexes,previous,now,card_fetcher)
     cutoff=now-timedelta(days=config["windowDays"])
     active=[r for r in observations.values() if r["author"] in indexes and parse_stamp(r["repositoryCreatedAt"])>=cutoff]
     in_scope=[r for r in active if r.get("initialPipelineTag") in TASKS]
     return {"schema":"independent-coverage/v1","checkedAt":stamp,
             "sources":sorted(sources,key=lambda s:s["author"]),
             "observations":sorted(observations.values(),key=lambda r:r["id"]),
+            "cardService":card_service,
             "summary":{"configuredSources":len(config["sources"]),
                        "successfulThisRun":sum(not s["deferred"] and not s["error"] for s in sources),
                        "sourcesWithSuccessfulObservation":sum(bool(s.get("lastSuccessAt")) for s in sources),
@@ -165,7 +273,11 @@ def audit(config, families, vendor_topics, previous, now, fetcher=fetch):
                        "recentRepositories":len(active),"inScopeRepositorySamples":len(in_scope),
                        "initialStates":dict(sorted(Counter(r["initialState"] for r in in_scope).items())),
                        "currentStates":dict(sorted(Counter(r["currentState"] for r in in_scope).items())),
-                       "unclassifiedPipeline":sum(r.get("initialPipelineTag") not in TASKS for r in active)},
+                       "unclassifiedPipeline":sum(r.get("initialPipelineTag") not in TASKS for r in active),
+                       "cardRequests":card_attempts,
+                       "cardRoles":dict(sorted(Counter((r.get("cardReview") or {}).get("role","unreviewed")
+                           for r in in_scope if r["currentState"]!="exact-catalog-match").items())),
+                       "cardServiceError":card_service.get("error")},
             "policy":"Independent repository coverage sample, not release recall. Exact vendor/name matching only; unmatched may be checkpoints, aliases or out-of-catalog products. Initial outcome frozen; no automatic release, date or weights claim. Closed models not represented."}
 
 
@@ -177,7 +289,7 @@ def main():
     def read(path,optional=False):
         return json.loads(path.read_text(encoding="utf-8")) if path.exists() or not optional else {}
     result=audit(read(ROOT/"config/independent-audit-sources.json"),read(ROOT/"site/data/models.json"),
-                 read(ROOT/"config/chronicle-release-links.json")["vendorTopics"],read(OUTPUT,True),datetime.now(timezone.utc))
+                 read(ROOT/"config/chronicle-release-links.json")["vendorTopics"],read(OUTPUT,True),datetime.now(timezone.utc),card_fetcher=fetch_card)
     print("Independent coverage:",json.dumps(result["summary"],ensure_ascii=False))
     for source in result["sources"]:
         print("[HOLDOUT]",source["author"],"recent=",source.get("recentRepositories"),"complete=",source.get("pageCoversWindow"),"error=",source["error"])

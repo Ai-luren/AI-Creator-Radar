@@ -58,3 +58,38 @@ class IndependentAuditTests(unittest.TestCase):
     def test_repository_date_is_not_release_date(self):
         result=self.run_audit()
         self.assertTrue(all("repositoryCreatedAt" in r and "releaseDate" not in r for r in result["observations"]))
+
+
+    def test_card_roles_require_explicit_publisher_identity(self):
+        from scripts.collect_independent_audit import classify_card,exact_index
+        row={"modelName":"Demo-PE","author":"MiniMaxAI"}
+        index=exact_index(self.families,{"MiniMax"})
+        card="# Demo-PE\nDemo-PE provides prompt expansion (PE) for\n[Demo-3](https://huggingface.co/MiniMaxAI/Demo-3)."
+        result=classify_card(row,card,index)
+        self.assertEqual(result["role"],"auxiliary-prompt-expander")
+        self.assertEqual(result["parentIdentity"]["modelVersionId"],"v3")
+        self.assertEqual(classify_card(row,card.replace("MiniMaxAI/","Other/"),index)["role"],"unresolved")
+        self.assertEqual(classify_card(row,card.replace("# Demo-PE","# Different"),index)["role"],"unresolved")
+        self.assertEqual(classify_card(row,"# Demo-PE\nUnrelated prompt expansion tag",index)["role"],"unresolved")
+
+    def test_role_classification_does_not_change_first_observation(self):
+        first=self.run_audit()
+        def card(row):
+            text="# Demo-4\nDemo-4 provides prompt expansion (PE) for [Demo-3](https://huggingface.co/MiniMaxAI/Demo-3)."
+            return text,row["url"]+"/raw/main/README.md"
+        later=audit(self.cfg,self.families,self.vendors,first,self.now+timedelta(hours=1),self.fetch,card)
+        self.assertEqual(later["summary"]["initialStates"],first["summary"]["initialStates"])
+        self.assertEqual(later["summary"]["currentStates"],first["summary"]["currentStates"])
+        self.assertEqual(later["summary"]["cardRoles"],{"auxiliary-prompt-expander":1})
+        self.assertEqual(later["summary"]["cardRequests"],1)
+        row=next(r for r in later["observations"] if r["modelName"]=="Demo-4")
+        self.assertEqual(len(row["cardEvidence"]),1)
+        self.assertEqual(row["cardReview"]["role"],"auxiliary-prompt-expander")
+
+    def test_standalone_and_bundle_are_not_auto_closed(self):
+        from scripts.collect_independent_audit import classify_card
+        row={"modelName":"Demo","author":"MiniMaxAI"}
+        self.assertEqual(classify_card(row,"# Demo\nDemo is a continuous-latent language model. The released checkpoint includes weight files.",{})["role"],
+                         "standalone-model-candidate")
+        self.assertEqual(classify_card(row,"# Demo\nTwo kinds of artifact are published: End-to-end VAEs and Generative priors.",{})["role"],
+                         "research-artifact-bundle")
