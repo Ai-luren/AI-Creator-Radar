@@ -13,13 +13,13 @@ from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 try:
     from scripts.collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date)
     from scripts.collect_cross_platform import article_url
     from scripts.collect_release_recall import url_key, article_day_stamp
     from scripts.collect_source_search import augment_discovery
 except ModuleNotFoundError:
     from collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date)
     from collect_cross_platform import article_url
     from collect_release_recall import url_key, article_day_stamp
     from collect_source_search import augment_discovery
@@ -92,13 +92,13 @@ def parse_article(page, url, titles, sources, catalog, now):
     ids = source_families(url, title, sources) & set(catalog)
     if len(ids) != 1:
         # Record an unclassified official article without fabricating a family.
-        stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai"})
+        stamp = article_publication_date(page, title, leading_date=parts_for_leading_date(url))
         return {"status": "family-unresolved", "title": title,
                 "articlePublishedAt": stamp, "possibleModelFamilyIds": sorted(ids)}
     family = catalog[ids.pop()]
     if family.get("category") not in CATEGORY:
         return {"status": "outside-model-scope", "title": title}
-    stamp = article_publication_date(page, title, leading_date=urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai"})
+    stamp = article_publication_date(page, title, leading_date=parts_for_leading_date(url))
     if not stamp:
         return {"status": "date-unresolved", "title": title, "modelId": family["id"]}
     day = article_day_stamp(stamp, url)[:10]
