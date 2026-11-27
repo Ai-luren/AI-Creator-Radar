@@ -92,3 +92,26 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(values[2]["publisherCalendarDay"],"2026-11-02")
         self.assertTrue(all(v["claimType"]=="first-party-product-changelog" for v in values))
         with self.assertRaises(ValueError):parse_higgs_changelog("<h2>Models</h2>",{})
+
+    def test_dated_changelog_adapter_keeps_real_dates_and_distinct_features(self):
+        from scripts.collect_app_updates import parse_dated_changelog
+        page="""<h1>Latest Updates</h1><p>2026-11-24</p><h2>Audio processing and track separation</h2><p>Split vocals and background music into independent tracks.</p><h2>Video and timeline audio translation</h2><p>Translate the selected track and retain editable project media.</p><p>2026-11-14</p><h2>Seedance 2.5 Flash is here</h2><p>Generate and extend videos within the creative application.</p><h2>Credit estimates for upscaling</h2><p>See the estimated credits before submitting a job.</p>"""
+        rows=list(parse_dated_changelog(page,{"id":"flova-changelog"}).values())
+        self.assertEqual(len(rows),3)
+        self.assertEqual(rows[0]["publisherCalendarDay"],"2026-11-24")
+        self.assertEqual(rows[2]["updateType"],"model-integration")
+        self.assertNotIn("releaseDate",rows[2])
+        self.assertEqual(rows[0]["updateType"],"product-update")
+        tap='<h1>TapNow changelog</h1><p>v2.20.10</p><p>October 13, 2026</p><h2>Preview relighting live</h2><p>Adjust the light and export the image to a canvas.</p>'
+        v=next(iter(parse_dated_changelog(tap,{"id":"tapnow-changelog"}).values()))
+        self.assertEqual(v["publisherCalendarDay"],"2026-10-13")
+        self.assertEqual(v["productVersion"],"v2.20.10")
+        with self.assertRaises(ValueError):parse_dated_changelog("<h2>Login</h2>",{"id":"flova-changelog"})
+
+    def test_navigation_only_never_fetches_or_claims_success(self):
+        cfg={"sources":[{"id":"libtv","name":"LibTV","vendor":"LibTV","role":"competitor","url":"https://www.liblib.tv/show","type":"navigation-only","links":[]}]}
+        result=collect(cfg,{},self.now,lambda *_:self.fail("navigation-only must not fetch"))
+        self.assertEqual(result["sources"][0]["status"],"navigation-only")
+        self.assertIsNone(result["sources"][0]["lastSuccessAt"])
+        self.assertEqual(result["summary"]["successfulThisRun"],0)
+        self.assertEqual(result["events"],[])

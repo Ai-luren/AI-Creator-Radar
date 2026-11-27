@@ -241,3 +241,5 @@ AIPick 的 `/api/v1/items` 同样支持模型分类与关键词；实际已公�
 `serve_local.py` 新增 localhost-only `/__local/creator-intel`，仅访问 AIHOT/AIPick 固定公开 API，用户主动读取，双源独立状态，十分钟内存缓存、ETag、Retry-After、失败退避与响应大小限制；不修改 Mac 21:00 任务、不新建云端写入或公开原始数据副本。公开页读取原有 AIPick 快照并跳转上游。个人/组织内部免费使用和公开镜像授权边界遵守 https://aihot.news/terms ，AIPick 同样不假设公开转载授权。
 
 Higgsfield 官方 Changelog 使用现有产品观察批次，30分钟最小检查间隔，不新增定时器；公开 robots 检查不通过时停止，保留原证据与入口。仅保存明确日期、标题、厂商日志分类，过滤价格/促销，首轮基线不冒充今天上新；模型接入不算厂商首发。实际 runner 是否可读、更新覆盖与延迟须单独验收。
+
+Flova/TapNow 使用同一日期+标题日志适配器，固定公开域名及 robots 检查，最小间隔分别30/120分钟；不增加新定时器或任务组。TapNow 日志截至公开页面 2026-10-13，仍需其他渠道；LibTV 为 navigation-only，不能计作成功采集。每条仅存原厂标题、日期、分类和必要版本号，正文只用于识别，未宣称全量覆盖。真实 runner、持久化及延迟验收独立进行。

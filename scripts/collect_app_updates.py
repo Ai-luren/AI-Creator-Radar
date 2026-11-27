@@ -25,7 +25,9 @@ ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/"site/data/app-updates.json"
 MAX_BYTES=6*1024*1024
 HIGGS_CHANGELOG="https://higgsfield.ai/creator-hub/changelog"
-ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG}
+DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
+                  "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog"}
+ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG,*DATED_CHANGELOGS.values()}
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
 class VisibleText(HTMLParser):
@@ -154,6 +156,72 @@ def parse_higgs_changelog(page,source):
                      "claimType":"first-party-product-changelog"}
     if not output:
         raise ValueError("No relevant recent product changelog entries")
+    return output
+
+
+def parse_dated_changelog(page,source):
+    """Dated first-party feature headings; keep source dates, not release guesses."""
+    parser=ChangelogText()
+    parser.feed(page)
+    parser.close()
+    tokens=parser.tokens
+    marker={"flova-changelog":"Latest Updates","tapnow-changelog":"TapNow changelog"}[source["id"]]
+    if not any(value.casefold()==marker.casefold() for _,value in tokens):
+        raise ValueError("Expected official changelog heading absent")
+    day=None
+    version=None
+    rows=[]
+    current=None
+    for kind,value in tokens:
+        if value.casefold()==marker.casefold():
+            day=None
+            current=None
+            continue
+        if re.fullmatch(r"v\d+(?:\.\d+)+",value):
+            version=value
+            continue
+        try:
+            fmt="%Y-%m-%d" if re.fullmatch(r"\d{4}-\d{2}-\d{2}",value) else "%B %d, %Y"
+            parsed=datetime.strptime(value,fmt).date().isoformat()
+        except ValueError:
+            parsed=None
+        if parsed:
+            day=parsed
+            current=None
+            continue
+        if kind=="heading":
+            current={"day":day,"title":value,"version":version,"body":[]} if day else None
+            if current:
+                rows.append(current)
+        elif current is not None and len(current["body"])<8:
+            current["body"].append(value)
+    # A real entry must have explanatory text, not just a menu or date anchor.
+    valid=[row for row in rows if row["body"] and len(" ".join(row["body"]))>=35 and
+           row["title"].casefold() not in {"on this page","latest updates","changelog","tapnow changelog"}]
+    if not valid:
+        raise ValueError("No dated product feature records")
+    newest=max(row["day"] for row in valid)
+    cutoff=(datetime.fromisoformat(newest)-timedelta(days=30)).date().isoformat()
+    output={}
+    for row in valid:
+        title=row["title"]
+        if row["day"]<cutoff or not 3<=len(title)<=180:
+            continue
+        if re.search(r"\b(?:pricing|discount|credit estimates?|refund|invoic\w*|billing|coupons?|promotions?|black friday|spending|payment|plan renewal)\b",title,re.I):
+            continue
+        # Only explicit generation-model integration wording; ambiguous titles
+        # remain product updates. No model catalog mutations.
+        kind="product-update"
+        if re.search(r"\b(?:generate (?:images?|videos?|audio|music) with|(?:seedance|seedream|gpt image|kling|wan|nano banana|magi|vidu|gemini)\s+[\w. -]+(?:is here|is live|is available))\b",title,re.I):
+            kind="model-integration"
+        key=hashlib.sha256((row["day"]+"|"+title).encode()).hexdigest()
+        output[key]={"featureName":title,"publisherCalendarDay":row["day"],"updateType":kind,
+                     "productArea":"","publisherLabel":"Changelog","category":"app",
+                     "claimType":"first-party-product-changelog"}
+        if row["version"]:
+            output[key]["productVersion"]=row["version"]
+    if not output:
+        raise ValueError("No relevant dated product updates")
     return output
 
 
@@ -287,9 +355,11 @@ def fetch(source):
         if source["url"] not in ALLOWED:
             raise ValueError("Unapproved app surface")
         url=source["url"]
-    if source.get("type")=="higgs-changelog":
-        # Do not bypass denied or unreadable crawling rules.
-        robots=urllib.request.Request("https://higgsfield.ai/robots.txt",headers={"User-Agent":USER_AGENT,"Accept":"text/plain"})
+    if source.get("type") in {"higgs-changelog","dated-changelog"}:
+        if source.get("type")=="dated-changelog" and DATED_CHANGELOGS.get(source["id"])!=url:
+            raise ValueError("Unapproved dated changelog")
+        # Same-host fixed endpoints and robots policy, no alternate identity.
+        robots=urllib.request.Request("https://"+urlsplit(url).hostname+"/robots.txt",headers={"User-Agent":USER_AGENT,"Accept":"text/plain"})
         with urllib.request.build_opener(SameHostRedirect()).open(robots,timeout=8) as response:
             raw=response.read(256*1024+1)
         if len(raw)>256*1024 or b"<html" in raw.lower():
@@ -305,6 +375,8 @@ def fetch(source):
         raise ValueError("App surface exceeds byte limit")
     if source.get("type")=="higgs-changelog":
         return parse_higgs_changelog(data.decode("utf-8"),source)
+    if source.get("type")=="dated-changelog":
+        return parse_dated_changelog(data.decode("utf-8"),source)
     return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
 
 def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
@@ -318,6 +390,10 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
         old=prior.get(spec["id"],{})
         row={**old,**{k:spec[k] for k in ("id","name","vendor","url","links")}}
         row["type"]=spec.get("type","visible-model-labels")
+        if spec.get("role"): row["role"]=spec["role"]
+        if spec.get("type")=="navigation-only":
+            sources.append({**row,"status":"navigation-only","entries":{},"lastSuccessAt":None,"error":None,"deferred":True})
+            continue
         entries=old.get("entries",{})
         next_at=parse_stamp(old.get("nextAttemptAt"))
         if next_at and next_at>now:

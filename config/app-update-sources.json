@@ -60,6 +60,43 @@
           "url": "https://higgsfield.ai/blog/editorials",
           "access": "产品详解与使用说明"
         }
+      ],
+      "role": "competitor"
+    },
+    {
+      "id": "flova-changelog",
+      "name": "Flova · 官方更新日志",
+      "vendor": "Flova",
+      "role": "competitor",
+      "url": "https://www.flova.ai/en/docs/changelog/",
+      "type": "dated-changelog",
+      "minIntervalMinutes": 30,
+      "links": []
+    },
+    {
+      "id": "tapnow-changelog",
+      "name": "TapNow · 官方更新日志",
+      "vendor": "TapNow",
+      "role": "competitor",
+      "url": "https://docs.tapnow.ai/en/docs/changelog",
+      "type": "dated-changelog",
+      "minIntervalMinutes": 120,
+      "links": []
+    },
+    {
+      "id": "libtv-entry",
+      "name": "LibTV · 版本更新入口",
+      "vendor": "LibTV",
+      "role": "competitor",
+      "url": "https://www.liblib.tv/show",
+      "type": "navigation-only",
+      "minIntervalMinutes": 60,
+      "links": [
+        {
+          "kind": "版本更新记录",
+          "url": "https://www.liblib.tv/show",
+          "access": "官网可见入口，正文尚未验证可自动读取"
+        }
       ]
     }
   ],
