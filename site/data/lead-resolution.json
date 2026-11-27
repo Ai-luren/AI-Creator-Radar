@@ -1,12 +1,12 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T17:47:25+00:00",
+  "checkedAt": "2026-11-27T17:54:08+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
-    "attempted": 0,
+    "attempted": 1,
     "accessDomainDeferred": 1,
     "articleDateVerified": 9,
-    "newlyCheckedVerified": 0,
+    "newlyCheckedVerified": 1,
     "awaitingProbe": 0,
     "unresolved": 13,
     "notAnnouncement": 2,
@@ -645,20 +645,26 @@
         "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right",
         "Scribe v3 Live Medical"
       ],
-      "resolverRevision": 2,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-17"
       ],
-      "checkedAt": "2026-11-26T17:48:59+00:00",
+      "checkedAt": "2026-11-27T17:54:08+00:00",
       "firstAttemptAt": "2026-11-26T17:41:00+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-27T17:48:59+00:00",
+      "nextAttemptAt": "2026-11-28T17:54:08+00:00",
       "status": "article-date-verified",
       "title": "Scribe v3 Live Medical helps conversational agents get clinical details right",
       "modelId": "eleven-scribe",
       "vendor": "ElevenLabs",
       "category": "audio",
       "articlePublishedAt": "2026-11-17T12:00:00Z",
+      "publisherReleaseStatement": {
+        "modelName": "Scribe v3 Live Medical",
+        "statement": "Today, ElevenLabs is releasing Scribe v3 Live Medical",
+        "calendarDay": "2026-11-17",
+        "kind": "explicit-present-day-launch"
+      },
       "firstVerifiedAt": "2026-11-26T17:48:59+00:00"
     },
     {
