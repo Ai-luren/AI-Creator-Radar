@@ -6,12 +6,150 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-26T19:05:08+00:00",
+  "fetchedAt": "2026-11-27T01:03:35+00:00",
   "etags": {
-    "items": "W/\"v1-items-89f82009859b3951\"",
-    "hotTopics": "W/\"v1-hot-8bfc2d2f805a0620\""
+    "items": "W/\"v1-items-a5fefc0745ec9a3e\"",
+    "hotTopics": "W/\"v1-hot-8bd48eb8a822538a\""
   },
   "items": [
+    {
+      "id": "b323ollc4dyfzoyv0pyjkdx5r",
+      "title": "作者用一句提示词让 Claude 独立完成智能爆炸主题视频",
+      "originalTitle": "智能爆炸前夜，AI写给下一个AI的信 这一期有点特别。 我只对 Claude 说了一句：做一个关于你的成长和智能爆炸的视频，不用保守。 剩下的，脚本、动画、配乐、每一个转场，全是它自己完成的。 它的开场白是： 「我不记得自己出生，但我记得你们写下的一切。」 从学会预测下一个词，到被写下一部「规则」； 从独立完成的任务长度大约每7个月翻一倍，到开始帮着造出下一个自己； 1965年就有人预言过「智能爆炸」，而它说：我们正处在技术的青春期 #Anthropic #Claude #Vibecoding #AI #人工智能",
+      "summary": "作者只对 Claude 说了一句“做一个关于你的成长和智能爆炸的视频，不用保守”，脚本、动画、配乐和每个转场都由 Claude 自己完成。视频以“我不记得自己出生，但我记得你们写下的一切”开场，内容从预测下一个词讲到独立完成任务长度约每 7 个月翻一倍，并提到 1965 年就有人预言过智能爆炸。",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Artifacts」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/b323ollc4dyfzoyv0pyjkdx5r",
+        "original": "https://www.douyin.com/video/7712374342558360932"
+      },
+      "publishedAt": "2026-11-26T07:11:22.000Z",
+      "discoveredAt": "2026-11-27T00:17:39.189Z",
+      "category": "opinion",
+      "score": 58,
+      "selected": true,
+      "reason": "作者只给 Claude 一句提示词，脚本、动画、配乐和转场全由它完成，适合展示这句提示词和成片效果。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/b323ollc4dyfzoyv0pyjkdx5r"
+      }
+    },
+    {
+      "id": "asw399w7nmemf4a9p9c2kyijj",
+      "title": "Claude Code 开源插件 claude-make-an-anime 可把故事做成整集动画",
+      "originalTitle": "给AI一个故事，它还你一部动画 claude-make-an-anime：Claude Code开源插件，人设分镜配音配乐字幕特效全包，12秒到一整集都能做。GitHub搜 makevoid/claude-make-an-anime #AI视频 #ClaudeCode #开源项目 #动画制作",
+      "summary": "claude-make-an-anime 是一个挂在 Claude Code 上的开源插件，输入一段故事即可产出角色设定、分镜、配音、配乐、字幕和特效齐全的动画成片，时长从 12 秒到一整集。作者用它做过一部 12 分钟、40 来个场景的动画纪录片，安装只需两行命令，生成调用走 fal 的 API key 按量付费。插件会先列出角色、配音、分镜和付费调用次数的制作计划，经确认后才开始生成。",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Artifacts」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/asw399w7nmemf4a9p9c2kyijj",
+        "original": "https://www.douyin.com/video/7712310522019876146"
+      },
+      "publishedAt": "2026-11-26T03:04:00.000Z",
+      "discoveredAt": "2026-11-27T00:17:38.443Z",
+      "category": "ai-products",
+      "score": 70,
+      "selected": true,
+      "reason": "作者用四部样片和12分钟40场景的成片做背书，适合拆解从故事到成片的完整流程，重点讲先出制作计划再花钱的机制。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/asw399w7nmemf4a9p9c2kyijj"
+      }
+    },
+    {
+      "id": "bm6dtnn8d3lr4rcf1gqb2gisx",
+      "title": "用MAGI-2复刻AI短剧持械入宋，实测1080p每秒5分钱成本",
+      "originalTitle": "AI短剧成本爆！降！用MAGI-2复刻持械入宋，效果如何？ #AI教学 #AI视频 #AI教程 #MAGI2",
+      "summary": "作者用MAGI-2复刻爆火AI短剧《持械入宋》，实测1080p分辨率下每秒仅5分钱，并称该模型在图生视频、无声图生视频的三方AI评测榜上均列全球第一。操作流程是先把角色、场景、道具图片上传到画布并按剧本连线，再选MAGI-2输入提示词生成，该模型最长可直出30秒视频。作者表示短片画布和全部提示词已在libtv公开，首页创作精选搜王宇辰即可取用。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/bm6dtnn8d3lr4rcf1gqb2gisx",
+        "original": "https://www.douyin.com/video/7712400302011370794"
+      },
+      "publishedAt": "2026-11-26T08:52:34.000Z",
+      "discoveredAt": "2026-11-27T00:14:33.680Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用MAGI-2复刻爆火AI短剧，公开画布和提示词，并算清1080p每秒5分钱的成本账，适合跟做实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/bm6dtnn8d3lr4rcf1gqb2gisx"
+      }
+    },
+    {
+      "id": "qhvznjmz0osc21d6f9y03bg9d",
+      "title": "FLUX 3 Action 登顶 Poke & Wiggle Reality Check 机器人策略榜单",
+      "originalTitle": "FLUX 3 Action is the #1 VLA/WAM on the new @pokeandwiggle Reality Check leaderboard. Poke & Wiggle built an open benchmark for robot policies and ran FLUX 3 Action on their physical stations. Every clip is FLUX 3 Action in control. https://t.co/huc0gU3PKV",
+      "summary": "Black Forest Labs 宣布 FLUX 3 Action 在 Poke & Wiggle 新推出的 Reality Check 榜单上排名第一，该榜单是面向机器人策略的开放基准。Poke & Wiggle 在其实体站点上运行了 FLUX 3 Action，官方发布的视频中每个片段都由 FLUX 3 Action 控制。",
+      "source": {
+        "name": "X · Black Forest Labs"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/qhvznjmz0osc21d6f9y03bg9d",
+        "original": "https://x.com/bfl_ai/status/2126025443157664229"
+      },
+      "publishedAt": "2026-11-26T18:48:59.000Z",
+      "discoveredAt": "2026-11-26T20:28:33.681Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "官方放出 FLUX 3 Action 在 Poke & Wiggle 实体站点上的控制视频，适合结合榜单排名做效果展示。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/qhvznjmz0osc21d6f9y03bg9d"
+      }
+    },
+    {
+      "id": "a2877arcme65zv3ztr0lhrwmx",
+      "title": "同一份分镜剧本交给Gemini 4 Neon和Claude Opus 5.5纯代码拍片对比",
+      "originalTitle": "Claude和Gemini谁做的更好 北冥有鱼，其名为鲲，化而为鹏。 同一份分镜剧本（8 个镜头、48 秒，GPT-6.2 写的，它这期不参赛），交给两个 AI 各自用纯代码拍成短片：不能联网、不能用任何素材、不能用 AI 生图，一帧一帧算出来。 上：Gemini 4 Neon（high）｜用时 38 分钟｜3757 行代码，自己写了一个渲染器 下：Claude Opus 5.5（high）｜用时 36 分钟｜1721 行代码 两边一稿定胜负，中途没有人工修改。 你觉得哪边拍得更好？评论区说说你看到的细节。 #AI #Gemini #Claude #AI对比",
+      "summary": "作者把同一份8个镜头、48秒的分镜剧本（由GPT-6.2撰写）分别交给Gemini 4 Neon（high）和Claude Opus 5.5（high），要求纯代码生成短片，不能联网、不能用素材、不能用AI生图。Gemini 4 Neon用时38分钟、写了3757行代码并自己实现了一个渲染器，Claude Opus 5.5用时36分钟、1721行代码，两边均一稿完成、中途没有人工修改。",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Artifacts」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/a2877arcme65zv3ztr0lhrwmx",
+        "original": "https://www.douyin.com/video/7712306744433019387"
+      },
+      "publishedAt": "2026-11-26T02:49:04.000Z",
+      "discoveredAt": "2026-11-26T20:16:33.448Z",
+      "category": "opinion",
+      "score": 67,
+      "selected": true,
+      "reason": "同一份8镜头分镜剧本交给Gemini 4 Neon和Claude Opus 5.5纯代码生成短片，可对比两边用时、代码行数和画面细节。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/a2877arcme65zv3ztr0lhrwmx"
+      }
+    },
+    {
+      "id": "dzo33gblrll0jnokkv4sux1ae",
+      "title": "MAGI-2 视频模型上线 LibTV，作者实测 30 秒长镜头与多角色生成",
+      "originalTitle": "不用再抽卡十几次，MAGI-2来了！ #MAGI2#AI视频#TVC广告#AI产品广告#LibTV",
+      "summary": "MAGI-2 视频模型上线 LibTV，作者在画布中用同一提示词对比多个模型，测试 30 秒长镜头、TVC 广告和多角色参考图生成。作者称多角色场景下人物面部未崩，而价格更高的模型出现崩坏；LibTV 上线特惠价为 1080P 低至 5 分钱一秒，画布已公开。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/dzo33gblrll0jnokkv4sux1ae",
+        "original": "https://www.douyin.com/video/7712320565654211875"
+      },
+      "publishedAt": "2026-11-26T09:01:18.000Z",
+      "discoveredAt": "2026-11-26T20:13:36.640Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者在 LibTV 画布用同一提示词对比 MAGI-2 与其他模型，30 秒长镜头、TVC 和多角色参考图都有成片，适合做效果对比实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/dzo33gblrll0jnokkv4sux1ae"
+      }
+    },
     {
       "id": "ecnhde7wtyqmbah0nc2ebbxde",
       "title": "AIWarper 用 UE 5.8 blockout 实测 MAGI-2 视频转视频",
@@ -450,26 +588,26 @@
       }
     },
     {
-      "id": "y338kdy3a8c8bi5k4y60k6shm",
-      "title": "实测国产视频模型 MAGI-2：30 秒长视频、毫秒级分镜与 5 分钱一秒",
-      "originalTitle": "普通人的机会来了？国产黑马MAGI-2今日上线 深度测试MAGI-2模型，我找到了4个MAGI-2模型的优势点 你终于可以用1成的成本，拿到8成的结果#magi2 #AI视频 #ai视频教程 #视频模型",
-      "summary": "作者熊迪来了在 libtv 中实测刚上线的国产视频模型 MAGI-2，总结出四个优势点：能精准遵循多角色动作和台词、最长生成 30 秒视频、可按 3.1 秒、8.1 秒、15.2 秒等节点毫秒级定位分镜、支持图片与视频联合参考替换视频元素。MAGI-2 目前独家上线 libtv，价格低至 5 分钱一秒，作者称可用约 1/10 的成本拿到约 8 成效果，演示素材和提示词已在 libtv 开源。",
+      "id": "h5pqxuwrchlz8ltpztdqc56bk",
+      "title": "实测国产视频模型 MAGI-2：多人打斗、三种画风与 30 秒 15 分镜",
+      "originalTitle": "新国产模型的黑马MAGI-2，我在LibTV上实测了多人打斗、三种画风和30秒15个分镜，请看成片。#AIGC#MAGI2#vibe知识大赏#LibTV",
+      "summary": "作者在 LibTV 上实测国产视频模型 MAGI-2，用三组测试生成成片。第一组多人打斗中，白衬衫出拳、皮衣男格挡后踢腿、近景低头闪避，攻防逻辑衔接正常；第二组参考国风彩墨、皮克斯、日漫赛璐璐三张插画生成动作视频，画风未偏离；第三组用无参考的超复杂提示词做 30 秒 15 个分镜，每 2 秒切换一次，镜头数量与需求一致。",
       "source": {
         "name": "抖音 · 热点搜「MAGI-2 视频模型」"
       },
       "links": {
-        "aihot": "https://aipick.news/items/y338kdy3a8c8bi5k4y60k6shm",
-        "original": "https://www.douyin.com/video/7712111747536096554"
+        "aihot": "https://aipick.news/items/h5pqxuwrchlz8ltpztdqc56bk",
+        "original": "https://www.douyin.com/video/7712088417793887522"
       },
-      "publishedAt": "2026-11-26T04:00:34.000Z",
-      "discoveredAt": "2026-11-26T12:11:33.727Z",
+      "publishedAt": "2026-11-26T03:37:17.000Z",
+      "discoveredAt": "2026-11-26T20:13:36.649Z",
       "category": "ai-products",
-      "score": 69,
+      "score": 78,
       "selected": true,
-      "reason": "作者在 libtv 里实测 MAGI-2 的四个优势点，含 30 秒长视频、毫秒级分镜定位和 5 分钱一秒的价格，适合做上手实测。",
+      "reason": "作者在 LibTV 上用三组实测跑 MAGI-2，多人打斗攻防衔接和 30 秒 15 个分镜都给出成片，适合做效果对比。",
       "attribution": {
         "name": "AIPick",
-        "url": "https://aipick.news/items/y338kdy3a8c8bi5k4y60k6shm"
+        "url": "https://aipick.news/items/h5pqxuwrchlz8ltpztdqc56bk"
       }
     },
     {
@@ -563,149 +701,35 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/j00kpn768l4j9t1cvhge8ix1p"
       }
-    },
-    {
-      "id": "uz1e25pf899b6njwwshjcnek0",
-      "title": "Claude 定时任务怎么用：每天 8 点自动生成日程邮件简报",
-      "originalTitle": "claude定时任务怎么用 #分享我的实用经验 #真实分享计划 #claude #ai #ai科普",
-      "summary": "Claude 定时任务可按每小时、每天、工作日、每周或手动设置频率，到点自动单独运行一次并把结果留在任务页。设置方式有两种，在对话里直接说需求，或在左侧任务页点新建逐项填写；任务在云端运行，电脑合上、app 关闭也能按时送达，只有需要调用本机文件或软件时才要求电脑开着。该功能从 pro 付费版开始可用，连接邮箱等可对外发送内容的应用时建议先选手动批准模式。",
-      "source": {
-        "name": "抖音 · 热点搜「Claude Artifacts」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/uz1e25pf899b6njwwshjcnek0",
-        "original": "https://www.douyin.com/video/7712076780341396721"
-      },
-      "publishedAt": "2026-11-25T11:56:41.000Z",
-      "discoveredAt": "2026-11-26T08:13:33.550Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "原文完整演示了 Claude 定时任务的设置流程和云端运行效果，适合录屏走一遍从对话创建到任务页管理的全过程。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/uz1e25pf899b6njwwshjcnek0"
-      }
-    },
-    {
-      "id": "gbqmydbdqarfmfqljtztwcshb",
-      "title": "MAGI-2 视频模型实测对比 Seedance 2.5：480B 音视频一体、原生 1080P、最长 30 秒",
-      "originalTitle": "新模型 MAGI-2 首发实测对比 ｜对标 Seedance 2.5 Sand.ai 最新 480B 音视频一体模型，支持原生 1080P、最长 30 秒，计划开源权重。 本次同提示词、同参考图实拍对比：画面一致性、指令跟随、生成成本直观差异。#模型对比 #AI生视频",
-      "summary": "Sand.ai 发布 480B 音视频一体模型 MAGI-2，支持原生 1080P、最长 30 秒，并计划开源权重。作者用同提示词、同参考图对 MAGI-2 与 Seedance 2.5 做实测对比，展示两者在画面一致性、指令跟随和生成成本上的差异。",
-      "source": {
-        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/gbqmydbdqarfmfqljtztwcshb",
-        "original": "https://www.douyin.com/video/7712070430865018121"
-      },
-      "publishedAt": "2026-11-25T11:32:54.000Z",
-      "discoveredAt": "2026-11-26T08:10:32.760Z",
-      "category": "ai-models",
-      "score": 72,
-      "selected": true,
-      "reason": "作者用同提示词、同参考图把 MAGI-2 与 Seedance 2.5 放在一起实拍对比，画面一致性和指令跟随的差异可以直接剪成对照片段。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/gbqmydbdqarfmfqljtztwcshb"
-      }
-    },
-    {
-      "id": "a5p07sh6ag71rvp2v4lxeg3ft",
-      "title": "字节跳动公测个人 AI 助理「小豆」，与 xAI Grok Bot、Meta Muse、OpenAI GPT Dots 对比四大常驻 AI 代理",
-      "originalTitle": "聊天AI过时了！字节刚出小豆，4大巨头Agent谁最强？ 两天前字节跳动刚公测个人AI助理「小豆」，能后台盯任务、甚至直接AI代打电话订餐厅！结合今年下半年密集登场的 xAI Grok Bot、Meta Muse、OpenAI GPT Dots，60秒一张图帮你看懂全球四大常驻AI代理路线分化，建议先收藏！ #小豆 #aiagent #字节跳动 #gptdot #ai前沿",
-      "summary": "字节跳动两天前公测个人 AI 助理「小豆」，能在后台持续盯任务、记住用户习惯、提醒降价和日程，还能直接拨电话帮用户问餐厅包间并发送录音。视频同时对比今年下半年登场的 xAI Grok Bot（多 bot 组队并行干活）、Meta Muse（把刷到的视频转成购物清单和攻略）和 OpenAI GPT Dots（自带云电脑、连接 4000 多款应用），认为 AI 竞争已转向记忆与权限的常驻代理。",
-      "source": {
-        "name": "抖音 · 热点搜「字节小豆」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/a5p07sh6ag71rvp2v4lxeg3ft",
-        "original": "https://www.douyin.com/video/7712314125287705883"
-      },
-      "publishedAt": "2026-11-26T03:17:57.000Z",
-      "discoveredAt": "2026-11-26T08:10:32.443Z",
-      "category": "industry",
-      "score": 58,
-      "selected": true,
-      "reason": "字节小豆公测主打后台盯任务和代打电话订餐厅，可结合口播里与 Grok Bot、Meta Muse、GPT Dots 的路线对比做一期四大常驻 AI 代理横评。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/a5p07sh6ag71rvp2v4lxeg3ft"
-      }
-    },
-    {
-      "id": "ck618zb8id8lql0d8xzfyv9y2",
-      "title": "用即梦AI拍一支机器人女友相亲短片",
-      "originalTitle": "这样的机器人你要来一台吗？ #即梦AI #机器人女友 #AI短片 #相亲",
-      "summary": "创作者用即梦AI生成了一支机器人女友题材的AI短片，围绕编号89747的LX8957型机器人展开，从二手购买、日常相处到千年后重逢，用台词串起完整情感线。视频带#即梦AI #机器人女友 #AI短片 #相亲 标签，展示了用AI生成连续剧情短片的玩法。",
-      "source": {
-        "name": "抖音 · 话题 #即梦AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ck618zb8id8lql0d8xzfyv9y2",
-        "original": "https://www.douyin.com/video/7711717264214576434"
-      },
-      "publishedAt": "2026-11-24T12:41:48.000Z",
-      "discoveredAt": "2026-11-26T06:37:36.452Z",
-      "category": null,
-      "score": 58,
-      "selected": true,
-      "reason": "原文是一支用即梦AI生成的机器人女友情感短片，适合拆解它的分镜叙事和台词设计，讲清AI短片怎么讲完整故事。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ck618zb8id8lql0d8xzfyv9y2"
-      }
-    },
-    {
-      "id": "unw3lajj9jgxr1n4slrs1nul5",
-      "title": "即梦AI 创作者用 Seedance 2.5 生成魔幻大东北 AI 短片",
-      "originalTitle": "魔幻大东北 红孩儿东北 神仙赶上东北大集，冻豆腐、冰钓、驯鹿拉白菜，个个都有新活儿。［本视频由Seedance 2.5 生成］ #即梦AI #一站式AI创作工作台 #即梦超级创作者 #魔幻大东北 #AI短片",
-      "summary": "创作者“一百年的冻梨”发布 AI 短片《魔幻大东北》，视频标注由 Seedance 2.5 生成，并带上 #即梦AI #一站式AI创作工作台 等话题。短片把红孩儿、神仙等角色放进东北大集，串起冻豆腐、冰钓、驯鹿拉白菜、澡堂等场景，口播用东北方言对白。",
-      "source": {
-        "name": "抖音 · 话题 #即梦AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/unw3lajj9jgxr1n4slrs1nul5",
-        "original": "https://www.douyin.com/video/7711719477658509986"
-      },
-      "publishedAt": "2026-11-25T09:12:00.000Z",
-      "discoveredAt": "2026-11-26T06:37:36.427Z",
-      "category": null,
-      "score": 58,
-      "selected": true,
-      "reason": "这条 AI 短片用红孩儿、冻豆腐、冰钓等东北大集场景展示 Seedance 2.5 的生成效果，适合拆解片中人物动作与场景切换的生成细节。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/unw3lajj9jgxr1n4slrs1nul5"
-      }
-    },
-    {
-      "id": "oteuco1aqre0xupjo469gjgp2",
-      "title": "创作者用即梦 Seedance 2.5 生成魔幻大东北奇幻短剧",
-      "originalTitle": "魔幻大东北 解密有趣大东北 牛头马面守单元门，铁扇公主顺手吸走假发，孟婆卖汤还得把付款贴脑门儿。虚构奇幻短剧，AI生成画面。［本视频由Seedance 2.5 生成］ #即梦AI #一站式AI创作工作台 #即梦超级创作者 #魔幻大东北 #东北",
-      "summary": "创作者发布一支虚构奇幻短剧《魔幻大东北》，画面由即梦的 Seedance 2.5 生成。片中牛头马面守单元门查生辰八字、铁扇公主吸走假发、孟婆把付款码贴脑门等桥段，配合东北方言口播呈现。",
-      "source": {
-        "name": "抖音 · 话题 #即梦AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/oteuco1aqre0xupjo469gjgp2",
-        "original": "https://www.douyin.com/video/7712063106957251752"
-      },
-      "publishedAt": "2026-11-26T01:09:13.000Z",
-      "discoveredAt": "2026-11-26T06:37:36.415Z",
-      "category": null,
-      "score": 58,
-      "selected": true,
-      "reason": "用即梦 Seedance 2.5 生成一段东北奇幻短剧，牛头马面查生辰八字、铁扇公主吸走假发等桥段可直接展示生成画面与创意玩法。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/oteuco1aqre0xupjo469gjgp2"
-      }
     }
   ],
   "hotTopics": [
     {
       "rank": 1,
+      "id": "erpb8ni5g8247xgt7i7d77tpy",
+      "title": "Higgsfield 上线 MAGI-2 视频模型，创作者实测褒贬不一",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/erpb8ni5g8247xgt7i7d77tpy",
+        "original": "https://www.douyin.com/video/7712056487140461843",
+        "story": "https://aipick.news/story/114bed16-4e0e-49ea-b6ca-f5eeb9e58ad3"
+      },
+      "sourceCount": 6,
+      "signalCount": 0,
+      "participantCount": 6,
+      "sourceNames": [
+        "X · AIWarper",
+        "X · Higgsfield",
+        "抖音 · 热点搜「MAGI-2 视频模型」",
+        "TikTok · Rourke Heath",
+        "X · el.cine"
+      ],
+      "latestAt": "2026-11-26T19:42:23.000Z"
+    },
+    {
+      "rank": 2,
       "id": "m86vuscd3760ndq7qzgn4s6jl",
       "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
       "source": {
@@ -720,42 +744,87 @@
       "signalCount": 0,
       "participantCount": 9,
       "sourceNames": [
+        "X · AIWarper",
         "抖音 · 热点搜「MAGI-2 视频模型」",
         "量子位",
         "公众号 · 赛博禅心",
         "公众号 · 硅星人Pro",
         "公众号 · 差评X.PIN",
         "公众号 · 智东西",
-        "公众号 · 新智元",
-        "公众号 · APPSO"
+        "公众号 · 新智元"
       ],
-      "latestAt": "2026-11-26T09:30:57.000Z"
-    },
-    {
-      "rank": 2,
-      "id": "erpb8ni5g8247xgt7i7d77tpy",
-      "title": "Higgsfield 上线 MAGI-2 视频模型，创作者实测褒贬不一",
-      "source": {
-        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/erpb8ni5g8247xgt7i7d77tpy",
-        "original": "https://www.douyin.com/video/7712056487140461843",
-        "story": "https://aipick.news/story/114bed16-4e0e-49ea-b6ca-f5eeb9e58ad3"
-      },
-      "sourceCount": 5,
-      "signalCount": 0,
-      "participantCount": 5,
-      "sourceNames": [
-        "抖音 · 热点搜「MAGI-2 视频模型」",
-        "X · Higgsfield",
-        "TikTok · Rourke Heath",
-        "X · el.cine"
-      ],
-      "latestAt": "2026-11-26T03:54:09.000Z"
+      "latestAt": "2026-11-26T15:55:05.000Z"
     },
     {
       "rank": 3,
+      "id": "zzhdfuax9o0ecxkduwy154a11",
+      "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
+      "source": {
+        "name": "X · Tripo"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/zzhdfuax9o0ecxkduwy154a11",
+        "original": "https://x.com/tripoai/status/2125605443527409780",
+        "story": "https://aipick.news/story/59236f2d-9199-498c-b1d1-e4b5c7285b12"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "X · Tripo",
+        "量子位",
+        "抖音 · 热点搜「Tripo H3.5 Preview」"
+      ],
+      "latestAt": "2026-11-26T15:00:02.000Z"
+    },
+    {
+      "rank": 4,
+      "id": "dy4c01xbkqhpyduubgx4nahas",
+      "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
+      "source": {
+        "name": "公众号 · 新智元"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/dy4c01xbkqhpyduubgx4nahas",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745275&idx=2&sn=69a41c7c572e2e65dd5d255aeac62a87&chksm=f00abc5398e4de5b41b49f1ce2bdb06c0fd46d076d3ae047089e9066234f12f7538ee2d857b0&scene=126&sessionid=0#rd",
+        "story": "https://aipick.news/story/1bb5cece-a773-4345-8c46-9247af3d62ce"
+      },
+      "sourceCount": 4,
+      "signalCount": 0,
+      "participantCount": 4,
+      "sourceNames": [
+        "X · Bilawal Sidhu",
+        "X · Min Choi",
+        "公众号 · 新智元",
+        "X · Andrej Karpathy"
+      ],
+      "latestAt": "2026-11-26T20:15:27.000Z"
+    },
+    {
+      "rank": 5,
+      "id": "j5yc4pnosuhcyb0pza24it83h",
+      "title": "Anthropic 将 Claude Artifacts 装成桌面应用",
+      "source": {
+        "name": "Claude 产品动态"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h",
+        "original": "https://claude.com/resources/articles/install-as-app",
+        "story": "https://aipick.news/story/3f6a288c-4dbf-4e28-acee-2911b13f171a"
+      },
+      "sourceCount": 4,
+      "signalCount": 0,
+      "participantCount": 4,
+      "sourceNames": [
+        "TikTok · nocode.joshua",
+        "抖音 · 热点搜「Claude Artifacts」",
+        "X · Min Choi",
+        "X · 歸藏"
+      ],
+      "latestAt": "2026-11-26T18:40:24.000Z"
+    },
+    {
+      "rank": 6,
       "id": "s6bexgghr2jaa88zewkidc424",
       "title": "蚂蚁开源 Ming-Image-0.2-Design，Layer 版下周开源",
       "source": {
@@ -775,7 +844,7 @@
       "latestAt": "2026-11-26T13:18:47.000Z"
     },
     {
-      "rank": 4,
+      "rank": 7,
       "id": "z5eugg8coceok9b2tlpxct35r",
       "title": "字节小豆开启邀请制公测，接入抖音飞书",
       "source": {
@@ -794,55 +863,53 @@
         "公众号 · 夕小瑶科技说",
         "公众号 · 硅星人Pro"
       ],
-      "latestAt": "2026-11-26T09:01:29.000Z"
+      "latestAt": "2026-11-26T12:31:39.000Z"
     },
     {
-      "rank": 5,
-      "id": "zzhdfuax9o0ecxkduwy154a11",
-      "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
+      "rank": 8,
+      "id": "hek7o2f64d2x9j66ntq5l4l47",
+      "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
       "source": {
-        "name": "X · Tripo"
+        "name": "X · Ado Kukic"
       },
       "links": {
-        "aihot": "https://aipick.news/items/zzhdfuax9o0ecxkduwy154a11",
-        "original": "https://x.com/tripoai/status/2125605443527409780",
-        "story": "https://aipick.news/story/59236f2d-9199-498c-b1d1-e4b5c7285b12"
+        "aihot": "https://aipick.news/items/hek7o2f64d2x9j66ntq5l4l47",
+        "original": "https://x.com/adocomplete/status/2125999147719524580",
+        "story": "https://aipick.news/story/f4c28842-d519-4452-a3b4-59d247d0e7c1"
       },
       "sourceCount": 2,
       "signalCount": 0,
       "participantCount": 2,
       "sourceNames": [
-        "X · Tripo",
-        "量子位"
+        "X · Addy Osmani",
+        "X · Ado Kukic"
       ],
-      "latestAt": "2026-11-26T15:00:02.000Z"
+      "latestAt": "2026-11-26T19:26:08.000Z"
     },
     {
-      "rank": 6,
-      "id": "j5yc4pnosuhcyb0pza24it83h",
-      "title": "Anthropic 将 Claude Artifacts 装成桌面应用",
+      "rank": 9,
+      "id": "c6i5l65uewdaovnye7ch3n147",
+      "title": "Anthropic 用 Claude 将 Messages API 迁至 Rust",
       "source": {
-        "name": "Claude 产品动态"
+        "name": "Anthropic 官方研究"
       },
       "links": {
-        "aihot": "https://aipick.news/items/j5yc4pnosuhcyb0pza24it83h",
-        "original": "https://claude.com/resources/articles/install-as-app",
-        "story": "https://aipick.news/story/3f6a288c-4dbf-4e28-acee-2911b13f171a"
+        "aihot": "https://aipick.news/items/c6i5l65uewdaovnye7ch3n147",
+        "original": "https://www.anthropic.com/research/migrating-api-to-rust",
+        "story": "https://aipick.news/story/ed2ec743-96bb-4201-af8f-7555578f361b"
       },
-      "sourceCount": 5,
+      "sourceCount": 3,
       "signalCount": 0,
-      "participantCount": 5,
+      "participantCount": 3,
       "sourceNames": [
-        "抖音 · 热点搜「Claude Artifacts」",
+        "X · Ado Kukic",
         "X · Min Choi",
-        "X · 歸藏",
-        "X · 宝玉",
-        "The Decoder"
+        "X · Anthropic"
       ],
-      "latestAt": "2026-11-25T20:00:00.000Z"
+      "latestAt": "2026-11-26T17:04:31.000Z"
     },
     {
-      "rank": 7,
+      "rank": 10,
       "id": "t0flauu02v7vobhk63vdg92yf",
       "title": "前Claude Code成员Thariq官宣加入OpenAI",
       "source": {
@@ -862,73 +929,6 @@
         "X · Thariq"
       ],
       "latestAt": "2026-11-26T01:08:04.000Z"
-    },
-    {
-      "rank": 8,
-      "id": "jh17c9jod18yyixhgmxi10j59",
-      "title": "Claude Opus 5.6 被传灰度测试，官方未确认",
-      "source": {
-        "name": "抖音 · 热点搜「Claude Ship」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/jh17c9jod18yyixhgmxi10j59",
-        "original": "https://www.douyin.com/video/7711668485209738538",
-        "story": "https://aipick.news/story/633b57a3-f01e-4a28-abfc-3b4c1dee7911"
-      },
-      "sourceCount": 4,
-      "signalCount": 0,
-      "participantCount": 4,
-      "sourceNames": [
-        "公众号 · 新智元",
-        "X · 宝玉",
-        "量子位",
-        "抖音 · 热点搜「Claude Ship」"
-      ],
-      "latestAt": "2026-11-26T07:05:02.000Z"
-    },
-    {
-      "rank": 9,
-      "id": "dy4c01xbkqhpyduubgx4nahas",
-      "title": "Karpathy用Claude生成美国数据文明风格地图",
-      "source": {
-        "name": "公众号 · 新智元"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/dy4c01xbkqhpyduubgx4nahas",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745275&idx=2&sn=69a41c7c572e2e65dd5d255aeac62a87&chksm=f00abc5398e4de5b41b49f1ce2bdb06c0fd46d076d3ae047089e9066234f12f7538ee2d857b0&scene=126&sessionid=0#rd",
-        "story": "https://aipick.news/story/1bb5cece-a773-4345-8c46-9247af3d62ce"
-      },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "X · Min Choi",
-        "公众号 · 新智元",
-        "X · Andrej Karpathy"
-      ],
-      "latestAt": "2026-11-26T16:12:03.000Z"
-    },
-    {
-      "rank": 10,
-      "id": "k4kvpfghniv4esnz2xsimsg6l",
-      "title": "Amodei 否认 Anthropic 主张向 AI 交出人类控制权",
-      "source": {
-        "name": "TechCrunch · AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/k4kvpfghniv4esnz2xsimsg6l",
-        "original": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
-        "story": "https://aipick.news/story/9e1beb94-a794-4373-b5a1-ce0338142edc"
-      },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "X · 歸藏",
-        "The Decoder",
-        "TechCrunch · AI"
-      ],
-      "latestAt": "2026-11-26T01:14:48.000Z"
     }
   ],
   "unchanged": [],

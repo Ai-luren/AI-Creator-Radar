@@ -1,7 +1,7 @@
 {
   "source": "Google Trends RSS",
   "sourceUrl": "https://trends.google.com/trending",
-  "fetchedAt": "2026-11-26T19:05:10Z",
+  "fetchedAt": "2026-11-27T01:03:36Z",
   "window": "7d",
   "metricDefinition": "approxSearchTraffic is an approximate search-volume bucket supplied by Google Trends. It is not a social-platform engagement metric.",
   "regions": {
@@ -40,9 +40,9 @@
   },
   "items": [
     {
-      "id": "google-search-trend-78da446c00ae",
+      "id": "google-search-trend-7abe5aed05b8",
       "type": "search-trend",
-      "title": "nfl scores",
+      "title": "depaul vs pittsburgh",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -50,46 +50,46 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "AU",
-      "regionName": "澳大利亚",
-      "publishedAt": "2026-11-26T18:10:00Z",
-      "approxSearchTraffic": "10000+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl+scores",
+      "regionCode": "US",
+      "regionName": "美国",
+      "publishedAt": "2026-11-27T00:20:00Z",
+      "approxSearchTraffic": "2000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=depaul+vs+pittsburgh",
       "relatedNews": [
         {
-          "title": "2026 NFL Thanksgiving preview: Picks, predictions, schedule, odds, fantasy tips",
-          "source": "ESPN",
-          "url": "https://www.espn.com/nfl/story/_/id/50582822/thanksgiving-games-picks-schedule-fantasy-odds-2026",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSXbsHvlV8NFSmf2_UJaftAdVD0UsH3E_Tos-hyFigB-cmMehI45BxQIfeykw"
+          "title": "Staff Picks: Can Pitt overcome DePaul in a showdown of undefeated teams?",
+          "source": "247Sports",
+          "url": "https://247sports.com/college/pittsburgh/article/pitt-depaul-basketball-staff-picks-preview-where-to-watch-jeff-capel-chris-holtmann-baye-ndongo-293311891/",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzLZ0HklA_LyWZRjq1wXlk7QoQTWAtH1Qs1SondwKFEPFRCA0pl5ZI6b6JydY"
         },
         {
-          "title": "Underdog Thanksgiving Promo Code FOXNEWS: Play $10, Get $50 on Lions-Bears, Cowboys-Eagles, or Bills-Chiefs",
-          "source": "Fox News",
-          "url": "https://www.foxnews.com/outkick-betting/underdog-thanksgiving-promo-code-foxnews-play-10-get-50-on-lions-bears-cowboys-eagles-or-bills-chiefs",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTUYTksuDE-BtxG26EJvBFzCoWPnjLjV69BdvtbflZNY7xr3TKaxXfhtIVqjrk"
+          "title": "7-0 Pitt To Face 6-0 DePaul On Thanksgiving Day",
+          "source": "PittsburghPanthers.com",
+          "url": "https://pittsburghpanthers.com/news/2026/11/25/mens-basketball-7-0-pitt-to-face-6-0-depaul-on-thanksgiving-day",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQPj7e7APfGqWHJ6CcYXdSBuCYMIHzTW7J21sekS-HDLQAg1AZ8EkdIonV_0G0"
         },
         {
-          "title": "NFL DFS Thanksgiving Day Picks for DraftKings and FanDuel (Fantasy Football)",
-          "source": "Fantasy Footballers Podcast",
-          "url": "https://www.thefantasyfootballers.com/dfs/nfl-dfs-thanksgiving-day-picks-for-draftkings-and-fanduel-fantasy-football-2/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRiCnse5-TJFF5xPKmEsyEwl0VRLxzkxfIpyBfMM1jWAFsrlf67Bu1vZKoQ738"
+          "title": "Undefeated Pitt, DePaul set to collide in Florida",
+          "source": "TribLIVE.com",
+          "url": "https://triblive.com/sports/undefeated-pitt-depaul-set-to-collide-in-florida/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTBQyt2xQwbbKpsP0vR98BIQPZtB1k2caoZhgUrK0LC1OlY42B5Vq-4XBKHavU"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "AU",
-          "regionName": "澳大利亚",
-          "publishedAt": "2026-11-26T18:10:00Z",
-          "approxSearchTraffic": "10000+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl+scores"
+          "regionCode": "US",
+          "regionName": "美国",
+          "publishedAt": "2026-11-27T00:20:00Z",
+          "approxSearchTraffic": "2000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=depaul+vs+pittsburgh"
         }
       ]
     },
     {
-      "id": "google-search-trend-cb29cb7fb4fd",
+      "id": "google-search-trend-434d337f4a81",
       "type": "search-trend",
-      "title": "nfl",
+      "title": "smu vs lsu",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -97,46 +97,46 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "AU",
-      "regionName": "澳大利亚",
-      "publishedAt": "2026-11-26T18:20:00Z",
-      "approxSearchTraffic": "500+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl",
+      "regionCode": "US",
+      "regionName": "美国",
+      "publishedAt": "2026-11-27T00:40:00Z",
+      "approxSearchTraffic": "1000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=smu+vs+lsu",
       "relatedNews": [
         {
-          "title": "2026 NFL Thanksgiving preview: Picks, predictions, schedule, odds, fantasy tips",
-          "source": "ESPN",
-          "url": "https://www.espn.com.au/nfl/story/_/id/50582822/thanksgiving-games-picks-schedule-fantasy-odds-2026",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ12G35_hx5uy0YV66VzkpnerYylGHr5eQzDHB_aew4Itt-6qsh9ieC4K6f1ME"
-        },
-        {
-          "title": "NFL Thanksgiving slate: Two must-know storylines for each of five games",
-          "source": "NFL.com",
-          "url": "https://www.nfl.com/news/nfl-thanksgiving-slate-two-must-know-storylines-for-each-of-five-games",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIUiA2PK8gUz0T28VQ_ejfu-5rI823-hzi8tGny9R_QILkDiM1DVdpECcjq1s"
-        },
-        {
-          "title": "What channel is Thanksgiving football on? How to stream the Bears vs. Lions, Eagles vs. Cowboys and Chiefs vs. Bills games today",
+          "title": "No. 20 LSU men's basketball vs SMU | How to watch, live score from Acrisure Series",
           "source": "Yahoo Sports",
-          "url": "https://sports.yahoo.com/nfl/article/what-channel-is-thanksgiving-football-on-how-to-stream-the-bears-vs-lions-eagles-vs-cowboys-and-chiefs-vs-bills-games-today-110000466.html",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE2Hi9XXg9-Zxzd4eHOccMO_uU0KCXSlnNCrjtFYRRQncRz1WpqdA_UFtJ3SI"
+          "url": "https://sports.yahoo.com/mens-college-basketball/articles/no-20-lsu-mens-basketball-230145225.html",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTR2oAg7OqB3zD0LAPtIhNmxQSwUjvmv5zz58EnxXaukB8rZPOwL-akozqgVrw"
+        },
+        {
+          "title": "How to watch SMU vs. LSU men’s basketball: TV channel and streaming options for November 26 - The Athletic",
+          "source": "The New York Times",
+          "url": "https://www.nytimes.com/athletic/7814633/2026/11/26/smu-vs-lsu-stream-how-to-watch-nov-26/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT31aGWnzhy8foupczCdxhl0fdsnN_bgakgJs9GTw72oUuBoaZuR16Tgs4bwNo"
+        },
+        {
+          "title": "[-STREAM] (WAY) TO WATCH Tigers vs Mustangs LIVE Streams ON TV CHANNEL Ｓｔｒｅａｍｓ ＯＮ ＴＶ Cast",
+          "source": "tallahatchienews.ms",
+          "url": "https://www.tallahatchienews.ms/node/463793",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqwUVc_qWy2yjiUxMYKwXAE7QXTqOEWWaZQ4UGRVw35yxI5AzXRLJTBvXcgUY"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "AU",
-          "regionName": "澳大利亚",
-          "publishedAt": "2026-11-26T18:20:00Z",
-          "approxSearchTraffic": "500+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=nfl"
+          "regionCode": "US",
+          "regionName": "美国",
+          "publishedAt": "2026-11-27T00:40:00Z",
+          "approxSearchTraffic": "1000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=smu+vs+lsu"
         }
       ]
     },
     {
-      "id": "google-search-trend-779c3d7f50f4",
+      "id": "google-search-trend-85118b2cba50",
       "type": "search-trend",
-      "title": "brighton vs craiova",
+      "title": "lsu basketball",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -144,48 +144,48 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "AU",
-      "regionName": "澳大利亚",
-      "publishedAt": "2026-11-26T17:40:00Z",
-      "approxSearchTraffic": "500+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=brighton+vs+craiova",
+      "regionCode": "US",
+      "regionName": "美国",
+      "publishedAt": "2026-11-27T00:30:00Z",
+      "approxSearchTraffic": "1000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=lsu+basketball",
       "relatedNews": [
         {
-          "title": "Brighton & Hove Albion vs Universitatea Craiova: UEFA Conference League stats & head-to-head",
-          "source": "BBC",
-          "url": "https://www.bbc.com/sport/football/live/c6y80ej72k2gt",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT41CaDRV6nnoIsmUQy1Cj_cK1IdXGUv6f62NDbBdcbEbtBvQZs23Q5qpmimvk"
+          "title": "LSU 94-92 Arizona State (Nov 25, 2026) Final Score",
+          "source": "ESPN",
+          "url": "https://www.espn.com/mens-college-basketball/game/_/gameId/401921669/lsu-arizona-st",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq5PnPwGHglo-_xwwbKa1znZckYhQRqhfLbHQQ8bDCX82BC8cwwPOdptJNxx0"
         },
         {
-          "title": "'We have a great opportunity to really push on' - Hinshelwood",
-          "source": "AOL.com",
-          "url": "https://www.aol.com/articles/great-opportunity-really-push-hinshelwood-115813000.html",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS2m_AKIx3K-JT7dmIvmkrinpd7hzbz6G80zZ24xeppogvVnJ-oL7rfv_gZkdo"
+          "title": "No. 20 Tiger Basketball Outlasts Arizona State in Double-Overtime, 94-92",
+          "source": "LSUsports.net",
+          "url": "https://lsusports.net/news/2026/11/25/no-20-tiger-basketball-outlasts-arizona-state-in-double-overtime-94-92",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR0znybfw3O6SwFhKs8APJ3tOglPZJD9iUpYFcz-M8bGWaEMhm2NtYmtAUywO8"
         },
         {
-          "title": "Brighton vs Universitatea Craiova 8/1 Bet Builder boost: Bet £5 and get £40 in free bets",
-          "source": "talkSPORT",
-          "url": "https://talksport.com/betting/4730783/brighton-universitatea-craiova-bet-builder-odds-boost-conference-league/",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSSkInCcJk2yRsZBNLRyth0MRscjTx381trDc8OHkw2xiIbnB33p4zwlXDf5XY"
+          "title": "LSU men's basketball escapes double-overtime thriller with Arizona State",
+          "source": "WBRZ",
+          "url": "https://www.wbrz.com/news/lsu-men-s-basketball-escapes-double-overtime-thriller-with-arizona-state/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTLCOGr8FJIFod9pEQNUdJNTZq5FNiIVvRvutbyCZhd1-x2fCKPd35uuCnvqHs"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "AU",
-          "regionName": "澳大利亚",
-          "publishedAt": "2026-11-26T17:40:00Z",
-          "approxSearchTraffic": "500+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=brighton+vs+craiova"
+          "regionCode": "US",
+          "regionName": "美国",
+          "publishedAt": "2026-11-27T00:30:00Z",
+          "approxSearchTraffic": "1000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=lsu+basketball"
         }
       ]
     },
     {
-      "id": "google-search-trend-d4f4efbda68a",
+      "id": "google-search-trend-1d40902bb73e",
       "type": "search-trend",
-      "title": "challenge cup",
-      "category": "social_format",
-      "categoryLabel": "社媒形式 / 热梗",
+      "title": "bills vs chiefs",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
@@ -193,27 +193,39 @@
       "region": "overseas",
       "regionCode": "GB",
       "regionName": "英国",
-      "publishedAt": "2026-11-26T18:40:00Z",
+      "publishedAt": "2026-11-27T00:40:00Z",
       "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=challenge+cup",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=bills+vs+chiefs",
       "relatedNews": [
         {
-          "title": "Challenge Cup returns with new identity and format for 2027",
-          "source": "The Home of Rugby League",
-          "url": "https://www.rugby-league.com/article/65357/challenge-cup-returns-with-new-identity-and-format-for-2027-",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFvnlWTL2Q-dTeWkeZP7IObT_deBRnd7JU-Xo072610UHYxWymkpXYZF_9bMI"
+          "title": "Kincaid in, Walker III out for Thanksgiving night clash",
+          "source": "DAZN",
+          "url": "https://www.dazn.com/en-GB/news/american-football/dalton-kincaid-kenneth-walker-bills-chiefs-thanksgiving-game-nfl/1mek68prvxgc10pj6icsqy3rg",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTdXfzo0RXaZQvCvvBPTuJSpvAw3Rx9g5Rwd1pjMEg4Bndh7F5_5TP9qxwr6qM"
         },
         {
-          "title": "Super League duo withdraw from RFL Challenge Cup as structure confirmed",
-          "source": "Love Rugby League",
-          "url": "https://www.loverugbyleague.com/post/super-league-duo-withdraw-from-rfl-challenge-cup-as-structure-confirmed",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTosClnNYb1h6uRrWUwtPZqbnnT64aZeWxzZv0Hb3nAxHA5iVxEulD9KK11P2c"
+          "title": "Week 12 inactives for Chiefs",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nfl/articles/week-12-inactives-chiefs-003418755.html",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQiVDgDVgWKfdciuWOhZ4xSnJnAavMyAY37BjdKFWZRGylxB2hox-jtLuGMBZs"
         },
         {
-          "title": "Catalans Dragons release statement after Challenge Cup decision amid 2028 hope",
-          "source": "All Out Rugby League",
-          "url": "https://www.alloutrugbyleague.co.uk/news/catalans-dragons-voice-challenge-cup-2122785",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ6ft96Mhribxl8zX_hAr67RczHeGodO0F4UmTzMYgD9_ybQjWP49374Y_dLNY"
+          "title": "Video: Dalton Kincaid's return 'is big' for Buffalo Bills in showdown vs. Chiefs",
+          "source": "The New York Times",
+          "url": "https://www.nytimes.com/athletic/video/1mPcwd3y49Jc0g8/",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQinYUQOCIaT8MwzV8zvgqTFcZzbDGrqaMIEeEaCdy3G2ZgyOWzHr3hQ7nTARg"
+        },
+        {
+          "title": "'We've got to be at our best' | Buffalo's offense gears up to take on the Kansas City Chiefs' stifling defense",
+          "source": "Buffalo Bills",
+          "url": "https://www.buffalobills.com/news/we-ve-got-to-be-at-our-best-buffalo-s-offense-gears-up-to-take-on-the-kansas-city-chiefs-stifling-defense",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQjL21MiQp21X1tv9Mq9QCeDxliWmyjyObUAVQ1zuG1tYFfvGzRUBvOspQ2BG8"
+        },
+        {
+          "title": "Patrick Mahomes and Josh Allen set up for another shootout as Chiefs face Bills on Thanksgiving",
+          "source": "Fox News",
+          "url": "https://www.foxnews.com/outkick-betting/patrick-mahomes-josh-allen-set-up-another-shootout-chiefs-face-bills-thanksgiving",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTj4rSwZ1agYJN1D-aEKRcDHXwI2P9YNx5rXfl_n4r2yR38ULGrG9_U_MA3MVg"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
@@ -221,18 +233,25 @@
         {
           "regionCode": "GB",
           "regionName": "英国",
-          "publishedAt": "2026-11-26T18:40:00Z",
+          "publishedAt": "2026-11-27T00:40:00Z",
           "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=challenge+cup"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=bills+vs+chiefs"
+        },
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-27T00:20:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=bills+vs+chiefs"
         }
       ]
     },
     {
-      "id": "google-search-trend-14567b3cf54a",
+      "id": "google-search-trend-69bd8f4b1982",
       "type": "search-trend",
-      "title": "olympiacos vs milan",
-      "category": "sports",
-      "categoryLabel": "体育事件话题",
+      "title": "losing instagram followers",
+      "category": "social_format",
+      "categoryLabel": "社媒形式 / 热梗",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
@@ -240,27 +259,27 @@
       "region": "overseas",
       "regionCode": "AU",
       "regionName": "澳大利亚",
-      "publishedAt": "2026-11-26T18:10:00Z",
+      "publishedAt": "2026-11-26T23:40:00Z",
       "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=olympiacos+vs+milan",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=losing+instagram+followers",
       "relatedNews": [
         {
-          "title": "'It is the only way to be a good team' - Ruben Amorim demands Europa League improvement from injury-hit AC Milan ahead of 'aggressive' Olympiacos trip",
-          "source": "Goal.com",
-          "url": "https://www.goal.com/en-au/news/ruben-amorim-demands-ac-milan-improvement-ahead-of-olympiacos-clash-europa-league/blt153b7afc6fcb346e",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS6Rwz3tucxOZvrIBxEUpyTEdxTzjs-l9_x_k67eszIX5R_upPS7URyyCupyX4"
+          "title": "Reason why you just lost a heap of followers",
+          "source": "News.com.au",
+          "url": "https://www.news.com.au/lifestyle/real-life/news-life/aussies-hit-by-sudden-instagram-follower-drop-as-meta-confirms-major-change/news-story/b3b9cbf9720c115e3884d053e00e31da",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTjKuS3R-cp8b_YCRInCJIOfK7usyCzZzyqMjBBSUmS3A2EtR19j8wlRrttDuk"
         },
         {
-          "title": "LIVE: AMORIM AND JASHARI'S PRESS CONFERENCE",
-          "source": "OneFootball",
-          "url": "https://onefootball.com/en/news/live-amorim-and-jasharis-press-conference-43839457",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSbPLvlYz9YPCggxxWCgOmog8G8fLpJc9WF7RUBifxNIW5zWDBgGAXp_QTMBVA"
+          "title": "This Is Why You’re Losing Instagram Followers In 2026",
+          "source": "www.marieclaire.com.au",
+          "url": "https://www.marieclaire.com.au/news/instagram-followers-dropping-2026/",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR0bgXnypxzd5nws7lxfS9m-oHcw3E2Ha_740luai6RleBJudf-nIpbz2tmgCQ"
         },
         {
-          "title": "GdS: Super in Serie A, struggling in Europe – the reasons behind the ‘two-faced’ Milan",
-          "source": "SempreMilan",
-          "url": "https://sempremilan.com/the-reasons-behind-two-faced-milan",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ83k4JCwrf57IgZyG_cQb60enl78-hBIccJmCGG_UYO4uxrjSfXvdf8j8wIo"
+          "title": "Did you just lose (more) Instagram followers? Here’s why",
+          "source": "RUSSH",
+          "url": "https://www.russh.com/instagram-follower-loss-explained/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRO_47Y4nUBVakc3ZCVpDMT_TFu-QZMuE7XFkDzRmPYfiEINM4Wl69hGoyRGYA"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
@@ -268,157 +287,63 @@
         {
           "regionCode": "AU",
           "regionName": "澳大利亚",
-          "publishedAt": "2026-11-26T18:10:00Z",
+          "publishedAt": "2026-11-26T23:40:00Z",
           "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=olympiacos+vs+milan"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=losing+instagram+followers"
         }
       ]
     },
     {
-      "id": "google-search-trend-4e34abc03095",
+      "id": "google-search-trend-7b93079fdf3f",
       "type": "search-trend",
-      "title": "lions vs bears",
-      "category": "sports",
-      "categoryLabel": "体育事件话题",
+      "title": "そんなに言うなら抱いてやる ドラマ",
+      "category": "film_tv",
+      "categoryLabel": "影视 / 文娱话题",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "AU",
-      "regionName": "澳大利亚",
-      "publishedAt": "2026-11-26T18:10:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=lions+vs+bears",
-      "relatedNews": [
-        {
-          "title": "Can Caleb Williams steer Bears past Lions in NFC North matchup?",
-          "source": "ESPN",
-          "url": "https://www.espn.com.au/video/clip/_/id/50604206/can-caleb-williams-steer-bears-lions-nfc-north-matchup",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRYGRCsnV8-sIvFWis087YLZl2S2Ew0K6cjKbKaf61mWw52j-0_F3U1iVcnTLM"
-        },
-        {
-          "title": "Lions vs. Bears: How to watch, listen and follow",
-          "source": "Detroit Lions",
-          "url": "https://www.detroitlions.com/news/lions-vs-bears-how-to-watch-listen-and-follow-2026-goff-gibbs-williams-joseph",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSWu9q1xz7BqQ6QMfrqdAExnWlvYxnA6eRaownw1GkCWiVD382iNBEmpr60h6I"
-        },
-        {
-          "title": "Bears-Lions Thanksgiving Day game preview | 2026 Week 12",
-          "source": "Chicago Bears",
-          "url": "https://www.chicagobears.com/news/bears-lions-thanksgiving-day-game-preview-2026-week-12",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQq925XnhPnLPUntvgo6R2-3gUZYthbNzLYrhcMxosER6zgCZg9xQDyjyJExwo"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "AU",
-          "regionName": "澳大利亚",
-          "publishedAt": "2026-11-26T18:10:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=lions+vs+bears"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-963ed22e0aad",
-      "type": "search-trend",
-      "title": "celta vs bournemouth",
-      "category": "sports",
-      "categoryLabel": "体育事件话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "AU",
-      "regionName": "澳大利亚",
-      "publishedAt": "2026-11-26T18:10:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=celta+vs+bournemouth",
-      "relatedNews": [
-        {
-          "title": "Ten-man Bournemouth level at Celta Vigo in Europa League, Brighton ahead in Conference League",
-          "source": "BBC",
-          "url": "https://www.bbc.com/sport/football/live/c6zxj2ypr4e8t",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIJp_3COQdn83mYoSLGAWifw3aqYKHCFft4K3DmBBIAwuBk5pnJprnGso25Zg"
-        },
-        {
-          "title": "Bournemouth confirmed line-up for 5.45pm Celta Vigo clash",
-          "source": "Dave.Sport",
-          "url": "https://dave.sport/news/celta-vigo-v-bournemouth-confirmed-line-ups/",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzjpVoWIiHxXwGE3PZHiJkrJoTqRcNcMt882fv00Y-mMfXuubzhZUYkrOzALI"
-        },
-        {
-          "title": "Celta Vigo vs Bournemouth Europa League Tips & Prediction - Bournemouth target record 10th straight win",
-          "source": "Bets.com.au",
-          "url": "https://www.bets.com.au/soccer/europa-league/celta-vigo-vs-bournemouth-europa-league-tips-prediction-20261125-0017/",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ6LEHmw4fwddynDy_4H91GRVKYHsnZ9ro_E4sCdFPG5C4KGrDz11D_J7adK78"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "AU",
-          "regionName": "澳大利亚",
-          "publishedAt": "2026-11-26T18:10:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=celta+vs+bournemouth"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-6520f3ac396e",
-      "type": "search-trend",
-      "title": "conference league",
-      "category": "sports",
-      "categoryLabel": "体育事件话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "CA",
-      "regionName": "加拿大",
-      "publishedAt": "2026-11-26T18:40:00Z",
+      "regionCode": "JP",
+      "regionName": "日本",
+      "publishedAt": "2026-11-27T00:10:00Z",
       "approxSearchTraffic": "100+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=conference+league",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=%E3%81%9D%E3%82%93%E3%81%AA%E3%81%AB%E8%A8%80%E3%81%86%E3%81%AA%E3%82%89%E6%8A%B1%E3%81%84%E3%81%A6%E3%82%84%E3%82%8B+%E3%83%89%E3%83%A9%E3%83%9E",
       "relatedNews": [
         {
-          "title": "Netherlands Conference League Soccer",
-          "source": "chronicleonline.com",
-          "url": "https://www.chronicleonline.com/sports/soccer/netherlands-conference-league-soccer/image_1e059782-540e-5d67-ba07-08ed49039848.html",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQIqHJQWqqrm_cDfxIC5Ni8lVpcEgRZ_bu_F7ERQMJMRKLkqieG3Uf3bFSYEDI"
+          "title": "同一人物と知らず恋に落ちる――沢村玲＆鬼倉龍大W主演「そんなに言うなら抱いてやる」1月から放送（映画.com）",
+          "source": "Yahoo!ニュース",
+          "url": "https://news.yahoo.co.jp/articles/e08e403c1a1a0d142eca11733b94013b0e412d85",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR-OumF995ZIKapsfoB0Peram36_7kq_s7OayS4OaWqJ0rpGGozQ5dyw2jeSQM"
         },
         {
-          "title": "Netherlands Conference League Soccer",
-          "source": "couriernews.com",
-          "url": "https://www.couriernews.com/sports/netherlands-conference-league-soccer/image_58f138e4-60d4-55c1-9ed2-dcc94657aa3b.html",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT1kJUivewbkp_zEygB2iURj7KDZor32_uIlKx_HMJFCDLPTQcy6zHxH85b8wE"
+          "title": "そんなに言うなら抱いてやる | ドラマフィル",
+          "source": "4チャンネル",
+          "url": "https://www.mbs.jp/sondaki/",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSzS-NYRXknAcxAUv5-DHXHeQRIQFEoH37JiMVhMLKc3aAtZFYRD7I_wti2v2o"
         },
         {
-          "title": "Netherlands Conference League Soccer",
-          "source": "couriernews.com",
-          "url": "https://www.couriernews.com/sports/netherlands-conference-league-soccer/image_584ccc35-aeae-5443-a40c-ca255db7f091.html",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR1dbypp6QSW7g0bgXL8JL-wR79LKnNsrJlGQxMJghpCQysl1jP071TFnh_zCk"
+          "title": "沢村玲＆鬼倉龍大W主演で「そんなに言うなら抱いてやる」ドラマ化！“バックハグ”ビジュアル解禁",
+          "source": "朝日新聞",
+          "url": "https://www.asahi.com/and/entertainment/17084348",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuy0OffklIqyxdgndJH6LoMJ-jkV8NE3EOG40lRv4S4lyTOLiqsKp99KYPwvk"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "CA",
-          "regionName": "加拿大",
-          "publishedAt": "2026-11-26T18:40:00Z",
+          "regionCode": "JP",
+          "regionName": "日本",
+          "publishedAt": "2026-11-27T00:10:00Z",
           "approxSearchTraffic": "100+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=conference+league"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=%E3%81%9D%E3%82%93%E3%81%AA%E3%81%AB%E8%A8%80%E3%81%86%E3%81%AA%E3%82%89%E6%8A%B1%E3%81%84%E3%81%A6%E3%82%84%E3%82%8B+%E3%83%89%E3%83%A9%E3%83%9E"
         }
       ]
     },
     {
-      "id": "google-search-trend-c66cdd080cab",
+      "id": "google-search-trend-3aaa54ca7c6e",
       "type": "search-trend",
-      "title": "hearts vs monaco",
+      "title": "亞洲冬季棒球聯盟",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -426,39 +351,39 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "CA",
-      "regionName": "加拿大",
-      "publishedAt": "2026-11-26T18:30:00Z",
+      "regionCode": "TW",
+      "regionName": "台湾地区",
+      "publishedAt": "2026-11-27T00:00:00Z",
       "approxSearchTraffic": "100+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=hearts+vs+monaco",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=TW&q=%E4%BA%9E%E6%B4%B2%E5%86%AC%E5%AD%A3%E6%A3%92%E7%90%83%E8%81%AF%E7%9B%9F",
       "relatedNews": [
         {
-          "title": "Conference League: Build-up as Hearts host Monaco at Tynecastle",
-          "source": "Yahoo Sports",
-          "url": "https://ca.sports.yahoo.com/news/conference-league-build-hearts-host-155746245.html",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRFyrcr0YnTPQXk4lZGn7x9zcCibCbbj47JLlnYz-sdmgQrX1CQwtLE0u4mn_g"
+          "title": "冬盟／大學明星慘兮兮！第二度遭社會人「開魯閣」 目前10戰僅1勝",
+          "source": "Yahoo運動",
+          "url": "https://tw.sports.yahoo.com/news/%E5%86%AC%E7%9B%9F-%E5%A4%A7%E5%AD%B8%E6%98%8E%E6%98%9F%E6%85%98%E5%85%AE%E5%85%AE-%E7%AC%AC%E4%BA%8C%E5%BA%A6%E9%81%AD%E7%A4%BE%E6%9C%83%E4%BA%BA-%E9%96%8B%E9%AD%AF%E9%96%A3-%E7%9B%AE%E5%89%8D10%E6%88%B0%E5%83%851%E5%8B%9D-090300191.html",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQKyofCskIdBMQ_-W_WduAo6NwS4fwWTP2kgd_EdlIlVSl0wzqLzKDzFgS4usk"
         },
         {
-          "title": "Licensable picture: UEFA Conference League - Heart of Midlothian v AS Monaco",
-          "source": "Reuters Connect",
-          "url": "https://www.reutersconnect.com/item/uefa-conference-league-heart-of-midlothian-v-as-monaco/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1VQMUVNQlExRkpPODU",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc-8HRTOUBLgvEUgy0svMXF2WK4QHZ-28YX2jDJ3dxn2_VL2SkQ6AlN3otPgg"
+          "title": "冬盟》慘！兩大台製潛水艇 遭日本打線無情狙擊 | 自由電子報",
+          "source": "LINE TODAY",
+          "url": "https://today.line.me/tw/v3/article/GgPBX28",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSH59XIhW-_JdSeuAaOrmt9HDwPAijHlV41MHHvMAfo5eqisUdbvnlcPYTz3jU"
         },
         {
-          "title": "Hearts make goalkeeper change to European squad list due to injury",
-          "source": "Hearts Standard",
-          "url": "https://www.heartsstandard.co.uk/news/26765111.hearts-make-change-euro-squad-list-injury/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR7He6pW4jEOLQ5runs8-lsOFTVlt8VKRT4QXO2V4nVOk6_7EaxMwTrf9ewp2U"
+          "title": "CPBL 中華職棒. . ❄️⚾ #2026亞洲冬季棒球聯盟 海洋生物們私藏的台南美食口袋名單！ 這次跟著台灣海洋一起吃遍台南 挖掘在地美食🍜 邀請球迷來冬盟看比賽、逛台南、吃美食 (,,• ֊ •,,)♡ 🎁影片最後填寫問卷，就有機會抽好禮喔！ #平日免費入場 #假日預購享優惠 購",
+          "source": "Facebook",
+          "url": "https://www.facebook.com/heartbaseball/videos/2026%E4%BA%9E%E6%B4%B2%E5%86%AC%E5%AD%A3%E6%A3%92%E7%90%83%E8%81%AF%E7%9B%9F-%E6%B5%B7%E6%B4%8B%E7%94%9F%E7%89%A9%E5%80%91%E7%A7%81%E8%97%8F%E7%9A%84%E5%8F%B0%E5%8D%97%E7%BE%8E%E9%A3%9F%E5%8F%A3%E8%A2%8B%E5%90%8D%E5%96%AE-%E9%80%99%E6%AC%A1%E8%B7%9F%E8%91%97%E5%8F%B0%E7%81%A3%E6%B5%B7%E6%B4%8B%E4%B8%80%E8%B5%B7%E5%90%83%E9%81%8D%E5%8F%B0%E5%8D%97-%E6%8C%96%E6%8E%98%E5%9C%A8%E5%9C%B0%E7%BE%8E%E9%A3%9F-%E9%82%80%E8%AB%8B%E7%90%83%E8%BF%B7%E4%BE%86%E5%86%AC%E7%9B%9F%E7%9C%8B%E6%AF%94%E8%B3%BD%E9%80%9B%E5%8F%B0%E5%8D%97%E5%90%83%E7%BE%8E%E9%A3%9F-%E5%BD%B1%E7%89%87%E6%9C%80%E5%BE%8C%E5%A1%AB%E5%AF%AB%E5%95%8F%E5%8D%B7%E5%B0%B1%E6%9C%89%E6%A9%9F/1849362409442809/",
+          "image": ""
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "CA",
-          "regionName": "加拿大",
-          "publishedAt": "2026-11-26T18:30:00Z",
+          "regionCode": "TW",
+          "regionName": "台湾地区",
+          "publishedAt": "2026-11-27T00:00:00Z",
           "approxSearchTraffic": "100+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=hearts+vs+monaco"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=TW&q=%E4%BA%9E%E6%B4%B2%E5%86%AC%E5%AD%A3%E6%A3%92%E7%90%83%E8%81%AF%E7%9B%9F"
         }
       ]
     }

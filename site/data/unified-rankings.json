@@ -1,7 +1,7 @@
 {
   "schema": "ai-creator-radar-unified-rankings/1",
   "methodVersion": "2026.11-radar-index-v4",
-  "calculatedAt": "2026-11-26T19:05:07Z",
+  "calculatedAt": "2026-11-27T01:03:34Z",
   "displayPolicy": "The public-facing top ten use source-native primary leaderboards. Raw source rank, score, interval, and sample count are retained without cross-source score aggregation. The earlier v4 composite remains exploratory audit output only.",
   "scale": {
     "formula": "50 + 15 × z",
@@ -181,7 +181,7 @@
       "frozenAt": "2026-11-25T10:03:22Z",
       "identityRule": "exact model version ID when mapped; otherwise canonical provider plus exact normalized model name",
       "sourceSnapshotHashes": {
-        "base": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+        "base": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
         "source": "adbc8f9e64d32a9c7afd7d7b900a461783a37858341e613cb3099ea916655df6"
       },
       "methodVersion": "2026.11-radar-index-v4"
@@ -1258,7 +1258,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage26sunburst?entry=artificial-analysis%3Aimage-edit%3A2",
               "updatedAt": "2026-11-25"
             }
@@ -1361,7 +1361,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Microsoft",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             },
@@ -1632,7 +1632,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage25sunburst?entry=artificial-analysis%3Aimage-edit%3A4",
               "updatedAt": "2026-11-25"
             }
@@ -1714,7 +1714,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage26flare?entry=artificial-analysis%3Aimage-edit%3A3",
               "updatedAt": "2026-11-25"
             }
@@ -1796,7 +1796,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage25flare?entry=artificial-analysis%3Aimage-edit%3A5",
               "updatedAt": "2026-11-25"
             }
@@ -1878,7 +1878,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Microsoft",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -1981,7 +1981,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Microsoft",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/microsoft--maiimage26?entry=artificial-analysis%3Aimage-edit%3A11",
               "updatedAt": "2026-11-25"
             },
@@ -2088,7 +2088,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage2?entry=artificial-analysis%3Aimage-edit%3A13",
               "updatedAt": "2026-11-25"
             }
@@ -2252,7 +2252,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/google--nanobanana21?entry=artificial-analysis%3Aimage-edit%3A10",
               "updatedAt": "2026-11-25"
             }
@@ -2355,7 +2355,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/xai--grokimagineimage20?entry=artificial-analysis%3Aimage-edit%3A24",
               "updatedAt": "2026-11-25"
             },
@@ -2488,7 +2488,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Krea",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/krea--krea3ultra?entry=artificial-analysis%3Aimage-edit%3A9",
               "updatedAt": "2026-11-25"
             },
@@ -2673,7 +2673,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "ByteDance",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -2755,7 +2755,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Microsoft",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/microsoft--maiimage26flash?entry=artificial-analysis%3Aimage-edit%3A12",
               "updatedAt": "2026-11-25"
             }
@@ -2837,7 +2837,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/google--nanobanana2gemini31flashimage?entry=artificial-analysis%3Aimage-edit%3A18",
               "updatedAt": "2026-11-25"
             }
@@ -3076,7 +3076,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/meta--museimage?entry=artificial-analysis%3Aimage-edit%3A17",
               "updatedAt": "2026-11-25"
             },
@@ -3258,7 +3258,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Microsoft",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/microsoft--maiimage25?entry=artificial-analysis%3Aimage-edit%3A20",
               "updatedAt": "2026-11-25"
             },
@@ -3365,7 +3365,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage15?entry=artificial-analysis%3Aimage-edit%3A23",
               "updatedAt": "2026-11-25"
             }
@@ -3419,7 +3419,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Krea",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/krea--krea3fast?entry=artificial-analysis%3Aimage-edit%3A21",
               "updatedAt": "2026-11-25"
             }
@@ -3501,7 +3501,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Microsoft",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/microsoft--maiimage25pro?entry=artificial-analysis%3Aimage-edit%3A19",
               "updatedAt": "2026-11-25"
             }
@@ -3686,7 +3686,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "ByteDance",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/bytedance--seedream50pro?entry=artificial-analysis%3Aimage-edit%3A15",
               "updatedAt": "2026-11-25"
             },
@@ -3793,7 +3793,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux3image?entry=artificial-analysis%3Aimage-edit%3A22",
               "updatedAt": "2026-11-25"
             }
@@ -3957,7 +3957,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/google--nanobananaprogemini3proimage?entry=artificial-analysis%3Aimage-edit%3A25",
               "updatedAt": "2026-11-25"
             }
@@ -4093,7 +4093,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "HiDream",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -4257,7 +4257,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -4339,7 +4339,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -4524,7 +4524,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimage30pro?entry=artificial-analysis%3Aimage-edit%3A29",
               "updatedAt": "2026-11-25"
             }
@@ -4664,7 +4664,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/google--nanobanana2litegemini31flashliteimage?entry=artificial-analysis%3Aimage-edit%3A44",
               "updatedAt": "2026-11-25"
             }
@@ -4767,7 +4767,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimage21?entry=artificial-analysis%3Aimage-edit%3A33",
               "updatedAt": "2026-11-25"
             },
@@ -5038,7 +5038,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/xai--grokimagineimagequality?entry=artificial-analysis%3Aimage-edit%3A27",
               "updatedAt": "2026-11-25"
             }
@@ -5120,7 +5120,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimage30?entry=artificial-analysis%3Aimage-edit%3A36",
               "updatedAt": "2026-11-25"
             }
@@ -5202,7 +5202,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Microsoft",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/microsoft--maiimage25flash?entry=artificial-analysis%3Aimage-edit%3A30",
               "updatedAt": "2026-11-25"
             }
@@ -5284,7 +5284,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimage21pro?entry=artificial-analysis%3Aimage-edit%3A37",
               "updatedAt": "2026-11-25"
             }
@@ -5366,7 +5366,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Bria",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/bria--fibo20?entry=artificial-analysis%3Aimage-edit%3A32",
               "updatedAt": "2026-11-25"
             }
@@ -5530,7 +5530,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux3imageklein?entry=artificial-analysis%3Aimage-edit%3A38",
               "updatedAt": "2026-11-25"
             }
@@ -5612,7 +5612,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Luma Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/luma--lumauni1max?entry=artificial-analysis%3Aimage-edit%3A34",
               "updatedAt": "2026-11-25"
             }
@@ -5715,7 +5715,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/xai--grokimagineimage?entry=artificial-analysis%3Aimage-edit%3A35",
               "updatedAt": "2026-11-25"
             },
@@ -5897,7 +5897,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimage20pro20260422?entry=artificial-analysis%3Aimage-edit%3A43",
               "updatedAt": "2026-11-25"
             }
@@ -5979,7 +5979,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimage21turbo?entry=artificial-analysis%3Aimage-edit%3A42",
               "updatedAt": "2026-11-25"
             }
@@ -6115,7 +6115,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Newport AI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/newportai--dreamimage20?entry=artificial-analysis%3Aimage-edit%3A46",
               "updatedAt": "2026-11-25"
             }
@@ -6197,7 +6197,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Ideogram",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/ideogram--ideogram45?entry=artificial-analysis%3Aimage-edit%3A40",
               "updatedAt": "2026-11-25"
             }
@@ -6333,7 +6333,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Ideogram",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -6497,7 +6497,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Tencent",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/tencent--hunyuanimage35preview?entry=artificial-analysis%3Aimage-edit%3A28",
               "updatedAt": "2026-11-25"
             }
@@ -6837,7 +6837,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "ByteDance",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/bytedance--seedream45?entry=artificial-analysis%3Aimage-edit%3A50",
               "updatedAt": "2026-11-25"
             },
@@ -6965,7 +6965,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "ByteDance",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/bytedance--seedream50lite?entry=artificial-analysis%3Aimage-edit%3A41",
               "updatedAt": "2026-11-25"
             },
@@ -7126,7 +7126,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Luma Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/luma--lumauni1?entry=artificial-analysis%3Aimage-edit%3A47",
               "updatedAt": "2026-11-25"
             }
@@ -7208,7 +7208,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Tencent",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/tencent--hunyuanimage30instruct?entry=artificial-analysis%3Aimage-edit%3A39",
               "updatedAt": "2026-11-25"
             },
@@ -7315,7 +7315,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--wan27pro?entry=artificial-analysis%3Aimage-edit%3A45",
               "updatedAt": "2026-11-25"
             }
@@ -7451,7 +7451,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--wan27?entry=artificial-analysis%3Aimage-edit%3A49",
               "updatedAt": "2026-11-25"
             }
@@ -7608,7 +7608,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--wan26image?entry=artificial-analysis%3Aimage-edit%3A48",
               "updatedAt": "2026-11-25"
             },
@@ -7905,7 +7905,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Tencent",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/tencent--hunyuanimage30tencentcloud?entry=artificial-analysis%3Aimage-edit%3A52",
               "updatedAt": "2026-11-25"
             }
@@ -8116,7 +8116,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "fal",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/fal--flux2devturbo?entry=artificial-analysis%3Aimage-edit%3A53",
               "updatedAt": "2026-11-25"
             }
@@ -8198,7 +8198,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage1?entry=artificial-analysis%3Aimage-edit%3A61",
               "updatedAt": "2026-11-25"
             }
@@ -8355,7 +8355,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux2max?entry=artificial-analysis%3Aimage-edit%3A59",
               "updatedAt": "2026-11-25"
             },
@@ -8741,7 +8741,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux2pro?entry=artificial-analysis%3Aimage-edit%3A55",
               "updatedAt": "2026-11-25"
             },
@@ -8820,7 +8820,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "StepFun",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/stepfun--stepimageedit2?entry=artificial-analysis%3Aimage-edit%3A56",
               "updatedAt": "2026-11-25"
             }
@@ -9038,7 +9038,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "fal",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/fal--flux2devflash?entry=artificial-analysis%3Aimage-edit%3A57",
               "updatedAt": "2026-11-25"
             }
@@ -9195,7 +9195,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux2flex?entry=artificial-analysis%3Aimage-edit%3A60",
               "updatedAt": "2026-11-25"
             },
@@ -9646,7 +9646,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux2dev?entry=artificial-analysis%3Aimage-edit%3A58",
               "updatedAt": "2026-11-25"
             },
@@ -9749,7 +9749,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/google--nanobananagemini25flashimage?entry=artificial-analysis%3Aimage-edit%3A63",
               "updatedAt": "2026-11-25"
             }
@@ -9911,7 +9911,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimageeditplus2511?entry=artificial-analysis%3Aimage-edit%3A62",
               "updatedAt": "2026-11-25"
             }
@@ -10176,7 +10176,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Apple",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -10312,7 +10312,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimage2020260303?entry=artificial-analysis%3Aimage-edit%3A67",
               "updatedAt": "2026-11-25"
             }
@@ -10528,7 +10528,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Reve",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/reve--revev1december?entry=artificial-analysis%3Aimage-edit%3A64",
               "updatedAt": "2026-11-25"
             }
@@ -10636,7 +10636,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimageeditmax2601?entry=artificial-analysis%3Aimage-edit%3A66",
               "updatedAt": "2026-11-25"
             }
@@ -10814,7 +10814,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "HiDream",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/hidream--hidreamo1image?entry=artificial-analysis%3Aimage-edit%3A71",
               "updatedAt": "2026-11-25"
             }
@@ -11029,7 +11029,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux2klein9b?entry=artificial-analysis%3Aimage-edit%3A54",
               "updatedAt": "2026-11-25"
             },
@@ -11244,7 +11244,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Kuaishou",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/kuaishou--klingimageo1?entry=artificial-analysis%3Aimage-edit%3A72",
               "updatedAt": "2026-11-25"
             },
@@ -11455,7 +11455,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Pruna AI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/pruna--pimageedit?entry=artificial-analysis%3Aimage-edit%3A65",
               "updatedAt": "2026-11-25"
             },
@@ -11530,7 +11530,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimageeditplus2509?entry=artificial-analysis%3Aimage-edit%3A68",
               "updatedAt": "2026-11-25"
             }
@@ -11795,7 +11795,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/openai--gptimage1mini?entry=artificial-analysis%3Aimage-edit%3A74",
               "updatedAt": "2026-11-25"
             }
@@ -12067,7 +12067,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Vidu",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/vidu--viduq2?entry=artificial-analysis%3Aimage-edit%3A70",
               "updatedAt": "2026-11-25"
             }
@@ -12278,7 +12278,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux1kontextmax?entry=artificial-analysis%3Aimage-edit%3A75",
               "updatedAt": "2026-11-25"
             },
@@ -12648,7 +12648,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/alibaba--qwenimageedit?entry=artificial-analysis%3Aimage-edit%3A80",
               "updatedAt": "2026-11-25"
             },
@@ -12772,7 +12772,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux1kontextpro?entry=artificial-analysis%3Aimage-edit%3A77",
               "updatedAt": "2026-11-25"
             },
@@ -13198,7 +13198,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Bria",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/bria--fiboedit?entry=artificial-analysis%3Aimage-edit%3A76",
               "updatedAt": "2026-11-25"
             }
@@ -13301,7 +13301,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux2klein4b?entry=artificial-analysis%3Aimage-edit%3A73",
               "updatedAt": "2026-11-25"
             },
@@ -13753,7 +13753,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Meituan",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/meituan--longcatimage?entry=artificial-analysis%3Aimage-edit%3A79",
               "updatedAt": "2026-11-25"
             }
@@ -14023,7 +14023,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "ByteDance",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/bytedance--seededit30?entry=artificial-analysis%3Aimage-edit%3A78",
               "updatedAt": "2026-11-25"
             },
@@ -14309,7 +14309,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/zai--glmimage?entry=artificial-analysis%3Aimage-edit%3A83",
               "updatedAt": "2026-11-25"
             }
@@ -14395,7 +14395,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "HiDream",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/hidream--hidreamo1imagedev?entry=artificial-analysis%3Aimage-edit%3A82",
               "updatedAt": "2026-11-25"
             }
@@ -14585,7 +14585,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Black Forest Labs",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/black-forest-labs--flux1kontextdev?entry=artificial-analysis%3Aimage-edit%3A81",
               "updatedAt": "2026-11-25"
             },
@@ -15044,7 +15044,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "VectorSpaceLab",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/vectorspacelab--omnigenv2?entry=artificial-analysis%3Aimage-edit%3A85",
               "updatedAt": "2026-11-25"
             }
@@ -15098,7 +15098,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "HiDream",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/hidream--hidreame11?entry=artificial-analysis%3Aimage-edit%3A86",
               "updatedAt": "2026-11-25"
             }
@@ -15201,7 +15201,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "ByteDance",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/bytedance--bagel?entry=artificial-analysis%3Aimage-edit%3A84",
               "updatedAt": "2026-11-25"
             },
@@ -15280,7 +15280,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "StepFun",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/stepfun--step1xedit?entry=artificial-analysis%3Aimage-edit%3A87",
               "updatedAt": "2026-11-25"
             },
@@ -15405,7 +15405,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Kuaishou",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://maomu.com/models/kuaishou--klingimage30omni?entry=artificial-analysis%3Aimage-edit%3A69",
               "updatedAt": "2026-11-25"
             }
@@ -15509,7 +15509,7 @@
               "evaluationVersion": "metadata:17ab107b0d80f665",
               "evaluationSpecHash": "17ab107b0d80f665015bebff41992986db833831fedd84689cba1d548a35d484",
               "modelProvider": "Kuaishou",
-              "sourceSnapshotHash": "2d2f3b300cae181cddb9fb81657c467909fc46ad8d343b0514b47095fa3a5155",
+              "sourceSnapshotHash": "b04c82867155ec996aa9ba4bf1a331e75af389a5ffd870e6d698fde6dd6b5ecd",
               "url": "https://artificialanalysis.ai/image/leaderboard/editing",
               "updatedAt": "2026-11-25"
             }
@@ -21879,8 +21879,8 @@
         "sourceName": "Arena Code",
         "sourceUrl": "https://arena.ai/leaderboard/code",
         "snapshotPublisher": "猫目快照；原榜为 Arena Code",
-        "snapshotDate": "2026-11-26T19:04:38Z",
-        "checkedAt": "2026-11-26T19:05:07Z",
+        "snapshotDate": "2026-11-27T01:03:05Z",
+        "checkedAt": "2026-11-27T01:03:33Z",
         "evaluationVersion": "metadata:f361cc2a7a31f207",
         "scoreLabel": "Arena Score",
         "sampleLabel": "用户投票",
@@ -22110,7 +22110,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -22164,7 +22164,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus55?entry=arena%3Aarena-code%3A2",
               "updatedAt": null
             }
@@ -22218,7 +22218,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudesonnet55?entry=arena%3Aarena-code%3A3",
               "updatedAt": null
             }
@@ -22272,7 +22272,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini4carbon?entry=arena%3Aarena-code%3A4",
               "updatedAt": null
             }
@@ -22326,7 +22326,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -22380,7 +22380,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt6astra?entry=arena%3Aarena-code%3A6",
               "updatedAt": null
             }
@@ -22434,7 +22434,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -22488,7 +22488,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -22542,7 +22542,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -22596,7 +22596,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt61sol?entry=arena%3Aarena-code%3A10",
               "updatedAt": null
             }
@@ -22650,7 +22650,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudefable51?entry=arena%3Aarena-code%3A11",
               "updatedAt": null
             }
@@ -22704,7 +22704,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--musewonderfull?entry=arena%3Aarena-code%3A12",
               "updatedAt": null
             }
@@ -22758,7 +22758,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudesonnet55?entry=arena%3Aarena-code%3A13",
               "updatedAt": null
             }
@@ -22812,7 +22812,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -22866,7 +22866,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus5?entry=arena%3Aarena-code%3A15",
               "updatedAt": null
             }
@@ -22920,7 +22920,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt61terra?entry=arena%3Aarena-code%3A16",
               "updatedAt": null
             }
@@ -22974,7 +22974,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Moonshot AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/moonshot--kimik31pro?entry=arena%3Aarena-code%3A17",
               "updatedAt": null
             }
@@ -23028,7 +23028,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini4argon?entry=arena%3Aarena-code%3A18",
               "updatedAt": null
             }
@@ -23082,7 +23082,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt6sol?entry=arena%3Aarena-code%3A19",
               "updatedAt": null
             }
@@ -23136,7 +23136,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen38max0902?entry=arena%3Aarena-code%3A20",
               "updatedAt": null
             }
@@ -23190,7 +23190,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen38max?entry=arena%3Aarena-code%3A21",
               "updatedAt": null
             }
@@ -23244,7 +23244,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv41flash20261017?entry=arena%3Aarena-code%3A22",
               "updatedAt": null
             }
@@ -23298,7 +23298,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Moonshot AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/moonshot--kimik3?entry=arena%3Aarena-code%3A23",
               "updatedAt": null
             }
@@ -23352,7 +23352,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus5?entry=arena%3Aarena-code%3A24",
               "updatedAt": null
             }
@@ -23406,7 +23406,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--musespark13?entry=arena%3Aarena-code%3A25",
               "updatedAt": null
             }
@@ -23460,7 +23460,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Tencent",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -23514,7 +23514,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--musewonder?entry=arena%3Aarena-code%3A27",
               "updatedAt": null
             }
@@ -23568,7 +23568,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "thinky",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/thinky--inkling2small?entry=arena%3Aarena-code%3A28",
               "updatedAt": null
             }
@@ -23622,7 +23622,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok47?entry=arena%3Aarena-code%3A29",
               "updatedAt": null
             }
@@ -23676,7 +23676,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Xiaomi",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xiaomi--mimov26flash?entry=arena%3Aarena-code%3A30",
               "updatedAt": null
             }
@@ -23730,7 +23730,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Tencent",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/tencent--hy4preview?entry=arena%3Aarena-code%3A31",
               "updatedAt": null
             }
@@ -23784,7 +23784,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudefable5?entry=arena%3Aarena-code%3A33",
               "updatedAt": null
             }
@@ -23838,7 +23838,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen38flashnext?entry=arena%3Aarena-code%3A32",
               "updatedAt": null
             }
@@ -23892,7 +23892,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/zai--glm53?entry=arena%3Aarena-code%3A34",
               "updatedAt": null
             }
@@ -23946,7 +23946,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Xiaomi",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xiaomi--mimov26pro?entry=arena%3Aarena-code%3A35",
               "updatedAt": null
             }
@@ -24000,7 +24000,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv41flash20260910?entry=arena%3Aarena-code%3A36",
               "updatedAt": null
             }
@@ -24054,7 +24054,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--musespark13?entry=arena%3Aarena-code%3A37",
               "updatedAt": null
             }
@@ -24108,7 +24108,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok46?entry=arena%3Aarena-code%3A38",
               "updatedAt": null
             }
@@ -24162,7 +24162,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt56sol?entry=arena%3Aarena-code%3A39",
               "updatedAt": null
             }
@@ -24216,7 +24216,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/zai--glm53flash?entry=arena%3Aarena-code%3A40",
               "updatedAt": null
             }
@@ -24270,7 +24270,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "unisound",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -24324,7 +24324,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/zai--glm52?entry=arena%3Aarena-code%3A43",
               "updatedAt": null
             }
@@ -24378,7 +24378,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--museember?entry=arena%3Aarena-code%3A42",
               "updatedAt": null
             }
@@ -24432,7 +24432,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudehaiku55?entry=arena%3Aarena-code%3A44",
               "updatedAt": null
             }
@@ -24486,7 +24486,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen3827b?entry=arena%3Aarena-code%3A45",
               "updatedAt": null
             }
@@ -24540,7 +24540,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini37flash?entry=arena%3Aarena-code%3A46",
               "updatedAt": null
             }
@@ -24594,7 +24594,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini38flash?entry=arena%3Aarena-code%3A47",
               "updatedAt": null
             }
@@ -24648,7 +24648,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv4flash?entry=arena%3Aarena-code%3A48",
               "updatedAt": null
             }
@@ -24702,7 +24702,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/minimax--minimaxm31flash?entry=arena%3Aarena-code%3A49",
               "updatedAt": null
             }
@@ -24756,7 +24756,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv4pro?entry=arena%3Aarena-code%3A50",
               "updatedAt": null
             }
@@ -24810,7 +24810,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt6luna?entry=arena%3Aarena-code%3A51",
               "updatedAt": null
             }
@@ -24864,7 +24864,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Mistral AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/mistral--mistrallarge4?entry=arena%3Aarena-code%3A52",
               "updatedAt": null
             }
@@ -24918,7 +24918,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "StepFun",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/stepfun--step5preview?entry=arena%3Aarena-code%3A53",
               "updatedAt": null
             }
@@ -24972,7 +24972,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "thinky",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -25026,7 +25026,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus47?entry=arena%3Aarena-code%3A55",
               "updatedAt": null
             }
@@ -25080,7 +25080,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus47?entry=arena%3Aarena-code%3A56",
               "updatedAt": null
             }
@@ -25134,7 +25134,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus48?entry=arena%3Aarena-code%3A57",
               "updatedAt": null
             }
@@ -25188,7 +25188,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok45?entry=arena%3Aarena-code%3A58",
               "updatedAt": null
             }
@@ -25242,7 +25242,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus46?entry=arena%3Aarena-code%3A59",
               "updatedAt": null
             }
@@ -25296,7 +25296,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--musespark11?entry=arena%3Aarena-code%3A60",
               "updatedAt": null
             }
@@ -25350,7 +25350,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudesonnet5?entry=arena%3Aarena-code%3A61",
               "updatedAt": null
             }
@@ -25404,7 +25404,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini36flash?entry=arena%3Aarena-code%3A62",
               "updatedAt": null
             }
@@ -25458,7 +25458,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus46?entry=arena%3Aarena-code%3A63",
               "updatedAt": null
             }
@@ -25512,7 +25512,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus48?entry=arena%3Aarena-code%3A64",
               "updatedAt": null
             }
@@ -25566,7 +25566,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--musespark12?entry=arena%3Aarena-code%3A65",
               "updatedAt": null
             }
@@ -25620,7 +25620,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--musesparkopen?entry=arena%3Aarena-code%3A66",
               "updatedAt": null
             }
@@ -25674,7 +25674,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudesonnet46?entry=arena%3Aarena-code%3A67",
               "updatedAt": null
             }
@@ -25728,7 +25728,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt56terra?entry=arena%3Aarena-code%3A68",
               "updatedAt": null
             }
@@ -25782,7 +25782,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt56luna?entry=arena%3Aarena-code%3A69",
               "updatedAt": null
             }
@@ -25836,7 +25836,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "ByteDance",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/bytedance--seed21propreview?entry=arena%3Aarena-code%3A70",
               "updatedAt": null
             }
@@ -25890,7 +25890,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen37max20260517?entry=arena%3Aarena-code%3A71",
               "updatedAt": null
             }
@@ -25944,7 +25944,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt55?entry=arena%3Aarena-code%3A72",
               "updatedAt": null
             }
@@ -25998,7 +25998,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Moonshot AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/moonshot--kimik26?entry=arena%3Aarena-code%3A73",
               "updatedAt": null
             }
@@ -26052,7 +26052,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/zai--glm51?entry=arena%3Aarena-code%3A74",
               "updatedAt": null
             }
@@ -26106,7 +26106,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Tencent",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/tencent--hy3?entry=arena%3Aarena-code%3A75",
               "updatedAt": null
             }
@@ -26160,7 +26160,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini35flash?entry=arena%3Aarena-code%3A76",
               "updatedAt": null
             }
@@ -26214,7 +26214,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus45?entry=arena%3Aarena-code%3A77",
               "updatedAt": null
             }
@@ -26268,7 +26268,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini35flash?entry=arena%3Aarena-code%3A78",
               "updatedAt": null
             }
@@ -26322,7 +26322,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt55?entry=arena%3Aarena-code%3A79",
               "updatedAt": null
             }
@@ -26376,7 +26376,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "synlan",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/synlan--sparkx26?entry=arena%3Aarena-code%3A80",
               "updatedAt": null
             }
@@ -26430,7 +26430,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/minimax--minimaxm3?entry=arena%3Aarena-code%3A81",
               "updatedAt": null
             }
@@ -26484,7 +26484,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen36maxpreview?entry=arena%3Aarena-code%3A82",
               "updatedAt": null
             }
@@ -26538,7 +26538,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Xiaomi",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xiaomi--mimov25pro?entry=arena%3Aarena-code%3A83",
               "updatedAt": null
             }
@@ -26592,7 +26592,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Moonshot AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/moonshot--kimik27code?entry=arena%3Aarena-code%3A84",
               "updatedAt": null
             }
@@ -26646,7 +26646,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus4520251101?entry=arena%3Aarena-code%3A85",
               "updatedAt": null
             }
@@ -26700,7 +26700,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv4propreview?entry=arena%3Aarena-code%3A86",
               "updatedAt": null
             }
@@ -26754,7 +26754,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt54?entry=arena%3Aarena-code%3A88",
               "updatedAt": null
             }
@@ -26808,7 +26808,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen36plus?entry=arena%3Aarena-code%3A87",
               "updatedAt": null
             }
@@ -26862,7 +26862,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt55codexharness?entry=arena%3Aarena-code%3A89",
               "updatedAt": null
             }
@@ -26916,7 +26916,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv4pro?entry=arena%3Aarena-code%3A90",
               "updatedAt": null
             }
@@ -26970,7 +26970,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini31propreview?entry=arena%3Aarena-code%3A91",
               "updatedAt": null
             }
@@ -27024,7 +27024,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt54?entry=arena%3Aarena-code%3A92",
               "updatedAt": null
             }
@@ -27078,7 +27078,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini3pro?entry=arena%3Aarena-code%3A93",
               "updatedAt": null
             }
@@ -27132,7 +27132,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini3flash?entry=arena%3Aarena-code%3A94",
               "updatedAt": null
             }
@@ -27186,7 +27186,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Xiaomi",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xiaomi--mimov25?entry=arena%3Aarena-code%3A95",
               "updatedAt": null
             }
@@ -27240,7 +27240,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "reflection",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/reflection--beam10501ba23b?entry=arena%3Aarena-code%3A96",
               "updatedAt": null
             }
@@ -27294,7 +27294,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/zai--glm47?entry=arena%3Aarena-code%3A98",
               "updatedAt": null
             }
@@ -27348,7 +27348,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Moonshot AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/moonshot--kimik25?entry=arena%3Aarena-code%3A97",
               "updatedAt": null
             }
@@ -27402,7 +27402,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/zai--glm5?entry=arena%3Aarena-code%3A100",
               "updatedAt": null
             }
@@ -27456,7 +27456,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Xiaomi",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xiaomi--mimov2pro?entry=arena%3Aarena-code%3A99",
               "updatedAt": null
             }
@@ -27510,7 +27510,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini35flashlite?entry=arena%3Aarena-code%3A101",
               "updatedAt": null
             }
@@ -27564,7 +27564,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv4flashpreview?entry=arena%3Aarena-code%3A102",
               "updatedAt": null
             }
@@ -27618,7 +27618,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt52?entry=arena%3Aarena-code%3A103",
               "updatedAt": null
             }
@@ -27672,7 +27672,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt5?entry=arena%3Aarena-code%3A104",
               "updatedAt": null
             }
@@ -27726,7 +27726,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "thinky",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/thinky--inkling?entry=arena%3Aarena-code%3A105",
               "updatedAt": null
             }
@@ -27780,7 +27780,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "thinky",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/thinky--inklingsmall?entry=arena%3Aarena-code%3A106",
               "updatedAt": null
             }
@@ -27834,7 +27834,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt53codexcodexharness?entry=arena%3Aarena-code%3A107",
               "updatedAt": null
             }
@@ -27888,7 +27888,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Moonshot AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/moonshot--kimik25instant?entry=arena%3Aarena-code%3A108",
               "updatedAt": null
             }
@@ -27942,7 +27942,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt54?entry=arena%3Aarena-code%3A111",
               "updatedAt": null
             }
@@ -27996,7 +27996,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "NVIDIA",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/nvidia--nvidianemotron35supervl120ba12bnvfp4?entry=arena%3Aarena-code%3A109",
               "updatedAt": null
             }
@@ -28050,7 +28050,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen35397ba17b?entry=arena%3Aarena-code%3A110",
               "updatedAt": null
             }
@@ -28104,7 +28104,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt54mini?entry=arena%3Aarena-code%3A112",
               "updatedAt": null
             }
@@ -28158,7 +28158,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/minimax--minimaxm27?entry=arena%3Aarena-code%3A113",
               "updatedAt": null
             }
@@ -28212,7 +28212,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt51?entry=arena%3Aarena-code%3A114",
               "updatedAt": null
             }
@@ -28266,7 +28266,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudesonnet45?entry=arena%3Aarena-code%3A115",
               "updatedAt": null
             }
@@ -28320,7 +28320,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudeopus4120250805?entry=arena%3Aarena-code%3A116",
               "updatedAt": null
             }
@@ -28374,7 +28374,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/minimax--minimaxm25?entry=arena%3Aarena-code%3A117",
               "updatedAt": null
             }
@@ -28428,7 +28428,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudesonnet4520250929?entry=arena%3Aarena-code%3A118",
               "updatedAt": null
             }
@@ -28482,7 +28482,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini3flash?entry=arena%3Aarena-code%3A119",
               "updatedAt": null
             }
@@ -28536,7 +28536,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/minimax--minimaxm21preview?entry=arena%3Aarena-code%3A120",
               "updatedAt": null
             }
@@ -28590,7 +28590,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok420beta?entry=arena%3Aarena-code%3A121",
               "updatedAt": null
             }
@@ -28644,7 +28644,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemma431b?entry=arena%3Aarena-code%3A123",
               "updatedAt": null
             }
@@ -28698,7 +28698,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Upstage",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/upstage--solarpro4?entry=arena%3Aarena-code%3A124",
               "updatedAt": null
             }
@@ -28752,7 +28752,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv32?entry=arena%3Aarena-code%3A125",
               "updatedAt": null
             }
@@ -28806,7 +28806,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen35122ba10b?entry=arena%3Aarena-code%3A126",
               "updatedAt": null
             }
@@ -28860,7 +28860,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Tencent",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/tencent--hy3preview?entry=arena%3Aarena-code%3A127",
               "updatedAt": null
             }
@@ -28914,7 +28914,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemma426ba4b?entry=arena%3Aarena-code%3A128",
               "updatedAt": null
             }
@@ -28968,7 +28968,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok43?entry=arena%3Aarena-code%3A129",
               "updatedAt": null
             }
@@ -29022,7 +29022,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen3527b?entry=arena%3Aarena-code%3A130",
               "updatedAt": null
             }
@@ -29076,7 +29076,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Meta",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/meta--museglimmer?entry=arena%3Aarena-code%3A131",
               "updatedAt": null
             }
@@ -29130,7 +29130,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Poolside",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/poolside--lagunam1?entry=arena%3Aarena-code%3A132",
               "updatedAt": null
             }
@@ -29184,7 +29184,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Z.ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/zai--glm46?entry=arena%3Aarena-code%3A134",
               "updatedAt": null
             }
@@ -29238,7 +29238,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt51?entry=arena%3Aarena-code%3A133",
               "updatedAt": null
             }
@@ -29292,7 +29292,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt52codex?entry=arena%3Aarena-code%3A135",
               "updatedAt": null
             }
@@ -29346,7 +29346,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt51codex?entry=arena%3Aarena-code%3A136",
               "updatedAt": null
             }
@@ -29400,7 +29400,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Xiaomi",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xiaomi--mimov2flash?entry=arena%3Aarena-code%3A137",
               "updatedAt": null
             }
@@ -29454,7 +29454,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Anthropic",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/anthropic--claudehaiku4520251001?entry=arena%3Aarena-code%3A138",
               "updatedAt": null
             }
@@ -29508,7 +29508,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv32?entry=arena%3Aarena-code%3A139",
               "updatedAt": null
             }
@@ -29562,7 +29562,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Moonshot AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/moonshot--kimik2thinkingturbo?entry=arena%3Aarena-code%3A140",
               "updatedAt": null
             }
@@ -29616,7 +29616,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Poolside",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/poolside--lagunaxs2?entry=arena%3Aarena-code%3A141",
               "updatedAt": null
             }
@@ -29670,7 +29670,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "MiniMax",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/minimax--minimaxm2?entry=arena%3Aarena-code%3A142",
               "updatedAt": null
             }
@@ -29724,7 +29724,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Xiaomi",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xiaomi--mimov2flash?entry=arena%3Aarena-code%3A143",
               "updatedAt": null
             }
@@ -29778,7 +29778,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen3coder480ba35binstruct?entry=arena%3Aarena-code%3A144",
               "updatedAt": null
             }
@@ -29832,7 +29832,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "DeepSeek",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/deepseek--deepseekv32exp?entry=arena%3Aarena-code%3A145",
               "updatedAt": null
             }
@@ -29886,7 +29886,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Mistral AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/mistral--mistralmedium35?entry=arena%3Aarena-code%3A146",
               "updatedAt": null
             }
@@ -29940,7 +29940,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "kwaikat",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -29994,7 +29994,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini31flashlitepreview?entry=arena%3Aarena-code%3A148",
               "updatedAt": null
             }
@@ -30048,7 +30048,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen3535ba3b?entry=arena%3Aarena-code%3A149",
               "updatedAt": null
             }
@@ -30102,7 +30102,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "OpenAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/openai--gpt51codexmini?entry=arena%3Aarena-code%3A151",
               "updatedAt": null
             }
@@ -30156,7 +30156,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Alibaba",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/alibaba--qwen35flash?entry=arena%3Aarena-code%3A150",
               "updatedAt": null
             }
@@ -30210,7 +30210,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok41fast?entry=arena%3Aarena-code%3A152",
               "updatedAt": null
             }
@@ -30264,7 +30264,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "arcee-ai",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://arena.ai/leaderboard/code",
               "updatedAt": null
             }
@@ -30318,7 +30318,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Mistral AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/mistral--mistrallarge3?entry=arena%3Aarena-code%3A154",
               "updatedAt": null
             }
@@ -30372,7 +30372,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Google",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/google--gemini25pro?entry=arena%3Aarena-code%3A155",
               "updatedAt": null
             }
@@ -30426,7 +30426,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok41?entry=arena%3Aarena-code%3A156",
               "updatedAt": null
             }
@@ -30480,7 +30480,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Mistral AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/mistral--devstral2?entry=arena%3Aarena-code%3A157",
               "updatedAt": null
             }
@@ -30534,7 +30534,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "IBM",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/ibm--granite418b?entry=arena%3Aarena-code%3A158",
               "updatedAt": null
             }
@@ -30588,7 +30588,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Inception AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/inception--mercury2?entry=arena%3Aarena-code%3A159",
               "updatedAt": null
             }
@@ -30642,7 +30642,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grokcodefast1?entry=arena%3Aarena-code%3A160",
               "updatedAt": null
             }
@@ -30696,7 +30696,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "xAI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/xai--grok4fast?entry=arena%3Aarena-code%3A161",
               "updatedAt": null
             }
@@ -30750,7 +30750,7 @@
               "evaluationVersion": "metadata:f361cc2a7a31f207",
               "evaluationSpecHash": "f361cc2a7a31f207f39754126eb67297618b135cc54f7c6c8f75ab8059ff0dd4",
               "modelProvider": "Mistral AI",
-              "sourceSnapshotHash": "41afaf5f809f2e34d0dd187597e06a9bea32bdf92f917c5474106cce6fffc893",
+              "sourceSnapshotHash": "514eaff983a331d36b8addcf39e928164d8edca42d783ef9eef45cd56a6f62a3",
               "url": "https://maomu.com/models/mistral--devstralmedium2507?entry=arena%3Aarena-code%3A162",
               "updatedAt": null
             }
