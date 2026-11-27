@@ -1,6 +1,6 @@
 {
   "schema": "historical-evidence/v1",
-  "checkedAt": "2026-11-27T06:10:43+00:00",
+  "checkedAt": "2026-11-27T06:32:40+00:00",
   "tasks": [
     {
       "id": "history-04a48fa2a5702ddc791bb6a4be28406666f34807327c68c8812f5004c46ff35b",
@@ -1340,7 +1340,7 @@
   },
   "summary": {
     "activeTasks": 69,
-    "urlsAttemptedThisRun": 1,
+    "urlsAttemptedThisRun": 0,
     "states": {
       "identity-mismatch": 6,
       "identity-needs-review": 4,
@@ -1352,7 +1352,7 @@
     "tasksWithDatedArticleEvidence": 0,
     "datedArticleRecords": 0,
     "repositoryDocumentRequests": 0,
-    "platformChangelogRequests": 1,
+    "platformChangelogRequests": 0,
     "platformChangelogEvidenceRecords": 15,
     "tasksWithPlatformChangelogEvidence": 6,
     "repositoryDocumentEvidenceRecords": 2,

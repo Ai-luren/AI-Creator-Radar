@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T06:11:20.007200+00:00",
+  "checkedAt": "2026-11-27T06:33:13.051405+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1195,7 +1195,7 @@
   },
   "publisherStatementAudit": {
     "errors": [],
-    "checkedAt": "2026-11-27T06:10:47+00:00",
+    "checkedAt": "2026-11-27T06:32:41+00:00",
     "conflicts": [],
     "summary": {
       "records": 2,
@@ -1244,8 +1244,8 @@
     "policy": "Structural integrity and separate availability-statement coverage only. Does not establish first-release dates or replace original article recall."
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T06:10:38+00:00",
-    "resolutionCheckedAt": "2026-11-27T06:10:42+00:00",
+    "discoveryCheckedAt": "2026-11-27T06:32:35+00:00",
+    "resolutionCheckedAt": "2026-11-27T06:32:38+00:00",
     "leadCount": 75,
     "counts": {
       "article-date-observed": 5,
@@ -2234,7 +2234,7 @@
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
   "appUpdates": {
-    "checkedAt": "2026-11-27T06:10:42+00:00",
+    "checkedAt": "2026-11-27T06:32:39+00:00",
     "summary": {
       "configuredSources": 2,
       "successfulThisRun": 0,
@@ -2244,10 +2244,10 @@
     }
   },
   "historicalEvidence": {
-    "checkedAt": "2026-11-27T06:10:43+00:00",
+    "checkedAt": "2026-11-27T06:32:40+00:00",
     "summary": {
       "activeTasks": 69,
-      "urlsAttemptedThisRun": 1,
+      "urlsAttemptedThisRun": 0,
       "states": {
         "identity-mismatch": 6,
         "identity-needs-review": 4,
@@ -2259,7 +2259,7 @@
       "tasksWithDatedArticleEvidence": 0,
       "datedArticleRecords": 0,
       "repositoryDocumentRequests": 0,
-      "platformChangelogRequests": 1,
+      "platformChangelogRequests": 0,
       "platformChangelogEvidenceRecords": 15,
       "tasksWithPlatformChangelogEvidence": 6,
       "repositoryDocumentEvidenceRecords": 2,
@@ -2267,7 +2267,7 @@
     }
   },
   "independentCoverage": {
-    "checkedAt": "2026-11-27T06:10:43+00:00",
+    "checkedAt": "2026-11-27T06:32:40+00:00",
     "summary": {
       "configuredSources": 3,
       "successfulThisRun": 0,
@@ -2294,7 +2294,7 @@
     }
   },
   "eventClaims": {
-    "checkedAt": "2026-11-27T06:10:46+00:00",
+    "checkedAt": "2026-11-27T06:32:41+00:00",
     "summary": {
       "claims": 17,
       "newClaims": 0,
@@ -2308,7 +2308,7 @@
     }
   },
   "sourceSearch": {
-    "checkedAt": "2026-11-27T06:10:40+00:00",
+    "checkedAt": "2026-11-27T06:32:37+00:00",
     "summary": {
       "activeTargets": 17,
       "attemptedThisRun": 0,
@@ -2326,18 +2326,18 @@
     }
   },
   "productState": {
-    "checkedAt": "2026-11-27T06:10:43+00:00",
+    "checkedAt": "2026-11-27T06:32:39+00:00",
     "summary": {
       "configuredSources": 3,
       "sourcesWithBaseline": 3,
-      "successfulThisRun": 0,
+      "successfulThisRun": 3,
       "newEvents": 0,
       "retainedEvents": 13,
       "listedEntries": 541
     }
   },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T06:10:47+00:00",
+    "checkedAt": "2026-11-27T06:32:41+00:00",
     "summary": {
       "evidenceCount": 327,
       "newEvidence": 0,
@@ -2362,10 +2362,567 @@
     "incorrectConfirmed": 0
   },
   "scopeNote": "Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review.",
-  "dueScopes": [
-    "selected"
-  ],
-  "eligibleScopes": [
-    "selected"
-  ]
+  "p1Readiness": {
+    "schema": "p1-readiness/v1",
+    "checkedAt": "2026-11-27T06:33:13.051405+00:00",
+    "gates": {
+      "structuralIntegrity": {
+        "status": "pass",
+        "errors": 0
+      },
+      "negativeControls": {
+        "status": "pass",
+        "checked": 3,
+        "incorrectConfirmed": 0
+      },
+      "fixedArticleRecall": {
+        "status": "incomplete",
+        "matched": 6,
+        "events": 8,
+        "missingIds": [
+          "glm-54",
+          "niji-8"
+        ]
+      },
+      "availabilityStatementPilot": {
+        "status": "pass",
+        "matched": 2,
+        "events": 2
+      },
+      "sameStageEventRecall": {
+        "status": "not-measured",
+        "reason": "No independently reviewed same-stage event benchmark and matcher for all eight cases; article and availability samples cannot be added."
+      },
+      "independentFactAccuracy": {
+        "status": "not-measured",
+        "reason": "Repository identity observations are not audited release facts; need independently adjudicated positive and negative release events.",
+        "repositorySamples": 5,
+        "repositoryExactMatches": 2,
+        "unmatchedRepositories": 3
+      },
+      "priorityDiscoveryLatency": {
+        "status": "not-measured",
+        "reason": "Day-precision article dates do not measure a two-hour SLA; need independently observed event timestamps and first discoveries."
+      },
+      "automaticRepairRate": {
+        "status": "not-measured",
+        "reason": "Retained evidence counts are not a denominator of recoverable incidents; need incident-level outcomes."
+      },
+      "productionPublication": {
+        "status": "external-verification-required",
+        "reason": "This audit precedes persistence and Pages deployment; only post-deployment checks may certify published revision."
+      },
+      "sevenDayProduction": {
+        "status": "not-started",
+        "reason": "Requires all engineering gates and independent persisted production observations, not elapsed time or a pre-deployment audit."
+      }
+    },
+    "engineeringReady": false,
+    "blockingGates": [
+      "sameStageEventRecall",
+      "independentFactAccuracy",
+      "priorityDiscoveryLatency",
+      "automaticRepairRate",
+      "productionPublication"
+    ],
+    "sourceHealth": {
+      "officialSources": 46,
+      "successfulWithinTwoHours": 45,
+      "unmeasuredSuccessAge": 0,
+      "sources": [
+        {
+          "id": "anthropic-model-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "anthropic-model-announcements",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "claude-code-releases",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "deepseek-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "elevenlabs-official-rss",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "elevenlabs-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 2
+        },
+        {
+          "id": "elevenlabs-changelog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 3
+        },
+        {
+          "id": "deepmind-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 0
+        },
+        {
+          "id": "deepmind-blog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 6
+        },
+        {
+          "id": "google-gemini-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 0
+        },
+        {
+          "id": "google-official-feed",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "kimi-announcement",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "kuaishou-ir",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 0
+        },
+        {
+          "id": "meta-ai-blog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 2
+        },
+        {
+          "id": "meta-models",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "midjourney-updates",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "minimax-ir",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 3
+        },
+        {
+          "id": "minimax-blog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "mureka-changelog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "niji-blog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "codex-cli-releases",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "openai-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "openai-developer-announcements",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "pixverse-zh-blog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 3
+        },
+        {
+          "id": "pixverse-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 2
+        },
+        {
+          "id": "qwen-image-repo",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 2
+        },
+        {
+          "id": "qwen-official-rss",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "qwen-image-updates",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "qwen-agent-releases",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "qwen3-tts-releases",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "qwen-cloud-model-releases",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 0
+        },
+        {
+          "id": "sandai-research",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "suno-release",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "vidu-api-updates",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 2
+        },
+        {
+          "id": "xai-model-updates",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 0
+        },
+        {
+          "id": "xai-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 2
+        },
+        {
+          "id": "seed-official",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 3
+        },
+        {
+          "id": "kuaishou-company-news",
+          "lastSuccessAt": "2026-11-26T17:44:42Z",
+          "ageHours": 12.81,
+          "error": "HTTPError: HTTP Error 403: Forbidden",
+          "deferred": true,
+          "matchedFamilies": 0
+        },
+        {
+          "id": "zai-official-blog",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "zai-model-release-notes",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "zhipu-research-index",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "hunyuan-mt3-repo",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "tencent-model-news",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 0
+        },
+        {
+          "id": "hunyuan-image-repo",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "hunyuan-video-repo",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 1
+        },
+        {
+          "id": "alibaba-model-studio",
+          "lastSuccessAt": "2026-11-27T06:10:29Z",
+          "ageHours": 0.38,
+          "error": null,
+          "deferred": false,
+          "matchedFamilies": 7
+        }
+      ],
+      "persistentBatchIncidents": [],
+      "batchStates": {
+        "aihot-selected": "healthy",
+        "aihot-daily": "healthy",
+        "juya-daily": "healthy",
+        "models-batch": "healthy",
+        "resources-batch": "healthy",
+        "recovery-batch": "healthy"
+      }
+    },
+    "queue": {
+      "openTasks": 104,
+      "byState": {
+        "needs-product-identity": 2,
+        "needs-release-evidence": 69,
+        "needs-repository-identity": 2,
+        "needs-source": 22,
+        "probe-unresolved": 9
+      },
+      "oldestHours": 3.43,
+      "olderThan24Hours": 0,
+      "unmeasuredAge": 0,
+      "scheduled": 16,
+      "dueRetries": 0,
+      "missingRetrySchedule": 88,
+      "dueRetryIds": [],
+      "unscheduledIds": [
+        "task-06028ec5905dd099cbf52be561dd11b2a7dbb4c769fdeff901ebbc7b93e13120",
+        "task-06dfce86c19f6dedcebf8826501121fc6bb92c747391ab137989ef0cc7235bed",
+        "task-073b016b3cadfd810fb154f7646b5355b0a65522a3bcab9b2ef52a5b4832969d",
+        "task-0904ad420ba241e9cb12e10ff4d90e4cda3467913071b1a69d5b9af3b0bb0fc8",
+        "task-0f633081b7c3d58a7410a93dc0b160ad49f2d0c31ed0f492806979b047f8fb6f",
+        "task-106c901a0790fb411a1b16525b92559820eefd6738970eb100161989c1717d95",
+        "task-11fa744f750afc446ae5570d0c285517bb877c8275899a2a1e1da977a0152f29",
+        "task-1459ee55d73f0385a184326ff7f2e674b97522dc0ea1df493c36d333cd2ec105",
+        "task-1f7733b56798eb84870b0e1186f7408adaa8b8f98d74af0118894efd5c16fe4c",
+        "task-2100699d2190e1588d72b92fbb56e1e843f7cc2fc9544c616d7144e88f6ff5c2",
+        "task-2184477c924241868cb45b2d7ef2fec1aa25945fd42fd8c53693a3307eaf70d6",
+        "task-22e0d3279ba657bf7e99556be5a875c6a313092e62068f58df61bad42562732f",
+        "task-2739d24d673ff7890b90cac08aa61e46e6be9d601abf847e12d64c17e1699038",
+        "task-2cb517301b74d1d24392d17964ce5499322e049951401f7b3055653eabf374b3",
+        "task-2d1028313f80d3b72fa64df4e93755b58af46f921275a8e6701b80dbbfa3b7e6",
+        "task-31a1cc0af2143c203472b033881c5d85e69acd7856ce51ed1c997615741bba9f",
+        "task-340f5782ee6e213928fa3c22fbd09d3d4ddf5a2e3cc868e682e1ba5bb83de483",
+        "task-37a8cb936ce5ed7e222a95786241ea9440d3d33755e56607c3e5ffb83148ab6e",
+        "task-37dae46c4c18d1cd7961849ec1259f73a4e650150a6bf114353315653f3b8d8d",
+        "task-3e0e5c6ce6a57d15e4b6044e5e099eef12275a652f98d55c780cbb83216d1886",
+        "task-3e1618fb315653be76d338cbcd167096fd066ab9479eb5f9d945d4577a767051",
+        "task-42b9602d92b5f32c9d2406450d9e7d00a1e4324d659936ae4d7dfb78e091c27c",
+        "task-45880bd254099a6431013628ccab882a3aeea7b61f1196292c108ab93ea3bb7f",
+        "task-4a3b4717460ed833d3a0b4d4a77cf63106b5d135f434f20ceee63b5db428591f",
+        "task-4a43ff44827d943db22c6306afa8a606952d3425078543ee0be9c9ee1ede08d0",
+        "task-4a7965151a02b9d887c82f70d526614409fc2076ae9cf0d472b1967d9ef22149",
+        "task-4b9bc7846e553a58850f6df103cb1b5036aeaefd69bce842fb43b3d97953bf03",
+        "task-4e16c384aa3675462396feabca1b10e50802dc9d7afb2f89e8c9188fef2e9305",
+        "task-4e1711ebf5672d6f3cd8809019237d6b453bc191267c90431f4faf76294e223c",
+        "task-4f7df4ac15dff16d185a7a3af1dab7c7d1002b253a6219c0fa8bdecbc9268d46",
+        "task-57803bd72e7969d9539763b2296e29785abbbf5733a88795c33d790f52b96966",
+        "task-5a4cc51745455631cecff15fecd6bdd1deaf8e7b60af15fa3b39a078671f4292",
+        "task-6628979144bbe04927b57904563052c6c2a45b2fdd26fbd521f81912aa9aa608",
+        "task-66d7056d75f4f2f57b1187c95c64589c11516b0e26f4bb4081eae1876395769d",
+        "task-67262014a2e5a53ca854e8a8da2fc236d13e6e508ddd7d77bd055d9964c184c8",
+        "task-6b24bf0a943d1df77df170b492c00c1afe471f0c7890b4001b614d60d045dc44",
+        "task-6e2767acff2cb6ae6c7643e9c9beda3c12348de9cbfc98ddb0006c88b1a75cc3",
+        "task-6fb030c21381b1ce3d9405f33a7735e5be3bdf9aab119d3f8423e0e276bab043",
+        "task-76887e45bda27bdc8a7a90ef8458b50761a2431f1de9eb351dd2b0c1d5989b4a",
+        "task-784e3c310edbcfff69bb2548053ee429af4e1ccaa5de454b1db0febe897547fa",
+        "task-792090f369f99095a1284b5353afe8850f803b408fac63b68c06f9e3a388c845",
+        "task-7dc2c214097ef9e51640ae36467b097309e12ea79f327abb73c650a573ce91ae",
+        "task-7f297eb1602b130bc98c21500536183cf8ae496f07a0a05a88d559603dd9025c",
+        "task-87e80a7e392c29321e8f27c42ce3b4902d7a3f78d280c22bd215c4cc68503cc7",
+        "task-87f95b3da0961faa15d042f45b4b16aa060422fe73d3be7d69a849fdf4f3754d",
+        "task-8b168c5a898f6f024360cdf4979a4cdf88fd98d3df41ddf75a73122c21cede81",
+        "task-8bf15a7ad6f743a5f06e7f9dcbb2807f8e02fd3ae6fd42d6670a7979a8b8aa16",
+        "task-8f3289cdb239cd8778790d4f933f6b5b05fa16895ce02171a1b0fba966bcde4b",
+        "task-955d15f965aeec49d3c8859e9c6b9489827d930bdf93e546584d7c77953a67ee",
+        "task-97a12cc601eaf84324fa267e091cf879a8a98ad69cf99eaa0a53128546f52063",
+        "task-9e12efa59ffda4e8b0ffb793c7d603bb371baacf33d4b009b2a580ce3c4d7fe6",
+        "task-9e34afc2c2bdb3baf2d54dcf8c6d2d11a34e6dc0f41b3def594ff4501c49efb6",
+        "task-a22d7089141b42f14a2365e9936bc8648f7790ae8746a803f87001adc03387b8",
+        "task-a847db8d79b2232aebd8bc332fb5ca2827d7362707dc60397490ccd41014c64a",
+        "task-a9b58c39ce3cb2044f41ec74a54a934a8ecd4dc4014f075d09f0dfbd3f2b32a2",
+        "task-aa00cd69253af755a05c41d16db33b89064a0f25535fa6b7493aa382fbdc614b",
+        "task-b4242f382b748d1842dcfbd4551c2ffc7a0eb12fb6931499ee30d670cffca2c3",
+        "task-b6b1e95bf55bb4092fe2445aa11ae9188302c284f686b76a6ff5fe1d2a213b77",
+        "task-b751e9b86e2b9c356466321157a6b1065e442cb694a1d99663cf63fef5c57267",
+        "task-b8580b3d7c761786e91c6edcc5e3c6921149449fa27f022b3ec680a1ccb8fc4e",
+        "task-b8e2aa3909c561eb7baa4fdf383b1138f2fda6543727784eb8ae19503a4c079b",
+        "task-babf5b8a88d4e4c36c07836f2c8445364ba392c60fa3697e06d90862c54cfc83",
+        "task-bfeeeba52a33733d93e4bb4972c12e6b7dcfb9e464ea4a7d9c2ce4ce147462a7",
+        "task-c149957e2820d4b2d99242902d13ceb2991e7a6617dc8311cb5335c0b3b22b79",
+        "task-c3ea207557a2e81fe831fe74d30cfa1d820682aacd5044717ddd07f05097f247",
+        "task-c46d9e8af999d85c7c6f3188ac88f3acb3aa76fb921395f7bbbff4d3f2105ebe",
+        "task-c6ee4d300ec28228d60b565b427ed87a88afc89d05c117673c08a8582adb17a2",
+        "task-c9172f8e3a88a7f6c64bdc6fb16b2c99f52768c1e533be99ba14817acc2cbee3",
+        "task-cee24776c9096d366415a59000a02690f464b5796ecb200bc19a6da7bf169456",
+        "task-d0e4df70fc8316d873aec2be2fd153bb8f41f3f5b7fdc147a3f084159abc6bbb",
+        "task-d684d3dd24dcb3fa26e985245b6ae8bb3d9f423ab71cc8200f23a4ca3becbd28",
+        "task-d6bce343d0c7ff8b92aad0e3236983778eb2045a06a6bd45800e2ae28c0621a7",
+        "task-d803d73758909c06fa96051b63ca1de4354e78559404a5a80ce7de3a56af783a",
+        "task-d9104ee43229c0b403bfdc0ede97ea9f67d460dbc92266e1f3201b5f4fb0c69f",
+        "task-d9a0b89974b4d1f699e74adc699c777ac3b99596d0c6506f2ef26a1ecafdeae5",
+        "task-d9f5154422195ce6640999bbff6a9c12f306d4c96e431098d7d93b1e712648fe",
+        "task-da64613de56d49ce91ec1fa713733706643c85464c1fc5274ef4e94f0ea65d99",
+        "task-dfdc8e63b25b1db1a8a0e8f37ed2c44cca0cb77b0dca6f79646b405b8fc5394e",
+        "task-dfec8b0b15c220e1d1cd35149a8d471f556abbf89b2815efb085c4b520dd16d6",
+        "task-e2e67f17d5412152aa901cec55d938955e611679ef438588dcee8b651cd9d155",
+        "task-e587d5e5aee71af7c350da564c802980cf8a8ac55fef47fc5677b7acad9d111f",
+        "task-e9c3a8df8ad8d28b58c430905f8061ce743a300d3d66c9f9ae4df0cbb780cf75",
+        "task-eea1f74be7cf8652b09378f5b1246f27679ad4883c2cf80ebc51408f57e708bf",
+        "task-f2a32a1dfa2fde90e0eedbb5d5fb4f9c70526f9130fd077f919a7d5914789cb6",
+        "task-f2c462371532c75fccf8f62dffa6e248b6c196940ce971acf18a54373a9ae7e8",
+        "task-f7526c4b65a1c1cab4e6cc63427967c5d74644f8fa5e4085f185be59e261c37d",
+        "task-fca5d5ed8a95754b597d9132aff6e7f1e6d6d2727d19d655f458af2b21f7b136",
+        "task-ffc1a176a1b2d95b6bdd150f71da6ae53e337ab5108f85be1b0d68ff671c13f9"
+      ]
+    },
+    "historicalContext": {
+      "formalReleaseGaps": 69,
+      "tasksWithPlatformChangelogEvidence": 6,
+      "datedArticleRecords": 0
+    },
+    "policy": "Operational readiness diagnostics only. Unknowns remain blockers to engineering acceptance, not publication failures. Historical factual gaps remain tracked; no invented dates, release recall or success rate."
+  },
+  "dueScopes": [],
+  "eligibleScopes": []
 }
