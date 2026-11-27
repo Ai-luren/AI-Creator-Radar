@@ -50,3 +50,14 @@ class SameStageRecallTests(unittest.TestCase):
         self.assertEqual(self.assess([self.proof])["matched"],7)
         second=deepcopy(self.proof);second["id"]="publisher-validated-2";second["fact"]["modelVersionId"]="v6"
         self.assertEqual(self.assess([self.proof,second])["matched"],8)
+
+    def test_short_display_name_requires_exact_registered_model_name(self):
+        version=self.families[0]["versions"][7]
+        version["name"]="7"
+        version["releaseEvidence"]={"modelName":"Demo 7"}
+        self.assertEqual(self.assess([self.proof])["matched"],8)
+        # Canonical evidence alone still does not establish a recall hit.
+        self.assertEqual(self.assess()["matched"],7)
+        version["releaseEvidence"]["modelName"]="Demo 7 Preview"
+        with self.assertRaises(ValueError):
+            self.assess([self.proof])

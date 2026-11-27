@@ -20,7 +20,11 @@ def assess_same_stage(benchmark, fixed, recall, usable_statements, families):
     expected={r["id"]:r for r in cases}
     if benchmark.get("schema")!="same-stage-event-benchmark/v1" or len(cases)!=8 or len(original)!=8 or len(expected)!=8 or set(expected)!=set(by_id):
         raise ValueError("Same-stage review must retain all eight fixed events")
-    known={(f["id"],v["id"]):v["name"] for f in families for v in f.get("versions",[])}
+    # Display labels may omit the vendor prefix (GLM uses "5.4"). Use
+    # the exact canonical version ID and explicitly registered model names.
+    # Catalog names are only identity checks, never recall observations.
+    known={(f["id"],v["id"]):{n for n in (v.get("name"),(v.get("releaseEvidence") or {}).get("modelName")) if n}
+           for f in families for v in f.get("versions",[])}
     observations={}
     for row in recall.get("events",[]):
         if row["id"] in observations:
@@ -35,7 +39,12 @@ def assess_same_stage(benchmark, fixed, recall, usable_statements, families):
                 raise ValueError("Same-stage review changed fixed event: "+key)
         fid=case["modelFamilyId"]
         versions=case["versionIds"]
-        if len(versions)!=len(case["modelNames"]) or sorted(known.get((fid,v),"") for v in versions)!=sorted(case["modelNames"]) or len(set(versions))!=len(versions):
+        # Require a unique bijection between reviewed names and canonical IDs.
+        names=case["modelNames"]
+        candidates=[{v for v in versions if name in known.get((fid,v),set())} for name in names]
+        if (len(versions)!=len(names) or len(set(versions))!=len(versions)
+                or any(len(c)!=1 for c in candidates)
+                or {v for c in candidates for v in c}!=set(versions)):
             raise ValueError("Stage review has unknown or changed identity: "+key)
         if case.get("stage") not in {"announcement-statement","explicit-release-statement","service-availability-statement"} or not case.get("review"):
             raise ValueError("Missing explicit stage review: "+key)
