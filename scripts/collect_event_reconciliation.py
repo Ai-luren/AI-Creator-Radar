@@ -13,12 +13,14 @@ try:
     from scripts.collect_models import write_json
     from scripts.collect_release_recall import url_key
     from scripts.audit_model_completeness import audit
+    from scripts.audit_publisher_statements import inspect_statements
     from scripts.event_identity import associate_leads, day, identify, model_index
     from scripts.collect_source_search import augment_discovery
 except ModuleNotFoundError:
     from collect_models import write_json
     from collect_release_recall import url_key
     from audit_model_completeness import audit
+    from audit_publisher_statements import inspect_statements
     from event_identity import associate_leads, day, identify, model_index
     from collect_source_search import augment_discovery
 
@@ -39,7 +41,7 @@ def task_id(*identity):
     return "task-" + digest(identity)
 
 
-def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None, search_state=None, independent=None, historical=None):
+def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None, search_state=None, independent=None, historical=None, publisher_statements=None):
     stamp = now.isoformat(timespec="seconds")
     if previous and previous.get("schema") != "event-reconciliation/v1":
         raise ValueError("Unrecognized evidence ledger schema; refusing to replace it")
@@ -62,6 +64,7 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
         eid = evidence_id(body)
         ledger.setdefault(eid, {"id": eid, **body})
         current.add(eid)
+        return eid
 
     for family in families:
         fid = family["id"]
@@ -94,6 +97,19 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
                row["url"], proof["articlePublishedAt"],
                proof.get("firstVerifiedAt") or proof.get("checkedAt"), row.get("id"),
                "publisher-timestamp-or-day")
+
+    statements, statement_audit = inspect_statements(publisher_statements or {}, families, now)
+    if statement_audit["errors"]:
+        raise ValueError("Invalid persisted publisher statement: " + statement_audit["errors"][0])
+    statement_ids = defaultdict(list)
+    for record in statements:
+        fact=record["fact"]
+        ident=(fact["modelFamilyId"],fact["modelVersionId"])
+        eid=append("publisher-service-availability-statement",ident[0],ident[1],
+                   fact["sourceUrl"],fact["publisherCalendarDay"],record["firstObservedAt"],
+                   record["id"],"publisher-calendar-day")
+        if eid:
+            statement_ids[ident].append(eid)
 
     # Historical records persist even if the original URL becomes inaccessible.
     # Current canonical assertions remain separate from historic observations.
@@ -228,6 +244,13 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
     by_origin = {origin: s for s in searches if s.get("active") for origin in s.get("originIds", [])}
     for task in tasks.values():
         obj = task.get("identity") or {}
+        # Identity-related evidence is context, not proof that the reported day,
+        # announcement stage or missing formal release has been resolved.
+        linked=statement_ids.get((obj.get("modelFamilyId"),obj.get("modelVersionId")),[])
+        if linked:
+            task["relatedPublisherStatementEvidenceIds"]=sorted(linked)
+        else:
+            task.pop("relatedPublisherStatementEvidenceIds",None)
         target = by_identity.get((obj.get("modelFamilyId"), obj.get("modelVersionId"))) or by_origin.get(task["id"])
         if not target:
             target = next((by_origin[lead] for lead in task.get("leadIds", []) if lead in by_origin), None)
@@ -249,6 +272,8 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
             "summary": {"evidenceCount": len(ledger), "newEvidence": len(ledger)-prior_count,
                         "currentlyReferencedEvidence": len(current),
                         "relatedLeads": sum(bool(r.get("relatedArticleCandidates")) for r in leads),
+                        "publisherStatementEvidence":sum(map(len,statement_ids.values())),
+                        "tasksWithPublisherStatementContext":sum(bool(t.get("relatedPublisherStatementEvidenceIds")) for t in tasks.values()),
                         "taskStates": counts},
             "policy": "Shadow reconciliation only. Same-model same-day reports are related leads, not equivalent release claims. Historical evidence is retained, not re-certified. No canonical facts are changed."}
 
@@ -262,6 +287,7 @@ def main():
     parser.add_argument("--source-search", type=Path)
     parser.add_argument("--independent", type=Path)
     parser.add_argument("--historical", type=Path)
+    parser.add_argument("--claims", type=Path)
     args = parser.parse_args()
     def read(path, optional=False):
         if optional and not path.exists():
@@ -279,7 +305,8 @@ def main():
                        report["gaps"], read(OUTPUT, optional=True), datetime.now(timezone.utc),
                        read(args.product_state or directory / "product-state.json", optional=True), search_state,
                        read(args.independent or directory / "independent-coverage.json", optional=True),
-                       read(args.historical or directory / "historical-evidence.json", optional=True))
+                       read(args.historical or directory / "historical-evidence.json", optional=True),
+                       read(args.claims or directory / "event-claims.json", optional=True).get("publisherStatements",{}))
     print("Event reconciliation:", json.dumps(result["summary"], ensure_ascii=False))
     if not args.dry_run:
         write_json(OUTPUT, result)

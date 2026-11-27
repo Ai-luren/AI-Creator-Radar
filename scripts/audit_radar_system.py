@@ -8,12 +8,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 try:
     from scripts.audit_model_completeness import audit
+    from scripts.audit_publisher_statements import inspect_statements
     from scripts.audit_discovery_coverage import inspect_leads
     from scripts.collect_release_recall import url_key
     from scripts.plan_refresh import plan
     from scripts.collect_models import write_json, title_identity
 except ModuleNotFoundError:
     from audit_model_completeness import audit
+    from audit_publisher_statements import inspect_statements
     from audit_discovery_coverage import inspect_leads
     from collect_release_recall import url_key
     from plan_refresh import plan
@@ -25,6 +27,8 @@ def inspect(data, config, now):
     topics=data["topics"]
     report=audit(families,topics,config)
     errors=list(report["errors"])
+    _, statement_audit=inspect_statements(data.get("event_claims",{}).get("publisherStatements",{}),families,now,data.get("publisher_statement_benchmark"))
+    errors.extend(statement_audit["errors"])
     all_events=[e for t in topics for e in t.get("milestones",[])]
     audit_ids=Counter(e["auditId"] for e in all_events if e.get("auditId"))
     if any(n>1 for n in audit_ids.values()): errors.append("Duplicate reviewed chronicle IDs")
@@ -51,6 +55,7 @@ def inspect(data, config, now):
                       "confirmedRecentReleases":len(digest.get("items",[])),"pendingRecentCandidates":len(digest.get("pending",[])),
                       "duplicatePendingCandidates":sum(n-1 for n in pending_keys.values() if n>1)},
             "gapKinds":report["gapKinds"],"sourceCoverage":coverage,"sampleRecall":recall,
+            "publisherStatementAudit":statement_audit,
             "externalLeadCoverage":inspect_leads(data.get("discovery",{}),data.get("resolution",{})),
             "appUpdates":{"checkedAt":data.get("app_updates",{}).get("checkedAt"),"summary":data.get("app_updates",{}).get("summary",{})},
             "historicalEvidence":{"checkedAt":data.get("historical",{}).get("checkedAt"),
@@ -76,6 +81,8 @@ def main():
               "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
     for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json"),("reconciliation","event-reconciliation.json"),("product","product-state.json"),("source_search","source-search.json"),("event_claims","event-claims.json"),("independent","independent-coverage.json"),("historical","historical-evidence.json"),("app_updates","app-updates.json")):
         data[key]=read(name) if (directory/name).exists() else {}
+    sample_path=ROOT/"config/publisher-statement-benchmark.json"
+    data["publisher_statement_benchmark"]=json.loads(sample_path.read_text(encoding="utf-8")) if sample_path.exists() else {}
     now=datetime.now(timezone.utc)
     report=inspect(data,json.loads((ROOT/"config/chronicle-release-links.json").read_text(encoding="utf-8")),now)
     report["dueScopes"]=[k for k,v in plan(directory,"schedule",now=now,respect_backoff=False).items() if v]
