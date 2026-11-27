@@ -209,6 +209,14 @@ def main():
                             read(args.resolution or directory / "lead-resolution.json"),
                             read(ROOT / "config/cross-platform-sources.json")["officialArticleHosts"],
                             read(OUTPUT, optional=True), datetime.now(timezone.utc))
+    try:
+        from scripts.publisher_statement_recovery import collect_statements
+    except ModuleNotFoundError:
+        from publisher_statement_recovery import collect_statements
+    result["publisherStatements"] = collect_statements(result["claims"], read(directory / "models.json"),
+                                                       read(OUTPUT, optional=True).get("publisherStatements", {}),
+                                                       datetime.now(timezone.utc))
+    print("Publisher statements:", json.dumps(result["publisherStatements"], ensure_ascii=False))
     print("Event claims:", json.dumps(result["summary"], ensure_ascii=False))
     if args.report:
         write_json(args.report, result)
