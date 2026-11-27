@@ -21399,8 +21399,28 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "Google DeepMind 视频模型；支持原生音频、参考图、角色一致性与镜头控制。"
+        "status": "Vertex AI 预览与正式开放日期已核实；其他平台首发日未确认",
+        "note": "Google DeepMind 视频模型；支持原生音频、参考图、角色一致性与镜头控制。 Vertex AI 2025-10-15 Preview、2025-11-17 GA；不等于其他渠道的首发日。",
+        "historicalMilestones": [
+          {
+            "chronicleAuditId": "review-20261127-veo-fast-preview",
+            "date": "2025-10-15",
+            "datePrecision": "day",
+            "stage": "preview",
+            "sourceUrl": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+            "verifiedAt": "2026-11-27",
+            "summary": "Vertex AI 发布日志列出 Veo 3.1 Fast Preview；此为公开预览阶段，不推断其他平台首发日。"
+          },
+          {
+            "chronicleAuditId": "review-20261127-veo-fast-ga",
+            "date": "2025-11-17",
+            "datePrecision": "day",
+            "stage": "general-availability",
+            "sourceUrl": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+            "verifiedAt": "2026-11-27",
+            "summary": "Vertex AI 发布日志明确 Fast 型号进入 GA；型号生命周期文档确认 stable endpoint veo-3.1-fast-generate-001 的发布日期。"
+          }
+        ]
       },
       {
         "region": "海外",
@@ -24683,8 +24703,17 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。"
+        "status": "Video 2.6 专业服务模式，独立基础模型身份未确认",
+        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。 Professional 为 Video 2.6 服务模式；保留原型号 ID 及榜单引用。",
+        "recordKind": "service-mode",
+        "identityReview": {
+          "reviewedAt": "2026-11-27",
+          "note": "官方 Video 2.6 指南和 API 说明区分 Standard / Professional Mode；保留榜单身份，不作为独立基础模型首发。",
+          "sourceUrl": "https://kling.ai/quickstart/klingai-video-26-audio-user-guide",
+          "corroboratingSources": [
+            "https://kling.ai/document-api/api/video/2-5-turbo/image-to-video/legacy"
+          ]
+        }
       },
       {
         "region": "中国",

@@ -62,3 +62,16 @@ class ReleaseRecallTests(unittest.TestCase):
         page = '<span>2026-11-23 · Research</span><h1>GLM-5.4: New architecture</h1>'
         self.assertEqual(article_publication_date(page, "GLM-5.4: New architecture", leading_date=True)[:10], "2026-11-23")
         self.assertIsNone(article_publication_date(page, "GLM-5.3", leading_date=True))
+
+
+    def test_compact_publisher_heading_is_exact_not_substring(self):
+        page = '<span>November 9, 2026</span><h1>Claude Fable 5.2 and Mythos 5.2</h1>'
+        title = "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
+        self.assertEqual(article_publication_date(page, title, leading_date=True)[:10], "2026-11-09")
+        self.assertIsNone(article_publication_date(page, title))
+        self.assertIsNone(article_publication_date(page, title.replace("Fable 5.2", "Fable 5.3"), leading_date=True))
+        self.assertIsNone(article_publication_date(page, "Claude Fable 5.2", leading_date=True))
+        conflict = '<meta property="article:published_time" content="2026-10-18">' + page
+        self.assertIsNone(article_publication_date(conflict, title, leading_date=True))
+        ambiguous = page + '<h1>Introducing Claude Fable 5.2 and Claude Mythos 5.2</h1>'
+        self.assertIsNone(article_publication_date(ambiguous, title, leading_date=True))

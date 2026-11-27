@@ -174,3 +174,6 @@ AIHOT 精选、AIHOT 日报、橘鸦早报和现有官方候选索引直接读�
 ## 2026-11-27 基础分支保护
 
 GitHub Ruleset Protect main（28207187）已确认 Active，目标为默认分支，禁止删除和非快进推送；未启用强制 PR 或状态检查，不阻断已校验的自动数据提交。用户报告本机 Codex 已执行 hook 安装命令，独立读取本机 Git 配置仍受远程额度限制。不要把基础保护描述为完整强制 PR 门禁。
+
+
+2026-11-27 本机 Codex 已报告安全同步、core.hooksPath=.githooks、用户级 actionlint 1.7.7 持久安装，以及普通终端、完整 preflight 和实际 pre-push hook 均通过。此项依据用户提供的本机执行记录确认，未独立远程复读。保留原有未跟踪 .command 文件。

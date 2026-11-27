@@ -65,3 +65,11 @@
 ## 官方文章语言变体回收
 
 Z.ai 的公开研究文章存在带 lang=en 的语言入口。解析器保留同一规范文章 URL 的已发现变体；仅当上次未解析出正文标题、且满足原有退避周期（或解析器版本升级）时，在下次检查尝试一个同源、同规范文章的语言变体。每轮每篇仍只发一次请求，保留实际请求 URL，不因 403 或日期冲突切换入口，不降低正文标题、型号、明确日期与双源正式发布的验证门槛。Niji 403 继续保留失败状态。样本召回改善必须由真实探测确认。
+
+
+## 2026-11-27 P1 第三轮
+
+- Veo 3.1 Fast：Vertex AI 2025-10-15 Preview、2025-11-17 GA 两个明确阶段链接至模型库；不填跨平台首发日期。官方来源为 https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes 与 https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=en 。
+- Kling 2.6 Pro：官方说明的 Professional Mode 归为 service-mode，保留既有型号与榜单链接，不制造独立首发记录。来源 https://kling.ai/quickstart/klingai-video-26-audio-user-guide 。
+- Anthropic 列表标题和正文标题可能省略 introductory verb 或重复品牌词。仅对既有 leading-date 发布方允许严格整标题规范化，不接受子串、版本号近似或冲突日期；共享规范化函数以避免直接采集与回收路径分叉。原始来源日期及实时召回评估不人为清零。
+- PR #41 生产实跑已确认 GLM-5.4 英文入口仍 identity-unresolved；Niji 403 仍未恢复。保留未命中，不将人工确认计入自动采集召回。
