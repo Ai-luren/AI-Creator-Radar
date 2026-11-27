@@ -276,3 +276,6 @@ P1 官方可用性声明验收：PR #60 真实 CI 与生产均取得 GLM Coding 
 
 
 跨渠道故障域：`lead-resolution.json.accessFaultDomains` 保存按主机/路径族的实际403/429观察与冷却结束时间；`deferredAccessDomainUrls` 为跳过的规范文章URL，`summary.attempted` 只计真实探测。旧证据及原始观察时间保留。`source-search.json` 中 `publisher-channel-pointer-unverified` 只是既有发现的社媒/公众号链接，日期和原文验证均为null，不是新来源证明或发布阶段。拒绝伪域名、非HTTPS、凭据及非帖子链接。不能将公开索引转载或源数量当作独立证据，原固定基准不修改。
+
+
+独立社媒索引适配器：基于已观察的跨平台线索、精确型号与报道日定位公开日索引，只有原始帖子链接进入 X 官方 oEmbed 复核；遵守 robots，未知或拒绝访问停止，不读取或转载索引全文作为发布事实。Z.ai 官方账号明确 Introducing 型号的帖子产生 announcement-statement，Niji 官方 now live 只产生 service-availability-statement；两者 eventDate 均为 null，不能当作正式首发证据或互相替代。对账账本使用 publisher- 加原声明类型，旧可用性审计样本不变。独立日期索引仅为发现指针，日期以官方 embed 为准。适配器试点与真实runner验证分开。

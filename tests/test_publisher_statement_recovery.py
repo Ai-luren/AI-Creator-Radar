@@ -45,3 +45,61 @@ class PublisherStatementTests(unittest.TestCase):
         hidden=page.replace("<strong>即日起，GLM-5.4</strong>向GLM Coding Plan全量用户开放，同步上线。","<script>即日起，GLM-5.4向GLM Coding Plan全量用户开放，同步上线。</script>")
         with self.assertRaises(ValueError):
             parse_zhipu(hidden,url,("glm","5-4"),self.index,self.now)
+
+class IndependentSocialIndexTests(unittest.TestCase):
+    def setUp(self):
+        self.now=datetime(2026,11,28,tzinfo=timezone.utc)
+        self.families=[{"id":"glm","versions":[{"id":"v3","name":"GLM-3.8"},{"id":"preview","name":"GLM-3.8 Preview"}]}]
+        self.index=model_index(self.families)
+        self.post=("https://x.com/zai_org/status/1234567890123","zai_org")
+        self.pointer="https://www.advanceintelligence.ai/2026-11-23/all"
+        self.payload={"provider_url":"https://x.com","author_url":"https://x.com/Zai_org",
+                      "html":f'<blockquote class="twitter-tweet"><p>Introducing GLM-3.8: Generalized Coding. API access will open later.</p><a href="{self.post[0]}">November 23, 2026</a></blockquote>'}
+        self.discovery={"items":[{"id":"observed-lead","title":"GLM-3.8 released","reportedAt":"2026-11-23","sourceId":"feed"}]}
+
+    def test_independent_index_recovers_announcement_without_inferred_release(self):
+        from scripts.publisher_statement_recovery import collect_statements,social_embed_url
+        calls=[]
+        def read(url,accept="text/html"):
+            calls.append(url)
+            if url.endswith("/robots.txt"):
+                return "User-agent: *\nAllow: /"
+            if url==self.pointer:
+                return f'<h2><a href="{self.post[0]}">Z.ai Releases GLM 3.8</a></h2>'
+            if url==social_embed_url(self.post):
+                return json.dumps(self.payload)
+            self.fail(url)
+        old={"sources":{"zhipu":{"nextAttemptAt":"2026-11-29T00:00:00+00:00"},
+                        "social":{"nextAttemptAt":"2026-11-29T00:00:00+00:00"}}}
+        result=collect_statements([],self.families,old,self.now,read,discovery=self.discovery)
+        self.assertEqual(len(calls),3)
+        self.assertEqual(len(result["records"]),1)
+        row=result["records"][0]
+        self.assertEqual(row["fact"]["claimType"],"announcement-statement")
+        self.assertIsNone(row["fact"]["eventDate"])
+        self.assertIsNone(row["fact"]["service"])
+        self.assertEqual(row["discovery"]["sourceRecordId"],"observed-lead")
+        from scripts.audit_publisher_statements import inspect_statements
+        usable,report=inspect_statements(result,self.families,self.now)
+        self.assertFalse(report["errors"])
+        self.assertEqual(len(usable),1)
+        self.assertEqual(report["summary"]["byClaimType"],{"announcement-statement":1})
+
+    def test_wrong_account_preview_future_and_robots_disallow(self):
+        from scripts.publisher_statement_recovery import daily_index_posts,daily_index_allowed,collect_statements
+        self.assertEqual(daily_index_posts(f'<a href="https://x.com/nijijourney/status/1234567890123">GLM 3.8</a>',self.index,{("glm","v3")}),{})
+        for body in ["Introducing GLM-3.8 Preview: Test","We will introduce GLM-3.8: Test","Introducing GLM-3.8.1: Test"]:
+            obj=dict(self.payload,html=self.payload["html"].replace("Introducing GLM-3.8: Generalized Coding. API access will open later.",body))
+            with self.assertRaises(ValueError):
+                parse_embed(json.dumps(obj),self.post,("glm","v3"),self.index,self.now)
+        self.assertFalse(daily_index_allowed(lambda *args:"User-agent: *\nDisallow: /",self.pointer))
+        old={"sources":{"zhipu":{"nextAttemptAt":"2026-11-29T00:00:00+00:00"},"social":{"nextAttemptAt":"2026-11-29T00:00:00+00:00"}}}
+        calls=[]
+        def deny(url,accept="text/html"):
+            calls.append(url)
+            self.assertTrue(url.endswith("/robots.txt"))
+            return "User-agent: *\nDisallow: /"
+        result=collect_statements([],self.families,old,self.now,deny,discovery=self.discovery)
+        self.assertEqual(len(calls),1)
+        self.assertFalse(result["records"])
+        self.assertIsNotNone(result["sources"]["social-index"]["error"])

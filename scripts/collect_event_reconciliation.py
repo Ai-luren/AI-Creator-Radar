@@ -105,7 +105,7 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
     for record in statements:
         fact=record["fact"]
         ident=(fact["modelFamilyId"],fact["modelVersionId"])
-        eid=append("publisher-service-availability-statement",ident[0],ident[1],
+        eid=append("publisher-"+fact["claimType"],ident[0],ident[1],
                    fact["sourceUrl"],fact["publisherCalendarDay"],record["firstObservedAt"],
                    record["id"],"publisher-calendar-day")
         if eid:

@@ -52,8 +52,8 @@ def inspect_statements(snapshot, families, now, benchmark=None):
             ident = (fact.get("modelFamilyId"), fact.get("modelVersionId"))
             if ident not in known:
                 raise ValueError("Unknown canonical model identity")
-            if fact.get("claimType") != "service-availability-statement" or "eventDate" not in fact or fact["eventDate"] is not None:
-                raise ValueError("Availability statement must not infer an event or first-release date")
+            if fact.get("claimType") not in {"service-availability-statement","announcement-statement"} or "eventDate" not in fact or fact["eventDate"] is not None:
+                raise ValueError("Publisher statement must not infer an event or first-release date")
             if fact.get("datePrecision") != "day":
                 raise ValueError("Unexpected date precision")
             date_value = fact.get("publisherCalendarDay")
@@ -73,18 +73,28 @@ def inspect_statements(snapshot, families, now, benchmark=None):
                 if not (ident[0] == "glm" and p.scheme == "https" and p.hostname == "www.zhipuai.cn"
                         and p.port in (None,443) and not p.username and not p.password and not p.query and not p.fragment
                         and re.fullmatch(r"/zh/(?:news|research)/\d+",p.path)
+                        and fact.get("claimType") == "service-availability-statement"
                         and fact.get("service") == "GLM Coding Plan"
                         and discovery.get("channel") == "official-article-collector" and discovery.get("sourceUrl") == source):
                     raise ValueError("Unexpected article provenance or service")
             elif fact.get("evidenceGrade") == "official-dated-social-statement":
                 post = post_url(source)
                 pointer = urlsplit(discovery.get("sourceUrl") or "")
-                if not (ident[0] == "midjourney" and post and post[0] == source
-                        and post[1] == fact.get("publisherAccount") and fact.get("service") == "Midjourney / Niji Journey"
-                        and discovery.get("channel") == "public-launch-index-pointer"
-                        and pointer.scheme == "https" and pointer.hostname == "launcharchive.ai"
-                        and pointer.port in (None,443) and not pointer.username and not pointer.password
-                        and re.fullmatch(r"/launches/[a-z0-9-]+--x_"+re.escape(p.path.rsplit("/",1)[-1]), pointer.path)):
+                stage_ok = (ident[0]=="midjourney" and fact.get("claimType")=="service-availability-statement"
+                            and fact.get("service")=="Midjourney / Niji Journey" and post and post[1] in {"midjourney","nijijourney"}
+                            or ident[0]=="glm" and fact.get("claimType")=="announcement-statement"
+                            and fact.get("service") is None and post and post[1]=="zai_org")
+                safe_pointer=(pointer.scheme=="https" and pointer.port in (None,443)
+                              and not pointer.username and not pointer.password and not pointer.query and not pointer.fragment)
+                archive_ok=(ident[0]=="midjourney" and discovery.get("channel")=="public-launch-index-pointer"
+                            and pointer.hostname=="launcharchive.ai"
+                            and re.fullmatch(r"/launches/[a-z0-9-]+--x_"+re.escape(p.path.rsplit("/",1)[-1]),pointer.path))
+                index_ok=(discovery.get("channel")=="public-daily-index-pointer"
+                          and pointer.hostname=="www.advanceintelligence.ai"
+                          and re.fullmatch(r"/20\d{2}-\d{2}-\d{2}/all",pointer.path)
+                          and isinstance(discovery.get("sourceRecordId"),str) and bool(discovery["sourceRecordId"]))
+                if not (post and post[0]==source and post[1]==fact.get("publisherAccount")
+                        and stage_ok and safe_pointer and (archive_ok or index_ok)):
                     raise ValueError("Unexpected social publisher or discovery pointer")
             else:
                 raise ValueError("Unsupported publisher statement adapter")
@@ -112,7 +122,8 @@ def inspect_statements(snapshot, families, now, benchmark=None):
         "summary":{"records":len(records),"validUnconflicted":len(usable),
                    "identities":len({(r["fact"]["modelFamilyId"],r["fact"]["modelVersionId"]) for r in usable}),
                    "observedThisRun":sum(r["lastSuccessfulObservationAt"]==snapshot.get("checkedAt") for r in usable),
-                   "dateConflicts":len(conflicts)},
+                   "dateConflicts":len(conflicts),
+                   "byClaimType":dict(sorted(Counter(r["fact"]["claimType"] for r in usable).items()))},
         "sourceHealth":{k:{field:s.get(field) for field in ("lastAttemptAt","lastSuccessAt","nextAttemptAt","error","candidateCount")}
                         for k,s in snapshot.get("sources",{}).items()},
         "availabilitySample":{"events":len(sample),"matched":sum(r["matched"] for r in sample),"rows":sample,

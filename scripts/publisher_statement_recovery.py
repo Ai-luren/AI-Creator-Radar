@@ -19,7 +19,8 @@ except ModuleNotFoundError:
 
 ARCHIVE="https://launcharchive.ai/browse/launches/1"
 ARCHIVE_FALLBACK="https://launcharchive.ai/launches/this-week"
-ACCOUNTS={"midjourney":"midjourney","nijijourney":"midjourney"}
+ACCOUNTS={"midjourney":"midjourney","nijijourney":"midjourney","zai_org":"glm"}
+DAILY_INDEX="https://www.advanceintelligence.ai"
 SOCIAL_HOSTS={"x.com","twitter.com","www.x.com","www.twitter.com"}
 MAX_BYTES=2*1024*1024
 
@@ -123,13 +124,24 @@ def parse_embed(raw,post,expected,index,now):
     if not (now-timedelta(days=45)).date().isoformat()<=date_value<=now.date().isoformat():
         raise ValueError("Outside recent observation window")
     body=" ".join("".join(p.body).split())
-    m=re.match(r"^(Niji\s+V?\d+(?:\.\d+)*)\s+is now live[!.](?:\s|$)",body,re.I)
-    if not m or exact_niji(index,m[1])!=expected:
-        raise ValueError("No exact affirmative model availability statement")
-    return {"modelFamilyId":expected[0],"modelVersionId":expected[1],"claimType":"service-availability-statement",
+    if ACCOUNTS.get(author)!=expected[0]:
+        raise ValueError("Publisher family mismatch")
+    if expected[0]=="midjourney":
+        m=re.match(r"^(Niji\s+V?\d+(?:\.\d+)*)\s+is now live[!.](?:\s|$)",body,re.I)
+        if not m or exact_niji(index,m[1])!=expected:
+            raise ValueError("No exact affirmative model availability statement")
+        kind,service="service-availability-statement","Midjourney / Niji Journey"
+    elif expected[0]=="glm":
+        m=re.match(r"^Introducing\s+(GLM[- ]\d+(?:\.\d+)*)\s*[:：]\s*",body,re.I)
+        if not m or identify(index,m[1],family_id="glm")!=expected:
+            raise ValueError("No exact model introduction statement")
+        kind,service="announcement-statement",None
+    else:
+        raise ValueError("Unsupported social publisher")
+    return {"modelFamilyId":expected[0],"modelVersionId":expected[1],"claimType":kind,
             "publisherAccount":author,"sourceUrl":canonical,"publisherCalendarDay":date_value,
             "datePrecision":"day","eventDate":None,"statementSha256":sha(m[0].strip()),"contentSha256":sha(raw),
-            "evidenceGrade":"official-dated-social-statement","service":"Midjourney / Niji Journey"}
+            "evidenceGrade":"official-dated-social-statement","service":service}
 
 def parse_zhipu(page,url,expected,index,now):
     b=blocks(page)
@@ -207,7 +219,57 @@ def archive_allowed(read_page, urls):
     rp.parse(text.splitlines())
     return all(rp.can_fetch(USER_AGENT,u) for u in urls)
 
-def collect_statements(claims,families,previous,now,read_page=read):
+def daily_index_posts(page,index,expected):
+    """Read only original post anchors whose labels identify a wanted model."""
+    found={}
+    for block in blocks(page):
+        if block["tag"]!="a":
+            continue
+        post=post_url(block["attrs"].get("href",""))
+        if not post:
+            continue
+        title=re.sub(r"\bNiji\s+V(?=\d)","Niji ",block["text"],flags=re.I)
+        ident=identify(index,title,family_id=ACCOUNTS[post[1]])
+        if ident in expected:
+            found[post]=ident
+    return found
+
+
+def daily_index_allowed(read_page,url):
+    # Fail closed when robots is unreadable or explicitly disallows the page.
+    text=read_page(DAILY_INDEX+"/robots.txt","text/plain")
+    if re.search(r"<(?:html|!doctype)",text,re.I):
+        raise ValueError("Invalid daily index robots response")
+    rp=RobotFileParser()
+    rp.parse(text.splitlines())
+    return rp.can_fetch(USER_AGENT,url)
+
+
+def unresolved_social_targets(discovery,index,records,now):
+    # Use actual observed external lead dates, never fixed evaluation samples.
+    # Service availability and an announcement are different claim types.
+    already={(r["fact"]["modelFamilyId"],r["fact"]["modelVersionId"],r["fact"]["claimType"])
+             for r in records.values()}
+    targets={}
+    for lead in discovery.get("items",[]):
+        if lead.get("dateKind")=="repository-created-at":
+            continue
+        ident=identify(index,lead.get("title"),lead.get("titleHints") or ())
+        date_value=day(lead.get("reportedAt"))
+        if not ident or ident[0] not in set(ACCOUNTS.values()) or not date_value or not (now-timedelta(days=45)).date().isoformat()<=date_value<=now.date().isoformat():
+            continue
+        kind="announcement-statement" if ident[0]=="glm" else "service-availability-statement"
+        if (*ident,kind) in already:
+            continue
+        targets.setdefault(date_value,{}).setdefault(ident,lead)
+    return targets
+
+
+def social_embed_url(post):
+    return "https://publish.x.com/oembed?"+urlencode({"url":post[0],"omit_script":"true","hide_thread":"true","hide_media":"true","lang":"en","dnt":"true"})
+
+
+def collect_statements(claims,families,previous,now,read_page=read,discovery=None):
     stamp=now.isoformat(timespec="seconds")
     index=model_index(families)
     records={r["id"]:r for r in previous.get("records",[])}
@@ -275,6 +337,34 @@ def collect_statements(claims,families,previous,now,read_page=read):
             sources["social"]["candidateCount"]=len(found)
         except (OSError,ValueError,TypeError,KeyError) as e:
             result("social",e)
+    # Independent alternative to the launch archive, driven by actual unresolved
+    # observations. At most one index page and one official embed per due run.
+    # Do not retain the index headline or body, or treat its date as a fact.
+    targets=unresolved_social_targets(discovery or {},index,records,now)
+    if targets and due("social-index"):
+        attempts+=1
+        state=sources.get("social-index",{})
+        checked_days=dict(state.get("checkedDays",{}))
+        selected=min(targets,key=lambda value:(checked_days.get(value,""),value))
+        found={}
+        pointer=DAILY_INDEX+"/"+selected+"/all"
+        try:
+            if not daily_index_allowed(read_page,pointer):
+                raise ValueError("Daily index robots policy disallows discovery")
+            found=daily_index_posts(read_page(pointer),index,targets[selected])
+            if found:
+                post,ident=next(iter(sorted(found.items())))
+                proof=parse_embed(read_page(social_embed_url(post),"application/json"),post,ident,index,now)
+                remember(proof,{"channel":"public-daily-index-pointer","sourceUrl":pointer,
+                                "sourceRecordId":targets[selected][ident]["id"]})
+            result("social-index")
+            sources["social-index"]["candidateCount"]=len(found)
+            checked_days[selected]=stamp
+        except (OSError,ValueError,TypeError,KeyError) as exc:
+            result("social-index",exc)
+            checked_days[selected]=stamp
+        sources["social-index"]["checkedDays"]={k:v for k,v in checked_days.items()
+                                                  if k>=(now-timedelta(days=45)).date().isoformat()}
     conflicts=[]
     for identity in {(r["fact"]["sourceUrl"],r["fact"]["modelFamilyId"],r["fact"]["modelVersionId"]) for r in records.values()}:
         dates=sorted({r["fact"]["publisherCalendarDay"] for r in records.values() if (r["fact"]["sourceUrl"],r["fact"]["modelFamilyId"],r["fact"]["modelVersionId"])==identity})
@@ -282,4 +372,4 @@ def collect_statements(claims,families,previous,now,read_page=read):
             conflicts.append({"sourceUrl":identity[0],"modelFamilyId":identity[1],"modelVersionId":identity[2],"dates":dates})
     return {"checkedAt":stamp,"records":sorted(records.values(),key=lambda r:r["id"]),"sources":sources,
             "conflicts":conflicts,"summary":{"verifiedStatements":len(records),"attemptedSources":attempts,"dateConflicts":len(conflicts)},
-            "policy":"Explicit dated availability claims only; eventDate and first-release date remain unknown. No fixed benchmark pointers, no third-party text retained."}
+            "policy":"Explicit dated availability and announcement claims; eventDate and first-release date remain unknown. No fixed benchmark pointers, no third-party text retained."}
