@@ -414,3 +414,16 @@ test('AIHOT unchanged content keeps download date but uses successful validation
  run("state.aihot.checkedAt='invalid'");
  assert.equal(run('selectedValidationStamp()'),'2026-11-27T00:00:00Z');
 });
+
+// The retired broad-news snapshot must not affect current briefing availability.
+test('briefings load only the three current snapshots and never request retired news',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds',fail:['news-today.json']});
+ await run('loadData()');
+ assert.deepEqual([...requested].sort(),['aihot-daily.json','aihot-items.json','juya-daily.json']);
+ assert.doesNotMatch(node('content').innerHTML,/部分数据未加载/);
+ assert.equal(run("Object.prototype.hasOwnProperty.call(dataFiles,'news')"),false);
+ run("state.briefingTab='selected';render()");
+ assert.match(node('content').innerHTML,/AIHOT 精选/);
+ await run('ensureSearchData()');
+ assert.ok(!requested.includes('news-today.json'));
+});
