@@ -2,7 +2,7 @@
 
 ## Goal
 
-Maintain a personal AI creator radar focused on trustworthy model updates, video and image creation, and useful creator resources.
+Maintain a personal AI creator radar focused on trustworthy model updates, video and image creation, and useful creator resources. The user should consume information, not perform recurring fact correction, missing-release discovery, or engineering maintenance. P1 data reliability takes precedence; P2 remains frozen until explicitly reopened.
 
 ## Directory conventions
 
@@ -23,8 +23,9 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 
 ## Verification
 
-- Required offline gate: `python3 scripts/preflight.py` before pushing. If canonical input or digest logic changed, run `python3 scripts/preflight.py --repair-digest`, review the generated diff and commit all related files atomically. A consistent snapshot must not have its window or timestamp rewritten just to pass checks.
-- Install the repository pre-push hook once per clone (`python3 scripts/preflight.py --install-hook`), with actionlint on PATH. The hook checks the exact commit rather than uncommitted local files. API-based writers bypass local hooks and must validate their complete staged tree independently; never use remote CI for repeated patch debugging. Do not bypass the hook to force an invalid push.
+- GitHub is the canonical engineering and validation environment. A local clone and its pre-push hook remain useful but are not prerequisites for GitHub-only maintenance. The Mac's 21:00 local collection task is a separate input; do not require Desktop Commander or an always-online Mac for cloud collection, engineering validation, or publication.
+- For a local Git push, required offline gate: `python3 scripts/preflight.py` before pushing. For API-based changes, batch-reviewed changes into an isolated PR branch; require the exact revision's full GitHub validation and Chromium/WebKit checks before merging. Never write unvalidated engineering changes directly to main. A failed candidate remains isolated; do not repeatedly push speculative fixes as a substitute for diagnosis. If canonical input or digest logic changed, run `python3 scripts/preflight.py --repair-digest`, review the generated diff and commit all related files atomically. A consistent snapshot must not have its window or timestamp rewritten just to pass checks.
+- Install the repository pre-push hook once per clone (`python3 scripts/preflight.py --install-hook`), with actionlint on PATH. The hook checks the exact commit rather than uncommitted local files. API-based writers bypass local hooks and must validate their complete candidate tree using the GitHub PR checks when local execution is unavailable; distinguish pre-merge checks from actual production collection. Do not bypass the hook to force an invalid push.
 
 - Validate edited JSON with `python3 -m json.tool <file>`.
 - Run `python3 -m unittest discover -s tests -v` for collector or data-path changes.
@@ -32,7 +33,7 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - After model collection, run `python3 scripts/build_model_release_digest.py`, `python3 scripts/link_model_records.py`, and `python3 scripts/validate_model_links.py` to regenerate the 30-day view and verify shared references.
 
 - For UI changes, use the four primary categories in this order: video, image, llm, audio; keep contextual audio subcategories and canonical source category values separate. Formal-release counts exclude service stages and pending records. Keep tutorials and cases last in navigation.
-- Before pushing, run the applicable Python and Node suites, reference checks, and both browser engines. Batch verified changes into one commit; never use remote CI as an iterative debugger. Do not suppress real failures or disable notification workflows. If local verification is unavailable, state the limitation and do not claim it passed.
+- Before merging, require the applicable Python and Node suites, reference checks, and both browser engines on the exact candidate revision. Batch coherent changes into one PR commit where practical. Use GitHub logs and artifacts for failure diagnosis; never suppress real failures or disable notification workflows. Report the actual execution environment and distinguish passed, skipped, and pending checks.
 - Test date-dependent rendering against controlled time or the actual snapshot; legitimate empty states must not fail.
 - Update README, DESIGN and affected guides together. Archive superseded documentation verbatim; remove only proven unused code/assets. Preserve compatibility routes, source datasets and evidence.
 - Before changing collection schedules, follow [`docs/automation-runbook.md`](docs/automation-runbook.md); preserve actual snapshot timestamps and test missed-run recovery.

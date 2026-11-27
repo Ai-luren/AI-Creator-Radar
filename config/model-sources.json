@@ -966,7 +966,7 @@
       {
         "url": "https://elevenlabs.io/docs/changelog.md",
         "type": "markdown-dated-release-headings",
-        "modelTitlePattern": "(?:Scribe\\s+v\\d+(?:\\.\\d+)*(?:\\s+Live)?|SFX\\s+v\\d+(?:\\.\\d+)*|Eleven\\s+v\\d+(?:\\.\\d+)*(?:\\s+and\\s+Eleven\\s+v\\d+(?:\\.\\d+)*\\s+Turbo)?)"
+        "modelTitlePattern": "(?:Scribe\\s+v\\d+(?:\\.\\d+)*(?:\\s+Live(?:\\s+Medical)?)?|SFX\\s+v\\d+(?:\\.\\d+)*|Eleven\\s+v\\d+(?:\\.\\d+)*(?:\\s+and\\s+Eleven\\s+v\\d+(?:\\.\\d+)*\\s+Turbo)?)"
       }
     ]
   },
@@ -1159,5 +1159,29 @@
       }
     ],
     "fallbackOnZeroMatch": true
+  },
+  {
+    "id": "zhipu-research-index",
+    "name": "智谱国内官网研究动态",
+    "type": "html",
+    "url": "https://www.zhipuai.cn/en/research",
+    "vendor": "智谱 / Z.ai",
+    "official": true,
+    "active": true,
+    "updateType": "model-card",
+    "titleModelOnly": true,
+    "articleDateCheck": true,
+    "articleHosts": [
+      "www.zhipuai.cn"
+    ],
+    "fallbackUrls": [
+      "https://www.zhipuai.cn/zh/research"
+    ],
+    "fallbackOnZeroMatch": true,
+    "modelMatches": {
+      "glm": [
+        "re:\\bGLM[- ]\\d+(?:\\.\\d+)*\\b"
+      ]
+    }
   }
 ]
