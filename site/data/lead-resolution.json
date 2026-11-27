@@ -1,13 +1,13 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T16:48:02+00:00",
+  "checkedAt": "2026-11-27T17:21:30+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
-    "attempted": 0,
-    "articleDateVerified": 8,
-    "newlyCheckedVerified": 0,
+    "attempted": 12,
+    "articleDateVerified": 9,
+    "newlyCheckedVerified": 1,
     "awaitingProbe": 0,
-    "unresolved": 14,
+    "unresolved": 13,
     "notAnnouncement": 2,
     "weakCandidateDatesCorrected": 10
   },
@@ -65,7 +65,7 @@
     {
       "id": "recovery-2eb810fd1adf8021f21e",
       "urlKey": "https://sand.ai/blog/magi-2",
-      "url": "https://sand.ai/blog/magi-2/",
+      "url": "https://sand.ai/blog/magi-2",
       "leadIds": [
         "dfb358964f6ef7e29df4",
         "e60abd81042c5811d827"
@@ -78,15 +78,28 @@
         "MAGI-2",
         "MAGI-2: A 480B Frontier Video Generation ModelNovember 24, 2026 · Research"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-24"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "identity-unresolved"
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "article-date-verified",
+      "title": "MAGI-2: A 480B Frontier Video Generation Model",
+      "modelId": "magi-2",
+      "vendor": "Sand.ai",
+      "category": "video",
+      "articlePublishedAt": "2026-11-24T00:00:00Z",
+      "titleMethod": "publisher-document-title-plus-heading-and-launch",
+      "publisherReleaseStatement": {
+        "modelName": "MAGI-2",
+        "statement": "Today, we are launching MAGI-2",
+        "calendarDay": "2026-11-24",
+        "kind": "explicit-present-day-launch"
+      },
+      "firstVerifiedAt": "2026-11-27T17:21:30+00:00"
     },
     {
       "id": "recovery-a989f1582084d0cf153c",
@@ -128,14 +141,14 @@
       "titleHintsChecked": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-27"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-28T02:41:49+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "not-model-announcement",
       "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
     },
@@ -154,14 +167,14 @@
         "GPT-6.2 Astra",
         "GPT-6.2 Sol"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-17"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Introducing GPT-6.2 Astra and Sol",
       "modelId": "gpt"
@@ -179,14 +192,14 @@
       "titleHintsChecked": [
         "Gemini 4 Neon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-18"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Neon",
       "modelId": "gemini"
@@ -206,14 +219,14 @@
         "GPT-Image-2.6 Flare",
         "GPT-Image-2.6 Sunburst"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-04"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "identity-unresolved"
     },
     {
@@ -229,21 +242,21 @@
       "titleHintsChecked": [
         "Gemini 4 Carbon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-28"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-28T02:41:49+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "not-model-announcement",
       "title": "Gemini 4 Carbon: our next frontier model"
     },
     {
       "id": "recovery-f1db7ce98881d8901597",
       "urlKey": "https://z.ai/blog/glm-5.4",
-      "url": "https://z.ai/blog/glm-5.4?lang=en",
+      "url": "https://z.ai/blog/glm-5.4",
       "leadIds": [
         "4c53475e2cd1ac2dfd15"
       ],
@@ -255,14 +268,14 @@
         "GLM-5.4 docs",
         "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-23"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "identity-unresolved"
     },
     {
@@ -280,14 +293,14 @@
         "GLM-5.4 docs",
         "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-23"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "GLM-5.4",
       "modelId": "glm"
@@ -305,14 +318,14 @@
       "titleHintsChecked": [
         "Gemini Omni 1.2 Flash"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-05"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini Omni 1.2 Flash",
       "modelId": "gemini-omni-flash"
@@ -330,14 +343,14 @@
       "titleHintsChecked": [
         "GPT-6.1 Terra"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-26"
       ],
-      "checkedAt": "2026-11-27T03:02:54+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "GPT-6.1Terra",
       "modelId": "gpt"
@@ -355,14 +368,14 @@
       "titleHintsChecked": [
         "Gemini 4 Argon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-10-13"
       ],
-      "checkedAt": "2026-11-27T03:02:54+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:35:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Argon",
       "modelId": "gemini"
@@ -628,14 +641,14 @@
       "titleHintsChecked": [
         "Gemini 4 Carbon"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-10"
       ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "checkedAt": "2026-11-27T17:21:30+00:00",
       "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Carbon",
       "modelId": "gemini"
