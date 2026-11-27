@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-11-26T12:22:10Z",
+  "checkedAt": "2026-11-27T12:33:12Z",
   "sources": [
     {
       "sourceUrl": "https://aifc.news/",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "id": "aifc",
       "name": "AIFC",
       "status": "reachable",
@@ -13,7 +13,7 @@
     },
     {
       "sourceUrl": "https://aifilmcontests.com/",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "id": "aifilmcontests",
       "name": "AI Film Contests",
       "status": "reachable",
@@ -22,7 +22,7 @@
     },
     {
       "sourceUrl": "https://laurelume.com/calendar",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "id": "laurelume",
       "name": "Laurelume",
       "status": "reachable",
@@ -31,7 +31,7 @@
     },
     {
       "sourceUrl": "https://higgsfield.ai/contests",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "id": "higgsfield",
       "name": "Higgsfield 官方比赛",
       "status": "reachable",
@@ -40,7 +40,7 @@
     },
     {
       "sourceUrl": "https://elevenlabs.io/blog",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "id": "elevenlabs",
       "name": "ElevenLabs 官方博客",
       "status": "reachable",
@@ -49,7 +49,7 @@
     },
     {
       "sourceUrl": "https://www.heygen.com/blog",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "id": "heygen",
       "name": "HeyGen 官方博客",
       "status": "reachable",
@@ -60,7 +60,7 @@
   "programSignals": [
     {
       "sourceUrl": "https://higgsfield.ai/creator-hub/help-center/business/how-do-i-join-a-partnership-or-creator-program",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "platformId": "higgsfield",
       "scope": "global",
       "status": "reachable",
@@ -70,7 +70,7 @@
     },
     {
       "sourceUrl": "https://openart.ai/programs/cpp",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "platformId": "openart",
       "scope": "global",
       "status": "reachable",
@@ -80,7 +80,7 @@
     },
     {
       "sourceUrl": "https://go.vidu.com/artist-program",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "platformId": "vidu-platform",
       "scope": "overseas",
       "status": "reachable",
@@ -90,7 +90,7 @@
     },
     {
       "sourceUrl": "https://pollo.ai/creative-partner-program",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "platformId": "pollo",
       "scope": "overseas",
       "status": "reachable",
@@ -100,7 +100,7 @@
     },
     {
       "sourceUrl": "https://pollo.ai/zh/creative-partner-program",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "platformId": "pollo",
       "scope": "domestic",
       "status": "reachable",
@@ -110,7 +110,7 @@
     },
     {
       "sourceUrl": "https://www.magnific.com/ai/partners",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "platformId": "magnific",
       "scope": "global",
       "status": "reachable",
@@ -120,7 +120,7 @@
     },
     {
       "sourceUrl": "https://runway.com/creative-partners-program/",
-      "checkedAt": "2026-11-26T12:22:10Z",
+      "checkedAt": "2026-11-27T12:33:12Z",
       "platformId": "runway",
       "scope": "global",
       "status": "reachable",
@@ -140,7 +140,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "f4ef94726a3287cc33d1",
@@ -152,7 +152,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "f4eeae36858d3772fe47",
@@ -164,7 +164,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "f39681b7807ac2afe950",
@@ -176,7 +176,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "e579e25e6d3731a4647a",
@@ -188,7 +188,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "e5680e0b806a230eff2e",
@@ -200,7 +200,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "e28a70e2a1a63beabc44",
@@ -212,7 +212,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "d8ab13a11a4008beb178",
@@ -224,7 +224,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "d71f4cd0c3f9f8291689",
@@ -236,7 +236,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "cea8aa45a625f5017bf3",
@@ -248,11 +248,11 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "cd839b9afdc402de27c0",
-      "title": "Explore Talent Contest",
+      "title": "talent contest",
       "url": "https://higgsfield.ai/contests/talent-contest",
       "sourceUrl": "https://higgsfield.ai/contests",
       "sourceName": "Higgsfield 官方比赛",
@@ -260,7 +260,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "c23a00108cb35c4548aa",
@@ -272,7 +272,19 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "c0348bc72ab47116d8bc",
+      "title": "1 billion ai film award 2027",
+      "url": "https://aifilmcontests.com/contests/1-billion-ai-film-award-2027",
+      "sourceUrl": "https://aifilmcontests.com/",
+      "sourceName": "AI Film Contests",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-27T12:33:12Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "bad0735a6e2ac69acf53",
@@ -284,7 +296,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "b98dd5a459a7808dc5a3",
@@ -296,7 +308,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "acc27eee893d0c66c8d7",
@@ -308,7 +320,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "ac47ef348c1146052073",
@@ -320,7 +332,7 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "ac0425a17b8507f89c39",
@@ -332,7 +344,511 @@
       "review": "pending",
       "deadlineDate": null,
       "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "9f1f6efe391ef9ed857e",
+      "title": "AI Film Festival India 2026-27 (Indian Pixels)",
+      "url": "https://aifc.news/contest/ai-film-festival-india-2026-27-indian-pi-r9do",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "9d916aa1d442ce190647",
+      "title": "World AI Cinema & Creativity Festival (WAICF) India",
+      "url": "https://aifc.news/contest/world-ai-cinema-creativity-festival-waic-6v05",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "9c6112c559b197f03cf8",
+      "title": "View submissions",
+      "url": "https://higgsfield.ai/contests/talent-contest?tab=submissions",
+      "sourceUrl": "https://higgsfield.ai/contests",
+      "sourceName": "Higgsfield 官方比赛",
+      "provenance": "official",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "97f9819e0201cc01665e",
+      "title": "Silicon Valley AI Film Festival (SVAIFF) 2027",
+      "url": "https://aifc.news/contest/silicon-valley-ai-film-festival-2027",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "94051b015080f4741627",
+      "title": "DPIFF Best AI Short Film Award 2027",
+      "url": "https://aifc.news/contest/dpiff-best-ai-short-film-award-2027-rhf0",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "8e413d3ae8939d3d4541",
+      "title": "WAIFF Napoli (World AI Film Festival, Italian edition)",
+      "url": "https://aifc.news/contest/waiff-napoli-world-ai-film-festival-ital-6x6y",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "8bb671cb48a8f625a78f",
+      "title": "AI Film Festival Africa (AIFFA)",
+      "url": "https://aifc.news/contest/ai-film-festival-africa-aiffa-ps2r",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "83fc963797924ce883c8",
+      "title": "NEXMUSE AI Music Video Contest 2027",
+      "url": "https://aifc.news/contest/nexmuse-ai-music-video-contest-2027-on6c",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "802727ad548bee201554",
+      "title": "IA Play International Film Festival Madrid",
+      "url": "https://aifc.news/contest/ia-play-international-film-festival-madr-prr7",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "7ef989e7dcdd813baf68",
+      "title": "AI ZONE International AI Film Festival",
+      "url": "https://aifc.news/contest/ai-zone-international-ai-film-festival-oezt",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "76277a106eac771a1324",
+      "title": "Jade Lens Awards (ZenCreator x Seedance)",
+      "url": "https://aifc.news/contest/jade-lens-awards-zencreator-x-seedance-rbs0",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "744764a88775274d6db8",
+      "title": "SIAMA 2026 Seoul International AI Media Awards",
+      "url": "https://aifc.news/contest/siama-2026-seoul-international-ai-media--rdo2",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "6bcd8db9697ff9327289",
+      "title": "Veritas AI Film Festival (Toronto)",
+      "url": "https://aifc.news/contest/veritas-ai-film-festival-toronto-pg1s",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "6491dd6ed4988390f233",
+      "title": "ai film festival japan",
+      "url": "https://laurelume.com/festivals/ai-film-festival-japan",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "64547d8cab4c1863c186",
+      "title": "HeyGen Video Contest (#HeyGenVideoContest)",
+      "url": "https://aifc.news/contest/heygen-video-contest-2026",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "6271820b256db6d3c12b",
+      "title": "Melbourne AI Film Festival (MAIFF) 2026",
+      "url": "https://aifc.news/contest/melbourne-ai-film-festival-maiff-2026-pccn",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "6217edd3a7cb2c1662ab",
+      "title": "CSFCCA International AI Film Festival (Winter 2026)",
+      "url": "https://aifc.news/contest/csfcca-international-ai-film-festival-wi-z069",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "610572171ceba701e720",
+      "title": "austin ai film festival",
+      "url": "https://laurelume.com/festivals/austin-ai-film-festival",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "5f277bc300ac1593b4d6",
+      "title": "Global AI Music Video Awards (GAIMVA)",
+      "url": "https://aifc.news/contest/global-ai-music-video-awards-gaimva-3rtk",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "5ec1d7c02021cd9fd4d2",
+      "title": "Jaipur IFF: World AI Cinema Competition",
+      "url": "https://aifc.news/contest/jaipur-iff-world-ai-cinema-competition-prkv",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "58353ac990db1b0a0751",
+      "title": "Montreal AI Indie Festival",
+      "url": "https://aifc.news/contest/montreal-ai-indie-festival-k89b",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "581dfb6e8d371d124b4b",
+      "title": "WAIFF LA: World AI Film Festival USA",
+      "url": "https://aifc.news/contest/waiff-la-world-ai-film-festival-usa-pr23",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "5738d14760d360d19f9e",
+      "title": "Turkey International AI Film Festival 2026 Entry fee : International entries: USD 1. National entries: free. Film / Animation Sources checked : Aug 29, 2026 November 1, 2026 Istanbul · Türkiye 2026 edition · Europe/Istanbul Closed",
+      "url": "https://laurelume.com/festivals/turkey-international-ai-film-festival",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "5475423d6173ff96aefd",
+      "title": "bochnia international ai film festival",
+      "url": "https://laurelume.com/festivals/bochnia-international-ai-film-festival",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "4b0020efd9d7d1a31eb2",
+      "title": "astana ai film festival",
+      "url": "https://laurelume.com/festivals/astana-ai-film-festival",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "2df8d9563a93bcf14b96",
+      "title": "Greenlight Competition: Cascade Studio × BytePlus Seedance",
+      "url": "https://aifc.news/contest/greenlight-competition-cascade-studio-by-w14i",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "2b8ef1235e8c1c3dfac5",
+      "title": "Gossip Goblin Competition",
+      "url": "https://aifc.news/contest/gossip-goblin-competition-84dq",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "29a9e471a602c158b859",
+      "title": "The Year of More: an ElevenCreative Competition (Vol. 2)",
+      "url": "https://aifc.news/contest/elevenlabs-year-of-more-2026",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "2985e8cd0a943f145902",
+      "title": "The Chroma Awards",
+      "url": "https://aifc.news/contest/the-chroma-awards-fifp",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "268c42f2ce2295d165e5",
+      "title": "lumara film festival",
+      "url": "https://laurelume.com/festivals/lumara-film-festival",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "267791057c125edd160b",
+      "title": "World AI Film Festival Africa Entry fee : No entry fee Film / Animation / Advertising December 31, 2026 · 23:59 Abidjan · Côte d’Ivoire 2027 edition · Africa/Abidjan Open call",
+      "url": "https://laurelume.com/festivals/world-ai-film-festival-africa",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "2502ec5d90fdce6cb225",
+      "title": "Altera Festival 2027 (Atlanta)",
+      "url": "https://aifc.news/contest/altera-festival-2027",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "1d227c3f999b0569d67d",
+      "title": "London AI-Qualified Festival",
+      "url": "https://aifc.news/contest/london-ai-qualified-festival-z28b",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "15d47ccd8adbd18a65d2",
+      "title": "2026 AiShorts AI Short Film Competition Entry fee : Fees not published Film / Animation Sources checked : Sep 26, 2026 November 18, 2026 Xiamen / Online · China 2026 edition · Asia/Shanghai Closed",
+      "url": "https://laurelume.com/festivals/aishorts-ai-short-film-competition",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "114476381878f69bd946",
+      "title": "NEXTALE Award (AI Short Drama Series)",
+      "url": "https://aifc.news/contest/nextale-award-ai-short-drama-series-oks7",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "0eeef7f706ab3f4f00c4",
+      "title": "KURSAAL-AI Film Festival San Sebastian (2nd edition)",
+      "url": "https://aifc.news/contest/kursaal-ai-film-festival-san-sebastian-2-6q6m",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-27T12:33:12Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "0cbdba9d824720fdc8bc",
+      "title": "reply ai film festival",
+      "url": "https://laurelume.com/festivals/reply-ai-film-festival",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "0c77b5cb4cc028c93db8",
+      "title": "AI Cinema Festival Quebec City 2027",
+      "url": "https://aifc.news/contest/ai-cinema-festival-quebec-city-2027-oj6t",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "0b981dbd5c153e5c62be",
+      "title": "Artefact AI Film Festival × mk2",
+      "url": "https://aifc.news/contest/artefact-ai-film-festival-mk2-yaq7",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "0aa32b14aea674650785",
+      "title": "Hollywood AI Short Film Awards",
+      "url": "https://aifc.news/contest/hollywood-ai-short-film-awards-pr8s",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "0a77b831d46ae4a8266c",
+      "title": "AKOOL AI Film Challenge",
+      "url": "https://aifc.news/contest/akool-ai-film-challenge-op7d",
+      "sourceUrl": "https://aifc.news/",
+      "sourceName": "AIFC",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
+    },
+    {
+      "id": "0532fafd307e564de27a",
+      "title": "AI ZONE International AI Film Festival 2026 Highest single cash award: USD 500 GLOBAL",
+      "url": "https://laurelume.com/festivals/ai-zone-international-ai-film-festival",
+      "sourceUrl": "https://laurelume.com/calendar",
+      "sourceName": "Laurelume",
+      "provenance": "directory",
+      "review": "pending",
+      "deadlineDate": null,
+      "firstSeenAt": "2026-11-26T12:22:10Z",
+      "lastSeenAt": "2026-11-27T12:33:12Z"
     },
     {
       "id": "a1209648204b0d182696",
@@ -347,503 +863,11 @@
       "lastSeenAt": "2026-11-26T12:22:10Z"
     },
     {
-      "id": "9f1f6efe391ef9ed857e",
-      "title": "AI Film Festival India 2026-27 (Indian Pixels)",
-      "url": "https://aifc.news/contest/ai-film-festival-india-2026-27-indian-pi-r9do",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "9d916aa1d442ce190647",
-      "title": "World AI Cinema & Creativity Festival (WAICF) India",
-      "url": "https://aifc.news/contest/world-ai-cinema-creativity-festival-waic-6v05",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "9c6112c559b197f03cf8",
-      "title": "View submissions",
-      "url": "https://higgsfield.ai/contests/talent-contest?tab=submissions",
-      "sourceUrl": "https://higgsfield.ai/contests",
-      "sourceName": "Higgsfield 官方比赛",
-      "provenance": "official",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "97f9819e0201cc01665e",
-      "title": "Silicon Valley AI Film Festival (SVAIFF) 2027",
-      "url": "https://aifc.news/contest/silicon-valley-ai-film-festival-2027",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "94051b015080f4741627",
-      "title": "DPIFF Best AI Short Film Award 2027",
-      "url": "https://aifc.news/contest/dpiff-best-ai-short-film-award-2027-rhf0",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "8e413d3ae8939d3d4541",
-      "title": "WAIFF Napoli (World AI Film Festival, Italian edition)",
-      "url": "https://aifc.news/contest/waiff-napoli-world-ai-film-festival-ital-6x6y",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "8bb671cb48a8f625a78f",
-      "title": "AI Film Festival Africa (AIFFA)",
-      "url": "https://aifc.news/contest/ai-film-festival-africa-aiffa-ps2r",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "83fc963797924ce883c8",
-      "title": "NEXMUSE AI Music Video Contest 2027",
-      "url": "https://aifc.news/contest/nexmuse-ai-music-video-contest-2027-on6c",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "802727ad548bee201554",
-      "title": "IA Play International Film Festival Madrid",
-      "url": "https://aifc.news/contest/ia-play-international-film-festival-madr-prr7",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "7ef989e7dcdd813baf68",
-      "title": "AI ZONE International AI Film Festival",
-      "url": "https://aifc.news/contest/ai-zone-international-ai-film-festival-oezt",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "76277a106eac771a1324",
-      "title": "Jade Lens Awards (ZenCreator x Seedance)",
-      "url": "https://aifc.news/contest/jade-lens-awards-zencreator-x-seedance-rbs0",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "744764a88775274d6db8",
-      "title": "SIAMA 2026 Seoul International AI Media Awards",
-      "url": "https://aifc.news/contest/siama-2026-seoul-international-ai-media--rdo2",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "6bcd8db9697ff9327289",
-      "title": "Veritas AI Film Festival (Toronto)",
-      "url": "https://aifc.news/contest/veritas-ai-film-festival-toronto-pg1s",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "6491dd6ed4988390f233",
-      "title": "ai film festival japan",
-      "url": "https://laurelume.com/festivals/ai-film-festival-japan",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "64547d8cab4c1863c186",
-      "title": "HeyGen Video Contest (#HeyGenVideoContest)",
-      "url": "https://aifc.news/contest/heygen-video-contest-2026",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "6271820b256db6d3c12b",
-      "title": "Melbourne AI Film Festival (MAIFF) 2026",
-      "url": "https://aifc.news/contest/melbourne-ai-film-festival-maiff-2026-pccn",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "6217edd3a7cb2c1662ab",
-      "title": "CSFCCA International AI Film Festival (Winter 2026)",
-      "url": "https://aifc.news/contest/csfcca-international-ai-film-festival-wi-z069",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "610572171ceba701e720",
-      "title": "austin ai film festival",
-      "url": "https://laurelume.com/festivals/austin-ai-film-festival",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "5f277bc300ac1593b4d6",
-      "title": "Global AI Music Video Awards (GAIMVA)",
-      "url": "https://aifc.news/contest/global-ai-music-video-awards-gaimva-3rtk",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "5ec1d7c02021cd9fd4d2",
-      "title": "Jaipur IFF: World AI Cinema Competition",
-      "url": "https://aifc.news/contest/jaipur-iff-world-ai-cinema-competition-prkv",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "58353ac990db1b0a0751",
-      "title": "Montreal AI Indie Festival",
-      "url": "https://aifc.news/contest/montreal-ai-indie-festival-k89b",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "581dfb6e8d371d124b4b",
-      "title": "WAIFF LA: World AI Film Festival USA",
-      "url": "https://aifc.news/contest/waiff-la-world-ai-film-festival-usa-pr23",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "5738d14760d360d19f9e",
-      "title": "Turkey International AI Film Festival 2026 Entry fee : International entries: USD 1. National entries: free. Film / Animation Sources checked : Aug 29, 2026 November 1, 2026 Istanbul · Türkiye 2026 edition · Europe/Istanbul Closed",
-      "url": "https://laurelume.com/festivals/turkey-international-ai-film-festival",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "5475423d6173ff96aefd",
-      "title": "bochnia international ai film festival",
-      "url": "https://laurelume.com/festivals/bochnia-international-ai-film-festival",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "4b0020efd9d7d1a31eb2",
-      "title": "astana ai film festival",
-      "url": "https://laurelume.com/festivals/astana-ai-film-festival",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "2df8d9563a93bcf14b96",
-      "title": "Greenlight Competition: Cascade Studio × BytePlus Seedance",
-      "url": "https://aifc.news/contest/greenlight-competition-cascade-studio-by-w14i",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "2b8ef1235e8c1c3dfac5",
-      "title": "Gossip Goblin Competition",
-      "url": "https://aifc.news/contest/gossip-goblin-competition-84dq",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "29a9e471a602c158b859",
-      "title": "The Year of More: an ElevenCreative Competition (Vol. 2)",
-      "url": "https://aifc.news/contest/elevenlabs-year-of-more-2026",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "2985e8cd0a943f145902",
-      "title": "The Chroma Awards",
-      "url": "https://aifc.news/contest/the-chroma-awards-fifp",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "268c42f2ce2295d165e5",
-      "title": "lumara film festival",
-      "url": "https://laurelume.com/festivals/lumara-film-festival",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "267791057c125edd160b",
-      "title": "World AI Film Festival Africa Entry fee : No entry fee Film / Animation / Advertising December 31, 2026 · 23:59 Abidjan · Côte d’Ivoire 2027 edition · Africa/Abidjan Open call",
-      "url": "https://laurelume.com/festivals/world-ai-film-festival-africa",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "2502ec5d90fdce6cb225",
-      "title": "Altera Festival 2027 (Atlanta)",
-      "url": "https://aifc.news/contest/altera-festival-2027",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
       "id": "234bb3e730e4654d103e",
       "title": "higgsfield talent contest 2026",
       "url": "https://aifilmcontests.com/contests/higgsfield-talent-contest-2026",
       "sourceUrl": "https://aifilmcontests.com/",
       "sourceName": "AI Film Contests",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "1d227c3f999b0569d67d",
-      "title": "London AI-Qualified Festival",
-      "url": "https://aifc.news/contest/london-ai-qualified-festival-z28b",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "15d47ccd8adbd18a65d2",
-      "title": "2026 AiShorts AI Short Film Competition Entry fee : Fees not published Film / Animation Sources checked : Sep 26, 2026 November 18, 2026 Xiamen / Online · China 2026 edition · Asia/Shanghai Closed",
-      "url": "https://laurelume.com/festivals/aishorts-ai-short-film-competition",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "114476381878f69bd946",
-      "title": "NEXTALE Award (AI Short Drama Series)",
-      "url": "https://aifc.news/contest/nextale-award-ai-short-drama-series-oks7",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "0cbdba9d824720fdc8bc",
-      "title": "reply ai film festival",
-      "url": "https://laurelume.com/festivals/reply-ai-film-festival",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "0c77b5cb4cc028c93db8",
-      "title": "AI Cinema Festival Quebec City 2027",
-      "url": "https://aifc.news/contest/ai-cinema-festival-quebec-city-2027-oj6t",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "0b981dbd5c153e5c62be",
-      "title": "Artefact AI Film Festival × mk2",
-      "url": "https://aifc.news/contest/artefact-ai-film-festival-mk2-yaq7",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "0aa32b14aea674650785",
-      "title": "Hollywood AI Short Film Awards",
-      "url": "https://aifc.news/contest/hollywood-ai-short-film-awards-pr8s",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "0a77b831d46ae4a8266c",
-      "title": "AKOOL AI Film Challenge",
-      "url": "https://aifc.news/contest/akool-ai-film-challenge-op7d",
-      "sourceUrl": "https://aifc.news/",
-      "sourceName": "AIFC",
-      "provenance": "directory",
-      "review": "pending",
-      "deadlineDate": null,
-      "firstSeenAt": "2026-11-26T12:22:10Z",
-      "lastSeenAt": "2026-11-26T12:22:10Z"
-    },
-    {
-      "id": "0532fafd307e564de27a",
-      "title": "AI ZONE International AI Film Festival 2026 Highest single cash award: USD 500 GLOBAL",
-      "url": "https://laurelume.com/festivals/ai-zone-international-ai-film-festival",
-      "sourceUrl": "https://laurelume.com/calendar",
-      "sourceName": "Laurelume",
       "provenance": "directory",
       "review": "pending",
       "deadlineDate": null,

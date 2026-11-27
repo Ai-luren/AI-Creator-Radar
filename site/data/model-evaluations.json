@@ -1,6 +1,6 @@
 {
   "schema": "ai-creator-radar-model-evaluations/1",
-  "generatedAt": "2026-11-26T12:23:08Z",
+  "generatedAt": "2026-11-27T12:33:14Z",
   "sourceNotes": {
     "aipick": "AIPick 近 7 天精选中的公开评测候选；保留其来源与原始链接。",
     "sogou": "搜狗微信搜索只读取搜索结果页的标题、摘要、公众号名和发布时间；不抓正文；遇到验证页停止并退避 24 小时。"
@@ -8,12 +8,12 @@
   "status": {
     "aipick": {
       "status": "ok",
-      "checkedAt": "2026-11-26T12:23:07+00:00",
-      "candidateCount": 2
+      "checkedAt": "2026-11-27T07:03:43+00:00",
+      "candidateCount": 3
     },
     "sogou": {
       "status": "ok",
-      "checkedAt": "2026-11-26T12:23:08Z",
+      "checkedAt": "2026-11-27T12:33:14Z",
       "searchesThisRun": 3,
       "warnings": [
         "本轮达到 3 次搜狗查询上限，剩余模型下次再查"
@@ -37,7 +37,7 @@
       ],
       "query": "Kling 视频 Kling 2.1 / Kling 2.5 Turbo / Kling 2.6 Pro / Kling O1 / Kling 3.0 / Kling 3.0 Omni / Kling 4.0 / Kling 2.0 / Kling 1.6 / Kling 1.5 / Kling 1.0 评测",
       "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20%E8%A7%86%E9%A2%91%20Kling%202.1%20/%20Kling%202.5%20Turbo%20/%20Kling%202.6%20Pro%20/%20Kling%20O1%20/%20Kling%203.0%20/%20Kling%203.0%20Omni%20/%20Kling%204.0%20/%20Kling%202.0%20/%20Kling%201.6%20/%20Kling%201.5%20/%20Kling%201.0%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-26T12:23:08Z"
+      "lastSearchedAt": "2026-11-27T12:33:14Z"
     },
     {
       "id": "kling-image",
@@ -55,7 +55,8 @@
         "Kling Image 4.0 正式发布：原生 8K 与一致图像组"
       ],
       "query": "Kling Image Kling Image 4.0 / Kling Image 3.0 Omni / Kling Image O1 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%20Kling%20Image%204.0%20/%20Kling%20Image%203.0%20Omni%20/%20Kling%20Image%20O1%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Kling%20Image%20Kling%20Image%204.0%20/%20Kling%20Image%203.0%20Omni%20/%20Kling%20Image%20O1%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "lastSearchedAt": "2026-11-27T12:33:14Z"
     },
     {
       "id": "pixverse-v6",
@@ -73,7 +74,7 @@
       ],
       "query": "PixVerse PixVerse V5.6 / PixVerse V6 / PixVerse V5 / PixVerse V5.5 评测",
       "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=PixVerse%20PixVerse%20V5.6%20/%20PixVerse%20V6%20/%20PixVerse%20V5%20/%20PixVerse%20V5.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-26T12:23:08Z"
+      "lastSearchedAt": "2026-11-27T12:33:14Z"
     },
     {
       "id": "seedance",
@@ -122,27 +123,114 @@
         "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布"
       ],
       "query": "Seedream Seedream 3.0 / Seedream 4.0 / Seedream 4.5 / Seedream 5.0 Pro / Seedream 5.0 Lite / Seedream 5.5 / Seedream 5.0 Flash / Seedream 2.0 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%20Seedream%203.0%20/%20Seedream%204.0%20/%20Seedream%204.5%20/%20Seedream%205.0%20Pro%20/%20Seedream%205.0%20Lite%20/%20Seedream%205.5%20/%20Seedream%205.0%20Flash%20/%20Seedream%202.0%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
-      "lastSearchedAt": "2026-11-26T12:23:08Z"
-    },
-    {
-      "id": "gemini-omni-flash",
-      "modelId": "gemini-omni-flash",
-      "name": "Gemini Omni Flash Gemini Omni Flash 1.1 / Gemini Omni Flash 1.2",
-      "vendor": "Google DeepMind",
-      "category": "video",
-      "releasedAt": "2026-11-05T17:00:00Z",
-      "releaseTitle": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "aliases": [
-        "Gemini Omni Flash Gemini Omni Flash 1.1 / Gemini Omni Flash 1.2",
-        "Gemini Omni Flash",
-        "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips"
-      ],
-      "query": "Gemini Omni Flash Gemini Omni Flash 1.1 / Gemini Omni Flash 1.2 评测",
-      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Gemini%20Omni%20Flash%20Gemini%20Omni%20Flash%201.1%20/%20Gemini%20Omni%20Flash%201.2%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedream%20Seedream%203.0%20/%20Seedream%204.0%20/%20Seedream%204.5%20/%20Seedream%205.0%20Pro%20/%20Seedream%205.0%20Lite%20/%20Seedream%205.5%20/%20Seedream%205.0%20Flash%20/%20Seedream%202.0%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8"
     }
   ],
   "items": [
+    {
+      "id": "aipick-ecnhde7wtyqmbah0nc2ebbxde",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "AIWarper 用 UE 5.8 blockout 实测 MAGI-2 视频转视频",
+      "summary": "AIWarper 展示了用 UE 5.8 blockout 素材做 MAGI-2 视频转视频的效果，称其成本节省幅度很大。作者表示几周前还做过 Seedance 2.5 版本，放在第一条回复里供对比。",
+      "sourceType": "aipick",
+      "sourceName": "X · AIWarper",
+      "publishedAt": "2026-11-26T17:10:17Z",
+      "url": "https://x.com/AIWarper/status/2126000603369509177",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-27T12:33:14Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "aipick-st6bhbv8yykvozer3xgougfv5",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "MAGI-2 与 Seedance 2.5 同提示词视频对比：质量接近但更便宜",
+      "summary": "作者用同一句提示词在 MAGI-2 和 Seedance 2.5 上生成悬崖求婚大反转片段，左右并排对比。作者认为两者在哭戏、眼泪和降落伞文字上已经很接近，质量看着差不多，但 MAGI-2 便宜很多，并向观众提问哪个更自然。",
+      "sourceType": "aipick",
+      "sourceName": "抖音 · 热点搜「MAGI-2 视频模型」",
+      "publishedAt": "2026-11-26T13:05:30Z",
+      "url": "https://www.douyin.com/video/7712465250515307802",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-27T12:33:14Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
     {
       "id": "aipick-xyzusuv2s3b4pthtlbyrp5iyz",
       "targetId": "seedance",
@@ -209,6 +297,58 @@
       "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
       "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
       "collectedAt": "2026-11-26T12:23:08Z",
+      "modelMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "modelVersionId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-0-pro",
+          "matchedName": "Seedance 1.0 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-1-5-pro",
+          "matchedName": "Seedance 1.5 Pro"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-0",
+          "matchedName": "Seedance 2.0"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "modelVersionId": "seedance-2-5",
+          "matchedName": "Seedance 2.5"
+        }
+      ],
+      "modelFamilyMentions": [
+        {
+          "modelFamilyId": "magi-2",
+          "matchedName": "MAGI-2"
+        },
+        {
+          "modelFamilyId": "seedance",
+          "matchedName": "Seedance"
+        }
+      ]
+    },
+    {
+      "id": "aipick-u2ng81rxh04tgwonucewvxeyb",
+      "targetId": "seedance",
+      "modelName": "Seedance Seedance 1.0 Pro / Seedance 1.5 Pro / Seedance 2.0 / Seedance 2.5",
+      "category": "video",
+      "title": "MAGI-2 在 libtv 上线，实测对比 Seedance2.5 成本与出片效果",
+      "summary": "新模型 MAGI-2 已在 libtv 独家上线，作者实测其直出 1080P 跑 26 秒成本约 12.48 元，平均每秒不到五毛钱，而 Seedance2.5 的 1080P 同长度成本约 114.4 元、平均每秒 4.4 元。",
+      "sourceType": "aipick",
+      "sourceName": "抖音 · 话题 #Seedance",
+      "publishedAt": "2026-11-25T10:37:49Z",
+      "url": "https://www.douyin.com/video/7712056458027796138",
+      "searchUrl": "https://weixin.sogou.com/weixin?type=2&query=Seedance%20Seedance%201.0%20Pro%20/%20Seedance%201.5%20Pro%20/%20Seedance%202.0%20/%20Seedance%202.5%20%E8%AF%84%E6%B5%8B&page=1&ie=utf8",
+      "candidateReason": "AIPick 近 7 天精选中命中模型名和实测/评测信号词，待核对原文。",
+      "collectedAt": "2026-11-27T12:33:14Z",
       "modelMentions": [
         {
           "modelFamilyId": "magi-2",
@@ -1334,10 +1474,10 @@
     }
   ],
   "searchState": {
-    "lastRunAt": "2026-11-26T12:23:08Z",
+    "lastRunAt": "2026-11-27T12:33:14Z",
     "queries": {
       "kling-image": {
-        "lastSearchedAt": "2026-11-25T13:02:01Z",
+        "lastSearchedAt": "2026-11-27T12:33:14Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,
@@ -1365,14 +1505,14 @@
         "error": null
       },
       "kling": {
-        "lastSearchedAt": "2026-11-26T12:23:08Z",
+        "lastSearchedAt": "2026-11-27T12:33:14Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,
         "error": null
       },
       "pixverse-v6": {
-        "lastSearchedAt": "2026-11-26T12:23:08Z",
+        "lastSearchedAt": "2026-11-27T12:33:14Z",
         "status": "ok",
         "resultCount": 0,
         "candidateCount": 0,

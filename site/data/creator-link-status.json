@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-11-26T12:22:10Z",
+  "checkedAt": "2026-11-27T12:33:12Z",
   "total": 57,
   "counts": {
     "unknown": 1,
-    "available": 53,
-    "restricted": 3
+    "available": 52,
+    "restricted": 4
   },
   "results": [
     {
@@ -531,7 +531,7 @@
       ],
       "status": "available",
       "httpStatus": 302,
-      "finalUrl": "https://login.feishu.cn/accounts/trap?app_id=2&query_scope=all&redirect_uri=https%3A%2F%2Fresonate.feishu.cn%2Fwiki%2FLOxEwi47Gii2OUkZ9RVcoltAnqc%3Flogin_redirect_times%3D3&with_guest=1",
+      "finalUrl": "https://login.feishu.cn/accounts/page/login?app_id=2&query_scope=all&redirect_uri=https%3A%2F%2Fresonate.feishu.cn%2Fwiki%2FLOxEwi47Gii2OUkZ9RVcoltAnqc%3Flogin_redirect_times%3D1&with_guest=1",
       "errorType": ""
     },
     {
@@ -576,7 +576,7 @@
       ],
       "status": "available",
       "httpStatus": 302,
-      "finalUrl": "https://login.feishu.cn/accounts/trap?app_id=2&query_scope=all&redirect_uri=https%3A%2F%2Fsensetime.feishu.cn%2Fwiki%2FTqjVwBCEbiTTeZkJf8acyzbrnkf%3Flogin_redirect_times%3D3&with_guest=1",
+      "finalUrl": "https://login.feishu.cn/accounts/page/login?app_id=2&query_scope=all&redirect_uri=https%3A%2F%2Fsensetime.feishu.cn%2Fwiki%2FTqjVwBCEbiTTeZkJf8acyzbrnkf%3Flogin_redirect_times%3D3&with_guest=1",
       "errorType": ""
     },
     {
@@ -673,8 +673,8 @@
           "id": "artefact-film-2026"
         }
       ],
-      "status": "available",
-      "httpStatus": 200,
+      "status": "restricted",
+      "httpStatus": 429,
       "finalUrl": "https://www.artefact.com/news/artefact-ai-film-festival-2026-nakache-toledano/",
       "errorType": ""
     },

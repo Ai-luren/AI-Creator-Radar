@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "sources": {
     "aihot-selected": {
-      "lastAttemptAt": "2026-11-27T12:03:32+00:00",
-      "lastSuccessAt": "2026-11-27T12:03:32+00:00",
+      "lastAttemptAt": "2026-11-27T12:33:42+00:00",
+      "lastSuccessAt": "2026-11-27T12:33:42+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
@@ -20,8 +20,8 @@
       "consecutiveFailures": 0
     },
     "models-batch": {
-      "lastAttemptAt": "2026-11-27T12:03:32+00:00",
-      "lastSuccessAt": "2026-11-27T12:03:32+00:00",
+      "lastAttemptAt": "2026-11-27T12:33:42+00:00",
+      "lastSuccessAt": "2026-11-27T12:33:42+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
@@ -34,6 +34,12 @@
     "recovery-batch": {
       "lastAttemptAt": "2026-11-27T07:04:12+00:00",
       "lastSuccessAt": "2026-11-27T07:04:12+00:00",
+      "status": "healthy",
+      "consecutiveFailures": 0
+    },
+    "maintenance-batch": {
+      "lastAttemptAt": "2026-11-27T12:33:42+00:00",
+      "lastSuccessAt": "2026-11-27T12:33:42+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     }

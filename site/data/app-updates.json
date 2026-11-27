@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T12:02:56+00:00",
+  "checkedAt": "2026-11-27T12:32:53+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -24,7 +24,7 @@
       "error": "ValueError: Expected app navigation absent; login, client-rendered shell or changed template",
       "status": "probe-unavailable",
       "checkedAt": "2026-11-27T12:02:56+00:00",
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 4,
       "nextAttemptAt": "2026-11-27T20:02:56.395387+00:00",
       "type": "visible-model-labels"
@@ -60,7 +60,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T12:02:56+00:00",
+    "checkedAt": "2026-11-27T12:32:53+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -149,7 +149,22 @@
         "id": "vidu-products",
         "label": "Vidu",
         "term": "Vidu",
-        "category": "ai-products"
+        "category": "ai-products",
+        "lastAttemptAt": "2026-11-27T12:32:53+00:00",
+        "counts": {
+          "items": 17,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 17,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 16,
+          "hasNextCursor": false
+        },
+        "countsObservedAt": "2026-11-27T12:32:53+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-000c580e155a347f\"",
+        "lastSuccessAt": "2026-11-27T12:32:53+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-27T18:32:53.184359+00:00"
       },
       {
         "id": "pixverse-products",
@@ -197,10 +212,10 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T11:18:14+00:00",
-      "nextAttemptAt": "2026-11-27T12:18:14.814714+00:00"
+      "lastSuccessAt": "2026-11-27T12:32:53+00:00",
+      "nextAttemptAt": "2026-11-27T13:32:53.184359+00:00"
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
