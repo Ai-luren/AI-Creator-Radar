@@ -1,6 +1,6 @@
 {
   "schema": "cross-platform-discovery/v1",
-  "checkedAt": "2026-11-27T03:02:52+00:00",
+  "checkedAt": "2026-11-27T03:07:23+00:00",
   "sources": [
     {
       "id": "rsshub-anthropic",
@@ -44,10 +44,10 @@
       "url": "https://raw.githubusercontent.com/alan-turing-institute/ai-rss-feeds/main/feeds/anthropic-news.xml",
       "error": null,
       "itemCount": 2,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -56,10 +56,10 @@
       "url": "https://raw.githubusercontent.com/Olshansk/rss-feeds/main/feeds/feed_anthropic_news.xml",
       "error": null,
       "itemCount": 3,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -68,10 +68,10 @@
       "url": "https://mayoorrnikam.github.io/llm-world/feed.xml",
       "error": null,
       "itemCount": 15,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -80,10 +80,10 @@
       "url": "https://www.llm-releases.com/feed.xml",
       "error": null,
       "itemCount": 4,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -92,10 +92,10 @@
       "url": "https://huggingface.co/api/models?author=zai-org&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -104,10 +104,10 @@
       "url": "https://huggingface.co/api/models?author=deepseek-ai&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 1,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -116,10 +116,10 @@
       "url": "https://huggingface.co/api/models?author=Qwen&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -128,10 +128,10 @@
       "url": "https://huggingface.co/api/models?author=tencent&sort=createdAt&direction=-1&limit=20",
       "error": null,
       "itemCount": 20,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -140,10 +140,10 @@
       "url": "https://raw.githubusercontent.com/mayoorrnikam/llm-world/main/data/llm-releases.json",
       "error": null,
       "itemCount": 9,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -152,10 +152,10 @@
       "url": "https://elevenlabs.io/sitemap.xml",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -164,10 +164,10 @@
       "url": "https://z.ai/sitemap.xml",
       "error": null,
       "itemCount": 0,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     },
     {
@@ -176,10 +176,10 @@
       "url": "https://ai-news-ed8ddf.gitlab.io/feed/source/elevenlabs.xml",
       "error": null,
       "itemCount": 1,
-      "checkedAt": "2026-11-27T03:02:52+00:00",
+      "checkedAt": "2026-11-27T03:07:23+00:00",
       "deferred": false,
       "consecutiveFailures": 0,
-      "lastSuccessAt": "2026-11-27T03:02:52+00:00",
+      "lastSuccessAt": "2026-11-27T03:07:23+00:00",
       "nextAttemptAt": null
     }
   ],
@@ -262,7 +262,11 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:02:17Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-neon"
+      }
     },
     {
       "id": "bff4b3280ce688e61de2",
@@ -285,7 +289,11 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:02:17Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-carbon"
+      }
     },
     {
       "id": "988f9d1c9f395f8cec79",
@@ -299,14 +307,14 @@
         "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste"
       ],
       "titleHints": [],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z"
     },
     {
       "id": "80c333fcc30697abc772",
@@ -320,14 +328,14 @@
         "https://suno.com/release-notes/introducing-v6"
       ],
       "titleHints": [],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://suno.com/release-notes/introducing-v6"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z"
     },
     {
       "id": "7b7633eb1d4a42b0de25",
@@ -341,14 +349,14 @@
         "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model"
       ],
       "titleHints": [],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z"
     },
     {
       "id": "3c46f0487a309e286c8e",
@@ -371,7 +379,11 @@
         "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:02:17Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-hydrogen"
+      }
     },
     {
       "id": "dee1d69309d840da516b",
@@ -411,7 +423,11 @@
         "url": "https://aihot.news/daily"
       },
       "firstSeenAt": "2026-11-26T12:23:00Z",
-      "lastSeenAt": "2026-11-26T12:23:00Z"
+      "lastSeenAt": "2026-11-26T12:23:00Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "magi-2",
+        "modelVersionId": "magi-2"
+      }
     },
     {
       "id": "2193fbf08c5250ea354d",
@@ -432,7 +448,11 @@
         "url": "https://daily.juya.uk/issues/2026-11-26/"
       },
       "firstSeenAt": "2026-11-26T12:23:07Z",
-      "lastSeenAt": "2026-11-26T12:23:07Z"
+      "lastSeenAt": "2026-11-26T12:23:07Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "magi-2",
+        "modelVersionId": "magi-2"
+      }
     },
     {
       "id": "10fa78d8a7dc363d4427",
@@ -464,7 +484,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "599e2ac6b2736845be12",
@@ -477,7 +497,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "8cfda89af3c1ec8318cd",
@@ -511,7 +531,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "ecab231e4cc0db197f84",
@@ -537,7 +557,11 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:44:48+00:00",
-      "lastSeenAt": "2026-11-27T02:37:02+00:00"
+      "lastSeenAt": "2026-11-27T02:37:02+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "midjourney",
+        "modelVersionId": "niji-8"
+      }
     },
     {
       "id": "e60abd81042c5811d827",
@@ -553,14 +577,18 @@
       "titleHints": [
         "MAGI-2"
       ],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://sand.ai/blog/magi-2"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "magi-2",
+        "modelVersionId": "magi-2"
+      }
     },
     {
       "id": "dfb358964f6ef7e29df4",
@@ -584,7 +612,11 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:44:48+00:00",
-      "lastSeenAt": "2026-11-27T02:37:02+00:00"
+      "lastSeenAt": "2026-11-27T02:37:02+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "magi-2",
+        "modelVersionId": "magi-2"
+      }
     },
     {
       "id": "21201a0b549ce54da823",
@@ -597,7 +629,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "42f2c7b4b6d6dfbcb480",
@@ -610,7 +642,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "cb50dd5b366270f219d5",
@@ -623,7 +655,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "01a9b104c446766c33e8",
@@ -636,7 +668,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "93b212842e365cecfa23",
@@ -649,7 +681,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "3b8fcb1e0ba8dc6cbcf2",
@@ -662,7 +694,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "b4beb1ad4b90029492d4",
@@ -675,7 +707,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "b2149a66374367011d01",
@@ -688,7 +720,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "84e6a4792cdab4d90d11",
@@ -701,7 +733,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "9cb85ddb55afa75ee31a",
@@ -714,7 +746,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "4c53475e2cd1ac2dfd15",
@@ -741,7 +773,11 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:44:48+00:00",
-      "lastSeenAt": "2026-11-27T02:37:02+00:00"
+      "lastSeenAt": "2026-11-27T02:37:02+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "glm",
+        "modelVersionId": "5-4"
+      }
     },
     {
       "id": "131a1a8adb84b3a063b0",
@@ -754,7 +790,25 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "glm",
+        "modelVersionId": "5-4"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://docs.z.ai/guides/llm/glm-5.4",
+          "supportingLeadIds": [
+            "4c53475e2cd1ac2dfd15"
+          ]
+        },
+        {
+          "url": "https://z.ai/blog/glm-5.4",
+          "supportingLeadIds": [
+            "4c53475e2cd1ac2dfd15"
+          ]
+        }
+      ]
     },
     {
       "id": "9c749cba040b48e61bb6",
@@ -767,10 +821,14 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-Live-1.1"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt-live",
+        "modelVersionId": "gpt-live-1-1"
+      }
     },
     {
       "id": "92aed855d37154c6ab58",
@@ -783,7 +841,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "638d57eb69f83ee9e43e",
@@ -796,7 +854,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "78b98cf855151898e116",
@@ -809,7 +867,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "71cfddfe2c0ce2d2bb20",
@@ -822,7 +880,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "53f5b15549d672e4d5dc",
@@ -835,7 +893,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "86c190cfe8a8c270903b",
@@ -848,7 +906,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "bcc52f937d6347d57b17",
@@ -861,7 +919,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "ccbf9855f14265bebb3f",
@@ -874,9 +932,27 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Gemini 4 Neon"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-neon"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "supportingLeadIds": [
+            "1b7321ac8d720e8a5de2"
+          ]
+        },
+        {
+          "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "supportingLeadIds": [
+            "a2e1b81fa54cf2c987af"
+          ]
+        }
       ]
     },
     {
@@ -893,14 +969,26 @@
       "titleHints": [
         "Gemini 4 Neon"
       ],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://deepmind.google/models/model-cards/gemini-4-neon/"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-neon"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "supportingLeadIds": [
+            "1b7321ac8d720e8a5de2"
+          ]
+        }
+      ]
     },
     {
       "id": "732a8d8db2b5d8db20f3",
@@ -913,9 +1001,27 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Gemini 4 Neon"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-neon"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "supportingLeadIds": [
+            "1b7321ac8d720e8a5de2"
+          ]
+        },
+        {
+          "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "supportingLeadIds": [
+            "a2e1b81fa54cf2c987af"
+          ]
+        }
       ]
     },
     {
@@ -939,7 +1045,11 @@
         "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all"
       },
       "firstSeenAt": "2026-11-25T08:09:46Z",
-      "lastSeenAt": "2026-11-25T08:09:46Z"
+      "lastSeenAt": "2026-11-25T08:09:46Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "kling-image",
+        "modelVersionId": "kling-image-4-0"
+      }
     },
     {
       "id": "1b7321ac8d720e8a5de2",
@@ -960,9 +1070,21 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Gemini 4 Neon"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-neon"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "supportingLeadIds": [
+            "a2e1b81fa54cf2c987af"
+          ]
+        }
       ]
     },
     {
@@ -978,10 +1100,14 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:40:58+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Scribe v3 Live Medical"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "eleven-scribe",
+        "modelVersionId": "scribe-v3-live-medical"
+      }
     },
     {
       "id": "fb5c5c5669c954f00dda",
@@ -994,9 +1120,21 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-6.2 Astra"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-astra"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "supportingLeadIds": [
+            "c706997129dfe347f996"
+          ]
+        }
       ]
     },
     {
@@ -1018,10 +1156,14 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-6.2 Astra"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-astra"
+      }
     },
     {
       "id": "aa9f4ac4f7e2b5726e42",
@@ -1042,10 +1184,14 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-6.2 Sol"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-sol"
+      }
     },
     {
       "id": "4f4baffe677a81293b01",
@@ -1058,9 +1204,21 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-6.2 Sol"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-sol"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "supportingLeadIds": [
+            "aa9f4ac4f7e2b5726e42"
+          ]
+        }
       ]
     },
     {
@@ -1074,9 +1232,21 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T19:04:15+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-6.2 Sol"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-sol"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "supportingLeadIds": [
+            "aa9f4ac4f7e2b5726e42"
+          ]
+        }
       ]
     },
     {
@@ -1090,9 +1260,21 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-6.2 Astra"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-astra"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "supportingLeadIds": [
+            "c706997129dfe347f996"
+          ]
+        }
       ]
     },
     {
@@ -1116,7 +1298,11 @@
         "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab"
       },
       "firstSeenAt": "2026-11-25T08:09:46Z",
-      "lastSeenAt": "2026-11-25T08:09:46Z"
+      "lastSeenAt": "2026-11-25T08:09:46Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "seedance",
+        "modelVersionId": "seedance-2-5"
+      }
     },
     {
       "id": "11c8dfb572322932a313",
@@ -1139,7 +1325,11 @@
         "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
       },
       "firstSeenAt": "2026-11-22T00:00:00Z",
-      "lastSeenAt": "2026-11-26T17:00:58Z"
+      "lastSeenAt": "2026-11-26T17:00:58Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "seedance",
+        "modelVersionId": "seedance-2-5"
+      }
     },
     {
       "id": "d5fac904fcdff033002d",
@@ -1160,10 +1350,14 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Gemini 4 Hydrogen"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-hydrogen"
+      }
     },
     {
       "id": "bb4414178cd4cd43920c",
@@ -1176,9 +1370,21 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Gemini 4 Hydrogen"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-hydrogen"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "supportingLeadIds": [
+            "d5fac904fcdff033002d"
+          ]
+        }
       ]
     },
     {
@@ -1192,7 +1398,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "844f71d9205b0e54b15a",
@@ -1208,14 +1414,18 @@
       "titleHints": [
         "Gemini 4 Carbon"
       ],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://deepmind.google/models/model-cards/gemini-4-carbon/"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-carbon"
+      }
     },
     {
       "id": "d4e6ff026ccf64be6731",
@@ -1238,7 +1448,11 @@
         "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5"
       },
       "firstSeenAt": "2026-11-22T00:00:00Z",
-      "lastSeenAt": "2026-11-22T00:00:00Z"
+      "lastSeenAt": "2026-11-22T00:00:00Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "seedream",
+        "modelVersionId": "seedream-5-5"
+      }
     },
     {
       "id": "bd08b023f79f648f89da",
@@ -1251,10 +1465,14 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Claude Fable 5.2"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-fable-5-2"
+      }
     },
     {
       "id": "6b15ddd9110bfe6e00e2",
@@ -1269,7 +1487,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "3c10256a5019e5be3718",
@@ -1292,7 +1510,11 @@
         "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5?view_from=homepage_tab"
       },
       "firstSeenAt": "2026-11-25T08:09:46Z",
-      "lastSeenAt": "2026-11-25T08:09:46Z"
+      "lastSeenAt": "2026-11-25T08:09:46Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "seedream",
+        "modelVersionId": "seedream-5-5"
+      }
     },
     {
       "id": "3a9d309f17e3331aaf5c",
@@ -1307,7 +1529,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "35d58d16f28e8e429eec",
@@ -1320,10 +1542,14 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Claude Mythos 5.2"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-mythos-5-2"
+      }
     },
     {
       "id": "0dda5445f0db070ad88a",
@@ -1336,7 +1562,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "831d8d5909486287cd50",
@@ -1349,7 +1575,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "5a065c561face08ecd05",
@@ -1362,7 +1588,19 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini-omni-flash",
+        "modelVersionId": "gemini-omni-flash-1-2"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+          "supportingLeadIds": [
+            "330dfb494620b14fc9be"
+          ]
+        }
+      ]
     },
     {
       "id": "330dfb494620b14fc9be",
@@ -1376,14 +1614,18 @@
         "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/"
       ],
       "titleHints": [],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini-omni-flash",
+        "modelVersionId": "gemini-omni-flash-1-2"
+      }
     },
     {
       "id": "fb916bcd70750bb748c5",
@@ -1404,7 +1646,11 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-sunburst"
+      }
     },
     {
       "id": "cf0a8b610d4883788329",
@@ -1417,7 +1663,19 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-sunburst"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://openai.com/index/introducing-images-2-6",
+          "supportingLeadIds": [
+            "fb916bcd70750bb748c5"
+          ]
+        }
+      ]
     },
     {
       "id": "51f3e14eaed141bb97e2",
@@ -1430,7 +1688,19 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-flare"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://openai.com/index/introducing-images-2-6",
+          "supportingLeadIds": [
+            "0f97d6774e4dfa345823"
+          ]
+        }
+      ]
     },
     {
       "id": "0f97d6774e4dfa345823",
@@ -1451,7 +1721,11 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-flare"
+      }
     },
     {
       "id": "21d6fd64827847387c45",
@@ -1467,14 +1741,18 @@
       "titleHints": [
         "MiniMax H3-Image"
       ],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://www.minimax.cn/blog/minimax-h3-image"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "minimax-h3-image",
+        "modelVersionId": "minimax-h3-image"
+      }
     },
     {
       "id": "96f028df45c60dfec257",
@@ -1487,7 +1765,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "3679fed3d3f4562d3d7f",
@@ -1521,10 +1799,14 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Gemini 4 Carbon"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-carbon"
+      }
     },
     {
       "id": "f63b232f46bebf4159f8",
@@ -1540,6 +1822,18 @@
       "lastSeenAt": "2026-11-26T18:03:11+00:00",
       "titleHints": [
         "Gemini 4 Carbon"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-carbon"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "supportingLeadIds": [
+            "f6f1c9902b71cf51798f"
+          ]
+        }
       ]
     },
     {
@@ -1553,9 +1847,21 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "Gemini 4 Carbon"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-carbon"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "supportingLeadIds": [
+            "f6f1c9902b71cf51798f"
+          ]
+        }
       ]
     },
     {
@@ -1571,7 +1877,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "37cb53638933c17aa6ae",
@@ -1584,7 +1890,7 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "17beaffacb91f706b08c",
@@ -1599,7 +1905,7 @@
       ],
       "verificationStatus": "unverified-lead",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "9f584387e5fef8db99c3",
@@ -1615,6 +1921,18 @@
       "lastSeenAt": "2026-11-26T18:03:11+00:00",
       "titleHints": [
         "GPT-6.1 Terra"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-1-terra"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+          "supportingLeadIds": [
+            "72359e3d5f2a94123af0"
+          ]
+        }
       ]
     },
     {
@@ -1636,10 +1954,14 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00",
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
       "titleHints": [
         "GPT-6.1 Terra"
-      ]
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-1-terra"
+      }
     },
     {
       "id": "9e7b4033d0a288961628",
@@ -1699,7 +2021,11 @@
       "officialArticleUrls": [],
       "verificationStatus": "unverified-model-repository",
       "firstSeenAt": "2026-11-26T17:14:40+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "deepseek",
+        "modelVersionId": "deepseek-v4-1-flash-1017"
+      }
     },
     {
       "id": "24d82a60f3c19eb53c22",
@@ -1746,7 +2072,7 @@
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       "firstSeenAt": "2026-11-26T17:23:35+00:00",
-      "lastSeenAt": "2026-11-27T03:02:52+00:00"
+      "lastSeenAt": "2026-11-27T03:07:23+00:00"
     },
     {
       "id": "df061245b8654b5b5e73",
@@ -1762,14 +2088,18 @@
       "titleHints": [
         "Gemini 4 Argon"
       ],
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "verificationStatus": "unverified-lead",
       "attribution": {
         "name": "既有官方候选索引",
         "url": "https://deepmind.google/models/model-cards/gemini-4-argon/"
       },
       "firstSeenAt": "2026-11-26T17:29:42Z",
-      "lastSeenAt": "2026-11-27T03:02:17Z"
+      "lastSeenAt": "2026-11-27T03:07:14Z",
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-argon"
+      }
     },
     {
       "id": "6a07e25ad2a6caeacce5",
@@ -1785,6 +2115,18 @@
       "lastSeenAt": "2026-11-26T18:03:11+00:00",
       "titleHints": [
         "Gemini 4 Argon"
+      ],
+      "canonicalModelIdentity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-argon"
+      },
+      "relatedArticleCandidates": [
+        {
+          "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "supportingLeadIds": [
+            "df061245b8654b5b5e73"
+          ]
+        }
       ]
     }
   ],
@@ -1818,7 +2160,7 @@
       "id": "local-official-candidates",
       "name": "既有官方候选索引",
       "snapshot": "model-updates.json",
-      "observedAt": "2026-11-27T03:02:17Z",
+      "observedAt": "2026-11-27T03:07:14Z",
       "itemCount": 17,
       "error": null
     }

@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T03:03:27.887107+00:00",
+  "checkedAt": "2026-11-27T03:07:58.644693+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1128,12 +1128,12 @@
     "release-source-review": 69
   },
   "sourceCoverage": {
-    "reachableSources": 44,
+    "reachableSources": 45,
     "matchingModelSources": 38,
-    "recentDatedModelSources": 15,
+    "recentDatedModelSources": 16,
     "distinctMatchingEndpoints": 37,
-    "matchedFamilies": 48,
-    "recentDatedFamilies": 15,
+    "matchedFamilies": 49,
+    "recentDatedFamilies": 16,
     "unmatchedFamilies": [
       "agnes-image-25-flash",
       "agnes-llm",
@@ -1149,7 +1149,6 @@
       "flux3-video",
       "gaga-1",
       "gpt-image",
-      "gpt-live",
       "grok-imagine-image",
       "hailuo",
       "heygen-video",
@@ -1195,8 +1194,8 @@
     "dateConflicts": 0
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T03:02:52+00:00",
-    "resolutionCheckedAt": "2026-11-27T03:02:54+00:00",
+    "discoveryCheckedAt": "2026-11-27T03:07:23+00:00",
+    "resolutionCheckedAt": "2026-11-27T03:07:25+00:00",
     "leadCount": 74,
     "counts": {
       "article-date-observed": 5,
@@ -2169,6 +2168,22 @@
       }
     ],
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
+  },
+  "eventReconciliation": {
+    "checkedAt": "2026-11-27T03:07:25+00:00",
+    "summary": {
+      "evidenceCount": 324,
+      "newEvidence": 324,
+      "currentlyReferencedEvidence": 324,
+      "relatedLeads": 17,
+      "taskStates": {
+        "article-date-observed": 5,
+        "articles-excluded": 3,
+        "needs-release-evidence": 69,
+        "needs-source": 22,
+        "probe-unresolved": 9
+      }
+    }
   },
   "negativeControls": {
     "checked": 3,

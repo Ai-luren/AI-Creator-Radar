@@ -1,9 +1,9 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T03:02:54+00:00",
+  "checkedAt": "2026-11-27T03:07:25+00:00",
   "summary": {
     "uniqueOfficialUrls": 27,
-    "attempted": 3,
+    "attempted": 0,
     "articleDateVerified": 7,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
@@ -140,6 +140,234 @@
       "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
     },
     {
+      "id": "recovery-8f6af8c44a4a1bfb5de3",
+      "urlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "leadIds": [
+        "aa9f4ac4f7e2b5726e42",
+        "c706997129dfe347f996"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "titleHintsChecked": [
+        "GPT-6.2 Astra",
+        "GPT-6.2 Sol"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-17"
+      ],
+      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "status": "date-unresolved",
+      "title": "Introducing GPT-6.2 Astra and Sol",
+      "modelId": "gpt"
+    },
+    {
+      "id": "recovery-93dc5dee213209423c58",
+      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-neon",
+      "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+      "leadIds": [
+        "a2e1b81fa54cf2c987af"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "Gemini 4 Neon"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-18"
+      ],
+      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "status": "date-unresolved",
+      "title": "Gemini 4 Neon",
+      "modelId": "gemini"
+    },
+    {
+      "id": "recovery-295354ff422b0d4db922",
+      "urlKey": "https://openai.com/index/introducing-images-2-6",
+      "url": "https://openai.com/index/introducing-images-2-6",
+      "leadIds": [
+        "0f97d6774e4dfa345823",
+        "fb916bcd70750bb748c5"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "titleHintsChecked": [
+        "GPT-Image-2.6 Flare",
+        "GPT-Image-2.6 Sunburst"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-04"
+      ],
+      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-a92d7b7ef0e2da4d5922",
+      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "leadIds": [
+        "f6f1c9902b71cf51798f"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "titleHintsChecked": [
+        "Gemini 4 Carbon"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-10-28"
+      ],
+      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 4,
+      "nextAttemptAt": "2026-11-28T02:41:49+00:00",
+      "status": "not-model-announcement",
+      "title": "Gemini 4 Carbon: our next frontier model"
+    },
+    {
+      "id": "recovery-f1db7ce98881d8901597",
+      "urlKey": "https://z.ai/blog/glm-5.4",
+      "url": "https://z.ai/blog/glm-5.4?lang=en",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-0f77f061dfedac16453d",
+      "urlKey": "https://docs.z.ai/guides/llm/glm-5.4",
+      "url": "https://docs.z.ai/guides/llm/glm-5.4",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "status": "date-unresolved",
+      "title": "GLM-5.4",
+      "modelId": "glm"
+    },
+    {
+      "id": "recovery-a2cadac0f94d0864a5cd",
+      "urlKey": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash",
+      "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+      "leadIds": [
+        "330dfb494620b14fc9be"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "Gemini Omni 1.2 Flash"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-05"
+      ],
+      "checkedAt": "2026-11-27T02:41:49+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "status": "date-unresolved",
+      "title": "Gemini Omni 1.2 Flash",
+      "modelId": "gemini-omni-flash"
+    },
+    {
+      "id": "recovery-35e334c198740f741663",
+      "urlKey": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "leadIds": [
+        "72359e3d5f2a94123af0"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "titleHintsChecked": [
+        "GPT-6.1 Terra"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-10-26"
+      ],
+      "checkedAt": "2026-11-27T03:02:54+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
+      "status": "date-unresolved",
+      "title": "GPT-6.1Terra",
+      "modelId": "gpt"
+    },
+    {
+      "id": "recovery-ef204f120a474233f3b1",
+      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-argon",
+      "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+      "leadIds": [
+        "df061245b8654b5b5e73"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "Gemini 4 Argon"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-10-13"
+      ],
+      "checkedAt": "2026-11-27T03:02:54+00:00",
+      "firstAttemptAt": "2026-11-26T17:35:51+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
+      "status": "date-unresolved",
+      "title": "Gemini 4 Argon",
+      "modelId": "gemini"
+    },
+    {
       "id": "recovery-5b4c18faabadfb3802c4",
       "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
@@ -254,83 +482,6 @@
       "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
-      "id": "recovery-f1db7ce98881d8901597",
-      "urlKey": "https://z.ai/blog/glm-5.4",
-      "url": "https://z.ai/blog/glm-5.4?lang=en",
-      "leadIds": [
-        "4c53475e2cd1ac2dfd15"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4",
-        "GLM-5.4 docs",
-        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-23"
-      ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "identity-unresolved"
-    },
-    {
-      "id": "recovery-0f77f061dfedac16453d",
-      "urlKey": "https://docs.z.ai/guides/llm/glm-5.4",
-      "url": "https://docs.z.ai/guides/llm/glm-5.4",
-      "leadIds": [
-        "4c53475e2cd1ac2dfd15"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4",
-        "GLM-5.4 docs",
-        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-23"
-      ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "date-unresolved",
-      "title": "GLM-5.4",
-      "modelId": "glm"
-    },
-    {
-      "id": "recovery-93dc5dee213209423c58",
-      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-neon",
-      "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
-      "leadIds": [
-        "a2e1b81fa54cf2c987af"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Gemini 4 Neon"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-18"
-      ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "date-unresolved",
-      "title": "Gemini 4 Neon",
-      "modelId": "gemini"
-    },
-    {
       "id": "recovery-22d3b928da2e6e05e221",
       "urlKey": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
       "url": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise?tab=all",
@@ -384,33 +535,6 @@
       "category": "audio",
       "articlePublishedAt": "2026-11-17T12:00:00Z",
       "firstVerifiedAt": "2026-11-26T17:48:59+00:00"
-    },
-    {
-      "id": "recovery-8f6af8c44a4a1bfb5de3",
-      "urlKey": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
-      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
-      "leadIds": [
-        "aa9f4ac4f7e2b5726e42",
-        "c706997129dfe347f996"
-      ],
-      "discoverySourceIds": [
-        "llm-world-json"
-      ],
-      "titleHintsChecked": [
-        "GPT-6.2 Astra",
-        "GPT-6.2 Sol"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-17"
-      ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "date-unresolved",
-      "title": "Introducing GPT-6.2 Astra and Sol",
-      "modelId": "gpt"
     },
     {
       "id": "recovery-f58d44a1f0031867aa29",
@@ -511,56 +635,6 @@
       "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
     },
     {
-      "id": "recovery-a2cadac0f94d0864a5cd",
-      "urlKey": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash",
-      "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
-      "leadIds": [
-        "330dfb494620b14fc9be"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Gemini Omni 1.2 Flash"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-05"
-      ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "date-unresolved",
-      "title": "Gemini Omni 1.2 Flash",
-      "modelId": "gemini-omni-flash"
-    },
-    {
-      "id": "recovery-295354ff422b0d4db922",
-      "urlKey": "https://openai.com/index/introducing-images-2-6",
-      "url": "https://openai.com/index/introducing-images-2-6",
-      "leadIds": [
-        "0f97d6774e4dfa345823",
-        "fb916bcd70750bb748c5"
-      ],
-      "discoverySourceIds": [
-        "llm-world-json"
-      ],
-      "titleHintsChecked": [
-        "GPT-Image-2.6 Flare",
-        "GPT-Image-2.6 Sunburst"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-04"
-      ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
-      "status": "identity-unresolved"
-    },
-    {
       "id": "recovery-d493ddc6fdca063ca2e6",
       "urlKey": "https://www.minimax.cn/blog/minimax-h3-image",
       "url": "https://www.minimax.cn/blog/minimax-h3-image",
@@ -588,55 +662,6 @@
       "possibleModelFamilyIds": []
     },
     {
-      "id": "recovery-a92d7b7ef0e2da4d5922",
-      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
-      "leadIds": [
-        "f6f1c9902b71cf51798f"
-      ],
-      "discoverySourceIds": [
-        "llm-world-json"
-      ],
-      "titleHintsChecked": [
-        "Gemini 4 Carbon"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-10-28"
-      ],
-      "checkedAt": "2026-11-27T02:41:49+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-28T02:41:49+00:00",
-      "status": "not-model-announcement",
-      "title": "Gemini 4 Carbon: our next frontier model"
-    },
-    {
-      "id": "recovery-35e334c198740f741663",
-      "urlKey": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "leadIds": [
-        "72359e3d5f2a94123af0"
-      ],
-      "discoverySourceIds": [
-        "llm-world-json"
-      ],
-      "titleHintsChecked": [
-        "GPT-6.1 Terra"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-10-26"
-      ],
-      "checkedAt": "2026-11-27T03:02:54+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
-      "status": "date-unresolved",
-      "title": "GPT-6.1Terra",
-      "modelId": "gpt"
-    },
-    {
       "id": "recovery-12251940b3b4d2234012",
       "urlKey": "https://x.ai/news/grok-voice-3",
       "url": "https://x.ai/news/grok-voice-3",
@@ -661,31 +686,6 @@
       "title": "Introducing Grok Voice 3.0",
       "articlePublishedAt": "2026-10-14T00:00:00Z",
       "possibleModelFamilyIds": []
-    },
-    {
-      "id": "recovery-ef204f120a474233f3b1",
-      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-argon",
-      "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
-      "leadIds": [
-        "df061245b8654b5b5e73"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Gemini 4 Argon"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-10-13"
-      ],
-      "checkedAt": "2026-11-27T03:02:54+00:00",
-      "firstAttemptAt": "2026-11-26T17:35:51+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
-      "status": "date-unresolved",
-      "title": "Gemini 4 Argon",
-      "modelId": "gemini"
     }
   ],
   "candidateDateCorrections": [
