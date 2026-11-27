@@ -1,13 +1,13 @@
 {
   "schema": "scheduler-health/v1",
-  "generatedAt": "2026-11-27T01:33:19.028066+00:00",
-  "nextDueAt": "2026-11-27T01:33:19.028066+00:00",
+  "generatedAt": "2026-11-27T01:41:10.560138+00:00",
+  "nextDueAt": "2026-11-27T01:41:10.560138+00:00",
   "trigger": {
-    "event": "workflow_dispatch",
-    "runId": "45923129862",
+    "event": "schedule",
+    "runId": "45923892378",
     "attempt": "1",
-    "schedule": "",
-    "scope": "due"
+    "schedule": "5,35 * * * *",
+    "scope": ""
   },
   "groups": {
     "models": {
