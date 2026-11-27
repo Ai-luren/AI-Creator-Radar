@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T16:03:09+00:00",
+  "checkedAt": "2026-11-27T16:48:03+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -45,22 +45,22 @@
           "category": "app",
           "claimType": "first-party-store-version",
           "firstObservedAt": "2026-11-27T04:20:20+00:00",
-          "lastObservedAt": "2026-11-27T10:36:07+00:00",
+          "lastObservedAt": "2026-11-27T16:48:03+00:00",
           "visibleInLatestRead": true
         }
       },
-      "checkedAt": "2026-11-27T10:36:07+00:00",
-      "lastSuccessAt": "2026-11-27T10:36:07+00:00",
+      "checkedAt": "2026-11-27T16:48:03+00:00",
+      "lastSuccessAt": "2026-11-27T16:48:03+00:00",
       "status": "observed",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T16:36:07.719505+00:00"
+      "nextAttemptAt": "2026-11-27T22:48:03.254277+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T16:03:09+00:00",
+    "checkedAt": "2026-11-27T16:48:03+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -87,7 +87,7 @@
         "id": "jimeng-seedaudio",
         "label": "SeedAudio",
         "term": "SeedAudio",
-        "lastAttemptAt": "2026-11-27T07:02:45+00:00",
+        "lastAttemptAt": "2026-11-27T16:48:03+00:00",
         "counts": {
           "items": 0,
           "wechatOriginalLinks": 0,
@@ -97,11 +97,11 @@
           "hasNextCursor": false
         },
         "countsObservedAt": "2026-11-27T07:02:45+00:00",
-        "status": "observed",
+        "status": "unchanged",
         "etag": "W/\"v1-items-f7711022748fb2d8\"",
-        "lastSuccessAt": "2026-11-27T07:02:45+00:00",
+        "lastSuccessAt": "2026-11-27T16:48:03+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T13:02:45.222008+00:00"
+        "nextAttemptAt": "2026-11-27T22:48:03.254277+00:00"
       },
       {
         "id": "kling-products",
@@ -212,10 +212,10 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T15:17:54+00:00",
-      "nextAttemptAt": "2026-11-27T16:17:54.692662+00:00"
+      "lastSuccessAt": "2026-11-27T16:48:03+00:00",
+      "nextAttemptAt": "2026-11-27T17:48:03.254277+00:00"
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -251,7 +251,7 @@
   ],
   "summary": {
     "configuredSources": 2,
-    "successfulThisRun": 0,
+    "successfulThisRun": 1,
     "baselineSources": 1,
     "listedModels": 0,
     "reviewedObservations": 1
