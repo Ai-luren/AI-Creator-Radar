@@ -52,6 +52,8 @@ def inspect(data, config, now):
                       "duplicatePendingCandidates":sum(n-1 for n in pending_keys.values() if n>1)},
             "gapKinds":report["gapKinds"],"sourceCoverage":coverage,"sampleRecall":recall,
             "externalLeadCoverage":inspect_leads(data.get("discovery",{}),data.get("resolution",{})),
+            "sourceSearch":{"checkedAt":data.get("source_search",{}).get("checkedAt"),
+                            "summary":data.get("source_search",{}).get("summary",{})},
             "productState":{"checkedAt":data.get("product",{}).get("checkedAt"),
                             "summary":data.get("product",{}).get("summary",{})},
             "eventReconciliation":{"checkedAt":data.get("reconciliation",{}).get("checkedAt"),
@@ -65,7 +67,7 @@ def main():
     def read(name):return json.loads((directory/name).read_text(encoding="utf-8"))
     data={k:read(v) for k,v in {"models":"models.json","topics":"topics.json","digest":"model-releases-30d.json",
               "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
-    for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json"),("reconciliation","event-reconciliation.json"),("product","product-state.json")):
+    for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json"),("reconciliation","event-reconciliation.json"),("product","product-state.json"),("source_search","source-search.json")):
         data[key]=read(name) if (directory/name).exists() else {}
     now=datetime.now(timezone.utc)
     report=inspect(data,json.loads((ROOT/"config/chronicle-release-links.json").read_text(encoding="utf-8")),now)

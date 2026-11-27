@@ -14,11 +14,13 @@ try:
     from scripts.collect_release_recall import url_key
     from scripts.audit_model_completeness import audit
     from scripts.event_identity import associate_leads, day, identify, model_index
+    from scripts.collect_source_search import augment_discovery
 except ModuleNotFoundError:
     from collect_models import write_json
     from collect_release_recall import url_key
     from audit_model_completeness import audit
     from event_identity import associate_leads, day, identify, model_index
+    from collect_source_search import augment_discovery
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/event-reconciliation.json"
@@ -210,6 +212,7 @@ def main():
     parser.add_argument("--discovery", type=Path)
     parser.add_argument("--resolution", type=Path)
     parser.add_argument("--product-state", type=Path)
+    parser.add_argument("--source-search", type=Path)
     args = parser.parse_args()
     def read(path, optional=False):
         if optional and not path.exists():
@@ -220,7 +223,9 @@ def main():
     report = audit(families, read(directory / "topics.json"), read(ROOT / "config/chronicle-release-links.json"))
     if report["errors"]:
         raise ValueError("Cannot reconcile an invalid canonical catalog")
-    result = reconcile(families, read(args.discovery or directory / "cross-platform-discovery.json"),
+    discovery = read(args.discovery or directory / "cross-platform-discovery.json")
+    search_state = read(args.source_search or directory / "source-search.json", optional=True)
+    result = reconcile(families, augment_discovery(discovery, search_state),
                        read(args.resolution or directory / "lead-resolution.json"),
                        report["gaps"], read(OUTPUT, optional=True), datetime.now(timezone.utc),
                        read(args.product_state or directory / "product-state.json", optional=True))

@@ -11,7 +11,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-RECOVERY = ("collect_cross_platform", "collect_resolve_model_leads", "collect_model_intake", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall")
+RECOVERY = ("collect_cross_platform", "collect_source_search", "collect_resolve_model_leads", "collect_model_intake", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall")
 PRODUCT_STATE = ("collect_product_state",)
 RECONCILE = ("collect_event_reconciliation",)
 BATCHES = {
