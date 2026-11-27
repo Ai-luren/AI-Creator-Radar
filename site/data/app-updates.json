@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T09:51:21+00:00",
+  "checkedAt": "2026-11-27T10:36:07+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -45,22 +45,22 @@
           "category": "app",
           "claimType": "first-party-store-version",
           "firstObservedAt": "2026-11-27T04:20:20+00:00",
-          "lastObservedAt": "2026-11-27T04:20:20+00:00",
+          "lastObservedAt": "2026-11-27T10:36:07+00:00",
           "visibleInLatestRead": true
         }
       },
-      "checkedAt": "2026-11-27T04:20:20+00:00",
-      "lastSuccessAt": "2026-11-27T04:20:20+00:00",
+      "checkedAt": "2026-11-27T10:36:07+00:00",
+      "lastSuccessAt": "2026-11-27T10:36:07+00:00",
       "status": "observed",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T10:20:20.051088+00:00"
+      "nextAttemptAt": "2026-11-27T16:36:07.719505+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T09:51:21+00:00",
+    "checkedAt": "2026-11-27T10:36:07+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -185,7 +185,7 @@
       "lastSuccessAt": "2026-11-27T09:51:21+00:00",
       "nextAttemptAt": "2026-11-27T10:51:21.149341+00:00"
     },
-    "attemptedThisRun": 1,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -221,7 +221,7 @@
   ],
   "summary": {
     "configuredSources": 2,
-    "successfulThisRun": 0,
+    "successfulThisRun": 1,
     "baselineSources": 1,
     "listedModels": 0,
     "reviewedObservations": 1

@@ -1,6 +1,6 @@
 {
   "schema": "event-claims/v1",
-  "checkedAt": "2026-11-27T09:51:23+00:00",
+  "checkedAt": "2026-11-27T10:36:09+00:00",
   "claims": [
     {
       "id": "claim-0c45f142be97a721c98631cdb5de969fabc199e53c61eeb070230710cf2dc2c6",
@@ -18,8 +18,8 @@
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
       "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
-      "observedInInput": true,
-      "currentSuccessfulObservation": true,
+      "observedInInput": false,
+      "currentSuccessfulObservation": false,
       "provenance": [
         {
           "channel": "official-collector:openai-developer-announcements",
@@ -45,7 +45,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -54,7 +54,7 @@
           "sourceRecordId": "5a535246782e7978fb",
           "sourceUrl": "https://autoclaw.z.ai/en/blog/model/glm-5.3-flash/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -73,7 +73,7 @@
         "evidenceGrade": "official-dated-statement"
       },
       "firstObservedAt": "2026-11-27T07:36:45Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -82,7 +82,7 @@
           "sourceRecordId": "b6edf533d574346e9f",
           "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
           "firstObservedAt": "2026-11-27T07:36:45Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -101,7 +101,7 @@
         "evidenceGrade": "official-dated-statement"
       },
       "firstObservedAt": "2026-11-27T07:36:45Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -110,7 +110,7 @@
           "sourceRecordId": "b6edf533d574346e9f",
           "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
           "firstObservedAt": "2026-11-27T07:36:45Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -157,7 +157,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -166,7 +166,7 @@
           "sourceRecordId": "ef456e7b07534100f9",
           "sourceUrl": "https://elevenlabs.io/blog/scribe-v3",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -185,7 +185,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -194,7 +194,7 @@
           "sourceRecordId": "e9050b86b978f082d4",
           "sourceUrl": "https://autoclaw.z.ai/en/blog/model/GLM-5.4/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -269,7 +269,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -278,7 +278,7 @@
           "sourceRecordId": "b2cab39b783d8ad409",
           "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -298,8 +298,8 @@
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
       "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
-      "observedInInput": true,
-      "currentSuccessfulObservation": true,
+      "observedInInput": false,
+      "currentSuccessfulObservation": false,
       "provenance": [
         {
           "channel": "official-collector:openai-developer-announcements",
@@ -325,7 +325,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -334,7 +334,7 @@
           "sourceRecordId": "8e450599cbb0276aac",
           "sourceUrl": "https://openai.com/index/devrev-enterprise-self-service",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -437,7 +437,7 @@
         "evidenceGrade": "official-dated-statement"
       },
       "firstObservedAt": "2026-11-27T07:36:45Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -446,7 +446,7 @@
           "sourceRecordId": "a72931a6134adb8d46",
           "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
           "firstObservedAt": "2026-11-27T07:36:45Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -465,7 +465,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -474,7 +474,7 @@
           "sourceRecordId": "ddcbda59e5408a91b0",
           "sourceUrl": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     },
@@ -633,7 +633,7 @@
         "evidenceGrade": "official-dated-statement"
       },
       "firstObservedAt": "2026-11-27T07:36:45Z",
-      "lastSuccessfulObservationAt": "2026-11-27T09:47:40Z",
+      "lastSuccessfulObservationAt": "2026-11-27T10:32:40Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -642,7 +642,7 @@
           "sourceRecordId": "a72931a6134adb8d46",
           "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
           "firstObservedAt": "2026-11-27T07:36:45Z",
-          "lastObservedAt": "2026-11-27T09:47:40Z"
+          "lastObservedAt": "2026-11-27T10:32:40Z"
         }
       ]
     }
@@ -656,13 +656,13 @@
       "announcement-statement": 6,
       "article-publication": 17
     },
-    "currentSuccessfulObservations": 12,
+    "currentSuccessfulObservations": 10,
     "articleDateConflicts": 0,
     "releaseStatementReviewCandidates": 0
   },
   "policy": "Dated publisher statements only; observation and article dates are not inferred event dates. URL/channel duplicates do not count as independent proof. Existing canonical records are not used to manufacture source recall or changed by this shadow layer.",
   "publisherStatements": {
-    "checkedAt": "2026-11-27T09:51:23+00:00",
+    "checkedAt": "2026-11-27T10:36:09+00:00",
     "records": [
       {
         "id": "publisher-20ef368618aa20adb494dc894ccf50b912d765af1808934cf1f6e5a49574c382",

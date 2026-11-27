@@ -1,6 +1,6 @@
 {
   "schema": "independent-coverage/v1",
-  "checkedAt": "2026-11-27T09:51:22+00:00",
+  "checkedAt": "2026-11-27T10:36:08+00:00",
   "sources": [
     {
       "author": "ByteDance-Seed",
@@ -8,7 +8,7 @@
       "checkedAt": "2026-11-27T09:51:22+00:00",
       "lastSuccessAt": "2026-11-27T09:51:22+00:00",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-27T15:51:22.526909+00:00",
       "pageCoversWindow": true,
@@ -21,7 +21,7 @@
       "checkedAt": "2026-11-27T09:51:22+00:00",
       "lastSuccessAt": "2026-11-27T09:51:22+00:00",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-27T15:51:22.526909+00:00",
       "pageCoversWindow": true,
@@ -34,7 +34,7 @@
       "checkedAt": "2026-11-27T09:51:22+00:00",
       "lastSuccessAt": "2026-11-27T09:51:22+00:00",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-27T15:51:22.526909+00:00",
       "pageCoversWindow": true,
@@ -262,7 +262,7 @@
   },
   "summary": {
     "configuredSources": 3,
-    "successfulThisRun": 3,
+    "successfulThisRun": 0,
     "sourcesWithSuccessfulObservation": 3,
     "sourcesWithCompleteLastPage": 3,
     "recentRepositories": 7,
