@@ -20,13 +20,13 @@ try:
     from scripts.collect_release_recall import url_key, article_day_stamp
     from scripts.collect_verify_model_releases import host_for, key, release_name, STAGE_WARNING
     from scripts.collect_cross_platform import article_url
-    from scripts.event_identity import identify, model_index, day
+    from scripts.event_identity import identify, model_index, day, joint_title_identities
 except ModuleNotFoundError:
     from collect_models import write_json
     from collect_release_recall import url_key, article_day_stamp
     from collect_verify_model_releases import host_for, key, release_name, STAGE_WARNING
     from collect_cross_platform import article_url
-    from event_identity import identify, model_index, day
+    from event_identity import identify, model_index, day, joint_title_identities
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/event-claims.json"
@@ -105,12 +105,24 @@ def collect_claims(families, updates, monitor, sources, resolution, allowed, pre
     today = now.date().isoformat()
 
     def add(title, summary, fid, url, article_stamp, observed, channel, ref, fresh):
-        ident = identify(index, title, family_id=fid)
+        joint = joint_title_identities(index, title, fid)
+        if joint:
+            identities = joint["identities"]
+        else:
+            identities = [identify(index, title, family_id=fid)]
+        for ident in identities:
+            add_identity(ident, joint, title, summary, url, article_stamp, observed, channel, ref, fresh)
+
+    def add_identity(ident, joint, title, summary, url, article_stamp, observed, channel, ref, fresh):
         d = day(article_day_stamp(article_stamp, url))
         observed_day = day(observed)
         if ident not in versions or not d or not observed_day or not d <= observed_day <= today or not url_key(url):
             return
-        kind, service = classify(title, versions[ident]["name"], summary)
+        # A jointly introduced list establishes an announcement for each
+        # member, never a release/availability date. Neutral lists only
+        # establish article-publication. Preserve the actual original title.
+        kind, service = ((joint["claimType"], None) if joint else
+                         classify(title, versions[ident]["name"], summary))
         fact = {"modelFamilyId": ident[0], "modelVersionId": ident[1],
                 "claimType": kind, "service": service, "publisherTitle": normalize_title(title),
                 "sourceUrlKey": url_key(url), "articlePublishedAt": article_stamp,
