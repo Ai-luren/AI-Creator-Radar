@@ -190,5 +190,11 @@
     "docs.z.ai": [
       "/guides/llm/"
     ]
+  },
+  "articleLocaleQueries": {
+    "z.ai": {
+      "key": "lang",
+      "value": "en"
+    }
   }
 }

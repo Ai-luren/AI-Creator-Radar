@@ -9,7 +9,7 @@ import re
 import urllib.request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 try:
     from scripts.collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
@@ -25,7 +25,7 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/lead-resolution.json"
 MAX_PROBES = 12
-RESOLVER_REVISION = 3
+RESOLVER_REVISION = 4
 CATEGORY = {"video", "image", "llm", "music", "tts", "audio"}
 
 
@@ -127,6 +127,29 @@ def fetch_page(url):
     return data.decode("utf-8", errors="replace")
 
 
+def choose_article_url(task, old, config):
+    """One request per article per cycle. Retry a publisher's language variant
+    only after a missing heading, never after access denial or a date conflict."""
+    primary = task["url"]
+    key = url_key(primary)
+    allowed = config["officialArticleHosts"]
+    variants = [primary, *sorted(task["urls"] - {primary})]
+    parts = urlsplit(primary)
+    policy = config.get("articleLocaleQueries", {}).get(parts.hostname, {})
+    # Configuration is publisher-specific and may only vary the known locale key.
+    if policy.get("key") == "lang" and policy.get("value") in {"en", "zh"}:
+        pairs = [(k, v) for k, v in parse_qsl(parts.query, keep_blank_values=True) if k != "lang"]
+        candidate = urlunsplit((parts.scheme, parts.netloc, parts.path,
+                                urlencode(pairs + [("lang", policy["value"])]), ""))
+        variants.append(candidate)
+    variants = list(dict.fromkeys(u for u in variants if article_url(u, allowed) and url_key(u) == key))
+    last = old.get("url")
+    if old.get("status") == "identity-unresolved" and len(variants) > 1:
+        return variants[(variants.index(last) + 1) % len(variants)] if last in variants else variants[1]
+    # Recheck the exact previously fetched representation when still allowed.
+    return last if last in variants else primary
+
+
 def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_page):
     catalog = {m["id"]: m for m in families}
     stamp = now.isoformat(timespec="seconds")
@@ -140,8 +163,9 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
             key = url_key(url)
             if not key:
                 continue
-            item = queue.setdefault(key, {"url": url, "titles": set(), "leadIds": set(), "sourceIds": set(),
+            item = queue.setdefault(key, {"url": url, "urls": set(), "titles": set(), "leadIds": set(), "sourceIds": set(),
                                          "reportedDates": set(), "latest": ""})
+            item["urls"].add(url)
             item["titles"].add(lead["title"])
             item["titles"].update(t for t in lead.get("titleHints", []) if isinstance(t, str) and t.strip())
             item["leadIds"].add(lead["id"])
@@ -167,14 +191,15 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
     selected += [key for key in eligible if key not in selected][:MAX_PROBES-len(selected)]
     def probe(key):
         task, old = queue[key], previous_rows.get(key, {})
+        request_url = choose_article_url(task, old, config)
         try:
-            outcome = parse_article(fetcher(task["url"]), task["url"], sorted(task["titles"]), sources, catalog, now)
+            outcome = parse_article(fetcher(request_url), request_url, sorted(task["titles"]), sources, catalog, now)
         except (OSError, ValueError, TypeError) as exc:
             outcome = {"status": "fetch-failed", "error": f"{type(exc).__name__}: {str(exc)[:180]}"}
         state = outcome["status"]
         failures = 0 if state == "article-date-verified" else int(old.get("consecutiveUnresolved", 0)) + 1
         delay = 24 * 60 if state in {"article-date-verified", "not-model-announcement", "outside-current-window"} else min(24 * 60, 30 * 2 ** min(failures, 6))
-        row = {"id": "recovery-" + hashlib.sha256(key.encode()).hexdigest()[:20], "urlKey": key, "url": task["url"],
+        row = {"id": "recovery-" + hashlib.sha256(key.encode()).hexdigest()[:20], "urlKey": key, "url": request_url,
                "leadIds": sorted(task["leadIds"]), "discoverySourceIds": sorted(task["sourceIds"]),
                "titleHintsChecked": sorted(task["titles"]), "resolverRevision": RESOLVER_REVISION,
                "reportedDates": sorted(task["reportedDates"]), "checkedAt": stamp,
