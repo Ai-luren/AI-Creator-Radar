@@ -127,7 +127,47 @@ def evidence_item(item, source, status, today):
             "observedAt": item["publicationObservedAt"]}
 
 
-def reconcile(families, updates, sources, status, vendor_topics, today):
+def fingerprint(value):
+    return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True,
+                                     separators=(",", ":")).encode()).hexdigest()
+
+
+def proof_key(proof):
+    return fingerprint({k: v for k, v in proof.items() if k != "observedAt"})
+
+
+def ledger_record(fid, proof, source):
+    data = {"modelFamilyId": fid, "proof": proof, "sourceConfigHash": fingerprint(source)}
+    return {"id": fingerprint(data), **data, "quarantineReason": None}
+
+
+def prior_eligible(entry, source, family, vendor_group, today):
+    proof = entry["proof"]
+    if (entry.get("quarantineReason") or not source or source.get("active") is not True
+            or source.get("official") is not True or not family
+            or entry["sourceConfigHash"] != fingerprint(source)
+            or entry["modelFamilyId"] not in source.get("modelMatches", {})):
+        return False
+    vendor = vendor_group.get(str(family.get("vendor", "")).casefold())
+    if not vendor or vendor_group.get(str(source.get("vendor", "")).casefold()) != vendor:
+        return False
+    try:
+        published = date.fromisoformat(proof["publishedAt"])
+        observed = datetime.fromisoformat(proof["observedAt"].replace("Z", "+00:00"))
+    except (ValueError, TypeError, KeyError, AttributeError):
+        return False
+    endpoints = [source["url"], *source.get("fallbackUrls", [])]
+    allowed = {host_for(u) for u in endpoints} | set(source.get("announcementHosts", []))
+    return (today - timedelta(days=29) <= published <= today
+            and observed.tzinfo is not None and published <= observed.date() <= today
+            and proof.get("publicationDateKind") in DATE_KINDS
+            and bool(proof.get("sourceUpdateId")) and bool(release_name(proof.get("title")))
+            and key(release_name(proof["title"])) == key(proof.get("modelName"))
+            and host_for(proof.get("sourceUrl")) in allowed and bool(host_for(proof.get("sourceUrl")))
+            and proof["sourceUrl"] not in {normalize_url(u) for u in endpoints})
+
+
+def reconcile(families, updates, sources, status, vendor_topics, today, previous=None):
     source_by_id = {s["id"]: s for s in sources}
     source_status = {s["id"]: s for s in status.get("sources", [])}
     vendor_group = {vendor.casefold(): topic for topic, vendors in vendor_topics.items() for vendor in vendors}
@@ -156,6 +196,79 @@ def reconcile(families, updates, sources, status, vendor_topics, today):
         if proof:
             groups[identity].append(proof)
 
+    # Persist only source-validated, structured-date observations. A later
+    # independent article may corroborate an earlier one even if its origin
+    # is temporarily offline. A retained record never becomes a fresh read.
+    ledger = {}
+    current_keys = set()
+    if previous is not None:
+        if previous.get("proofLedgerSchema") not in (None, "release-proof-ledger/v1"):
+            raise ValueError("Unknown release proof ledger schema")
+        for record in previous.get("proofLedger", []):
+            body = {k: record[k] for k in ("modelFamilyId", "proof", "sourceConfigHash")}
+            if record.get("id") != fingerprint(body) or record["id"] in ledger:
+                raise ValueError("Invalid stored release proof")
+            ledger[record["id"]] = dict(record)
+        # A genuinely newer observation of the same publisher article with
+        # incompatible wording/date quarantines prior proof, even if the new
+        # observation itself is not a qualifying release statement.
+        for record in ledger.values():
+            proof = record["proof"]
+            state = source_status.get(proof["sourceId"], {})
+            checked = state.get("checkedAt")
+            if state.get("error") or state.get("deferred") or not checked:
+                continue
+            try:
+                newer = datetime.fromisoformat(checked.replace("Z", "+00:00")) > datetime.fromisoformat(proof["observedAt"].replace("Z", "+00:00"))
+            except (ValueError, TypeError):
+                newer = False
+            if not newer:
+                continue
+            for obs in state.get("publicationObservations", []):
+                if normalize_url(obs.get("url") or "") != proof["sourceUrl"]:
+                    continue
+                if (obs.get("modelId") != record["modelFamilyId"]
+                        or obs.get("title") != proof["title"]
+                        or str(obs.get("publishedAt") or "")[:10] != proof["publishedAt"]):
+                    record["quarantineReason"] = "later-publisher-observation-conflict"
+                    break
+        captured = {(r["modelFamilyId"], proof_key(r["proof"]), r["sourceConfigHash"]): r
+                    for r in ledger.values() if not r.get("quarantineReason")}
+        for identity, proofs in list(groups.items()):
+            for proof in proofs:
+                state = source_status[proof["sourceId"]]
+                # Legacy cached rows are insufficient for future cross-run use.
+                if ("publicationObservations" not in state or state.get("deferred")
+                        or (status.get("checkedAt") and state.get("checkedAt") != status["checkedAt"])):
+                    continue
+                source = source_by_id[proof["sourceId"]]
+                record = ledger_record(identity[0], proof, source)
+                match = (identity[0], proof_key(proof), record["sourceConfigHash"])
+                if match not in captured:
+                    ledger[record["id"]] = record
+                    captured[match] = record
+                current_keys.add((identity, proof_key(proof)))
+        for record in ledger.values():
+            proof = record["proof"]
+            fid = record["modelFamilyId"]
+            identity = (fid, key(proof["modelName"]))
+            if identity not in groups or not any(k[0] == identity for k in current_keys):
+                continue
+            source = source_by_id.get(proof["sourceId"])
+            if not prior_eligible(record, source, fam_by_id.get(fid), vendor_group, today):
+                continue
+            # The old proof may not override a conflicting current date.
+            if all(proof_key(p) != proof_key(proof) for p in groups[identity]):
+                groups[identity].append(proof)
+            conflicts[identity].add(proof["publishedAt"])
+        # Never choose between a quarantined assertion and a fresh assertion
+        # for the same model without an explicit correction review.
+        for record in ledger.values():
+            if record.get("quarantineReason"):
+                proof = record["proof"]
+                identity = (record["modelFamilyId"], key(proof["modelName"]))
+                if identity in groups:
+                    conflicts[identity].add("quarantined-publisher-observation")
     confirmed, pending = [], []
     for (fid, identity), records in sorted(groups.items()):
         family = fam_by_id[fid]
@@ -211,7 +324,14 @@ def reconcile(families, updates, sources, status, vendor_topics, today):
             "summary": "两条不同官方站点的明确发布标题及结构化发布日期一致；未自动推断许可或可用性。",
         }
         confirmed.append({"modelFamilyId": fid, "modelVersionId": version["id"], "eventId": version["releaseEvidence"]["eventId"]})
-    return {"confirmed": confirmed, "pending": pending}
+    result = {"confirmed": confirmed, "pending": pending}
+    if previous is not None:
+        result.update({"proofLedgerSchema": "release-proof-ledger/v1",
+                       "proofLedger": sorted(ledger.values(), key=lambda r: r["id"]),
+                       "proofLedgerSummary": {"records": len(ledger),
+                                              "quarantined": sum(bool(r.get("quarantineReason")) for r in ledger.values()),
+                                              "currentValidatedProofs": len(current_keys)}})
+    return result
 
 
 
@@ -260,7 +380,9 @@ def main():
     today = datetime.now(timezone.utc).date()
     result = reconcile(models, read("site/data/model-updates.json")["items"],
                        read("config/model-sources.json"), read("site/data/model-monitor-status.json"),
-                       read("config/chronicle-release-links.json")["vendorTopics"], today)
+                       read("config/chronicle-release-links.json")["vendorTopics"], today,
+                       read("site/data/model-release-verification-status.json")
+                       if (ROOT / "site/data/model-release-verification-status.json").exists() else {})
     if not args.dry_run:
         if result["confirmed"]:
             write_json(ROOT / "site/data/models.json", models)

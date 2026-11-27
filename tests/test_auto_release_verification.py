@@ -118,3 +118,71 @@ class AutoReleaseVerificationTests(unittest.TestCase):
     def test_cached_structured_date_requires_actual_raw_observation(self):
         self.status["sources"][0]["publicationObservations"]=[]
         self.assertEqual(self.run_gate()["confirmed"],[])
+
+
+    def raw_status(self, active, stamp):
+        return {"checkedAt":stamp,"sources":[{"id":s["id"],"checkedAt":stamp,
+                "error":None if s["id"] in active else "403",
+                "publicationObservations":[{k:u[k] for k in ("modelId","title","url","publishedAt")}
+                                           for u in self.updates if u["sourceId"]==s["id"] and s["id"] in active]}
+                for s in self.sources]}
+
+    def test_cross_run_proofs_can_confirm_without_simultaneous_source_success(self):
+        first = reconcile(self.models,self.updates,self.sources,self.raw_status({"a"},self.stamp),
+                          {"vendor":["Vendor"]},self.today,{})
+        self.assertEqual(first["confirmed"],[])
+        self.assertEqual(first["proofLedgerSummary"]["records"],1)
+        next_stamp="2026-11-27T03:00:00Z"
+        self.updates[1]["publicationObservedAt"]=next_stamp
+        second=reconcile(self.models,self.updates,self.sources,self.raw_status({"b"},next_stamp),
+                         {"vendor":["Vendor"]},self.today,first)
+        self.assertEqual(len(second["confirmed"]),1)
+        self.assertEqual(second["proofLedgerSummary"]["records"],2)
+        v=self.models[0]["versions"][-1]
+        self.assertTrue(automatic_evidence_valid(self.models[0],v))
+        self.assertEqual({p["observedAt"] for p in v["releaseEvidence"]["corroboratingSources"]},{self.stamp,next_stamp})
+
+    def test_retained_proof_not_used_without_current_observation(self):
+        first=reconcile(self.models,self.updates,self.sources,self.raw_status({"a"},self.stamp),
+                        {"vendor":["Vendor"]},self.today,{})
+        second=reconcile(self.models,self.updates,self.sources,self.raw_status(set(),self.stamp),
+                         {"vendor":["Vendor"]},self.today,first)
+        self.assertEqual(second["confirmed"],[])
+        self.assertEqual(second["proofLedger"],first["proofLedger"])
+
+    def test_new_publisher_conflict_quarantines_historical_proof(self):
+        first=reconcile(self.models,self.updates,self.sources,self.raw_status({"a"},self.stamp),
+                        {"vendor":["Vendor"]},self.today,{})
+        next_stamp="2026-11-27T03:00:00Z"
+        self.updates[0]["title"]="Seedance 3 available in preview"
+        self.updates[0]["publicationObservedAt"]=next_stamp
+        self.updates[1]["publicationObservedAt"]=next_stamp
+        second=reconcile(self.models,self.updates,self.sources,self.raw_status({"a","b"},next_stamp),
+                         {"vendor":["Vendor"]},self.today,first)
+        self.assertEqual(second["confirmed"],[])
+        self.assertEqual(second["proofLedgerSummary"]["quarantined"],1)
+
+    def test_source_configuration_change_does_not_reuse_old_proof(self):
+        first=reconcile(self.models,self.updates,self.sources,self.raw_status({"a"},self.stamp),
+                        {"vendor":["Vendor"]},self.today,{})
+        self.sources[0]["active"]=False
+        next_stamp="2026-11-27T03:00:00Z"
+        self.updates[1]["publicationObservedAt"]=next_stamp
+        second=reconcile(self.models,self.updates,self.sources,self.raw_status({"b"},next_stamp),
+                         {"vendor":["Vendor"]},self.today,first)
+        self.assertEqual(second["confirmed"],[])
+
+    def test_tampered_ledger_rejected(self):
+        first=reconcile(self.models,self.updates,self.sources,self.raw_status({"a"},self.stamp),
+                        {"vendor":["Vendor"]},self.today,{})
+        first["proofLedger"][0]["proof"]["publishedAt"]="2026-11-25"
+        with self.assertRaises(ValueError):
+            reconcile(self.models,self.updates,self.sources,self.raw_status({"b"},self.stamp),
+                      {"vendor":["Vendor"]},self.today,first)
+
+    def test_legacy_cached_proof_is_not_persisted_for_future_use(self):
+        self.status["sources"][1]["error"]="403"
+        result=reconcile(self.models,self.updates,self.sources,self.status,
+                         {"vendor":["Vendor"]},self.today,{})
+        self.assertEqual(result["proofLedger"],[])
+        self.assertEqual(result["confirmed"],[])
