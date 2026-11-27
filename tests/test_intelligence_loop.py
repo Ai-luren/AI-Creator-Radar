@@ -171,3 +171,39 @@ class SandGraphicHeadingTests(unittest.TestCase):
                      '<meta property="article:published_time" content="2026-11-25">'+self.page]:
             self.assertNotEqual(self.parse(page)["status"],"article-date-verified")
         self.assertEqual(self.parse(url="https://unrelated.example/blog/magi-2/")["status"],"identity-unresolved")
+
+class SandLocalizedDiscoveryTests(unittest.TestCase):
+    def test_chinese_research_fallback_keeps_publisher_date_and_article_url(self):
+        from pathlib import Path
+        from unittest.mock import patch
+        from scripts.collect_models import fetch_source, html_page_items
+        sources = json.loads((Path(__file__).resolve().parents[1] / "config/model-sources.json").read_text())
+        source = next(s for s in sources if s["id"] == "sandai-research")
+        cn = "https://sandai.cn/research"
+        article = "https://sand.ai/blog/magi-2/"
+        page = ('<a href="'+article+'"><h2>MAGI-2：480B 旗舰视频生成模型</h2>'
+                '<span>2026年11月24日 · 研究</span></a>'
+                '<a href="https://sand.ai/blog/magi-2-preview/"><h2>MAGI-2 Preview</h2>'
+                '<span>2026年8月5日 · 研究</span></a>'
+                '<a href="https://unrelated.example/blog/magi-2/">MAGI-2 2026年11月25日</a>')
+        for error in ("HTTPError: HTTP Error 403: Forbidden", None):
+            calls = []
+            def fetch(endpoint):
+                calls.append(endpoint["url"])
+                if endpoint["url"] == source["url"]:
+                    return endpoint, [], error
+                self.assertEqual(endpoint["url"],cn)
+                return endpoint, html_page_items(page,endpoint), None
+            with patch("scripts.collect_models.fetch_source_once",side_effect=fetch):
+                effective, rows, err = fetch_source(source,now=datetime(2026,11,28,tzinfo=timezone.utc))
+            self.assertEqual(calls,[source["url"],cn])
+            self.assertIsNone(err)
+            self.assertTrue(effective["primaryDegraded"])
+            self.assertEqual(effective["url"],cn)
+            self.assertEqual(len(rows),2)
+            row = next(x for x in rows if x["url"]==article)
+            self.assertEqual(row["publishedAt"][:10],"2026-11-24")
+            self.assertEqual(row["modelId"],"magi-2")
+            self.assertEqual(row["updateType"],"announcement")
+            self.assertNotIn("releaseEvidence",row)
+            self.assertNotIn("publicationDateKind",row)
