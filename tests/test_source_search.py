@@ -168,3 +168,35 @@ class AIHOTTargetedTests(unittest.TestCase):
         self.assertEqual(result["summary"]["aihotPointers"],0)
         self.assertEqual(result["aihotService"]["nextAttemptAt"],(self.now+timedelta(days=1,minutes=5)).isoformat())
         self.assertIsNone(result["summary"]["aihotLastSuccessAt"])
+
+
+    def test_primary_aggregation_precedes_generic_index_and_secondary_fills_gap(self):
+        from scripts.collect_source_search import parse_aihot_pointers
+        calls=[]
+        def primary(target,allowed,families,etag):
+            calls.append("aihot")
+            return [],"primary"
+        def secondary(target,allowed,families,etag):
+            calls.append("aipick")
+            payload=self.payload()
+            for item in payload["items"]:
+                item["links"]["aihot"]=item["links"]["aihot"].replace("aihot.news","aipick.news")
+            return parse_aihot_pointers(payload,target,allowed,families,"aipick-targeted"),"secondary"
+        first=search(self.families,self.discovery,{}, {},{},self.allowed,self.now,
+                     lambda *args:self.fail("generic index must not precede primary"),
+                     aihot_fetcher=primary,aipick_fetcher=secondary)
+        self.assertEqual(calls,["aihot"])
+        self.assertEqual(first["summary"]["aihotPointers"],0)
+        second=search(self.families,self.discovery,{}, {},first,self.allowed,self.now+timedelta(minutes=35),
+                      lambda *args:self.fail("secondary should fill primary gap"),
+                      aihot_fetcher=primary,aipick_fetcher=secondary)
+        self.assertEqual(calls,["aihot","aipick"])
+        self.assertEqual(second["summary"]["aipickPointers"],1)
+        candidate=augment_discovery(self.discovery,second)["items"][-1]
+        self.assertEqual(candidate["sourceId"],"aipick-targeted")
+        self.assertEqual(candidate["attribution"]["name"],"AIPick")
+        self.assertIsNone(candidate["reportedAt"])
+
+    def test_aipick_cannot_relabel_aihot_pointer_as_independent(self):
+        from scripts.collect_source_search import parse_aihot_pointers
+        self.assertEqual(parse_aihot_pointers(self.payload(),next(iter(build_targets(self.families,self.discovery,{},{}).values())),self.allowed,self.families,"aipick-targeted"),[])

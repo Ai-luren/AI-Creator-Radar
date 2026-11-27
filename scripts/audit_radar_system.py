@@ -9,6 +9,7 @@ from pathlib import Path
 try:
     from scripts.audit_model_completeness import audit
     from scripts.audit_p1_readiness import measure
+    from scripts.audit_same_stage_recall import assess_same_stage
     from scripts.audit_publisher_statements import inspect_statements
     from scripts.audit_discovery_coverage import inspect_leads
     from scripts.collect_release_recall import url_key
@@ -17,6 +18,7 @@ try:
 except ModuleNotFoundError:
     from audit_model_completeness import audit
     from audit_p1_readiness import measure
+    from audit_same_stage_recall import assess_same_stage
     from audit_publisher_statements import inspect_statements
     from audit_discovery_coverage import inspect_leads
     from collect_release_recall import url_key
@@ -29,7 +31,7 @@ def inspect(data, config, now):
     topics=data["topics"]
     report=audit(families,topics,config)
     errors=list(report["errors"])
-    _, statement_audit=inspect_statements(data.get("event_claims",{}).get("publisherStatements",{}),families,now,data.get("publisher_statement_benchmark"))
+    usable_statements, statement_audit=inspect_statements(data.get("event_claims",{}).get("publisherStatements",{}),families,now,data.get("publisher_statement_benchmark"))
     errors.extend(statement_audit["errors"])
     all_events=[e for t in topics for e in t.get("milestones",[])]
     audit_ids=Counter(e["auditId"] for e in all_events if e.get("auditId"))
@@ -75,6 +77,12 @@ def inspect(data, config, now):
             "negativeControls":{"checked":len(negatives),"incorrectConfirmed":sum(len(n.get("incorrectConfirmedIds",[])) for n in negatives)},
             "scopeNote":"Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review."}
 
+    try:
+        result["sameStageRecall"]=assess_same_stage(data.get("same_stage_benchmark",{}),
+            data.get("fixed_article_benchmark",{}),data.get("recall",{}),usable_statements,families)
+    except (ValueError,KeyError,TypeError) as exc:
+        errors.append("Same-stage recall: "+str(exc))
+        result["sameStageRecall"]={"status":"blocked","reason":"Invalid independent stage review"}
     result["p1Readiness"]=measure(data,result,now)
     return result
 
@@ -91,6 +99,10 @@ def main():
     data["health"]=read("collection-health.json") if (directory/"collection-health.json").exists() else {}
     sample_path=ROOT/"config/publisher-statement-benchmark.json"
     data["publisher_statement_benchmark"]=json.loads(sample_path.read_text(encoding="utf-8")) if sample_path.exists() else {}
+    for key,name in (("same_stage_benchmark","same-stage-event-benchmark.json"),
+                     ("fixed_article_benchmark","release-recall-benchmark.json")):
+        path=ROOT/"config"/name
+        data[key]=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     now=datetime.now(timezone.utc)
     report=inspect(data,json.loads((ROOT/"config/chronicle-release-links.json").read_text(encoding="utf-8")),now)
     report["dueScopes"]=[k for k,v in plan(directory,"schedule",now=now,respect_backoff=False).items() if v]
