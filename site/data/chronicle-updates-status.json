@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-27T02:41:52Z",
+  "checkedAt": "2026-11-27T03:02:55Z",
   "sourceFile": "site/data/model-updates.json",
   "officialUpdatesConsidered": 100,
   "added": 0,
@@ -7,6 +7,6 @@
   "deduplicatedUnreviewed": 0,
   "unmatchedVendors": [],
   "policy": "仅收录已配置厂商的模型发布或预告候选；来源日期不等于首发日期；不覆盖人工审核记录、不自动新增厂商。",
-  "candidateDateCorrections": 10,
+  "candidateDateCorrections": 9,
   "automaticallyConfirmed": 0
 }

@@ -1,15 +1,15 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T02:41:49+00:00",
+  "checkedAt": "2026-11-27T03:02:54+00:00",
   "summary": {
     "uniqueOfficialUrls": 27,
-    "attempted": 12,
+    "attempted": 3,
     "articleDateVerified": 7,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
     "unresolved": 14,
     "notAnnouncement": 2,
-    "weakCandidateDatesCorrected": 10
+    "weakCandidateDatesCorrected": 9
   },
   "items": [
     {
@@ -624,14 +624,14 @@
       "titleHintsChecked": [
         "GPT-6.1 Terra"
       ],
-      "resolverRevision": 3,
+      "resolverRevision": 4,
       "reportedDates": [
         "2026-10-26"
       ],
-      "checkedAt": "2026-11-26T23:32:42+00:00",
+      "checkedAt": "2026-11-27T03:02:54+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-27T07:32:42+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
       "status": "date-unresolved",
       "title": "GPT-6.1Terra",
       "modelId": "gpt"
@@ -649,14 +649,14 @@
       "titleHintsChecked": [
         "Grok Voice 3.0"
       ],
-      "resolverRevision": 3,
+      "resolverRevision": 4,
       "reportedDates": [
         "2026-10-14"
       ],
-      "checkedAt": "2026-11-26T23:32:42+00:00",
+      "checkedAt": "2026-11-27T03:02:54+00:00",
       "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-27T07:32:42+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
       "status": "family-unresolved",
       "title": "Introducing Grok Voice 3.0",
       "articlePublishedAt": "2026-10-14T00:00:00Z",
@@ -675,14 +675,14 @@
       "titleHintsChecked": [
         "Gemini 4 Argon"
       ],
-      "resolverRevision": 3,
+      "resolverRevision": 4,
       "reportedDates": [
         "2026-10-13"
       ],
-      "checkedAt": "2026-11-26T23:32:42+00:00",
+      "checkedAt": "2026-11-27T03:02:54+00:00",
       "firstAttemptAt": "2026-11-26T17:35:51+00:00",
-      "consecutiveUnresolved": 4,
-      "nextAttemptAt": "2026-11-27T07:32:42+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
       "status": "date-unresolved",
       "title": "Gemini 4 Argon",
       "modelId": "gemini"
@@ -742,12 +742,6 @@
       "previousDate": "2026-11-16T00:00:00Z",
       "articleDate": "2026-07-31T00:00:00Z",
       "proofId": "recovery-f58d44a1f0031867aa29"
-    },
-    {
-      "updateId": "b6edf533d574346e9f",
-      "previousDate": "2026-10-18T00:00:00Z",
-      "articleDate": "2026-11-09T00:00:00Z",
-      "proofId": "recovery-a989f1582084d0cf153c"
     }
   ]
 }

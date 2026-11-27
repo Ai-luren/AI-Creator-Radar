@@ -26,7 +26,7 @@
         "sourceTier": "official-primary",
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "article-publication-date",
+        "dateKind": "source-date",
         "sourceModelId": "claude",
         "collectedAt": "2026-11-26T12:21:52Z",
         "modelCategory": "llm",
@@ -47,9 +47,7 @@
             "modelFamilyId": "claude",
             "matchedName": "Claude Mythos 5.2"
           }
-        ],
-        "recoveryProofId": "recovery-a989f1582084d0cf153c",
-        "previousSourceDate": "2026-10-18T00:00:00Z"
+        ]
       },
       {
         "date": "2026-11-09",
@@ -77,6 +75,36 @@
           {
             "modelFamilyId": "claude",
             "matchedName": "Claude Mythos 5.2"
+          }
+        ]
+      },
+      {
+        "date": "2026-10-07",
+        "kind": "模型发布",
+        "title": "Introducing Claude Haiku 5.5",
+        "summary": "Claude Haiku 5.5 is our fastest, most capable small model. Built for high-volume work like summarization, subagents, and browser use. Announcements",
+        "url": "https://www.anthropic.com/claude-haiku-5-5",
+        "sourceId": "anthropic-model-news",
+        "sourceName": "Anthropic 官方新闻",
+        "sourceUpdateId": "5534c5e9b31121f3bc",
+        "sourceTier": "official-primary",
+        "autoCollected": true,
+        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "dateKind": "source-date",
+        "sourceModelId": "claude",
+        "collectedAt": "2026-11-26T12:21:52Z",
+        "modelCategory": "llm",
+        "modelMentions": [
+          {
+            "modelFamilyId": "claude",
+            "modelVersionId": "claude-haiku-5-5",
+            "matchedName": "Claude Haiku 5.5"
+          }
+        ],
+        "modelFamilyMentions": [
+          {
+            "modelFamilyId": "claude",
+            "matchedName": "Claude Haiku 5.5"
           }
         ]
       },
@@ -161,12 +189,12 @@
       {
         "date": "2026-09-22",
         "kind": "模型发布",
-        "title": "Introducing Claude Haiku 5.5",
-        "summary": "Claude Haiku 5.5 is our fastest, most capable small model. Built for high-volume work like summarization, subagents, and browser use. Announcements",
-        "url": "https://www.anthropic.com/claude-haiku-5-5",
+        "title": "Introducing Claude Opus 5.5",
+        "summary": "Claude Opus 5.5 leads in agentic coding and knowledge work, and costs 40% less to run than Opus 5 on typical workloads. Features",
+        "url": "https://www.anthropic.com/claude-opus-5-5",
         "sourceId": "anthropic-model-news",
         "sourceName": "Anthropic 官方新闻",
-        "sourceUpdateId": "5534c5e9b31121f3bc",
+        "sourceUpdateId": "1d613fd24eac33beca",
         "sourceTier": "official-primary",
         "autoCollected": true,
         "verificationStatus": "官方一手来源自动收录 · 待复核",
@@ -174,30 +202,6 @@
         "sourceModelId": "claude",
         "collectedAt": "2026-11-26T12:21:52Z",
         "modelCategory": "llm",
-        "modelMentions": [
-          {
-            "modelFamilyId": "claude",
-            "modelVersionId": "claude-haiku-5-5",
-            "matchedName": "Claude Haiku 5.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "claude",
-            "matchedName": "Claude Haiku 5.5"
-          }
-        ]
-      },
-      {
-        "date": "2026-09-22",
-        "kind": "模型",
-        "title": "Claude Opus 5.5",
-        "summary": "Anthropic 新一代通用旗舰模型，主要面向编程 Agent 与知识工作；官方称常见工作负载较 Opus 5 更低成本。",
-        "url": "https://www.anthropic.com/claude-opus-5-5",
-        "auditId": "v48-anthropic-0046",
-        "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-24",
-        "verificationUrl": "https://www.anthropic.com/news/models",
         "modelMentions": [
           {
             "modelFamilyId": "claude",
@@ -213,21 +217,15 @@
         ]
       },
       {
-        "date": "2026-09-21",
-        "kind": "模型发布",
-        "title": "Introducing Claude Opus 5.5",
-        "summary": "Claude Opus 5.5 leads in agentic coding and knowledge work, and costs 40% less to run than Opus 5 on typical workloads. Features",
+        "date": "2026-09-22",
+        "kind": "模型",
+        "title": "Claude Opus 5.5",
+        "summary": "Anthropic 新一代通用旗舰模型，主要面向编程 Agent 与知识工作；官方称常见工作负载较 Opus 5 更低成本。",
         "url": "https://www.anthropic.com/claude-opus-5-5",
-        "sourceId": "anthropic-model-news",
-        "sourceName": "Anthropic 官方新闻",
-        "sourceUpdateId": "1d613fd24eac33beca",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "claude",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "llm",
+        "auditId": "v48-anthropic-0046",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-24",
+        "verificationUrl": "https://www.anthropic.com/news/models",
         "modelMentions": [
           {
             "modelFamilyId": "claude",
@@ -2288,6 +2286,25 @@
       {
         "date": "2025-10-15",
         "kind": "模型",
+        "title": "Veo 3.1 Fast 在 Vertex AI 进入预览",
+        "summary": "Vertex AI 发布日志列出 Veo 3.1 Fast Preview；此为公开预览阶段，不推断其他平台首发日。",
+        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
+        "auditId": "review-20261127-veo-fast-preview",
+        "verificationStatus": "已确认：型号、日期与事件性质",
+        "verificationDate": "2026-11-27",
+        "modelCategory": "video",
+        "verificationUrl": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=en",
+        "modelMentions": [
+          {
+            "modelFamilyId": "veo",
+            "modelVersionId": "veo-3-1-fast",
+            "matchedName": "Veo 3.1 Fast"
+          }
+        ]
+      },
+      {
+        "date": "2025-10-15",
+        "kind": "模型",
         "title": "Google 发布 Veo 3.1，强化镜头控制与视频编辑",
         "summary": "Google 于 2025-10-15 推出 Veo 3.1，提升多图参考、镜头控制、首尾帧衔接以及原生音频生成等能力，并向 Flow、Gemini API 和 Vertex AI 扩展。后续竖屏、4K 与 API/GA 事件合并作为此代际的产品迭代。补充演进节点（原始明细归档）：Veo 3.1 Fast Preview 型号推出；Veo 3.1 Ingredients to Video 增强：竖屏输出与 4K Upscaling；Veo 3.1 Lite 通过 Gemini API 向开发者开放；Veo 3.1 Lite 在 Vertex AI 进入 Public Preview；Veo 3.1 Lite 模型卡发布。",
         "url": "https://blog.google/innovation-and-ai/products/veo-updates-flow/",
@@ -2304,25 +2321,6 @@
             "modelFamilyId": "veo",
             "modelVersionId": "veo-3-1",
             "matchedName": "Veo 3.1"
-          }
-        ]
-      },
-      {
-        "date": "2025-10-15",
-        "kind": "模型",
-        "title": "Veo 3.1 Fast 在 Vertex AI 进入预览",
-        "summary": "Vertex AI 发布日志列出 Veo 3.1 Fast Preview；此为公开预览阶段，不推断其他平台首发日。",
-        "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/release-notes",
-        "auditId": "review-20261127-veo-fast-preview",
-        "verificationStatus": "已确认：型号、日期与事件性质",
-        "verificationDate": "2026-11-27",
-        "modelCategory": "video",
-        "verificationUrl": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=en",
-        "modelMentions": [
-          {
-            "modelFamilyId": "veo",
-            "modelVersionId": "veo-3-1-fast",
-            "matchedName": "Veo 3.1 Fast"
           }
         ]
       },
