@@ -814,5 +814,46 @@
       "chronicleAuditId": "review-20261127-seedance-25",
       "sourceField": "url"
     }
+  ],
+  "modelOnlyStages": [
+    {
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7",
+      "date": "2026-10-27",
+      "datePrecision": "day",
+      "stage": "preview",
+      "sourceUrl": "https://microsoft.ai/news/mai-image-2-7-debut/",
+      "sourceName": "Microsoft AI 官方公告",
+      "verifiedAt": "2026-11-27",
+      "chronicleAuditId": "model-stage-mai-image-2-7-20261027",
+      "summary": "编辑功能已在 Arena、Artificial Analysis 与 MAI Playground 预览；文生图当时尚未开放。",
+      "showInRecent": false
+    },
+    {
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7",
+      "date": "2026-11-17",
+      "datePrecision": "day",
+      "stage": "preview",
+      "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+      "sourceName": "Microsoft AI 官方公告",
+      "verifiedAt": "2026-11-27",
+      "chronicleAuditId": "model-stage-mai-image-2-7-20261117",
+      "summary": "Microsoft Foundry 及合作平台公开预览；不等同正式首发。",
+      "showInRecent": true
+    },
+    {
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7-flash",
+      "date": "2026-11-17",
+      "datePrecision": "day",
+      "stage": "preview",
+      "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+      "sourceName": "Microsoft AI 官方公告",
+      "verifiedAt": "2026-11-27",
+      "chronicleAuditId": "model-stage-mai-image-2-7-flash-20261117",
+      "summary": "Microsoft Foundry 及合作平台公开预览；不等同正式首发。",
+      "showInRecent": true
+    }
   ]
 }

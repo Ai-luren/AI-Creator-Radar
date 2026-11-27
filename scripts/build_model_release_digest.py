@@ -104,16 +104,21 @@ VERIFIED_MODEL_STAGES = {
 }
 
 
-def collect_verified_stages(families: list, today: date) -> list:
+def collect_verified_stages(families: list, today: date, model_only=()) -> list:
+    explicit = {(s["modelFamilyId"],s["modelVersionId"],s["chronicleAuditId"]):s for s in model_only if s.get("showInRecent") is True}
     start = today - timedelta(days=29)
     rows = []
     for family in families:
         for version in family.get("versions", []):
             for stage in version.get("historicalMilestones", []):
                 key = (family["id"], version["id"], stage.get("chronicleAuditId"))
-                if key not in VERIFIED_MODEL_STAGES or stage.get("datePrecision") != "day":
+                reviewed=explicit.get(key)
+                allowed=key in VERIFIED_MODEL_STAGES and stage.get("stage")=="api-availability"
+                if reviewed and reviewed.get("stage")=="preview" and all(stage.get(k)==reviewed.get(k) for k in ("date","stage","sourceUrl","datePrecision","verifiedAt","summary","sourceName")):
+                    allowed=True
+                if not allowed or stage.get("datePrecision") != "day":
                     continue
-                if stage.get("stage") != "api-availability" or not stage.get("verifiedAt") or not str(stage.get("sourceUrl", "")).startswith("https://"):
+                if not stage.get("verifiedAt") or not str(stage.get("sourceUrl", "")).startswith("https://"):
                     continue
                 day = date.fromisoformat(stage["date"])
                 if not start <= day <= today:
@@ -183,7 +188,7 @@ def build(today: date) -> dict:
         "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "categories": list(CATEGORIES),
         "items": items,
-        "verifiedStages": collect_verified_stages(families, today),
+        "verifiedStages": collect_verified_stages(families, today, json.loads((ROOT / "config/chronicle-release-links.json").read_text(encoding="utf-8")).get("modelOnlyStages", [])),
         "pending": collect_pending(families, updates + recovered, items, today),
     }
 

@@ -86,6 +86,8 @@ def main():
               "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
     for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json"),("reconciliation","event-reconciliation.json"),("product","product-state.json"),("source_search","source-search.json"),("event_claims","event-claims.json"),("independent","independent-coverage.json"),("historical","historical-evidence.json"),("app_updates","app-updates.json")):
         data[key]=read(name) if (directory/name).exists() else {}
+    fact_path=ROOT/"config/independent-fact-reviews.json"
+    data["independent_fact_reviews"]=json.loads(fact_path.read_text(encoding="utf-8")) if fact_path.exists() else {}
     data["health"]=read("collection-health.json") if (directory/"collection-health.json").exists() else {}
     sample_path=ROOT/"config/publisher-statement-benchmark.json"
     data["publisher_statement_benchmark"]=json.loads(sample_path.read_text(encoding="utf-8")) if sample_path.exists() else {}

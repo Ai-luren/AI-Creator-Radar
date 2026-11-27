@@ -17,6 +17,37 @@ def age_hours(value,now):
     d=stamp(value)
     return round((now-d).total_seconds()/3600,2) if d and d<=now else None
 
+def review_fact_sample(data):
+    review=data.get("independent_fact_reviews",{})
+    rows=review.get("records",[])
+    if not rows:
+        return None
+    versions={(f["id"],v["id"]):v for f in data.get("models",[]) for v in f.get("versions",[])}
+    current=[]
+    for row in rows:
+        ident=(row["modelFamilyId"],row["modelVersionId"])
+        version=versions.get(ident,{})
+        evidence=version.get("releaseEvidence") or {}
+        if row["expectedStage"]=="release":
+            aligned=bool(evidence.get("publishedAt")==row["expectedDay"] and evidence.get("evidenceType")=="official-release"
+                         and evidence.get("modelName")==row["expectedName"]
+                         and evidence.get("sourceUrl")==row["initialObserved"]["url"])
+        else:
+            aligned=not evidence and not version.get("releaseDate") and any(
+                s.get("date")==row["expectedDay"] and s.get("stage")==row["expectedStage"]
+                and s.get("sourceUrl") in row["sourceUrls"] and s.get("verifiedAt")
+                for s in version.get("historicalMilestones",[]))
+        current.append({"id":row["id"],"alignedWithReviewedFact":bool(aligned)})
+    total=len(rows)
+    initial_identity=sum(r.get("initialIdentityDateCorrect") is True for r in rows)
+    initial_full=sum(r.get("initialIdentityDateCorrect") is True and r.get("initialStageCorrect") is True for r in rows)
+    return {"reviewedAt":review.get("reviewedAt"),"snapshotCommit":review.get("snapshotCommit"),
+            "selection":review.get("selection"),"sampleSize":total,"initialIdentityDateCorrect":initial_identity,
+            "initialIdentityDateAndStageCorrect":initial_full,"initialStrictAccuracy":initial_full/total,
+            "currentAlignedWithReviewedFacts":sum(r["alignedWithReviewedFact"] for r in current),
+            "currentRows":current,"additionalFindingCount":len(review.get("additionalFindings",[])),
+            "policy":"Purposive independently reviewed initial snapshot; current alignment is regression checking, not fresh independent re-audit or population accuracy. No claim of 99% coverage."}
+
 def measure(data,report,now):
     monitor=data.get("monitor",{})
     recall=data.get("recall",{})
@@ -77,6 +108,9 @@ def measure(data,report,now):
         "productionPublication":{"status":"external-verification-required","reason":"This audit precedes persistence and Pages deployment; only post-deployment checks may certify published revision."},
         "sevenDayProduction":{"status":"not-started","reason":"Requires all engineering gates and independent persisted production observations, not elapsed time or a pre-deployment audit."}
     }
+    fact_review=review_fact_sample(data)
+    if fact_review:
+        gates["independentFactAccuracy"].update(status="incomplete",reason="Initial independent factual review measured; purposive sample is not representative and does not establish 99% accuracy.",factReview=fact_review)
     return {"schema":"p1-readiness/v1","checkedAt":now.isoformat(),
             "gates":gates,"engineeringReady":False,
             "blockingGates":[k for k,v in gates.items() if v["status"]!="pass" and k not in {"fixedArticleRecall","sevenDayProduction"}],

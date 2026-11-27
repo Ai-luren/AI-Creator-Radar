@@ -80,10 +80,29 @@ def audit(families, topics, config):
                          "candidateSourceUrl": version.get("releaseUrl"),
                          "historicalStages": [m.get("stage") for m in version.get("historicalMilestones", [])]})
     milestone_count = 0
+    model_only = {}
+    model_only_seen = set()
+    for entry in config.get("modelOnlyStages", []):
+        aid = entry.get("chronicleAuditId")
+        if not aid or aid in events or aid in model_only:
+            errors.append(f"Invalid or duplicate model-only reviewed stage: {aid}")
+            continue
+        model_only[aid] = entry
     for key, (family, version) in versions.items():
         for milestone in version.get("historicalMilestones", []):
             milestone_count += 1
             aid = milestone.get("chronicleAuditId")
+            if aid in model_only:
+                entry = model_only[aid]
+                exact = all(milestone.get(k)==entry.get(k) for k in
+                            ("date","datePrecision","stage","sourceUrl","sourceName","verifiedAt","summary"))
+                if (aid in model_only_seen or key != (entry.get("modelFamilyId"),entry.get("modelVersionId"))
+                        or not exact or milestone.get("stage") not in {"preview","announcement","api-availability","early-access","general-availability","official-introduction","documented-availability"}
+                        or not str(milestone.get("sourceUrl") or "").startswith("https://")
+                        or not milestone.get("verifiedAt") or milestone.get("datePrecision")!="day"):
+                    errors.append(f"Invalid model-only reviewed stage: {key} / {aid}")
+                model_only_seen.add(aid)
+                continue
             if aid not in events:
                 errors.append(f"Unknown historical milestone: {key} / {aid}")
                 continue
@@ -96,6 +115,8 @@ def audit(families, topics, config):
                     or milestone.get("datePrecision") != ("month" if len(event.get("date", "")) == 7 else "day")
                     or milestone.get("stage") not in {"release", "early-access", "general-availability", "api-availability", "preview", "alpha", "announcement", "official-introduction", "development-milestone", "documented-availability", "model-update"}):
                 errors.append(f"Invalid historical milestone: {key} / {aid}")
+    if set(model_only)-model_only_seen:
+        errors.append("Unreferenced model-only reviewed stage")
     seen = set()
     for link in config["links"]:
         key = link["modelFamilyId"], link["modelVersionId"]

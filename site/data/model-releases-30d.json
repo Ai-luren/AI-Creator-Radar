@@ -330,36 +330,6 @@
       "verifiedAt": "2026-11-25"
     },
     {
-      "id": "mai-image-mai-image-2-7-flash-20261117",
-      "publishedAt": "2026-11-17",
-      "category": "image",
-      "vendor": "Microsoft",
-      "modelName": "MAI Image 2.7 Flash",
-      "summary": "面向大量出图与快速编辑，侧重速度和成本。",
-      "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
-      "url": "https://microsoft.ai/news/introducing-mai-image-2-7/",
-      "sourceName": "Microsoft AI 官方公告",
-      "modelFamilyId": "mai-image",
-      "modelVersionId": "mai-image-2-7-flash",
-      "evidenceType": "official-release",
-      "verifiedAt": "2026-11-25"
-    },
-    {
-      "id": "mai-image-mai-image-2-7-20261117",
-      "publishedAt": "2026-11-17",
-      "category": "image",
-      "vendor": "Microsoft",
-      "modelName": "MAI Image 2.7",
-      "summary": "面向高质量图片生成与精确局部编辑。",
-      "access": "Microsoft Foundry 公开预览，官方未提供公开权重",
-      "url": "https://microsoft.ai/news/introducing-mai-image-2-7/",
-      "sourceName": "Microsoft AI 官方公告",
-      "modelFamilyId": "mai-image",
-      "modelVersionId": "mai-image-2-7",
-      "evidenceType": "official-release",
-      "verifiedAt": "2026-11-25"
-    },
-    {
       "id": "mai-code-mai-code-2-flash-20261117",
       "publishedAt": "2026-11-17",
       "category": "llm",
@@ -588,6 +558,21 @@
       "verifiedAt": "2026-11-25"
     },
     {
+      "id": "cognition-swe-swe-2-flash-20261104",
+      "publishedAt": "2026-11-04",
+      "category": "llm",
+      "vendor": "Cognition",
+      "modelName": "SWE-2 Flash",
+      "summary": "面向低延迟、低成本软件工程任务的编码语言模型，区别于 SWE-2.1 及其推理速度档位。",
+      "access": "Devin Desktop 与 CLI 可用；权重未确认公开下载",
+      "url": "https://cognition.com/blog/swe-2-flash",
+      "sourceName": "Cognition 官方公告",
+      "modelFamilyId": "cognition-swe",
+      "modelVersionId": "swe-2-flash",
+      "evidenceType": "official-release",
+      "verifiedAt": "2026-11-27"
+    },
+    {
       "id": "official-eleven-eleven-sfx-v3-20261029",
       "publishedAt": "2026-10-29",
       "category": "audio",
@@ -632,6 +617,34 @@
       "modelFamilyId": "gpt-live",
       "modelVersionId": "gpt-live-1-1",
       "verifiedAt": "2026-11-26"
+    },
+    {
+      "id": "stage-model-stage-mai-image-2-7-flash-20261117",
+      "stageDate": "2026-11-17",
+      "stage": "preview",
+      "category": "image",
+      "vendor": "Microsoft",
+      "modelName": "MAI-Image 2.7 Flash",
+      "summary": "Microsoft Foundry 及合作平台公开预览；不等同正式首发。",
+      "url": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+      "sourceName": "Microsoft AI 官方公告",
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7-flash",
+      "verifiedAt": "2026-11-27"
+    },
+    {
+      "id": "stage-model-stage-mai-image-2-7-20261117",
+      "stageDate": "2026-11-17",
+      "stage": "preview",
+      "category": "image",
+      "vendor": "Microsoft",
+      "modelName": "MAI-Image 2.7",
+      "summary": "Microsoft Foundry 及合作平台公开预览；不等同正式首发。",
+      "url": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+      "sourceName": "Microsoft AI 官方公告",
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7",
+      "verifiedAt": "2026-11-27"
     },
     {
       "id": "stage-review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112",
