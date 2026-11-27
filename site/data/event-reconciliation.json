@@ -1,9 +1,9 @@
 {
   "schema": "event-reconciliation/v1",
-  "checkedAt": "2026-11-27T07:37:00+00:00",
+  "checkedAt": "2026-11-27T07:52:30+00:00",
   "inputObservations": {
-    "discovery": "2026-11-27T07:36:55+00:00",
-    "resolution": "2026-11-27T07:36:58+00:00"
+    "discovery": "2026-11-27T07:52:24+00:00",
+    "resolution": "2026-11-27T07:52:28+00:00"
   },
   "evidence": [
     {
@@ -1822,6 +1822,17 @@
       "sourceRecordId": "gpt-image-gpt-image-2-6-sunburst-20261104"
     },
     {
+      "id": "evidence-88ebb90fd5594d738e2a73c9000cb8d8ebe013d506dd8ddf3df8b3dd6f9f85ae",
+      "claimType": "historical-preview",
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7",
+      "sourceUrl": "https://microsoft.ai/news/mai-image-2-7-debut/",
+      "assertedDate": "2026-10-27",
+      "datePrecision": "day",
+      "originalVerificationAt": "2026-11-27",
+      "sourceRecordId": "model-stage-mai-image-2-7-20261027"
+    },
+    {
       "id": "evidence-8982289e9c53d719bedc502d91fe3a02d4d848fa0b2039de1790b554ce9d58d8",
       "claimType": "catalog-release",
       "modelFamilyId": "magi-1",
@@ -2812,6 +2823,17 @@
       "sourceRecordId": "official-gpt-gpt-5-5-instant-20260505"
     },
     {
+      "id": "evidence-cef3d1b2fcf1d38855ee29a1b2d6e92bbda1d020aadb4f8f51e5a29411fb6f22",
+      "claimType": "historical-preview",
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7-flash",
+      "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+      "assertedDate": "2026-11-17",
+      "datePrecision": "day",
+      "originalVerificationAt": "2026-11-27",
+      "sourceRecordId": "model-stage-mai-image-2-7-flash-20261117"
+    },
+    {
       "id": "evidence-cf09a3f90cd5f0933cc8c7d1406403e79a6f9570d6c35b77312eeec3fb283b35",
       "claimType": "catalog-release",
       "modelFamilyId": "glm",
@@ -3120,6 +3142,17 @@
       "sourceRecordId": "v48-qwen-0087"
     },
     {
+      "id": "evidence-e001f74a76e2d2d9ba6d49cb32edc91178fa4ca085b7f6971e721fd92ec8d950",
+      "claimType": "catalog-release",
+      "modelFamilyId": "cognition-swe",
+      "modelVersionId": "swe-2-flash",
+      "sourceUrl": "https://cognition.com/blog/swe-2-flash",
+      "assertedDate": "2026-11-04",
+      "datePrecision": "day",
+      "originalVerificationAt": "2026-11-27",
+      "sourceRecordId": "cognition-swe-swe-2-flash-20261104"
+    },
+    {
       "id": "evidence-e1119f1e13758637ebc2afc5060a72b2dff7ecd4c3955230a701b7a0537023a7",
       "claimType": "catalog-release",
       "modelFamilyId": "muse",
@@ -3382,6 +3415,17 @@
       "datePrecision": "day",
       "originalVerificationAt": "2026-11-24",
       "sourceRecordId": "chronicle-claude-claude-opus-4-8-20260528"
+    },
+    {
+      "id": "evidence-ef324b6630440b5b0f01c3d3b53a3f34b6f366b53033018447022c5cdde0acbd",
+      "claimType": "historical-preview",
+      "modelFamilyId": "mai-image",
+      "modelVersionId": "mai-image-2-7",
+      "sourceUrl": "https://microsoft.ai/news/introducing-mai-image-2-7/",
+      "assertedDate": "2026-11-17",
+      "datePrecision": "day",
+      "originalVerificationAt": "2026-11-27",
+      "sourceRecordId": "model-stage-mai-image-2-7-20261117"
     },
     {
       "id": "evidence-ef5edd70e4d945bb19da36ee9ce922ec14df1f1c71b373848162239a4bec5c50",
@@ -3726,7 +3770,6 @@
     "evidence-67f2416e3291a1d26dd4a79b1f958c25ac89e92223bc7cb38e7009d10bd21b98",
     "evidence-67faeabef7d51dc39109dbf4e6dbeb904ec7f41ed11bf091245320c5b031b689",
     "evidence-687894726438d9c306130a11dbbaeb897a23276c43db322446ddd2a4f0319081",
-    "evidence-68cbce3207a6f7b4e18ddd60576d132f2e0acdba158b9435a2b3dfd18b9fe03d",
     "evidence-68d0d2dbfd32cb33d94b2425e205f9d734748a4ace0d510c3f15c9506f3099c4",
     "evidence-6948f8cc0a02732ae96ebc96ed08e3fff3d4ca3d57f34f9bbd7c770565383ebb",
     "evidence-69821778da7ce38c44728e2c467cc0d93032f4582a89aa100d3b79d168bfda7f",
@@ -3770,6 +3813,7 @@
     "evidence-86b778738f56027958efc6da4f84b5efaf7f60a31d0e45a2c2380421ca4e0dc3",
     "evidence-8769cba6ac83b9c98085e26c828f6d533fd66b0ca8c05f2426a247e052f57ae9",
     "evidence-88da7dd9b794dd83d080f722bfe5928fe6265addc019c6a1b163517e14b2eef4",
+    "evidence-88ebb90fd5594d738e2a73c9000cb8d8ebe013d506dd8ddf3df8b3dd6f9f85ae",
     "evidence-8982289e9c53d719bedc502d91fe3a02d4d848fa0b2039de1790b554ce9d58d8",
     "evidence-8996a4592f2704bd87b9d092415006d8dd37b66cb56b1a5b7ea909149822bf5a",
     "evidence-8a0f8aef11aca6a1b7139e6d18d19995722458cae278d77c9f307218ded6d3f7",
@@ -3835,7 +3879,6 @@
     "evidence-bb23492abfe2a606304a0b197a268a26eb7d4dd8672a11a83ac26d93fd9a54a6",
     "evidence-bd15fc6ebc04b04a46ee843f58edc1c391ee5690e8ed0191fd15c8e15709c0b5",
     "evidence-be888d3e59573ddbbdee3be10fd704bd140e6ed8910d0f233cc593cf5dbdd234",
-    "evidence-bf3aad3ab61a5a1eaef64d204b597ada22b0ae1b258d634313071c8ff1b967f5",
     "evidence-c051ea466de18b5f5798df2470ef98c2fd0493b28a4c714128e523331ee42bea",
     "evidence-c05efa0ec2fa642e906546c4f708a97e762cbc5f421f547b5fbaccdf6f8dc3ac",
     "evidence-c10a5182d9ffb4486666558d992c24e6401bc746b69cc4dd3777115557d4a673",
@@ -3860,6 +3903,7 @@
     "evidence-cec5223c6414a46751260e10e7930e91873175847cd6d6630ed08fc82689a27c",
     "evidence-cee419336901393425e9b0c88f43416bddc300cb628404ed359f674a7b25ecd0",
     "evidence-cef28997169796ad299b9214e3d279934c7f38e873926acb2ebba04dd440ebfe",
+    "evidence-cef3d1b2fcf1d38855ee29a1b2d6e92bbda1d020aadb4f8f51e5a29411fb6f22",
     "evidence-cf09a3f90cd5f0933cc8c7d1406403e79a6f9570d6c35b77312eeec3fb283b35",
     "evidence-cf2e895f7d9627b26c1eb1b17c43aeac9442d2d0f2d8d2af96f5654220d40dcf",
     "evidence-d04b38a021eae956a7e65a5437414e80c613b0fe2198b482d4d4fa2e90dfdc92",
@@ -3888,6 +3932,7 @@
     "evidence-daa840bb362b2e81bcc8dd37e2ab5e8de3b1196dac42e56be5159a591183bba4",
     "evidence-ddef1c1a8f6dd6e1af244d1c393fb8f29a92bcc528ecb988c2e9e12a12d32e1b",
     "evidence-dfdbd255496caa49b3ea714d10758928bfdda6e8fc4a358d870a9d429af2f695",
+    "evidence-e001f74a76e2d2d9ba6d49cb32edc91178fa4ca085b7f6971e721fd92ec8d950",
     "evidence-e1119f1e13758637ebc2afc5060a72b2dff7ecd4c3955230a701b7a0537023a7",
     "evidence-e221934d13f56cef33a62404aab0db5aa54579abaa30dc89b6a811e03c7114b8",
     "evidence-e2a35886dab816b81d5262241c99c5bd5094ec7851c2516c3c10f884b968db64",
@@ -3912,6 +3957,7 @@
     "evidence-ecf909c5be3e702434d0a759e635397ab84c35232d4b1c88fc826a5f07509e36",
     "evidence-ee4ddaafd07cbead7ae3f85796c67fb4f15ad528e30e85f74565e1b8bfeb3bf4",
     "evidence-ef170ef23a4cdeb20ac0861b37e1934a66795883e9c1054f6fe009ed44903892",
+    "evidence-ef324b6630440b5b0f01c3d3b53a3f34b6f366b53033018447022c5cdde0acbd",
     "evidence-ef5edd70e4d945bb19da36ee9ce922ec14df1f1c71b373848162239a4bec5c50",
     "evidence-f193f5559db34aad0c80333667086b3e47f5a9f3900e3582d772112b8918aedf",
     "evidence-f2293681a15825a2efe38f4f6742998f5da29d1fae3d28c9d5407400d8798536",
@@ -4128,7 +4174,7 @@
       "titles": [
         "Grok Voice 3.0"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://x.ai/news/grok-voice-3"
       ],
@@ -4155,7 +4201,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-2"
       ],
@@ -4182,7 +4228,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4401,7 +4447,7 @@
         "Gemini 4 Hydrogen",
         "Gemini 4 Hydrogen — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
       ],
@@ -4463,7 +4509,7 @@
       "titles": [
         "GPT-Live-1.1 — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -4525,7 +4571,7 @@
         "GLM-5.4",
         "Z.ai launches GLM-5.4"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://docs.z.ai/guides/llm/glm-5.4",
         "https://z.ai/blog/glm-5.4"
@@ -4697,7 +4743,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4807,7 +4853,7 @@
       "titles": [
         "Gemini Decision 1 — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4848,7 +4894,7 @@
       "titles": [
         "Early progress on accelerating drug development with Claude"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4878,7 +4924,7 @@
         "GPT-6.2 Astra — OpenAI",
         "OpenAI releases GPT-6.2 Astra"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -4940,7 +4986,7 @@
       "titles": [
         "Gemini Omni 1.2 Flash — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -5266,7 +5312,7 @@
         "Gemini 4 Carbon — Google DeepMind",
         "Google announces Gemini 4 Carbon"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
       ],
@@ -5475,7 +5521,7 @@
       "titles": [
         "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://elevenlabs.io/blog/scribe-v3-live-medical"
       ],
@@ -5502,7 +5548,7 @@
       "titles": [
         "GPT-6-Cyber — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5549,7 +5595,7 @@
         "GPT-Image-2.6 Sunburst",
         "GPT-Image-2.6 Sunburst — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5741,7 +5787,7 @@
         "GPT-Image-2.6 Flare",
         "GPT-Image-2.6 Flare — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5800,7 +5846,7 @@
       "titles": [
         "Muse Ember — Meta AI"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -6006,7 +6052,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/claude-fable-and-mythos-5-2"
       ],
@@ -6042,7 +6088,7 @@
         "GPT-6.2 Sol — OpenAI",
         "OpenAI releases GPT-6.2 Sol"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -6182,7 +6228,7 @@
       "titles": [
         "Claude Fable 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -6504,7 +6550,7 @@
       "titles": [
         "GPT-6 Rosalind — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -6534,7 +6580,7 @@
         "Gemini 4 Neon — Google DeepMind",
         "Google releases Gemini 4 Neon"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
       ],
@@ -6603,7 +6649,7 @@
         "GPT-6.1 Terra",
         "OpenAI releases GPT-6.1 Terra"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-1-terra"
       ],
@@ -6645,7 +6691,7 @@
       "titles": [
         "Claude Mythos 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T07:36:55+00:00",
+      "lastSourceObservationAt": "2026-11-27T07:52:24+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -6662,9 +6708,9 @@
     }
   ],
   "summary": {
-    "evidenceCount": 327,
-    "newEvidence": 0,
-    "currentlyReferencedEvidence": 327,
+    "evidenceCount": 331,
+    "newEvidence": 4,
+    "currentlyReferencedEvidence": 329,
     "relatedLeads": 17,
     "publisherStatementEvidence": 2,
     "tasksWithPublisherStatementContext": 2,

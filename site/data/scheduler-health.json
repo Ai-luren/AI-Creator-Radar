@@ -1,17 +1,17 @@
 {
   "schema": "scheduler-health/v1",
-  "generatedAt": "2026-11-27T07:37:33.512294+00:00",
-  "nextDueAt": "2026-11-27T07:37:33.512294+00:00",
+  "generatedAt": "2026-11-27T07:53:01.982248+00:00",
+  "nextDueAt": "2026-11-27T07:53:01.982248+00:00",
   "trigger": {
     "event": "push",
-    "runId": "45959621873",
+    "runId": "45961371844",
     "attempt": "1",
     "schedule": "",
     "scope": ""
   },
   "groups": {
     "models": {
-      "oldestSnapshotAt": "2026-11-27T07:36:45+00:00",
+      "oldestSnapshotAt": "2026-11-27T07:51:43+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
