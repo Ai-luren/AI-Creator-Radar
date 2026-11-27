@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T07:52:29+00:00",
+  "checkedAt": "2026-11-27T08:17:47+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -60,7 +60,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T07:52:29+00:00",
+    "checkedAt": "2026-11-27T08:17:47+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -107,7 +107,22 @@
         "id": "kling-products",
         "label": "可灵",
         "term": "可灵",
-        "category": "ai-products"
+        "category": "ai-products",
+        "lastAttemptAt": "2026-11-27T08:17:47+00:00",
+        "counts": {
+          "items": 6,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 6,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 5,
+          "hasNextCursor": false
+        },
+        "countsObservedAt": "2026-11-27T08:17:47+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-b2d34ba23c2e834c\"",
+        "lastSuccessAt": "2026-11-27T08:17:47+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-27T14:17:47.272509+00:00"
       },
       {
         "id": "hailuo-products",
@@ -152,10 +167,10 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T07:02:45+00:00",
-      "nextAttemptAt": "2026-11-27T08:02:45.222008+00:00"
+      "lastSuccessAt": "2026-11-27T08:17:47+00:00",
+      "nextAttemptAt": "2026-11-27T09:17:47.272509+00:00"
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [

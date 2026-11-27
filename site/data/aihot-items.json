@@ -6,8 +6,8 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-27T04:47:40+00:00",
-  "etag": "W/\"v1-items-77f30386123af94f\"",
+  "fetchedAt": "2026-11-27T08:17:32+00:00",
+  "etag": "W/\"v1-items-a73d399a42cd6c76\"",
   "schemaVersion": 1,
   "page": {
     "count": 4,
@@ -15,6 +15,29 @@
     "nextCursor": null
   },
   "items": [
+    {
+      "id": "v5fxjqr2vapkk9vn1j9a8ke96",
+      "title": "Dragos 调查称 MiniMax 在用户请求不存储的情况下仍打开提示词中的私有链接",
+      "originalTitle": "According to US security firm Dragos, MiniMax collected private links from user prompts and opened them, even under no-storage requests.",
+      "summary": "据美国安全公司 Dragos，MiniMax 收集并打开了用户提示词中的私有链接，即便用户要求不存储数据。",
+      "source": {
+        "name": "X：Rohan Paul (@rohanpaul_ai)"
+      },
+      "links": {
+        "aihot": "https://aihot.news/items/v5fxjqr2vapkk9vn1j9a8ke96",
+        "original": "https://x.com/rohanpaul_ai/status/2126214860421914884"
+      },
+      "publishedAt": "2026-11-27T07:21:40.000Z",
+      "discoveredAt": "2026-11-27T07:30:35.954Z",
+      "category": "industry",
+      "score": 84,
+      "selected": true,
+      "reason": "转述 Dragos 的金丝雀测试细节，读者可以据此评估把敏感数据交给 AI 服务商的风险和供应商的隐私承诺可信度。",
+      "attribution": {
+        "name": "AIHOT",
+        "url": "https://aihot.news/items/v5fxjqr2vapkk9vn1j9a8ke96"
+      }
+    },
     {
       "id": "cdkswjz368inpelrz3f52rekx",
       "title": "实测支付宝 SkillPay：手把手教你怎么把 Skill 挂上去卖钱",
@@ -83,30 +106,6 @@
         "name": "AIHOT",
         "url": "https://aihot.news/items/hdvt6wswzycj78wnr7r43xn6o"
       }
-    },
-    {
-      "id": "rlt60gq96bl1cf5b88o8rbj30",
-      "title": "FT 报道 Nvidia 暂停向东南亚四国发运服务器",
-      "originalTitle": "FT just reported Nvidia froze south-east Asian server shipments days after Washington targeted Chinese labs renting cloud compute.",
-      "summary": "据 FT 报道，Nvidia 已通知 Dell、Supermicro 等制造伙伴停止向马来西亚、新加坡、泰国和印尼发运服务器，原因是美国要求这些国家及巴西的先进 AI 芯片需申请许可。此前中国 AI 实验室通过当地云厂商租用 Nvidia 算力绕开直接出口禁令，云厂商现有 90 天证明无受限用户但缺乏申请指引；Nvidia 2025 年经新加坡部门入账 $104B，同比增长 72%。",
-      "source": {
-        "name": "X：Rohan Paul (@rohanpaul_ai)"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/rlt60gq96bl1cf5b88o8rbj30",
-        "original": "https://x.com/rohanpaul_ai/status/2125847124600656142"
-      },
-      "publishedAt": "2026-11-26T07:00:25.000Z",
-      "discoveredAt": "2026-11-26T07:21:25.499Z",
-      "category": "industry",
-      "score": 76,
-      "selected": true,
-      "reason": "转述 FT 报道并补充许可规则细节，读者可以了解这次停运与云算力转租渠道之间的关系。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/rlt60gq96bl1cf5b88o8rbj30"
-      }
     }
-  ],
-  "checkedAt": "2026-11-27T07:02:40+00:00"
+  ]
 }
