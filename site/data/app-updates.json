@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T23:17:48+00:00",
+  "checkedAt": "2026-11-27T23:45:27+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -53,7 +53,7 @@
       "lastSuccessAt": "2026-11-27T23:17:48+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T05:17:48.414578+00:00"
     },
@@ -393,14 +393,74 @@
       "lastSuccessAt": "2026-11-27T23:17:48+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T23:47:48.414578+00:00"
+      "nextAttemptAt": "2026-11-27T23:47:48.414578+00:00",
+      "role": "competitor",
+      "aggregateCoverage": {
+        "status": "awaiting-aggregate",
+        "missingLanes": []
+      },
+      "skipReason": "awaiting-aggregate"
+    },
+    {
+      "id": "flova-changelog",
+      "name": "Flova · 官方更新日志",
+      "vendor": "Flova",
+      "url": "https://www.flova.ai/en/docs/changelog/",
+      "links": [],
+      "type": "dated-changelog",
+      "role": "competitor",
+      "aggregateCoverage": {
+        "status": "awaiting-aggregate",
+        "missingLanes": []
+      },
+      "entries": {},
+      "status": "awaiting-aggregate",
+      "deferred": true,
+      "skipReason": "awaiting-aggregate"
+    },
+    {
+      "id": "tapnow-changelog",
+      "name": "TapNow · 官方更新日志",
+      "vendor": "TapNow",
+      "url": "https://docs.tapnow.ai/en/docs/changelog",
+      "links": [],
+      "type": "dated-changelog",
+      "role": "competitor",
+      "aggregateCoverage": {
+        "status": "awaiting-aggregate",
+        "missingLanes": []
+      },
+      "entries": {},
+      "status": "awaiting-aggregate",
+      "deferred": true,
+      "skipReason": "awaiting-aggregate"
+    },
+    {
+      "id": "libtv-entry",
+      "name": "LibTV · 版本更新入口",
+      "vendor": "LibTV",
+      "url": "https://www.liblib.tv/show",
+      "links": [
+        {
+          "kind": "版本更新记录",
+          "url": "https://www.liblib.tv/show",
+          "access": "官网可见入口，正文尚未验证可自动读取"
+        }
+      ],
+      "type": "navigation-only",
+      "role": "competitor",
+      "status": "navigation-only",
+      "entries": {},
+      "lastSuccessAt": null,
+      "error": null,
+      "deferred": true
     }
   ],
   "targetedDiscovery": {
-    "source": "AIPick",
-    "checkedAt": "2026-11-27T23:17:48+00:00",
+    "source": "AIHOT + AIPick",
+    "checkedAt": "2026-11-27T23:45:27+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -547,6 +607,54 @@
         "lastSuccessAt": "2026-11-27T20:18:19+00:00",
         "error": null,
         "nextAttemptAt": "2026-11-28T02:18:19.413628+00:00"
+      },
+      {
+        "id": "higgsfield-aihot",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "higgsfield-aipick",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIPick"
+      },
+      {
+        "id": "flova-aihot",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "flova-aipick",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIPick"
+      },
+      {
+        "id": "tapnow-aihot",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "tapnow-aipick",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIPick"
+      },
+      {
+        "id": "libtv-aihot",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "libtv-aipick",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIPick"
       }
     ],
     "service": {
@@ -555,7 +663,8 @@
       "lastSuccessAt": "2026-11-27T23:17:48+00:00",
       "nextAttemptAt": "2026-11-28T00:17:48.414578+00:00"
     },
-    "attemptedThisRun": 1,
+    "providerServices": {},
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -980,8 +1089,8 @@
     }
   ],
   "summary": {
-    "configuredSources": 3,
-    "successfulThisRun": 2,
+    "configuredSources": 6,
+    "successfulThisRun": 0,
     "baselineSources": 2,
     "listedModels": 0,
     "reviewedObservations": 1
