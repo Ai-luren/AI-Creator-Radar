@@ -69,7 +69,8 @@ jobs:
           python scripts/collect_model_intake.py --dry-run --resolution /tmp/radar-proof-probe.json
           python scripts/collect_event_claims.py --dry-run --probe /tmp/radar-source-probe.json --resolution /tmp/radar-proof-probe.json --report /tmp/radar-claims-probe.json
           python scripts/collect_independent_audit.py --dry-run --report /tmp/radar-independent-probe.json
-          python scripts/collect_event_reconciliation.py --dry-run --discovery /tmp/radar-cross-probe.json --resolution /tmp/radar-proof-probe.json --product-state /tmp/radar-product-probe.json --source-search /tmp/radar-search-probe.json --independent /tmp/radar-independent-probe.json
+          python scripts/collect_historical_evidence.py --dry-run --resolution /tmp/radar-proof-probe.json --report /tmp/radar-historical-probe.json
+          python scripts/collect_event_reconciliation.py --dry-run --discovery /tmp/radar-cross-probe.json --resolution /tmp/radar-proof-probe.json --product-state /tmp/radar-product-probe.json --source-search /tmp/radar-search-probe.json --independent /tmp/radar-independent-probe.json --historical /tmp/radar-historical-probe.json
       - name: Upload source diagnostics
         if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.models == 'true')
         uses: actions/upload-artifact@v7
@@ -83,6 +84,7 @@ jobs:
             /tmp/radar-search-probe.json
             /tmp/radar-claims-probe.json
             /tmp/radar-independent-probe.json
+            /tmp/radar-historical-probe.json
           retention-days: 7
 
       - name: Read-only opportunity discovery diagnostics

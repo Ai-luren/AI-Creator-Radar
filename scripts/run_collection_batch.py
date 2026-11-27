@@ -16,9 +16,10 @@ PRODUCT_STATE = ("collect_product_state",)
 RECONCILE = ("collect_event_reconciliation",)
 EVENT_CLAIMS = ("collect_event_claims",)
 INDEPENDENT_AUDIT = ("collect_independent_audit",)
+HISTORICAL_EVIDENCE = ("collect_historical_evidence",)
 BATCHES = {
-    "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), RECOVERY, PRODUCT_STATE, INDEPENDENT_AUDIT, RECONCILE, EVENT_CLAIMS)),
-    "recovery": (180, (RECOVERY, PRODUCT_STATE, INDEPENDENT_AUDIT, RECONCILE, EVENT_CLAIMS)),
+    "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), RECOVERY, PRODUCT_STATE, INDEPENDENT_AUDIT, HISTORICAL_EVIDENCE, RECONCILE, EVENT_CLAIMS)),
+    "recovery": (180, (RECOVERY, PRODUCT_STATE, INDEPENDENT_AUDIT, HISTORICAL_EVIDENCE, RECONCILE, EVENT_CLAIMS)),
     "resources": (540, (("collect_resources",), ("collect_rankings", "collect_maomu_rankings", "build_unified_rankings"), ("collect_aipick",), ("collect_social_trends",))),
     "maintenance": (540, (("check_model_resources",), ("check_creator_links",), ("collect_creator_opportunities",), ("collect_model_evaluations",))),
 }
