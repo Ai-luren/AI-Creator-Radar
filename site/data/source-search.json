@@ -1,0 +1,984 @@
+{
+  "schema": "source-search/v1",
+  "checkedAt": "2026-11-27T03:17:22+00:00",
+  "service": {
+    "lastAttemptAt": "2026-11-27T03:17:22+00:00",
+    "error": "HTTPError: HTTP Error 429: Too Many Requests",
+    "consecutiveFailures": 1,
+    "nextAttemptAt": "2026-11-27T09:17:22.562668+00:00"
+  },
+  "targets": [
+    {
+      "id": "14ba1e813f28373743fb1332cf62f8b720262ceb238877f892d067b32d47ef90",
+      "query": "GPT Image 2.6 Flare",
+      "identity": {
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-flare"
+      },
+      "originIds": [
+        "51f3e14eaed141bb97e2",
+        "task-b52721400eb8144b4a84ba8a22258adffd891644df1da4d4821893e266471277"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/images/models",
+          "sourceRecordId": "openai|openai/gpt-image-2.6-flare",
+          "sourceId": "openrouter-images",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://openai.com/index/introducing-images-2-6/",
+          "sourceRecordId": "evidence-7d497881da22b32e028eb89fbb0f9f9a9d0bf723fb92bb591c08efe63c5d9e35",
+          "assertedDate": "2026-11-04",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://openai.com/index/introducing-images-2-6",
+          "sourceRecordId": "0f97d6774e4dfa345823",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "1aff7a8d28b89ea8bec8d39356d74a73ae3cbbb72e2c9c0ed82bf9723ae8ead9",
+      "query": "Gemini 4 Hydrogen",
+      "identity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-hydrogen"
+      },
+      "originIds": [
+        "bb4414178cd4cd43920c"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "article-publication",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "sourceRecordId": "evidence-f2293681a15825a2efe38f4f6742998f5da29d1fae3d28c9d5407400d8798536",
+          "assertedDate": "2026-11-12T00:00:00Z",
+          "originalVerificationAt": "2026-11-26T17:23:36+00:00",
+          "datePrecision": "publisher-timestamp-or-day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "google|gemini-4-hydrogen",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-12",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-hydrogen",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-hydrogen:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "sourceRecordId": "evidence-589daacf0df2745e2deb0b7054e9ee1f079ec1a1ecd534bf14cbeda01fe1fefa",
+          "assertedDate": "2026-11-12",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "sourceRecordId": "3c46f0487a309e286c8e",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "sourceRecordId": "d5fac904fcdff033002d",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "21414fc13ce51484e4f5b425c603b85fbd69b3f0e3b4847b9ab51c63d65617e2",
+      "query": "GPT-Live-1.1",
+      "identity": {
+        "modelFamilyId": "gpt-live",
+        "modelVersionId": "gpt-live-1-1"
+      },
+      "originIds": [
+        "9c749cba040b48e61bb6",
+        "task-31a1cc0af2143c203472b033881c5d85e69acd7856ce51ed1c997615741bba9f"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
+          "sourceRecordId": "evidence-946005c6cbe4bf224b81b04753a923c6b1f9f26096027f845f9e4d85020f2971",
+          "assertedDate": "2026-10-15",
+          "originalVerificationAt": "2026-11-26",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "historical-api-availability",
+          "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
+          "sourceRecordId": "evidence-d7efa5ac0322073992823142e23c69814c3907177ce4c35c3c923b0f8022c810",
+          "assertedDate": "2026-11-20",
+          "originalVerificationAt": "2026-11-26",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        }
+      ]
+    },
+    {
+      "id": "2ebcb011dc5429bb65ce8b57bea0eeca69d29a12b96264f7fdde81e662da79d7",
+      "query": "Niji 8",
+      "identity": {
+        "modelFamilyId": "midjourney",
+        "modelVersionId": "niji-8"
+      },
+      "originIds": [
+        "task-8914e50ec60373e3efb47268652bcb48c9d2614be970adee668d5aac00e0df43"
+      ],
+      "firstDetectedAt": "2026-11-27T03:07:25+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://nijijourney.com/zh/blog/niji-8",
+          "sourceRecordId": "evidence-f71eeb2ae650aadaebc4ab2614067f3294c491ed109c3cd17a57deb896a401ce",
+          "assertedDate": "2026-11-24",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://nijijourney.com/blog/niji-8",
+          "sourceRecordId": "ecab231e4cc0db197f84",
+          "sourceId": "isitsota-releases",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T02:37:02+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "3662ad369130e57c72f6f71064045548d6c842758884813375c9d3f55103d437",
+      "query": "GLM-5.3-FlashX-Legal",
+      "identity": null,
+      "originIds": [
+        "9071a7e775a02bbd21822b63578acafffc88af6f2067460d36212d882aa2d9f3",
+        "fff2a859fea830b2c61380fa0a1f0ac3b5489f98a4a4a7dcbd74cb3e96137620",
+        "task-e587d5e5aee71af7c350da564c802980cf8a8ac55fef47fc5677b7acad9d111f",
+        "task-f2c462371532c75fccf8f62dffa6e248b6c196940ce971acf18a54373a9ae7e8"
+      ],
+      "firstDetectedAt": "2026-11-27T03:11:31+00:00",
+      "active": true,
+      "localContext": []
+    },
+    {
+      "id": "3843b105fc1b6fdfe30b25bcc6bec85feb6db5d9456562caf855a098e251aab1",
+      "query": "GPT-6.1 Terra",
+      "identity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-1-terra"
+      },
+      "originIds": [
+        "9f584387e5fef8db99c3",
+        "task-fdf93d35f613aaf4ddedf7dfb43146c86fc934d5af368c992731646f9cb84201"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "openai|gpt-6.1-terra",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-10-26",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "openai|openai/gpt-6.1-terra",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "openai|openai/gpt-6.1-terra:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://developers.openai.com/api/docs/changelog",
+          "sourceRecordId": "evidence-f4e575c9e56a28f484481e03a55fdbcecc2586a4544ab4cd79729a00ee051edd",
+          "assertedDate": "2026-10-26",
+          "originalVerificationAt": "2026-11-26",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-1-terra",
+          "sourceRecordId": "72359e3d5f2a94123af0",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "3bd840f49f12ec7106315b15d5b01bbd6affa6bb1d05927a7ef8650d6b68cae7",
+      "query": "Gemini 4 Argon",
+      "identity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-argon"
+      },
+      "originIds": [
+        "6a07e25ad2a6caeacce5",
+        "task-3e1618fb315653be76d338cbcd167096fd066ab9479eb5f9d945d4577a767051"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "google|gemini-4-argon",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-10-13",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-argon",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-argon:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "historical-early-access",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "sourceRecordId": "evidence-62ab5fe44ecfce4fe3309f6304beab660371c521899e2cc8e366531d29fd81ec",
+          "assertedDate": "2026-09-30",
+          "originalVerificationAt": "2026-11-26",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "historical-general-availability",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+          "sourceRecordId": "evidence-a029d2b2ba9ea10583fec4c6056f5a7eb55381093c01eb8676958de6c1bf4445",
+          "assertedDate": "2026-10-13",
+          "originalVerificationAt": "2026-11-26",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://deepmind.google/models/model-cards/gemini-4-argon/",
+          "sourceRecordId": "df061245b8654b5b5e73",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "3d3235c87dc7b7d86cecee673da809c3e9b1c6ee23e8a56caba48175e7636b7d",
+      "query": "GPT Image 2.6 Sunburst",
+      "identity": {
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-sunburst"
+      },
+      "originIds": [
+        "cf0a8b610d4883788329",
+        "task-9c418a3cc3c193cff08822b263155e7eafd506993e010115815187372fde19be"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/images/models",
+          "sourceRecordId": "openai|openai/gpt-image-2.6-sunburst",
+          "sourceId": "openrouter-images",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://openai.com/index/introducing-images-2-6/",
+          "sourceRecordId": "evidence-88da7dd9b794dd83d080f722bfe5928fe6265addc019c6a1b163517e14b2eef4",
+          "assertedDate": "2026-11-04",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://openai.com/index/introducing-images-2-6",
+          "sourceRecordId": "fb916bcd70750bb748c5",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "5fca3baf448a3ee37022bb084d0b1d73153c6a00a790a91cc7220d6aca0e6193",
+      "query": "GPT-6.2 Astra",
+      "identity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-astra"
+      },
+      "originIds": [
+        "05bd6bf9cb7100643ea5",
+        "fb5c5c5669c954f00dda",
+        "task-5572a10a6680c13cb0a1c6c57f6b15a080091c1d88f52cf750a2fe71bbc4cb4e"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "openai|gpt-6.2-astra",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-17",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "openai|gpt-6.2-astra-healthcare",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-24",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "openai|openai/gpt-6.2-astra",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "openai|openai/gpt-6.2-astra:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "sourceRecordId": "evidence-d8d2377396645c7a87a310d21fe31a4e31aa74f9767072ca8478689e6eb0f117",
+          "assertedDate": "2026-11-17",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "sourceRecordId": "c706997129dfe347f996",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "670ef3aafeeecfdfcc7b0e373862dff769aabc5e8aac7244d2043de4b43984f1",
+      "query": "Claude Fable 5.2",
+      "identity": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-fable-5-2"
+      },
+      "originIds": [
+        "bd08b023f79f648f89da",
+        "task-d684d3dd24dcb3fa26e985245b6ae8bb3d9f423ab71cc8200f23a4ca3becbd28"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "article-publication",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "sourceRecordId": "evidence-d0c33c9a2d089f329280ff3e6983a2753bc81e7b0ea0f7a5a7b5a24247f8f59a",
+          "assertedDate": "2026-11-09T00:00:00Z",
+          "originalVerificationAt": "2026-11-26T17:23:36+00:00",
+          "datePrecision": "publisher-timestamp-or-day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "article-publication",
+          "sourceUrl": "https://www.anthropic.com/news/claude-fable-and-mythos-5-2",
+          "sourceRecordId": "evidence-687894726438d9c306130a11dbbaeb897a23276c43db322446ddd2a4f0319081",
+          "assertedDate": "2026-11-09T00:00:00Z",
+          "originalVerificationAt": "2026-11-26T17:23:36+00:00",
+          "datePrecision": "publisher-timestamp-or-day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "anthropic|claude-fable-5-2",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-09",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "anthropic|anthropic/claude-fable-5.2",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "anthropic|anthropic/claude-fable-5.2:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "sourceRecordId": "evidence-7c1550089409701632bffe742bef660fa5170b08d3741a5ae3809fab76ddddbd",
+          "assertedDate": "2026-11-09",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        }
+      ]
+    },
+    {
+      "id": "6b42c151f60cc82de210c659a71785ed20ca65d6cd6fba9e4aad00054da48e5b",
+      "query": "MAGI-2",
+      "identity": {
+        "modelFamilyId": "magi-2",
+        "modelVersionId": "magi-2"
+      },
+      "originIds": [
+        "2193fbf08c5250ea354d",
+        "33ce1d4e6d53d5fc7b44",
+        "task-70408459984f3bcc82c00ca7cdc638832385262dc35b961cd79fc3a828f77b23",
+        "task-d2b61521aac68b0209c228fd3bd8f2401d4a66564f657153de94a73558422ca0"
+      ],
+      "firstDetectedAt": "2026-11-26T12:23:00Z",
+      "active": true,
+      "lastAttemptAt": "2026-11-27T03:17:22+00:00",
+      "status": "index-unavailable",
+      "nextAttemptAt": "2026-11-27T09:17:22.562668+00:00",
+      "localContext": [
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://sand.ai/blog/magi-2/",
+          "sourceRecordId": "evidence-b458ab23732a9c1778d87762e2fddf7524c8e3df3cd66e903c0f902168336424",
+          "assertedDate": "2026-11-24",
+          "originalVerificationAt": "2026-11-26",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://sand.ai/blog/magi-2",
+          "sourceRecordId": "e60abd81042c5811d827",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://sand.ai/blog/magi-2/",
+          "sourceRecordId": "dfb358964f6ef7e29df4",
+          "sourceId": "isitsota-releases",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T02:37:02+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "82287b8fe00f14cbcad3f5eb9e16532159c57b926c5e175216e37a824f8161ca",
+      "query": "Gemini 4 Neon",
+      "identity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-neon"
+      },
+      "originIds": [
+        "732a8d8db2b5d8db20f3",
+        "ccbf9855f14265bebb3f"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "article-publication",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "sourceRecordId": "evidence-6361fb72eb4fcb761deceba90593a51fe7ca6802d00ee8deee4a1d5e384c1ac1",
+          "assertedDate": "2026-11-18T00:00:00Z",
+          "originalVerificationAt": "2026-11-26T17:23:36+00:00",
+          "datePrecision": "publisher-timestamp-or-day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "google|gemini-4-neon",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-18",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-neon",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-neon:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "sourceRecordId": "evidence-5fa4258e766366527d6b05f74878e299e64f05f2881d7f3ec4ef76e4192e28d6",
+          "assertedDate": "2026-11-18",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "sourceRecordId": "1b7321ac8d720e8a5de2",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+          "sourceRecordId": "f0da6afdbe295ae0c80a",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+          "sourceRecordId": "a2e1b81fa54cf2c987af",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "a3a020c6c27bd085d4e65b2e382d78cc1a07153657220bbced98411fbff7c670",
+      "query": "Gemini Omni Flash 1.2",
+      "identity": {
+        "modelFamilyId": "gemini-omni-flash",
+        "modelVersionId": "gemini-omni-flash-1-2"
+      },
+      "originIds": [
+        "5a065c561face08ecd05",
+        "task-5a4cc51745455631cecff15fecd6bdd1deaf8e7b60af15fa3b39a078671f4292"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-omni-1.2-flash",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "sourceRecordId": "evidence-af684951a50bf6aa0fd62f907e3fa0aceb15d64f1af8bad1625b679bcb2fdcf8",
+          "assertedDate": "2026-11-05",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
+          "sourceRecordId": "330dfb494620b14fc9be",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "a67180385036954c3156fa7cee88acf3b545a5af8ac587c4a4028032ace7b75b",
+      "query": "Claude Mythos 5.2",
+      "identity": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-mythos-5-2"
+      },
+      "originIds": [
+        "35d58d16f28e8e429eec",
+        "task-ffc1a176a1b2d95b6bdd150f71da6ae53e337ab5108f85be1b0d68ff671c13f9"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+          "sourceRecordId": "evidence-a01dd07c93d94cd573ba033d56d57f60ff699e9e1b3f948822b91f9081393d81",
+          "assertedDate": "2026-11-09",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        }
+      ]
+    },
+    {
+      "id": "d171936a59a651a4a0cef10e742d57c64ed929cdc295ca718f9c8a58e6a5e9e9",
+      "query": "GPT-6.2 Sol",
+      "identity": {
+        "modelFamilyId": "gpt",
+        "modelVersionId": "gpt-6-2-sol"
+      },
+      "originIds": [
+        "49fcb70d95b7301bf018",
+        "4f4baffe677a81293b01",
+        "task-c8d695775d1adab2df919e48e61a364fe4cf3c9dcf4e25d33b11bc78b513bf0a"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "openai|gpt-6.2-sol",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-17",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "openai|gpt-6.2-sol-healthcare",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-24",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "openai|openai/gpt-6.2-sol",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "openai|openai/gpt-6.2-sol:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+          "sourceRecordId": "evidence-af7c36a948905bc548ebad7bab7b2649dcf7724c6edc89953beca7d07a2f0e53",
+          "assertedDate": "2026-11-17",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "sourceRecordId": "aa9f4ac4f7e2b5726e42",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        }
+      ]
+    },
+    {
+      "id": "f3521190c7e1cec59ec5f87b18f8f2bdb269aa0d3cf76063115e3d747f34ab18",
+      "query": "Gemini 4 Carbon",
+      "identity": {
+        "modelFamilyId": "gemini",
+        "modelVersionId": "gemini-4-carbon"
+      },
+      "originIds": [
+        "ec8dc4ffcda4b2fa9cc1",
+        "f63b232f46bebf4159f8"
+      ],
+      "firstDetectedAt": "2026-11-26T17:14:40+00:00",
+      "active": true,
+      "localContext": [
+        {
+          "kind": "article-publication",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "sourceRecordId": "evidence-cd89e2b61db0c3a45bc559cbeba05276684f309f16e3d216ccad0ecee1003849",
+          "assertedDate": "2026-11-10T00:00:00Z",
+          "originalVerificationAt": "2026-11-26T17:29:49+00:00",
+          "datePrecision": "publisher-timestamp-or-day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "google|gemini-4-carbon",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": "2026-11-10",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-carbon",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "google|google/gemini-4-carbon:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-27T03:11:31+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "sourceRecordId": "evidence-b463692a52e4e81a5cc588766c6ea472c61185a3dec3bb890d1b4b30b9ad9c15",
+          "assertedDate": "2026-11-10",
+          "originalVerificationAt": "2026-11-25",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "sourceRecordId": "bff4b3280ce688e61de2",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+          "sourceRecordId": "f6f1c9902b71cf51798f",
+          "sourceId": "llm-world-json",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:20+00:00",
+          "provenance": "existing-discovery"
+        },
+        {
+          "kind": "original-url-pointer",
+          "sourceUrl": "https://deepmind.google/models/model-cards/gemini-4-carbon/",
+          "sourceRecordId": "844f71d9205b0e54b15a",
+          "sourceId": "local-official-candidates",
+          "assertedDate": null,
+          "originalVerificationAt": null,
+          "lastObservedAt": "2026-11-27T03:17:11Z",
+          "provenance": "existing-discovery"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "activeTargets": 16,
+    "attemptedThisRun": 1,
+    "targetStates": {
+      "awaiting-search": 15,
+      "index-unavailable": 1
+    },
+    "targetsWithLocalContext": 15,
+    "localContextRecords": 69,
+    "officialCandidates": 0,
+    "indexReports": 0,
+    "indexLastSuccessAt": null,
+    "indexError": "HTTPError: HTTP Error 429: Too Many Requests",
+    "nextIndexAttemptAt": "2026-11-27T09:17:22.562668+00:00"
+  },
+  "policy": "Search only unresolved observed names. Search hits and index observation times are not release facts, and mirrors are not independent official sources."
+}

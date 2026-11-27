@@ -1,9 +1,9 @@
 {
   "schema": "event-reconciliation/v1",
-  "checkedAt": "2026-11-27T03:11:31+00:00",
+  "checkedAt": "2026-11-27T03:17:37+00:00",
   "inputObservations": {
-    "discovery": "2026-11-27T03:11:27+00:00",
-    "resolution": "2026-11-27T03:11:30+00:00"
+    "discovery": "2026-11-27T03:17:20+00:00",
+    "resolution": "2026-11-27T03:17:35+00:00"
   },
   "evidence": [
     {
@@ -4027,7 +4027,7 @@
       "titles": [
         "Grok Voice 3.0"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://x.ai/news/grok-voice-3"
       ],
@@ -4054,7 +4054,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-2"
       ],
@@ -4081,7 +4081,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4247,7 +4247,7 @@
         "Gemini 4 Hydrogen",
         "Gemini 4 Hydrogen — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
       ],
@@ -4256,7 +4256,20 @@
           "article-date-verified"
         ]
       },
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "1aff7a8d28b89ea8bec8d39356d74a73ae3cbbb72e2c9c0ed82bf9723ae8ead9",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "article-publication": 1,
+          "catalog-listing-observed": 3,
+          "catalog-release": 1,
+          "original-url-pointer": 2
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-31a1cc0af2143c203472b033881c5d85e69acd7856ce51ed1c997615741bba9f",
@@ -4277,10 +4290,21 @@
       "titles": [
         "GPT-Live-1.1 — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "21414fc13ce51484e4f5b425c603b85fbd69b3f0e3b4847b9ab51c63d65617e2",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-release": 1,
+          "historical-api-availability": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-340f5782ee6e213928fa3c22fbd09d3d4ddf5a2e3cc868e682e1ba5bb83de483",
@@ -4317,7 +4341,7 @@
         "GLM-5.4",
         "Z.ai launches GLM-5.4"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://docs.z.ai/guides/llm/glm-5.4",
         "https://z.ai/blog/glm-5.4"
@@ -4401,7 +4425,20 @@
       "lastSourceObservationAt": "2026-11-26T18:03:11+00:00",
       "originalUrls": [],
       "probeStates": {},
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "3bd840f49f12ec7106315b15d5b01bbd6affa6bb1d05927a7ef8650d6b68cae7",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-listing-observed": 3,
+          "historical-early-access": 1,
+          "historical-general-availability": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-42b9602d92b5f32c9d2406450d9e7d00a1e4324d659936ae4d7dfb78e091c27c",
@@ -4445,7 +4482,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4548,7 +4585,7 @@
       "titles": [
         "Gemini Decision 1 — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4582,7 +4619,7 @@
       "titles": [
         "Early progress on accelerating drug development with Claude"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4612,7 +4649,7 @@
         "GPT-6.2 Astra — OpenAI",
         "OpenAI releases GPT-6.2 Astra"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -4621,7 +4658,19 @@
           "date-unresolved"
         ]
       },
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00"
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "sourceSearch": {
+        "targetId": "5fca3baf448a3ee37022bb084d0b1d73153c6a00a790a91cc7220d6aca0e6193",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-listing-observed": 4,
+          "catalog-release": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-57803bd72e7969d9539763b2296e29785abbbf5733a88795c33d790f52b96966",
@@ -4655,10 +4704,22 @@
       "titles": [
         "Gemini Omni 1.2 Flash — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "a3a020c6c27bd085d4e65b2e382d78cc1a07153657220bbced98411fbff7c670",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-listing-observed": 1,
+          "catalog-release": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-6628979144bbe04927b57904563052c6c2a45b2fdd26fbd521f81912aa9aa608",
@@ -4766,7 +4827,18 @@
           "identity-unresolved"
         ]
       },
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00"
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "sourceSearch": {
+        "targetId": "6b42c151f60cc82de210c659a71785ed20ca65d6cd6fba9e4aad00054da48e5b",
+        "status": "index-unavailable",
+        "nextAttemptAt": "2026-11-27T09:17:22.562668+00:00",
+        "localContextKinds": {
+          "catalog-release": 1,
+          "original-url-pointer": 2
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-735589f3de221b6c636e314f1983b02c18fe1f38166a5ef9a4a071ffbf6afc94",
@@ -4871,7 +4943,7 @@
         "Gemini 4 Carbon — Google DeepMind",
         "Google announces Gemini 4 Carbon"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
       ],
@@ -4880,7 +4952,20 @@
           "not-model-announcement"
         ]
       },
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "f3521190c7e1cec59ec5f87b18f8f2bdb269aa0d3cf76063115e3d747f34ab18",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "article-publication": 1,
+          "catalog-listing-observed": 3,
+          "catalog-release": 1,
+          "original-url-pointer": 3
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-87e80a7e392c29321e8f27c42ce3b4902d7a3f78d280c22bd215c4cc68503cc7",
@@ -4936,7 +5021,18 @@
           "fetch-failed"
         ]
       },
-      "nextAttemptAt": "2026-11-27T09:32:47+00:00"
+      "nextAttemptAt": "2026-11-27T09:32:47+00:00",
+      "sourceSearch": {
+        "targetId": "2ebcb011dc5429bb65ce8b57bea0eeca69d29a12b96264f7fdde81e662da79d7",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-release": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-8971bc58c5c1abaca07d19fa188d1dd0c67629878228914f4c50cd55b65c6bd1",
@@ -5017,7 +5113,7 @@
       "titles": [
         "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://elevenlabs.io/blog/scribe-v3-live-medical"
       ],
@@ -5044,7 +5140,7 @@
       "titles": [
         "GPT-6-Cyber — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5084,7 +5180,7 @@
         "GPT-Image-2.6 Sunburst",
         "GPT-Image-2.6 Sunburst — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5093,7 +5189,19 @@
           "identity-unresolved"
         ]
       },
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00"
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "sourceSearch": {
+        "targetId": "3d3235c87dc7b7d86cecee673da809c3e9b1c6ee23e8a56caba48175e7636b7d",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-listing-observed": 1,
+          "catalog-release": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-9e12efa59ffda4e8b0ffb793c7d603bb371baacf33d4b009b2a580ce3c4d7fe6",
@@ -5195,7 +5303,7 @@
         "GPT-Image-2.6 Flare",
         "GPT-Image-2.6 Flare — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5204,7 +5312,19 @@
           "identity-unresolved"
         ]
       },
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00"
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "sourceSearch": {
+        "targetId": "14ba1e813f28373743fb1332cf62f8b720262ceb238877f892d067b32d47ef90",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-listing-observed": 1,
+          "catalog-release": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-b6b1e95bf55bb4092fe2445aa11ae9188302c284f686b76a6ff5fe1d2a213b77",
@@ -5235,7 +5355,7 @@
       "titles": [
         "Muse Ember — Meta AI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5381,7 +5501,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/claude-fable-and-mythos-5-2"
       ],
@@ -5417,7 +5537,7 @@
         "GPT-6.2 Sol — OpenAI",
         "OpenAI releases GPT-6.2 Sol"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -5426,7 +5546,19 @@
           "date-unresolved"
         ]
       },
-      "nextAttemptAt": "2026-11-27T18:41:49+00:00"
+      "nextAttemptAt": "2026-11-27T18:41:49+00:00",
+      "sourceSearch": {
+        "targetId": "d171936a59a651a4a0cef10e742d57c64ed929cdc295ca718f9c8a58e6a5e9e9",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-listing-observed": 4,
+          "catalog-release": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-c9172f8e3a88a7f6c64bdc6fb16b2c99f52768c1e533be99ba14817acc2cbee3",
@@ -5492,7 +5624,18 @@
       "lastSourceObservationAt": "2026-11-26T12:23:07Z",
       "originalUrls": [],
       "probeStates": {},
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "6b42c151f60cc82de210c659a71785ed20ca65d6cd6fba9e4aad00054da48e5b",
+        "status": "index-unavailable",
+        "nextAttemptAt": "2026-11-27T09:17:22.562668+00:00",
+        "localContextKinds": {
+          "catalog-release": 1,
+          "original-url-pointer": 2
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-d684d3dd24dcb3fa26e985245b6ae8bb3d9f423ab71cc8200f23a4ca3becbd28",
@@ -5513,10 +5656,22 @@
       "titles": [
         "Claude Fable 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "670ef3aafeeecfdfcc7b0e373862dff769aabc5e8aac7244d2043de4b43984f1",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "article-publication": 2,
+          "catalog-listing-observed": 3,
+          "catalog-release": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-d6bce343d0c7ff8b92aad0e3236983778eb2045a06a6bd45800e2ae28c0621a7",
@@ -5655,7 +5810,15 @@
       "observedAt": "2026-11-27T03:11:31+00:00",
       "reportedReleaseDate": "2026-11-02",
       "claimType": "catalog-observation",
-      "sourceEventId": "fff2a859fea830b2c61380fa0a1f0ac3b5489f98a4a4a7dcbd74cb3e96137620"
+      "sourceEventId": "fff2a859fea830b2c61380fa0a1f0ac3b5489f98a4a4a7dcbd74cb3e96137620",
+      "sourceSearch": {
+        "targetId": "3662ad369130e57c72f6f71064045548d6c842758884813375c9d3f55103d437",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {},
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-e9c3a8df8ad8d28b58c430905f8061ce743a300d3d66c9f9ae4df0cbb780cf75",
@@ -5716,7 +5879,15 @@
       "observedAt": "2026-11-27T03:11:31+00:00",
       "reportedReleaseDate": "2026-11-02",
       "claimType": "catalog-observation",
-      "sourceEventId": "9071a7e775a02bbd21822b63578acafffc88af6f2067460d36212d882aa2d9f3"
+      "sourceEventId": "9071a7e775a02bbd21822b63578acafffc88af6f2067460d36212d882aa2d9f3",
+      "sourceSearch": {
+        "targetId": "3662ad369130e57c72f6f71064045548d6c842758884813375c9d3f55103d437",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {},
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-f7526c4b65a1c1cab4e6cc63427967c5d74644f8fa5e4085f185be59e261c37d",
@@ -5734,7 +5905,7 @@
       "titles": [
         "GPT-6 Rosalind — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5764,7 +5935,7 @@
         "Gemini 4 Neon — Google DeepMind",
         "Google releases Gemini 4 Neon"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
       ],
@@ -5773,7 +5944,20 @@
           "article-date-verified"
         ]
       },
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "82287b8fe00f14cbcad3f5eb9e16532159c57b926c5e175216e37a824f8161ca",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "article-publication": 1,
+          "catalog-listing-observed": 3,
+          "catalog-release": 1,
+          "original-url-pointer": 3
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-fca5d5ed8a95754b597d9132aff6e7f1e6d6d2727d19d655f458af2b21f7b136",
@@ -5810,7 +5994,7 @@
         "GPT-6.1 Terra",
         "OpenAI releases GPT-6.1 Terra"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-1-terra"
       ],
@@ -5819,7 +6003,19 @@
           "date-unresolved"
         ]
       },
-      "nextAttemptAt": "2026-11-27T19:02:54+00:00"
+      "nextAttemptAt": "2026-11-27T19:02:54+00:00",
+      "sourceSearch": {
+        "targetId": "3843b105fc1b6fdfe30b25bcc6bec85feb6db5d9456562caf855a098e251aab1",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-listing-observed": 3,
+          "catalog-release": 1,
+          "original-url-pointer": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     },
     {
       "id": "task-ffc1a176a1b2d95b6bdd150f71da6ae53e337ab5108f85be1b0d68ff671c13f9",
@@ -5840,10 +6036,20 @@
       "titles": [
         "Claude Mythos 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:11:27+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:17:20+00:00",
       "originalUrls": [],
       "probeStates": {},
-      "nextAttemptAt": null
+      "nextAttemptAt": null,
+      "sourceSearch": {
+        "targetId": "a67180385036954c3156fa7cee88acf3b545a5af8ac587c4a4028032ace7b75b",
+        "status": "awaiting-search",
+        "nextAttemptAt": null,
+        "localContextKinds": {
+          "catalog-release": 1
+        },
+        "indexCandidates": 0,
+        "indexReports": 0
+      }
     }
   ],
   "summary": {
