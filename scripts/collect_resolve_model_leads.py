@@ -16,11 +16,13 @@ try:
         article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json)
     from scripts.collect_cross_platform import article_url
     from scripts.collect_release_recall import url_key, article_day_stamp
+    from scripts.collect_source_search import augment_discovery
 except ModuleNotFoundError:
     from collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
         article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json)
     from collect_cross_platform import article_url
     from collect_release_recall import url_key, article_day_stamp
+    from collect_source_search import augment_discovery
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/lead-resolution.json"
@@ -303,12 +305,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--discovery", type=Path)
+    parser.add_argument("--source-search", type=Path)
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
     def read(path, default=None):
         p = ROOT / path
         return json.loads(p.read_text(encoding="utf-8")) if p.exists() else default
     discovery = json.loads(args.discovery.read_text(encoding="utf-8")) if args.discovery else read("site/data/cross-platform-discovery.json", {})
+    search_state = read(args.source_search, {}) if args.source_search else ({} if args.discovery else read("site/data/source-search.json", {}))
+    discovery = augment_discovery(discovery, search_state)
     result = resolve(discovery, {} if args.discovery else read(OUTPUT, {}),
                      read("config/cross-platform-sources.json"), read("config/model-sources.json"),
                      read("site/data/models.json"), datetime.now(timezone.utc))

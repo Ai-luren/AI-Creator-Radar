@@ -14,11 +14,13 @@ try:
     from scripts.collect_release_recall import url_key
     from scripts.audit_model_completeness import audit
     from scripts.event_identity import associate_leads, day, identify, model_index
+    from scripts.collect_source_search import augment_discovery
 except ModuleNotFoundError:
     from collect_models import write_json
     from collect_release_recall import url_key
     from audit_model_completeness import audit
     from event_identity import associate_leads, day, identify, model_index
+    from collect_source_search import augment_discovery
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/event-reconciliation.json"
@@ -37,7 +39,7 @@ def task_id(*identity):
     return "task-" + digest(identity)
 
 
-def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None):
+def reconcile(families, discovery, resolution, gaps, previous, now, product_state=None, search_state=None):
     stamp = now.isoformat(timespec="seconds")
     if previous and previous.get("schema") != "event-reconciliation/v1":
         raise ValueError("Unrecognized evidence ledger schema; refusing to replace it")
@@ -191,6 +193,27 @@ def reconcile(families, discovery, resolution, gaps, previous, now, product_stat
                  else "no-longer-in-current-input")
         tasks[tid] = {**old, "state": state}
 
+    # A search task may have useful historical or product context even when the
+    # external index is blocked. Link it, but do not close an unresolved event
+    # on a catalog listing, a different date, or a prior canonical assertion.
+    searches = (search_state or {}).get("targets", [])
+    by_identity = {(s["identity"]["modelFamilyId"], s["identity"]["modelVersionId"]): s
+                   for s in searches if s.get("active") and s.get("identity")}
+    by_origin = {origin: s for s in searches if s.get("active") for origin in s.get("originIds", [])}
+    for task in tasks.values():
+        obj = task.get("identity") or {}
+        target = by_identity.get((obj.get("modelFamilyId"), obj.get("modelVersionId"))) or by_origin.get(task["id"])
+        if not target:
+            target = next((by_origin[lead] for lead in task.get("leadIds", []) if lead in by_origin), None)
+        if target:
+            task["sourceSearch"] = {"targetId": target["id"], "status": target.get("status", "awaiting-search"),
+                                    "nextAttemptAt": target.get("nextAttemptAt"),
+                                    "localContextKinds": dict(sorted(Counter(r["kind"] for r in target.get("localContext", [])).items())),
+                                    "indexCandidates": sum(bool(r.get("officialCandidateUrl")) for r in target.get("results", [])),
+                                    "indexReports": sum(not r.get("officialCandidateUrl") for r in target.get("results", []))}
+        else:
+            task.pop("sourceSearch", None)
+
     counts = dict(sorted(Counter(t["state"] for t in tasks.values()).items()))
     return {"schema": "event-reconciliation/v1", "checkedAt": stamp,
             "inputObservations": {"discovery": discovery.get("checkedAt"), "resolution": resolution.get("checkedAt")},
@@ -210,6 +233,7 @@ def main():
     parser.add_argument("--discovery", type=Path)
     parser.add_argument("--resolution", type=Path)
     parser.add_argument("--product-state", type=Path)
+    parser.add_argument("--source-search", type=Path)
     args = parser.parse_args()
     def read(path, optional=False):
         if optional and not path.exists():
@@ -220,10 +244,12 @@ def main():
     report = audit(families, read(directory / "topics.json"), read(ROOT / "config/chronicle-release-links.json"))
     if report["errors"]:
         raise ValueError("Cannot reconcile an invalid canonical catalog")
-    result = reconcile(families, read(args.discovery or directory / "cross-platform-discovery.json"),
+    discovery = read(args.discovery or directory / "cross-platform-discovery.json")
+    search_state = read(args.source_search or directory / "source-search.json", optional=True)
+    result = reconcile(families, augment_discovery(discovery, search_state),
                        read(args.resolution or directory / "lead-resolution.json"),
                        report["gaps"], read(OUTPUT, optional=True), datetime.now(timezone.utc),
-                       read(args.product_state or directory / "product-state.json", optional=True))
+                       read(args.product_state or directory / "product-state.json", optional=True), search_state)
     print("Event reconciliation:", json.dumps(result["summary"], ensure_ascii=False))
     if not args.dry_run:
         write_json(OUTPUT, result)
