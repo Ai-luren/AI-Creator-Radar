@@ -1,6 +1,6 @@
 {
   "schema": "event-claims/v1",
-  "checkedAt": "2026-11-27T04:20:22+00:00",
+  "checkedAt": "2026-11-27T04:32:04+00:00",
   "claims": [
     {
       "id": "claim-0c45f142be97a721c98631cdb5de969fabc199e53c61eeb070230710cf2dc2c6",
@@ -17,7 +17,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -26,7 +26,7 @@
           "sourceRecordId": "7da833b2efddae371a",
           "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-is-rolling-out-with-new-voices-and-better-accents/1406704",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -45,7 +45,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -54,7 +54,7 @@
           "sourceRecordId": "5a535246782e7978fb",
           "sourceUrl": "https://autoclaw.z.ai/en/blog/model/glm-5.3-flash/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -73,7 +73,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -82,7 +82,7 @@
           "sourceRecordId": "ef456e7b07534100f9",
           "sourceUrl": "https://elevenlabs.io/blog/scribe-v3",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -101,7 +101,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -110,7 +110,7 @@
           "sourceRecordId": "e9050b86b978f082d4",
           "sourceUrl": "https://autoclaw.z.ai/en/blog/model/GLM-5.4/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -185,7 +185,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -194,7 +194,7 @@
           "sourceRecordId": "b2cab39b783d8ad409",
           "sourceUrl": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -213,7 +213,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -222,7 +222,7 @@
           "sourceRecordId": "9b4e4228387e830531",
           "sourceUrl": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -241,7 +241,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -250,7 +250,7 @@
           "sourceRecordId": "8e450599cbb0276aac",
           "sourceUrl": "https://openai.com/index/devrev-enterprise-self-service",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -297,7 +297,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -306,7 +306,7 @@
           "sourceRecordId": "a72931a6134adb8d46",
           "sourceUrl": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
         }
       ]
     },
@@ -353,7 +353,7 @@
         "evidenceGrade": "official-article-date"
       },
       "firstObservedAt": "2026-11-27T03:23:12Z",
-      "lastSuccessfulObservationAt": "2026-11-27T04:20:02Z",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:45Z",
       "observedInInput": true,
       "currentSuccessfulObservation": true,
       "provenance": [
@@ -362,7 +362,35 @@
           "sourceRecordId": "ddcbda59e5408a91b0",
           "sourceUrl": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5",
           "firstObservedAt": "2026-11-27T03:23:12Z",
-          "lastObservedAt": "2026-11-27T04:20:02Z"
+          "lastObservedAt": "2026-11-27T04:31:45Z"
+        }
+      ]
+    },
+    {
+      "id": "claim-d6c1b01e78d6af70868a5d6829bb4ecaef900073f30a44dd3c2684c231d70898",
+      "fact": {
+        "modelFamilyId": "glm",
+        "modelVersionId": "5-4",
+        "claimType": "article-publication",
+        "service": null,
+        "publisherTitle": "GLM-5.4：瞄向泛Coding，首个Loop Transformer带来的惊喜",
+        "sourceUrlKey": "https://www.zhipuai.cn/zh/research/164",
+        "articlePublishedAt": "2026-11-22T00:00:00Z",
+        "publisherCalendarDay": "2026-11-22",
+        "eventDate": null,
+        "evidenceGrade": "official-article-date"
+      },
+      "firstObservedAt": "2026-11-27T04:31:59+00:00",
+      "lastSuccessfulObservationAt": "2026-11-27T04:31:59+00:00",
+      "observedInInput": true,
+      "currentSuccessfulObservation": true,
+      "provenance": [
+        {
+          "channel": "official-article-recovery",
+          "sourceRecordId": "recovery-224aeea821d78431f57b",
+          "sourceUrl": "https://www.zhipuai.cn/zh/research/164",
+          "firstObservedAt": "2026-11-27T04:31:59+00:00",
+          "lastObservedAt": "2026-11-27T04:31:59+00:00"
         }
       ]
     },
@@ -454,13 +482,13 @@
   "articleDateConflicts": [],
   "releaseStatementReviewCandidates": [],
   "summary": {
-    "claims": 16,
-    "newClaims": 0,
+    "claims": 17,
+    "newClaims": 1,
     "byType": {
       "announcement-statement": 2,
-      "article-publication": 14
+      "article-publication": 15
     },
-    "currentSuccessfulObservations": 9,
+    "currentSuccessfulObservations": 10,
     "articleDateConflicts": 0,
     "releaseStatementReviewCandidates": 0
   },

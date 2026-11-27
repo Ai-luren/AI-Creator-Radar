@@ -4,7 +4,7 @@
   "windowDays": 30,
   "windowStart": "2026-10-29",
   "windowEnd": "2026-11-27",
-  "updatedAt": "2026-11-27T04:20:19Z",
+  "updatedAt": "2026-11-27T04:32:02Z",
   "categories": [
     "video",
     "image",
@@ -650,6 +650,20 @@
   ],
   "pending": [
     {
+      "id": "0351771805610057a8",
+      "category": "llm",
+      "vendor": "智谱 / Z.ai",
+      "title": "GLM-5-Turbo",
+      "summary": "",
+      "url": "https://www.zhipuai.cn/en/research/155",
+      "sourceName": "智谱国内官网研究动态",
+      "publishedAt": null,
+      "discoveredAt": "2026-11-27T04:31:45Z",
+      "modelFamilyId": "glm",
+      "updateType": "model-card",
+      "verificationStatus": "pending"
+    },
+    {
       "id": "af4d0f19fa8b56e83f",
       "category": "llm",
       "vendor": "Google",
@@ -702,6 +716,20 @@
       "publishedAt": "2026-11-23T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "qwen-audio-realtime",
+      "updateType": "model-card",
+      "verificationStatus": "pending"
+    },
+    {
+      "id": "871cbddf6336174843",
+      "category": "llm",
+      "vendor": "智谱 / Z.ai",
+      "title": "GLM-5.4",
+      "summary": "",
+      "url": "https://www.zhipuai.cn/zh/research/164",
+      "sourceName": "智谱国内官网研究动态",
+      "publishedAt": "2026-11-22T00:00:00Z",
+      "discoveredAt": "2026-11-27T04:31:45Z",
+      "modelFamilyId": "glm",
       "updateType": "model-card",
       "verificationStatus": "pending"
     },

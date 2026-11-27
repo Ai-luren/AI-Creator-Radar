@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T04:20:20+00:00",
+  "checkedAt": "2026-11-27T04:32:03+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -53,14 +53,14 @@
       "lastSuccessAt": "2026-11-27T04:20:20+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-27T10:20:20.051088+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T04:20:20+00:00",
+    "checkedAt": "2026-11-27T04:32:03+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -125,7 +125,7 @@
       "lastSuccessAt": "2026-11-27T04:20:20+00:00",
       "nextAttemptAt": "2026-11-27T05:20:20.051088+00:00"
     },
-    "attemptedThisRun": 1,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -161,7 +161,7 @@
   ],
   "summary": {
     "configuredSources": 2,
-    "successfulThisRun": 1,
+    "successfulThisRun": 0,
     "baselineSources": 1,
     "listedModels": 0,
     "reviewedObservations": 1
