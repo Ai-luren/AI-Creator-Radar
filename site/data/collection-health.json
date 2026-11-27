@@ -20,8 +20,8 @@
       "consecutiveFailures": 0
     },
     "models-batch": {
-      "lastAttemptAt": "2026-11-27T06:48:27+00:00",
-      "lastSuccessAt": "2026-11-27T06:48:27+00:00",
+      "lastAttemptAt": "2026-11-27T07:27:49+00:00",
+      "lastSuccessAt": "2026-11-27T07:27:49+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
@@ -37,5 +37,19 @@
       "status": "healthy",
       "consecutiveFailures": 0
     }
+  },
+  "incidents": [],
+  "incidentMeasurementStartedAt": "2026-11-27T07:27:49+00:00",
+  "incidentSummary": {
+    "observedIncidents": 0,
+    "openIncidents": 0,
+    "closedIncidents": 0,
+    "scheduledRecoveries": 0,
+    "otherOrUnknownTriggerRecoveries": 0,
+    "leftCensoredIncidents": 0,
+    "scheduledRecoveryShareOfClosed": null,
+    "durationMeasured": 0,
+    "maxRecoverySeconds": null,
+    "policy": "Observed workflow-level failure episodes only. A scheduled successful run proves scheduled recovery, not that the root cause was repaired without human intervention. Dispatch/push excluded from scheduled numerator; no denominator of independently adjudicated recoverable failures. Empty cohort is not 100%."
   }
 }
