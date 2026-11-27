@@ -6,15 +6,38 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-27T11:17:46+00:00",
-  "etag": "W/\"v1-items-3ba098d7e5ad0fee\"",
+  "fetchedAt": "2026-11-27T13:02:32+00:00",
+  "etag": "W/\"v1-items-74c677dbeda94232\"",
   "schemaVersion": 1,
   "page": {
-    "count": 3,
+    "count": 4,
     "hasMore": false,
     "nextCursor": null
   },
   "items": [
+    {
+      "id": "tiqf353lek6sib8ktn8uvc6nc",
+      "title": "Antigravity 实用技巧：在 GEMINI.md 加一句话让模型边干活边汇报",
+      "originalTitle": "分享个Antigravity的小技巧。",
+      "summary": "卡兹克分享一个 Antigravity 使用技巧，针对模型长时间闷头干活不输出信息的问题，只需在 GEMINI.md 中加一句话，要求动手前说要做什么、有发现、换方向、卡住或连干四五步时再说一句，即可获得类似 Claude 或 Codex 那种实时汇报进度的交互体验。",
+      "source": {
+        "name": "X：卡兹克 (@Khazix0918)"
+      },
+      "links": {
+        "aihot": "https://aihot.news/items/tiqf353lek6sib8ktn8uvc6nc",
+        "original": "https://x.com/Khazix0918/status/2126294658431201385"
+      },
+      "publishedAt": "2026-11-27T12:38:45.000Z",
+      "discoveredAt": "2026-11-27T12:45:40.577Z",
+      "category": "tip",
+      "score": 69,
+      "selected": true,
+      "reason": "原文给出了可直接复用的 GEMINI.md 提示词，让 Antigravity 边干活边汇报进度，改善交互掌控感。",
+      "attribution": {
+        "name": "AIHOT",
+        "url": "https://aihot.news/items/tiqf353lek6sib8ktn8uvc6nc"
+      }
+    },
     {
       "id": "v5fxjqr2vapkk9vn1j9a8ke96",
       "title": "Dragos 调查称 MiniMax 在用户请求不存储的情况下仍打开提示词中的私有链接",
@@ -84,6 +107,5 @@
         "url": "https://aihot.news/items/jcdfpftbam647yhc210dbace9"
       }
     }
-  ],
-  "checkedAt": "2026-11-27T12:32:37+00:00"
+  ]
 }

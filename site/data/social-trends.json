@@ -1,7 +1,7 @@
 {
   "source": "Google Trends RSS",
   "sourceUrl": "https://trends.google.com/trending",
-  "fetchedAt": "2026-11-27T07:03:44Z",
+  "fetchedAt": "2026-11-27T13:03:43Z",
   "window": "7d",
   "metricDefinition": "approxSearchTraffic is an approximate search-volume bucket supplied by Google Trends. It is not a social-platform engagement metric.",
   "regions": {
@@ -40,103 +40,9 @@
   },
   "items": [
     {
-      "id": "google-search-trend-f64b4bc99601",
+      "id": "google-search-trend-959f80735618",
       "type": "search-trend",
-      "title": "gta 6 pc port",
-      "category": "games",
-      "categoryLabel": "游戏 / 电竞话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "US",
-      "regionName": "美国",
-      "publishedAt": "2026-11-27T05:40:00Z",
-      "approxSearchTraffic": "1000+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=gta+6+pc+port",
-      "relatedNews": [
-        {
-          "title": "Rockstar Squashes \"Leonida,\" the Biggest GTA 6 PC Recompilation Effort",
-          "source": "TechPowerUp",
-          "url": "https://www.techpowerup.com/355160/rockstar-squashes-leonida-the-biggest-gta-6-pc-recompilation-effort",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLPGhaLF4Vyk3HaSsWJhlK3cD6byct8tcPeGY4cYV3yJtBFzgt7rdGVECyzM0"
-        },
-        {
-          "title": "Cyberleek Reportedly Releases .exe File for Xbox Build",
-          "source": "IGN",
-          "url": "https://www.ign.com/articles/gta-6-leaker-cyberleek-reportedly-releases-exe-file-for-xbox-build-sparking-concern-an-unofficial-pc-port-could-be-around-the-corner",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcStq4gFUYn1R_emxRhDqC4yPQh-NeP9Rejd4fQmRa8_AbVaf60ppFLZwoSNUPc"
-        },
-        {
-          "title": "Vibecoded GTA 6 PC Ports Are Now Rendering In-Game Graphics Despite Take-Two Crackdown",
-          "source": "Decrypt",
-          "url": "https://decrypt.co/384061/vibecoded-gta-6-pc-ports-are-now-rendering-in-game-graphics-despite-take-two-crackdown",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3IlqXMZKDIdYzZpf-ER-McOBbNqkfSCPbea3voeN2YqplSZ5rDALg5jqGGfI"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "US",
-          "regionName": "美国",
-          "publishedAt": "2026-11-27T05:40:00Z",
-          "approxSearchTraffic": "1000+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=gta+6+pc+port"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-6da9449fac4f",
-      "type": "search-trend",
-      "title": "sidelined 3 end game",
-      "category": "games",
-      "categoryLabel": "游戏 / 电竞话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "IN",
-      "regionName": "印度",
-      "publishedAt": "2026-11-27T06:00:00Z",
-      "approxSearchTraffic": "500+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=sidelined+3+end+game",
-      "relatedNews": [
-        {
-          "title": "How to watch Sidelined 3: Endgame on Tubi (it's free)",
-          "source": "TechRadar",
-          "url": "https://www.techradar.com/entertainment/how-to-watch/how-to-watch-sidelined-3-endgame-on-tubi-its-free",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTe-LT8RZZiuxt6vSstYMYpRB4BptLjtz0KWxR1LdpIxP0OaJx07vHLk0z7KeQ"
-        },
-        {
-          "title": "Tubi bet on a TikTok star for its first YA movie. Three films later, it’s doubling down.",
-          "source": "Los Angeles Times",
-          "url": "https://www.latimes.com/entertainment-arts/business/story/2026-11-26/tubi-sidelined-influencers-ya-creatorverse",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRw27KLpjyyUANGfxT9oW6ltB1GP1-NAIpucIejuVZ6aW16zn0fotEApNq70qg"
-        },
-        {
-          "title": "Sequel to “surprisingly enjoyable” romcom with Carrie star is now streaming for free",
-          "source": "Yahoo Entertainment UK",
-          "url": "https://uk.movies.yahoo.com/sequel-surprisingly-enjoyable-romcom-carrie-210900057.html",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSFywk-7oBF0nCTK6OD1DLgFLP0KKKgEMYThzVXiYzI94tDXNb75gxNWTkitA8"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "IN",
-          "regionName": "印度",
-          "publishedAt": "2026-11-27T06:00:00Z",
-          "approxSearchTraffic": "500+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=sidelined+3+end+game"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-4a4ca0aeb206",
-      "type": "search-trend",
-      "title": "gta lucia actress",
+      "title": "disney plus",
       "category": "film_tv",
       "categoryLabel": "影视 / 文娱话题",
       "source": {
@@ -146,27 +52,27 @@
       "region": "overseas",
       "regionCode": "GB",
       "regionName": "英国",
-      "publishedAt": "2026-11-27T06:50:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=gta+lucia+actress",
+      "publishedAt": "2026-11-27T12:30:00Z",
+      "approxSearchTraffic": "1000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=disney+plus",
       "relatedNews": [
         {
-          "title": "I’m a female gamer — Lucia from Grand Theft Auto is a dream come true",
-          "source": "The Times",
-          "url": "https://www.thetimes.com/culture/gaming/article/im-a-female-gamer-lucia-from-grand-theft-auto-is-a-dream-come-true-m7qt5jvr3",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQwFNQi4FK2Tku4zzG36EL-FENE-B7KegNEyXzLaNWAwr0xXOwbtvVJhsI20cM"
+          "title": "\"Breaking Spencer Matthews\" Coming Soon To Disney+",
+          "source": "whatsondisneyplus.com",
+          "url": "https://whatsondisneyplus.com/breaking-spencer-matthews-coming-soon-to-disney/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiXqqRCYTGm2ZLBNA1gdPtK6lmhh7mh-5lIQ_BtdH-ZDrdZQ9s30Myd0YxfM8"
         },
         {
-          "title": "Lucia Actress Manni L. Perez Issues First Statement Since GTA 6 Launch",
-          "source": "IGN",
-          "url": "https://www.ign.com/articles/lucia-actress-manni-l-perez-issues-first-statement-since-gta-6-launch",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOUlHMjaImz7AOYxFupZB44SRi5LFMpWpi5nLUUO1c8TZsbBZGh8NaV2VnMo8"
+          "title": "Hulu for $5 a month, HBO Max for $5.49 and all the other Black Friday streaming deals",
+          "source": "The Guardian",
+          "url": "https://www.theguardian.com/thefilter-us/2026/nov/26/best-streaming-black-friday-deals",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSKckHtuaRpwjBX0eXpcYgB79yzy76Uat0n_sgwGfkG9kf5zfpcxFBgEnj_IXs"
         },
         {
-          "title": "Older GTAs weren't good to women, says Rockstar vet delighted by Lucia",
-          "source": "PC Gamer",
-          "url": "https://www.pcgamer.com/games/grand-theft-auto/gtas-treatment-of-women-has-not-been-good-says-rockstar-vet-delighted-by-long-overdue-female-protagonist-in-gta-6/",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKlWeh5Ow5RAz5xbkGwabzN9ZwmdBBA8fiIVMBrO-PgcTD979dZ7URPzL_DRs"
+          "title": "The Best Black Friday Streaming Deals on Apple TV, Disney Plus, and More",
+          "source": "WIRED",
+          "url": "https://www.wired.com/story/black-friday-streaming-deals-11-27-2026/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSZqNQRoslyWfhykRyVUa_IA7ixSL_a4Lj8Er6tXO2HRxMELsJWOuqxSl0bk_A"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
@@ -174,18 +80,18 @@
         {
           "regionCode": "GB",
           "regionName": "英国",
-          "publishedAt": "2026-11-27T06:50:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=gta+lucia+actress"
+          "publishedAt": "2026-11-27T12:30:00Z",
+          "approxSearchTraffic": "1000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=disney+plus"
         }
       ]
     },
     {
-      "id": "google-search-trend-8ea09f861f5d",
+      "id": "google-search-trend-b3a0f0f6604a",
       "type": "search-trend",
-      "title": "netflix the body",
-      "category": "film_tv",
-      "categoryLabel": "影视 / 文娱话题",
+      "title": "bangladesh a vs pakistan a",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
@@ -193,27 +99,39 @@
       "region": "overseas",
       "regionCode": "AU",
       "regionName": "澳大利亚",
-      "publishedAt": "2026-11-27T06:20:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=netflix+the+body",
+      "publishedAt": "2026-11-27T10:30:00Z",
+      "approxSearchTraffic": "1000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=bangladesh+a+vs+pakistan+a",
       "relatedNews": [
         {
-          "title": "One Actor From The Body Is Also In Josh Hartnett's Nautical Netflix Monster Series",
-          "source": "IMDb",
-          "url": "https://www.imdb.com/es/news/ni66129820/?ref_=nwc_art_perm",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRrYk59gHJx1sDD2q5TTeL_2FNGggYNy4M_euhp4hQQ8bSMvnvQBuR96Y0ZjKQ"
+          "title": "Bangladesh A Elect To Bat First Against Pakistan Shaheens In Rising Stars Semi-Final",
+          "source": "WE News English",
+          "url": "https://wenewsenglish.com/pakistan-bangladesh-rising-stars-semi-final/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRFi3EGy1g2ea5pGQNQIgSkc32Ef1dLsEtU2g-NtXcOs1hgPdAmx9nB47QTOkQ"
         },
         {
-          "title": "One Actor From The Body Is Also In Josh Hartnett's Nautical Netflix Monster Series",
-          "source": "TVLine",
-          "url": "https://www.tvline.com/2322724/the-body-actor-also-in-josh-hartnett-natflix-monster-series-below/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRnvAoEPod5-nooxUz2rqXy9PpDLt-yi7YCepe2coGsMfc4F0sxvhk5xVSi-sM"
+          "title": "Pakistan Captain Targets All-Round Excellence To Reach Asia Cup Rising Stars Final",
+          "source": "WE News English",
+          "url": "https://wenewsenglish.com/pakistan-captain-targets-all-round-excellence-to-reach-asia-cup-rising-stars-final/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQnIuVouGey0-zf9VBw3mkC839NSr0gAkKZaZa316lP8lU65VKE8uTS475vEeA"
         },
         {
-          "title": "Sara Boustany Has A 'The Body' Season 2 Pitch. She’s Keeping It to Herself.",
-          "source": "NYLON",
-          "url": "https://www.nylon.com/entertainment/sara-boustany-the-body-netflix-season-one",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ09SU36Ikp15yNbbJVcYKNvIKJRQg_HD9D094kp1WZMiV3AonTCN6ITgXjJm4"
+          "title": "Unbeaten Pakistan Shaheens to Face Bangladesh A in Asia Cup Rising Stars Semi-Final Tomorrow",
+          "source": "WE News English",
+          "url": "https://wenewsenglish.com/unbeaten-pakistan-shaheens-to-face-bangladesh-a-in-asia-cup-rising-stars-semi-final-tomorrow/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQnIuVouGey0-zf9VBw3mkC839NSr0gAkKZaZa316lP8lU65VKE8uTS475vEeA"
+        },
+        {
+          "title": "Bangladesh A vs Pakistan A, free match prediction 27 November 2026",
+          "source": "TheTopBookies",
+          "url": "https://www.thetopbookies.com/betting-tips/cricket/bana-vs-pak-a-27-Nov-2026",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQF-KT4_0lVDgl9fZ1fjvNdHjDjMe6fwhCiugQ0qlbGgU9dUUmo7RMRzqWHdLY"
+        },
+        {
+          "title": "SHA vs BAN-A 2nd Semi-Final: Pitch Report, Player Stats & Form",
+          "source": "AI11",
+          "url": "https://www.ai11.in/cricket/series/asia-cup-rising-stars-2026-27/match/bangladesh-a-vs-pakistan-shaheen-2nd-semi-final-2026",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR75QeOM75nNIdynTP7fr0a_VlEfFs0UMaX6HwHzCqWDb-oSyTKlVnotVKokpE"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
@@ -221,103 +139,204 @@
         {
           "regionCode": "AU",
           "regionName": "澳大利亚",
-          "publishedAt": "2026-11-27T06:20:00Z",
+          "publishedAt": "2026-11-27T10:00:00Z",
+          "approxSearchTraffic": "1000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=bangladesh+a+vs+pakistan+a"
+        },
+        {
+          "regionCode": "KR",
+          "regionName": "韩国",
+          "publishedAt": "2026-11-27T10:30:00Z",
           "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=netflix+the+body"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=KR&q=bangladesh+a+vs+pakistan+a"
         }
       ]
     },
     {
-      "id": "google-search-trend-37033cf809f1",
+      "id": "google-search-trend-cf5f5f6a336c",
       "type": "search-trend",
-      "title": "arvind kejriwal sheesh mahal media tour",
-      "category": "music",
-      "categoryLabel": "音乐 / MV 话题",
+      "title": "perth scorchers vs hobart hurricanes",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "IN",
-      "regionName": "印度",
-      "publishedAt": "2026-11-27T06:20:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=arvind+kejriwal+sheesh+mahal+media+tour",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-27T10:20:00Z",
+      "approxSearchTraffic": "500+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=perth+scorchers+vs+hobart+hurricanes",
       "relatedNews": [
         {
-          "title": "Rs 11-Lakh Chandelier, 30-Lakh TV Unit: Inside Arvind Kejriwal's 'Sheesh Mahal'",
-          "source": "NDTV",
-          "url": "https://www.ndtv.com/india-news/arvind-kejriwals-sheesh-mahal-media-tour-begins-rs-11-lakh-chandelier-2-lakh-recliner-seen-12383158",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTeaJaA3XmcgI79WnNI63LPEmSrdA5aEmVS3Cw-bmmOI_gNlEcwzuMGI2EKRYQ"
+          "title": "Women's Big Bash 2026-27 LIVE: Perth Scorchers vs Hobart Hurricanes - cricket score & commentary",
+          "source": "BBC",
+          "url": "https://www.bbc.com/sport/cricket/live/c6gqww8wkw2zt",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXzby_GTnZlH160hQh7XMvWUE30iU1Pn5fnW-Hq72cAFp0fW_fO7zSRspPbPU"
         },
         {
-          "title": "'Rs 5.47 lakh sofa, Rs 11 lakh chandelier': Delhi govt opens doors of Arvind Kejriwal's 'Sheesh Mahal'; h",
-          "source": "The Times of India",
-          "url": "https://timesofindia.indiatimes.com/city/delhi/delhi-govt-opens-arvind-kejriwals-sheesh-mahal-to-media-plans-public-tours-with-rs-20-entry-fee/articleshow/136208848.cms",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmC0Q8wSAgGmulATp0e28YBWAfby4T5yRmN4506Kb__6dSNXs_rISOxcR90Uc"
+          "title": "WBBL 2026: Perth Scorchers vs Hobart Hurricanes match 36 preview and prediction",
+          "source": "Cricket World",
+          "url": "https://www.cricketworld.com/match-predictions-womens-big-bash-league-2026-36th-match-perth-scorchers-women-vs-hobart-hurricanes-women-november-27th/114540.htm",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR0bOzo1EW_gtjjwtwDhmsFRDtytiecxfKqfg4SsJUVMOdDDjMhAoJzgqpVGlE"
         },
         {
-          "title": "Powder room worth Rs 5.8 lakh, kitchen with dumbwaiter: Arvind Kejriwal's ex-bungalow open to public",
-          "source": "The New Indian Express",
-          "url": "https://www.newindianexpress.com/cities/delhi/2026/Nov/27/powder-room-worth-rs-58-lakh-kitchen-with-dumbwaiter-arvind-kejriwals-ex-bungalow-open-to-public",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpQ8GDdRIE_UqougS3R82vZUIGMerI5LbSTDD9mA7Ggy-hFxES6U1yrngfkmE"
+          "title": "WBBL 2026: Match 36, PS W vs HH W Match Prediction – Who will win today’s WBBL match between Perth Scorchers Women vs Hobart Hurricanes Women?",
+          "source": "CricTracker",
+          "url": "https://www.crictracker.com/cricket-match-predictions/wbbl-2026-match-36-ps-w-vs-hh-w-match-prediction-who-will-win-todays-wbbl-match-between-perth-scorchers-women-vs-hobart-hurricanes-women/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ2l8zvNowRbLniAgOahCma2PmGHY6V_KnrLQBV9pfUf4ynDM9VYo12cgSTZ8s"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "IN",
-          "regionName": "印度",
-          "publishedAt": "2026-11-27T06:20:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=IN&q=arvind+kejriwal+sheesh+mahal+media+tour"
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-27T10:20:00Z",
+          "approxSearchTraffic": "500+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=perth+scorchers+vs+hobart+hurricanes"
         }
       ]
     },
     {
-      "id": "google-search-trend-256a221e45ef",
+      "id": "google-search-trend-6f4fda506bbc",
       "type": "search-trend",
-      "title": "ocelot jugular gta 6",
-      "category": "games",
-      "categoryLabel": "游戏 / 电竞话题",
+      "title": "twickenham stadium nations championship opening night",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "US",
-      "regionName": "美国",
-      "publishedAt": "2026-11-27T06:10:00Z",
+      "regionCode": "GB",
+      "regionName": "英国",
+      "publishedAt": "2026-11-27T12:50:00Z",
       "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=ocelot+jugular+gta+6",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=twickenham+stadium+nations+championship+opening+night",
       "relatedNews": [
         {
-          "title": "How to get Ocelot Jugular in GTA 6 explained",
-          "source": "Radio Times",
-          "url": "https://www.radiotimes.com/technology/gaming/gta-6-how-to-get-ocelot-jugular-explained/",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQD6Dv5w8kSBiFwV314PgaXvRxywfNKyEkEOdYWYSo-mD2H-KB5XfBKI8t4YBs"
+          "title": "Twickenham set to be half empty for Nations Championship finals opening night",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/sport/rugby-union/articles/c65y1k8428qdo",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ4Q4EHwanRxmCCkLYhulNhy-etHnKgj2elFrzDzggaq9D3XI1rgamayXEr31c"
         },
         {
-          "title": "Here's where you can steal the Ocelot Bloodless Jugular for Randy in GTA 6",
-          "source": "PC Gamer",
-          "url": "https://www.pcgamer.com/games/grand-theft-auto/gta-6-ocelot-bloodless-jugular-location/",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0awenYdhO4eAIsPFTY2xB9dWAsouwXWO9zhiLPY0N84A8oXk13fC-ftDxGgA"
+          "title": "Ireland v Australia: All you need to know",
+          "source": "RTE.ie",
+          "url": "https://www.rte.ie/sport/rugby/2026/1126/1600812-ireland-v-australia-all-you-need-to-know/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ7kCKgC-3mNlsGrkvM2MLRQgv-v1aG1RTEuirdxFWGad5Yq_86yzPoms8muOQ"
         },
         {
-          "title": "How to get Ocelot Jugular for Randy's Wish List in GTA 6. Location of Bloodless Jugular, how to keep this car version",
-          "source": "escorenews.com",
-          "url": "https://escorenews.com/en/article/82938-how-to-get-ocelot-jugular-for-randy-s-wish-list-in-gta-6-location-of-bloodless-jugular-how-to-keep-this-car-version",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRUM-v_wW1-GAaTDn-eSS9if6dbv5_SV5eNgz7PaGx2LTZYRqvgs1VGANb-kWs"
+          "title": "Ireland vs Australia: Mack Hansen out with injury as Nick Timoney replaces suspended Dan Sheehan for Nations Championship clash",
+          "source": "Sky Sports",
+          "url": "https://www.skysports.com/rugby-union/news/13616405/ireland-vs-australia-mack-hansen-out-with-injury-as-nick-timoney-replaces-suspended-dan-sheehan-for-nations-championship-clash",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLTbS7gWyorz_9H5Q5OBA4HQdE7nik8UummlRK_05JmbM_BOUY26H3ARDt-9o"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "US",
-          "regionName": "美国",
-          "publishedAt": "2026-11-27T06:10:00Z",
+          "regionCode": "GB",
+          "regionName": "英国",
+          "publishedAt": "2026-11-27T12:50:00Z",
           "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=ocelot+jugular+gta+6"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=twickenham+stadium+nations+championship+opening+night"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-6b19adeaa953",
+      "type": "search-trend",
+      "title": "はだかんぼうたちドラマ",
+      "category": "film_tv",
+      "categoryLabel": "影视 / 文娱话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "JP",
+      "regionName": "日本",
+      "publishedAt": "2026-11-27T12:30:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=%E3%81%AF%E3%81%A0%E3%81%8B%E3%82%93%E3%81%BC%E3%81%86%E3%81%9F%E3%81%A1%E3%83%89%E3%83%A9%E3%83%9E",
+      "relatedNews": [
+        {
+          "title": "高木雄也“拓”、加藤ローサ“桃”と禁断のベッドシーンで幕切れ…破滅へ向かう四角関係に「ショック」＜はだかんぼうたち＞",
+          "source": "Yahoo!ニュース",
+          "url": "https://news.yahoo.co.jp/articles/ae13bd04d2bb02c8c6a2f4d689eab02d07a8a1f7",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR87Wpl2_j2j9ZFOGHGxaBixVtORAZKq_1FHhHCUYlG1Zi2ifZud3-qBn8S_pU"
+        },
+        {
+          "title": "はだかんぼうたち 11月21日(土)放送分 第7話 死んでも恋しない、最低男｜ドラマ｜見逃し無料配信はTVer！人気の動画見放題",
+          "source": "TVer",
+          "url": "https://tver.jp/episodes/ep3sgyxqmv",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrhfQJtFbYdj1N9NXXZVfqAdBg0uoWlXAnFzH8d0ovc9GsGbJUmGpzsCO_WGU"
+        },
+        {
+          "title": "“年上人妻”大沢あかねに顔を寄せ…“遊び人”松田元太が玄関前で禁断アプローチ＜はだかんぼうたち＞",
+          "source": "テレ朝POST",
+          "url": "https://post.tv-asahi.co.jp/post-900973/",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRMEXrVxZ7xuhTOtlrLOQm4nJ9Rfn_yCF8wEbpfIl10OlWYW6Hl5PlVH9cSGzo"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "JP",
+          "regionName": "日本",
+          "publishedAt": "2026-11-27T12:30:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=%E3%81%AF%E3%81%A0%E3%81%8B%E3%82%93%E3%81%BC%E3%81%86%E3%81%9F%E3%81%A1%E3%83%89%E3%83%A9%E3%83%9E"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-92330f1873fa",
+      "type": "search-trend",
+      "title": "syria vs philippines",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "CA",
+      "regionName": "加拿大",
+      "publishedAt": "2026-11-27T12:20:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=syria+vs+philippines",
+      "relatedNews": [
+        {
+          "title": "Can Boatwright's arrival and Sotto's return give the Philippines the edge in FIBA World Cup qualifying?",
+          "source": "Olympics",
+          "url": "https://www.olympics.com/en/news/basketball-boatwright-sotto-gilas-pilipinas-fiba-world-cup-qualifying-2027-window-asian",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRviEpydxB7Tdz2_4C-HH1WutPG_JH87dsjQp_bXe4t0aOpte70daZj9r_qR20"
+        },
+        {
+          "title": "Gilas' next generation of bigs coming together with Sotto, Millora-Brown and Edu",
+          "source": "ESPN",
+          "url": "https://www.espn.com/basketball/gilas/story/_/id/50603122/gilas-pilipinas-sotto-millora-brown-edu",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQkHRqJX0unENugwHmOGB0V5t0SKYCrzfFfwiwz4ouz-YVB2uitLqDHTeE7k84"
+        },
+        {
+          "title": "Philippines vs. Syria at the FIBA World Cup Asian Qualifiers: Head-to-head",
+          "source": "GMA Network",
+          "url": "https://www.gmanetwork.com/news/sports/basketball/1010948/philippines-vs-syria-at-the-fiba-world-cup-asian-qualifiers-head-to-head/story/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSkX8amMmVT-x0JPnsYJdoVV8nOPUiv5LG09TZResDPRqVRu1M8NFOHA_OVJNg"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "CA",
+          "regionName": "加拿大",
+          "publishedAt": "2026-11-27T12:20:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=syria+vs+philippines"
         }
       ]
     }
