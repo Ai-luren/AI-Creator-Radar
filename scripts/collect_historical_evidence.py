@@ -37,6 +37,92 @@ except ModuleNotFoundError:
 ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/"site/data/historical-evidence.json"
 MAX_URLS=3
+ALI_CATALOG_LOG="https://help.aliyun.com/zh/model-studio/newly-released-models"
+# Reviewed exact model-to-provider IDs; no dates in configuration.
+ALI_MODELS={
+    ("wan","wan-2-7-t2v"):("Wan 2.7 T2V","wan2.7-t2v"),
+    ("wan","wan-2-7-i2v"):("Wan 2.7 I2V","wan2.7-i2v"),
+    ("wan","wan-2-7-r2v"):("Wan 2.7 R2V","wan2.7-r2v"),
+    ("qwen-audio-realtime","qwen-audio-3-1-realtime-flash"):("Qwen Audio 3.1 Realtime Flash","qwen-audio-3.1-realtime-flash"),
+    ("qwen-audio-realtime","qwen-audio-3-1-realtime-plus"):("Qwen Audio 3.1 Realtime Plus","qwen-audio-3.1-realtime-plus"),
+    ("qwen-audio-tts","qwen-audio-3-1-tts-flash"):("Qwen Audio 3.1 TTS Flash","qwen-audio-3.1-tts-flash")
+}
+ALI_REGIONS={"华北2（北京）","新加坡","美国（弗吉尼亚）","美国（硅谷）","德国（法兰克福）","日本（东京）","中国香港"}
+
+def parse_platform_log(page,now):
+    parser=BlockParser()
+    parser.feed(page);parser.close()
+    blocks=sorted(parser.blocks,key=lambda b:b["sequence"])
+    heading=[b for b in blocks if b["tag"]=="h1" and b["text"]=="模型上架与更新"]
+    if len(heading)!=1:
+        raise ValueError("Missing exact platform changelog heading")
+    region=None;year=None;date_value=None;rows=set()
+    targets={pair[1] for pair in ALI_MODELS.values()}
+    for block in blocks:
+        if block["sequence"]<=heading[0]["sequence"]:
+            continue
+        tag,value=block["tag"],block["text"].strip()
+        if tag=="h1":
+            break
+        if tag=="h4" and value in ALI_REGIONS:
+            region=value;year=None;date_value=None
+        elif tag=="h2":
+            m=re.fullmatch(r"(20\d{2})\s*年",value)
+            year=m[1] if m else None
+            date_value=None
+        elif tag=="h3":
+            date_value=day(value) if re.fullmatch(r"20\d{2}-\d{2}-\d{2}",value) else None
+            if not date_value or date_value[:4]!=year or date_value>now.date().isoformat():
+                date_value=None
+        elif tag=="h4" and region and date_value and value.casefold() in targets:
+            rows.add((value.casefold(),region,date_value))
+    if not rows:
+        raise ValueError("No exact dated platform log rows")
+    return sorted(rows)
+
+def recover_platform_log(tasks,previous,now,fetcher):
+    prior=previous.get("platformChangelog",{})
+    service=dict(prior)
+    stamp=now.isoformat(timespec="seconds")
+    selected={}
+    for task in tasks.values():
+        ident=task["identity"]
+        mapping=ALI_MODELS.get((ident["modelFamilyId"],ident["modelVersionId"]))
+        if task["active"] and mapping and task["modelName"]==mapping[0]:
+            selected[task["id"]]=mapping[1]
+    attempted=0
+    nxt=parse_stamp(prior.get("nextAttemptAt"))
+    if selected and (not nxt or nxt<=now):
+        attempted=1
+        try:
+            page=fetcher(ALI_CATALOG_LOG)
+            rows=parse_platform_log(page,now)
+        except (OSError,ValueError,TypeError) as exc:
+            failures=int(prior.get("consecutiveFailures",0))+1
+            service.update(lastAttemptAt=stamp,error=str(exc)[:160],consecutiveFailures=failures,
+                nextAttemptAt=(now+timedelta(hours=min(48,6*2**min(failures-1,3)))).isoformat())
+        else:
+            content_hash=hashlib.sha256(page.encode()).hexdigest()
+            for rid,model in selected.items():
+                task=tasks[rid]
+                history={r["id"]:r for r in task.get("platformEvidence",[])}
+                for model_id,region,date_value in rows:
+                    if model_id!=model:
+                        continue
+                    fact={"sourceUrl":ALI_CATALOG_LOG,"providerModelId":model_id,"region":region,
+                        "assertedDate":date_value,"datePrecision":"day",
+                        "claimType":"platform-changelog-listing-or-update","eventDate":None}
+                    eid="historical-platform-"+stable(fact)
+                    history.setdefault(eid,{"id":eid,**fact,"firstVerifiedAt":stamp,"firstContentSha256":content_hash})
+                task["platformEvidence"]=sorted(history.values(),key=lambda r:r["id"])
+            service.update(lastAttemptAt=stamp,lastSuccessAt=stamp,error=None,consecutiveFailures=0,
+                rowCount=len(rows),nextAttemptAt=(now+timedelta(days=7)).isoformat())
+    for rid,model in selected.items():
+        task=tasks[rid]
+        if any(r.get("providerModelId")==model and r.get("sourceUrl")==ALI_CATALOG_LOG for r in task.get("platformEvidence",[])):
+            if task["status"] in {"unsupported-original-pointer","missing-original-pointer","platform-changelog-evidence-observed"}:
+                task["status"]="platform-changelog-evidence-observed"
+    return service,attempted
 # Exact mappings from already observed official repository pointers, reviewed
 # for identity. No expected dates or benchmark answers in this configuration.
 REPOSITORY_DOCUMENTS={
@@ -186,7 +272,8 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
         task={**(prior if same else {}),"id":rid,"identity":{"modelFamilyId":ident[0],"modelVersionId":ident[1]},
               "modelName":name,"candidateSourceUrl":raw,"firstDetectedAt":prior.get("firstDetectedAt") or stamp,"active":True,
               "evidence":list(prior.get("evidence",[])),
-              "repositoryEvidence":list(prior.get("repositoryEvidence",[]))}
+              "repositoryEvidence":list(prior.get("repositoryEvidence",[])),
+              "platformEvidence":list(prior.get("platformEvidence",[]))}
         # A replaced pointer is not a reason to erase earlier verified observations.
         # It also must not inherit an obsolete probe URL or imply fresh evidence.
         task.pop("probeUrl",None)
@@ -232,6 +319,7 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
             continue
         due[url].append(task)
     urls=sorted(due,key=lambda u:(min(t.get("nextAttemptAt") or t["firstDetectedAt"] for t in due[u]),u))
+    platform_service,platform_attempts=recover_platform_log(tasks,previous,now,fetcher)
     attempted=0
     document_attempts=0
     for task in tasks.values():
@@ -239,8 +327,8 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
             continue
         obj=task["identity"]
         mapping=REPOSITORY_DOCUMENTS[(obj["modelFamilyId"],obj["modelVersionId"])]
-        document_attempts+=recover_repository_documents(task,mapping,now,fetcher,MAX_URLS-document_attempts)
-    attempted=document_attempts
+        document_attempts+=recover_repository_documents(task,mapping,now,fetcher,MAX_URLS-document_attempts-platform_attempts)
+    attempted=document_attempts+platform_attempts
     for url in urls:
         if attempted>=MAX_URLS:
             break
@@ -277,11 +365,15 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
                     task["conflictingArticleDays"]=sorted(days)
     active=[t for t in tasks.values() if t["active"]]
     return {"schema":"historical-evidence/v1","checkedAt":stamp,"tasks":sorted(tasks.values(),key=lambda t:t["id"]),
+            "platformChangelog":platform_service,
             "summary":{"activeTasks":len(active),"urlsAttemptedThisRun":attempted,
                        "states":dict(sorted(Counter(t["status"] for t in active).items())),
                        "tasksWithDatedArticleEvidence":sum(bool(t.get("evidence")) for t in active),
                        "datedArticleRecords":sum(len(t.get("evidence",[])) for t in tasks.values()),
                        "repositoryDocumentRequests":document_attempts,
+                       "platformChangelogRequests":platform_attempts,
+                       "platformChangelogEvidenceRecords":sum(len(t.get("platformEvidence",[])) for t in tasks.values()),
+                       "tasksWithPlatformChangelogEvidence":sum(bool(t.get("platformEvidence")) for t in active),
                        "repositoryDocumentEvidenceRecords":sum(len(t.get("repositoryEvidence",[])) for t in tasks.values()),
                        "tasksWithCurrentPointerEvidence":sum(any(url_key(r["sourceUrl"])==url_key(t.get("probeUrl"))
                            for r in t.get("evidence",[])) for t in active)},

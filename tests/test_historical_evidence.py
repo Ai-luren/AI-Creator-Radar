@@ -101,3 +101,28 @@ class HistoricalEvidenceTests(unittest.TestCase):
         self.assertEqual(result["summary"]["repositoryDocumentEvidenceRecords"],2)
         self.assertEqual(result["summary"]["datedArticleRecords"],0)
         self.assertEqual(result["tasks"][0]["status"],"repository-document-evidence-observed")
+
+
+    def test_platform_changelog_separates_region_dates_exact_ids_and_snapshot(self):
+        from scripts.collect_historical_evidence import parse_platform_log
+        page="""<h1>模型上架与更新</h1><h4>华北2（北京）</h4><h2>2026 年</h2><h3>2026-04-03</h3><h4>wan2.7-t2v</h4><h4>wan2.7-t2v-2026-06-12</h4><h4>新加坡</h4><h4>wan2.7-i2v</h4><h2>2026 年</h2><h3>2026-04-04</h3><h4>wan2.7-t2v</h4><h3>2027-01-01</h3><h4>wan2.7-r2v</h4>"""
+        self.assertEqual(parse_platform_log(page,self.now),[("wan2.7-t2v","华北2（北京）","2026-04-03"),("wan2.7-t2v","新加坡","2026-04-04")])
+
+    def test_platform_evidence_does_not_become_release_and_outage_preserves(self):
+        gap={"modelFamilyId":"wan","modelVersionId":"wan-2-7-t2v","modelName":"Wan 2.7 T2V",
+             "reviewKind":"release-source-review","candidateSourceUrl":"https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model"}
+        page="<h1>模型上架与更新</h1><h4>新加坡</h4><h2>2026 年</h2><h3>2026-04-03</h3><h4>wan2.7-t2v</h4>"
+        first=self.run_recover(gaps=[gap],fetcher=lambda _:page)
+        task=first["tasks"][0]
+        self.assertEqual(task["status"],"platform-changelog-evidence-observed")
+        self.assertIsNone(task["platformEvidence"][0]["eventDate"])
+        self.assertEqual(first["summary"]["datedArticleRecords"],0)
+        self.assertEqual(first["summary"]["urlsAttemptedThisRun"],1)
+        def fail(_):
+            raise OSError("403")
+        second=self.run_recover(first,gaps=[gap],days=8,fetcher=fail)
+        self.assertEqual(second["tasks"][0]["platformEvidence"],task["platformEvidence"])
+        self.assertEqual(second["summary"]["tasksWithPlatformChangelogEvidence"],1)
+        self.assertIsNotNone(second["platformChangelog"]["error"])
+        third=self.run_recover(second,gaps=[gap],days=8,fetcher=lambda _:self.fail("cooldown"))
+        self.assertEqual(third["summary"]["platformChangelogRequests"],0)
