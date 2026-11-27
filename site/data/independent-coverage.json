@@ -1,0 +1,204 @@
+{
+  "schema": "independent-coverage/v1",
+  "checkedAt": "2026-11-27T03:33:27+00:00",
+  "sources": [
+    {
+      "author": "ByteDance-Seed",
+      "vendorTopic": "bytedance",
+      "checkedAt": "2026-11-27T03:33:27+00:00",
+      "lastSuccessAt": "2026-11-27T03:33:27+00:00",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-27T09:33:27.272510+00:00",
+      "pageCoversWindow": true,
+      "scannedRepositories": 50,
+      "recentRepositories": 4
+    },
+    {
+      "author": "MiniMaxAI",
+      "vendorTopic": "minimax",
+      "checkedAt": "2026-11-27T03:33:27+00:00",
+      "lastSuccessAt": "2026-11-27T03:33:27+00:00",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-27T09:33:27.272510+00:00",
+      "pageCoversWindow": true,
+      "scannedRepositories": 24,
+      "recentRepositories": 3
+    },
+    {
+      "author": "Wan-AI",
+      "vendorTopic": "qwen",
+      "checkedAt": "2026-11-27T03:33:27+00:00",
+      "lastSuccessAt": "2026-11-27T03:33:27+00:00",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-27T09:33:27.272510+00:00",
+      "pageCoversWindow": true,
+      "scannedRepositories": 27,
+      "recentRepositories": 0
+    }
+  ],
+  "observations": [
+    {
+      "repositoryId": "ByteDance-Seed/Qwen3-30B-A3B-MoE-SAE",
+      "modelName": "Qwen3-30B-A3B-MoE-SAE",
+      "url": "https://huggingface.co/ByteDance-Seed/Qwen3-30B-A3B-MoE-SAE",
+      "repositoryCreatedAt": "2026-11-05T13:38:56+00:00",
+      "pipelineTag": "feature-extraction",
+      "id": "holdout-197e2821de5a6a7b1b97a6ee",
+      "author": "ByteDance-Seed",
+      "vendorTopic": "bytedance",
+      "firstObservedAt": "2026-11-27T03:33:27+00:00",
+      "lastObservedAt": "2026-11-27T03:33:27+00:00",
+      "initialState": "unmatched-repository",
+      "initialMatches": [],
+      "initialPipelineTag": "feature-extraction",
+      "currentState": "unmatched-repository",
+      "currentMatches": []
+    },
+    {
+      "repositoryId": "ByteDance-Seed/GenFirst",
+      "modelName": "GenFirst",
+      "url": "https://huggingface.co/ByteDance-Seed/GenFirst",
+      "repositoryCreatedAt": "2026-10-29T03:26:09+00:00",
+      "pipelineTag": "text-to-image",
+      "id": "holdout-1e3fa4f597002be8416a22e2",
+      "author": "ByteDance-Seed",
+      "vendorTopic": "bytedance",
+      "firstObservedAt": "2026-11-27T03:33:27+00:00",
+      "lastObservedAt": "2026-11-27T03:33:27+00:00",
+      "initialState": "unmatched-repository",
+      "initialMatches": [],
+      "initialPipelineTag": "text-to-image",
+      "currentState": "unmatched-repository",
+      "currentMatches": []
+    },
+    {
+      "repositoryId": "ByteDance-Seed/Cross-Layer-TopK-CLT",
+      "modelName": "Cross-Layer-TopK-CLT",
+      "url": "https://huggingface.co/ByteDance-Seed/Cross-Layer-TopK-CLT",
+      "repositoryCreatedAt": "2026-11-05T06:56:16+00:00",
+      "pipelineTag": "feature-extraction",
+      "id": "holdout-3a408a795e104879142cf822",
+      "author": "ByteDance-Seed",
+      "vendorTopic": "bytedance",
+      "firstObservedAt": "2026-11-27T03:33:27+00:00",
+      "lastObservedAt": "2026-11-27T03:33:27+00:00",
+      "initialState": "unmatched-repository",
+      "initialMatches": [],
+      "initialPipelineTag": "feature-extraction",
+      "currentState": "unmatched-repository",
+      "currentMatches": []
+    },
+    {
+      "repositoryId": "MiniMaxAI/MiniMax-H3-Image",
+      "modelName": "MiniMax-H3-Image",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image",
+      "repositoryCreatedAt": "2026-11-03T06:34:36+00:00",
+      "pipelineTag": "text-to-image",
+      "id": "holdout-b57400258054bb491c704410",
+      "author": "MiniMaxAI",
+      "vendorTopic": "minimax",
+      "firstObservedAt": "2026-11-27T03:33:27+00:00",
+      "lastObservedAt": "2026-11-27T03:33:27+00:00",
+      "initialState": "exact-catalog-match",
+      "initialMatches": [
+        {
+          "modelFamilyId": "minimax-h3-image",
+          "modelVersionId": "minimax-h3-image"
+        }
+      ],
+      "initialPipelineTag": "text-to-image",
+      "currentState": "exact-catalog-match",
+      "currentMatches": [
+        {
+          "modelFamilyId": "minimax-h3-image",
+          "modelVersionId": "minimax-h3-image"
+        }
+      ]
+    },
+    {
+      "repositoryId": "MiniMaxAI/MiniMax-H3-Image-PE",
+      "modelName": "MiniMax-H3-Image-PE",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE",
+      "repositoryCreatedAt": "2026-11-08T15:35:23+00:00",
+      "pipelineTag": "text-generation",
+      "id": "holdout-c5451b33d038545b2953bc1e",
+      "author": "MiniMaxAI",
+      "vendorTopic": "minimax",
+      "firstObservedAt": "2026-11-27T03:33:27+00:00",
+      "lastObservedAt": "2026-11-27T03:33:27+00:00",
+      "initialState": "unmatched-repository",
+      "initialMatches": [],
+      "initialPipelineTag": "text-generation",
+      "currentState": "unmatched-repository",
+      "currentMatches": []
+    },
+    {
+      "repositoryId": "MiniMaxAI/MiniMax-M3.1-Flash",
+      "modelName": "MiniMax-M3.1-Flash",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash",
+      "repositoryCreatedAt": "2026-10-17T06:37:50+00:00",
+      "pipelineTag": "image-text-to-text",
+      "id": "holdout-d39009bc52dc8e6a0c39f171",
+      "author": "MiniMaxAI",
+      "vendorTopic": "minimax",
+      "firstObservedAt": "2026-11-27T03:33:27+00:00",
+      "lastObservedAt": "2026-11-27T03:33:27+00:00",
+      "initialState": "exact-catalog-match",
+      "initialMatches": [
+        {
+          "modelFamilyId": "minimax-llm",
+          "modelVersionId": "minimax-m3-1-flash"
+        }
+      ],
+      "initialPipelineTag": "image-text-to-text",
+      "currentState": "exact-catalog-match",
+      "currentMatches": [
+        {
+          "modelFamilyId": "minimax-llm",
+          "modelVersionId": "minimax-m3-1-flash"
+        }
+      ]
+    },
+    {
+      "repositoryId": "ByteDance-Seed/Cola2",
+      "modelName": "Cola2",
+      "url": "https://huggingface.co/ByteDance-Seed/Cola2",
+      "repositoryCreatedAt": "2026-11-06T06:59:36+00:00",
+      "pipelineTag": "text-generation",
+      "id": "holdout-f5022ec4158998ab1d276519",
+      "author": "ByteDance-Seed",
+      "vendorTopic": "bytedance",
+      "firstObservedAt": "2026-11-27T03:33:27+00:00",
+      "lastObservedAt": "2026-11-27T03:33:27+00:00",
+      "initialState": "unmatched-repository",
+      "initialMatches": [],
+      "initialPipelineTag": "text-generation",
+      "currentState": "unmatched-repository",
+      "currentMatches": []
+    }
+  ],
+  "summary": {
+    "configuredSources": 3,
+    "successfulThisRun": 3,
+    "sourcesWithSuccessfulObservation": 3,
+    "sourcesWithCompleteLastPage": 3,
+    "recentRepositories": 7,
+    "inScopeRepositorySamples": 5,
+    "initialStates": {
+      "exact-catalog-match": 2,
+      "unmatched-repository": 3
+    },
+    "currentStates": {
+      "exact-catalog-match": 2,
+      "unmatched-repository": 3
+    },
+    "unclassifiedPipeline": 2
+  },
+  "policy": "Independent repository coverage sample, not release recall. Exact vendor/name matching only; unmatched may be checkpoints, aliases or out-of-catalog products. Initial outcome frozen; no automatic release, date or weights claim. Closed models not represented."
+}
