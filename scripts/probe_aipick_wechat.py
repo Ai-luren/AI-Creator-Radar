@@ -1,13 +1,14 @@
 """One-off personal source diagnostic. Counts only, no republication."""
 import gzip
 import json
+from collections import Counter
 from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
-queries = [("即梦","ai-products"),("SeedAudio",None),("即梦","ai-models")]
+queries = [("即梦","ai-products"),("可灵","ai-products"),("海螺 AI","ai-products"),("Vidu","ai-products"),("PixVerse","ai-products"),("Sand.ai","ai-models")]
 for term, category in queries:
-    params = {"mode":"all","window":"7d","q":term,"limit":100}
+    params = {"mode":"all","window":"7d","by":"published","q":term,"limit":30}
     if category:
         params["category"] = category
     try:
@@ -30,6 +31,7 @@ for term, category in queries:
             print("AIPick targeted probe:",json.dumps({"term":term,"category":category,"status":response.status,
                   "items":len(rows),"wechatOriginalLinks":len(wx),"exactTitleMatches":len(exact),
                   "wechatDated":sum(bool(x.get("publishedAt")) for x in wx),
+                  "sourceDomains":dict(Counter(urlsplit(x.get("links",{}).get("original") or "").hostname or "missing" for x in rows)),
                   "cacheControl":response.headers.get("Cache-Control"),"hasEtag":bool(response.headers.get("ETag")),
                   "hasNextCursor":bool(payload.get("nextCursor"))},ensure_ascii=False))
     except HTTPError as exc:
