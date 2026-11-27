@@ -1,7 +1,7 @@
 {
   "source": "Google Trends RSS",
   "sourceUrl": "https://trends.google.com/trending",
-  "fetchedAt": "2026-11-27T13:03:43Z",
+  "fetchedAt": "2026-11-27T19:03:49Z",
   "window": "7d",
   "metricDefinition": "approxSearchTraffic is an approximate search-volume bucket supplied by Google Trends. It is not a social-platform engagement metric.",
   "regions": {
@@ -40,169 +40,9 @@
   },
   "items": [
     {
-      "id": "google-search-trend-959f80735618",
+      "id": "google-search-trend-376276245752",
       "type": "search-trend",
-      "title": "disney plus",
-      "category": "film_tv",
-      "categoryLabel": "影视 / 文娱话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "GB",
-      "regionName": "英国",
-      "publishedAt": "2026-11-27T12:30:00Z",
-      "approxSearchTraffic": "1000+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=disney+plus",
-      "relatedNews": [
-        {
-          "title": "\"Breaking Spencer Matthews\" Coming Soon To Disney+",
-          "source": "whatsondisneyplus.com",
-          "url": "https://whatsondisneyplus.com/breaking-spencer-matthews-coming-soon-to-disney/",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSiXqqRCYTGm2ZLBNA1gdPtK6lmhh7mh-5lIQ_BtdH-ZDrdZQ9s30Myd0YxfM8"
-        },
-        {
-          "title": "Hulu for $5 a month, HBO Max for $5.49 and all the other Black Friday streaming deals",
-          "source": "The Guardian",
-          "url": "https://www.theguardian.com/thefilter-us/2026/nov/26/best-streaming-black-friday-deals",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSKckHtuaRpwjBX0eXpcYgB79yzy76Uat0n_sgwGfkG9kf5zfpcxFBgEnj_IXs"
-        },
-        {
-          "title": "The Best Black Friday Streaming Deals on Apple TV, Disney Plus, and More",
-          "source": "WIRED",
-          "url": "https://www.wired.com/story/black-friday-streaming-deals-11-27-2026/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSZqNQRoslyWfhykRyVUa_IA7ixSL_a4Lj8Er6tXO2HRxMELsJWOuqxSl0bk_A"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "GB",
-          "regionName": "英国",
-          "publishedAt": "2026-11-27T12:30:00Z",
-          "approxSearchTraffic": "1000+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=disney+plus"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-b3a0f0f6604a",
-      "type": "search-trend",
-      "title": "bangladesh a vs pakistan a",
-      "category": "sports",
-      "categoryLabel": "体育事件话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "AU",
-      "regionName": "澳大利亚",
-      "publishedAt": "2026-11-27T10:30:00Z",
-      "approxSearchTraffic": "1000+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=bangladesh+a+vs+pakistan+a",
-      "relatedNews": [
-        {
-          "title": "Bangladesh A Elect To Bat First Against Pakistan Shaheens In Rising Stars Semi-Final",
-          "source": "WE News English",
-          "url": "https://wenewsenglish.com/pakistan-bangladesh-rising-stars-semi-final/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRFi3EGy1g2ea5pGQNQIgSkc32Ef1dLsEtU2g-NtXcOs1hgPdAmx9nB47QTOkQ"
-        },
-        {
-          "title": "Pakistan Captain Targets All-Round Excellence To Reach Asia Cup Rising Stars Final",
-          "source": "WE News English",
-          "url": "https://wenewsenglish.com/pakistan-captain-targets-all-round-excellence-to-reach-asia-cup-rising-stars-final/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQnIuVouGey0-zf9VBw3mkC839NSr0gAkKZaZa316lP8lU65VKE8uTS475vEeA"
-        },
-        {
-          "title": "Unbeaten Pakistan Shaheens to Face Bangladesh A in Asia Cup Rising Stars Semi-Final Tomorrow",
-          "source": "WE News English",
-          "url": "https://wenewsenglish.com/unbeaten-pakistan-shaheens-to-face-bangladesh-a-in-asia-cup-rising-stars-semi-final-tomorrow/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQnIuVouGey0-zf9VBw3mkC839NSr0gAkKZaZa316lP8lU65VKE8uTS475vEeA"
-        },
-        {
-          "title": "Bangladesh A vs Pakistan A, free match prediction 27 November 2026",
-          "source": "TheTopBookies",
-          "url": "https://www.thetopbookies.com/betting-tips/cricket/bana-vs-pak-a-27-Nov-2026",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQF-KT4_0lVDgl9fZ1fjvNdHjDjMe6fwhCiugQ0qlbGgU9dUUmo7RMRzqWHdLY"
-        },
-        {
-          "title": "SHA vs BAN-A 2nd Semi-Final: Pitch Report, Player Stats & Form",
-          "source": "AI11",
-          "url": "https://www.ai11.in/cricket/series/asia-cup-rising-stars-2026-27/match/bangladesh-a-vs-pakistan-shaheen-2nd-semi-final-2026",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR75QeOM75nNIdynTP7fr0a_VlEfFs0UMaX6HwHzCqWDb-oSyTKlVnotVKokpE"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "AU",
-          "regionName": "澳大利亚",
-          "publishedAt": "2026-11-27T10:00:00Z",
-          "approxSearchTraffic": "1000+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=bangladesh+a+vs+pakistan+a"
-        },
-        {
-          "regionCode": "KR",
-          "regionName": "韩国",
-          "publishedAt": "2026-11-27T10:30:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=KR&q=bangladesh+a+vs+pakistan+a"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-cf5f5f6a336c",
-      "type": "search-trend",
-      "title": "perth scorchers vs hobart hurricanes",
-      "category": "sports",
-      "categoryLabel": "体育事件话题",
-      "source": {
-        "name": "Google 搜索趋势",
-        "url": "https://trends.google.com/trending"
-      },
-      "region": "overseas",
-      "regionCode": "AU",
-      "regionName": "澳大利亚",
-      "publishedAt": "2026-11-27T10:20:00Z",
-      "approxSearchTraffic": "500+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=perth+scorchers+vs+hobart+hurricanes",
-      "relatedNews": [
-        {
-          "title": "Women's Big Bash 2026-27 LIVE: Perth Scorchers vs Hobart Hurricanes - cricket score & commentary",
-          "source": "BBC",
-          "url": "https://www.bbc.com/sport/cricket/live/c6gqww8wkw2zt",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXzby_GTnZlH160hQh7XMvWUE30iU1Pn5fnW-Hq72cAFp0fW_fO7zSRspPbPU"
-        },
-        {
-          "title": "WBBL 2026: Perth Scorchers vs Hobart Hurricanes match 36 preview and prediction",
-          "source": "Cricket World",
-          "url": "https://www.cricketworld.com/match-predictions-womens-big-bash-league-2026-36th-match-perth-scorchers-women-vs-hobart-hurricanes-women-november-27th/114540.htm",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR0bOzo1EW_gtjjwtwDhmsFRDtytiecxfKqfg4SsJUVMOdDDjMhAoJzgqpVGlE"
-        },
-        {
-          "title": "WBBL 2026: Match 36, PS W vs HH W Match Prediction – Who will win today’s WBBL match between Perth Scorchers Women vs Hobart Hurricanes Women?",
-          "source": "CricTracker",
-          "url": "https://www.crictracker.com/cricket-match-predictions/wbbl-2026-match-36-ps-w-vs-hh-w-match-prediction-who-will-win-todays-wbbl-match-between-perth-scorchers-women-vs-hobart-hurricanes-women/",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ2l8zvNowRbLniAgOahCma2PmGHY6V_KnrLQBV9pfUf4ynDM9VYo12cgSTZ8s"
-        }
-      ],
-      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
-      "observations": [
-        {
-          "regionCode": "AU",
-          "regionName": "澳大利亚",
-          "publishedAt": "2026-11-27T10:20:00Z",
-          "approxSearchTraffic": "500+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=perth+scorchers+vs+hobart+hurricanes"
-        }
-      ]
-    },
-    {
-      "id": "google-search-trend-6f4fda506bbc",
-      "type": "search-trend",
-      "title": "twickenham stadium nations championship opening night",
+      "title": "fury vs joshua",
       "category": "sports",
       "categoryLabel": "体育事件话题",
       "source": {
@@ -212,27 +52,27 @@
       "region": "overseas",
       "regionCode": "GB",
       "regionName": "英国",
-      "publishedAt": "2026-11-27T12:50:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=twickenham+stadium+nations+championship+opening+night",
+      "publishedAt": "2026-11-27T18:30:00Z",
+      "approxSearchTraffic": "2000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=fury+vs+joshua",
       "relatedNews": [
         {
-          "title": "Twickenham set to be half empty for Nations Championship finals opening night",
+          "title": "Tyson Fury vs Anthony Joshua: Paris Fury clarifies fighter did not have schizophrenia diagnosis",
           "source": "BBC",
-          "url": "https://www.bbc.co.uk/sport/rugby-union/articles/c65y1k8428qdo",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ4Q4EHwanRxmCCkLYhulNhy-etHnKgj2elFrzDzggaq9D3XI1rgamayXEr31c"
+          "url": "https://www.bbc.co.uk/sport/boxing/articles/cwj3klxj10edo",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRC1IpI4DCN6VWE5gF_W4lDN3CFRDzlQSXN3haNh3z-7q2f8IQu-bGuaRtzods"
         },
         {
-          "title": "Ireland v Australia: All you need to know",
-          "source": "RTE.ie",
-          "url": "https://www.rte.ie/sport/rugby/2026/1126/1600812-ireland-v-australia-all-you-need-to-know/",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ7kCKgC-3mNlsGrkvM2MLRQgv-v1aG1RTEuirdxFWGad5Yq_86yzPoms8muOQ"
-        },
-        {
-          "title": "Ireland vs Australia: Mack Hansen out with injury as Nick Timoney replaces suspended Dan Sheehan for Nations Championship clash",
+          "title": "Tyson Fury cleared to face Anthony Joshua by British Boxing Board of Control after schizophrenia claim by wife Paris Fury",
           "source": "Sky Sports",
-          "url": "https://www.skysports.com/rugby-union/news/13616405/ireland-vs-australia-mack-hansen-out-with-injury-as-nick-timoney-replaces-suspended-dan-sheehan-for-nations-championship-clash",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLTbS7gWyorz_9H5Q5OBA4HQdE7nik8UummlRK_05JmbM_BOUY26H3ARDt-9o"
+          "url": "https://www.skysports.com/boxing/news/13617169/tyson-fury-cleared-to-face-anthony-joshua-by-british-boxing-board-of-control-after-schizophrenia-claim-by-wife-paris-fury",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2YP0z5-wKuK4WCFJPRQW-cuQzNj-8AHD1t3UzCTwzSpNp01gx7QrSAyiuezc"
+        },
+        {
+          "title": "Tyson Fury 'cleared' to fight Anthony Joshua after schizophrenia worry",
+          "source": "ESPN",
+          "url": "https://www.espn.co.uk/boxing/story/_/id/50611006/tyson-fury-anthony-joshua-schizophrenia",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS0-h-i5DTNU-nSWXfXPEqHtGS-nR9Vpw2WilGBMtXcILVQXab3z7MmcUPBMHc"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
@@ -240,56 +80,432 @@
         {
           "regionCode": "GB",
           "regionName": "英国",
-          "publishedAt": "2026-11-27T12:50:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=twickenham+stadium+nations+championship+opening+night"
+          "publishedAt": "2026-11-27T18:30:00Z",
+          "approxSearchTraffic": "2000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=fury+vs+joshua"
         }
       ]
     },
     {
-      "id": "google-search-trend-6b19adeaa953",
+      "id": "google-search-trend-de102f71eab3",
       "type": "search-trend",
-      "title": "はだかんぼうたちドラマ",
-      "category": "film_tv",
-      "categoryLabel": "影视 / 文娱话题",
+      "title": "rugby nations championship",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
       "source": {
         "name": "Google 搜索趋势",
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "JP",
-      "regionName": "日本",
-      "publishedAt": "2026-11-27T12:30:00Z",
-      "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=%E3%81%AF%E3%81%A0%E3%81%8B%E3%82%93%E3%81%BC%E3%81%86%E3%81%9F%E3%81%A1%E3%83%89%E3%83%A9%E3%83%9E",
+      "regionCode": "GB",
+      "regionName": "英国",
+      "publishedAt": "2026-11-27T18:40:00Z",
+      "approxSearchTraffic": "1000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=rugby+nations+championship",
       "relatedNews": [
         {
-          "title": "高木雄也“拓”、加藤ローサ“桃”と禁断のベッドシーンで幕切れ…破滅へ向かう四角関係に「ショック」＜はだかんぼうたち＞",
-          "source": "Yahoo!ニュース",
-          "url": "https://news.yahoo.co.jp/articles/ae13bd04d2bb02c8c6a2f4d689eab02d07a8a1f7",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR87Wpl2_j2j9ZFOGHGxaBixVtORAZKq_1FHhHCUYlG1Zi2ifZud3-qBn8S_pU"
+          "title": "Nations Championship finals: Rice cookers, prosecco and unknowns",
+          "source": "BBC",
+          "url": "https://www.bbc.co.uk/sport/rugby-union/articles/c6wy4kmjggr9o",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQAVEqcxcVsB1ZImcNxH0pDftVLb1c9akXiKKNNJkmyfvlNBfgB409h8Gv9FCw"
         },
         {
-          "title": "はだかんぼうたち 11月21日(土)放送分 第7話 死んでも恋しない、最低男｜ドラマ｜見逃し無料配信はTVer！人気の動画見放題",
-          "source": "TVer",
-          "url": "https://tver.jp/episodes/ep3sgyxqmv",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrhfQJtFbYdj1N9NXXZVfqAdBg0uoWlXAnFzH8d0ovc9GsGbJUmGpzsCO_WGU"
+          "title": "Woolly hats, battered bodies and big TV numbers mark rugby union’s new festival finale",
+          "source": "The Guardian",
+          "url": "https://www.theguardian.com/sport/2026/nov/26/nations-championship-woolly-hats-battered-bodies-big-tv-numbers-mark-rugby-union-festival-finale",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ-vgfTValUkHXcGF9vQbeFmvWyocBn2Q0KJhx2NOQN0F2Am-KCGoYpG5xUM1Y"
         },
         {
-          "title": "“年上人妻”大沢あかねに顔を寄せ…“遊び人”松田元太が玄関前で禁断アプローチ＜はだかんぼうたち＞",
-          "source": "テレ朝POST",
-          "url": "https://post.tv-asahi.co.jp/post-900973/",
-          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRMEXrVxZ7xuhTOtlrLOQm4nJ9Rfn_yCF8wEbpfIl10OlWYW6Hl5PlVH9cSGzo"
+          "title": "How Twickenham pitch is being prepped for six Tests in 48 hours",
+          "source": "The Times",
+          "url": "https://www.thetimes.com/sport/rugby-union/article/how-twickenham-pitch-is-being-prepped-for-six-tests-in-48-hours-p0ztgw9hn",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT0Hjn18xAJj1AI5HI_llXvYAI_UbRqTG7G-0rsJazgX5AAiC7EorRDTPEar0k"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
       "observations": [
         {
-          "regionCode": "JP",
-          "regionName": "日本",
-          "publishedAt": "2026-11-27T12:30:00Z",
+          "regionCode": "GB",
+          "regionName": "英国",
+          "publishedAt": "2026-11-27T18:40:00Z",
+          "approxSearchTraffic": "1000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=rugby+nations+championship"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-7dfed3b0938c",
+      "type": "search-trend",
+      "title": "memphis basketball",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "US",
+      "regionName": "美国",
+      "publishedAt": "2026-11-27T18:40:00Z",
+      "approxSearchTraffic": "1000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=memphis+basketball",
+      "relatedNews": [
+        {
+          "title": "Will Memphis basketball avenge last season's loss to Wake Forest? Our prediction",
+          "source": "The Commercial Appeal",
+          "url": "https://www.commercialappeal.com/story/sports/college/memphis-tigers/2026/11/26/memphis-basketball-vs-wake-forest-preview-prediction/92733639007/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLif070YOwHY5WoO5-r0n4xOopZa6_Ctfgj0T4zG0N4pLkvErpla5uDFqxxUk"
+        },
+        {
+          "title": "Wake Forest seeks Battle 4 Atlantis title in matchup versus No. 24 Memphis",
+          "source": "247Sports",
+          "url": "https://247sports.com/college/wake-forest/article/wake-forest-seeks-battle-4-atlantis-title-in-matchup-versus-no-24-memphis--293342171/",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQf6jCcSWLekjHY__nsYr24xtdUqyElAB7v4edWqfgdVHivRtMj7ZlyP81Ygh4"
+        },
+        {
+          "title": "Wake Forest vs Memphis Prediction, Picks & Odds | 27 Nov 2026",
+          "source": "Sportsgambler",
+          "url": "https://www.sportsgambler.com/betting-tips/basketball/wake-forest-demon-deacons-vs-memphis-tigers-prediction-odds-2026-11-27/",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUkYa8HbfQjTdus_beAWWPjH8t3NqKWY1DCmdyN1VRMnTTUMoBGvbeafj5Nm4"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "US",
+          "regionName": "美国",
+          "publishedAt": "2026-11-27T18:40:00Z",
+          "approxSearchTraffic": "1000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=memphis+basketball"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-b3d018f43962",
+      "type": "search-trend",
+      "title": "iowa state basketball",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "US",
+      "regionName": "美国",
+      "publishedAt": "2026-11-27T18:40:00Z",
+      "approxSearchTraffic": "1000+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=iowa+state+basketball",
+      "relatedNews": [
+        {
+          "title": "Pick and Preview: Iowa State vs. St. John's in Player's Era",
+          "source": "247Sports",
+          "url": "https://247sports.com/college/iowa-state/article/iowa-state-basketball-preview-vs-st-johns--293370815/",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFTyTyg50WZPAAP5cyYSvnhlX4eSUn-j260VXqxmScDyU553E3xqEtF2-BG4Q"
+        },
+        {
+          "title": "How to watch Iowa State basketball vs St. John's on Friday | TV info",
+          "source": "The Des Moines Register",
+          "url": "https://www.desmoinesregister.com/story/sports/college/iowa-state/basketball-mens/2026/11/27/iowa-state-st-johns-basketball-tv-channel-how-to-watch/92975797007/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRZcS7lVF3CovD3ZyaOgVwS82m1TkaOvDPrgX8GjsS3g5aqMWmuHiEbA18MQhU"
+        },
+        {
+          "title": "Players Era Festival game thread: St. John’s men’s basketball vs. Iowa State",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/mens-college-basketball/articles/players-era-festival-game-thread-171348667.html",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS7PRSCT_Ys4hO1bPuVKD96NWJfwl8PnHREwB2PH4eKMX1Ixma582Sr0wUKPjY"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "US",
+          "regionName": "美国",
+          "publishedAt": "2026-11-27T18:40:00Z",
+          "approxSearchTraffic": "1000+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=US&q=iowa+state+basketball"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-fcf98753505b",
+      "type": "search-trend",
+      "title": "pak a vs ban a",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-27T11:30:00Z",
+      "approxSearchTraffic": "500+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=pak+a+vs+ban+a",
+      "relatedNews": [
+        {
+          "title": "PAKA vs BANA, 2nd Semi-Final (B1 v A2), ACC Men's Asia Cup Rising Stars 2026 - Commentary",
+          "source": "Cricbuzz",
+          "url": "https://www.cricbuzz.com/live-cricket-scores/177214/paka-vs-bana-2nd-semi-final-b1-v-a2-acc-mens-asia-cup-rising-stars-2026",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTraD2G5sbxTydya-LiijYUjQu0t7CrYNXRxWkVxITBYLBznGe3443I5gRkCoE"
+        },
+        {
+          "title": "Live Cricket Score, Schedule, Latest News, Stats & Videos",
+          "source": "Cricbuzz",
+          "url": "https://www.cricbuzz.com/player-match-performance/match/177214/player/14273/batting?inningsId=1",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhGoEns53VLaZfCsQONlmEXWoYd_zhJ3228UDBwe7qgeQvT35I_0xa8B3_BUw"
+        },
+        {
+          "title": "Live Cricket Score, Schedule, Latest News, Stats & Videos",
+          "source": "Cricbuzz",
+          "url": "https://www.cricbuzz.com/player-match-performance/match/177214/player/11984/batting?inningsId=1",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhGoEns53VLaZfCsQONlmEXWoYd_zhJ3228UDBwe7qgeQvT35I_0xa8B3_BUw"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-27T11:30:00Z",
+          "approxSearchTraffic": "500+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=pak+a+vs+ban+a"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-d0de299047c7",
+      "type": "search-trend",
+      "title": "stars vs blues",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "CA",
+      "regionName": "加拿大",
+      "publishedAt": "2026-11-27T18:30:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=stars+vs+blues",
+      "relatedNews": [
+        {
+          "title": "Stars at Blues projected lineups",
+          "source": "NHL.com",
+          "url": "https://www.nhl.com/news/dallas-stars-st-louis-blues-game-preview-november-27-2026",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRtlZWU9UlgU_M2ivJapjJvARReyO_D7wzWSo0bLumct7Vl-s5Bjr3YJ1pESlc"
+        },
+        {
+          "title": "3 things to know about Stars-Blues: Dallas looks for win after winning streak snapped",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/nhl/articles/3-things-know-stars-blues-064255787.html",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSA0LZNt5TJQ8rDsh4DzBs93Rrfu1tYTXwYz6mszX60cKc49DvsTUbOwUgDUsE"
+        },
+        {
+          "title": "Stars look to rebound against Blues in key Central matchup",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/nhl/news/stars-look-to-rebound-against-blues-in-key-central-matchup/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR7DK1DW_WMTduSPcRlKJEpw-uRgQM65vS-FKFzufTTYZ7ZqY4zlx19w_NiNz8"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "CA",
+          "regionName": "加拿大",
+          "publishedAt": "2026-11-27T18:30:00Z",
           "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=JP&q=%E3%81%AF%E3%81%A0%E3%81%8B%E3%82%93%E3%81%BC%E3%81%86%E3%81%9F%E3%81%A1%E3%83%89%E3%83%A9%E3%83%9E"
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=stars+vs+blues"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-0b36020e988c",
+      "type": "search-trend",
+      "title": "bruins vs maple leafs",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "GB",
+      "regionName": "英国",
+      "publishedAt": "2026-11-27T18:00:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=bruins+vs+maple+leafs",
+      "relatedNews": [
+        {
+          "title": "Bruins Host Maple Leafs as Edvinsson Trade Race Intensifies",
+          "source": "cwibc.co.id",
+          "url": "https://cwibc.co.id/en/bruins-maple-leafs-edvinsson-trade",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRXcMBkrXCvJvp1ll7ursfjYsWorZYUpOFG6oTfPABabUPXPLPTM7sd24KwWV8"
+        },
+        {
+          "title": "Need to Know: Bruins vs. Maple Leafs | Boston Bruins",
+          "source": "NHL.com",
+          "url": "https://www.nhl.com/bruins/news/need-to-know-bruins-vs-maple-leafs-x1592",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQee62AT7sp_Rkj-XDhWZu_n8Mlz_M6bxTCEDWPVa3j1N2zkWpjE5BR93tWq8w"
+        },
+        {
+          "title": "Bruins' Jeremy Swayman: Set to face Maple Leafs",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/fantasy/hockey/news/bruins-jeremy-swayman-set-to-face-maple-leafs/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR7DK1DW_WMTduSPcRlKJEpw-uRgQM65vS-FKFzufTTYZ7ZqY4zlx19w_NiNz8"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "GB",
+          "regionName": "英国",
+          "publishedAt": "2026-11-27T18:00:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=bruins+vs+maple+leafs"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-1144a3ae07b0",
+      "type": "search-trend",
+      "title": "fiji vs italy",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-27T16:50:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=fiji+vs+italy",
+      "relatedNews": [
+        {
+          "title": "Fiji Vs. Italy Rugby Live Score And Nations Championship Updates",
+          "source": "Yahoo Sports",
+          "url": "https://sports.yahoo.com/general/articles/fiji-vs-italy-rugby-live-153600817.html",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSFF3HbwT8U493OzYxoeZdXXiU1GdDU6cM8uuR6qZH_9Yxo8LK3rLpaytnuW-g"
+        },
+        {
+          "title": "Italy Vs. Fiji Rugby Result: Allan Kicks Italy To 23-21 Win",
+          "source": "FloRugby",
+          "url": "https://www.florugby.com/articles/16469064-fiji-vs-italy-rugby-live-score-updates-and-result",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRes1qBjyjqva8RSoVjPzGzZZph5RR_U3hd4fl-fBIrEV3RcuL5kIJmQSm3klo"
+        },
+        {
+          "title": "Fiji Make Nine Changes for Italy Rematch at Twickenham",
+          "source": "cwibc.co.id",
+          "url": "https://cwibc.co.id/en/fiji-nine-changes-italy-rematch",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKHHrK_0g4QgNQkMZeAzp672btCN1RChDaTHjxoNnaUVgbvW8kJOBKrArxD3k"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-27T16:50:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=fiji+vs+italy"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-9348392dc189",
+      "type": "search-trend",
+      "title": "mamamoo 演唱會",
+      "category": "music",
+      "categoryLabel": "音乐 / MV 话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "TW",
+      "regionName": "台湾地区",
+      "publishedAt": "2026-11-27T16:10:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=TW&q=mamamoo+%E6%BC%94%E5%94%B1%E6%9C%83",
+      "relatedNews": [
+        {
+          "title": "11/28演唱會有哪些？五月天阿信合體F3登大巨蛋，MAMAMOO等7組韓星同日登場",
+          "source": "Marie Claire 美麗佳人",
+          "url": "https://www.marieclaire.com.tw/entertainment/music/97293",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX5Yc_VzWHWGqmULENt4thM5XcZYBmOZi1J8suEgkS1vLPYrdH-qJCcjI1hzw"
+        },
+        {
+          "title": "11/27-11/29週末活動推薦！全台演唱會、市集、聖誕懶人包：時間、地點、必逛亮點一次看",
+          "source": "Harper's BAZAAR",
+          "url": "https://www.harpersbazaar.com/tw/life/trips/g74545112/weekend-events-in-taiwan-nov-11-27-1129/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQsAeZM7X5CStjoDgI1Xd2XhbPJsaeoEYSLN37v34xoFkFA7vJIUDuer0NXRq0"
+        },
+        {
+          "title": "MAMAMOO台北小巨蛋演唱會明開唱！實名制驗票入場攻略，限定拍貼機、周邊商品一次看",
+          "source": "Cosmopolitan",
+          "url": "https://www.cosmopolitan.com/tw/entertainment/celebrity-gossip/a74545637/mamamoo-4ward/",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBLDXWeBlL4WoYZ6lOUag2fVxdyJF0rIdaqPMsZNYnguMuV937kNQ-5XINp1c"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "TW",
+          "regionName": "台湾地区",
+          "publishedAt": "2026-11-27T16:10:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=TW&q=mamamoo+%E6%BC%94%E5%94%B1%E6%9C%83"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-b2f6270c92f8",
+      "type": "search-trend",
+      "title": "pga tour",
+      "category": "music",
+      "categoryLabel": "音乐 / MV 话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-27T14:10:00Z",
+      "approxSearchTraffic": "200+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=pga+tour",
+      "relatedNews": [
+        {
+          "title": "Early start for moving day at the BMW PGA Championship",
+          "source": "GOLF.com.au",
+          "url": "https://golf.com.au/news/early-start-for-moving-day-at-the-bmw-pga-championship",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ3qaO5ZD1M3ej8y3dTRtz7SkDOF2ryAs9jVzflToG-Rj49vu2XJD-B5WapWl0"
+        },
+        {
+          "title": "Former trainee pilot leads Australian PGA as local pro wins BMW with hole-in-one",
+          "source": "WAtoday",
+          "url": "https://www.watoday.com.au/sport/golf/former-trainee-pilot-leads-australian-pga-as-local-pro-wins-bmw-with-hole-in-one-20261127-p61hwf.html",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvuMeQZ8TJo2TvIuZOnP1We-TotdvLF-C3uZjIUG6awiuziYIaxVpQkc45go"
+        },
+        {
+          "title": "Aus PGA Champs | Full Day 1 Highlights",
+          "source": "Toowoomba Chronicle",
+          "url": "https://www.thechronicle.com.au/sport/golf/aus-pga-champs-full-day-1-highlights/video/aa98febebad6e16633f813f267f6f81c",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRWyH0rLtRK-b0dXTQB6ZL6_Sfbe2XTp0n4qTslMJx3qkgtNdZ-YiVNUTCvSKE"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-27T14:10:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=pga+tour"
         }
       ]
     },
@@ -304,29 +520,123 @@
         "url": "https://trends.google.com/trending"
       },
       "region": "overseas",
-      "regionCode": "CA",
-      "regionName": "加拿大",
-      "publishedAt": "2026-11-27T12:20:00Z",
+      "regionCode": "AU",
+      "regionName": "澳大利亚",
+      "publishedAt": "2026-11-27T12:00:00Z",
       "approxSearchTraffic": "200+",
-      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=syria+vs+philippines",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=syria+vs+philippines",
       "relatedNews": [
+        {
+          "title": "Quiambao surpasses greats Blatche, Clarkson, Brownlee for Gilas WCQ record",
+          "source": "ESPN",
+          "url": "https://www.espn.com.au/basketball/gilas/story/_/id/50612141/kevin-quiambao-gilas-fiba-wc-qualifiers",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQeknE0Dbq310X2cWpjR74qEix-fr4_TbIVSm3-bIvs1SMtJp6DL0NXoRFzgC0"
+        },
+        {
+          "title": "Frontcourt depth powers Gilas Pilipinas win over Syria ahead of Iran showdown",
+          "source": "ESPN",
+          "url": "https://www.espn.com.au/basketball/gilas/story/_/id/50611982/gilas-pilipinas-syria-win-iran-showdown",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRRBlF2ZjFzBx3jz7WKTXr5Sp8GGO2uLRB9weZXv7ZJSIY1cIMfNtjVA3ft7RA"
+        },
         {
           "title": "Can Boatwright's arrival and Sotto's return give the Philippines the edge in FIBA World Cup qualifying?",
           "source": "Olympics",
           "url": "https://www.olympics.com/en/news/basketball-boatwright-sotto-gilas-pilipinas-fiba-world-cup-qualifying-2027-window-asian",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRviEpydxB7Tdz2_4C-HH1WutPG_JH87dsjQp_bXe4t0aOpte70daZj9r_qR20"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "AU",
+          "regionName": "澳大利亚",
+          "publishedAt": "2026-11-27T12:00:00Z",
+          "approxSearchTraffic": "200+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=AU&q=syria+vs+philippines"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-a78641c3860d",
+      "type": "search-trend",
+      "title": "latvia vs germany",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "GB",
+      "regionName": "英国",
+      "publishedAt": "2026-11-27T18:10:00Z",
+      "approxSearchTraffic": "100+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=latvia+vs+germany",
+      "relatedNews": [
+        {
+          "title": "Licensable picture: Latvia - Germany",
+          "source": "Reuters Connect",
+          "url": "https://www.reutersconnect.com/item/latvia-germany/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX0RQQUFQSVMyNjExMjdYOTlYNDExNDU4",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQUqXn45Cb3bjdlXJJGpSQKax4kG1SycfrKr-fJ1DTDoUhmJIKF1VVWurPgk_E"
         },
         {
-          "title": "Gilas' next generation of bigs coming together with Sotto, Millora-Brown and Edu",
-          "source": "ESPN",
-          "url": "https://www.espn.com/basketball/gilas/story/_/id/50603122/gilas-pilipinas-sotto-millora-brown-edu",
-          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQkHRqJX0unENugwHmOGB0V5t0SKYCrzfFfwiwz4ouz-YVB2uitLqDHTeE7k84"
+          "title": "Latvia Prioritizes Defense Ahead of Germany World Cup Clash",
+          "source": "SuaraGarut.ID",
+          "url": "https://suaragarut.id/en/latvia-defense-germany-world-cup",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4SFWql4w3Tm_W8dAIk-Rh-RpMxuguBTUkK-Zl6SBQ9p1YYUg-fyTIw34lChs"
         },
         {
-          "title": "Philippines vs. Syria at the FIBA World Cup Asian Qualifiers: Head-to-head",
-          "source": "GMA Network",
-          "url": "https://www.gmanetwork.com/news/sports/basketball/1010948/philippines-vs-syria-at-the-fiba-world-cup-asian-qualifiers-head-to-head/story/",
-          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSkX8amMmVT-x0JPnsYJdoVV8nOPUiv5LG09TZResDPRqVRu1M8NFOHA_OVJNg"
+          "title": "Live: FIBA World Cup Qualification, Americas Live : Germany vs Latvia Live updates",
+          "source": "Cochrane Eagle",
+          "url": "https://www.cochraneeagle.ca/classifieds/homes-rentals-and-real-estate/cochrane-open-houses/2181815",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQT2pIabN4yttzVzaqkJmoX-WL46wYmTWqJnt_bd9cHN0-ndNGVRKq_dmXUYzA"
+        }
+      ],
+      "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
+      "observations": [
+        {
+          "regionCode": "GB",
+          "regionName": "英国",
+          "publishedAt": "2026-11-27T18:10:00Z",
+          "approxSearchTraffic": "100+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=GB&q=latvia+vs+germany"
+        }
+      ]
+    },
+    {
+      "id": "google-search-trend-cd091929360c",
+      "type": "search-trend",
+      "title": "nebraska vs iowa",
+      "category": "sports",
+      "categoryLabel": "体育事件话题",
+      "source": {
+        "name": "Google 搜索趋势",
+        "url": "https://trends.google.com/trending"
+      },
+      "region": "overseas",
+      "regionCode": "CA",
+      "regionName": "加拿大",
+      "publishedAt": "2026-11-27T18:00:00Z",
+      "approxSearchTraffic": "100+",
+      "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=nebraska+vs+iowa",
+      "relatedNews": [
+        {
+          "title": "Nebraska vs. Iowa picks, odds, prediction, start time: 2026 college football Rivalry Week betting preview",
+          "source": "CBS Sports",
+          "url": "https://www.cbssports.com/betting/news/nebraska-vs-iowa-picks-odds-prediction-start-time-2026-college-football-rivalry-week-betting-preview/",
+          "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTJNDIWP0tYWY55XgPTxoxY4i0dgen3etmEvobS8rGmyNLFt69n2ahyxg4E2WM"
+        },
+        {
+          "title": "From left, Alex Freeman, Jacob Freeman, Elijah Rudd, and Mike Freeman, from Sioux City, are pictured at a tailgate Nov. 27, 2026",
+          "source": "Reuters Connect",
+          "url": "https://www.reutersconnect.com/item/from-left-alex-freeman-jacob-freeman-elijah-rudd-and-mike-freeman-from-sioux-city-are-pictured-at-a-tailgate-nov-27-2026/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX01UMVVTQVRPREFZMzA0NTUyNzA",
+          "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQRR_bvkMuj77n57WUlqbPOBOK8fimabK9R3ZJWnY_x4XNv1UqfQSXpNmnA9E8"
+        },
+        {
+          "title": "Iowa football vs Nebraska live score, Iowa leading at the half",
+          "source": "Hawk Central",
+          "url": "https://www.hawkcentral.com/story/sports/college/iowa/football/2026/11/27/iowa-football-vs-nebraska-live-score-odds-highlights-tv-channel-hawkeyes--live/92943693007/",
+          "image": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRejLx5S3CwsImyBI30IcWGczoIquyYMqObkn6vYikgh7HC3v_f0hMSD0iO6QM"
         }
       ],
       "evidenceNote": "Google 搜索趋势信号；估算搜索量不是社媒播放量、点赞数或互动率。",
@@ -334,9 +644,9 @@
         {
           "regionCode": "CA",
           "regionName": "加拿大",
-          "publishedAt": "2026-11-27T12:20:00Z",
-          "approxSearchTraffic": "200+",
-          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=syria+vs+philippines"
+          "publishedAt": "2026-11-27T18:00:00Z",
+          "approxSearchTraffic": "100+",
+          "trendUrl": "https://trends.google.com/trends/explore?date=now+7-d&geo=CA&q=nebraska+vs+iowa"
         }
       ]
     }
