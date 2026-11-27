@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-11-27T01:02:47Z",
+  "checkedAt": "2026-11-27T07:02:47Z",
   "feedCount": 2,
   "feedSuccess": 2,
   "feedFailed": 0,
   "repositoryCount": 7,
-  "repositorySuccess": 7,
+  "repositorySuccess": 0,
   "feeds": [
     {
       "id": "goodcase",
@@ -13,8 +13,8 @@
       "website": "https://goodcase.ai/",
       "archiveUrl": null,
       "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "lastSuccessAt": "2026-11-27T01:02:47Z",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "lastSuccessAt": "2026-11-27T07:02:47Z",
       "itemCount": 50,
       "error": null
     },
@@ -25,8 +25,8 @@
       "website": "https://daily.juya.uk/",
       "archiveUrl": "https://daily.juya.uk/archive/",
       "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "lastSuccessAt": "2026-11-27T01:02:47Z",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "lastSuccessAt": "2026-11-27T07:02:47Z",
       "itemCount": 10,
       "error": null
     }
@@ -35,51 +35,51 @@
     {
       "id": "goodcase-seedance",
       "repo": "LearnPrompt/awesome-seedance",
-      "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "error": null
+      "status": "cached",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
     },
     {
       "id": "ad-video-prompts",
       "repo": "LichAmnesia/awesome-ad-video-prompts",
-      "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "error": null
+      "status": "cached",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
     },
     {
       "id": "short-drama-skills",
       "repo": "UnderleveledBuilder/awesome-short-drama-skills",
-      "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "error": null
+      "status": "cached",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
     },
     {
       "id": "nanobanana-prompts",
       "repo": "ZeroLu/awesome-nanobanana-pro",
-      "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "error": null
+      "status": "cached",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
     },
     {
       "id": "zerolu-seedance",
       "repo": "ZeroLu/awesome-seedance",
-      "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "error": null
+      "status": "cached",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
     },
     {
       "id": "image-video-prompts",
       "repo": "ai-boost/awesome-image-video-prompts",
-      "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "error": null
+      "status": "cached",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
     },
     {
       "id": "lanshu-video-kit",
       "repo": "cclank/lanshu-awesome-ai-video-kit",
-      "status": "ok",
-      "checkedAt": "2026-11-27T01:02:47Z",
-      "error": null
+      "status": "cached",
+      "checkedAt": "2026-11-27T07:02:47Z",
+      "error": "HTTPError: HTTP Error 403: rate limit exceeded"
     }
   ]
 }

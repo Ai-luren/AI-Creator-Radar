@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "sources": {
     "aihot-selected": {
-      "lastAttemptAt": "2026-11-27T06:33:08+00:00",
-      "lastSuccessAt": "2026-11-27T06:33:08+00:00",
+      "lastAttemptAt": "2026-11-27T07:04:12+00:00",
+      "lastSuccessAt": "2026-11-27T07:04:12+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
@@ -26,14 +26,14 @@
       "consecutiveFailures": 0
     },
     "resources-batch": {
-      "lastAttemptAt": "2026-11-27T01:04:20+00:00",
-      "lastSuccessAt": "2026-11-27T01:04:20+00:00",
+      "lastAttemptAt": "2026-11-27T07:04:12+00:00",
+      "lastSuccessAt": "2026-11-27T07:04:12+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
     "recovery-batch": {
-      "lastAttemptAt": "2026-11-27T06:33:08+00:00",
-      "lastSuccessAt": "2026-11-27T06:33:08+00:00",
+      "lastAttemptAt": "2026-11-27T07:04:12+00:00",
+      "lastSuccessAt": "2026-11-27T07:04:12+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     }

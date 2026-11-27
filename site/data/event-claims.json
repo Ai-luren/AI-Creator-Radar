@@ -1,6 +1,6 @@
 {
   "schema": "event-claims/v1",
-  "checkedAt": "2026-11-27T06:48:00+00:00",
+  "checkedAt": "2026-11-27T07:02:47+00:00",
   "claims": [
     {
       "id": "claim-0c45f142be97a721c98631cdb5de969fabc199e53c61eeb070230710cf2dc2c6",
@@ -494,7 +494,7 @@
   },
   "policy": "Dated publisher statements only; observation and article dates are not inferred event dates. URL/channel duplicates do not count as independent proof. Existing canonical records are not used to manufacture source recall or changed by this shadow layer.",
   "publisherStatements": {
-    "checkedAt": "2026-11-27T06:48:00+00:00",
+    "checkedAt": "2026-11-27T07:02:47+00:00",
     "records": [
       {
         "id": "publisher-20ef368618aa20adb494dc894ccf50b912d765af1808934cf1f6e5a49574c382",

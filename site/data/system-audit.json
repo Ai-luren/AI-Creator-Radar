@@ -1,6 +1,6 @@
 {
   "schema": "radar-system-audit/v1",
-  "checkedAt": "2026-11-27T06:48:33.134646+00:00",
+  "checkedAt": "2026-11-27T07:04:17.843719+00:00",
   "errors": [],
   "releaseEvidenceReview": [
     {
@@ -1195,7 +1195,7 @@
   },
   "publisherStatementAudit": {
     "errors": [],
-    "checkedAt": "2026-11-27T06:48:00+00:00",
+    "checkedAt": "2026-11-27T07:02:47+00:00",
     "conflicts": [],
     "summary": {
       "records": 2,
@@ -1244,8 +1244,8 @@
     "policy": "Structural integrity and separate availability-statement coverage only. Does not establish first-release dates or replace original article recall."
   },
   "externalLeadCoverage": {
-    "discoveryCheckedAt": "2026-11-27T06:47:53+00:00",
-    "resolutionCheckedAt": "2026-11-27T06:47:58+00:00",
+    "discoveryCheckedAt": "2026-11-27T07:02:41+00:00",
+    "resolutionCheckedAt": "2026-11-27T07:02:44+00:00",
     "leadCount": 75,
     "counts": {
       "article-date-observed": 5,
@@ -2234,7 +2234,7 @@
     "scopeNote": "Counts observed external lead records, not distinct release events or verified omissions. Article-date evidence is not first-release evidence."
   },
   "appUpdates": {
-    "checkedAt": "2026-11-27T06:47:59+00:00",
+    "checkedAt": "2026-11-27T07:02:45+00:00",
     "summary": {
       "configuredSources": 2,
       "successfulThisRun": 0,
@@ -2244,7 +2244,7 @@
     }
   },
   "historicalEvidence": {
-    "checkedAt": "2026-11-27T06:48:00+00:00",
+    "checkedAt": "2026-11-27T07:02:46+00:00",
     "summary": {
       "activeTasks": 69,
       "urlsAttemptedThisRun": 0,
@@ -2267,7 +2267,7 @@
     }
   },
   "independentCoverage": {
-    "checkedAt": "2026-11-27T06:48:00+00:00",
+    "checkedAt": "2026-11-27T07:02:46+00:00",
     "summary": {
       "configuredSources": 3,
       "successfulThisRun": 0,
@@ -2294,7 +2294,7 @@
     }
   },
   "eventClaims": {
-    "checkedAt": "2026-11-27T06:48:00+00:00",
+    "checkedAt": "2026-11-27T07:02:47+00:00",
     "summary": {
       "claims": 17,
       "newClaims": 0,
@@ -2308,7 +2308,7 @@
     }
   },
   "sourceSearch": {
-    "checkedAt": "2026-11-27T06:47:57+00:00",
+    "checkedAt": "2026-11-27T07:02:43+00:00",
     "summary": {
       "activeTargets": 17,
       "attemptedThisRun": 0,
@@ -2326,7 +2326,7 @@
     }
   },
   "productState": {
-    "checkedAt": "2026-11-27T06:47:59+00:00",
+    "checkedAt": "2026-11-27T07:02:46+00:00",
     "summary": {
       "configuredSources": 3,
       "sourcesWithBaseline": 3,
@@ -2337,7 +2337,7 @@
     }
   },
   "eventReconciliation": {
-    "checkedAt": "2026-11-27T06:48:01+00:00",
+    "checkedAt": "2026-11-27T07:02:47+00:00",
     "summary": {
       "evidenceCount": 327,
       "newEvidence": 0,
@@ -2364,7 +2364,7 @@
   "scopeNote": "Structural checks are not exhaustive source-level fact verification, ranking accuracy or visual review.",
   "p1Readiness": {
     "schema": "p1-readiness/v1",
-    "checkedAt": "2026-11-27T06:48:33.134646+00:00",
+    "checkedAt": "2026-11-27T07:04:17.843719+00:00",
     "gates": {
       "structuralIntegrity": {
         "status": "pass",
@@ -2433,7 +2433,7 @@
         {
           "id": "anthropic-model-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2441,7 +2441,7 @@
         {
           "id": "anthropic-model-announcements",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2449,7 +2449,7 @@
         {
           "id": "claude-code-releases",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2457,7 +2457,7 @@
         {
           "id": "deepseek-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2465,7 +2465,7 @@
         {
           "id": "elevenlabs-official-rss",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2473,7 +2473,7 @@
         {
           "id": "elevenlabs-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 2
@@ -2481,7 +2481,7 @@
         {
           "id": "elevenlabs-changelog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 3
@@ -2489,7 +2489,7 @@
         {
           "id": "deepmind-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2497,7 +2497,7 @@
         {
           "id": "deepmind-blog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 6
@@ -2505,7 +2505,7 @@
         {
           "id": "google-gemini-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 0
@@ -2513,7 +2513,7 @@
         {
           "id": "google-official-feed",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2521,7 +2521,7 @@
         {
           "id": "kimi-announcement",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2529,7 +2529,7 @@
         {
           "id": "kuaishou-ir",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 0
@@ -2537,7 +2537,7 @@
         {
           "id": "meta-ai-blog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 2
@@ -2545,7 +2545,7 @@
         {
           "id": "meta-models",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2553,7 +2553,7 @@
         {
           "id": "midjourney-updates",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2561,7 +2561,7 @@
         {
           "id": "minimax-ir",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 3
@@ -2569,7 +2569,7 @@
         {
           "id": "minimax-blog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2577,7 +2577,7 @@
         {
           "id": "mureka-changelog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2585,7 +2585,7 @@
         {
           "id": "niji-blog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2593,7 +2593,7 @@
         {
           "id": "codex-cli-releases",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2601,7 +2601,7 @@
         {
           "id": "openai-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2609,7 +2609,7 @@
         {
           "id": "openai-developer-announcements",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2617,7 +2617,7 @@
         {
           "id": "pixverse-zh-blog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 3
@@ -2625,7 +2625,7 @@
         {
           "id": "pixverse-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 2
@@ -2633,7 +2633,7 @@
         {
           "id": "qwen-image-repo",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 2
@@ -2641,7 +2641,7 @@
         {
           "id": "qwen-official-rss",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2649,7 +2649,7 @@
         {
           "id": "qwen-image-updates",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2657,7 +2657,7 @@
         {
           "id": "qwen-agent-releases",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2665,7 +2665,7 @@
         {
           "id": "qwen3-tts-releases",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2673,7 +2673,7 @@
         {
           "id": "qwen-cloud-model-releases",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 0
@@ -2681,7 +2681,7 @@
         {
           "id": "sandai-research",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2689,7 +2689,7 @@
         {
           "id": "suno-release",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2697,7 +2697,7 @@
         {
           "id": "vidu-api-updates",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 2
@@ -2705,7 +2705,7 @@
         {
           "id": "xai-model-updates",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 0
@@ -2713,7 +2713,7 @@
         {
           "id": "xai-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 2
@@ -2721,7 +2721,7 @@
         {
           "id": "seed-official",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 3
@@ -2729,7 +2729,7 @@
         {
           "id": "kuaishou-company-news",
           "lastSuccessAt": "2026-11-26T17:44:42Z",
-          "ageHours": 13.06,
+          "ageHours": 13.33,
           "error": "HTTPError: HTTP Error 403: Forbidden",
           "deferred": true,
           "matchedFamilies": 0
@@ -2737,7 +2737,7 @@
         {
           "id": "zai-official-blog",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2745,7 +2745,7 @@
         {
           "id": "zai-model-release-notes",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2753,7 +2753,7 @@
         {
           "id": "zhipu-research-index",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2761,7 +2761,7 @@
         {
           "id": "hunyuan-mt3-repo",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2769,7 +2769,7 @@
         {
           "id": "tencent-model-news",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 0
@@ -2777,7 +2777,7 @@
         {
           "id": "hunyuan-image-repo",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2785,7 +2785,7 @@
         {
           "id": "hunyuan-video-repo",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 1
@@ -2793,7 +2793,7 @@
         {
           "id": "alibaba-model-studio",
           "lastSuccessAt": "2026-11-27T06:47:40Z",
-          "ageHours": 0.01,
+          "ageHours": 0.28,
           "error": null,
           "deferred": false,
           "matchedFamilies": 7
@@ -2818,7 +2818,7 @@
         "needs-source": 22,
         "probe-unresolved": 9
       },
-      "oldestHours": 3.69,
+      "oldestHours": 3.95,
       "olderThan24Hours": 0,
       "unmeasuredAge": 0,
       "scheduled": 16,

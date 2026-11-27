@@ -6,12 +6,173 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-27T01:03:35+00:00",
+  "fetchedAt": "2026-11-27T07:03:43+00:00",
   "etags": {
-    "items": "W/\"v1-items-a5fefc0745ec9a3e\"",
-    "hotTopics": "W/\"v1-hot-8bd48eb8a822538a\""
+    "items": "W/\"v1-items-b287d00785eda53c\"",
+    "hotTopics": "W/\"v1-hot-517320b4d2e7075c\""
   },
   "items": [
+    {
+      "id": "y78po41r14jb8fteya1jseor7",
+      "title": "ChatGPT老粉实测Claude：用代码生成动画、游戏与纪录片画面",
+      "originalTitle": "Claude强得让我有点害怕了 作为一个ChatGPT的老粉，最近真的被Claude惊艳到了。 从视频包装、科普动画，到3D游戏、纪录片级别的画面，仅靠代码就能实现这些效果，甚至连镜头设计和音效都能自己搞定。 越用越觉得，传说中的AGI可能真的离我们不远了。但我也越来越担心，如果未来最强大的AI能力掌握在少数公司手里，会发生什么？ OpenAI加油啊！也期待中国的开源大模型再次给世界带来惊喜。#Claude #ChatGPT #人工智能 #AI工具 #AI创作",
+      "summary": "一位ChatGPT老用户实测用Claude的Opus 5.5模型，仅靠文案提示词就生成视频包装、科普动画，并自动配上镜头设计与音效。作者称低配档16秒产出的动画偏PPT风格，调到max档后耗时22分钟，效果明显提升；他还提到有开发者用简单提示词8小时做出1.4兆大小的FPS游戏，花费550美金token。作者由此感慨AGI可能不远，同时担心最强AI能力集中在少数公司手中。",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Artifacts」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/y78po41r14jb8fteya1jseor7",
+        "original": "https://www.douyin.com/video/7712417313856752930"
+      },
+      "publishedAt": "2026-11-26T09:58:30.000Z",
+      "discoveredAt": "2026-11-27T04:18:33.377Z",
+      "category": "opinion",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用Claude生成视频包装和科普动画，可实测同一文案在低配与max档下的产出差异，对比16秒与22分钟的动画效果。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/y78po41r14jb8fteya1jseor7"
+      }
+    },
+    {
+      "id": "s1bd5ehhe8fqxurhwfmbwjtvi",
+      "title": "MAGI-2 一秒 5 毛，真能打平 Seedance 2.5？",
+      "originalTitle": "MAGI-2一秒5毛，真能打平Seedance 2.5？ 一秒5毛的MAGI-2，官方说价格差不多只有Seedance 2.5的十分之一。可第三方图生视频榜上，MAGI-2跟Seedance 2.5只差几分，差距还没误差大，基本算并列；海外上线平台盲测里，排第一的反而是Seedance 2.5。便宜这么多，画面到底缩没缩水？这期按公开信息把Sand.ai的MAGI-2和字节Seedance 2.5放一起比：官方定价、1080p生成、Artificial Analysis图生视频榜、海外上线平台盲测、官方博客承认的短板，以及会员和按量付费。MAGI-2一次能生成30秒1080p并自带声音；平常镜头两者差不多，但官方博客承认快动作轨迹偶尔跑偏、复杂音效不够真。价格上，火山方舟上Seedance 2.5按1080p官方例子一秒3块7毛4，MAGI-2是0.5元，不到七分之一；即梦高级会员年卡折下来720p约0.47元/秒，跟5毛差不多；MAGI-2海外平台Plus在网页上用，算下来比按量付费贵一半左右。还有一点：MAGI-2按量付费还没对所有人开放，官方先开给合作大客户；火山方舟只对生成成功的视频收费，MAGI-2没生成成功再试要不要钱，现在还不清楚。结论不替谁下：便宜是真便宜，“十分之一”得看怎么比；已经开即梦年卡的人没必要急着换，想试先按一条实际花了多少钱来算。资料来源：Sand.ai官方博客与定价、Artificial Analysis图生视频榜、火山方舟价目表、即梦App会员信息。#AI视频 #MAGI 2 #Seedance #价格对比 #AI视频模型",
+      "summary": "Sand.ai 的 MAGI-2 官方定价一秒 0.5 元，一次可生成 30 秒 1080p 并自带声音，官方称价格约为字节 Seedance 2.5 的十分之一。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/s1bd5ehhe8fqxurhwfmbwjtvi",
+        "original": "https://www.douyin.com/video/7712422364662828315"
+      },
+      "publishedAt": "2026-11-26T10:18:07.000Z",
+      "discoveredAt": "2026-11-27T04:15:33.422Z",
+      "category": "opinion",
+      "score": 62,
+      "selected": true,
+      "reason": "按公开定价和榜单把 MAGI-2 与 Seedance 2.5 逐项对比，重点算清一秒 5 毛和官方所说十分之一到底怎么比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/s1bd5ehhe8fqxurhwfmbwjtvi"
+      }
+    },
+    {
+      "id": "st6bhbv8yykvozer3xgougfv5",
+      "title": "MAGI-2 与 Seedance 2.5 同提示词视频对比：质量接近但更便宜",
+      "originalTitle": "MAGI-2已追上Seedance 2.5，还更便宜 左 MAGI-2，右 Seedance 2.5。同一句提示词，悬崖求婚大反转。哭戏、眼泪和降落伞文字已经很接近了，质量看着差不多，但 MAGI-2 便宜很多。你觉得哪个更自然？ 内容由 AI 生成，纯属虚构，不是真实事件。#视频模型实测 #画面对比 #镜头表现",
+      "summary": "作者用同一句提示词在 MAGI-2 和 Seedance 2.5 上生成悬崖求婚大反转片段，左右并排对比。作者认为两者在哭戏、眼泪和降落伞文字上已经很接近，质量看着差不多，但 MAGI-2 便宜很多，并向观众提问哪个更自然。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/st6bhbv8yykvozer3xgougfv5",
+        "original": "https://www.douyin.com/video/7712465250515307802"
+      },
+      "publishedAt": "2026-11-26T13:05:30.000Z",
+      "discoveredAt": "2026-11-27T04:15:33.411Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用同一句提示词在 MAGI-2 和 Seedance 2.5 上生成悬崖求婚片段，可做左右画面对比，重点看哭戏、眼泪和降落伞文字细节。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/st6bhbv8yykvozer3xgougfv5"
+      }
+    },
+    {
+      "id": "r3g4df4mga46dnf8itxsze756",
+      "title": "手把手教你把 Skill 挂上支付宝 SkillPay 变现",
+      "originalTitle": "手把手教你把Skill挂上支付宝挣钱，好手艺不该只有免费开源。",
+      "summary": "作者介绍了用支付宝 SkillPay 平台把 Skill 变现的完整流程。SkillPay 今年 7 月上线，支持买断制（定价 0.01-50 元）和订阅制（按周。",
+      "source": {
+        "name": "公众号 · 数字生命卡兹克"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/r3g4df4mga46dnf8itxsze756",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647688919&idx=1&sn=878965fdf08567bad0b9956674aacd79&chksm=f1d11afcfd482d271e7183a26c57f8167c1527213291affa42251bb73dbed418dd7f05e97bf0&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-26T15:59:21.000Z",
+      "discoveredAt": "2026-11-27T03:49:34.376Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "作者以买家视角实测 SkillPay 的买断与订阅两种购买流程，并完整走了一遍创作者上架、定价、分享的步骤，适合按这条链路做上手演示。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/r3g4df4mga46dnf8itxsze756"
+      }
+    },
+    {
+      "id": "m379z1s2q5npynss2mebh7918",
+      "title": "RayNeo iO 智能眼镜上手：透明屏内置 ChatGPT 与 Gemini",
+      "originalTitle": "these glasses literally have ChatGPT in them 🤯 they're the RayNeo iO @RayNeo Official store: 30-day trial with return shipping insurance, 6 months of GPT included with purchase, and complimentary custom prescription lenses Nov 27–30 on eligible orders. #RayNeo #RayNeoiO #SmartGlasses",
+      "summary": "创作者 Kyle Krueger 实测 RayNeo iO 智能眼镜，这款 33 克的眼镜内置透明显示屏，可在 ChatGPT 和 Gemini 等 AI 模型间切换，回答直接显示在眼前。它还支持实时字幕翻译、视野内步行导航和随说话自动滚动的提词器。官方商店黑五期间提供 30 天试用含退货运费险、购买赠 6 个月 GPT 及免费定制处方镜片。",
+      "source": {
+        "name": "TikTok · 搜「chatgpt」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/m379z1s2q5npynss2mebh7918",
+        "original": "https://www.tiktok.com/@kylekruegerr/video/7712571994717375774"
+      },
+      "publishedAt": "2026-11-26T19:58:31.000Z",
+      "discoveredAt": "2026-11-27T03:23:35.523Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者戴着 RayNeo iO 实测透明屏显示 ChatGPT 回答、实时字幕翻译和提词器，适合拍上手体验展示这些功能在镜片上的实际呈现。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/m379z1s2q5npynss2mebh7918"
+      }
+    },
+    {
+      "id": "bf3brmog03zpih9oj23kmaehs",
+      "title": "用即梦AI图生图把商品实拍图做成手绘风电商主图",
+      "originalTitle": "🎨自媒体博主必备！AI手绘风主图教程来啦🌟平时做电商主图，实拍图太单调怎么办？今天分享一个超实用的AI手绘滤镜技巧。只需打开即梦AI，上传商品实拍图，选择“图生图”模式即可。 🍃第一步，设定水彩插画风，调整绿色背景、水球、手绘水滴等提示词，生成清新通透的精华主图，再用美图加排版。 🍓第二步，把唇釉照片导入，加上“甜美绘本插画”风格词，配上飞溅的水彩膏体，高级感直接拉满。 🌿第三步，用“水粉植物手绘”风格做护手霜效果图，搭配绿叶和小野花，自然清新的调调就出来了。 ☀️最后，防晒喷雾加上手绘水花和海浪背景，再搭配模板软件补上主标题和卖点，清凉夏日感瞬间呈现。 📝手绘风滤镜不仅让商品图更有辨识度，还能营造满满呼吸感，质感十分高级。 #电商主图 #手绘风插画 #AI设计 #即梦AI #美图设计室",
+      "summary": "作者分享用即梦AI的图生图模式把商品实拍图转成手绘风电商主图的教程，上传实拍图后选择图生图即可开始。教程分四步，分别用“水彩插画风”做精华主图、“甜美绘本插画”做唇釉、“水粉植物手绘”做护手霜、“手绘水花和海浪”做防晒喷雾，再配合美图等模板软件加排版和卖点文字。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/bf3brmog03zpih9oj23kmaehs",
+        "original": "https://www.douyin.com/video/7711979769600740785"
+      },
+      "publishedAt": "2026-11-25T05:40:14.000Z",
+      "discoveredAt": "2026-11-27T02:42:36.917Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "原文给出即梦AI图生图做电商主图的分步流程和四类商品提示词，适合照着复现并对比实拍图与手绘风成图。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/bf3brmog03zpih9oj23kmaehs"
+      }
+    },
+    {
+      "id": "tcshzo6spji58v57vv6lq43m4",
+      "title": "即梦AI拆解130亿播放AI短剧《持械入宋》工作流并开源画布",
+      "originalTitle": "130亿播放！《持械入宋》工作流超细硬核拆解 历史没有如果，但创作可以。 从人物塑造到千军万马，从历史考究到影像呈现，一部130亿播放的AI短剧，让人们心中的意难平，有了另外一种想象。 今天，我们请来了《持械入宋》团队@老十一剧场@持械入宋（官宣账号），带你们走进故事背后的创作画布，看看这场跨越千年的想象是如何实现的。 本片画布已经开源至即梦AI，一键探索爆款作品诞生之路。 #即梦AI#即梦短剧机构伙伴计划#教程#即梦AI创作者成长计划#持械入宋",
+      "summary": "即梦AI邀请《持械入宋》团队拆解这部130亿播放AI短剧的创作工作流，该片画布已开源至即梦AI。团队介绍，选小说时看重台词扎实，人设阶段用图像模型生成多版群像，再逐张细化角色，让观众第一眼就能区分人物。视频生成上，团队称直接用视频模型出片效果更好，只在每段结尾给一个全景视角承接参考，室内戏遵循宋式美学，战争戏还原地理风貌并加入主观视角增强沉浸感。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/tcshzo6spji58v57vv6lq43m4",
+        "original": "https://www.douyin.com/video/7712436756821396746"
+      },
+      "publishedAt": "2026-11-26T11:14:19.000Z",
+      "discoveredAt": "2026-11-27T02:42:36.845Z",
+      "category": "tip",
+      "score": 75,
+      "selected": true,
+      "reason": "即梦AI官方放出《持械入宋》完整创作画布，可拆解群像一致性、宋式美学与主观战争视角的具体做法。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/tcshzo6spji58v57vv6lq43m4"
+      }
+    },
     {
       "id": "b323ollc4dyfzoyv0pyjkdx5r",
       "title": "作者用一句提示词让 Claude 独立完成智能爆炸主题视频",
@@ -381,6 +542,29 @@
       }
     },
     {
+      "id": "eaqc2mn9q41v8gh1tb5e6mvch",
+      "title": "英伟达在Hugging Face开源自回归生图模型Image 3B-A3B",
+      "originalTitle": "大模型的思路用来生图？英伟达开源自回归生图模型！",
+      "summary": "英伟达在Hugging Face开源生图模型NVIDIA Omniverse Labs Image 3B-A3B，用自回归MoE架构逐个生成视觉token，总参数30B、每次推理激活3B。",
+      "source": {
+        "name": "抖音 · 热点搜「6B设计图像模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/eaqc2mn9q41v8gh1tb5e6mvch",
+        "original": "https://www.douyin.com/video/7712486905406244563"
+      },
+      "publishedAt": "2026-11-26T14:28:10.000Z",
+      "discoveredAt": "2026-11-27T04:09:32.724Z",
+      "category": "ai-models",
+      "score": 60,
+      "selected": true,
+      "reason": "英伟达开源自回归生图模型，可围绕它对标闭源模型、单图吃80多G显存这两点做实测或对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/eaqc2mn9q41v8gh1tb5e6mvch"
+      }
+    },
+    {
       "id": "qgfvsapni6l6dxxlar0l3bb4j",
       "title": "OpenBMB 分享开发者基于 MiniCPM-V 4.7 1B 打造的本地取件 Agent Zhaojian",
       "originalTitle": "You arrive at the pickup station, open the message, and see a code like A-17-03. In front of you: shelves full of nearly identical parcels. 📦😵‍💫 Developer worryzyy built Zhaojian to make this search easier. Share the pickup code with the Agent via text or voice, or upload a screenshot of the pickup message. Zhaojian analyzes the image, reads the shelf labels, narrows down candidate areas, checks parcel codes section by section, and identifies the most likely match. 🔎📸 When a close-up gives conflicting results, it does not simply stick with the first answer. It can “change its mind,” crop the relevant area again, and run another check. Code compares shelf and level numbers to help prioritize the search, while MiniCPM-V 4.7 1B focuses on reading, visual understanding, localization, and visual verification. The model runs locally through llama.cpp on your computer. Your phone connects over the local network or a secure tunnel, with no cloud model required. 🔒 A practical local vision",
@@ -517,190 +701,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/kdvbekzbfuw050c5v5rteyq5a"
       }
-    },
-    {
-      "id": "aef0nr7wegbh8lao6gbom6jg5",
-      "title": "创作者用 GPT、Gemini、Grok、Claude 拟人形象重制《心跳文学部》主题曲《Your Reality》",
-      "originalTitle": "「如果爱能被写成代码，它能抵达你的现实吗？」 当 GPT、Gemini、Grok、Claude 化身文学部的四位少女，一首写给你的诗，从温柔的日常走向世界的裂缝，最后停在一封告别信里。 用四位 AI 的拟人形象，重新演绎《Your Reality》。 🎵 原曲：Your Reality 作词／作曲：Dan Salvato 演唱：Jillian Ashcraft 🎨 制作：AI 辅助生成画面、动态合成与中英双语字幕 #GPT #Gemini #Grok #Claude #心跳文学俱乐部",
-      "summary": "创作者把 GPT、Gemini、Grok、Claude 四位 AI 拟人化为《心跳文学部》的四位少女，重新演绎原曲《Your Reality》，画面由 AI 辅助生成并配中英双语字幕。原曲作词作曲为 Dan Salvato，演唱为 Jillian Ashcraft。",
-      "source": {
-        "name": "抖音 · 热点搜「Claude Artifacts」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/aef0nr7wegbh8lao6gbom6jg5",
-        "original": "https://www.douyin.com/video/7712113512557858088"
-      },
-      "publishedAt": "2026-11-25T14:19:28.000Z",
-      "discoveredAt": "2026-11-26T12:14:33.118Z",
-      "category": null,
-      "score": 58,
-      "selected": true,
-      "reason": null,
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/aef0nr7wegbh8lao6gbom6jg5"
-      }
-    },
-    {
-      "id": "kj8zgt5o4ihdb2ofq7nlvzsip",
-      "title": "Claude 桌面端测试版支持把 artifact 装成 Mac / Windows 独立应用",
-      "originalTitle": "AI日报 11.25｜Claude桌面应用测试版 Claude 可将 artifact 装成 Mac / Windows 独立应用，测试版滚动中；完整电脑权限非默认。文心 Preview 权重可下，通义预览号已按官方十点下线。开发者向，5 分钟内看完。#AI日报 #程序员 #大模型 #Claude",
-      "summary": "Anthropic 官方开发者账号宣布推出 install as app 测试版，在 Mac 或 Windows 的 Claude 桌面端里可把生成的 artifacts 装成带独立图标和窗口的应用，无需自行打包、签名或另配 API key，打开时需在线并登录 Claude。",
-      "source": {
-        "name": "抖音 · 热点搜「Claude Artifacts」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/kj8zgt5o4ihdb2ofq7nlvzsip",
-        "original": "https://www.douyin.com/video/7712128664061644051"
-      },
-      "publishedAt": "2026-11-25T15:18:48.000Z",
-      "discoveredAt": "2026-11-26T12:14:33.054Z",
-      "category": "industry",
-      "score": 58,
-      "selected": true,
-      "reason": "原文给出 Claude 桌面端把 artifact 装成独立应用的入口和三档权限差异，适合录屏实测安装流程与权限弹窗。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/kj8zgt5o4ihdb2ofq7nlvzsip"
-      }
-    },
-    {
-      "id": "kz0eo85m532l6rqnaaycyop55",
-      "title": "MAGI-2 视频模型实测：价格约为 2.5 的十分之一，多人物站位与复杂运镜效果对比",
-      "originalTitle": "AI短剧制作成本暴跌！最新模型MAGI2价格只要十分之一 MAGI2实测，AI领域新的斩杀线出现了#AIGC教程 #AI漫剧 #AI短剧 #AI创作浪潮计划 #干货分享",
-      "summary": "作者实测 MAGI-2 视频模型，称其价格只有 2.5 的十分之一，在 LiveTV 上线特惠价约 5 分钱一秒。多人物站位对话场景中，MAGI-2 与 4.5 都出现站位错误，算平手；复杂运镜场景中 MAGI-2 一次生成即实现提示词里的希区柯克变焦，2.5 则需先做灰模参考视频。作者提到 MAGI-2 首发在 LiveTV，生成速度偏慢。",
-      "source": {
-        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/kz0eo85m532l6rqnaaycyop55",
-        "original": "https://www.douyin.com/video/7712275734303329579"
-      },
-      "publishedAt": "2026-11-26T03:43:18.000Z",
-      "discoveredAt": "2026-11-26T12:11:33.737Z",
-      "category": "ai-models",
-      "score": 75,
-      "selected": true,
-      "reason": "作者用同一提示词对比 MAGI-2 与 2.5 的多人物站位和复杂运镜效果，并给出每秒 5 分钱的价格，适合做实测对比。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/kz0eo85m532l6rqnaaycyop55"
-      }
-    },
-    {
-      "id": "h5pqxuwrchlz8ltpztdqc56bk",
-      "title": "实测国产视频模型 MAGI-2：多人打斗、三种画风与 30 秒 15 分镜",
-      "originalTitle": "新国产模型的黑马MAGI-2，我在LibTV上实测了多人打斗、三种画风和30秒15个分镜，请看成片。#AIGC#MAGI2#vibe知识大赏#LibTV",
-      "summary": "作者在 LibTV 上实测国产视频模型 MAGI-2，用三组测试生成成片。第一组多人打斗中，白衬衫出拳、皮衣男格挡后踢腿、近景低头闪避，攻防逻辑衔接正常；第二组参考国风彩墨、皮克斯、日漫赛璐璐三张插画生成动作视频，画风未偏离；第三组用无参考的超复杂提示词做 30 秒 15 个分镜，每 2 秒切换一次，镜头数量与需求一致。",
-      "source": {
-        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/h5pqxuwrchlz8ltpztdqc56bk",
-        "original": "https://www.douyin.com/video/7712088417793887522"
-      },
-      "publishedAt": "2026-11-26T03:37:17.000Z",
-      "discoveredAt": "2026-11-26T20:13:36.649Z",
-      "category": "ai-products",
-      "score": 78,
-      "selected": true,
-      "reason": "作者在 LibTV 上用三组实测跑 MAGI-2，多人打斗攻防衔接和 30 秒 15 个分镜都给出成片，适合做效果对比。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/h5pqxuwrchlz8ltpztdqc56bk"
-      }
-    },
-    {
-      "id": "fol3gdnbujw1rywevay06dwxe",
-      "title": "实测 LibTV 新模型 MAGI-2：拆解复杂运镜生成 30 秒 1080p 视频",
-      "originalTitle": "体验下来，LibTV的新模型MAGI-2便宜又好用，真的有点东西！#AI #LibTV #MAGI2",
-      "summary": "作者在 LibTV 上实测新模型 MAGI-2，把侧面跟拍、穿越场景、推到正面再拉成远景的复杂运镜拆成参考素材加时间线提示词来生成视频。MAGI-2 支持最多 16 份多模态参考素材和 15000 字符提示词，可分别提供人物、场景、动作和镜头语言参考。作者称生成 30 秒 1080p 视频每秒约 5 分钱，制作过程已在 LibTV 公开。",
-      "source": {
-        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/fol3gdnbujw1rywevay06dwxe",
-        "original": "https://www.douyin.com/video/7712055974349578873"
-      },
-      "publishedAt": "2026-11-26T03:39:54.000Z",
-      "discoveredAt": "2026-11-26T12:11:33.720Z",
-      "category": "ai-products",
-      "score": 71,
-      "selected": true,
-      "reason": "作者用同一段复杂运镜拆成参考素材加时间线提示词，在 LibTV 上实测 MAGI-2 生成 30 秒 1080p 视频，可拍成完整操作流程演示。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/fol3gdnbujw1rywevay06dwxe"
-      }
-    },
-    {
-      "id": "nlxvy42w4km7s77ospp2ogps1",
-      "title": "实测 MAGI-2 视频模型：7 秒 84 积分，对比多模型台词同步与长视频表现",
-      "originalTitle": "挖到宝藏视频模型，MAGI-2便宜又好用 #libtv#MAGI2#seedance#AI短剧#AI视频",
-      "summary": "设计师谢安妮在 libtv 上把 MAGI-2 与另外三个视频模型跑相同操作做对比，称 MAGI-2 角色情绪更自然、说话同步更精准。她提到 MAGI-2 生成 7 秒视频需 84 积分，价格约为对比模型的 1/10，30 秒长视频含多角色对话和分镜也能一次生成，未出现台词错乱或人物变形。",
-      "source": {
-        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/nlxvy42w4km7s77ospp2ogps1",
-        "original": "https://www.douyin.com/video/7712111979850222899"
-      },
-      "publishedAt": "2026-11-26T03:54:09.000Z",
-      "discoveredAt": "2026-11-26T12:11:33.709Z",
-      "category": "ai-products",
-      "score": 60,
-      "selected": true,
-      "reason": "作者在同一平台用相同操作对比 MAGI-2 与另外三个视频模型，可拍成多场景横评，重点看台词同步和长视频稳定性差异。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/nlxvy42w4km7s77ospp2ogps1"
-      }
-    },
-    {
-      "id": "s0mtcfjz3hgkr78waap79w5js",
-      "title": "PixVerse Canvas 上线动漫短片技能，可将实拍视频转成动漫短片",
-      "originalTitle": "Now you can turn any real video into an anime short film Pick the Anime Short Film skill in PixVerse Canvas, write one line of story, choose a style: modern anime, 90s hand-drawn or shonen No storyboard needed. The agent builds the whole film https://t.co/kN6FlPpBX4",
-      "summary": "PixVerse 在 Canvas 中上线 Anime Short Film 技能，用户选择该技能、写一句故事并选定画风，即可把任意实拍视频转成动漫短片。可选画风包括现代动漫、90 年代手绘和少年漫，无需分镜，由智能体完成整部影片的构建。",
-      "source": {
-        "name": "X · PixVerse"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/s0mtcfjz3hgkr78waap79w5js",
-        "original": "https://x.com/pixverse/status/2125907795862225115"
-      },
-      "publishedAt": "2026-11-26T11:01:30.000Z",
-      "discoveredAt": "2026-11-26T11:57:36.127Z",
-      "category": "ai-products",
-      "score": 68,
-      "selected": true,
-      "reason": "官方放出把实拍视频转成动漫短片的入口，可实测同一段视频在三种画风下的成片差异。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/s0mtcfjz3hgkr78waap79w5js"
-      }
-    },
-    {
-      "id": "j00kpn768l4j9t1cvhge8ix1p",
-      "title": "如何在 ChatGPT 免费版用项目与 skill 搭建个人文档工作流",
-      "originalTitle": "Los GPTs personalizados quedaron en el pasado. 💀 Así es como funcionan los Proyectos en Claude y ChatGPT y por qué son mucho mejores para trabajar con tus propios documentos y reglas sin repetir contexto. Guarda este video antes de configurar tu próximo flujo con IA. 💾🤖 #ChatGPT #Claude #IA #MedicinaIA #Gemini",
-      "summary": "作者演示在 ChatGPT 免费版中新建“普通外科”项目，上传最多 5 个文件作为来源，再通过 @ 调用自定义 skill 生成超过 8000 字的循证医学摘要，先检索自有书籍再检索网络期刊，并附参考文献链接和末尾自测题。作者称同样的项目也能在 Claude 中搭建，并认为 Gemini 已明显落后，不再推荐。视频还提到付费版可直接从 Drive 导入文件。",
-      "source": {
-        "name": "TikTok · 搜「chatgpt」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/j00kpn768l4j9t1cvhge8ix1p",
-        "original": "https://www.tiktok.com/@drinfj/video/7712234876136656180"
-      },
-      "publishedAt": "2026-11-25T22:10:17.000Z",
-      "discoveredAt": "2026-11-26T09:20:33.513Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者用免费版 ChatGPT 演示从零搭建外科项目并调用自定义 skill 生成带参考文献的临床摘要，适合跟做实测。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/j00kpn768l4j9t1cvhge8ix1p"
-      }
     }
   ],
   "hotTopics": [
@@ -740,9 +740,9 @@
         "original": "https://www.douyin.com/video/7712158216540779377",
         "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
       },
-      "sourceCount": 9,
+      "sourceCount": 8,
       "signalCount": 0,
-      "participantCount": 9,
+      "participantCount": 8,
       "sourceNames": [
         "X · AIWarper",
         "抖音 · 热点搜「MAGI-2 视频模型」",
@@ -757,6 +757,27 @@
     },
     {
       "rank": 3,
+      "id": "s6bexgghr2jaa88zewkidc424",
+      "title": "蚂蚁开源6B设计图像模型，Layer下周发布",
+      "source": {
+        "name": "X · 蚂蚁 inclusionAI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/s6bexgghr2jaa88zewkidc424",
+        "original": "https://x.com/TheInclusionAI/status/2125938900665577749",
+        "story": "https://aipick.news/story/a6719407-8433-4010-b508-83ed5a70422b"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "微信公众号 · 百灵大模型",
+        "X · 蚂蚁 inclusionAI"
+      ],
+      "latestAt": "2026-11-26T15:26:42.000Z"
+    },
+    {
+      "rank": 4,
       "id": "zzhdfuax9o0ecxkduwy154a11",
       "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
       "source": {
@@ -778,7 +799,7 @@
       "latestAt": "2026-11-26T15:00:02.000Z"
     },
     {
-      "rank": 4,
+      "rank": 5,
       "id": "dy4c01xbkqhpyduubgx4nahas",
       "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
       "source": {
@@ -801,7 +822,7 @@
       "latestAt": "2026-11-26T20:15:27.000Z"
     },
     {
-      "rank": 5,
+      "rank": 6,
       "id": "j5yc4pnosuhcyb0pza24it83h",
       "title": "Anthropic 将 Claude Artifacts 装成桌面应用",
       "source": {
@@ -812,61 +833,18 @@
         "original": "https://claude.com/resources/articles/install-as-app",
         "story": "https://aipick.news/story/3f6a288c-4dbf-4e28-acee-2911b13f171a"
       },
-      "sourceCount": 4,
-      "signalCount": 0,
-      "participantCount": 4,
-      "sourceNames": [
-        "TikTok · nocode.joshua",
-        "抖音 · 热点搜「Claude Artifacts」",
-        "X · Min Choi",
-        "X · 歸藏"
-      ],
-      "latestAt": "2026-11-26T18:40:24.000Z"
-    },
-    {
-      "rank": 6,
-      "id": "s6bexgghr2jaa88zewkidc424",
-      "title": "蚂蚁开源 Ming-Image-0.2-Design，Layer 版下周开源",
-      "source": {
-        "name": "X · 蚂蚁 inclusionAI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/s6bexgghr2jaa88zewkidc424",
-        "original": "https://x.com/TheInclusionAI/status/2125938900665577749",
-        "story": "https://aipick.news/story/a6719407-8433-4010-b508-83ed5a70422b"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "X · 蚂蚁 inclusionAI"
-      ],
-      "latestAt": "2026-11-26T13:18:47.000Z"
-    },
-    {
-      "rank": 7,
-      "id": "z5eugg8coceok9b2tlpxct35r",
-      "title": "字节小豆开启邀请制公测，接入抖音飞书",
-      "source": {
-        "name": "抖音 · 热点搜「字节小豆」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/z5eugg8coceok9b2tlpxct35r",
-        "original": "https://www.douyin.com/video/7712278368141544730",
-        "story": "https://aipick.news/story/5d3272de-661b-4969-bfc8-86800c5ff65b"
-      },
       "sourceCount": 3,
       "signalCount": 0,
       "participantCount": 3,
       "sourceNames": [
-        "抖音 · 热点搜「字节小豆」",
-        "公众号 · 夕小瑶科技说",
-        "公众号 · 硅星人Pro"
+        "TikTok · nocode.joshua",
+        "抖音 · 热点搜「Claude Artifacts」",
+        "X · Min Choi"
       ],
-      "latestAt": "2026-11-26T12:31:39.000Z"
+      "latestAt": "2026-11-26T18:40:24.000Z"
     },
     {
-      "rank": 8,
+      "rank": 7,
       "id": "hek7o2f64d2x9j66ntq5l4l47",
       "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
       "source": {
@@ -887,7 +865,7 @@
       "latestAt": "2026-11-26T19:26:08.000Z"
     },
     {
-      "rank": 9,
+      "rank": 8,
       "id": "c6i5l65uewdaovnye7ch3n147",
       "title": "Anthropic 用 Claude 将 Messages API 迁至 Rust",
       "source": {
@@ -909,26 +887,47 @@
       "latestAt": "2026-11-26T17:04:31.000Z"
     },
     {
-      "rank": 10,
-      "id": "t0flauu02v7vobhk63vdg92yf",
-      "title": "前Claude Code成员Thariq官宣加入OpenAI",
+      "rank": 9,
+      "id": "k4kvpfghniv4esnz2xsimsg6l",
+      "title": "Amodei 否认 Anthropic 主张向 AI 交出人类控制权",
       "source": {
-        "name": "X · Thariq"
+        "name": "TechCrunch · AI"
       },
       "links": {
-        "aihot": "https://aipick.news/items/t0flauu02v7vobhk63vdg92yf",
-        "original": "https://x.com/trq212/status/2125675533761671405",
-        "story": "https://aipick.news/story/d105ab65-b39e-4604-8305-423c95b2a05c"
+        "aihot": "https://aipick.news/items/k4kvpfghniv4esnz2xsimsg6l",
+        "original": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+        "story": "https://aipick.news/story/9e1beb94-a794-4373-b5a1-ce0338142edc"
       },
       "sourceCount": 3,
       "signalCount": 0,
       "participantCount": 3,
       "sourceNames": [
         "X · 歸藏",
-        "X · 宝玉",
-        "X · Thariq"
+        "The Decoder",
+        "TechCrunch · AI"
       ],
-      "latestAt": "2026-11-26T01:08:04.000Z"
+      "latestAt": "2026-11-26T01:14:48.000Z"
+    },
+    {
+      "rank": 10,
+      "id": "g4yadu5btwqo1l93y8zlfbop7",
+      "title": "OpenAI 发布 GPT-6.2 双模型后修复计费错误",
+      "source": {
+        "name": "OpenAI News"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/g4yadu5btwqo1l93y8zlfbop7",
+        "original": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+        "story": "https://aipick.news/story/d9c2fe23-206a-47cf-b867-72bc558516c8"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "The Decoder",
+        "X · Tibo"
+      ],
+      "latestAt": "2026-11-26T17:28:56.000Z"
     }
   ],
   "unchanged": [],
