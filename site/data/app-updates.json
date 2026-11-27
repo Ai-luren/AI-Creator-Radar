@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T05:17:54+00:00",
+  "checkedAt": "2026-11-27T05:54:49+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -24,7 +24,7 @@
       "error": "ValueError: Expected app navigation absent; login, client-rendered shell or changed template",
       "status": "probe-unavailable",
       "checkedAt": "2026-11-27T05:17:54+00:00",
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 2,
       "nextAttemptAt": "2026-11-27T07:17:54.298282+00:00",
       "type": "visible-model-labels"
@@ -60,13 +60,28 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "checkedAt": "2026-11-27T05:17:54+00:00",
+    "checkedAt": "2026-11-27T05:54:49+00:00",
     "queries": [
       {
         "id": "jimeng-products",
         "label": "即梦",
         "term": "即梦",
-        "category": "ai-products"
+        "category": "ai-products",
+        "lastAttemptAt": "2026-11-27T05:54:49+00:00",
+        "counts": {
+          "items": 22,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 22,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 22,
+          "hasNextCursor": false
+        },
+        "countsObservedAt": "2026-11-27T05:54:49+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-3d52ef26fa92d967\"",
+        "lastSuccessAt": "2026-11-27T05:54:49+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-27T11:54:49.482551+00:00"
       },
       {
         "id": "jimeng-seedaudio",
@@ -122,10 +137,10 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T04:20:20+00:00",
-      "nextAttemptAt": "2026-11-27T05:20:20.051088+00:00"
+      "lastSuccessAt": "2026-11-27T05:54:49+00:00",
+      "nextAttemptAt": "2026-11-27T06:54:49.482551+00:00"
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
