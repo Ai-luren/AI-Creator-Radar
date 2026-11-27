@@ -11,6 +11,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 import hashlib
 import json
+import re
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -36,6 +37,92 @@ except ModuleNotFoundError:
 ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/"site/data/historical-evidence.json"
 MAX_URLS=3
+# Exact mappings from already observed official repository pointers, reviewed
+# for identity. No expected dates or benchmark answers in this configuration.
+REPOSITORY_DOCUMENTS={
+    ("hunyuan-video","1-5"): {
+        "modelName":"1.5",
+        "pointer":"https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
+        "publisherModelName":"HunyuanVideo-1.5",
+        "documents":{
+            "readme":"https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo-1.5/main/README.md",
+            "license":"https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo-1.5/main/LICENSE"
+        }
+    }
+}
+
+
+def inspect_repository_document(content,kind,model_name,now):
+    """Parse exact publisher assertions, not commits, tags or file timestamps."""
+    name=r"[\s_-]+".join(re.escape(part) for part in re.split(r"[\s_-]+",model_name))
+    month=r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)"
+    date_pattern=rf"({month} \d{{1,2}}, \d{{4}})"
+    if kind=="readme":
+        pattern=rf"^\s*[-*]\s*(?:[^\w\s]+\s*)?{date_pattern}:\s*We release the inference code and model weights of {name}\.\s*$"
+        claim="code-and-weights-release-statement"
+    elif kind=="license":
+        pattern=rf"^\s*(?:Tencent )?{name} Release Date:\s*{date_pattern}\s*$"
+        claim="license-declared-release-date"
+    else:
+        raise ValueError("Unsupported repository document type")
+    days=set()
+    for match in re.finditer(pattern,content,re.I|re.M):
+        for fmt in ("%b %d, %Y","%B %d, %Y"):
+            try:
+                date=datetime.strptime(match.group(1),fmt).date()
+            except ValueError:
+                continue
+            if date<=now.date():
+                days.add(date.isoformat())
+    if len(days)!=1:
+        return {"status":"document-date-conflict" if len(days)>1 else "document-assertion-unresolved",
+                "observedDates":sorted(days)}
+    return {"status":"document-assertion-observed","claimType":claim,"assertedDate":next(iter(days)),
+            "datePrecision":"day","eventDate":None}
+
+
+def recover_repository_documents(task, mapping, now, fetcher, budget):
+    stamp=now.isoformat(timespec="seconds")
+    state=dict(task.get("repositoryDocuments",{}))
+    history={r["id"]:r for r in task.get("repositoryEvidence",[])}
+    attempted=0
+    for kind,url in mapping["documents"].items():
+        prior=state.get(kind,{})
+        nxt=parse_stamp(prior.get("nextAttemptAt"))
+        if budget<=attempted or (nxt and nxt>now):
+            continue
+        attempted+=1
+        try:
+            content=fetcher(url)
+        except (OSError,ValueError,TypeError) as exc:
+            count=int(prior.get("consecutiveFailures",0))+1
+            state[kind]={**prior,"sourceUrl":url,"status":"fetch-failed","lastAttemptAt":stamp,
+                         "error":f"{type(exc).__name__}: {str(exc)[:160]}","consecutiveFailures":count,
+                         "nextAttemptAt":(now+timedelta(hours=min(24,6*2**min(count-1,2)))).isoformat()}
+            # Same raw content host: stop this round after failure.
+            break
+        result=inspect_repository_document(content,kind,mapping["publisherModelName"],now)
+        state[kind]={"sourceUrl":url,**result,"lastAttemptAt":stamp,"consecutiveFailures":0,
+                     "nextAttemptAt":(now+timedelta(days=7)).isoformat()}
+        if result["status"]=="document-assertion-observed":
+            body={**result,"sourceUrl":url,"documentKind":kind}
+            eid="historical-document-"+stable(body)
+            if eid not in history:
+                history[eid]={"id":eid,**body,"firstVerifiedAt":stamp,
+                              "firstContentSha256":hashlib.sha256(content.encode()).hexdigest()}
+            state[kind]["lastContentSha256"]=hashlib.sha256(content.encode()).hexdigest()
+    task["repositoryDocuments"]=state
+    task["repositoryEvidence"]=sorted(history.values(),key=lambda r:r["id"])
+    conflicts=[]
+    for kind in mapping["documents"]:
+        dates=sorted({r["assertedDate"] for r in history.values() if r["documentKind"]==kind})
+        if len(dates)>1:
+            conflicts.append({"documentKind":kind,"assertedDates":dates})
+    task["repositoryConflicts"]=conflicts
+    task["status"]=("repository-date-conflict" if conflicts else
+                    "repository-document-evidence-observed" if history else
+                    "repository-documents-pending")
+    return attempted
 
 
 def stable(*parts):
@@ -98,11 +185,15 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
         same=prior.get("candidateSourceUrl")==raw and prior.get("modelName")==name
         task={**(prior if same else {}),"id":rid,"identity":{"modelFamilyId":ident[0],"modelVersionId":ident[1]},
               "modelName":name,"candidateSourceUrl":raw,"firstDetectedAt":prior.get("firstDetectedAt") or stamp,"active":True,
-              "evidence":list(prior.get("evidence",[]))}
+              "evidence":list(prior.get("evidence",[])),
+              "repositoryEvidence":list(prior.get("repositoryEvidence",[]))}
         # A replaced pointer is not a reason to erase earlier verified observations.
         # It also must not inherit an obsolete probe URL or imply fresh evidence.
         task.pop("probeUrl",None)
-        if not raw:
+        mapping=REPOSITORY_DOCUMENTS.get(ident)
+        if mapping and raw==mapping["pointer"] and name==mapping["modelName"]:
+            task["status"]="repository-documents-pending"
+        elif not raw:
             task["status"]="missing-original-pointer"
         elif not eligible:
             task["status"]="unsupported-original-pointer"
@@ -142,6 +233,14 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
         due[url].append(task)
     urls=sorted(due,key=lambda u:(min(t.get("nextAttemptAt") or t["firstDetectedAt"] for t in due[u]),u))
     attempted=0
+    document_attempts=0
+    for task in tasks.values():
+        if not task["active"] or task["status"]!="repository-documents-pending":
+            continue
+        obj=task["identity"]
+        mapping=REPOSITORY_DOCUMENTS[(obj["modelFamilyId"],obj["modelVersionId"])]
+        document_attempts+=recover_repository_documents(task,mapping,now,fetcher,MAX_URLS-document_attempts)
+    attempted=document_attempts
     for url in urls:
         if attempted>=MAX_URLS:
             break
@@ -182,9 +281,11 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
                        "states":dict(sorted(Counter(t["status"] for t in active).items())),
                        "tasksWithDatedArticleEvidence":sum(bool(t.get("evidence")) for t in active),
                        "datedArticleRecords":sum(len(t.get("evidence",[])) for t in tasks.values()),
+                       "repositoryDocumentRequests":document_attempts,
+                       "repositoryDocumentEvidenceRecords":sum(len(t.get("repositoryEvidence",[])) for t in tasks.values()),
                        "tasksWithCurrentPointerEvidence":sum(any(url_key(r["sourceUrl"])==url_key(t.get("probeUrl"))
                            for r in t.get("evidence",[])) for t in active)},
-            "policy":"Repair queue based on existing catalog pointers, not independent recall. Exact publisher heading and date only. No inferred event date or automatic release promotion."}
+            "policy":"Repair queue based on existing catalog pointers, not independent recall. Exact publisher article or reviewed repository-document assertions only. No inferred event date or automatic release promotion."}
 
 
 def main():

@@ -66,3 +66,38 @@ class HistoricalEvidenceTests(unittest.TestCase):
         self.assertEqual(second["tasks"][0]["status"],"article-date-conflict")
         self.assertEqual(second["tasks"][0]["conflictingArticleDays"],["2024-01-03","2024-01-04"])
         self.assertEqual(second["summary"]["datedArticleRecords"],2)
+
+
+    def test_repository_document_dates_are_distinct_claims_not_first_release(self):
+        from scripts.collect_historical_evidence import inspect_repository_document
+        readme="* 👋 Nov 20, 2025: We release the inference code and model weights of HunyuanVideo-1.5."
+        license="Tencent HunyuanVideo 1.5 Release Date: November 21, 2025"
+        a=inspect_repository_document(readme,"readme","HunyuanVideo-1.5",self.now)
+        b=inspect_repository_document(license,"license","HunyuanVideo-1.5",self.now)
+        self.assertEqual(a["assertedDate"],"2025-11-20")
+        self.assertEqual(b["assertedDate"],"2025-11-21")
+        self.assertNotEqual(a["claimType"],b["claimType"])
+        self.assertIsNone(a["eventDate"])
+        self.assertIsNone(b["eventDate"])
+
+    def test_repository_document_wrong_variant_and_conflict(self):
+        from scripts.collect_historical_evidence import inspect_repository_document
+        wrong="Tencent HunyuanVideo 1.5 Pro Release Date: November 21, 2025"
+        self.assertEqual(inspect_repository_document(wrong,"license","HunyuanVideo-1.5",self.now)["status"],
+                         "document-assertion-unresolved")
+        conflict="Tencent HunyuanVideo 1.5 Release Date: November 21, 2025\nTencent HunyuanVideo 1.5 Release Date: November 22, 2025"
+        self.assertEqual(inspect_repository_document(conflict,"license","HunyuanVideo-1.5",self.now)["status"],"document-date-conflict")
+
+    def test_repository_mapping_recovers_actual_typed_documents_without_guessing_dates(self):
+        gap={"modelFamilyId":"hunyuan-video","modelVersionId":"1-5","modelName":"1.5",
+             "reviewKind":"release-source-review","candidateSourceUrl":"https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5"}
+        calls=[]
+        def fetch(url):
+            calls.append(url)
+            return ("Tencent HunyuanVideo 1.5 Release Date: November 21, 2025" if url.endswith("/LICENSE")
+                    else "* 👋 Nov 20, 2025: We release the inference code and model weights of HunyuanVideo-1.5.")
+        result=self.run_recover(gaps=[gap],fetcher=fetch)
+        self.assertEqual(len(calls),2)
+        self.assertEqual(result["summary"]["repositoryDocumentEvidenceRecords"],2)
+        self.assertEqual(result["summary"]["datedArticleRecords"],0)
+        self.assertEqual(result["tasks"][0]["status"],"repository-document-evidence-observed")
