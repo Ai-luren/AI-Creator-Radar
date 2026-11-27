@@ -1159,5 +1159,29 @@
       }
     ],
     "fallbackOnZeroMatch": true
+  },
+  {
+    "id": "seed-visual-index",
+    "name": "字节跳动 Seed 视觉研究公告目录",
+    "type": "html",
+    "url": "https://seed.bytedance.com/en/blog_list/visual",
+    "vendor": "字节跳动 Seed",
+    "official": true,
+    "active": true,
+    "modelMatches": {
+      "seededit": [
+        "re:\\bSeedEdit\\b"
+      ],
+      "seedance": [
+        "seedance"
+      ],
+      "seedream": [
+        "seedream"
+      ]
+    },
+    "articleDateCheck": true,
+    "articleHosts": [
+      "seed.bytedance.com"
+    ]
   }
 ]

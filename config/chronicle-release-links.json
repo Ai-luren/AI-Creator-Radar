@@ -807,6 +807,12 @@
       "modelVersionId": "magi-1-24b",
       "chronicleAuditId": "review-20261126-sandai-magi-1-24b-20250421",
       "sourceField": "url"
+    },
+    {
+      "modelFamilyId": "seedance",
+      "modelVersionId": "seedance-2-5",
+      "chronicleAuditId": "review-20261127-seedance-25",
+      "sourceField": "url"
     }
   ]
 }

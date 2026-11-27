@@ -24123,7 +24123,7 @@
         "access": "闭源",
         "accessNote": "当前主流版本以官方托管服务为主。",
         "homepage": "https://seed.bytedance.com/zh/seedance2_5",
-        "releaseUrl": "https://seed.bytedance.com/zh/",
+        "releaseUrl": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
         "modelCardUrl": "https://seed.bytedance.com/zh/seedance2_5",
         "id": "seedance-2-5",
         "name": "Seedance 2.5",
@@ -24209,8 +24209,37 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "30 秒长叙事、精准参考与编辑；关注镜头控制、角色一致性与视频更新。"
+        "status": "历史发布已核实；当前可用性待核验",
+        "note": "30 秒长叙事、精准参考与编辑；关注镜头控制、角色一致性与视频更新。",
+        "releaseDate": "2026-07-31",
+        "releaseEvidence": {
+          "eventId": "official-seedance-2-5-20260731",
+          "publishedAt": "2026-07-31",
+          "sourceUrl": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+          "sourceName": "字节跳动 Seed 官方发布公告",
+          "evidenceType": "audited-chronicle-release",
+          "verifiedAt": "2026-11-27",
+          "modelName": "Seedance 2.5",
+          "category": "video",
+          "summary": "2026-07-31 字节 Seed 正式发布 Seedance 2.5，支持单次最长30秒音视频生成、长叙事及多模态参考编辑。Dreamina 同日公告描述面向订阅者的逐步开放；官网首页曾显示11月16日，不作为首发日期。",
+          "chronicleAuditId": "review-20261127-seedance-25",
+          "chronicleTopicId": "bytedance",
+          "provenance": "官方发布正文与字节跳动 Dreamina 同日产品公告交叉核对",
+          "corroboratingSources": [
+            {
+              "sourceUrl": "https://www.bytedance.com/newsroom/dreamina-seedance-2-5-dola-seedream-5",
+              "sourceName": "字节跳动 Dreamina 官方公告",
+              "publishedAt": "2026-07-31"
+            }
+          ],
+          "sourceUpdateIds": [
+            "seedance-25-20261116",
+            "f58d44a1f0031867aa",
+            "839af1e97986262326",
+            "a4d7de719912e362cc",
+            "b91f89aa4fde4552b4"
+          ]
+        }
       }
     ],
     "legacyIds": [
@@ -24538,8 +24567,19 @@
             "detailUrl": null
           }
         ],
-        "status": "已发布",
-        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。"
+        "status": "历史发布月份已核实；具体首发日待核验",
+        "note": "同属可灵视频模型产品线；Kling 4.0 与 O1 / 3.0 Omni 是不同代际或多模态系列，不合并成同一个单型号。",
+        "historicalMilestones": [
+          {
+            "chronicleAuditId": "v48-kuaishou-0303",
+            "date": "2025-05",
+            "datePrecision": "month",
+            "stage": "release",
+            "sourceUrl": "https://ir.kuaishou.com/news-releases/news-release-details/kling-ai-celebrates-first-anniversary-achieves-annualized",
+            "verifiedAt": "2026-11-24",
+            "summary": "官方财报确认 2025 年 5 月发布 Kling 2.1 系列；具体首发日仍待交叉核验。"
+          }
+        ]
       },
       {
         "region": "中国",
@@ -25843,8 +25883,8 @@
             "detailUrl": "https://maomu.com/models/tencent--hunyuanvideo15?entry=arena%3Aarena-video-image%3A42"
           }
         ],
-        "status": "已发布",
-        "note": "开放代码与权重的文生、图生视频模型；官方称 8.3B 参数并支持消费级 GPU 推理。"
+        "status": "官方开源已确认；首发日待核验",
+        "note": "开放代码与权重的文生、图生视频模型；官方称 8.3B 参数并支持消费级 GPU 推理。 官方独立版本仓库记载2025-11-20公开推理代码与权重，主系列仓库记载2025-11-21发布；首发日存在一日差异，暂不填正式发布日期。"
       }
     ],
     "legacyIds": [

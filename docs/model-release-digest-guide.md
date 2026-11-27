@@ -53,3 +53,10 @@
 ## 失效源与待审证据（2026-11-27）
 
 官方入口 403/404 以有界退避处理，备用目录是独立候选，服务集成不等于首次发布。正式证据缺口由 system-audit.json 的 releaseEvidenceReview 列出，可据实际候选链接逐项复核。采集故障不修改发布日期，不将相同公告的翻译或镜像当独立证据。
+
+## 2026-11-27 重点型号证据补核
+
+- Seedance 2.5：正式发布日为 2026-07-31（Seed 发布正文与字节跳动 Dreamina 同日公告）；原首页 2026-11-16 日期保留为原始观察，不进入正式上新。模型库与厂商历史链接同一审核记录。
+- Kling 2.1：原已核实的 2025-05 发布月份同步到型号历史阶段；不猜测具体日期，不计入精确日首发。
+- HunyuanVideo 1.5：独立仓库记载 2025-11-20 公开推理代码及权重，主仓库记载 2025-11-21 发布，保留冲突、暂不填正式首发日期。参考 https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5 和 https://github.com/Tencent-Hunyuan/HunyuanVideo 。
+- 增加 Seed 官方视觉分类索引 https://seed.bytedance.com/en/blog_list/visual 。该入口与 Seed 首页同属一个发布方，不能视作自动双源确认的独立证明。真实采集覆盖及固定样本召回仍须由运行记录确认。

@@ -7039,14 +7039,14 @@
         "date": "2026-07-31",
         "kind": "模型发布",
         "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
-        "summary": "字节 Seed 于 2026 年 7 月 31 日正式发布 Seedance 2.5，重点升级长叙事生成、多模态参考与编辑能力。",
+        "summary": "2026-07-31 字节 Seed 正式发布 Seedance 2.5，支持单次最长30秒音视频生成、长叙事及多模态参考编辑。Dreamina 同日公告描述面向订阅者的逐步开放；官网首页曾显示11月16日，不作为首发日期。",
         "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
         "sourceId": "seed-official",
         "sourceName": "字节跳动 Seed 官方动态",
         "sourceUpdateId": "seedance-25-20261116",
         "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
+        "autoCollected": false,
+        "verificationStatus": "已确认：型号、日期与事件性质",
         "collectedAt": "2026-11-24T09:41:51Z",
         "modelCategory": "video",
         "modelMentions": [
@@ -7063,9 +7063,12 @@
           }
         ],
         "sourceModelId": "seedance",
-        "dateKind": "article-publication-date",
+        "dateKind": "confirmed-release-date",
         "recoveryProofId": "recovery-f58d44a1f0031867aa29",
-        "previousSourceDate": "2026-11-16T00:00:00Z"
+        "previousSourceDate": "2026-11-16T00:00:00Z",
+        "auditId": "review-20261127-seedance-25",
+        "verificationDate": "2026-11-27",
+        "verificationUrl": "https://www.bytedance.com/newsroom/dreamina-seedance-2-5-dola-seedream-5"
       },
       {
         "date": "2026-07-20",
