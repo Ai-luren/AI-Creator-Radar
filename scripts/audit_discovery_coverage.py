@@ -1,6 +1,11 @@
 """Audit external discovery coverage without interpreting reports as release facts."""
 from collections import Counter, defaultdict
 
+try:
+    from scripts.collect_release_recall import url_key
+except ModuleNotFoundError:
+    from collect_release_recall import url_key
+
 TERMINAL = {"not-model-announcement", "outside-current-window"}
 
 
@@ -21,13 +26,18 @@ def inspect_leads(discovery, resolution):
         lead_id = lead.get("id")
         if not lead_id:
             continue
-        probes = by_lead.get(lead_id, [])
+        originals = {url_key(url): url for url in lead.get("officialArticleUrls", []) if url_key(url)}
+        probes = [r for r in by_lead.get(lead_id, []) if url_key(r.get("url")) in originals]
+        checked_urls = {url_key(r.get("url")) for r in probes}
+        unprobed = sorted(originals[k] for k in originals.keys() - checked_urls)
         statuses = sorted({r.get("status", "unknown") for r in probes})
-        # One verified article must not conceal an unresolved second article.
-        if not lead.get("officialArticleUrls"):
+        # A verified article cannot conceal an unresolved or unprobed second article.
+        if not originals:
             state = "no-allowlisted-original"
         elif not probes:
             state = "awaiting-probe"
+        elif unprobed:
+            state = "unresolved"
         elif all(s in TERMINAL for s in statuses):
             state = "excluded-by-article-review"
         elif all(s in TERMINAL | {"article-date-verified"} for s in statuses):
@@ -39,6 +49,7 @@ def inspect_leads(discovery, resolution):
                      "reportedAt": lead.get("reportedAt"), "dateKind": lead.get("dateKind"),
                      "state": state, "probeStates": statuses,
                      "officialArticleUrls": lead.get("officialArticleUrls", []),
+                     "unprobedOfficialArticleUrls": unprobed,
                      "nextAttemptAt": min((p["nextAttemptAt"] for p in probes
                                            if p.get("nextAttemptAt") and p.get("status") not in TERMINAL | {"article-date-verified"}), default=None)})
     rows.sort(key=lambda r: (r["firstSeenAt"] or "", r["leadId"]))

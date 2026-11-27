@@ -16,8 +16,8 @@ class DiscoveryCoverageTests(unittest.TestCase):
     def test_mixed_evidence_does_not_hide_unresolved_article(self):
         discovery = {"items": [{"id": "a", "sourceId": "index",
                                 "officialArticleUrls": ["https://example.org/a", "https://example.org/b"]}]}
-        resolution = {"items": [{"leadIds": ["a"], "status": "article-date-verified"},
-                                {"leadIds": ["a"], "status": "fetch-failed", "nextAttemptAt": "2026-11-28"}]}
+        resolution = {"items": [{"leadIds": ["a"], "url": "https://example.org/a", "status": "article-date-verified"},
+                                {"leadIds": ["a"], "url": "https://example.org/b", "status": "fetch-failed", "nextAttemptAt": "2026-11-28"}]}
         result = inspect_leads(discovery, resolution)
         self.assertEqual(result["openLeads"][0]["state"], "unresolved")
         self.assertEqual(result["openLeads"][0]["nextAttemptAt"], "2026-11-28")
@@ -25,9 +25,17 @@ class DiscoveryCoverageTests(unittest.TestCase):
     def test_article_observation_and_negative_review_are_not_release_claims(self):
         discovery = {"items": [{"id": "a", "officialArticleUrls": ["https://example.org/a"]},
                                 {"id": "b", "officialArticleUrls": ["https://example.org/b"]}]}
-        resolution = {"items": [{"leadIds": ["a"], "status": "article-date-verified"},
-                                {"leadIds": ["b"], "status": "not-model-announcement"}]}
+        resolution = {"items": [{"leadIds": ["a"], "url": "https://example.org/a", "status": "article-date-verified"},
+                                {"leadIds": ["b"], "url": "https://example.org/b", "status": "not-model-announcement"}]}
         result = inspect_leads(discovery, resolution)
         self.assertEqual(result["counts"], {"article-date-observed": 1, "excluded-by-article-review": 1})
         self.assertEqual(result["openLeads"], [])
         self.assertNotIn("confirmedReleases", result)
+
+    def test_unprobed_or_retired_url_cannot_be_counted_as_observed(self):
+        discovery = {"items": [{"id": "a", "officialArticleUrls": ["https://example.org/a", "https://example.org/b"]}]}
+        resolution = {"items": [{"leadIds": ["a"], "url": "https://example.org/a?utm_source=test", "status": "article-date-verified"},
+                                {"leadIds": ["a"], "url": "https://example.org/old", "status": "article-date-verified"}]}
+        result = inspect_leads(discovery, resolution)
+        self.assertEqual(result["openLeads"][0]["state"], "unresolved")
+        self.assertEqual(result["openLeads"][0]["unprobedOfficialArticleUrls"], ["https://example.org/b"])

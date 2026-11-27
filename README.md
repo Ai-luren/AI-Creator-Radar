@@ -41,7 +41,7 @@
 
 - GitHub 为工程维护、版本管理、PR 验证和正式发布的主入口；Mac 只承担独立的 21:00 本地采集输入。远程控制额度不应阻塞云端维护。GitHub-only 改动必须先在隔离 PR 中通过完整检查，不直接修改 main；生产采集与实际发布单独核验。
 
-- 工程变更先执行 `python3 scripts/preflight.py`；更新主数据或发布视图后用 `--repair-digest` 同步派生数据，并审核差异后一次提交。每个本地 clone 可安装仓库 pre-push 门禁。详见[自动更新与发布说明](docs/automation-runbook.md)。
+- 本地工程推送先执行 `python3 scripts/preflight.py`；GitHub API 改动在隔离 PR 中执行等价完整门禁；更新主数据或发布视图后用 `--repair-digest` 同步派生数据，并审核差异后一次提交。每个本地 clone 可安装仓库 pre-push 门禁。详见[自动更新与发布说明](docs/automation-runbook.md)。
 
 - 模型目录以 `site/data/models.json` 为唯一规范记录，版本日期与证据优先使用官方来源。自动发现不覆盖已审核事实。
 - 模型与 AIHOT 精选约 30 分钟更新；GitHub 每小时 :05/:35 检查到期组。日报按北京时间真实刊期，08:05/10:05 起判定到期，额外在 08:15/25、10:15/25 检查。榜单和资源约 6 小时、维护约每日一次。社媒粉丝由本机 21:00 任务尝试采集，独立云端调度不替代它。
