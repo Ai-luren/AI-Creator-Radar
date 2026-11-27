@@ -48,7 +48,7 @@
       "vendor": "Higgsfield",
       "url": "https://higgsfield.ai/creator-hub/changelog",
       "type": "higgs-changelog",
-      "minIntervalMinutes": 30,
+      "minIntervalMinutes": 360,
       "links": [
         {
           "kind": "New drops / 产品入口",
@@ -59,6 +59,55 @@
           "kind": "官方 Blog",
           "url": "https://higgsfield.ai/blog/editorials",
           "access": "产品详解与使用说明"
+        }
+      ],
+      "role": "competitor",
+      "aggregateQueryIds": [
+        "higgsfield-aihot",
+        "higgsfield-aipick"
+      ]
+    },
+    {
+      "id": "flova-changelog",
+      "name": "Flova · 官方更新日志",
+      "vendor": "Flova",
+      "role": "competitor",
+      "url": "https://www.flova.ai/en/docs/changelog/",
+      "type": "dated-changelog",
+      "minIntervalMinutes": 360,
+      "links": [],
+      "aggregateQueryIds": [
+        "flova-aihot",
+        "flova-aipick"
+      ]
+    },
+    {
+      "id": "tapnow-changelog",
+      "name": "TapNow · 官方更新日志",
+      "vendor": "TapNow",
+      "role": "competitor",
+      "url": "https://docs.tapnow.ai/en/docs/changelog",
+      "type": "dated-changelog",
+      "minIntervalMinutes": 360,
+      "links": [],
+      "aggregateQueryIds": [
+        "tapnow-aihot",
+        "tapnow-aipick"
+      ]
+    },
+    {
+      "id": "libtv-entry",
+      "name": "LibTV · 版本更新入口",
+      "vendor": "LibTV",
+      "role": "competitor",
+      "url": "https://www.liblib.tv/show",
+      "type": "navigation-only",
+      "minIntervalMinutes": 60,
+      "links": [
+        {
+          "kind": "版本更新记录",
+          "url": "https://www.liblib.tv/show",
+          "access": "官网可见入口，正文尚未验证可自动读取"
         }
       ]
     }
@@ -80,8 +129,8 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "intervalMinutes": 360,
-    "globalIntervalMinutes": 60,
+    "intervalMinutes": 480,
+    "globalIntervalMinutes": 25,
     "queries": [
       {
         "id": "jimeng-products",
@@ -123,6 +172,54 @@
         "label": "Sand.ai",
         "term": "Sand.ai",
         "category": "ai-models"
+      },
+      {
+        "id": "higgsfield-aihot",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "higgsfield-aipick",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIPick"
+      },
+      {
+        "id": "flova-aihot",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "flova-aipick",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIPick"
+      },
+      {
+        "id": "tapnow-aihot",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "tapnow-aipick",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIPick"
+      },
+      {
+        "id": "libtv-aihot",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIHOT"
+      },
+      {
+        "id": "libtv-aipick",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIPick"
       }
     ]
   }

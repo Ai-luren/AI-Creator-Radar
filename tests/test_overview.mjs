@@ -482,3 +482,10 @@ test('official competitor changelog is distinct from model release and ignores o
  assert.match(node('content').innerHTML,/Higgsfield Mangaka/);assert.match(node('content').innerHTML,/2026-11-02 · 产品发布/);
  run("creatorBrand='LibTV';render()");assert.doesNotMatch(node('content').innerHTML,/Higgsfield Mangaka/);
 });
+
+test('competitor first-party views separate dated providers and expose stale source dates',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T00:00:00+08:00'});await run('loadData()');
+ run("state.appUpdates={sources:[{id:'flova-changelog',vendor:'Flova',role:'competitor',url:'https://www.flova.ai/en/docs/changelog/',lastSuccessAt:'2026-11-27T12:00:00Z'},{id:'tapnow-changelog',vendor:'TapNow',role:'competitor',url:'https://docs.tapnow.ai/en/docs/changelog',lastSuccessAt:'2026-11-27T12:00:00Z'},{id:'libtv-entry',vendor:'LibTV',role:'competitor',status:'navigation-only',url:'https://www.liblib.tv/show'}],events:[{sourceId:'flova-changelog',claimType:'first-party-product-changelog',featureName:'Audio separation',publisherCalendarDay:'2026-11-24',sourceUrl:'https://www.flova.ai/en/docs/changelog/'},{sourceId:'tapnow-changelog',claimType:'first-party-product-changelog',featureName:'Old relight',publisherCalendarDay:'2026-10-13',sourceUrl:'https://docs.tapnow.ai/en/docs/changelog'}]};render()");
+ assert.match(node('content').innerHTML,/Audio separation/);assert.match(node('content').innerHTML,/超过30天/);assert.match(node('content').innerHTML,/正文未读/);assert.doesNotMatch(node('content').innerHTML,/Old relight/);
+ run("creatorBrand='Flova';render()");assert.match(node('content').innerHTML,/Audio separation/);assert.doesNotMatch(node('content').innerHTML,/TapNow · 官方功能与模型接入/);
+});

@@ -287,3 +287,7 @@ P1 官方可用性声明验收：PR #60 真实 CI 与生产均取得 GLM Coding 
 AIHOT 定向索引补证使用 `source-search.json.aihotService` 独立退避与单目标 ETag，仅记录必要原文链接和 `discoveryPointer`，标题是本地规范查询名、报道日期为空；保留出处但不复制聚合摘要。候选仍属未核验发现，不写正式发布日期或自动晋级。原有 GDELT 字段与基准不变。当前只支持既有官方文章白名单；社媒由既有官方声明适配器处理。实际新增贡献以真实生产候选和核验结果为准。
 
 聚合器优先路由：AIHOT 作为近期模型主力发现入口，AIPick 仅对主渠道已尝试未取得合格原文或主渠道故障的任务补漏，GDELT 末级。独立服务健康与 ETag，单轮总查询预算不变；相同原始URL仅保留一条候选，平台报道数不等于独立证据数。AIPick 同样只保存原始链接、规范查询名和出处，不公开复制新获取的摘要。现有精选展示不扩大范围。
+
+产品设计情报共用 `app-updates.json` 的 `first-party-product-changelog` 记录；`role=competitor` 明确平台角色，`publisherCalendarDay` 为原厂日志日，`observedAt` 为真实观察时间，`releaseDate=null`。无明确接入表述的记录归 product-update；只读入口为 navigation-only，永不生成自动证据或成功记录。品牌视图从该配置投影，不额外创建产品数据真值。
+
+`targetedDiscovery.providerServices` 分别保存 AIHOT/AIPick 状态，`selectedProductFeatures` / `selectedModelIntegrations` 仅统计限定样本的选中报道。`aggregateCoverage` / `skipReason` 明确等待、样本覆盖或缺口；跳过直接探测不更新官方观察时间或成功次数。相同原文及报道聚类不等于独立事实。
