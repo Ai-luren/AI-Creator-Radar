@@ -341,6 +341,89 @@ def get_topic(slug: str, force_refresh: bool = False) -> dict:
     return data
 
 
+
+# Private reader only. No public snapshot, credentials, arbitrary proxy, or
+# persisted copy. Aggregate provider failure does not erase the other result.
+INTEL_PROVIDERS={"AIHOT":"https://aihot.news","AIPick":"https://aipick.news"}
+INTEL_MODES={"competitors","vendors","hot","cases"}
+_intel_cache={}
+_intel_cooldown={}
+_intel_lock=__import__("threading").Lock()
+
+def intel_endpoint(provider, mode, term):
+    if provider not in INTEL_PROVIDERS or mode not in INTEL_MODES:
+        raise ValueError("Unknown intelligence provider or mode")
+    if not isinstance(term,str) or len(term)>48 or (term and not re.fullmatch(r"[\w .-]+",term)):
+        raise ValueError("Invalid brand query")
+    if mode=="hot":
+        if term: raise ValueError("Hot board does not accept a brand query")
+        return INTEL_PROVIDERS[provider]+"/api/v1/hot-topics"
+    from urllib.parse import urlencode
+    params={"mode":"selected" if mode=="cases" and not term else "all","window":"7d","limit":20}
+    if term: params["q"]=term
+    elif mode in {"competitors","vendors"}: params["category"]="ai-products" if mode=="competitors" else "ai-models"
+    return INTEL_PROVIDERS[provider]+"/api/v1/items?"+urlencode(params)
+
+def get_intel(mode,term,opener=urlopen,clock=time.monotonic):
+    endpoints={p:intel_endpoint(p,mode,term) for p in INTEL_PROVIDERS}
+    result={}
+    from email.utils import parsedate_to_datetime
+    from urllib.request import build_opener
+    from urllib.request import HTTPRedirectHandler
+    class FixedHostRedirect(HTTPRedirectHandler):
+        def redirect_request(self,req,fp,code,msg,headers,newurl):
+            old=urlsplit(req.full_url);new=urlsplit(newurl)
+            if new.scheme!="https" or new.hostname!=old.hostname or new.port not in (None,443) or new.username or new.password:
+                raise ValueError("Unexpected upstream redirect")
+            return super().redirect_request(req,fp,code,msg,headers,newurl)
+    # Default fetcher prevents redirects to arbitrary hosts.
+    fetch=build_opener(FixedHostRedirect()).open if opener is urlopen else opener
+    with _intel_lock:
+        for provider,url in endpoints.items():
+            now=clock()
+            cached=_intel_cache.get(url,{})
+            prior=cached.get("result",{})
+            if now<_intel_cooldown.get(provider,0):
+                result[provider]={**prior,"error":"上游限流或暂不可用"}
+                continue
+            if cached and now-cached["time"]<600:
+                result[provider]=prior
+                continue
+            headers={"Accept":"application/json","User-Agent":USER_AGENT}
+            if cached.get("etag"):headers["If-None-Match"]=cached["etag"]
+            try:
+                with fetch(Request(url,headers=headers),timeout=12) as response:
+                    raw=response.read(2*1024*1024+1)
+                    if len(raw)>2*1024*1024:raise ValueError("Upstream response exceeds size limit")
+                    data=json.loads(raw)
+                    if not isinstance(data,dict) or not isinstance(data.get("items"),list) or len(data["items"])>(10 if mode=="hot" else 20):
+                        raise ValueError("Unexpected upstream response")
+                    if any(not isinstance(row,dict) for row in data["items"]):
+                        raise ValueError("Unexpected upstream row")
+                    entry={"data":data,"observedAt":datetime.now(timezone.utc).isoformat(timespec="seconds")}
+                    etag=response.headers.get("ETag","")
+                    _intel_cache[url]={"result":entry,"time":now,"etag":etag}
+            except HTTPError as exc:
+                if exc.code==304 and prior.get("data") is not None:
+                    entry={**prior,"validatedAt":datetime.now(timezone.utc).isoformat(timespec="seconds")}
+                    _intel_cache[url]={**cached,"result":entry,"time":now}
+                else:
+                    wait=3600 if exc.code in (403,429) else 600
+                    retry=exc.headers.get("Retry-After","") if exc.headers else ""
+                    try: wait=max(wait,int(retry) if retry.isdigit() else int((parsedate_to_datetime(retry)-datetime.now(timezone.utc)).total_seconds()))
+                    except (ValueError,TypeError,OverflowError):pass
+                    _intel_cooldown[provider]=now+wait
+                    entry={**prior,"error":"HTTP "+str(exc.code)}
+            except (OSError,ValueError,TypeError) as exc:
+                _intel_cooldown[provider]=now+600
+                entry={**prior,"error":type(exc).__name__}
+            result[provider]=entry
+        # Bounded private cache; avoid growing into a local historical archive.
+        for key in sorted(_intel_cache,key=lambda k:_intel_cache[k]["time"])[:-64]:
+            del _intel_cache[key]
+    return {"mode":mode,"term":term,"sources":result}
+
+
 class LocalHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(SITE), **kwargs)
@@ -371,14 +454,16 @@ class LocalHandler(SimpleHTTPRequestHandler):
 
     def do_GET(self) -> None:
         parsed = urlsplit(self.path)
-        if parsed.path not in {"/__local/aihot-leaderboard", "/__local/aihot-topic"}:
+        if parsed.path not in {"/__local/aihot-leaderboard", "/__local/aihot-topic", "/__local/creator-intel"}:
             super().do_GET()
             return
 
         query = parse_qs(parsed.query)
         force_refresh = query.get("refresh", ["0"])[0] == "1"
         try:
-            if parsed.path == "/__local/aihot-leaderboard":
+            if parsed.path == "/__local/creator-intel":
+                data = get_intel(query.get("mode",["hot"])[0],query.get("term",[""])[0])
+            elif parsed.path == "/__local/aihot-leaderboard":
                 category = query.get("category", ["overall"])[0]
                 mode = query.get("mode", ["rank"])[0]
                 data = get_board(category, mode, force_refresh)
