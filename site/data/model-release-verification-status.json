@@ -1,5 +1,12 @@
 {
-  "checkedAt": "2026-11-27T03:33:22.710293+00:00",
+  "checkedAt": "2026-11-27T03:35:59.701093+00:00",
   "confirmed": [],
-  "pending": []
+  "pending": [],
+  "proofLedgerSchema": "release-proof-ledger/v1",
+  "proofLedger": [],
+  "proofLedgerSummary": {
+    "records": 0,
+    "quarantined": 0,
+    "currentValidatedProofs": 0
+  }
 }
