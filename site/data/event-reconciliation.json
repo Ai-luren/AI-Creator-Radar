@@ -1,9 +1,9 @@
 {
   "schema": "event-reconciliation/v1",
-  "checkedAt": "2026-11-27T03:36:06+00:00",
+  "checkedAt": "2026-11-27T03:42:11+00:00",
   "inputObservations": {
-    "discovery": "2026-11-27T03:36:00+00:00",
-    "resolution": "2026-11-27T03:36:04+00:00"
+    "discovery": "2026-11-27T03:42:05+00:00",
+    "resolution": "2026-11-27T03:42:09+00:00"
   },
   "evidence": [
     {
@@ -3923,7 +3923,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.1 [dev]",
       "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-073b016b3cadfd810fb154f7646b5355b0a65522a3bcab9b2ef52a5b4832969d",
@@ -3936,7 +3941,12 @@
       "state": "needs-release-evidence",
       "modelName": "Seedance 1.0 Pro",
       "candidateSourceUrl": "https://seed.bytedance.com/zh/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-0904ad420ba241e9cb12e10ff4d90e4cda3467913071b1a69d5b9af3b0bb0fc8",
@@ -3970,7 +3980,12 @@
       "state": "needs-release-evidence",
       "modelName": "Kling Image O1",
       "candidateSourceUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "awaiting-probe",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-0f633081b7c3d58a7410a93dc0b160ad49f2d0c31ed0f492806979b047f8fb6f",
@@ -3983,7 +3998,12 @@
       "state": "needs-release-evidence",
       "modelName": "MAI-Image 1",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-106c901a0790fb411a1b16525b92559820eefd6738970eb100161989c1717d95",
@@ -3996,7 +4016,12 @@
       "state": "needs-release-evidence",
       "modelName": "4.7",
       "candidateSourceUrl": "https://x.ai/news?m=1",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-11fa744f750afc446ae5570d0c285517bb877c8275899a2a1e1da977a0152f29",
@@ -4009,7 +4034,12 @@
       "state": "needs-release-evidence",
       "modelName": "GAGA-1",
       "candidateSourceUrl": "https://sand.ai/about-us",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-1459ee55d73f0385a184326ff7f2e674b97522dc0ea1df493c36d333cd2ec105",
@@ -4022,7 +4052,12 @@
       "state": "needs-release-evidence",
       "modelName": "Voice 1",
       "candidateSourceUrl": "https://www.heygen.com/models/heygen-voice",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-1a4b2813147989525c30ae7ac0cfa50521c6aae4b86eae7bbbb75f680bc8d716",
@@ -4040,7 +4075,7 @@
       "titles": [
         "Grok Voice 3.0"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://x.ai/news/grok-voice-3"
       ],
@@ -4067,7 +4102,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-2"
       ],
@@ -4094,7 +4129,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4116,7 +4151,12 @@
       "state": "needs-release-evidence",
       "modelName": "Gemini 3.8 Flash-Lite TTS",
       "candidateSourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "awaiting-probe",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-1f7733b56798eb84870b0e1186f7408adaa8b8f98d74af0118894efd5c16fe4c",
@@ -4129,7 +4169,12 @@
       "state": "needs-release-evidence",
       "modelName": "2.5",
       "candidateSourceUrl": "https://agnes-ai.cn/zh-Hans/docs/agnes-video-25",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-2100699d2190e1588d72b92fbb56e1e843f7cc2fc9544c616d7144e88f6ff5c2",
@@ -4163,7 +4208,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX 3 Image",
       "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-22e0d3279ba657bf7e99556be5a875c6a313092e62068f58df61bad42562732f",
@@ -4176,7 +4226,12 @@
       "state": "needs-release-evidence",
       "modelName": "Wan 2.7 I2V",
       "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-2739d24d673ff7890b90cac08aa61e46e6be9d601abf847e12d64c17e1699038",
@@ -4189,7 +4244,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.1 [schnell]",
       "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-2cb517301b74d1d24392d17964ce5499322e049951401f7b3055653eabf374b3",
@@ -4202,7 +4262,12 @@
       "state": "needs-release-evidence",
       "modelName": "1.1",
       "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-2d1028313f80d3b72fa64df4e93755b58af46f921275a8e6701b80dbbfa3b7e6",
@@ -4236,7 +4301,12 @@
       "state": "needs-release-evidence",
       "modelName": "DeepSeek V4.1 Pro",
       "candidateSourceUrl": "https://api-docs.deepseek.com/news/news260910/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "identity-mismatch",
+        "evidenceIds": [],
+        "nextAttemptAt": "2026-12-04T03:42:10.427144+00:00"
+      }
     },
     {
       "id": "task-2f2bcb1282d47047993e34e86295e5b51d66a4688fea781f803fdb92f48db005",
@@ -4260,7 +4330,7 @@
         "Gemini 4 Hydrogen",
         "Gemini 4 Hydrogen — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
       ],
@@ -4324,7 +4394,7 @@
       "titles": [
         "GPT-Live-1.1 — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -4351,7 +4421,12 @@
       "state": "needs-release-evidence",
       "modelName": "Wan 2.7 R2V",
       "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-344b427c9d80cf99ca9377cc2b9d7f67b7633d8449dd9c59340b7e45b81f5084",
@@ -4375,7 +4450,7 @@
         "GLM-5.4",
         "Z.ai launches GLM-5.4"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://docs.z.ai/guides/llm/glm-5.4",
         "https://z.ai/blog/glm-5.4"
@@ -4422,7 +4497,12 @@
       "state": "needs-release-evidence",
       "modelName": "Qwen Image Edit Plus 2511",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-3e0e5c6ce6a57d15e4b6044e5e099eef12275a652f98d55c780cbb83216d1886",
@@ -4435,7 +4515,12 @@
       "state": "needs-release-evidence",
       "modelName": "MAI-Image 2.6",
       "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-3e1618fb315653be76d338cbcd167096fd066ab9479eb5f9d945d4577a767051",
@@ -4485,7 +4570,12 @@
       "state": "needs-release-evidence",
       "modelName": "Grok Imagine Image Pro",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-45880bd254099a6431013628ccab882a3aeea7b61f1196292c108ab93ea3bb7f",
@@ -4498,7 +4588,12 @@
       "state": "needs-release-evidence",
       "modelName": "GPT-Live-1.1 Quip",
       "candidateSourceUrl": "https://deploymentsafety.openai.com/gpt-live-1-1/alignment",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-49517d092c56cd2d6229c8a01a17c7c2d6a7ba9530184577aaba79d6fc12f53e",
@@ -4516,7 +4611,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4559,7 +4654,12 @@
       "state": "needs-release-evidence",
       "modelName": "MAI-Image 2.5 Flash",
       "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-4a7965151a02b9d887c82f70d526614409fc2076ae9cf0d472b1967d9ef22149",
@@ -4619,7 +4719,7 @@
       "titles": [
         "Gemini Decision 1 — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4635,7 +4735,12 @@
       "state": "needs-release-evidence",
       "modelName": "MiMo V2.6 Flash",
       "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-4f7df4ac15dff16d185a7a3af1dab7c7d1002b253a6219c0fa8bdecbc9268d46",
@@ -4653,7 +4758,7 @@
       "titles": [
         "Early progress on accelerating drug development with Claude"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4683,7 +4788,7 @@
         "GPT-6.2 Astra — OpenAI",
         "OpenAI releases GPT-6.2 Astra"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -4717,7 +4822,12 @@
       "state": "needs-release-evidence",
       "modelName": "Qwen Image Edit Plus 2509",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-5a4cc51745455631cecff15fecd6bdd1deaf8e7b60af15fa3b39a078671f4292",
@@ -4738,7 +4848,7 @@
       "titles": [
         "Gemini Omni 1.2 Flash — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -4766,7 +4876,12 @@
       "state": "needs-release-evidence",
       "modelName": "MiMo V2.6 Pro UltraSpeed",
       "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-66d7056d75f4f2f57b1187c95c64589c11516b0e26f4bb4081eae1876395769d",
@@ -4779,7 +4894,12 @@
       "state": "needs-release-evidence",
       "modelName": "Tencent Hy4",
       "candidateSourceUrl": "https://www.tencent.com/zh-cn/tencent-releases-and-opens-sources-tencent-hy4-preview/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-67262014a2e5a53ca854e8a8da2fc236d13e6e508ddd7d77bd055d9964c184c8",
@@ -4792,7 +4912,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.2 [dev]",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-6b24bf0a943d1df77df170b492c00c1afe471f0c7890b4001b614d60d045dc44",
@@ -4805,7 +4930,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.1",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-6e2767acff2cb6ae6c7643e9c9beda3c12348de9cbfc98ddb0006c88b1a75cc3",
@@ -4818,7 +4948,12 @@
       "state": "needs-release-evidence",
       "modelName": "Gemini 3.8 Flash TTS",
       "candidateSourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "identity-needs-review",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-6fb030c21381b1ce3d9405f33a7735e5be3bdf9aab119d3f8423e0e276bab043",
@@ -4831,7 +4966,12 @@
       "state": "needs-release-evidence",
       "modelName": "Qwen Image Edit Max 2601",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-70408459984f3bcc82c00ca7cdc638832385262dc35b961cd79fc3a828f77b23",
@@ -4885,7 +5025,12 @@
       "state": "needs-release-evidence",
       "modelName": "Grok Imagine Video 1.5",
       "candidateSourceUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "awaiting-probe",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-76887e45bda27bdc8a7a90ef8458b50761a2431f1de9eb351dd2b0c1d5989b4a",
@@ -4898,7 +5043,12 @@
       "state": "needs-release-evidence",
       "modelName": "Muse Image",
       "candidateSourceUrl": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "identity-needs-review",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-784e3c310edbcfff69bb2548053ee429af4e1ccaa5de454b1db0febe897547fa",
@@ -4911,7 +5061,12 @@
       "state": "needs-release-evidence",
       "modelName": "MAI-Image 2.6 Flash",
       "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-792090f369f99095a1284b5353afe8850f803b408fac63b68c06f9e3a388c845",
@@ -4924,7 +5079,12 @@
       "state": "needs-release-evidence",
       "modelName": "Qwen Audio 3.1 Realtime Flash",
       "candidateSourceUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-realtime-plus",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-7dc2c214097ef9e51640ae36467b097309e12ea79f327abb73c650a573ce91ae",
@@ -4937,7 +5097,12 @@
       "state": "needs-release-evidence",
       "modelName": "2.5 Flash",
       "candidateSourceUrl": "https://github.com/AgnesAI-Labs/skills/blob/main/agnes-ai-models/references/model_catalog.md",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-7f297eb1602b130bc98c21500536183cf8ae496f07a0a05a88d559603dd9025c",
@@ -4950,7 +5115,12 @@
       "state": "needs-release-evidence",
       "modelName": "Muse Ember",
       "candidateSourceUrl": "https://ai.meta.com/blog/introducing-muse-spark/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "identity-needs-review",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-8770d9c8860a525074deba85f133a1bedeb48aed35f8a668782de9b8f39e8541",
@@ -4977,7 +5147,7 @@
         "Gemini 4 Carbon — Google DeepMind",
         "Google announces Gemini 4 Carbon"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
       ],
@@ -5012,7 +5182,12 @@
       "state": "needs-release-evidence",
       "modelName": "MAI-Image 2",
       "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-87f95b3da0961faa15d042f45b4b16aa060422fe73d3be7d69a849fdf4f3754d",
@@ -5025,7 +5200,12 @@
       "state": "needs-release-evidence",
       "modelName": "MiMo V2.5 Pro",
       "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-8914e50ec60373e3efb47268652bcb48c9d2614be970adee668d5aac00e0df43",
@@ -5079,7 +5259,12 @@
       "state": "needs-release-evidence",
       "modelName": "Grok Imagine Video 1.5 Lite",
       "candidateSourceUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "awaiting-probe",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-8b168c5a898f6f024360cdf4979a4cdf88fd98d3df41ddf75a73122c21cede81",
@@ -5113,7 +5298,12 @@
       "state": "needs-release-evidence",
       "modelName": "Video 1",
       "candidateSourceUrl": "https://www.heygen.com/models/heygen-video-1",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-8f3289cdb239cd8778790d4f933f6b5b05fa16895ce02171a1b0fba966bcde4b",
@@ -5126,7 +5316,12 @@
       "state": "needs-release-evidence",
       "modelName": "Craft",
       "candidateSourceUrl": "https://www.canva.com/newsroom/news/canva-craft/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-90636598f2d78f13b942e0f1b72b05e992e935d92acd3c20c21d0f5f9e1150ad",
@@ -5147,7 +5342,7 @@
       "titles": [
         "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://elevenlabs.io/blog/scribe-v3-live-medical"
       ],
@@ -5174,7 +5369,7 @@
       "titles": [
         "GPT-6-Cyber — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5190,7 +5385,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.1 Krea [dev]",
       "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-9c418a3cc3c193cff08822b263155e7eafd506993e010115815187372fde19be",
@@ -5214,7 +5414,7 @@
         "GPT-Image-2.6 Sunburst",
         "GPT-Image-2.6 Sunburst — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5248,7 +5448,12 @@
       "state": "needs-release-evidence",
       "modelName": "MAI-Image 2.5 Pro",
       "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-9e34afc2c2bdb3baf2d54dcf8c6d2d11a34e6dc0f41b3def594ff4501c49efb6",
@@ -5261,7 +5466,12 @@
       "state": "needs-release-evidence",
       "modelName": "4.5",
       "candidateSourceUrl": "https://runwayml.com/research/introducing-runway-gen-4.5",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-a22d7089141b42f14a2365e9936bc8648f7790ae8746a803f87001adc03387b8",
@@ -5274,7 +5484,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX 3 Video",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-a847db8d79b2232aebd8bc332fb5ca2827d7362707dc60397490ccd41014c64a",
@@ -5287,7 +5502,12 @@
       "state": "needs-release-evidence",
       "modelName": "1.5",
       "candidateSourceUrl": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "repository-document-evidence-observed",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-a9b58c39ce3cb2044f41ec74a54a934a8ecd4dc4014f075d09f0dfbd3f2b32a2",
@@ -5321,7 +5541,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.2",
       "candidateSourceUrl": "https://bfl.ai/blog/flux-2",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-b4242f382b748d1842dcfbd4551c2ffc7a0eb12fb6931499ee30d670cffca2c3",
@@ -5334,7 +5559,12 @@
       "state": "needs-release-evidence",
       "modelName": "V4.1",
       "candidateSourceUrl": "https://www.recraft.ai/ai-models/recraft",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-b52721400eb8144b4a84ba8a22258adffd891644df1da4d4821893e266471277",
@@ -5358,7 +5588,7 @@
         "GPT-Image-2.6 Flare",
         "GPT-Image-2.6 Flare — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5392,7 +5622,12 @@
       "state": "needs-release-evidence",
       "modelName": "MAI-Image 2.5",
       "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-b751e9b86e2b9c356466321157a6b1065e442cb694a1d99663cf63fef5c57267",
@@ -5410,7 +5645,7 @@
       "titles": [
         "Muse Ember — Meta AI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5447,7 +5682,12 @@
       "state": "needs-release-evidence",
       "modelName": "Tencent Hy3",
       "candidateSourceUrl": "https://www.tencent.com/zh-cn/tencent-releases-and-opens-sources-tencent-hy4-preview/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-baa2671761203541dc17533e0a9164dc23ed697d574357b10a8cdea5478cfc90",
@@ -5460,7 +5700,12 @@
       "state": "needs-release-evidence",
       "modelName": "Kling Image 3.0 Omni",
       "candidateSourceUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "awaiting-probe",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-babf5b8a88d4e4c36c07836f2c8445364ba392c60fa3697e06d90862c54cfc83",
@@ -5473,7 +5718,12 @@
       "state": "needs-release-evidence",
       "modelName": "4.6",
       "candidateSourceUrl": "https://x.ai/news?m=1",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-bfeeeba52a33733d93e4bb4972c12e6b7dcfb9e464ea4a7d9c2ce4ce147462a7",
@@ -5486,7 +5736,12 @@
       "state": "needs-release-evidence",
       "modelName": "MiMo V2.6 Pro",
       "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-c149957e2820d4b2d99242902d13ceb2991e7a6617dc8311cb5335c0b3b22b79",
@@ -5499,7 +5754,12 @@
       "state": "needs-release-evidence",
       "modelName": "Wan 2.7 T2V",
       "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-c3ea207557a2e81fe831fe74d30cfa1d820682aacd5044717ddd07f05097f247",
@@ -5512,7 +5772,12 @@
       "state": "needs-release-evidence",
       "modelName": "Grok Imagine Image Quality",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-c46d9e8af999d85c7c6f3188ac88f3acb3aa76fb921395f7bbbff4d3f2105ebe",
@@ -5525,7 +5790,12 @@
       "state": "needs-release-evidence",
       "modelName": "V4",
       "candidateSourceUrl": "https://www.skyreels.ai/api-platform",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-c6ee4d300ec28228d60b565b427ed87a88afc89d05c117673c08a8582adb17a2",
@@ -5538,7 +5808,12 @@
       "state": "needs-release-evidence",
       "modelName": "S2.1",
       "candidateSourceUrl": "https://huggingface.co/fishaudio",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-c89a9886ae20fc2f09b705e3bab1eaecd8eb25794caacd8f33437a3e15123f31",
@@ -5556,7 +5831,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/claude-fable-and-mythos-5-2"
       ],
@@ -5592,7 +5867,7 @@
         "GPT-6.2 Sol — OpenAI",
         "OpenAI releases GPT-6.2 Sol"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -5626,7 +5901,12 @@
       "state": "needs-release-evidence",
       "modelName": "4.5",
       "candidateSourceUrl": "https://x.ai/news?m=1",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-cee24776c9096d366415a59000a02690f464b5796ecb200bc19a6da7bf169456",
@@ -5639,7 +5919,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX 3 Image Klein",
       "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-d0e4df70fc8316d873aec2be2fd153bb8f41f3f5b7fdc147a3f084159abc6bbb",
@@ -5652,7 +5937,12 @@
       "state": "needs-release-evidence",
       "modelName": "Grok Imagine Image 2.0",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-d2b61521aac68b0209c228fd3bd8f2401d4a66564f657153de94a73558422ca0",
@@ -5711,7 +6001,7 @@
       "titles": [
         "Claude Fable 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -5739,7 +6029,12 @@
       "state": "needs-release-evidence",
       "modelName": "Qwen Audio 3.1 Realtime Plus",
       "candidateSourceUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-realtime-plus",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-d803d73758909c06fa96051b63ca1de4354e78559404a5a80ce7de3a56af783a",
@@ -5752,7 +6047,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.2 [pro]",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-d9104ee43229c0b403bfdc0ede97ea9f67d460dbc92266e1f3201b5f4fb0c69f",
@@ -5765,7 +6065,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.1.1 Pro",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-d9a0b89974b4d1f699e74adc699c777ac3b99596d0c6506f2ef26a1ecafdeae5",
@@ -5799,7 +6104,12 @@
       "state": "needs-release-evidence",
       "modelName": "1.0（厂商发布）",
       "candidateSourceUrl": "https://www.newsfilecorp.com/release/314609",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-da64613de56d49ce91ec1fa713733706643c85464c1fc5274ef4e94f0ea65d99",
@@ -5812,7 +6122,12 @@
       "state": "needs-release-evidence",
       "modelName": "2.5 Flash",
       "candidateSourceUrl": "https://agnes-ai.cn/zh-Hans/docs/agnes-video-25",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-dfdc8e63b25b1db1a8a0e8f37ed2c44cca0cb77b0dca6f79646b405b8fc5394e",
@@ -5825,7 +6140,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.2 [max]",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-dfec8b0b15c220e1d1cd35149a8d471f556abbf89b2815efb085c4b520dd16d6",
@@ -5838,7 +6158,12 @@
       "state": "needs-release-evidence",
       "modelName": "FLUX.2 [flex]",
       "candidateSourceUrl": null,
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "missing-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-e2e67f17d5412152aa901cec55d938955e611679ef438588dcee8b651cd9d155",
@@ -5851,7 +6176,12 @@
       "state": "needs-release-evidence",
       "modelName": "LTX-2.5",
       "candidateSourceUrl": "https://github.com/Lightricks/LTX-2/releases",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-e587d5e5aee71af7c350da564c802980cf8a8ac55fef47fc5677b7acad9d111f",
@@ -5886,7 +6216,12 @@
       "state": "needs-release-evidence",
       "modelName": "Muse Spark Open",
       "candidateSourceUrl": "https://ai.meta.com/blog/introducing-muse-spark/",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "identity-needs-review",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-eea1f74be7cf8652b09378f5b1246f27679ad4883c2cf80ebc51408f57e708bf",
@@ -5920,7 +6255,12 @@
       "state": "needs-release-evidence",
       "modelName": "3",
       "candidateSourceUrl": "https://www.stepfun.com/news/stepaudio-3",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-f2c462371532c75fccf8f62dffa6e248b6c196940ce971acf18a54373a9ae7e8",
@@ -5960,7 +6300,7 @@
       "titles": [
         "GPT-6 Rosalind — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5990,7 +6330,7 @@
         "Gemini 4 Neon — Google DeepMind",
         "Google releases Gemini 4 Neon"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
       ],
@@ -6025,7 +6365,12 @@
       "state": "needs-release-evidence",
       "modelName": "Qwen Audio 3.1 TTS Flash",
       "candidateSourceUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-tts-plus",
-      "existingDate": null
+      "existingDate": null,
+      "historicalRepair": {
+        "status": "unsupported-original-pointer",
+        "evidenceIds": [],
+        "nextAttemptAt": null
+      }
     },
     {
       "id": "task-fdf93d35f613aaf4ddedf7dfb43146c86fc934d5af368c992731646f9cb84201",
@@ -6049,7 +6394,7 @@
         "GPT-6.1 Terra",
         "OpenAI releases GPT-6.1 Terra"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-1-terra"
       ],
@@ -6091,7 +6436,7 @@
       "titles": [
         "Claude Mythos 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-27T03:36:00+00:00",
+      "lastSourceObservationAt": "2026-11-27T03:42:05+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,

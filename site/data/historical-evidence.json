@@ -1,0 +1,1056 @@
+{
+  "schema": "historical-evidence/v1",
+  "checkedAt": "2026-11-27T03:42:10+00:00",
+  "tasks": [
+    {
+      "id": "history-04a48fa2a5702ddc791bb6a4be28406666f34807327c68c8812f5004c46ff35b",
+      "identity": {
+        "modelFamilyId": "mimo",
+        "modelVersionId": "mimo-v2-5-pro"
+      },
+      "modelName": "MiMo V2.5 Pro",
+      "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-08790a755b78be7b1a314f980055ff1bdb847678eb7d6c2444a875c687e21603",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-2-dev"
+      },
+      "modelName": "FLUX.2 [dev]",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-0d2eebf54b251db57839c36c2e7f820f5140f5afe3a3cf2d207623c7b6b2bbc1",
+      "identity": {
+        "modelFamilyId": "mimo",
+        "modelVersionId": "mimo-v2-6-pro-ultraspeed"
+      },
+      "modelName": "MiMo V2.6 Pro UltraSpeed",
+      "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-0f0fa3c98b3ba7253c95019d86230245521c0fef7b276bafffce146354e72ef4",
+      "identity": {
+        "modelFamilyId": "muse",
+        "modelVersionId": "muse-ember"
+      },
+      "modelName": "Muse Ember",
+      "candidateSourceUrl": "https://ai.meta.com/blog/introducing-muse-spark/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "identity-needs-review"
+    },
+    {
+      "id": "history-121fae5a004ab6c8b33ce749282ccc4a699b3f8bedbf5923e8163ab66267fe31",
+      "identity": {
+        "modelFamilyId": "hunyuan-video",
+        "modelVersionId": "1-5"
+      },
+      "modelName": "1.5",
+      "candidateSourceUrl": "https://github.com/Tencent-Hunyuan/HunyuanVideo-1.5",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [
+        {
+          "id": "historical-document-25ec01991b3ce33943f10ab307ebdc668fccfbb40c91295a9733e98277279b23",
+          "status": "document-assertion-observed",
+          "claimType": "license-declared-release-date",
+          "assertedDate": "2025-11-21",
+          "datePrecision": "day",
+          "eventDate": null,
+          "sourceUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo-1.5/main/LICENSE",
+          "documentKind": "license",
+          "firstVerifiedAt": "2026-11-27T03:42:10+00:00",
+          "firstContentSha256": "c38236952096107a4adbc164f44cd1768745b0a20090ea858e0954c96a6b8391"
+        },
+        {
+          "id": "historical-document-b7734b4627a21ea50408240ff1fad5422423948e07c33eaedadb6028c3317975",
+          "status": "document-assertion-observed",
+          "claimType": "code-and-weights-release-statement",
+          "assertedDate": "2025-11-20",
+          "datePrecision": "day",
+          "eventDate": null,
+          "sourceUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo-1.5/main/README.md",
+          "documentKind": "readme",
+          "firstVerifiedAt": "2026-11-27T03:42:10+00:00",
+          "firstContentSha256": "57eed52d56216c2e0b60f0e926267a0708fc18de2109e5a60a01d8ccac6e49dc"
+        }
+      ],
+      "status": "repository-document-evidence-observed",
+      "repositoryDocuments": {
+        "readme": {
+          "sourceUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo-1.5/main/README.md",
+          "status": "document-assertion-observed",
+          "claimType": "code-and-weights-release-statement",
+          "assertedDate": "2025-11-20",
+          "datePrecision": "day",
+          "eventDate": null,
+          "lastAttemptAt": "2026-11-27T03:42:10+00:00",
+          "consecutiveFailures": 0,
+          "nextAttemptAt": "2026-12-04T03:42:10.427144+00:00",
+          "lastContentSha256": "57eed52d56216c2e0b60f0e926267a0708fc18de2109e5a60a01d8ccac6e49dc"
+        },
+        "license": {
+          "sourceUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo-1.5/main/LICENSE",
+          "status": "document-assertion-observed",
+          "claimType": "license-declared-release-date",
+          "assertedDate": "2025-11-21",
+          "datePrecision": "day",
+          "eventDate": null,
+          "lastAttemptAt": "2026-11-27T03:42:10+00:00",
+          "consecutiveFailures": 0,
+          "nextAttemptAt": "2026-12-04T03:42:10.427144+00:00",
+          "lastContentSha256": "c38236952096107a4adbc164f44cd1768745b0a20090ea858e0954c96a6b8391"
+        }
+      },
+      "repositoryConflicts": []
+    },
+    {
+      "id": "history-14e444ee2b86134bdbb020bd26d396ca2664e0567a5793687e54301c834ba34f",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-2-pro"
+      },
+      "modelName": "FLUX.2 [pro]",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-1654f12cde8c5cb39e4d50f36aca75668118dc83e88f59381a860f94f607df03",
+      "identity": {
+        "modelFamilyId": "mai-image",
+        "modelVersionId": "mai-image-2-5-pro"
+      },
+      "modelName": "MAI-Image 2.5 Pro",
+      "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-17401c4e84375c33c5762a9152700ad0fbdd46e1a6d444e92e380a8b874af71c",
+      "identity": {
+        "modelFamilyId": "qwen-audio-tts",
+        "modelVersionId": "qwen-audio-3-1-tts-flash"
+      },
+      "modelName": "Qwen Audio 3.1 TTS Flash",
+      "candidateSourceUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-tts-plus",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-1ba36864919a8ac0bf99d2700a7d919f5b75350c639d5fd21ec353377c93ffec",
+      "identity": {
+        "modelFamilyId": "hidream-o1-video",
+        "modelVersionId": "1-0"
+      },
+      "modelName": "1.0（厂商发布）",
+      "candidateSourceUrl": "https://www.newsfilecorp.com/release/314609",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-1ffeb0f1e188b14a981c58aafb26b007d6efa6ba99eac0edc60fd11577677d3c",
+      "identity": {
+        "modelFamilyId": "deepseek",
+        "modelVersionId": "deepseek-v4-1-pro"
+      },
+      "modelName": "DeepSeek V4.1 Pro",
+      "candidateSourceUrl": "https://api-docs.deepseek.com/news/news260910/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "probeUrl": "https://api-docs.deepseek.com/news/news260910/",
+      "status": "identity-mismatch",
+      "lastAttemptAt": "2026-11-27T03:42:10+00:00",
+      "error": null,
+      "consecutiveFailures": 0,
+      "latestObservation": {
+        "status": "identity-mismatch",
+        "publisherTitle": "DeepSeek-V4.1-Flash: Smarter, Faster, More Efficient"
+      },
+      "nextAttemptAt": "2026-12-04T03:42:10.427144+00:00"
+    },
+    {
+      "id": "history-22fa20791bb8a6da399300998ed799145c1fefd54a05c045e2fe9a00a3f98dc2",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-2-flex"
+      },
+      "modelName": "FLUX.2 [flex]",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-2460c92a5e830b14a73745e9817ac41ba47e3bbec8c4efc531c7a7a6be0829ff",
+      "identity": {
+        "modelFamilyId": "fish-audio-s2",
+        "modelVersionId": "s2-1"
+      },
+      "modelName": "S2.1",
+      "candidateSourceUrl": "https://huggingface.co/fishaudio",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-2563b7670f4198d5718aac15b68c40a30321cbf2f9b0483308380faccad89135",
+      "identity": {
+        "modelFamilyId": "grok-imagine-image",
+        "modelVersionId": "grok-imagine-image-2-0"
+      },
+      "modelName": "Grok Imagine Image 2.0",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-26769490dcbced62d64c6e987a3f70d1896930affbd8f506489bf9a7bf8901fa",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-3-image-klein"
+      },
+      "modelName": "FLUX 3 Image Klein",
+      "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-27070143793a12b3a8d0408d084d21bd0d6fa151df9cb760ffac18649156b6b5",
+      "identity": {
+        "modelFamilyId": "mai-image",
+        "modelVersionId": "mai-image-1"
+      },
+      "modelName": "MAI-Image 1",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-292fe5efa47d71bccc317145ff06b3a23a09bbcfb098e5bbb09bf75b58bb5d68",
+      "identity": {
+        "modelFamilyId": "qwen-audio-realtime",
+        "modelVersionId": "qwen-audio-3-1-realtime-flash"
+      },
+      "modelName": "Qwen Audio 3.1 Realtime Flash",
+      "candidateSourceUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-realtime-plus",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-295d0444694210f978be4d9499c9df633caa9978e3b76352e310590c91c2b88c",
+      "identity": {
+        "modelFamilyId": "qwen-audio-realtime",
+        "modelVersionId": "qwen-audio-3-1-realtime-plus"
+      },
+      "modelName": "Qwen Audio 3.1 Realtime Plus",
+      "candidateSourceUrl": "https://help.aliyun.com/en/model-studio/qwen-audio-3-1-realtime-plus",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-323bc193561c1da53c6f17132cfc0ecbccb6a24a16b374a5ad8fe9e66361d781",
+      "identity": {
+        "modelFamilyId": "agnes-image-25-flash",
+        "modelVersionId": "2-5-flash"
+      },
+      "modelName": "2.5 Flash",
+      "candidateSourceUrl": "https://github.com/AgnesAI-Labs/skills/blob/main/agnes-ai-models/references/model_catalog.md",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-3669246da28d349b1ee5ad37f16e533b9e42bfc67fd4841f53ed857338ef1840",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-2"
+      },
+      "modelName": "FLUX.2",
+      "candidateSourceUrl": "https://bfl.ai/blog/flux-2",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-378c7271a000e53b58c538aedb529247883040ac5f58016715717aef03c5ebc1",
+      "identity": {
+        "modelFamilyId": "agnes-video-25",
+        "modelVersionId": "2-5-flash"
+      },
+      "modelName": "2.5 Flash",
+      "candidateSourceUrl": "https://agnes-ai.cn/zh-Hans/docs/agnes-video-25",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-3946a746dfa8438d3fa371432eac8a43e3b15f9d1e7a01b2b1634e3d861ce879",
+      "identity": {
+        "modelFamilyId": "mai-image",
+        "modelVersionId": "mai-image-2-6-flash"
+      },
+      "modelName": "MAI-Image 2.6 Flash",
+      "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-3ce72b5e2dd22f8391604322c39dee08b05bcabddf38da06050c7a2b26beee7f",
+      "identity": {
+        "modelFamilyId": "qwen-image-edit",
+        "modelVersionId": "qwen-image-edit-max-2601"
+      },
+      "modelName": "Qwen Image Edit Max 2601",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-3cf73fa4e45be559ea0c48c81594385198b41dba0982fbf9146b6039ff58b079",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-3-image"
+      },
+      "modelName": "FLUX 3 Image",
+      "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-3f0f6688f0862508e31c1b88a1da812eabb1bcfb7595f1044ceececbf2e806d6",
+      "identity": {
+        "modelFamilyId": "grok-llm",
+        "modelVersionId": "4-5"
+      },
+      "modelName": "4.5",
+      "candidateSourceUrl": "https://x.ai/news?m=1",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-40a986a06cc2e3ba9e33b07ada3718b3a24f3b1d687229a0a6677e1562a5c19e",
+      "identity": {
+        "modelFamilyId": "hunyuan-hy4",
+        "modelVersionId": "tencent-hy4"
+      },
+      "modelName": "Tencent Hy4",
+      "candidateSourceUrl": "https://www.tencent.com/zh-cn/tencent-releases-and-opens-sources-tencent-hy4-preview/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-466c7df67324d1ab86ac2c0e4163ffd690f2002d18e7cd1c0ae349100414eff1",
+      "identity": {
+        "modelFamilyId": "mai-image",
+        "modelVersionId": "mai-image-2"
+      },
+      "modelName": "MAI-Image 2",
+      "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-5730c2ff47c52d20bf50e2a665af6ae8a88f3b929ec741ab24bae6b694890772",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-1"
+      },
+      "modelName": "FLUX.1",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-5b7a025c4b08aa1b11db3e172f6bd6e293150b253780bc77263eb63134b8fcf8",
+      "identity": {
+        "modelFamilyId": "grok-imagine-image",
+        "modelVersionId": "grok-imagine-image-quality"
+      },
+      "modelName": "Grok Imagine Image Quality",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-5c30692ee4600a58f84d3b3f668a3e718bf2bfd526a8004779e78abd189102b0",
+      "identity": {
+        "modelFamilyId": "grok-imagine-video",
+        "modelVersionId": "grok-imagine-video-1-5-lite"
+      },
+      "modelName": "Grok Imagine Video 1.5 Lite",
+      "candidateSourceUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "probeUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
+      "status": "awaiting-probe"
+    },
+    {
+      "id": "history-5f6ab3965d4c1250e6ab0caa0d5e7126bc2a167d6d2a053b29759c0f2a658dcb",
+      "identity": {
+        "modelFamilyId": "happyhorse",
+        "modelVersionId": "1-1"
+      },
+      "modelName": "1.1",
+      "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-600f6e3a6867f52379f85e5268d7ac7897cef5c438742985b0c6e98d82f85c5b",
+      "identity": {
+        "modelFamilyId": "wan",
+        "modelVersionId": "wan-2-7-t2v"
+      },
+      "modelName": "Wan 2.7 T2V",
+      "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-61c43b595d99c31d15e9ef40f3bbb26fde6a3295dd4276a526efe4ed6870a550",
+      "identity": {
+        "modelFamilyId": "recraft",
+        "modelVersionId": "v4-1"
+      },
+      "modelName": "V4.1",
+      "candidateSourceUrl": "https://www.recraft.ai/ai-models/recraft",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-644bcd978fb6c916cea19b3718678ed0ae158d681c418201e1a8d8170b94bf48",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-1-1-pro"
+      },
+      "modelName": "FLUX.1.1 Pro",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-65d8a536dc81c30e1e8bf9a59a40f3cfcc4784ab12df2c77fd61dc602211ac85",
+      "identity": {
+        "modelFamilyId": "ltx",
+        "modelVersionId": "2-5"
+      },
+      "modelName": "LTX-2.5",
+      "candidateSourceUrl": "https://github.com/Lightricks/LTX-2/releases",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-6d73443d72fe728958f237ca0f5610053551b7ba99ceeecfb910953414fd6a5d",
+      "identity": {
+        "modelFamilyId": "heygen-voice",
+        "modelVersionId": "voice-1"
+      },
+      "modelName": "Voice 1",
+      "candidateSourceUrl": "https://www.heygen.com/models/heygen-voice",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-6fb595622e0be953f2deccc4ec9dd1ecd0b5f89cc52dbb1e0d46caf1e0abbd81",
+      "identity": {
+        "modelFamilyId": "seedance",
+        "modelVersionId": "seedance-1-0-pro"
+      },
+      "modelName": "Seedance 1.0 Pro",
+      "candidateSourceUrl": "https://seed.bytedance.com/zh/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-7216253bcb802d0c5b23b1b1c2c3ff395e5ef80eaf383a51ca120c81f446ac42",
+      "identity": {
+        "modelFamilyId": "agnes-video-25",
+        "modelVersionId": "2-5"
+      },
+      "modelName": "2.5",
+      "candidateSourceUrl": "https://agnes-ai.cn/zh-Hans/docs/agnes-video-25",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-7273dd231af36f3dcd1bf0ff790baf50c949d6553f51003284a40f22037792fe",
+      "identity": {
+        "modelFamilyId": "grok-imagine-video",
+        "modelVersionId": "grok-imagine-video-1-5"
+      },
+      "modelName": "Grok Imagine Video 1.5",
+      "candidateSourceUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "probeUrl": "https://x.ai/news/grok-imagine-video-1-5-references",
+      "status": "awaiting-probe"
+    },
+    {
+      "id": "history-77d6f47ba5bb25b9ab2892f94cb9c353e64c4164ed200cd49e4fb649309e026d",
+      "identity": {
+        "modelFamilyId": "hunyuan-hy4",
+        "modelVersionId": "tencent-hy3"
+      },
+      "modelName": "Tencent Hy3",
+      "candidateSourceUrl": "https://www.tencent.com/zh-cn/tencent-releases-and-opens-sources-tencent-hy4-preview/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-79b2b21e4edaf1332e64730d16470b3ab6c97fa883656cedb57f83576b2173d9",
+      "identity": {
+        "modelFamilyId": "stepaudio-3-tts",
+        "modelVersionId": "3"
+      },
+      "modelName": "3",
+      "candidateSourceUrl": "https://www.stepfun.com/news/stepaudio-3",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-7ca1fc9783541177ee9f8434d185ab40c5ea851d151c9f60a8910d324a202fcd",
+      "identity": {
+        "modelFamilyId": "flux3-video",
+        "modelVersionId": "flux-3-video"
+      },
+      "modelName": "FLUX 3 Video",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-80dee9c034e0ac0d3596d1efa27e55ad77149b99ca00a11a583d80acbe3b5ff8",
+      "identity": {
+        "modelFamilyId": "grok-imagine-image",
+        "modelVersionId": "grok-imagine-image-pro"
+      },
+      "modelName": "Grok Imagine Image Pro",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-83e8c8ef5271673061995c50e3942294c67a465516cbef1dba0ee80e67169bfb",
+      "identity": {
+        "modelFamilyId": "kling-image",
+        "modelVersionId": "kling-image-o1"
+      },
+      "modelName": "Kling Image O1",
+      "candidateSourceUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "probeUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+      "status": "awaiting-probe"
+    },
+    {
+      "id": "history-8924e1e377efbe80102069215e318081546db490db7b6abfd7c2b87ce6583ba3",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-1-schnell"
+      },
+      "modelName": "FLUX.1 [schnell]",
+      "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-8cba3d43bff70792438787ce253ddc209e83e78b57278ba7c4b293eef08a918f",
+      "identity": {
+        "modelFamilyId": "mimo",
+        "modelVersionId": "mimo-v2-6-flash"
+      },
+      "modelName": "MiMo V2.6 Flash",
+      "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-8e5bfb52dc68e18045129199e24f7b9e6a3d7dd0020b5ff6454a7f8645371617",
+      "identity": {
+        "modelFamilyId": "qwen-image-edit",
+        "modelVersionId": "qwen-image-edit-plus-2509"
+      },
+      "modelName": "Qwen Image Edit Plus 2509",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-90b11ddaddb97909bfebf3463440e8adf1d168f64da9fb48f4c37e0377593365",
+      "identity": {
+        "modelFamilyId": "muse-image",
+        "modelVersionId": "muse-image"
+      },
+      "modelName": "Muse Image",
+      "candidateSourceUrl": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "identity-needs-review"
+    },
+    {
+      "id": "history-95a7a89667db34375372e88668f7e4a85b1f924d45a1113bad0bbd4686ce14c5",
+      "identity": {
+        "modelFamilyId": "mimo",
+        "modelVersionId": "mimo-v2-6-pro"
+      },
+      "modelName": "MiMo V2.6 Pro",
+      "candidateSourceUrl": "https://mimo.mi.com/docs/en-US/news/latest/v2-6",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-985b581f066d76a97e37e4ff68f20aeccc49348084801a17efbed8bccdefeef5",
+      "identity": {
+        "modelFamilyId": "gpt-live",
+        "modelVersionId": "gpt-live-1-1-quip"
+      },
+      "modelName": "GPT-Live-1.1 Quip",
+      "candidateSourceUrl": "https://deploymentsafety.openai.com/gpt-live-1-1/alignment",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-9942a1087f7b8a1a1549111760729126effd087cbca8671981c0e66354042f9b",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-1-dev"
+      },
+      "modelName": "FLUX.1 [dev]",
+      "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-a1db1954551be2d87bfda2d573f9a1025d7c3f455263738950844d6e2ddde3a8",
+      "identity": {
+        "modelFamilyId": "kling-image",
+        "modelVersionId": "kling-image-3-0-omni"
+      },
+      "modelName": "Kling Image 3.0 Omni",
+      "candidateSourceUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "probeUrl": "https://kling.ai/blog/kling-image-4-stunningly-realistic-sharp-precise",
+      "status": "awaiting-probe"
+    },
+    {
+      "id": "history-a2d582096f97193a60547b88689215609e8b4cf6dd66a4963bede14c0b4d2f1a",
+      "identity": {
+        "modelFamilyId": "gemini-tts",
+        "modelVersionId": "gemini-3-8-flash-tts"
+      },
+      "modelName": "Gemini 3.8 Flash TTS",
+      "candidateSourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "identity-needs-review"
+    },
+    {
+      "id": "history-a2fc3d48d1d501247f2230cc67a385bb926a56d8766fa496c1e70157af29eebc",
+      "identity": {
+        "modelFamilyId": "mai-image",
+        "modelVersionId": "mai-image-2-5"
+      },
+      "modelName": "MAI-Image 2.5",
+      "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-ad9e4e5b2b86c6abf90fe3dd3c0a4f495db2b9fad036ff90b86deb0ecefbb12e",
+      "identity": {
+        "modelFamilyId": "skyreels-v4",
+        "modelVersionId": "v4"
+      },
+      "modelName": "V4",
+      "candidateSourceUrl": "https://www.skyreels.ai/api-platform",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-b062755f2d86f22b4295c85e5cfe67b23c0fb8f48ea6398b9335cbcce99c0e66",
+      "identity": {
+        "modelFamilyId": "mai-image",
+        "modelVersionId": "mai-image-2-6"
+      },
+      "modelName": "MAI-Image 2.6",
+      "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-b3b75819fe049f89bd2144fd380c0be490cea78a729fefa755162d4806d8bcad",
+      "identity": {
+        "modelFamilyId": "heygen-video",
+        "modelVersionId": "video-1"
+      },
+      "modelName": "Video 1",
+      "candidateSourceUrl": "https://www.heygen.com/models/heygen-video-1",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-b755a09f31939a0f7ed74dc0f12e78a55ec003937007f917f3192deb2b9c536b",
+      "identity": {
+        "modelFamilyId": "wan",
+        "modelVersionId": "wan-2-7-r2v"
+      },
+      "modelName": "Wan 2.7 R2V",
+      "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-bbb05ce784c3164b0ee8d02c18864f2a3c12e6362cfebe8c3c7987a8439bba13",
+      "identity": {
+        "modelFamilyId": "grok-llm",
+        "modelVersionId": "4-6"
+      },
+      "modelName": "4.6",
+      "candidateSourceUrl": "https://x.ai/news?m=1",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-c1df384cee5fd6c52c795d9bbc1b3c766439e70d7ac3b552f322d0fadd191210",
+      "identity": {
+        "modelFamilyId": "qwen-image-edit",
+        "modelVersionId": "qwen-image-edit-plus-2511"
+      },
+      "modelName": "Qwen Image Edit Plus 2511",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-c3234d91c569ac5b438c2c972303a78094ea40aa66f106b338146c863c064b4b",
+      "identity": {
+        "modelFamilyId": "muse",
+        "modelVersionId": "muse-spark-open"
+      },
+      "modelName": "Muse Spark Open",
+      "candidateSourceUrl": "https://ai.meta.com/blog/introducing-muse-spark/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "identity-needs-review"
+    },
+    {
+      "id": "history-c59f4706ce9487e2929169cf5fbad8f141ab6079647647af47974a93d8b48e5b",
+      "identity": {
+        "modelFamilyId": "wan",
+        "modelVersionId": "wan-2-7-i2v"
+      },
+      "modelName": "Wan 2.7 I2V",
+      "candidateSourceUrl": "https://www.alibabacloud.com/help/en/model-studio/video-generate-edit-model",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-c7cecc2dcc0a89bd65ba5ec01f39e29011dcc8afd0f6ca88e502660653b6caf0",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-1-krea-dev"
+      },
+      "modelName": "FLUX.1 Krea [dev]",
+      "candidateSourceUrl": "https://github.com/black-forest-labs/flux-3-image-klein",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-d4e24de4ce7ee5f9e63aa8af69c2c2309fa1e9c3215d354bf25939a5cf433bc9",
+      "identity": {
+        "modelFamilyId": "gaga-1",
+        "modelVersionId": "gaga-1"
+      },
+      "modelName": "GAGA-1",
+      "candidateSourceUrl": "https://sand.ai/about-us",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-dd192961a1c3ca2124d224fef0d768cb835e9b967f291b5a7f12bca64fafb161",
+      "identity": {
+        "modelFamilyId": "canva-craft",
+        "modelVersionId": "craft"
+      },
+      "modelName": "Craft",
+      "candidateSourceUrl": "https://www.canva.com/newsroom/news/canva-craft/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-ebed2f5cae43c6df9643d8e59f8eef7c4ef5d70563a31d63d72a5135e9c96e6f",
+      "identity": {
+        "modelFamilyId": "flux",
+        "modelVersionId": "flux-2-max"
+      },
+      "modelName": "FLUX.2 [max]",
+      "candidateSourceUrl": null,
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "missing-original-pointer"
+    },
+    {
+      "id": "history-ee45fe7cc5c8f73fd70dacbb39f788af974e761f4ff0796ae2cddab3ce50d943",
+      "identity": {
+        "modelFamilyId": "mai-image",
+        "modelVersionId": "mai-image-2-5-flash"
+      },
+      "modelName": "MAI-Image 2.5 Flash",
+      "candidateSourceUrl": "https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-mai",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-ef4ca5093127f06386ed5ac296310c56a9da3fcfb1cf8d8bcdd963456e432942",
+      "identity": {
+        "modelFamilyId": "gemini-tts",
+        "modelVersionId": "gemini-3.8-flash-lite-tts"
+      },
+      "modelName": "Gemini 3.8 Flash-Lite TTS",
+      "candidateSourceUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "probeUrl": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/",
+      "status": "awaiting-probe"
+    },
+    {
+      "id": "history-f3552c7fb114e9b8f5ad307d944c766365c7b16a2d2be70edcd2229aee9a73c5",
+      "identity": {
+        "modelFamilyId": "runway-gen45",
+        "modelVersionId": "4-5"
+      },
+      "modelName": "4.5",
+      "candidateSourceUrl": "https://runwayml.com/research/introducing-runway-gen-4.5",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    },
+    {
+      "id": "history-fcba87b3812b603f7faf283d4fad62ca3aa51fbcb30a6628cc7bc5951ef6f9d4",
+      "identity": {
+        "modelFamilyId": "grok-llm",
+        "modelVersionId": "4-7"
+      },
+      "modelName": "4.7",
+      "candidateSourceUrl": "https://x.ai/news?m=1",
+      "firstDetectedAt": "2026-11-27T03:42:10+00:00",
+      "active": true,
+      "evidence": [],
+      "repositoryEvidence": [],
+      "status": "unsupported-original-pointer"
+    }
+  ],
+  "summary": {
+    "activeTasks": 69,
+    "urlsAttemptedThisRun": 3,
+    "states": {
+      "awaiting-probe": 5,
+      "identity-mismatch": 1,
+      "identity-needs-review": 4,
+      "missing-original-pointer": 14,
+      "repository-document-evidence-observed": 1,
+      "unsupported-original-pointer": 44
+    },
+    "tasksWithDatedArticleEvidence": 0,
+    "datedArticleRecords": 0,
+    "repositoryDocumentRequests": 2,
+    "repositoryDocumentEvidenceRecords": 2,
+    "tasksWithCurrentPointerEvidence": 0
+  },
+  "policy": "Repair queue based on existing catalog pointers, not independent recall. Exact publisher article or reviewed repository-document assertions only. No inferred event date or automatic release promotion."
+}
