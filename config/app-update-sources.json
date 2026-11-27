@@ -1,0 +1,49 @@
+{
+  "schema": "app-update-sources/v1",
+  "sources": [
+    {
+      "id": "jimeng",
+      "name": "即梦 AI",
+      "vendor": "字节跳动",
+      "url": "https://jimeng.jianying.com/ai-tool/home",
+      "type": "visible-model-labels",
+      "anchors": [
+        "创作",
+        "画布"
+      ],
+      "modelPrefixes": [
+        "Seedream",
+        "Seedance",
+        "SeedAudio"
+      ],
+      "minIntervalMinutes": 60,
+      "links": [
+        {
+          "kind": "官方更新日志",
+          "url": "https://bytedance.larkoffice.com/wiki/QxMCwlqmhisbwhklwPLctMyNncb",
+          "access": "正文未能读取，保留入口"
+        },
+        {
+          "kind": "官方教程专区",
+          "url": "https://bytedance.larkoffice.com/wiki/F95cwC8nniilgbkmUX6cSJLengh",
+          "access": "读取时跳转登录，保留入口"
+        }
+      ]
+    }
+  ],
+  "reviewedObservations": [
+    {
+      "id": "jimeng-seedaudio-1-5-20261127-observation",
+      "sourceId": "jimeng",
+      "title": "SeedAudio 1.5 已在即梦界面出现",
+      "modelName": "SeedAudio 1.5",
+      "kind": "界面展示",
+      "category": "audio",
+      "observedOn": "2026-11-27",
+      "releaseDate": null,
+      "sourceUrl": "https://jimeng.jianying.com/ai-tool/home",
+      "observationMethod": "人工核对 · 用户界面截图与公开搜索页面记录",
+      "note": "截图显示 New；公开页面不同抓取结果存在差异。首次上架日、全量可用性及权益未确认。"
+    }
+  ]
+}
