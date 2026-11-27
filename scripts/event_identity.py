@@ -44,6 +44,51 @@ def identify(index, title, hints=(), family_id=None):
     return identity if not family_id or identity[0] == family_id else None
 
 
+def joint_title_identities(index, title, family_id):
+    """Resolve an explicit conjunctive list of canonical model names.
+
+    Full-match every list element. A shortened subsequent element may inherit
+    a literal leading prefix from the first full name ONLY when that yields
+    one exact known identity. Never treat prose, comparisons, mixed-stage
+    suffixes or unknown variants as a joint model list.
+    """
+    value = re.sub(r"[\u2010\u2011\u2012\u2013\u2014\u2212]", "-", str(title or ""))
+    value = re.sub(r"\s+", " ", value).strip().rstrip("!.！。")
+    verb = re.match(r"^(Introducing|Announcing)\s+", value, re.I)
+    stage = "announcement-statement" if verb else "article-publication"
+    value = value[verb.end():] if verb else value
+    if not re.search(r"\s+(?:and|&)\s+", value, re.I):
+        return None
+    parts = re.split(r"\s+(?:and|&)\s+", value, flags=re.I)
+    if not 2 <= len(parts) <= 4 or any(not p.strip() for p in parts):
+        return None
+
+    def exact(text):
+        found = set()
+        for pattern, ids in index:
+            if pattern.fullmatch(text):
+                found.update(ids)
+        return found
+
+    first = exact(parts[0])
+    if len(first) != 1 or next(iter(first))[0] != family_id:
+        return None
+    all_ids = set(first)
+    words = parts[0].split()
+    # The prefix is literal text from this same publisher title. No alias
+    # dictionary, substring match, benchmark names, or catalog date involved.
+    prefixes = [" ".join(words[:n]) + " " for n in range(1, len(words))]
+    for part in parts[1:]:
+        matches = exact(part)
+        if not matches:
+            for prefix in prefixes:
+                matches.update(exact(prefix + part))
+        if len(matches) != 1 or next(iter(matches))[0] != family_id or all_ids & matches:
+            return None
+        all_ids.update(matches)
+    return {"identities": sorted(all_ids), "claimType": stage}
+
+
 def associate_leads(items, families):
     """Same model and reported calendar day suggests URLs for probing only.
 

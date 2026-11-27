@@ -269,3 +269,5 @@ python3 scripts/audit_model_completeness.py --output /tmp/model-completeness.jso
 P1 官方可用性声明验收：PR #60 真实 CI 与生产均取得 GLM Coding Plan 2026-11-22、Niji 8 官方 X 2026-11-24 两条声明，保留原固定文章召回6/8。`publisher-statement-benchmark.json` 为独立两条可用性声明审计样本，仅审计读取，不注入采集；原文召回和首发指标不替换。`audit_publisher_statements` 验证稳定ID、精确身份、源与发现指针、原始哈希格式、时间顺序、阶段与日期冲突，隔离同源异日。`event-reconciliation` 将合格声明纳入持久证据账本并链接同型号任务作为上下文，原公告/日期/正式证据缺口仍保持原状态。生产先执行事件声明事务再运行 reconciliation，使当轮证据可见。完整 CI 与生产验证仍为门禁。
 
 历史阶段补证新增阿里云百炼官方模型上架与更新日志（https://help.aliyun.com/zh/model-studio/newly-released-models），按已核对的6个 Wan/Qwen Audio 精确产品ID、地域标题、年份、日期、模型标题解析；不把带快照后缀的型号映射为基础版本，不借用跨区域日期，忽略未来日期。类型为 platform-changelog-listing-or-update，非首次发布；保留全部地域与日期、原始内容哈希和首次验证时间，1次请求覆盖多任务、7天复核、失败退避、保持旧证据。纳入既有每轮3请求预算和历史补证任务上下文，不关闭正式发布缺口。
+
+联合型号声明：对明确的 `Introducing/Announcing` 或中性纯并列名单，逐段全匹配规范型号（后续简称仅继承标题首个全名的字面前缀并唯一匹配）；跨家族、歧义、未知变体、比较及其他后缀不采用联合解析。明确介绍名单为每个型号产生同一原文的 announcement-statement，中性名单只为 article-publication。保留原标题、原观察和既有声明，不能当成多个独立原文或首发时间，也不修改原始召回指标。适用于同一公告包含多个型号的通用问题，不使用样本预设身份。

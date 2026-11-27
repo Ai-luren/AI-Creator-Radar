@@ -87,3 +87,37 @@ class EventClaimsTests(unittest.TestCase):
         first["claims"][0]["fact"]["eventDate"]="2026-11-22"
         with self.assertRaises(ValueError):
             self.run_claims(old=first)
+
+
+    def test_joint_explicit_list_recovers_both_models_without_release_date(self):
+        self.families=[{"id":"demo","versions":[{"id":"a","name":"Demo 6.2 Astra"},{"id":"b","name":"Demo 6.2 Sol"}]}]
+        item=dict(self.item,title="Introducing Demo 6.2 Astra and Sol")
+        status=deepcopy(self.status)
+        status["sources"][0]["publicationObservations"][0]["title"]=item["title"]
+        result=self.run_claims(items=[item],status=status)
+        self.assertEqual({r["fact"]["modelVersionId"] for r in result["claims"]},{"a","b"})
+        self.assertEqual({r["fact"]["claimType"] for r in result["claims"]},{"announcement-statement"})
+        self.assertTrue(all(r["fact"]["eventDate"] is None for r in result["claims"]))
+        self.assertEqual(result["releaseStatementReviewCandidates"],[])
+
+    def test_joint_list_shared_brand_and_neutral_article(self):
+        from scripts.event_identity import joint_title_identities,model_index
+        index=model_index([{"id":"demo","versions":[{"id":"a","name":"Demo Fable 5.2"},{"id":"b","name":"Demo Mythos 5.2"}]}])
+        result=joint_title_identities(index,"Demo Fable 5.2 and Mythos 5.2","demo")
+        self.assertEqual(result,{"identities":[("demo","a"),("demo","b")],"claimType":"article-publication"})
+        self.assertEqual(joint_title_identities(index,"Introducing Demo Fable 5.2 and Demo Mythos 5.2","demo")["claimType"],"announcement-statement")
+        for title in ["Introducing Demo Fable 5.2 and Mythos 5.2 Preview",
+                      "Demo Fable 5.2 and Mythos 5.2 comparison",
+                      "Introducing Demo Fable 5.2 and unknown model",
+                      "Introducing Demo Fable 5.2 and Fable 5.2"]:
+            self.assertIsNone(joint_title_identities(index,title,"demo"),title)
+
+    def test_joint_list_cross_family_ambiguity_and_unicode_dash(self):
+        from scripts.event_identity import joint_title_identities,model_index
+        families=[{"id":"demo","versions":[{"id":"a","name":"Demo-6.2 Astra"},{"id":"b","name":"Demo-6.2 Sol"}]},
+                  {"id":"other","versions":[{"id":"c","name":"Other Model 2"}]}]
+        index=model_index(families)
+        self.assertEqual(joint_title_identities(index,"Introducing Demo‑6.2 Astra and Sol","demo")["identities"],[("demo","a"),("demo","b")])
+        self.assertIsNone(joint_title_identities(index,"Introducing Demo-6.2 Astra and Other Model 2","demo"))
+        families[1]["versions"].append({"id":"d","name":"Demo-6.2 Sol"})
+        self.assertIsNone(joint_title_identities(model_index(families),"Introducing Demo-6.2 Astra and Sol","demo"))
