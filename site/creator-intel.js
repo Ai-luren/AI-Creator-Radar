@@ -446,7 +446,7 @@ function modelAdoptionOpportunities(releases,reports,app,social,now){
 function modelAdoptionOpportunityMarkup(releases,reports,app,social,now){
  var rows=modelAdoptionOpportunities(releases,reports,app,social,now).filter(function(r){return matches([r.model.modelName,r.model.vendor,r.model.summary].join(' '))});
  if(!rows.length)return '';
- return '<section class="briefing-digest-section"><div class="section-head"><h2>模型接入机会</h2><span class="head-meta">近3天传播 · 近30天正式模型</span></div><p class="page-desc">传播证据、接入证据和本方证据分别呈现。优先评估不代表必须接入；暂无证据不等于未接入。原榜、查询命中及原文数不相加。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.priority+' · '+r.model.publishedAt+' · '+r.model.vendor)+'</span><strong>'+esc(r.model.modelName)+'</strong><span>'+esc(r.confirmed.length+' 家官方日志确认接入 · '+r.originals.length+' 条近3天原文 · '+r.stories.length+' 个上游专题')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p>'+esc(r.model.summary||'模型能力详见官方发布')+' '+creatorLink(r.model.url,'官方发布')+'</p><p><strong>竞品接入：</strong>'+esc(r.confirmed.join('、')||'当前无官方日志确认')+'</p><p><strong>其他官方线索：</strong>'+esc(r.observed.join('、')||'暂无')+'</p>'+r.official.map(function(e){return '<p>'+esc(e.brand+' · '+e.day)+' '+creatorLink(e.url,'官方日志')+'</p>'}).join('')+'<p><strong>Renoise：</strong>'+esc(r.own.length?'已有官方相关记录；需核对具体地区及实际可用性':'暂无可核实记录；先核对内部实际状态')+'</p>'+r.own.slice(0,3).map(function(e){return '<p>'+esc(e.title+' · '+(e.note||e.proof))+' '+creatorLink(e.url,'原始证据')+'</p>'}).join('')+'<p><strong>需求传播：</strong>'+esc(r.queryCounts.map(function(q){return q.provider+' '+q.count+' 条精确命中'+(q.truncated?'（未翻页）':'')}).join(' / ')||'尚无近期定向查询统计')+'</p>'+r.stories.slice(0,3).map(function(e){return '<p>'+esc(e.labels.join('、'))+' '+creatorLink(e.url,'报道合集')+'</p>'}).join('')+r.originals.slice(0,4).map(function(e){return '<p>'+esc(e.title)+' '+creatorLink(e.url,'原文')+'</p>'}).join('')+'<p><strong>下一步：</strong>核实官方接入条件、商业使用权限和本方可用性，用相同输入对比目标创作场景；已有接入则研究能力差异和工作流，而非重复接入。</p></div></details></article>'}).join('')+'</div></section>';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>模型接入机会</h2><span class="head-meta">近3天传播 · 近30天正式模型</span></div><p class="page-desc">传播证据、接入证据和本方证据分别呈现。优先评估不代表必须接入；暂无证据不等于未接入。原榜、查询命中及原文数不相加。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.priority+' · '+r.model.publishedAt+' · '+r.model.vendor)+'</span><strong>'+esc(r.model.modelName)+'</strong><span>'+esc(r.confirmed.length+' 家官方日志确认接入 · '+r.originals.length+' 条近3天原文 · '+r.stories.length+' 个上游专题')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p>'+esc(r.model.summary||'模型能力详见官方发布')+' '+creatorLink(r.model.url,'官方发布')+'</p>'+modelCapabilityReviewMarkup(r.model)+'<p><strong>竞品接入：</strong>'+esc(r.confirmed.join('、')||'当前无官方日志确认')+'</p><p><strong>其他官方线索：</strong>'+esc(r.observed.join('、')||'暂无')+'</p>'+r.official.map(function(e){return '<p>'+esc(e.brand+' · '+e.day)+' '+creatorLink(e.url,'官方日志')+'</p>'}).join('')+'<p><strong>Renoise：</strong>'+esc(r.own.length?'已有官方相关记录；需核对具体地区及实际可用性':'暂无可核实记录；先核对内部实际状态')+'</p>'+r.own.slice(0,3).map(function(e){return '<p>'+esc(e.title+' · '+(e.note||e.proof))+' '+creatorLink(e.url,'原始证据')+'</p>'}).join('')+'<p><strong>需求传播：</strong>'+esc(r.queryCounts.map(function(q){return q.provider+' '+q.count+' 条精确命中'+(q.truncated?'（未翻页）':'')}).join(' / ')||'尚无近期定向查询统计')+'</p>'+r.stories.slice(0,3).map(function(e){return '<p>'+esc(e.labels.join('、'))+' '+creatorLink(e.url,'报道合集')+'</p>'}).join('')+r.originals.slice(0,4).map(function(e){return '<p>'+esc(e.title)+' '+creatorLink(e.url,'原文')+'</p>'}).join('')+'<p><strong>下一步：</strong>核实官方接入条件、商业使用权限和本方可用性，用相同输入对比目标创作场景；已有接入则研究能力差异和工作流，而非重复接入。</p></div></details></article>'}).join('')+'</div></section>';
 }
 function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
  var app=state.appUpdates||{},all=competitorBriefRows(app,reports,state.social||{},now),brands=term?[term]:creatorBrands.competitors;
@@ -506,7 +506,7 @@ function creativeDemandRows(batches,now){
   var demand=/爆款|爆火|走红|刷屏|病毒式|热播|热门视频|viral|went viral|trending video|\d[\d.,]*\s*(?:万|亿|million|billion|[mk])?\s*(?:播放|观看|views)/i.test(title);
   var craft=/复刻|模仿|还原|风格|变身|视觉特效|创意视频|短片|动画|漫剧|镜头|分镜|提示词|remake|recreat|style|transformation|VFX|short film|animation|cinematic|prompt/i.test(title);
   var media=/AI|视频|电影|影视|游戏|角色|动画|影像|video|film|game|character|animation|VFX/i.test(title);
-  if(!media||!(demand&&craft||craft&&innovationCreativeCase(x)&&/复刻|模仿|还原|风格|变身|VFX|remake|recreat|style|transformation/i.test(title)))return;
+  if(!media||!(demand&&craft||craft&&(innovationCreativeCase(x)||/(?:照片|图片|图像|photo|image).{0,36}(?:风格|style)|(?:风格|style).{0,36}(?:照片|图片|图像|photo|image)/i.test(title))&&/复刻|模仿|还原|风格|变身|VFX|remake|recreat|style|transformation/i.test(title)))return;
   out.push({title:title,url:url,platform:platform,day:chinaDay(x.publishedAt),time:published,providers:r.providers,reportedTrend:demand});
  });
  return out.sort(function(a,b){return Number(b.reportedTrend)-Number(a.reportedTrend)||b.time-a.time}).slice(0,8);
@@ -518,13 +518,15 @@ function creativeDemandMarkup(batches,now){
 // A deterministic planning calendar, not a claim that a company has scheduled a campaign.
 function creativeCampaignCalendar(now){
  var today=chinaDay(new Date(now).toISOString()),start=Date.parse(today+'T00:00:00Z'),year=Number(today.slice(0,4)),rows=[];
- function add(day,title,market,idea,source){
+ function add(day,title,market,idea,source,priority,approx){
   var left=Math.round((Date.parse(day+'T00:00:00Z')-start)/86400000);if(!Number.isInteger(left)||left<0||left>90)return;
-  rows.push({day:day,title:title,market:market,idea:idea,source:source||'',days:left,stage:left<=3?'临近 · 发布准备':left<=14?'制作与联调':left<=30?'模板与演示准备':'提前规划'});
+  rows.push({day:day,title:title,market:market,idea:idea,source:source||'',priority:priority||(/中国电商|^中国$|^国内及适用市场$/.test(market)?'domestic':'global'),approx:!!approx,days:left,stage:left<=3?'临近 · 发布准备':left<=14?'制作与联调':left<=30?'模板与演示准备':'提前规划'});
  }
  for(var y=year;y<=year+1;y++){
   [['01-01','元旦 / New Year','国内外','跨年与新年主题宣传、年度回顾'],
    ['02-14','情人节','国内外','情感故事、礼品广告及个性化祝福'],
+   ['03-17','St. Patrick’s Day','爱尔兰及相关海外市场','绿色主题、原创节庆视觉'],
+   ['07-04','Independence Day','美国','美国市场夏季主题及品牌活动'],
    ['05-01','劳动节','国内及适用市场','职业人物与品牌故事'],
    ['06-18','618 营销节点','中国电商','商品广告、批量短视频、促销创意素材'],
    ['10-01','国庆节','中国','旅行、品牌及节日主题内容'],
@@ -533,17 +535,24 @@ function creativeCampaignCalendar(now){
    ['12-25','Christmas','适用国内外市场','节日广告、礼品故事、冬季风格模板']].forEach(function(e){add(y+'-'+e[0],e[1],e[2],e[3])});
   var first=new Date(Date.UTC(y,10,1)),thanks=1+((4-first.getUTCDay()+7)%7)+21;
   var friday=new Date(Date.UTC(y,10,thanks+1)).toISOString().slice(0,10),monday=new Date(Date.UTC(y,10,thanks+4)).toISOString().slice(0,10);
+  add(new Date(Date.UTC(y,10,thanks)).toISOString().slice(0,10),'Thanksgiving','美国','感恩节品牌故事、家庭主题及假日广告');
+  var mayFirst=new Date(Date.UTC(y,4,1)),juneFirst=new Date(Date.UTC(y,5,1));
+  add(new Date(Date.UTC(y,4,1+(7-mayFirst.getUTCDay())%7+7)).toISOString().slice(0,10),'Mother’s Day','美国及采用同日的市场','礼品、家庭与情感故事');
+  add(new Date(Date.UTC(y,5,1+(7-juneFirst.getUTCDay())%7+14)).toISOString().slice(0,10),'Father’s Day','美国及采用同日的市场','家庭故事、礼品及品牌创意');
   add(friday,'Black Friday 营销节点','适用海外市场','商品广告、品牌活动视频及创作者演示');
   add(monday,'Cyber Monday 营销节点','适用海外市场','数码产品宣传、网页与交互动效素材');
  }
  var lunarSource='https://www.info.gov.hk/gia/general/202605/15/P2026051400300p.htm';
  [['2027-02-06','春节 / Lunar New Year','春节祝福、国风角色、品牌团圆故事'],['2027-04-05','清明','尊重文化语境的春季创作'],['2027-06-09','端午节','传统文化、节令产品与视觉风格'],['2027-09-15','中秋节','团圆、礼品广告、月夜主题']].forEach(function(e){add(e[0],e[1],'中国及适用市场',e[2],lunarSource)});
- return rows.sort(function(a,b){return a.day.localeCompare(b.day)||a.title.localeCompare(b.title)});
+ add('2027-02-08','Ramadan 预计开始','中东及全球穆斯林社群','尊重文化习俗的家庭、餐饮和节期内容；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/','global',true);
+ add('2027-03-10','Eid al-Fitr 预计日期','中东及全球穆斯林社群','尊重文化习俗的祝福、家庭及节日视觉；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/','global',true);
+ add('2027-03-28','Easter Sunday','采用西方教会历法的市场','春季主题、节日创意与品牌故事','https://www.info.gov.hk/gia/general/202605/15/P2026051400300p.htm','global');
+ return rows.sort(function(a,b){return Number(a.priority==='domestic')-Number(b.priority==='domestic')||a.day.localeCompare(b.day)||a.title.localeCompare(b.title)});
 }
 function creativeCampaignMarkup(now){
  var rows=creativeCampaignCalendar(now).filter(function(r){return matches([r.title,r.market,r.idea].join(' '))});
  if(!rows.length)return '';
- return '<section class="briefing-digest-section"><div class="section-head"><h2>节日与营销创作机会</h2><span class="head-meta">未来90天 · 计划窗口</span></div><p class="page-desc">日历节点不代表 Renoise 或竞品已安排活动，不追踪套餐价格。农历日期只使用已核对年份；其他营销节点为常规规划日期，实际活动以品牌公告为准。</p><div class="briefing-list">'+rows.slice(0,6).map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.day+' · '+(r.days===0?'今天':'还有 '+r.days+' 天')+' · '+r.stage+' · '+r.market)+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>候选准备：</strong>确定主题与授权素材，制作 Agent 可复用模板、同素材测试、示范视频和活动创意；核对上线资源、用户交付与传播时间。不是已立项活动。</p>'+(r.source?creatorLink(r.source,'已核对日期依据'):'')+'</div></details></article>'}).join('')+'</div></section>';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>节日与营销创作机会</h2><span class="head-meta">海外优先 · 未来90天</span></div><p class="page-desc">海外及跨市场节点优先，国内电商与本地节日补充。日历不代表已安排活动；各地区庆祝日期与文化语境须核对，预计日期以当地公告为准。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc((r.priority==='domestic'?'国内补充':'海外 / 跨市场')+' · '+(r.approx?'预计 ':'')+r.day+' · '+(r.days===0?'今天':'还有 '+r.days+' 天')+' · '+r.stage+' · '+r.market)+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>候选准备：</strong>确定主题与授权素材，制作 Agent 可复用模板、同素材测试、示范视频和活动创意；核对上线资源、用户交付与传播时间。不是已立项活动。</p>'+(r.source?creatorLink(r.source,'已核对日期依据'):'')+'</div></details></article>'}).join('')+'</div></section>';
 }
 function creatorIntelPage(tabs){
  var mode=state.briefingTab,hot=mode==='hot',cases=mode==='cases',now=Date.now(),a=state.aipick||{},brands=creatorBrands[mode]||[],term=brands.includes(creatorBrand)?creatorBrand:'',priv=creatorPrivate[mode+'|'+term]||{},sources=priv.sources||{},from=function(name,key,fallback){return sources[name]&&sources[name].data?sources[name].data[key]||[]:fallback||[]},stamp=function(name,fallback){return sources[name]&&sources[name].data?sources[name].observedAt:fallback};
@@ -648,7 +657,7 @@ function innovationSignals(snapshot,now){
  }
  (snapshot.releases||[]).forEach(function(x){
   if(!x||!x.modelFamilyId||!x.modelVersionId||!x.verifiedAt||!x.evidenceType||releaseCategoryOrder(x.category)>=99||x.verificationStatus==='pending')return;
-  add('model',x.modelName,x.summary,x.url,x.publishedAt,x.vendor,{category:x.category,modelFamilyId:x.modelFamilyId,modelVersionId:x.modelVersionId});
+  add('model',x.modelName,x.summary,x.url,x.publishedAt,x.vendor,{category:x.category,modelFamilyId:x.modelFamilyId,modelVersionId:x.modelVersionId,evidenceType:x.evidenceType,access:x.access||''});
  });
  (app.events||[]).forEach(function(x){
   if(!productDatedEvent(x)||!x.publisherCalendarDay)return;
@@ -694,13 +703,55 @@ function innovationExplorationRows(snapshot,now){
   rows.push({signal:s,related:links.length===1?links[0]:null,question:s.updateType==='model-integration'?'该型号可用的输入、输出与控制项是什么？能否封装成独立工具，而非只增加模型选项？':'这个功能把哪项创作操作变成了独立入口、节点或可重复流程？是否可用更少操作实现同一交付？'});
  });
  models.forEach(function(s){
-  if(!['video','image','audio','music','tts'].includes(s.category)&&!innovationThemes.some(function(t){return t.pattern.test(s.title+' '+s.detail)}))return;
+  if(!['video','image','audio','music','tts','speech','audio-other'].includes(s.category)&&!innovationThemes.some(function(t){return t.pattern.test(s.title+' '+s.detail)})&&!(s.category==='llm'&&modelCreativeLlmCandidate(s.detail)))return;
   rows.push({signal:s,related:null,question:'对照上一代，用固定素材分别验证可控性、失败边界及输出；再决定是否值得封装。'});
  });
  signals.filter(function(s){return s.type==='case'&&!innovationThemes.some(function(t){return t.pattern.test(s.title+' '+s.detail)})}).forEach(function(s){
   rows.push({signal:s,related:null,question:'阅读创作者原帖，拆出输入、关键步骤和可复现结果；先判断是否属于创作产品机会。'});
  });
  return rows.sort(function(a,b){return b.signal.day.localeCompare(a.signal.day)||({product:0,model:1,case:2}[a.signal.type]-{product:0,model:1,case:2}[b.signal.type])});
+}
+// Research axes are prompts for verification, not structured claims of model support.
+function modelCreativeLlmCandidate(text){
+ return /视频理解|视频分析|视频剪辑|剪辑决策|镜头理解|分镜规划|创作规划|工具调用|多模态.{0,18}(?:视频|图像|音频)|video understanding|video analysis|video edit|shot planning|storyboard|tool.calling|multimodal.{0,24}(?:video|image|audio)|编程|编码|软件工程|代码生成|网页|前端|游戏|3D|三维|脚本|coding|software engineering|code generation|web development|front.end|game development|scripting/i.test(String(text||''));
+}
+function modelCapabilityReview(model){
+ if(!model||!['official-release','official-model-card'].includes(model.evidenceType)||!creatorOriginalUrl(model.url))return null;
+ var detail=String(model.summary||model.detail||''),category=model.category||'',axes=[];
+ var rules=[
+  {id:'resolution',label:'画质与输出规格',pattern:/(?:\b(?:4K|8K|1080p|720p|768p|2160p|4320p)\b|高清生成|超分辨率|分辨率|native resolution|upscal)/i,check:'确认原生生成还是后置超分、各模式的实际像素及压缩；同素材比较细节与交付可用性。'},
+  {id:'duration',label:'时长与连续叙事',pattern:/\d+\s*(?:秒|分钟|seconds?|minutes?)|多镜头|多场景|连续叙事|multi.shot|multi.scene/i,check:'逐档测试最长可用时长、动作和镜头连续性；核对时长与分辨率、参考控制是否可同时使用。'},
+  {id:'control',label:'空间、运镜与白模控制',pattern:/3D\s*运镜|三维运镜|白模|灰模|相机轨迹|镜头控制|运镜|3D camera|camera path|camera control|previs|depth map|深度图|姿态控制/i,check:'验证相机轨迹、几何布局、遮挡与白模参考遵循；明确需要何种输入，不默认支持白模渲染。'},
+  {id:'reference',label:'参考资产与局部编辑',pattern:/首尾帧|参考图|参考生成|图像编辑|角色一致性|角色保持|人物一致性|多参考|reference image|keyframe|image edit|character consistency|identity preservation/i,check:'固定产品或角色参考，测试身份、Logo、姿态、风格保持及局部编辑边界。'},
+  {id:'audio',label:'声音与音画联动',pattern:/原生音频|原生音视频|音视频生成|音画同步|音频生成|配音|口型同步|native audio|audio.video generation|lip.sync/i,check:'核对可用音轨、对白声线、同步、音质与分轨输出，区分原生生成和后期合成。'},
+  {id:'repair',label:'视觉自检与修复',pattern:/自我修正|自我纠错|画面文字|文字校正|self.correct|self.repair|text rendering|text correction/i,check:'提供带准确品牌文案的失败样本，测试错误检测、局部修复、误改率及人工审美。'},
+  {id:'agent',label:'Agent 理解、规划与剪辑',pattern:/视频理解|视频分析|视频剪辑|剪辑决策|镜头理解|分镜规划|创作规划|工具调用|video understanding|video analysis|video edit|shot planning|storyboard|tool.calling/i,check:'固定原片及创作 brief，要求结构化镜头表、剪辑点、工具参数及可执行时间线；验证实际工具执行，不把视频理解等同于剪辑能力。'},
+  {id:'creative-code',label:'创意编程、网页、游戏与三维工具',pattern:/编程|编码|软件工程|代码生成|网页|前端|游戏|3D|三维|脚本|coding|software engineering|code generation|web development|front.end|game development|scripting/i,check:'用同一交互网页、游戏小样或三维场景 brief 比较代码可运行性、视觉还原、交互、动画、性能及可编辑交付；验证实际渲染器和工具执行，不把编码能力等同于原生渲染。'},
+  {id:'economy',label:'推理效率与生成经济性',pattern:/低成本|高性价比|推理成本|低延迟|推理加速|生成速度|吞吐|cost.efficien|inference cost|low.latency|throughput|faster inference/i,check:'同模式、同输出规格、同质量门槛记录实际生成成本和等待时间；计入失败、重试及后期，不拿套餐折扣当推理成本。'}
+ ];
+ rules.forEach(function(r){if((r.id!=='creative-code'||category==='llm')&&r.pattern.test(detail))axes.push({id:r.id,label:r.label,check:r.check})});
+ if(category==='llm'&&modelCreativeLlmCandidate(detail)&&!axes.some(function(r){return r.id==='agent'||r.id==='creative-code'}))axes.push({id:'agent',label:'Agent 多模态创作研究',check:'固定素材，验证理解准确性、结构化规划和真实工具执行；不预设支持视频编辑。'});
+ return {axes:axes,access:String(model.access||''),detail:detail,source:model.url};
+}
+function copyResearchOrTemplate(target){
+ var b=target.closest('[data-copy-research-brief],[data-copy-template]');
+ if(!b)return false;
+ var brief=b.parentElement.querySelector('[data-research-brief]'),item=b.hasAttribute('data-copy-template')?(state.promptTemplates.items||[]).find(function(x){return x.id===b.dataset.copyTemplate}):null,value=brief?brief.textContent:item&&item.body;
+ if(value&&navigator.clipboard)navigator.clipboard.writeText(value).then(function(){b.textContent='已复制'}).catch(function(){b.textContent='复制失败，请手动选择'});else b.textContent='请手动选择文本';
+ return true;
+}
+function researchHandoffMarkup(text){
+ return '<div class="prompt-row"><h3>研发任务单 · 可复制</h3><p class="page-desc">复制后可粘贴到研发讨论或任务文档；不自动立项。</p><pre data-research-brief>'+esc(text)+'</pre><button type="button" class="filter-chip" data-copy-research-brief>复制研发任务单</button></div>';
+}
+function modelResearchHandoff(model,review){
+ return ['# 模型能力验证｜'+(model.modelName||model.title),'状态：待实测；非已立项或已接入。','官方来源：'+review.source,'官方摘要：'+(review.detail||'现有摘要不足，先查官方模型卡及规格。'),'访问条件：'+(review.access||'待核实 API、权限及商用许可。'),'目标：改善 Renoise Agent 创作质量、效率或可控性。','实验：固定授权素材、创作 brief、输出规格和当前产品基线；记录精确模型版本、接口模式、参数及重复样本。','专项验证：'].concat(review.axes.length?review.axes.map(function(a){return '- '+a.label+'：'+a.check}):['- 先核实输入输出契约、能力边界及可执行接口。'],['统一验收：人工盲评与技术检查分开；记录失败、返工、耗时、生成/重试/后期总成本及可用交付数。','交付：最小可复现工作流/Skill 或工具契约、输入输出样例、失败样本、对比结果及接入/暂缓建议。','决策：未实测不得填入效果提升；先核对内部现状和授权。']).join('\n');
+}
+function agentResearchHandoff(r){
+ return ['# Agent 研发任务｜'+r.title,'状态：待实测；非已立项或已实现。','目标：提升创作者的有效交付质量与操作效率。','固定输入：'+r.brief,'候选流程：'+r.plan,'当前基线：同素材、同约束使用现有流程，记录版本及失败样本。','验收：'+r.checks,'体验指标：首次可用作品时间、人工操作、干预、返工、有效交付；指标待测。','工具契约：明确输入、输出、模型版本、异常与重试、可编辑中间产物。','交付：可复现工作流/Skill、对照样片、失败记录和是否产品化的建议。','近期研究证据：'].concat(r.signals.map(function(s){return '- '+s.day+'｜'+s.origin+'｜'+s.title+'｜'+s.url}),['注意：关联记录不等于独立验证或真实用户需求；用户留存需实际授权数据。']).join('\n');
+}
+function modelCapabilityReviewMarkup(model){
+ var r=modelCapabilityReview(model);if(!r)return '';
+ return '<h3>能力上限与产品化研究 · 待实测</h3><p class="page-desc">以下按已有官方来源摘要匹配研究维度；提及不等于已支持，未提及不等于不支持。上限与模式组合仍需查官方规格及实测。</p>'+(r.access?'<p><strong>已记录访问方式：</strong>'+esc(r.access)+'</p>':'')+(r.axes.length?'<div class="briefing-list">'+r.axes.map(function(a){return '<p><strong>'+esc(a.label)+'：</strong>'+esc(a.check)+'</p>'}).join('')+'</div>':'<p>现有摘要不足以识别明确的特殊能力，先检查官方模型卡与接口规格。</p>')+'<p><strong>统一经济性验证：</strong>同质量门槛下记录总生成、重试、后期成本与可用交付数，计算每个可用作品成本；未取得实际数据前不判断便宜程度。</p><p><strong>产品化判断：</strong>将可重复验证的能力封装成工具、Skill 或画布节点，再验证 Agent 是否可以稳定调用。 '+creatorLink(r.source,'官方能力证据')+'</p>'+researchHandoffMarkup(modelResearchHandoff(model,r));
 }
 function innovationModelTestPlan(signal){
  if(!signal||signal.type!=='model')return null;
@@ -710,7 +761,7 @@ function innovationModelTestPlan(signal){
   audio:['固定视频或音频参考、对白和环境音','对比音质、时间戳、声源保持和同步','检查独立音轨、可编辑输出与授权限制'],
   music:['固定场景、时长、情绪及参考节奏','对比结构、节奏、情绪和重复生成一致性','检查编辑、分轨和授权边界'],
   tts:['固定多语言台词、情绪与发音词表','对比可懂度、发音、停顿与情绪稳定性','核查说话人授权和对齐时间戳'],
-  llm:['固定创作任务、输入资料与输出结构','对比指令遵循、素材理解及结构化输出','检查工具调用边界、重复稳定性与可复现性']
+  llm:['固定同一创作 brief、素材、可用工具与交付规格，比较不同模型作为 Agent 主脑','对比剧本分镜、镜头与剪辑决策、视觉理解、网页/游戏原型或三维脚本（按任务选用），实际执行后评价作品','核对工具调用、代码运行、渲染输出、错误恢复、人工干预与可复现性；区别模型推理与工具完成的结果']
  };
  return {status:'待实测',baseline:'上一可用版本；若接口或输入不可比，记录差异，不强行评分',steps:plans[signal.category]||plans.llm};
 }
@@ -727,7 +778,7 @@ function innovationImplementationPlan(row){
 function innovationExplorationMarkup(snapshot,now){
  var rows=innovationExplorationRows(snapshot,now).filter(function(r){return matches([r.signal.title,r.signal.origin,r.signal.detail,r.question].join(' '))}),labels={model:'已核实模型发布',product:'官方产品日志',case:'创作者精选线索'};
  var list=rows.slice(0,12).map(function(r){var s=r.signal,plan=innovationModelTestPlan(s);
-  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(s.day+' · '+labels[s.type]+' · '+s.origin)+'</span><strong>'+esc(s.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+(s.detail?'<p>'+esc(s.detail)+'</p>':'')+'<p><strong>探索问题：</strong>' +esc(r.question)+'</p>'+(plan?'<p><strong>能力测试清单 · '+esc(plan.status)+'</strong></p><p>'+esc(plan.baseline)+'</p><ol>'+plan.steps.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>':'')+'<div class="briefing-original-links">'+creatorLink(s.url,'原始记录')+'</div>'+(r.related?'<p><strong>同名型号关联：</strong>'+esc(r.related.origin+' · '+r.related.title+' · '+r.related.day)+' '+creatorLink(r.related.url,'独立模型记录')+'。同名候选，不证明接口、权重或能力完全一致。</p>':'')+'</div></details></article>';
+  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(s.day+' · '+labels[s.type]+' · '+s.origin)+'</span><strong>'+esc(s.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+(s.detail?'<p>'+esc(s.detail)+'</p>':'')+(s.type==='model'?modelCapabilityReviewMarkup(s):'')+'<p><strong>探索问题：</strong>' +esc(r.question)+'</p>'+(plan?'<p><strong>能力测试清单 · '+esc(plan.status)+'</strong></p><p>'+esc(plan.baseline)+'</p><ol>'+plan.steps.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>':'')+'<div class="briefing-original-links">'+creatorLink(s.url,'原始记录')+'</div>'+(r.related?'<p><strong>同名型号关联：</strong>'+esc(r.related.origin+' · '+r.related.title+' · '+r.related.day)+' '+creatorLink(r.related.url,'独立模型记录')+'。同名候选，不证明接口、权重或能力完全一致。</p>':'')+'</div></details></article>';
  }).join('');
  return '<section class="briefing-digest-section"><div class="section-head"><h2>新能力与功能探索</h2><span class="head-meta">'+Math.min(rows.length,12)+' / '+rows.length+' 条</span></div><p class="page-desc">保留主题之外的信号；不把既有模型功能认定为新增能力，不把官方日志日期当模型首发日期。</p><div class="briefing-list">'+(list||empty('近七天暂无符合条件的探索信号。'))+'</div></section>';
 }
@@ -767,7 +818,7 @@ function agentTaskResearchMarkup(snapshot,now){
  var rows=agentTaskResearchRows(snapshot,now).filter(function(r){return matches([r.title,r.brief,r.plan,r.checks,r.signals.map(function(s){return s.title+' '+s.origin}).join(' ')].join(' '))});
  if(!rows.length)return '';
  var labels={model:'已核实模型发布',product:'官方产品日志',case:'创作者精选线索'};
- return '<section class="briefing-digest-section"><div class="section-head"><h2>Agent 创作任务验证</h2><span class="head-meta">近7天 · '+rows.length+' 个有证据的研究方向</span></div><p class="page-desc">把近期信号转成可与工程师讨论的商业创作任务。以下是候选测试方案，不代表已实现或已取得效果提升。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.latest+' · '+r.signalCount+' 条关联记录 · 待实测')+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.checks)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>固定输入：</strong>'+esc(r.brief)+'</p><p><strong>Agent 方案假设：</strong>'+esc(r.plan)+'</p><p><strong>对照实验：</strong>先用当前产品流程建立基线，再用候选 Agent 流程处理同一素材和约束；记录模型及工作流版本、失败样本与人工评审。</p><p><strong>质量验收：</strong>'+esc(r.checks)+'</p><p><strong>体验验收：</strong>记录有效交付、首次可用作品所需时间、人工操作与返工；后续用经授权的实际使用数据验证用户是否更愿意持续使用。不填造指标值。</p><h3>近期研究证据</h3>'+r.signals.map(function(s){return '<div class="overview-row"><span>'+esc(labels[s.type]+' · '+s.day+' · '+s.origin)+'<br><strong>'+esc(s.title)+'</strong></span>'+creatorLink(s.url,'原始证据')+'</div>'}).join('')+'</div></details></article>'}).join('')+'</div></section>';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>Agent 创作任务验证</h2><span class="head-meta">近7天 · '+rows.length+' 个有证据的研究方向</span></div><p class="page-desc">把近期信号转成可与工程师讨论的商业创作任务。以下是候选测试方案，不代表已实现或已取得效果提升。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.latest+' · '+r.signalCount+' 条关联记录 · 待实测')+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.checks)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>固定输入：</strong>'+esc(r.brief)+'</p><p><strong>Agent 方案假设：</strong>'+esc(r.plan)+'</p><p><strong>对照实验：</strong>先用当前产品流程建立基线，再用候选 Agent 流程处理同一素材和约束；记录模型及工作流版本、失败样本与人工评审。</p><p><strong>质量验收：</strong>'+esc(r.checks)+'</p><p><strong>体验验收：</strong>记录有效交付、首次可用作品所需时间、人工操作与返工；后续用经授权的实际使用数据验证用户是否更愿意持续使用。不填造指标值。</p><h3>近期研究证据</h3>'+r.signals.map(function(s){return '<div class="overview-row"><span>'+esc(labels[s.type]+' · '+s.day+' · '+s.origin)+'<br><strong>'+esc(s.title)+'</strong></span>'+creatorLink(s.url,'原始证据')+'</div>'}).join('')+researchHandoffMarkup(agentResearchHandoff(r))+'</div></details></article>'}).join('')+'</div></section>';
 }
 function agentResearchCharterMarkup(){
  return '<details class="source-health"><summary>Renoise Agent · 产品研究与质量标准</summary><p class="page-desc">研究目标：让用户更轻松、可控地创作高质量商业作品；以下为研究清单与待验证标准，不是现有能力或已测效果。</p><h3>五项工作职责</h3><p>产品体验优化 · 工作流封装 · 新功能研发 · 竞品差异化 · 创作质量提升</p><h3>与 Agent 工程师协作</h3><p>理解用户简报 → 创意与分镜规划 → 模型路由 → 可复用工具及资产 → 质量检查 → 局部修改 → 可编辑交付。</p><h3>创作环节与验证</h3><p>创意与品牌卖点；人物三视图、角色/产品/场景一致性与风格；分镜及白模；图像、视频动作与镜头连续性；声线、配音、音乐、音效与音画同步；剪辑、落版及交付。</p><p><strong>最小实验：</strong>同素材、同约束、记录模型和工作流版本，比较生成质量、操作效率、可控性及返工成本。无实测不宣称改进。</p><p><strong>研发讨论：</strong>原始证据 → 用户痛点 → 竞品做法 → Agent / 工具 / 节点方案 → 最小实验 → 决策。优先产品广告、产品发布宣传、品牌短片及其他实际创作场景。</p>'+creatorLink('https://github.com/Ai-luren/AI-Creator-Radar/blob/main/docs/renoise-agent-research.md','完整研究纲领')+'</details>';
