@@ -763,6 +763,13 @@ test('official model directory listings feed matching watches but not invented p
  assert.equal(rows.length,1);assert.equal(rows[0].kind,'模型目录展示');assert.equal(rows[0].proof,'官网可见 · 非发布日期');
  const matrix=JSON.parse(run('JSON.stringify(competitorMatrixRows('+JSON.stringify(app)+',Date.now(),[]))'));
  assert.deepEqual(matrix[0].dimensions,['integration']);assert.equal(matrix[0].day,null);
+ // A platform-specific suffix is not an exact base model listing.
+ const variant={...entry,featureName:'Kling 4.0 Audio',platformSpecs:{resolutions:['720p','1080p'],durationSeconds:'3-30',nativeAudio:true}};
+ const flova={sources:[{id:'flova-model-directory',vendor:'Flova',role:'competitor',type:'product-surface',url:'https://www.flova.ai/en/docs/features/generation/models/',entries:{a:variant}}],targetedDiscovery:{queries:[{modelWatch:true,term:'Kling 4.0',publisherCalendarDay:'2026-11-24'},{modelWatch:true,term:'Kling 4.0 Audio',publisherCalendarDay:'2026-11-24'}]}};
+ const match=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(flova)+',[],{},Date.now()))'));
+ assert.equal(match.length,1);assert.equal(match[0].modelName,'Kling 4.0 Audio');
+ const specs=JSON.parse(run('JSON.stringify(competitorMatrixRows('+JSON.stringify(flova)+',Date.now(),[]))'));
+ assert.match(specs[0].platformSpec,/720p\/1080p.*3–30 秒.*原生音频/);
 });
 
 test('canonical releases and all history consumers share one projection; Niji 8 is visible and MAGI-2 is not doubled',async()=>{
