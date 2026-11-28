@@ -59,6 +59,16 @@
           "kind": "官方 Blog",
           "url": "https://higgsfield.ai/blog/editorials",
           "access": "产品详解与使用说明"
+        },
+        {
+          "kind": "官方 CLI",
+          "url": "https://github.com/higgsfield-ai/cli",
+          "access": "官方版本与源码；无说明的小版本不自动充当重大产品迭代"
+        },
+        {
+          "kind": "官方 Skills",
+          "url": "https://github.com/higgsfield-ai/skills",
+          "access": "明确合并的面向创作者功能进入开发生态事件"
         }
       ],
       "role": "competitor",
@@ -75,7 +85,18 @@
       "url": "https://www.flova.ai/en/docs/changelog/",
       "type": "dated-changelog",
       "minIntervalMinutes": 360,
-      "links": [],
+      "links": [
+        {
+          "kind": "官方 Agent 插件",
+          "url": "https://github.com/FlovaAI/flova-plugin",
+          "access": "官方 MCP 与 Skills 仓库；当前指南提交不等于新功能上线"
+        },
+        {
+          "kind": "官方 MCP",
+          "url": "https://www.flova.ai/en/agent-mcp/",
+          "access": "公开能力说明，非发布日期"
+        }
+      ],
       "aggregateQueryIds": [
         "flova-aihot",
         "flova-aipick"
@@ -89,7 +110,13 @@
       "url": "https://docs.tapnow.ai/en/docs/changelog",
       "type": "dated-changelog",
       "minIntervalMinutes": 360,
-      "links": [],
+      "links": [
+        {
+          "kind": "官方 MCP / 外部 Agent",
+          "url": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+          "access": "公开能力说明；不确认所有客户端当前开放范围"
+        }
+      ],
       "aggregateQueryIds": [
         "tapnow-aihot",
         "tapnow-aipick"
@@ -231,6 +258,11 @@
           "kind": "官方模型目录",
           "url": "https://www.oiioii.ai/en/explore/models",
           "access": "目录不等于发布日期"
+        },
+        {
+          "kind": "官方 CLI / 插件入口",
+          "url": "https://www.oiioii.ai/",
+          "access": "官网可见，不推断上线日期"
         }
       ]
     },
@@ -268,6 +300,64 @@
           "url": "https://github.com/liblib-ai/marketplace/commits/main/",
           "access": "仅明确发布版本提交；不是网页功能上线日"
         }
+      ]
+    },
+    {
+      "id": "higgsfield-skills-features",
+      "name": "Higgsfield · 官方 Skills 功能合并",
+      "vendor": "Higgsfield",
+      "role": "competitor",
+      "url": "https://github.com/higgsfield-ai/skills",
+      "type": "github-feature-merge",
+      "minIntervalMinutes": 720,
+      "links": [
+        {
+          "kind": "官方合并记录",
+          "url": "https://github.com/higgsfield-ai/skills/pulls?q=is%3Apr+is%3Amerged",
+          "access": "仅面向创作者的明确功能合并；非网页发布或接入日期"
+        }
+      ]
+    },
+    {
+      "id": "tapnow-agent-docs",
+      "name": "TapNow · 官方开发生态入口",
+      "vendor": "TapNow",
+      "role": "competitor",
+      "url": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "type": "product-surface",
+      "minIntervalMinutes": 1440,
+      "links": [],
+      "aggregateQueryIds": [
+        "tapnow-aihot",
+        "tapnow-aipick"
+      ]
+    },
+    {
+      "id": "flova-agent-docs",
+      "name": "Flova · 官方开发生态入口",
+      "vendor": "Flova",
+      "role": "competitor",
+      "url": "https://www.flova.ai/en/agent-mcp/",
+      "type": "product-surface",
+      "minIntervalMinutes": 1440,
+      "links": [],
+      "aggregateQueryIds": [
+        "flova-aihot",
+        "flova-aipick"
+      ]
+    },
+    {
+      "id": "oiioii-agent-home",
+      "name": "OiiOii · 官方开发生态入口",
+      "vendor": "OiiOii",
+      "role": "competitor",
+      "url": "https://www.oiioii.ai/",
+      "type": "product-surface",
+      "minIntervalMinutes": 1440,
+      "links": [],
+      "aggregateQueryIds": [
+        "oiioii-aihot",
+        "oiioii-aipick"
       ]
     }
   ],

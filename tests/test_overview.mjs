@@ -855,3 +855,25 @@ test('historical observed product capabilities do not claim release dates or ent
  assert.equal(run("competitorBriefRows(state.appUpdates,[],{},Date.now()).length"),0);
  run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');assert.doesNotMatch(node('content').innerHTML,/Seedance 2.5 创作工具套件|WorkBuddy 连接器：外部 Agent/);
 });
+
+
+test('core competitor coverage separates verified accounts, original posts and official reads',()=>{
+ const {run}=setup();
+ const social={brands:[{id:'flova',name:'Flova AI',accounts:[{status:'verified',platform:'X',url:'https://x.com/Flovaai'},{status:'pending',platform:'WeChat',url:'https://example.com'}]}],posts:[{brandId:'flova',verificationStatus:'verified-direct-link',url:'https://x.com/Flovaai/status/123'},{brandId:'flova',verificationStatus:'pending',url:'https://x.com/Flovaai/status/456'}]};
+ const app={sources:[{vendor:'Flova',role:'competitor',id:'log',type:'dated-changelog',lastSuccessAt:'2026-11-28T01:00:00Z'},{vendor:'Flova',role:'competitor',id:'nav',type:'navigation-only',lastSuccessAt:'2026-11-28T01:00:00Z'}]};
+ const rows=JSON.parse(run('JSON.stringify(coreCompetitorChannelCoverage('+JSON.stringify(app)+','+JSON.stringify(social)+'))'));
+ assert.equal(rows.length,5);
+ const f=rows.find(r=>r.brand==='Flova');assert.equal(f.accounts.length,1);assert.equal(f.postCount,1);assert.equal(f.officialReads,1);
+ assert.equal(rows.find(r=>r.brand==='LibTV').postCount,0);
+});
+test('official developer feature merge shares history and product views without claiming model adoption',()=>{
+ const {run}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const source={id:'higgsfield-skills-features',vendor:'Higgsfield',role:'competitor',type:'github-feature-merge',url:'https://github.com/higgsfield-ai/skills'};
+ const event={id:'skill-17',sourceId:source.id,sourceUrl:source.url+'/pull/17',claimType:'first-party-developer-change',publisherCalendarDay:'2026-11-05',featureName:'Higgsfield Skills · default to GPT Image 2.6 with native GIF and SVG',productArea:'Agent / Skills',updateType:'product-feature'};
+ const app={sources:[source],events:[event,{...event,id:'invalid',sourceUrl:'https://github.com/other/repo/pull/17'}]};
+ const rows=JSON.parse(run('JSON.stringify(productChronicleTopics('+JSON.stringify(app)+',[]).find(t=>t.id==="product-higgsfield").milestones)'));
+ assert.equal(rows.length,1);assert.equal(rows[0].kind,'新功能');assert.equal(rows[0].verificationStatus,'已核实：官方开发生态合并');
+ assert.equal(rows[0].productCategory,'workflow');assert.deepEqual(rows[0].modelMentions,[]);
+ const brief=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify({sources:[source],events:[event]})+',[],{},Date.now()))'));
+ assert.equal(brief[0].proof,'官方开发生态合并');assert.equal(brief[0].kind,'新功能');
+});
