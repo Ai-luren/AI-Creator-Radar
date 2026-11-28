@@ -1,4 +1,5 @@
 import unittest
+import urllib.error
 from datetime import datetime, timezone, timedelta
 from scripts.collect_resources import discover_repos, candidate_repo, repo_identity, observed_stars
 
@@ -90,6 +91,44 @@ class ResearchRadarTests(unittest.TestCase):
         self.assertEqual(len(later["items"]),1)
         self.assertEqual(later["items"][0]["observedStarChange"]["delta"],2)
         self.assertEqual(later["nextLane"],1)
+
+    def test_selected_pointer_transient_failure_retries_after_backoff(self):
+        snap={"items":[{"selected":True,"title":"AI video storyboard","publishedAt":"2026-11-27T00:00:00Z",
+                        "links":{"original":"https://github.com/maker/whitebox"}}]}
+        def fail(url):
+            raise urllib.error.HTTPError(url,429,"rate limit",None,None)
+        first=discover_repos([("AIHOT",snap)],{},[],self.now,fail,lambda *_:self.fail("unexpected search"))
+        self.assertEqual(first["status"],"cached")
+        self.assertEqual(first["recentPointerAttempts"],[])
+        later=discover_repos([("AIHOT",snap)],first,[],self.now+timedelta(hours=6),
+                            lambda _:self.payload,lambda *_:self.fail("pointer was lost"))
+        self.assertEqual(later["items"][0]["provider"],"AIHOT")
+        self.assertEqual(later["recentPointerAttempts"],["maker/whitebox"])
+
+    def test_missing_pointer_does_not_block_next_search(self):
+        snap={"items":[{"selected":True,"title":"AI video storyboard","publishedAt":"2026-11-27T00:00:00Z",
+                        "links":{"original":"https://github.com/maker/whitebox"}}]}
+        def missing(url):
+            raise urllib.error.HTTPError(url,404,"not found",None,None)
+        first=discover_repos([("AIHOT",snap)],{},[],self.now,missing,lambda *_:self.fail("extra request"))
+        self.assertEqual(first["status"],"ok")
+        self.assertEqual(first["items"],[])
+        self.assertEqual(first["recentPointerAttempts"],["maker/whitebox"])
+        later=discover_repos([("AIHOT",snap)],first,[],self.now+timedelta(hours=6),
+                            lambda _:self.fail("terminal pointer"),lambda *_:[])
+        self.assertEqual(later["lastProvider"],"GitHub Search")
+
+    def test_selected_attribution_upgrades_search_and_survives_refresh(self):
+        first=discover_repos([],{},[],self.now,searcher=lambda *_:[self.payload])
+        snap={"items":[{"selected":True,"title":"AI video storyboard","publishedAt":"2026-11-27T00:00:00Z",
+                        "links":{"original":"https://github.com/maker/whitebox"}}]}
+        second=discover_repos([("AIPick",snap)],first,[],self.now+timedelta(hours=6),
+                             lambda _:self.payload,lambda *_:self.fail("selected pointer should upgrade source"))
+        self.assertEqual(second["items"][0]["provider"],"AIPick")
+        third=discover_repos([],second,[],self.now+timedelta(hours=12),searcher=lambda *_:[self.payload])
+        self.assertEqual(third["items"][0]["provider"],"AIPick")
+        self.assertEqual(third["items"][0]["lastMetadataProvider"],"GitHub Search")
+        self.assertEqual(third["items"][0]["firstObservedAt"],first["items"][0]["firstObservedAt"])
 
     def test_reject_noncreative_and_invalid_repositories(self):
         for x in ({**self.payload,"description":"General LLM framework","topics":["llm"]},
