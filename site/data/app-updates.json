@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-27T23:45:27+00:00",
+  "checkedAt": "2026-11-28T00:02:45+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -460,7 +460,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-27T23:45:27+00:00",
+    "checkedAt": "2026-11-28T00:02:45+00:00",
     "queries": [
       {
         "id": "jimeng-products",

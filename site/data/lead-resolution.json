@@ -1,14 +1,14 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-27T23:45:27+00:00",
+  "checkedAt": "2026-11-28T00:02:45+00:00",
   "summary": {
-    "uniqueOfficialUrls": 30,
+    "uniqueOfficialUrls": 29,
     "attempted": 0,
     "accessDomainDeferred": 1,
     "articleDateVerified": 9,
     "newlyCheckedVerified": 0,
     "awaitingProbe": 0,
-    "unresolved": 13,
+    "unresolved": 12,
     "notAnnouncement": 2,
     "weakCandidateDatesCorrected": 10
   },
@@ -378,31 +378,6 @@
       "status": "date-unresolved",
       "title": "GPT-6.1Terra",
       "modelId": "gpt"
-    },
-    {
-      "id": "recovery-ef204f120a474233f3b1",
-      "urlKey": "https://deepmind.google/models/model-cards/gemini-4-argon",
-      "url": "https://deepmind.google/models/model-cards/gemini-4-argon/",
-      "leadIds": [
-        "df061245b8654b5b5e73"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Gemini 4 Argon"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-10-13"
-      ],
-      "checkedAt": "2026-11-27T17:21:30+00:00",
-      "firstAttemptAt": "2026-11-26T17:35:51+00:00",
-      "consecutiveUnresolved": 6,
-      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
-      "status": "date-unresolved",
-      "title": "Gemini 4 Argon",
-      "modelId": "gemini"
     },
     {
       "id": "recovery-63f49d49814eed7e99b3",

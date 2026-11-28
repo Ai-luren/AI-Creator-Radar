@@ -2,9 +2,9 @@
   "schema": "model-release-digest/v2",
   "sourceOfTruth": "site/data/models.json",
   "windowDays": 30,
-  "windowStart": "2026-10-29",
-  "windowEnd": "2026-11-27",
-  "updatedAt": "2026-11-27T23:45:27Z",
+  "windowStart": "2026-10-30",
+  "windowEnd": "2026-11-28",
+  "updatedAt": "2026-11-28T00:02:45Z",
   "categories": [
     "video",
     "image",
@@ -571,22 +571,6 @@
       "modelVersionId": "swe-2-flash",
       "evidenceType": "official-release",
       "verifiedAt": "2026-11-27"
-    },
-    {
-      "id": "official-eleven-eleven-sfx-v3-20261029",
-      "publishedAt": "2026-10-29",
-      "category": "audio",
-      "vendor": "ElevenLabs",
-      "modelName": "SFX v3",
-      "summary": "文本生成音效，改善多段提示词遵循、音乐与人声表现。",
-      "access": "发布时官方产品或 API 提供",
-      "url": "https://elevenlabs.io/blog/sound-effects-v3",
-      "sourceName": "ElevenLabs 官方发布 / 更新日志",
-      "modelFamilyId": "eleven-sfx",
-      "modelVersionId": "eleven-sfx-v3",
-      "evidenceType": "official-release",
-      "verifiedAt": "2026-11-26",
-      "audioSubtype": "音效生成"
     }
   ],
   "verifiedStages": [
