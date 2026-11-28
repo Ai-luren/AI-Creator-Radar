@@ -188,6 +188,7 @@ try{
    await page.goto(base+'?view=feeds&briefing=matrix',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.locator('[data-briefing="matrix"]').getAttribute('aria-pressed'),'true');
    assert.equal(await page.locator('.competitor-matrix thead th').count(),9);
+   await page.locator('[data-matrix-focus]').selectOption('canvas');assert.equal(await page.locator('.competitor-matrix tbody tr').count(),1);await page.locator('[data-matrix-focus]').selectOption('all');
    assert.ok(await page.locator('.competitor-matrix').getByText('LibTV 3D-BOX',{exact:false}).count());
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'matrix horizontal overflow');
    if(viewport.width<761){
