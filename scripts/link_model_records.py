@@ -41,51 +41,61 @@ def phrases(family: dict, version: dict) -> list[str]:
                               and not is_unqualified_version_label(value)))
 
 
-def record_refs(text: str, families: list[dict]) -> list[dict]:
-    found = {}
-    for family in families:
-        if family.get("category") == "agent":
-            continue
-        for version in family.get("versions", []):
-            for phrase in phrases(family, version):
-                # A shorter version label can match several sibling variants;
-                # only attach a version when the exact full display name occurs.
-                pattern = re.compile(r"(?<![\w])" + re.escape(phrase) + r"(?![\w])", re.I)
-                match = pattern.search(text)
-                if match:
-                    tail = text[match.end():]
-                    is_sibling_prefix = any(
-                        sibling.get("id") != version.get("id")
+class ModelMentionIndex:
+    """Compile catalog patterns once; preserve original exact matching and order."""
+    def __init__(self, families):
+        self.versions = []
+        self.families = []
+        for family in families:
+            if family.get("category") == "agent":
+                continue
+            fid = family["id"]
+            versions = family.get("versions", [])
+            for version in versions:
+                for phrase in phrases(family, version):
+                    suffixes = tuple(
+                        str(sibling["name"])[len(phrase):].casefold()
+                        for sibling in versions
+                        if sibling.get("id") != version.get("id")
                         and str(sibling.get("name", "")).casefold().startswith(phrase.casefold())
                         and len(str(sibling.get("name", ""))) > len(phrase)
-                        and (tail.casefold().startswith(str(sibling["name"])[len(phrase):].casefold())
-                             or re.match(r"^(?:[.-]\s*\d|\s+\d)", tail))
-                        for sibling in family.get("versions", [])
                     )
-                    if is_sibling_prefix:
-                        continue
-                    key = (family["id"], version["id"])
-                    found[key] = {"modelFamilyId": family["id"], "modelVersionId": version["id"], "matchedName": phrase}
-    return sorted(found.values(), key=lambda item: (item["modelFamilyId"], item["modelVersionId"]))
+                    pattern = re.compile(r"(?<![\w])" + re.escape(phrase) + r"(?![\w])", re.I)
+                    self.versions.append((fid, version["id"], phrase, pattern, suffixes))
+            for name in [family.get("name", "")] + (family.get("aliases") or []):
+                name = str(name).strip()
+                if len(name) < 4 or name.endswith("系列"):
+                    continue
+                pattern = re.compile(r"(?<![\w])" + re.escape(name) + r"(?![\w])", re.I)
+                self.families.append((fid, name, pattern))
+
+    def record_refs(self, text):
+        found = {}
+        for fid, vid, phrase, pattern, suffixes in self.versions:
+            match = pattern.search(text)
+            if not match:
+                continue
+            if suffixes:
+                tail = text[match.end():]
+                if tail.casefold().startswith(suffixes) or re.match(r"^(?:[.-]\s*\d|\s+\d)", tail):
+                    continue
+            found[(fid, vid)] = {"modelFamilyId":fid, "modelVersionId":vid, "matchedName":phrase}
+        return [found[key] for key in sorted(found)]
+
+    def family_refs(self, text):
+        found = {}
+        for fid, name, pattern in self.families:
+            if pattern.search(text):
+                found[fid] = {"modelFamilyId":fid, "matchedName":name}
+        return [found[key] for key in sorted(found)]
+
+
+def record_refs(text: str, families: list[dict]) -> list[dict]:
+    return ModelMentionIndex(families).record_refs(text)
 
 
 def family_refs(text: str, families: list[dict]) -> list[dict]:
-    found = {}
-    for family in families:
-        # Product/tool families are not part of the creator-model catalog links.
-        # Exact-name matching can otherwise turn mentions of Codex or Claude Code
-        # into misleading model references.
-        if family.get("category") == "agent":
-            continue
-        names = [family.get("name", "")] + (family.get("aliases") or [])
-        for name in names:
-            name = str(name).strip()
-            if len(name) < 4 or name.endswith("系列"):
-                continue
-            pattern = re.compile(r"(?<![\w])" + re.escape(name) + r"(?![\w])", re.I)
-            if pattern.search(text):
-                found[family["id"]] = {"modelFamilyId": family["id"], "matchedName": name}
-    return sorted(found.values(), key=lambda item: item["modelFamilyId"])
+    return ModelMentionIndex(families).family_refs(text)
 
 
 def chronicle_title_refs(title: str, refs: list[dict], families: list[dict], vendors: list[str]) -> list[dict]:
@@ -124,7 +134,8 @@ def explicit_chronicle_refs(families: list[dict]) -> dict:
     return result
 
 
-def apply_records(document, section: str | None, fields: tuple[str, ...], families: list[dict]) -> bool:
+def apply_records(document, section: str | None, fields: tuple[str, ...], families: list[dict], index=None) -> bool:
+    index = index if index is not None else ModelMentionIndex(families)
     if section is None and isinstance(document, list):
         records = document
     elif isinstance(document, list):
@@ -140,8 +151,8 @@ def apply_records(document, section: str | None, fields: tuple[str, ...], famili
         chronology_vendors = {id(record): vendor_topics[parent["id"]] for parent in document if parent.get("id") in vendor_topics for record in parent.get("milestones", [])}
     for record in records:
         text = " ".join(str(record.get(field, "")) for field in fields)
-        refs = record_refs(text, families)
-        family_mentions = family_refs(text, families)
+        refs = index.record_refs(text)
+        family_mentions = index.family_refs(text)
         if id(record) in chronology_vendors:
             vendors = chronology_vendors[id(record)]
             refs = chronicle_title_refs(str(record.get("title") or ""), refs, families, vendors)
@@ -170,13 +181,14 @@ def apply_records(document, section: str | None, fields: tuple[str, ...], famili
 
 def main() -> int:
     families = json.loads(MODEL_PATH.read_text(encoding="utf-8"))
+    index = ModelMentionIndex(families)
     updated = []
     for relative, (section, fields) in RECORD_SECTIONS.items():
         path = ROOT / relative
         if not path.exists():
             continue
         document = json.loads(path.read_text(encoding="utf-8"))
-        if apply_records(document, section, fields, families):
+        if apply_records(document, section, fields, families, index):
             path.write_text(json.dumps(document, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
             updated.append(relative)
     try:

@@ -50,3 +50,57 @@ class ModelLinkPrecisionTests(unittest.TestCase):
         families = [{"id": "demo", "versions": [{"id": "v2", "name": "v2.5",
                      "releaseEvidence": {"chronicleAuditId": "reviewed"}}]}]
         self.assertEqual(explicit_chronicle_refs(families)["reviewed"][("demo", "v2")]["matchedName"], "v2.5")
+
+class CompiledMentionIndexTests(unittest.TestCase):
+    def test_equivalence_to_original_matcher(self):
+        import re
+        from scripts.link_model_records import ModelMentionIndex
+        families = json.loads((ROOT / "site/data/models.json").read_text())
+        index = ModelMentionIndex(families)
+        def old(text):
+            found, family_found = {}, {}
+            for family in families:
+                if family.get("category") == "agent":
+                    continue
+                for version in family.get("versions", []):
+                    for phrase in phrases(family, version):
+                        match = re.search(r"(?<![\\w])" + re.escape(phrase) + r"(?![\\w])", text, re.I)
+                        if not match:
+                            continue
+                        tail = text[match.end():]
+                        if any(sibling.get("id") != version.get("id")
+                               and str(sibling.get("name", "")).casefold().startswith(phrase.casefold())
+                               and len(str(sibling.get("name", ""))) > len(phrase)
+                               and (tail.casefold().startswith(str(sibling["name"])[len(phrase):].casefold())
+                                    or re.match(r"^(?:[.-]\\s*\\d|\\s+\\d)", tail))
+                               for sibling in family.get("versions", [])):
+                            continue
+                        key = (family["id"],version["id"])
+                        found[key] = {"modelFamilyId":key[0],"modelVersionId":key[1],"matchedName":phrase}
+                for name in [family.get("name", "")] + (family.get("aliases") or []):
+                    name = str(name).strip()
+                    if len(name) >= 4 and not name.endswith("系列") and re.search(r"(?<![\\w])" + re.escape(name) + r"(?![\\w])",text,re.I):
+                        family_found[family["id"]] = {"modelFamilyId":family["id"],"matchedName":name}
+            return [found[k] for k in sorted(found)], [family_found[k] for k in sorted(family_found)]
+        samples = ["Gemini 2.5 Flash-Lite / Seedance 2.5", "DeepSeek-V4.1-Flash Release",
+                   "GLM-5.4 和 GLM-5.3-Flash", "Kling 4.0 as video 1", "no model here", "İmage 2.0"]
+        for relative, (section, fields) in RECORD_SECTIONS.items():
+            document = json.loads((ROOT / relative).read_text())
+            rows = document if section is None else ([r for p in document for r in p.get(section, [])] if isinstance(document,list) else document.get(section,[]))
+            samples.extend(" ".join(str(row.get(field,"")) for field in fields) for row in rows[::max(1,len(rows)//3)][:4])
+        for text in samples:
+            with self.subTest(text=text[:100]):
+                versions, family_mentions = old(text)
+                self.assertEqual(index.record_refs(text), versions)
+                self.assertEqual(index.family_refs(text), family_mentions)
+
+    def test_apply_records_reuses_index_and_is_idempotent(self):
+        from scripts.link_model_records import ModelMentionIndex, apply_records
+        from unittest.mock import patch
+        families = [{"id":"demo","name":"Demo","versions":[{"id":"v2","name":"Demo 2.0"}]}]
+        index = ModelMentionIndex(families)
+        document = {"items":[{"title":"Demo 2.0"},{"title":"Other"}]}
+        with patch("scripts.link_model_records.ModelMentionIndex", side_effect=AssertionError("recompiled")):
+            self.assertTrue(apply_records(document,"items",("title",),families,index))
+            self.assertFalse(apply_records(document,"items",("title",),families,index))
+        self.assertEqual(document["items"][0]["modelMentions"][0]["modelVersionId"], "v2")
