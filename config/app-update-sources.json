@@ -118,6 +118,11 @@
           "kind": "官方 Skills 仓库",
           "url": "https://github.com/libtv-labs/libtv-skills",
           "access": "公开技能文档，未见 GitHub Releases；不能把普通提交视为产品上新"
+        },
+        {
+          "kind": "官方公众号 · WorkBuddy 打通公告原文线索",
+          "url": "https://mp.weixin.qq.com/s/7_2XKyUhrbH_H6TRs9xItA",
+          "access": "AI Express 转载提供原始链接；原文正文未读通，不确认首发日"
         }
       ]
     },
@@ -386,6 +391,59 @@
       "verificationUrl": "https://www.woshipm.com/ai/6470479.html",
       "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
       "note": "9月28日实测文章明确回述9月21日上线；9月27日另一作者实测证实 TV Director、角色造型室、导演执导、3D-BOX 与片头功能。官方公众号原文链接见来源目录，正文不可读；不确认各功能分批开放日期。"
+    },
+    {
+      "id": "libtv-team-20260518-reviewed",
+      "sourceId": "libtv-entry",
+      "brand": "LibTV",
+      "claimType": "corroborated-product-milestone",
+      "title": "LibTV 团队版正式上线",
+      "featureName": "LibTV 团队版",
+      "kind": "产品发布",
+      "updateType": "product-release",
+      "productArea": "团队协作 / 项目管理",
+      "releaseDate": "2026-05-18",
+      "observedOn": "2026-11-28",
+      "sourceUrl": "https://www.nbd.com.cn/articles/2026-05-18/4396732.html",
+      "verificationUrl": "https://m.jiemian.com/article/14442234.html",
+      "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
+      "note": "每日经济新闻、界面新闻均在5月18日依据厂商消息报道团队版上线；属于同一官方消息的两个媒体出处，不声称独立实测。产品研究重点为面向持续生产团队的协作形态，具体权限和功能开放范围仍需实测。"
+    },
+    {
+      "id": "libtv-seedance-workflow-20260811-reviewed",
+      "sourceId": "libtv-entry",
+      "brand": "LibTV",
+      "claimType": "corroborated-product-observation",
+      "title": "Seedance 2.5 创作工具套件：逐帧拉片、智能引用与片段重拍",
+      "featureName": "Seedance 2.5 创作工具套件",
+      "kind": "能力实测",
+      "updateType": "product-feature",
+      "productArea": "视频拆解 / 素材引用 / 局部重拍 / 长片 / 3D 白模",
+      "releaseDate": null,
+      "historicalEvidenceDate": "2026-08-11",
+      "observedOn": "2026-11-28",
+      "sourceUrl": "https://elsewhere.news/zh/crossing/libtv",
+      "verificationUrl": "https://www.pingwest.com/a/316336",
+      "observationMethod": "媒体交叉实测 · 历史可见日期",
+      "note": "十字路口与硅星人两篇实测均说明围绕 Seedance 2.5 的拉片、素材引用、局部重拍等能力。8月11日是有日期的实测报道日，不是这些功能或模型的首发日。研究价值是模型参考及编辑能力如何变成可控的产品操作。"
+    },
+    {
+      "id": "libtv-workbuddy-20261101-reviewed",
+      "sourceId": "libtv-entry",
+      "brand": "LibTV",
+      "claimType": "corroborated-product-observation",
+      "title": "LibTV × WorkBuddy 连接器：外部 Agent 驱动视频创作",
+      "featureName": "LibTV WorkBuddy 连接器",
+      "kind": "能力实测",
+      "updateType": "product-feature",
+      "productArea": "外部 Agent / Skills / 插件",
+      "releaseDate": null,
+      "historicalEvidenceDate": "2026-11-01",
+      "observedOn": "2026-11-28",
+      "sourceUrl": "https://ainrk.com/article/article-30797",
+      "verificationUrl": "https://aiwebcool.com/zh/posts/libtv-workbuddy-video-factory-sop",
+      "observationMethod": "媒体交叉实测 · 历史可见日期",
+      "note": "11月1日实操文章确认可在 WorkBuddy 中授权并调用 LibTV；另一篇10月27日实操指南回述10月26日官方公众号公告。原始公众号正文尚未读取，因此采用11月1日的已证实历史可见日期，不断言首次接入日。"
     }
   ],
   "targetedDiscovery": {

@@ -814,13 +814,13 @@ test('reviewed LibTV product milestones are explicit media evidence, not officia
  const {run,node}=setup({query:'?view=topics&topic=product-libtv',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
  const config=JSON.parse(fs.readFileSync(path.join(root,'config/app-update-sources.json'),'utf8'));
  const items=config.reviewedObservations.filter(e=>e.claimType==='corroborated-product-milestone');
- assert.equal(items.length,3);
+ assert.equal(items.length,4);
  const source=config.sources.find(s=>s.id==='libtv-entry');
  run('state.appUpdates='+JSON.stringify({sources:[source],events:[],reviewedObservations:items.concat([{...items[0],id:'bad',title:'Unproven launch',verificationUrl:items[0].sourceUrl},{...items[0],id:'promo',title:'Promo trailer',featureName:'Promo trailer'}])})+';render()');
  const markup=node('content').innerHTML;
  assert.match(markup,/datetime="2026-03-18"/);assert.match(markup,/datetime="2026-07-14"/);
  assert.match(markup,/媒体交叉报道（非官方日志）/);assert.match(markup,/原始报道/);assert.doesNotMatch(markup,/Unproven launch|Promo trailer/);
- assert.equal(run("topicMilestoneCounts(currentChronicleTopics().find(t=>t.id==='product-libtv')).verified"),3);
+ assert.equal(run("topicMilestoneCounts(currentChronicleTopics().find(t=>t.id==='product-libtv')).verified"),4);
  assert.equal(run("competitorBriefRows(state.appUpdates,[],{},Date.now()).length"),0);
  run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');
  assert.doesNotMatch(node('content').innerHTML,/无限画布与节点式视频工作流|LibTV Agent 与 Skill Hub 上线/);
@@ -839,4 +839,19 @@ test('official GitHub plugin releases are one shared dated product event, never 
  assert.ok(matrix[0].dimensions.includes('plugin'));assert.equal(matrix[0].kind,'官方插件发布提交');
  run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');assert.match(node('content').innerHTML,/LibTV Codex 插件 1\.1\.0/);
  assert.equal(run("productChronicleTopics({sources:state.appUpdates.sources,events:[{...state.appUpdates.events[0],sourceUrl:'https://github.com/other/repo/commit/'+'a'.repeat(40)}]},[]).find(t=>t.id==='product-libtv').milestones.length"),0);
+});
+
+test('historical observed product capabilities do not claim release dates or enter recent feeds',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=product-libtv',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
+ const config=JSON.parse(fs.readFileSync(path.join(root,'config/app-update-sources.json'),'utf8'));
+ const items=config.reviewedObservations.filter(e=>e.claimType==='corroborated-product-observation');
+ assert.equal(items.length,2);assert.ok(items.every(e=>e.releaseDate===null));
+ const source=config.sources.find(s=>s.id==='libtv-entry');
+ run('state.appUpdates='+JSON.stringify({sources:[source],events:[],reviewedObservations:items.concat([{...items[0],id:'bad-date',title:'False launch',releaseDate:'2026-08-11'},{...items[0],id:'bad-method',title:'Unknown evidence',observationMethod:'unreviewed'},{...items[0],id:'bad-launch',title:'False release',updateType:'product-release'}])})+';render()');
+ const markup=node('content').innerHTML;
+ assert.match(markup,/datetime="2026-08-11"/);assert.match(markup,/datetime="2026-11-01"/);assert.match(markup,/截至该日已实测/);assert.match(markup,/非首发日期/);
+ assert.doesNotMatch(markup,/False launch|Unknown evidence|False release/);
+ assert.equal(run("topicMilestoneCounts(currentChronicleTopics().find(t=>t.id==='product-libtv')).verified"),2);
+ assert.equal(run("competitorBriefRows(state.appUpdates,[],{},Date.now()).length"),0);
+ run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');assert.doesNotMatch(node('content').innerHTML,/Seedance 2.5 创作工具套件|WorkBuddy 连接器：外部 Agent/);
 });

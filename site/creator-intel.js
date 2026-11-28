@@ -126,7 +126,7 @@ function competitorBriefRows(app,reports,social,now){
   });
  });
  (app.reviewedObservations||[]).forEach(function(e){
-  if(e.claimType==='corroborated-product-milestone')return;
+  if(reviewedProductHistoryClaim(e))return;
   var s=sources.find(function(x){return x.id===e.sourceId}),brand=e.brand||(s&&s.vendor==='字节跳动'&&/^jimeng/.test(s.id)?'即梦':s&&s.vendor);
   if(!brand)return;
   add(brand,e.title,e.releaseDate||e.observedOn,e.kind,e.sourceUrl,e.releaseDate?(e.observationMethod==='官方文章发布日期'?'官方文章':'官方文档所述日期'):'官网人工观察 · 非发布日期',{modelName:e.modelName||'',note:e.note||''});
@@ -564,6 +564,7 @@ function productChronicleModelRefs(e,models){
  (models||[]).forEach(function(f){(f.versions||[]).forEach(function(v){if(v.name&&competitorModelPattern(v.name).test(e.featureName))refs.push({modelFamilyId:f.id,modelVersionId:v.id,matchedName:v.name})})});
  return refs.length===1?refs:[];
 }
+function reviewedProductHistoryClaim(e){return !!e&&['corroborated-product-milestone','corroborated-product-observation'].includes(e.claimType)}
 function productChronicleTopics(app,models){
  app=app||{};var sources=app.sources||[],nodes=new Map(),seen=new Set();
  (app.events||[]).forEach(function(e){
@@ -582,14 +583,16 @@ function productChronicleTopics(app,models){
  // Reviewed media milestones use the existing persisted observation lane; they
  // never count as official changelog, integration, or recent observation.
  (app.reviewedObservations||[]).forEach(function(e){
-  if(e.claimType!=='corroborated-product-milestone'||e.observationMethod!=='媒体交叉报道 · 原始官方发布页未取得'||!chronicleDay(e.releaseDate)||!chronicleDay(e.observedOn)||e.observedOn<e.releaseDate||!e.id||!e.title||!e.featureName||!e.note||!['product-release','product-feature','product-improvement','product-update'].includes(e.updateType))return;
+  if(!reviewedProductHistoryClaim(e))return;
+  var observed=e.claimType==='corroborated-product-observation',historyDay=observed?e.historicalEvidenceDate:e.releaseDate;
+  if((observed?(e.releaseDate!==null||e.observationMethod!=='媒体交叉实测 · 历史可见日期'||e.updateType==='product-release'):e.observationMethod!=='媒体交叉报道 · 原始官方发布页未取得')||!chronicleDay(historyDay)||!chronicleDay(e.observedOn)||e.observedOn<historyDay||!e.id||!e.title||!e.featureName||!e.note||!['product-release','product-feature','product-improvement','product-update'].includes(e.updateType))return;
   var source=sources.find(function(s){return s.id===e.sourceId&&s.vendor===e.brand&&s.role==='competitor'}),url=creatorOriginalUrl(e.sourceUrl),proof=creatorOriginalUrl(e.verificationUrl);
   if(!source||!productChronicleIds[e.brand]||!url||!proof||new URL(url).hostname.replace(/^www\.|^m\./,'')===new URL(proof).hostname.replace(/^www\.|^m\./,''))return;
-  if(!productChronicleEligible(Object.assign({},e,{claimType:'first-party-product-changelog',publisherCalendarDay:e.releaseDate})))return;
-  var rows=nodes.get(e.brand)||[],key=[e.brand,e.releaseDate,String(e.featureName).normalize('NFKC').trim().toLowerCase(),e.updateType].join('|');
-  if(seen.has(key)||rows.some(function(r){return r.date===e.releaseDate&&r.title===e.title}))return;
+  if(!productChronicleEligible(Object.assign({},e,{claimType:'first-party-product-changelog',publisherCalendarDay:historyDay})))return;
+  var rows=nodes.get(e.brand)||[],key=[e.brand,historyDay,String(e.featureName).normalize('NFKC').trim().toLowerCase(),e.updateType].join('|');
+  if(seen.has(key)||rows.some(function(r){return r.date===historyDay&&r.title===e.title}))return;
   seen.add(key);
-  rows.push({date:e.releaseDate,title:e.title,kind:e.kind||'产品发布',url:url,verificationUrl:proof,summary:e.note,verificationStatus:'已核实：媒体交叉报道（非官方日志）',verificationDate:e.observedOn,productCategory:productChronicleCategory(e),sourceEventId:e.id,reviewedProductHistory:true});
+  rows.push({date:historyDay,title:e.title,kind:observed?'截至该日已实测':e.kind||'产品发布',url:url,verificationUrl:proof,summary:e.note,verificationStatus:observed?'已核实：交叉实测 · 非首发日期':'已核实：媒体交叉报道（非官方日志）',verificationDate:e.observedOn,productCategory:productChronicleCategory(e),sourceEventId:e.id,reviewedProductHistory:true,historicalObservation:observed});
   nodes.set(e.brand,rows);
  });
  return trackingBrands.map(function(brand){
