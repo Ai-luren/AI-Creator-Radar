@@ -142,24 +142,29 @@ class AppUpdatesTests(unittest.TestCase):
 
     def test_aggregate_first_coverage_defers_only_after_both_provider_queries(self):
         from scripts.collect_app_updates import aggregate_coverage
-        spec={"aggregateQueryIds":["a","b"]}
+        spec={"aggregateQueryIds":["a","b"],"vendor":"Higgsfield"}
+        snapshots=self.readable_fixture()
         def row(key,provider,features,models):
             return {"id":key,"provider":provider,"status":"observed","lastAttemptAt":self.now.isoformat(),"lastSuccessAt":self.now.isoformat(),"counts":{"selectedProductFeatures":features,"selectedModelIntegrations":models}}
         first=row("a","AIHOT",0,4)
         second=row("b","AIPick",3,0)
         self.assertEqual(aggregate_coverage(spec,{"queries":[first]},self.now)["status"],"awaiting-aggregate")
-        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now)["status"],"aggregate-covered-sample")
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now)["status"],"aggregate-gap")
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now,snapshots)["status"],"aggregate-covered-sample")
         second["counts"]["selectedProductFeatures"]=0
-        result=aggregate_coverage(spec,{"queries":[first,second]},self.now)
+        result=aggregate_coverage(spec,{"queries":[first,second]},self.now,snapshots)
         self.assertEqual(result["status"],"aggregate-gap")
         self.assertEqual(result["missingLanes"],["selectedProductFeatures"])
         self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now+timedelta(hours=13))["status"],"awaiting-aggregate")
 
+    def readable_fixture(self):
+        return {"AIHOT":{"fetchedAt":self.now.isoformat(),"items":[{"title":"Higgsfield 新功能","selected":True,"publishedAt":self.now.isoformat(),"links":{"original":"https://higgsfield.ai/blog/feature"}},{"title":"MAGI-2 模型接入 Higgsfield","selected":True,"publishedAt":self.now.isoformat(),"links":{"original":"https://higgsfield.ai/blog/model"}}]}}
+
     def test_aggregate_first_skips_direct_probe_and_preserves_existing_events(self):
-        cfg={"sources":[{**self.spec,"aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":480,"globalIntervalMinutes":25,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
+        cfg={"sources":[{**self.spec,"vendor":"Higgsfield","aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":480,"globalIntervalMinutes":25,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
         first=collect(cfg,{},self.now,lambda *_:self.fail("wait for both aggregate queries"),lambda *_:({"selectedProductFeatures":2,"selectedModelIntegrations":0},"a"))
         self.assertEqual(first["sources"][0]["skipReason"],"awaiting-aggregate")
-        second=collect(cfg,first,self.now+timedelta(minutes=30),lambda *_:self.fail("no duplicate probe when both lanes covered"),lambda *_:({"selectedProductFeatures":0,"selectedModelIntegrations":2},"b"))
+        second=collect(cfg,first,self.now+timedelta(minutes=30),lambda *_:self.fail("no duplicate probe when both lanes covered"),lambda *_:({"selectedProductFeatures":0,"selectedModelIntegrations":2},"b"),snapshots=self.readable_fixture())
         self.assertEqual(second["sources"][0]["skipReason"],"aggregate-covered-sample")
         self.assertEqual(second["summary"]["successfulThisRun"],0)
         self.assertEqual(second["events"],[])
@@ -414,3 +419,13 @@ class AppUpdatesTests(unittest.TestCase):
         got=collect_targeted(cfg,old,self.now,fetch,releases=[row])
         self.assertEqual(calls,["secondary"])
         self.assertEqual(got["attemptedThisRun"],1)
+
+    def test_readable_coverage_rejects_stale_snapshots_and_report_only_links(self):
+        from scripts.collect_app_updates import readable_competitor_lanes
+        snapshots=self.readable_fixture()
+        self.assertEqual(len(readable_competitor_lanes(snapshots,"Higgsfield",self.now)),2)
+        snapshots["AIHOT"]["items"][1]["links"]["story"]="https://aihot.news/story/test"
+        self.assertEqual(readable_competitor_lanes(snapshots,"Higgsfield",self.now),{"selectedProductFeatures"})
+        snapshots["AIHOT"]["fetchedAt"]=(self.now-timedelta(hours=13)).isoformat()
+        snapshots["AIHOT"]["checkedAt"]=self.now.isoformat()
+        self.assertEqual(readable_competitor_lanes(snapshots,"Higgsfield",self.now),set())
