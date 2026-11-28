@@ -230,7 +230,7 @@ function innovationSurfaceMarkup(app,now){
   return e.kind==='new-product-surface'&&e.claimType==='first-party-product-surface'&&e.featureName&&withinDays(e.observedAt,7,new Date(now))&&creatorOriginalUrl(e.featureUrl||e.sourceUrl);
  }).map(function(e){var source=sources.find(function(s){return s.id===e.sourceId&&s.role==='competitor'&&s.type==='product-surface'});return source?{event:e,brand:source.vendor}:null}).filter(Boolean).filter(function(r){return matches([r.brand,r.event.featureName].join(' '))});
  rows.sort(function(a,b){return String(b.event.observedAt).localeCompare(String(a.event.observedAt))});
- return '<section class="briefing-digest-section"><div class="section-head"><h2>产品入口变化 · 观察时间</h2><span class="head-meta">'+rows.length+' 条</span></div><p class="page-desc">仅比较成功读取后的新增可见入口；首次基线不算更新，入口消失不代表下线。</p><div class="briefing-list">'+(rows.slice(0,12).map(function(r){var e=r.event;return '<article class="briefing-card"><div class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.brand+' · '+chinaDay(e.observedAt)+' · 首次观察，非发布日期')+'</span><strong>'+esc(e.featureName)+'</strong></span>'+creatorLink(e.featureUrl||e.sourceUrl,'官方入口')+'</div></article>'}).join('')||empty('暂无已成功观察的入口变化；查看功能矩阵中的现有能力。'))+'</div></section>'
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>产品入口变化 · 观察时间</h2><span class="head-meta">'+rows.length+' 条</span></div><p class="page-desc">仅比较成功读取后的新增可见入口；首次基线不算更新，入口消失不代表下线。</p><div class="briefing-list">'+(rows.slice(0,12).map(function(r){var e=r.event;return '<article class="briefing-card"><div class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.brand+' · '+chinaDay(e.observedAt)+' · '+(e.surfaceStage==='coming-soon'?'官方预告 · ':'')+'首次观察，非发布日期')+'</span><strong>'+esc(e.featureName)+'</strong></span>'+creatorLink(e.featureUrl||e.sourceUrl,'官方入口')+'</div></article>'}).join('')||empty('暂无已成功观察的入口变化；查看功能矩阵中的现有能力。'))+'</div></section>'
 }
 function innovationPage(tabs){
  var snapshot={releases:state.modelReleases,app:state.appUpdates,repos:state.repoRadar,batches:[{name:'AIHOT',items:state.aihot.items},{name:'AIPick',items:(state.aipick||{}).items}]},now=Date.now();
@@ -303,9 +303,9 @@ function competitorMatrixRows(app,now,reviewed){
  });
  sources.filter(function(s){return s.type==='product-surface'&&s.role==='competitor'&&competitorMatrixBrands.includes(s.vendor)}).forEach(function(source){
   Object.values(source.entries||{}).filter(function(e){return e.claimType==='first-party-product-surface'&&e.visibleInLatestRead===true&&e.featureName&&e.lastObservedAt}).forEach(function(e){
-   var url=creatorOriginalUrl(e.featureUrl||source.url);if(!url)return;
+   var url=creatorOriginalUrl(e.featureUrl||source.url);if(!url||/^(独家首发|模型上新|View all presets)$/i.test(e.featureName))return;
    var dimensions=/模型上新|模型接入|模型上线|已接入|独家首发/i.test(e.featureName)?['integration']:competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName)}).map(function(x){return x.id});
-   add({brand:source.vendor,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:null,reviewedOn:chinaDay(e.lastObservedAt),kind:'官网自动观察',note:'最近成功读取的公开入口，不代表发布日期或登录后的完整功能。'});
+   add({brand:source.vendor,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:null,reviewedOn:chinaDay(e.lastObservedAt),kind:e.surfaceStage==='coming-soon'?'官方预告 · 未上线':'官网自动观察',note:'最近成功读取的公开入口，不代表发布日期或登录后的完整功能。'});
   })
  });
  (reviewed||[]).forEach(function(x){if(competitorMatrixBrands.includes(x.brand)&&creatorOriginalUrl(x.url))add(Object.assign({},x,{kind:'官网观察',day:null}))});
