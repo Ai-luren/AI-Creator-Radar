@@ -56,7 +56,9 @@ def primary_boards(document):
     for category in document.get("categories", []):
         if category.get("primaryLeaderboard"):
             yield category["primaryLeaderboard"]
-        yield from category.get("primaryLeaderboards", {}).values()
+        # Missing task snapshots remain missing, not fabricated boards.
+        yield from (board for board in category.get("primaryLeaderboards", {}).values()
+                    if board is not None)
 
 
 def attach_rankings(document, families, aliases, reference=None, maomu=None):

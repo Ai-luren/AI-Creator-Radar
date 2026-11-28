@@ -11,7 +11,7 @@
 | 修改官方社媒账号快照 | [社媒数据指南](social-monitor-data-guide.md) | `site/data/social-accounts.json` |
 | 理解能力榜的来源和展示口径 | [榜单方法审核](leaderboard-methodology-audit-2026-11-25.md)、[榜单规则](../site/ranking-rules.html) | `site/data/reference-rankings.json`、`site/data/maomu-rankings.json` |
 | 查看当前原榜规则 | [现行方法审计](leaderboard-methodology-audit-2026-11-25.md)、[榜单规则](../site/ranking-rules.html) | `site/data/unified-rankings.json` 的原榜字段 |
-| 查看历史综合榜实验 | [历史方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`（现行生成器仍同时执行历史试算，未完成退役） |
+| 查看历史综合榜实验 | [历史方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`（仅保留旧算法用于等价回归；生产切换候选见 [原榜退役说明](primary-ranking-retirement.md)） |
 | 检查自动更新、漏跑补采和同步范围 | [自动更新说明](automation-runbook.md)、[Cloudflare 运维指南](../ops/cloudflare-watchdog/README.md) | `scripts/plan_refresh.py`、`scripts/scheduler_manifest.py`、`ops/cloudflare-watchdog/wrangler.toml` |
 
 ## 当前结构（V3.6）

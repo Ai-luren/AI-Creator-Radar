@@ -31,6 +31,11 @@ class BatchTests(unittest.TestCase):
         self.assertIn("collect_app_updates", active)
         self.assertIn("collect_creator_opportunities", active)
 
+    def test_production_resources_do_not_invoke_composite_builder(self):
+        scripts = [s for t in BATCHES["resources"][1] for s in t]
+        self.assertIn("build_primary_ranking_projection", scripts)
+        self.assertNotIn("build_unified_rankings", scripts)
+
     def test_failure_rolls_back_only_its_transaction(self):
         def runner(args, **kwargs):
             script = Path(args[1]).stem

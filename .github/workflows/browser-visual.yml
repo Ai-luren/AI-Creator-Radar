@@ -26,6 +26,11 @@ jobs:
         run: |
           npm install --prefix /tmp/radar-browser --no-save --package-lock=false playwright@1.56.1
           /tmp/radar-browser/node_modules/.bin/playwright install --with-deps ${{ matrix.engine }}
+      - name: Exercise the new primary-only ranking payload in the isolated browser checkout
+        run: |
+          python3 scripts/build_primary_ranking_projection.py
+          wc -c site/data/unified-rankings.json
+          python3 scripts/validate_model_links.py
       - name: Check actual browser layouts and interactions
         env:
           RADAR_BROWSER_DEPS: /tmp/radar-browser
