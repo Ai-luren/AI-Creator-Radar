@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T10:17:52+00:00",
+  "checkedAt": "2026-11-28T10:58:55+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -2958,7 +2958,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T10:17:52+00:00",
+    "checkedAt": "2026-11-28T10:58:55+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -3424,7 +3424,25 @@
         "provider": "AIPick",
         "priority": 20,
         "intervalMinutes": 1440,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T10:58:55+00:00",
+        "counts": {
+          "items": 1,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 1,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 1,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "selectedCreatorSignals": 0
+        },
+        "countsObservedAt": "2026-11-28T10:58:55+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-30dfb72670f637ff\"",
+        "lastSuccessAt": "2026-11-28T10:58:55+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-29T10:58:55.965256+00:00"
       },
       {
         "id": "renoise-aihot",
@@ -3468,7 +3486,25 @@
         "provider": "AIHOT",
         "priority": 20,
         "intervalMinutes": 1440,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T10:58:55+00:00",
+        "counts": {
+          "items": 23,
+          "wechatOriginalLinks": 3,
+          "otherOriginalLinks": 20,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 14,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 1,
+          "selectedModelIntegrations": 0,
+          "selectedCreatorSignals": 0
+        },
+        "countsObservedAt": "2026-11-28T10:58:55+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-c6139290004fb226\"",
+        "lastSuccessAt": "2026-11-28T10:58:55+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-29T10:58:55.965256+00:00"
       },
       {
         "id": "minimax-aipick",
@@ -4123,21 +4159,21 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T10:17:52+00:00",
-      "nextAttemptAt": "2026-11-28T10:42:52.679498+00:00"
+      "lastSuccessAt": "2026-11-28T10:58:55+00:00",
+      "nextAttemptAt": "2026-11-28T11:23:55.965256+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T10:17:52+00:00",
-        "nextAttemptAt": "2026-11-28T10:42:52.679498+00:00"
+        "lastSuccessAt": "2026-11-28T10:58:55+00:00",
+        "nextAttemptAt": "2026-11-28T11:23:55.965256+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T10:17:52+00:00",
-        "nextAttemptAt": "2026-11-28T10:42:52.679498+00:00"
+        "lastSuccessAt": "2026-11-28T10:58:55+00:00",
+        "nextAttemptAt": "2026-11-28T11:23:55.965256+00:00"
       }
     },
     "attemptedThisRun": 2,
@@ -7154,7 +7190,7 @@
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T10:17:57+00:00",
+    "checkedAt": "2026-11-28T10:59:03+00:00",
     "window": "7d",
     "sources": [
       {
@@ -7167,7 +7203,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T10:17:38+00:00",
+        "fetchedAt": "2026-11-28T10:58:42+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],

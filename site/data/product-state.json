@@ -1,6 +1,6 @@
 {
   "schema": "product-state/v1",
-  "checkedAt": "2026-11-28T10:17:54+00:00",
+  "checkedAt": "2026-11-28T10:59:00+00:00",
   "sources": [
     {
       "id": "models-dev",
@@ -2067,7 +2067,7 @@
       "checkedAt": "2026-11-28T10:17:54+00:00",
       "lastSuccessAt": "2026-11-28T10:17:54+00:00",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T11:17:54.082721+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
@@ -5155,7 +5155,7 @@
       "checkedAt": "2026-11-28T10:17:54+00:00",
       "lastSuccessAt": "2026-11-28T10:17:54+00:00",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T11:17:54.082721+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
@@ -5503,7 +5503,7 @@
       "checkedAt": "2026-11-28T10:17:54+00:00",
       "lastSuccessAt": "2026-11-28T10:17:54+00:00",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T11:17:54.082721+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
@@ -5983,8 +5983,8 @@
   "summary": {
     "configuredSources": 3,
     "sourcesWithBaseline": 3,
-    "successfulThisRun": 3,
-    "newEvents": 1,
+    "successfulThisRun": 0,
+    "newEvents": 0,
     "retainedEvents": 19,
     "listedEntries": 543
   },
