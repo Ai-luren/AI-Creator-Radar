@@ -742,10 +742,14 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
         # escape. Four-to-seven-day watches are follow-up, not launch alerts.
         if row.get("modelWatch"):
             primary=row.get("watchWindow")=="primary-3d"
-            tier=(-10 if not last else 5) if primary else (10 if not last else 15)
+            tier=(-30 if not last else 5) if primary else (10 if not last else 15)
         else:
             tier=-20 if overdue else int(row.get("priority",50))
-        return (tier,bool(last),row.get("nextAttemptAt") or "",row.get("lastAttemptAt") or "",row["id"])
+        # The first query of a new model must outrank overdue routine work.
+        # Within the urgent tier, query the newest published model first,
+        # rather than letting its hashed identifier determine launch order.
+        launch_age=release_calendar_age(row.get("publisherCalendarDay"),now) if tier==-30 else None
+        return (tier,launch_age if launch_age is not None else 0,bool(last),row.get("nextAttemptAt") or "",row.get("lastAttemptAt") or "",row["id"])
     due.sort(key=priority_key)
     attempted=0
     budget=min(2,max(1,int(config.get("maxProvidersPerRun",1))))
