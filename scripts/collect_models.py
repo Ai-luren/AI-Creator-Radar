@@ -917,6 +917,23 @@ def niji_release_items(blocks: list[dict], source: dict) -> list[dict]:
     return dedupe_candidates(results)
 
 
+def precise_feed_timestamp(value):
+    """Only publisher-supplied clock seconds and explicit timezone qualify."""
+    raw = str(value or "").strip()
+    if not re.search(r"\d{2}:\d{2}:\d{2}", raw):
+        return None
+    try:
+        parsed = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        try:
+            parsed = email.utils.parsedate_to_datetime(raw)
+        except (ValueError, TypeError, OverflowError):
+            return None
+    if parsed is None or parsed.tzinfo is None or parsed.utcoffset() is None:
+        return None
+    return parsed.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z")
+
+
 def rss_items(body: bytes, source: dict) -> list[dict]:
     root = ET.fromstring(body)
     if local_name(root.tag) not in {"rss", "feed", "rdf"}:
@@ -929,7 +946,9 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
             continue
         summary = clean_text(child_text(entry, {"description", "summary", "content", "encoded"}))
         model_id = match_model(title, source) or (None if source.get("titleModelOnly") else match_model(title + " " + summary, source))
-        explicit_published = parse_date(child_text(entry, {"pubdate", "published"}))
+        raw_published = child_text(entry, {"pubdate", "published"})
+        explicit_published = parse_date(raw_published)
+        precise_published = precise_feed_timestamp(raw_published)
         published = explicit_published or parse_date(child_text(entry, {"date", "created", "updated"}))
         url = entry_link(entry)
         model_release = model_id and is_release_candidate(title, published, source.get("allowVersionOnly", False))
@@ -943,6 +962,7 @@ def rss_items(body: bytes, source: dict) -> list[dict]:
             "title": title, "summary": summary, "url": url,
             "publishedAt": published, "modelId": model_id if model_release else None,
             **({"publicationDateKind": "feed-published"} if explicit_published else {}),
+            **({"preciseFeedPublishedAt": precise_published} if precise_published and precise_published == explicit_published else {}),
             **({"updateType": "product-announcement"} if not model_release else {}),
         })
     return results
@@ -977,7 +997,7 @@ def markdown_news_items(page: str, source: dict) -> list[dict]:
     return dedupe_candidates(results)
 
 
-def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
+def make_item(raw: dict, source: dict, models: dict, now_iso: str, observed_upper_bound=None) -> dict:
     model_id = None if raw.get("updateType") == "product-announcement" else raw.get("modelId") or match_model(raw["title"] + " " + raw.get("summary", ""), source)
     model = models.get(model_id, {})
     url = normalize_url(urljoin(source["url"], raw.get("url") or source["url"]))
@@ -1017,6 +1037,10 @@ def make_item(raw: dict, source: dict, models: dict, now_iso: str) -> dict:
         **({"publicationDateKind": raw["publicationDateKind"], "publicationObservedAt": now_iso}
            if raw.get("publicationDateKind") else {}),
         **({"listingPublishedAt": raw["listingPublishedAt"]} if raw.get("listingPublishedAt") else {}),
+        **({"preciseFeedPublishedAt":raw["preciseFeedPublishedAt"],
+            "feedTimestampFirstObservedBy":observed_upper_bound}
+           if observed_upper_bound and raw.get("publicationDateKind")=="feed-published"
+           and raw.get("preciseFeedPublishedAt") and raw["preciseFeedPublishedAt"]==raw.get("publishedAt") else {}),
     }
 
 
@@ -1051,6 +1075,23 @@ def merge_item(old: dict, new: dict) -> dict:
             and merged.get("publishedAt") == new.get("publishedAt")):
         merged["publicationDateKind"] = new["publicationDateKind"]
         merged["publicationObservedAt"] = new["publicationObservedAt"]
+    # This measurement is separate from canonical publication dates. A later
+    # conflicting clock must not silently preserve an apparently fast sample.
+    if old.get("sourceId")==new.get("sourceId"):
+        a=old.get("preciseFeedPublishedAt")
+        b=new.get("preciseFeedPublishedAt")
+        if a and b and a!=b:
+            merged["feedTimestampConflict"]=True
+        if merged.get("publicationDateKind")!="feed-published" or (
+                a and merged.get("publishedAt")!=a):
+            merged.pop("preciseFeedPublishedAt",None)
+            merged.pop("feedTimestampFirstObservedBy",None)
+        if (b and new.get("feedTimestampFirstObservedBy") and
+                merged.get("publicationDateKind")=="feed-published" and
+                merged.get("publishedAt")==b and not merged.get("feedTimestampConflict")):
+            prior=merged.get("feedTimestampFirstObservedBy") if merged.get("preciseFeedPublishedAt")==b else None
+            merged["preciseFeedPublishedAt"]=b
+            merged["feedTimestampFirstObservedBy"]=min(x for x in (prior,new["feedTimestampFirstObservedBy"]) if x)
     if len(new.get("summary", "")) > len(old.get("summary", "")):
         merged["summary"] = new["summary"]
     if new.get("modelVersion"):
@@ -1455,6 +1496,9 @@ def main() -> int:
         "sources":sorted(durations, key=lambda row:(-row["seconds"],row["id"]))
     }), flush=True)
 
+    # All source reads have completed; this is a conservative observation
+    # upper bound, unlike the historical batch-start firstSeenAt.
+    observed_upper_bound = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00","Z")
     by_id = {}
     for item in previous_updates.get("items", []):
         if item.get("id"):
@@ -1472,7 +1516,7 @@ def main() -> int:
         old = old_status.get(source["id"], {})
         if error is None:
             success_count += 1
-            incoming = [make_item(item, source, models, now_iso) for item in raw_items]
+            incoming = [make_item(item, source, models, now_iso, observed_upper_bound) for item in raw_items]
             for item in incoming:
                 key = update_identity(item)
                 item_id = existing_keys.get(key) or item["id"]

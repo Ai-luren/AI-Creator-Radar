@@ -98,3 +98,29 @@ class P1ReadinessTests(unittest.TestCase):
         self.assertEqual(result["status"],"not-measured")
         self.assertEqual(result["observedBatchIncidentDiagnostic"]["scheduledRecoveries"],1)
         self.assertEqual(result["observedBatchIncidentDiagnostic"]["maxRecoverySeconds"],3600)
+
+    def test_prospective_cohort_excludes_backfill_and_uses_observation_upper_bound(self):
+        from scripts.audit_p1_readiness import prospective_feed_latency
+        now=datetime(2026,11,28,12,tzinfo=timezone.utc)
+        source={"id":"official","active":True,"official":True,"type":"rss"}
+        row={"id":"new","sourceId":"official","official":True,"modelId":"demo",
+             "url":"https://official.example/blog/new","updateType":"release","publicationDateKind":"feed-published",
+             "publishedAt":"2026-11-28T02:30:00Z","preciseFeedPublishedAt":"2026-11-28T02:30:00Z",
+             "firstSeenAt":"2026-11-28T04:29:55Z","feedTimestampFirstObservedBy":"2026-11-28T04:30:05Z"}
+        historical={**row,"id":"historical","publishedAt":"2026-11-27T12:00:00Z",
+                    "preciseFeedPublishedAt":"2026-11-27T12:00:00Z"}
+        unproven={**row,"id":"unproven","url":"https://official.example/blog/unproven","preciseFeedPublishedAt":None}
+        duplicate={**row,"id":"duplicate","feedTimestampFirstObservedBy":"2026-11-28T05:00:00Z"}
+        data={"model_source_config":[source],"updates":{"items":[row,historical,unproven,duplicate]}}
+        d=prospective_feed_latency(data,now)
+        self.assertEqual(d["observedArticles"],1)
+        self.assertEqual(d["withinTwoHours"],0)
+        self.assertEqual(d["maxUpperBoundSeconds"],7205)
+        self.assertEqual(d["excluded"]["historical-or-undated"],1)
+        self.assertEqual(d["excluded"]["missing-precise-post-baseline-observation"],1)
+        self.assertEqual(measure(data,self.report,now)["gates"]["priorityDiscoveryLatency"]["status"],"not-measured")
+        data["updates"]["items"].append({**row,"id":"conflict","feedTimestampConflict":True})
+        blocked=prospective_feed_latency(data,now)
+        self.assertEqual(blocked["observedArticles"],0)
+        self.assertIsNone(blocked["withinTwoHoursShare"])
+        self.assertEqual(blocked["excluded"]["conflicting-publication-timestamps"],1)

@@ -370,3 +370,28 @@ class HardSourceDeadlineTests(unittest.TestCase):
         finally:
             server.shutdown()
             server.server_close()
+
+class PreciseFeedObservationTests(unittest.TestCase):
+    def test_raw_precision_requires_clock_and_timezone(self):
+        for raw in ("2026-11-28","2026-11-28T12:00:00","Sat, 28 Nov 2026 12:00:00",
+                    "2026-11-28T12:00Z","invalid"):
+            self.assertIsNone(collector.precise_feed_timestamp(raw),raw)
+        self.assertEqual(collector.precise_feed_timestamp("2026-11-28T00:00:00Z"),"2026-11-28T00:00:00Z")
+        self.assertEqual(collector.precise_feed_timestamp("Sat, 28 Nov 2026 10:30:00 +0800"),"2026-11-28T02:30:00Z")
+
+    def test_parser_and_merge_preserve_real_observation_upper_bound(self):
+        source={"id":"demo","name":"Demo","url":"https://example.com/rss","type":"rss",
+                "modelMatches":{"demo":["demo"]}}
+        raw=collector.rss_items(b"""<rss><channel><item><title>Demo 2.0 released</title>
+                <link>https://example.com/release</link><pubDate>Sat, 28 Nov 2026 10:30:00 +0800</pubDate>
+                </item></channel></rss>""",source)[0]
+        self.assertEqual(raw["preciseFeedPublishedAt"],"2026-11-28T02:30:00Z")
+        first=collector.make_item(raw,source,{},"2026-11-28T02:35:00Z","2026-11-28T02:35:20Z")
+        later=collector.make_item(raw,source,{},"2026-11-28T03:05:00Z","2026-11-28T03:05:25Z")
+        self.assertEqual(collector.merge_item(first,later)["feedTimestampFirstObservedBy"],"2026-11-28T02:35:20Z")
+        changed={**later,"publishedAt":"2026-11-28T02:31:00Z","preciseFeedPublishedAt":"2026-11-28T02:31:00Z"}
+        self.assertTrue(collector.merge_item(first,changed)["feedTimestampConflict"])
+        day=collector.rss_items(b"""<rss><channel><item><title>Demo 2.0 released</title>
+              <link>https://example.com/release</link><pubDate>2026-11-28</pubDate>
+              </item></channel></rss>""",source)[0]
+        self.assertNotIn("preciseFeedPublishedAt",day)
