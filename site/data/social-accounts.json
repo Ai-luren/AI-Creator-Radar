@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26",
+  "updatedAt": "2026-11-28",
   "scope": "模型厂商与模型聚合平台官方社媒监控；所有品牌在 8 个统一平台栏位对齐，海外筛选包含 X、Instagram、TikTok、YouTube、Facebook。暂无代表截至核验时未发现可确认的官方主页。",
   "methodology": "账号归属优先依据厂商官网、官方 GitHub、官方 Linktree、官方帮助中心或可交叉验证的品牌主页。模型厂商与聚合平台统一展示抖音、B站、小红书、X、Instagram、TikTok、YouTube、Facebook；海外平台筛选显示 X、Instagram、TikTok、YouTube、Facebook。粉丝数 / 订阅数是公开页面快照，1 万以上统一显示为“万”，不足 1 万显示原始数字；已确认官方账号但页面未返回粉丝数时标为“未读取”；未发现可确认官方账号时标为“暂无”。账号核验依据按品牌集中折叠；粉丝快照日期在数字旁标出。宣传动态只将具体原帖链接计为已链接；搜索页等非原帖来源标为待补。 动态活跃情况与粉丝快照分开记录；“暂无近期作品”不等同于账号不存在或粉丝为零。",
   "brands": [
@@ -2040,19 +2040,20 @@
           "handle": "@runninghub.ai.creators + @runninghub.ai",
           "url": "https://www.instagram.com/runninghub.ai.creators/",
           "status": "verified",
-          "followers": 2003,
-          "followersDisplay": "2003",
-          "snapshotLabel": "2026-11-25 · Instagram 公开主页快照",
-          "verification": "用户提供的两个 RunningHub Instagram 主页链接；此栏 followers 为 1805 + 92 的合计。",
+          "followers": 2170,
+          "followersDisplay": "2170",
+          "snapshotLabel": "2026-11-28 · Instagram 公开主页快照",
+          "verification": "用户确认 @runninghub.ai.creators 与 @runninghub.ai 均为 RunningHub 官方账号；此记录合计两个主页的公开粉丝数。",
           "sourceUrl": "https://www.instagram.com/runninghub.ai.creators/",
-          "note": "主页分别显示 1908 与 95 粉丝，合计约 0.2万。受众可能重叠，合计仅供参考。",
-          "extraMetric": "分账号粉丝：@runninghub.ai.creators 1805；@runninghub.ai 92",
+          "note": "28日主页分别显示 2065 与 105 粉丝，合计 2170。此前记录中的分账号数值不一致（1805/92 与 1908/95），本轮重新读取后按当前数值合计。受众可能重叠，合计仅供参考。",
+          "extraMetric": "分账号粉丝：@runninghub.ai.creators 2065；@runninghub.ai 105",
           "additionalAccounts": [
             {
               "handle": "@runninghub.ai",
               "url": "https://www.instagram.com/runninghub.ai/",
-              "followers": 95,
-              "followersDisplay": "95"
+              "followers": 105,
+              "followersDisplay": "105",
+              "snapshotLabel": "2026-11-28 · Instagram 公开主页快照"
             }
           ]
         },
@@ -2608,20 +2609,20 @@
           "handle": "@adobefirefly",
           "url": "https://www.instagram.com/adobefirefly/",
           "status": "verified",
-          "verification": "主账号 @adobefirefly 为 Adobe Firefly 官方账号；新增 @firefly.creators 主页简介写明作品由 @adobefirefly 创作，且被主账号关注。两个主页分开记录，未合并粉丝数。",
-          "followers": 316619,
-          "followersDisplay": "31.7万",
-          "snapshotLabel": "2026-11-25 · Instagram 公开主页快照",
+          "verification": "主账号 @adobefirefly 为 Adobe Firefly 官方账号；用户确认 @firefly.creators 为 Adobe Firefly 官方创作者账号，主页简介写明作品由 @adobefirefly 创作，且被主账号关注。此记录合计两个主页的粉丝数。",
+          "followers": 318631,
+          "followersDisplay": "31.9万",
+          "snapshotLabel": "2026-11-28 · Instagram 公开主页快照",
           "sourceUrl": "https://www.instagram.com/adobefirefly/",
-          "note": "主页分别显示 31.6万 与 619 粉丝，合计约 31.7万。受众可能重叠，合计仅供参考。",
+          "note": "28日 @adobefirefly 主页显示约 31.8万粉丝，@firefly.creators 主页显示 631 粉丝；按主页显示值折算合计约 31.9万。受众可能重叠，合计仅供参考。此前“分开记录”说明已按用户确认更正为合计。",
           "extraMetric": "",
           "relatedPages": [
             {
               "handle": "@firefly.creators",
               "url": "https://www.instagram.com/firefly.creators/",
-              "followers": 627,
-              "followersDisplay": "627",
-              "snapshotLabel": "2026-11-26 · Instagram 公开主页快照"
+              "followers": 631,
+              "followersDisplay": "631",
+              "snapshotLabel": "2026-11-28 · Instagram 公开主页快照"
             }
           ]
         },
