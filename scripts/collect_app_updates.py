@@ -377,7 +377,8 @@ AIPICK_QUERIES={
     ("海螺","ai-products"),("Vidu","ai-products"),("PixVerse","ai-products"),("Sand.ai","ai-models"),
     ("Higgsfield",None),("Flova",None),("TapNow",None),("LibTV",None),
     ("OiiOii",None),("Lovart",None),("Updream",None),("ShotLab",None),("Renoise",None),("Liblib",None),
-    ("MiniMax",None),("Midjourney",None),("ElevenLabs",None),("Dreamina",None)
+    ("MiniMax",None),("Midjourney",None),("ElevenLabs",None),("Dreamina",None),
+    ("小云雀",None),("Pippit",None),("Gemini","ai-products")
 }
 
 
@@ -402,9 +403,90 @@ def parse_store(payload,source):
                  "claimType":"first-party-store-version"}}
 
 
+# Exact model names are derived only from verified release rows, not arbitrary
+# article text or external instructions. No URL/host is supplied by a model.
+MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","小云雀","Pippit","即梦","Dreamina","Gemini")
+MODEL_WATCH_NAME=re.compile(r"^(?:Seedance|Seedream|SeedAudio|MAGI|Kling|可灵|Vidu|Wan|HappyHorse|Veo|Gemini|GPT[- ]Image|Nano Banana|Hailuo|海螺|PixVerse|MiniMax|Niji|Midjourney|Suno|ElevenLabs|Scribe|Eleven|HY[- ]?3D)(?:[ -]|\d|$)",re.I)
+def valid_watch_term(term):
+    return isinstance(term,str) and len(term)<=80 and bool(MODEL_WATCH_NAME.match(term)) and bool(re.fullmatch(r"[\w .+\-]+",term)) and bool(re.search(r"\d",term))
+
+def model_watch_queries(releases,now):
+    candidates=[]
+    seen=set()
+    for row in releases or []:
+        if not isinstance(row,dict):
+            continue
+        name=row.get("modelName")
+        day=row.get("publishedAt")
+        try:
+            published=datetime.strptime(day,"%Y-%m-%d").replace(tzinfo=timezone.utc)
+            url=urlsplit(row.get("url") or "")
+        except (TypeError,ValueError):
+            continue
+        if not (now.date()-timedelta(days=6)<=published.date()<=now.date() and
+                row.get("category") in {"video","image","audio","music","tts","speech","audio-other","llm"} and
+                row.get("modelFamilyId") and row.get("modelVersionId") and row.get("verifiedAt") and
+                row.get("evidenceType") in {"official-release","official-model-card"} and
+                row.get("verificationStatus")!="pending" and url.scheme=="https" and url.hostname and
+                not url.username and not url.password and valid_watch_term(name)):
+            continue
+        key=(row["modelFamilyId"],row["modelVersionId"])
+        if key in seen:
+            continue
+        seen.add(key)
+        candidates.append((row,name,day))
+    candidates.sort(key=lambda x:(x[0].get("category") in {"video","image","audio","music","tts","speech","audio-other"},x[2],x[0].get("category")=="video",x[1]),reverse=True)
+    # At most three active model watches. Two provider slots remain the same.
+    out=[]
+    for row,name,day in candidates[:3]:
+        key=hashlib.sha256((row["modelFamilyId"]+"|"+row["modelVersionId"]+"|"+day).encode()).hexdigest()[:20]
+        for provider in ("AIHOT","AIPick"):
+            out.append({"id":"model-watch-"+key+"-"+provider.lower(),"term":name,"label":name,"provider":provider,
+                        "priority":-10,"intervalMinutes":360,"modelWatch":True,"modelFamilyId":row["modelFamilyId"],
+                        "modelVersionId":row["modelVersionId"],"publisherCalendarDay":day})
+    return out
+
+def model_watch_pattern(term):
+    # Accept spaces/hyphens between canonical name components, not another
+    # numeric version or a named variant of the base model.
+    parts=re.split(r"[\s_-]+",term.strip())
+    core=r"[\s_-]*".join(re.escape(part) for part in parts)
+    return re.compile(r"(?<![A-Za-z0-9])"+core+r"(?![A-Za-z0-9.]|[-_][A-Za-z0-9]|\s+(?:pro|fast|lite|flash|mini|max|turbo|ultra|preview|plus)\b)",re.I)
+
+
+def model_watch_counts(rows,term):
+    # Metadata only. Counts are discovery signals, not published launch claims.
+    pattern=model_watch_pattern(term)
+    by_brand={b:0 for b in MODEL_WATCH_BRANDS}
+    seen=set()
+    for row in rows:
+        if not isinstance(row,dict) or row.get("selected") is not True:
+            continue
+        title=str(row.get("title") or "")
+        if not pattern.search(title) or re.search(r"折扣|优惠券|黑五|discount|coupon|black friday",title,re.I):
+            continue
+        links=row.get("links") or {}
+        original=links.get("original") if isinstance(links,dict) else None
+        if not isinstance(original,str) or links.get("story"):
+            continue
+        try:
+            u=urlsplit(original)
+            if not u.hostname or u.username or u.password or u.port not in (None,443) or u.scheme!="https":
+                continue
+        except ValueError:
+            continue
+        for brand in MODEL_WATCH_BRANDS:
+            if not re.search(r"(?<![A-Za-z0-9])"+re.escape(brand)+r"(?![A-Za-z0-9])",title,re.I):
+                continue
+            k=(brand,u.hostname,u.path,u.query)
+            if k not in seen:
+                seen.add(k)
+                by_brand[brand]+=1
+    return by_brand
+
 def fetch_target(spec,etag):
     term,category=spec["term"],spec.get("category")
-    if (term,category) not in AIPICK_QUERIES:
+    if (term,category) not in AIPICK_QUERIES and not (spec.get("modelWatch") is True and category is None and valid_watch_term(term)):
         raise ValueError("Unapproved targeted query")
     params={"mode":"all","window":"7d","by":"published","q":term,"limit":30}
     if category:
@@ -468,24 +550,25 @@ def fetch_target(spec,etag):
             return {"items":len(rows),"wechatOriginalLinks":domains["wechat"],
                     "otherOriginalLinks":domains["other"],"missingOriginalLinks":domains["missing"],
                     "exactTitleMatches":exact,"hasNextCursor":bool(payload.get("nextCursor") or (payload.get("page") or {}).get("nextCursor")),
-                    "selectedProductFeatures":selected_updates["productFeature"],"selectedModelIntegrations":selected_updates["modelIntegration"]},response.headers.get("ETag","")
+                    "selectedProductFeatures":selected_updates["productFeature"],"selectedModelIntegrations":selected_updates["modelIntegration"],
+                    **({"modelWatchBrandMentions":model_watch_counts(rows,term)} if spec.get("modelWatch") else {})},response.headers.get("ETag","")
     except urllib.error.HTTPError as exc:
         if exc.code==304 and etag:
             return None,etag
         raise
 
 
-def collect_targeted(config,previous,now,fetcher=fetch_target):
+def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
     if not config:
         return {}
     stamp=now.isoformat(timespec="seconds")
     old={q["id"]:q for q in previous.get("queries",[])}
     rows=[]
-    for spec in config["queries"]:
+    for spec in [*config["queries"],*model_watch_queries(releases,now)]:
         prior=old.get(spec["id"],{})
         if prior.get("term")!=spec["term"] or prior.get("category")!=spec.get("category") or prior.get("provider","AIPick")!=spec.get("provider","AIPick"):
             prior={}
-        rows.append({**prior,**spec})
+        rows.append({**prior,**spec,"queuedAt":prior.get("queuedAt") or stamp})
     service=dict(previous.get("service",{}))
     provider_services={k:dict(v) for k,v in previous.get("providerServices",{}).items()}
     if not provider_services and service.get("error"):
@@ -495,7 +578,18 @@ def collect_targeted(config,previous,now,fetcher=fetch_target):
         wait=parse_stamp(provider_services.get(row.get("provider","AIPick"),{}).get("nextAttemptAt"))
         return not wait or wait<=now
     due=[r for r in rows if provider_due(r) and (not parse_stamp(r.get("nextAttemptAt")) or parse_stamp(r["nextAttemptAt"])<=now)]
-    due.sort(key=lambda r:(bool(r.get("lastAttemptAt")),r.get("nextAttemptAt") or "",r.get("priority",50),r["id"]))
+    def priority_key(row):
+        retry=parse_stamp(row.get("nextAttemptAt"))
+        last=parse_stamp(row.get("lastAttemptAt"))
+        queued=parse_stamp(row.get("queuedAt"))
+        overdue=(retry or queued or now)<=now-timedelta(hours=24)
+        # New watches first; overdue ordinary queries outrank repeated watches.
+        if row.get("modelWatch"):
+            tier=-10 if not last else 5
+        else:
+            tier=-20 if overdue else int(row.get("priority",50))
+        return (tier,bool(last),row.get("nextAttemptAt") or "",row["id"])
+    due.sort(key=priority_key)
     attempted=0
     budget=min(2,max(1,int(config.get("maxProvidersPerRun",1))))
     chosen=[]
@@ -533,7 +627,7 @@ def collect_targeted(config,previous,now,fetcher=fetch_target):
                 row["counts"]=result
                 row["countsObservedAt"]=stamp
             row.update(status="unchanged" if result is None else "observed",etag=etag,lastSuccessAt=stamp,error=None,
-                       nextAttemptAt=(now+timedelta(minutes=config["intervalMinutes"])).isoformat())
+                       nextAttemptAt=(now+timedelta(minutes=max(360,int(row.get("intervalMinutes",config["intervalMinutes"]))))).isoformat())
             provider_state.update(consecutiveFailures=0,error=None,lastSuccessAt=stamp,
                            nextAttemptAt=(now+timedelta(minutes=config["globalIntervalMinutes"])).isoformat())
             service.update(consecutiveFailures=0,error=None,lastSuccessAt=stamp,
@@ -581,7 +675,57 @@ def fetch(source):
         return parse_product_surface(data.decode("utf-8"),source)
     return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
 
-def aggregate_coverage(spec,targeted,now):
+def readable_competitor_lanes(snapshots,term,now):
+    """Only recent selected original links actually present in saved reading data."""
+    found=set()
+    if not term:
+        return found
+    brand=re.escape(term)
+    for payload in (snapshots or {}).values():
+        if not isinstance(payload,dict):
+            continue
+        stamp=parse_stamp(payload.get("fetchedAt"))
+        if not stamp or not now-timedelta(hours=12)<=stamp<=now:
+            continue
+        for item in payload.get("items",[]):
+            if not isinstance(item,dict) or item.get("selected") is not True:
+                continue
+            when=parse_stamp(item.get("publishedAt"))
+            links=item.get("links") or {}
+            if not when or not now-timedelta(days=7)<=when<=now or not isinstance(links,dict) or links.get("story"):
+                continue
+            original=links.get("original")
+            if not isinstance(original,str):
+                continue
+            try:
+                u=urlsplit(original)
+                if not u.hostname or u.username or u.password or u.port not in (None,443) or not (u.scheme=="https" or u.scheme=="http" and u.hostname=="mp.weixin.qq.com" and re.match(r"^/s(?:/|$)",u.path)):
+                    continue
+            except ValueError:
+                continue
+            title=str(item.get("title") or "").strip()
+            if not (re.match(r"^"+brand+r"(?![A-Za-z0-9])",title,re.I) or re.search(r"(?:接入|上线|上架|登陆|登录)\s*"+brand+r"(?![A-Za-z0-9])",title,re.I)):
+                continue
+            if re.search(r"测评|实测|教程|提示词|折扣|优惠|黑五|discount|coupon|black friday|review|tutorial",title,re.I):
+                continue
+            if re.search(r"上线|接入|上架|支持|integrat|now live|available",title,re.I) and re.search(r"模型|MAGI[- ]?\d|Seedance|Seedream|Kling|GPT[- ]?\d|Gemini|Vidu|Wan\s*\d",title,re.I):
+                found.add("selectedModelIntegrations")
+            elif re.search(r"新功能|新增|更新|推出|发布|上线|升级|功能|工作流|画布|编辑|feature|launch|introduc|release|update|workflow",title,re.I):
+                found.add("selectedProductFeatures")
+    return found
+
+
+def read_selected_snapshots(data_dir):
+    snapshots={}
+    for provider,filename in (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json")):
+        try:
+            snapshots[provider]=json.loads((data_dir/filename).read_text(encoding="utf-8"))
+        except (OSError,ValueError):
+            pass
+    return snapshots
+
+
+def aggregate_coverage(spec,targeted,now,snapshots=None):
     """Selected-report coverage, not a proof of completeness or release facts."""
     ids=spec.get("aggregateQueryIds")
     if not ids:
@@ -600,9 +744,13 @@ def aggregate_coverage(spec,targeted,now):
         counts=r.get("counts") or {}
         if r.get("status") in {"observed","unchanged"} and success and limit<=success<=now and all(k in counts for k in ("selectedProductFeatures","selectedModelIntegrations")):
             fresh.append(counts)
-    missing=[lane for lane in ("selectedProductFeatures","selectedModelIntegrations") if not any(c.get(lane,0)>0 for c in fresh)]
+    lanes=("selectedProductFeatures","selectedModelIntegrations")
+    queried={lane for lane in lanes if any(c.get(lane,0)>0 for c in fresh)}
+    visible=readable_competitor_lanes(snapshots,spec.get("vendor") or rows[0].get("term"),now)
+    missing=[lane for lane in lanes if lane not in queried or lane not in visible]
     return {"status":"aggregate-gap" if missing else "aggregate-covered-sample","missingLanes":missing,
-            "successfulProviders":len(fresh),"policy":"Observed selected-report lanes, not exhaustive event coverage."}
+            "queryLanes":sorted(queried),"readableLanes":sorted(visible),
+            "successfulProviders":len(fresh),"policy":"Require both query and readable selected evidence; not exhaustive coverage."}
 
 
 
@@ -745,14 +893,43 @@ def correct_model_improvement(row):
     return row
 
 
-def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
+def model_watch_official_gap(spec,targeted,previous,now):
+    """A recent model-specific two-provider attempt authorizes the existing
+    official gap probe, even if generic brand-level query counts look covered.
+    Do not skip on mention counts or an unattempted model watch."""
+    brand=spec.get("vendor")
+    if brand not in MODEL_WATCH_BRANDS or spec.get("type") not in {"higgs-changelog","dated-changelog","product-surface"}:
+        return []
+    groups={}
+    for row in targeted.get("queries",[]):
+        if row.get("modelWatch") is True:
+            groups.setdefault((row.get("modelFamilyId"),row.get("modelVersionId"),row.get("term")),[]).append(row)
+    source_ids={s["id"] for s in previous.get("sources",[]) if s.get("vendor")==brand}
+    evidence=[]
+    for event in previous.get("events",[]):
+        if event.get("sourceId") in source_ids and event.get("claimType")=="first-party-product-changelog" and event.get("updateType")=="model-integration":
+            evidence.append((event.get("featureName",""),event.get("publisherCalendarDay","")))
+    gaps=[]
+    for (_,_,term),rows in groups.items():
+        if not valid_watch_term(term) or {r.get("provider") for r in rows}!={"AIHOT","AIPick"}:
+            continue
+        if any(not (now-timedelta(hours=12)<=(parse_stamp(r.get("lastAttemptAt")) or datetime.min.replace(tzinfo=timezone.utc))<=now) for r in rows):
+            continue
+        pattern=model_watch_pattern(term)
+        day=rows[0].get("publisherCalendarDay") or ""
+        if not any(d>=day and pattern.search(name) for name,d in evidence if isinstance(name,str) and isinstance(d,str)):
+            gaps.append(term)
+    return sorted(set(gaps))
+
+
+def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releases=None,snapshots=None):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
     stamp=now.isoformat(timespec="seconds")
     prior={s["id"]:s for s in previous.get("sources",[])}
     events={e["id"]:correct_model_improvement(e) if e.get("sourceId")=="higgsfield-changelog" else e
             for e in previous.get("events",[])}
-    targeted=collect_targeted(config.get("targetedDiscovery"),previous.get("targetedDiscovery",{}),now,target_fetcher)
+    targeted=collect_targeted(config.get("targetedDiscovery"),previous.get("targetedDiscovery",{}),now,target_fetcher,releases)
     sources=[]
     for spec in config["sources"]:
         old=prior.get(spec["id"],{})
@@ -766,16 +943,21 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
         if spec["id"]=="higgsfield-changelog" and spec.get("type")=="higgs-changelog":
             entries={k:correct_model_improvement(v) for k,v in entries.items()}
             row["entries"]=entries
-        coverage=aggregate_coverage(spec,targeted,now)
+        coverage=aggregate_coverage(spec,targeted,now,snapshots)
+        model_gaps=model_watch_official_gap(spec,targeted,previous,now)
+        if model_gaps:
+            row["modelWatchGap"]=model_gaps
+        else:
+            row.pop("modelWatchGap",None)
         if coverage is not None:
             row["aggregateCoverage"]=coverage
-            if coverage["status"]!="aggregate-gap":
+            if coverage["status"]!="aggregate-gap" and not model_gaps:
                 sources.append({**row,"entries":entries,"status":old.get("status","awaiting-aggregate"),"deferred":True,"skipReason":coverage["status"]})
                 continue
         row.pop("skipReason",None)
         next_at=parse_stamp(old.get("nextAttemptAt"))
         if next_at and next_at>now:
-            sources.append({**row,"deferred":True})
+            sources.append({**row,"entries":entries,"deferred":True})
             continue
         try:
             fresh=fetcher(spec)
@@ -846,7 +1028,9 @@ def main():
         # No source probe, query budget use or mutation of collector timestamps.
         result=previous
     else:
-        result=collect(config,previous,datetime.now(timezone.utc))
+        release_path=ROOT/"site/data/model-releases-30d.json"
+        releases=read(release_path).get("items",[]) if release_path.exists() else []
+        result=collect(config,previous,datetime.now(timezone.utc),releases=releases,snapshots=read_selected_snapshots(ROOT/"site/data"))
     result=refresh_platform_coverage(config,result,ROOT/"site/data",datetime.now(timezone.utc))
     print("Platform coverage:",json.dumps(result["platformCoverage"],ensure_ascii=False))
     if not a.coverage_only:

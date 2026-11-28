@@ -142,27 +142,48 @@ class AppUpdatesTests(unittest.TestCase):
 
     def test_aggregate_first_coverage_defers_only_after_both_provider_queries(self):
         from scripts.collect_app_updates import aggregate_coverage
-        spec={"aggregateQueryIds":["a","b"]}
+        spec={"aggregateQueryIds":["a","b"],"vendor":"Higgsfield"}
+        snapshots=self.readable_fixture()
         def row(key,provider,features,models):
             return {"id":key,"provider":provider,"status":"observed","lastAttemptAt":self.now.isoformat(),"lastSuccessAt":self.now.isoformat(),"counts":{"selectedProductFeatures":features,"selectedModelIntegrations":models}}
         first=row("a","AIHOT",0,4)
         second=row("b","AIPick",3,0)
         self.assertEqual(aggregate_coverage(spec,{"queries":[first]},self.now)["status"],"awaiting-aggregate")
-        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now)["status"],"aggregate-covered-sample")
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now)["status"],"aggregate-gap")
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now,snapshots)["status"],"aggregate-covered-sample")
         second["counts"]["selectedProductFeatures"]=0
-        result=aggregate_coverage(spec,{"queries":[first,second]},self.now)
+        result=aggregate_coverage(spec,{"queries":[first,second]},self.now,snapshots)
         self.assertEqual(result["status"],"aggregate-gap")
         self.assertEqual(result["missingLanes"],["selectedProductFeatures"])
         self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now+timedelta(hours=13))["status"],"awaiting-aggregate")
 
+    def readable_fixture(self):
+        return {"AIHOT":{"fetchedAt":self.now.isoformat(),"items":[{"title":"Higgsfield 新功能","selected":True,"publishedAt":self.now.isoformat(),"links":{"original":"https://higgsfield.ai/blog/feature"}},{"title":"MAGI-2 模型接入 Higgsfield","selected":True,"publishedAt":self.now.isoformat(),"links":{"original":"https://higgsfield.ai/blog/model"}}]}}
+
     def test_aggregate_first_skips_direct_probe_and_preserves_existing_events(self):
-        cfg={"sources":[{**self.spec,"aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":480,"globalIntervalMinutes":25,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
+        cfg={"sources":[{**self.spec,"vendor":"Higgsfield","aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":480,"globalIntervalMinutes":25,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
         first=collect(cfg,{},self.now,lambda *_:self.fail("wait for both aggregate queries"),lambda *_:({"selectedProductFeatures":2,"selectedModelIntegrations":0},"a"))
         self.assertEqual(first["sources"][0]["skipReason"],"awaiting-aggregate")
-        second=collect(cfg,first,self.now+timedelta(minutes=30),lambda *_:self.fail("no duplicate probe when both lanes covered"),lambda *_:({"selectedProductFeatures":0,"selectedModelIntegrations":2},"b"))
+        second=collect(cfg,first,self.now+timedelta(minutes=30),lambda *_:self.fail("no duplicate probe when both lanes covered"),lambda *_:({"selectedProductFeatures":0,"selectedModelIntegrations":2},"b"),snapshots=self.readable_fixture())
         self.assertEqual(second["sources"][0]["skipReason"],"aggregate-covered-sample")
         self.assertEqual(second["summary"]["successfulThisRun"],0)
         self.assertEqual(second["events"],[])
+
+    def test_priority_bands_keep_existing_budget_and_lower_secondary_frequency(self):
+        from scripts.collect_app_updates import collect_targeted
+        cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[
+          {"id":"secondary","term":"Flova","provider":"AIHOT","priority":20,"intervalMinutes":1440},
+          {"id":"primary","term":"TapNow","provider":"AIHOT","priority":0,"intervalMinutes":720}]}
+        calls=[]
+        def fetch(spec,etag):
+            calls.append(spec["id"])
+            return {"items":1},"e"
+        first=collect_targeted(cfg,{},self.now,fetch)
+        self.assertEqual(calls,["primary"])
+        second=collect_targeted(cfg,first,self.now+timedelta(minutes=30),fetch)
+        self.assertEqual(calls,["primary","secondary"])
+        secondary=next(x for x in second["queries"] if x["id"]=="secondary")
+        self.assertEqual(secondary["nextAttemptAt"],(self.now+timedelta(days=1,minutes=30)).isoformat())
 
     def test_dual_provider_round_robin_keeps_one_request_each_and_prioritizes_unseen(self):
         from scripts.collect_app_updates import collect_targeted
@@ -314,3 +335,97 @@ class AppUpdatesTests(unittest.TestCase):
         migrated=collect({"sources":[hf]},previous,self.now,lambda _:fresh)
         self.assertTrue(all(e["kind"]=="baseline-product-surface" for e in migrated["events"]))
         self.assertFalse(migrated["sources"][0]["entries"]["old"]["visibleInLatestRead"])
+
+    def test_model_watch_from_verified_recent_release_shares_existing_budget(self):
+        from scripts.collect_app_updates import collect_targeted, model_watch_queries, model_watch_counts
+        release={"modelName":"Seedance 3.5","modelFamilyId":"seedance","modelVersionId":"seedance-3-5","category":"video",
+                 "publishedAt":self.now.date().isoformat(),"verifiedAt":self.now.date().isoformat(),
+                 "evidenceType":"official-release","url":"https://example.org/official"}
+        bad=[{**release,"modelName":"Seedance 9.9","verificationStatus":"pending"},
+             {**release,"modelName":"Seedance 3.5?bad"},
+             {**release,"publishedAt":"2026-01-01"}]
+        queries=model_watch_queries([release,*bad],self.now)
+        self.assertEqual(len(queries),2)
+        self.assertEqual({q["provider"] for q in queries},{"AIHOT","AIPick"})
+        calls=[]
+        cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[
+            {"id":"hf","term":"Higgsfield","provider":"AIHOT","priority":0}]}
+        def fetch(q,etag):
+            calls.append(q["id"])
+            return {"items":1},"e"
+        first=collect_targeted(cfg,{},self.now,fetch,releases=[release])
+        self.assertEqual(first["attemptedThisRun"],2)
+        self.assertTrue(all(x.startswith("model-watch-") for x in calls))
+        blocked=collect_targeted(cfg,first,self.now+timedelta(minutes=10),fetch,releases=[release])
+        self.assertEqual(blocked["attemptedThisRun"],0)
+        later=collect_targeted(cfg,blocked,self.now+timedelta(minutes=30),fetch,releases=[release])
+        self.assertEqual(later["attemptedThisRun"],1)
+        self.assertEqual(calls[-1],"hf")
+        rows=[{"selected":True,"title":"Higgsfield 接入 Seedance 3.5","links":{"original":"https://example.org/1"}},
+              {"selected":True,"title":"LibTV Seedance 3.50","links":{"original":"https://example.org/2"}}]
+        result=model_watch_counts(rows,"Seedance 3.5")
+        self.assertEqual(result["Higgsfield"],1)
+        self.assertEqual(result["LibTV"],0)
+
+    def test_model_watch_gap_enables_existing_official_probe_but_respects_cooldown(self):
+        from scripts.collect_app_updates import model_watch_official_gap
+        spec={"id":"hf","name":"Higgsfield","vendor":"Higgsfield","type":"higgs-changelog","url":"https://higgsfield.ai/creator-hub/changelog","links":[],"minIntervalMinutes":360}
+        rows=[{"modelWatch":True,"modelFamilyId":"seedance","modelVersionId":"35","term":"Seedance 3.5",
+               "provider":provider,"publisherCalendarDay":self.now.date().isoformat(),"lastAttemptAt":self.now.isoformat()} for provider in ("AIHOT","AIPick")]
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows[:1]},{},self.now),[])
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows},{},self.now),["Seedance 3.5"])
+        prior={"sources":[spec],"events":[{"sourceId":"hf","claimType":"first-party-product-changelog","updateType":"model-integration",
+               "featureName":"Seedance 3.5","publisherCalendarDay":self.now.date().isoformat()}]}
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows},prior,self.now),[])
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows},{},self.now+timedelta(hours=13)),[])
+        release={"modelName":"Seedance 3.5","modelFamilyId":"seedance","modelVersionId":"35","category":"video",
+                 "publishedAt":self.now.date().isoformat(),"verifiedAt":self.now.date().isoformat(),
+                 "evidenceType":"official-release","url":"https://example.org/official"}
+        cfg={"sources":[{**spec,"aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":720,"globalIntervalMinutes":25,
+             "maxProvidersPerRun":2,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
+        previous={"schema":"app-updates/v1","sources":[{**spec,"nextAttemptAt":(self.now+timedelta(hours=1)).isoformat()}],"events":[]}
+        got=collect(cfg,previous,self.now,lambda _:self.fail("must honor source cooldown"),lambda *_:({"items":0},"e"),releases=[release])
+        self.assertEqual(got["sources"][0]["modelWatchGap"],["Seedance 3.5"])
+        self.assertTrue(got["sources"][0]["deferred"])
+        self.assertEqual(got["summary"]["successfulThisRun"],0)
+
+    def test_model_watch_matches_spacing_without_collapsing_variants(self):
+        from scripts.collect_app_updates import model_watch_pattern
+        p=model_watch_pattern("MAGI-2")
+        self.assertTrue(p.search("Higgsfield 接入 MAGI 2"))
+        self.assertTrue(p.search("MAGI2模型上新"))
+        self.assertFalse(p.search("MAGI-20"))
+        self.assertFalse(p.search("MAGI-2.1"))
+        self.assertFalse(p.search("MAGI-2-fast"))
+        p=model_watch_pattern("Seedance 3.5")
+        self.assertFalse(p.search("Seedance 3.5 Pro"))
+        self.assertTrue(p.search("Seedance 3.5 视频模型"))
+
+    def test_old_ordinary_query_gets_slot_before_repeated_watch(self):
+        from scripts.collect_app_updates import collect_targeted
+        cfg={"maxProvidersPerRun":1,"intervalMinutes":720,"globalIntervalMinutes":25,
+             "queries":[{"id":"secondary","term":"Flova","provider":"AIHOT","priority":20}]}
+        row={"modelName":"MAGI-2","modelFamilyId":"magi","modelVersionId":"2","category":"video",
+             "publishedAt":self.now.date().isoformat(),"verifiedAt":self.now.date().isoformat(),
+             "evidenceType":"official-release","url":"https://example.org/official"}
+        from scripts.collect_app_updates import model_watch_queries
+        watches=model_watch_queries([row],self.now)
+        old={"queries":[{**cfg["queries"][0],"queuedAt":(self.now-timedelta(hours=25)).isoformat()},
+                        *[{**w,"lastAttemptAt":(self.now-timedelta(hours=7)).isoformat()} for w in watches]]}
+        calls=[]
+        def fetch(q,etag):
+            calls.append(q["id"])
+            return {"items":0},"tag"
+        got=collect_targeted(cfg,old,self.now,fetch,releases=[row])
+        self.assertEqual(calls,["secondary"])
+        self.assertEqual(got["attemptedThisRun"],1)
+
+    def test_readable_coverage_rejects_stale_snapshots_and_report_only_links(self):
+        from scripts.collect_app_updates import readable_competitor_lanes
+        snapshots=self.readable_fixture()
+        self.assertEqual(len(readable_competitor_lanes(snapshots,"Higgsfield",self.now)),2)
+        snapshots["AIHOT"]["items"][1]["links"]["story"]="https://aihot.news/story/test"
+        self.assertEqual(readable_competitor_lanes(snapshots,"Higgsfield",self.now),{"selectedProductFeatures"})
+        snapshots["AIHOT"]["fetchedAt"]=(self.now-timedelta(hours=13)).isoformat()
+        snapshots["AIHOT"]["checkedAt"]=self.now.isoformat()
+        self.assertEqual(readable_competitor_lanes(snapshots,"Higgsfield",self.now),set())
