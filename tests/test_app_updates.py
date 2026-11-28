@@ -276,3 +276,14 @@ class AppUpdatesTests(unittest.TestCase):
         changes=[e for e in second["events"] if e["kind"]=="new-product-surface"]
         self.assertEqual([e["featureName"] for e in changes],["Comic Studio"])
         self.assertIsNone(changes[0]["releaseDate"])
+
+    def test_libtv_whole_product_updates_and_non_feature_exclusions(self):
+        from scripts.collect_app_updates import parse_product_surface
+        spec={**self.spec,"id":"libtv-home","url":"https://www.liblib.tv/","type":"product-surface"}
+        page="""<main><nav>首页项目资产插件</nav><span>LibTV 画布</span><span>版本更新记录</span><span>新建画布创作</span>
+        <h2>最近上新</h2><p>新增资产共享功能</p><p>智能剪辑支持字幕导出</p><p>插件系统升级</p>
+        <p>MAGI-2独家首发·低至12积分/秒</p><p>全新AI视频课程</p><p>电影节活动上线</p><p>会员优惠上线</p>
+        <h2>创作精选</h2><p>角色资产新功能上线</p></main>"""
+        labels={v["featureName"] for v in parse_product_surface(page,spec).values()}
+        self.assertTrue({"项目","资产","插件","新增资产共享功能","智能剪辑支持字幕导出","插件系统升级","MAGI-2独家首发"}<=labels)
+        self.assertFalse({"全新AI视频课程","电影节活动上线","会员优惠上线","角色资产新功能上线"}&labels)
