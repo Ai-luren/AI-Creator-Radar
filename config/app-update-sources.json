@@ -160,6 +160,64 @@
           "access": "国内上线日期未核实"
         }
       ]
+    },
+    {
+      "id": "xiaoyunque-manual",
+      "name": "小云雀 · 官方产品入口",
+      "vendor": "小云雀",
+      "role": "first-party",
+      "url": "https://xyq.jianying.com/tutorials/web-manual",
+      "type": "navigation-only",
+      "minIntervalMinutes": 360,
+      "links": [
+        {
+          "kind": "官方产品入口",
+          "url": "https://xyq.jianying.com/",
+          "access": "国内版"
+        }
+      ]
+    },
+    {
+      "id": "pippit-product",
+      "name": "Pippit · 官方产品入口",
+      "vendor": "Pippit",
+      "role": "first-party",
+      "url": "https://www.pippit.ai/",
+      "type": "navigation-only",
+      "minIntervalMinutes": 360,
+      "links": [
+        {
+          "kind": "Seedance 2.5 官方首发介绍",
+          "url": "https://www.pippit.ai/business/seedance/seedance-2-5-launch",
+          "access": "历史产品介绍；非本周上新"
+        }
+      ]
+    },
+    {
+      "id": "gemini-app-updates",
+      "name": "Gemini · 官方产品入口",
+      "vendor": "Gemini",
+      "role": "first-party",
+      "url": "https://gemini.google.com/updates",
+      "type": "navigation-only",
+      "minIntervalMinutes": 360,
+      "links": []
+    },
+    {
+      "id": "oiioii-changelog-entry",
+      "name": "OiiOii · 官方产品入口",
+      "vendor": "OiiOii",
+      "role": "competitor",
+      "url": "https://www.oiioii.ai/zh/changelog",
+      "type": "navigation-only",
+      "minIntervalMinutes": 360,
+      "links": [
+        {
+          "kind": "官方模型目录",
+          "url": "https://www.oiioii.ai/en/explore/models",
+          "access": "目录不等于发布日期"
+        }
+      ]
     }
   ],
   "reviewedObservations": [
@@ -242,210 +300,248 @@
         "id": "jimeng-products",
         "label": "即梦",
         "term": "即梦",
-        "category": "ai-products"
+        "category": "ai-products",
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "jimeng-seedaudio",
         "label": "SeedAudio",
-        "term": "SeedAudio"
+        "term": "SeedAudio",
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "kling-products",
         "label": "可灵",
         "term": "可灵",
-        "category": "ai-products"
+        "category": "ai-products",
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "hailuo-products",
         "label": "海螺",
         "term": "海螺",
-        "category": "ai-products"
+        "category": "ai-products",
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "vidu-products",
         "label": "Vidu",
         "term": "Vidu",
-        "category": "ai-products"
+        "category": "ai-products",
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "pixverse-products",
         "label": "PixVerse",
         "term": "PixVerse",
-        "category": "ai-products"
+        "category": "ai-products",
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "sand-models",
         "label": "Sand.ai",
         "term": "Sand.ai",
-        "category": "ai-models"
+        "category": "ai-models",
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "higgsfield-aihot",
         "label": "Higgsfield",
         "term": "Higgsfield",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "higgsfield-aipick",
         "label": "Higgsfield",
         "term": "Higgsfield",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "flova-aihot",
         "label": "Flova",
         "term": "Flova",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "flova-aipick",
         "label": "Flova",
         "term": "Flova",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "tapnow-aihot",
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "tapnow-aipick",
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "libtv-aihot",
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "libtv-aipick",
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "oiioii-aihot",
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "oiioii-aipick",
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "updream-aihot",
         "label": "Updream",
         "term": "Updream",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "updream-aipick",
         "label": "Updream",
         "term": "Updream",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "shotlab-aihot",
         "label": "ShotLab",
         "term": "ShotLab",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "shotlab-aipick",
         "label": "ShotLab",
         "term": "ShotLab",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "renoise-aihot",
         "label": "Renoise",
         "term": "Renoise",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "renoise-aipick",
         "label": "Renoise",
         "term": "Renoise",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "minimax-aihot",
         "label": "MiniMax",
         "term": "MiniMax",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "minimax-aipick",
         "label": "MiniMax",
         "term": "MiniMax",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "midjourney-aihot",
         "label": "Midjourney",
         "term": "Midjourney",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "midjourney-aipick",
         "label": "Midjourney",
         "term": "Midjourney",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "elevenlabs-aihot",
         "label": "ElevenLabs",
         "term": "ElevenLabs",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "elevenlabs-aipick",
         "label": "ElevenLabs",
         "term": "ElevenLabs",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "dreamina-aihot",
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "dreamina-aipick",
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "jimeng-products-aihot",
@@ -453,14 +549,16 @@
         "term": "即梦",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "jimeng-seedaudio-aihot",
         "label": "SeedAudio",
         "term": "SeedAudio",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 0,
+        "intervalMinutes": 720
       },
       {
         "id": "kling-products-aihot",
@@ -468,7 +566,8 @@
         "term": "可灵",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "hailuo-products-aihot",
@@ -476,7 +575,8 @@
         "term": "海螺",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "vidu-products-aihot",
@@ -484,7 +584,8 @@
         "term": "Vidu",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "pixverse-products-aihot",
@@ -492,7 +593,8 @@
         "term": "PixVerse",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
       },
       {
         "id": "sand-models-aihot",
@@ -500,7 +602,58 @@
         "term": "Sand.ai",
         "category": "ai-models",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440
+      },
+      {
+        "id": "xiaoyunque-aihot",
+        "label": "小云雀",
+        "term": "小云雀",
+        "provider": "AIHOT",
+        "priority": 0,
+        "intervalMinutes": 720
+      },
+      {
+        "id": "xiaoyunque-aipick",
+        "label": "小云雀",
+        "term": "小云雀",
+        "provider": "AIPick",
+        "priority": 0,
+        "intervalMinutes": 720
+      },
+      {
+        "id": "pippit-aihot",
+        "label": "Pippit",
+        "term": "Pippit",
+        "provider": "AIHOT",
+        "priority": 0,
+        "intervalMinutes": 720
+      },
+      {
+        "id": "pippit-aipick",
+        "label": "Pippit",
+        "term": "Pippit",
+        "provider": "AIPick",
+        "priority": 0,
+        "intervalMinutes": 720
+      },
+      {
+        "id": "gemini-app-aihot",
+        "label": "Gemini",
+        "term": "Gemini",
+        "provider": "AIHOT",
+        "priority": 0,
+        "intervalMinutes": 720,
+        "category": "ai-products"
+      },
+      {
+        "id": "gemini-app-aipick",
+        "label": "Gemini",
+        "term": "Gemini",
+        "provider": "AIPick",
+        "priority": 0,
+        "intervalMinutes": 720,
+        "category": "ai-products"
       }
     ],
     "maxProvidersPerRun": 2
