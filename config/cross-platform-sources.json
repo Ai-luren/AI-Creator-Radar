@@ -65,6 +65,14 @@
       "url": "https://huggingface.co/api/models?author=tencent&sort=createdAt&direction=-1&limit=20"
     },
     {
+      "id": "hf-inclusionai",
+      "name": "Hugging Face · 蚂蚁 inclusionAI 官方账号",
+      "type": "hf-models",
+      "author": "inclusionAI",
+      "url": "https://huggingface.co/api/models?author=inclusionAI&sort=createdAt&direction=-1&limit=20",
+      "minIntervalMinutes": 120
+    },
+    {
       "id": "llm-world-json",
       "name": "LLM World · 开源证据索引",
       "type": "llm-world-json",

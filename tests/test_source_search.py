@@ -22,6 +22,24 @@ class SourceSearchTests(unittest.TestCase):
                                                 {"id":"upload","sourceId":"hf","title":"Demo v3 Live","dateKind":"repository-created-at"}]}
         self.assertEqual(len(build_targets(self.families,rows,{},{})),1)
 
+    def test_new_model_name_from_exact_repository_and_independent_briefing(self):
+        repo = {"id":"repo","sourceId":"hf-inclusionai","title":"inclusionAI/Ming-Image-0.2-Design",
+                "url":"https://huggingface.co/inclusionAI/Ming-Image-0.2-Design","dateKind":"repository-created-at",
+                "reportedAt":"2026-11-25T00:00:00Z","firstSeenAt":"2026-11-26T00:00:00Z"}
+        lead = {"id":"new","sourceId":"local-aihot-daily","title":"蚂蚁开源 Ming-Image-0.2-Design 图像模型",
+                "officialArticleUrls":[],"firstSeenAt":"2026-11-26T00:00:00Z"}
+        calls=[]
+        result=search(self.families,{"items":[repo,lead]}, {}, {},{},self.allowed,self.now,
+                      lambda target,*a:calls.append(target["query"]) or [])
+        self.assertEqual(calls,["Ming-Image-0.2-Design"])
+        target=result["targets"][0]
+        self.assertIsNone(target["identity"])
+        self.assertEqual(target["localContext"][0]["kind"],"repository-pointer-unverified")
+        self.assertIsNone(target["localContext"][0]["assertedDate"])
+        for rows in ([lead], [repo], [repo,dict(lead,title="Ming-Image-0.2-Design-Layer 发布")],
+                     [dict(repo,url="https://huggingface.co/other/Ming-Image-0.2-Design"),lead]):
+            self.assertEqual(build_targets(self.families,{"items":rows},{},{}),{})
+
     def test_title_variant_and_host_validation(self):
         results = parse_results({"articles":[
             {"title":"Introducing Demo v3","url":"https://official.example/blog/v3","seendate":"20261126T120000Z"},
