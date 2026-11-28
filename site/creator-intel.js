@@ -170,7 +170,7 @@ function innovationOpportunityRows(snapshot,now){
    var link=creatorOriginalUrl(x.url),u;try{u=new URL(link)}catch(e){return}
    if(u.hostname!=='github.com'||u.pathname.replace(/\/$/,'').toLowerCase()!=='/'+String(x.repo||'').toLowerCase()||repoSeen.has(x.repo.toLowerCase()))return;
    if(!theme.pattern.test([x.name,x.description,x.research.idea].join(' ')))return;
-   repoSeen.add(x.repo.toLowerCase());references.push({title:x.name||x.repo,url:link,review:x.research.review,caution:x.research.caution||''});
+   repoSeen.add(x.repo.toLowerCase());references.push({title:x.name||x.repo,url:link,review:x.research.review,caution:x.research.caution||'',idea:x.research.idea||'',license:x.license||''});
   }
   (repos.items||[]).forEach(repoRef);
   var shown=[],counts={};
@@ -196,12 +196,41 @@ function innovationExplorationRows(snapshot,now){
  });
  return rows.sort(function(a,b){return b.signal.day.localeCompare(a.signal.day)||({product:0,model:1,case:2}[a.signal.type]-{product:0,model:1,case:2}[b.signal.type])});
 }
+function innovationModelTestPlan(signal){
+ if(!signal||signal.type!=='model')return null;
+ var plans={
+  video:['固定参考图、提示词、镜头及可比时长','对比主体一致性、运动轨迹、镜头控制、音画同步（如官方支持）','记录失败样本、重复生成稳定性及输出限制'],
+  image:['固定角色参考、文本、布局与编辑区域','对比角色保持、文字准确度、局部编辑范围','检查输出分辨率、透明或矢量格式是否确实可用'],
+  audio:['固定视频或音频参考、对白和环境音','对比音质、时间戳、声源保持和同步','检查独立音轨、可编辑输出与授权限制'],
+  music:['固定场景、时长、情绪及参考节奏','对比结构、节奏、情绪和重复生成一致性','检查编辑、分轨和授权边界'],
+  tts:['固定多语言台词、情绪与发音词表','对比可懂度、发音、停顿与情绪稳定性','核查说话人授权和对齐时间戳'],
+  llm:['固定创作任务、输入资料与输出结构','对比指令遵循、素材理解及结构化输出','检查工具调用边界、重复稳定性与可复现性']
+ };
+ return {status:'待实测',baseline:'上一可用版本；若接口或输入不可比，记录差异，不强行评分',steps:plans[signal.category]||plans.llm};
+}
+function innovationImplementationPlan(row){
+ var lanes={
+  sound:['输入：原始视频及授权音频','处理：音轨拆分 → 局部生成或替换 → 对齐时间线','交付：可编辑轨道及回写视频'],
+  character:['输入：授权人物参考与剧本','处理：固定角色档案 → 多视图 → 分镜及画格编辑','交付：可复用角色资产与画格'],
+  previs:['输入：场景、人物站位与镜头描述','处理：结构化场景 → 灰模预演 → 视频模型参考','交付：参考帧、轨迹及镜头结果'],
+  graphic:['输入：构图、文字、透明或矢量资产需求','处理：生成 → 校正 → 独立格式验证','交付：可编辑素材及实际格式'],
+  workflow:['输入：统一素材与创作任务','处理：节点输入输出 → 生成编排 → 失败恢复与质检','交付：可重跑工作流与媒体结果']
+ };
+ return {steps:lanes[row.id]||[],references:row.references||[],status:'实现路径假设 · 未运行第三方代码'};
+}
 function innovationExplorationMarkup(snapshot,now){
  var rows=innovationExplorationRows(snapshot,now).filter(function(r){return matches([r.signal.title,r.signal.origin,r.signal.detail,r.question].join(' '))}),labels={model:'已核实模型发布',product:'官方产品日志',case:'创作者精选线索'};
- var list=rows.slice(0,12).map(function(r){var s=r.signal;
-  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(s.day+' · '+labels[s.type]+' · '+s.origin)+'</span><strong>'+esc(s.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+(s.detail?'<p>'+esc(s.detail)+'</p>':'')+'<p><strong>探索问题：</strong>'+esc(r.question)+'</p><div class="briefing-original-links">'+creatorLink(s.url,'原始记录')+'</div>'+(r.related?'<p><strong>同名型号关联：</strong>'+esc(r.related.origin+' · '+r.related.title+' · '+r.related.day)+' '+creatorLink(r.related.url,'独立模型记录')+'。同名候选，不证明接口、权重或能力完全一致。</p>':'')+'</div></details></article>';
+ var list=rows.slice(0,12).map(function(r){var s=r.signal,plan=innovationModelTestPlan(s);
+  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(s.day+' · '+labels[s.type]+' · '+s.origin)+'</span><strong>'+esc(s.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+(s.detail?'<p>'+esc(s.detail)+'</p>':'')+'<p><strong>探索问题：</strong>' +esc(r.question)+'</p>'+(plan?'<p><strong>能力测试清单 · '+esc(plan.status)+'</strong></p><p>'+esc(plan.baseline)+'</p><ol>'+plan.steps.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>':'')+'<div class="briefing-original-links">'+creatorLink(s.url,'原始记录')+'</div>'+(r.related?'<p><strong>同名型号关联：</strong>'+esc(r.related.origin+' · '+r.related.title+' · '+r.related.day)+' '+creatorLink(r.related.url,'独立模型记录')+'。同名候选，不证明接口、权重或能力完全一致。</p>':'')+'</div></details></article>';
  }).join('');
  return '<section class="briefing-digest-section"><div class="section-head"><h2>新能力与功能探索</h2><span class="head-meta">'+Math.min(rows.length,12)+' / '+rows.length+' 条</span></div><p class="page-desc">保留主题之外的信号；不把既有模型功能认定为新增能力，不把官方日志日期当模型首发日期。</p><div class="briefing-list">'+(list||empty('近七天暂无符合条件的探索信号。'))+'</div></section>';
+}
+function innovationSurfaceMarkup(app,now){
+ var sources=(app||{}).sources||[],rows=((app||{}).events||[]).filter(function(e){
+  return e.kind==='new-product-surface'&&e.claimType==='first-party-product-surface'&&e.featureName&&withinDays(e.observedAt,7,new Date(now))&&creatorOriginalUrl(e.featureUrl||e.sourceUrl);
+ }).map(function(e){var source=sources.find(function(s){return s.id===e.sourceId&&s.role==='competitor'&&s.type==='product-surface'});return source?{event:e,brand:source.vendor}:null}).filter(Boolean).filter(function(r){return matches([r.brand,r.event.featureName].join(' '))});
+ rows.sort(function(a,b){return String(b.event.observedAt).localeCompare(String(a.event.observedAt))});
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>产品入口变化 · 观察时间</h2><span class="head-meta">'+rows.length+' 条</span></div><p class="page-desc">仅比较成功读取后的新增可见入口；首次基线不算更新，入口消失不代表下线。</p><div class="briefing-list">'+(rows.slice(0,12).map(function(r){var e=r.event;return '<article class="briefing-card"><div class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.brand+' · '+chinaDay(e.observedAt)+' · 首次观察，非发布日期')+'</span><strong>'+esc(e.featureName)+'</strong></span>'+creatorLink(e.featureUrl||e.sourceUrl,'官方入口')+'</div></article>'}).join('')||empty('暂无已成功观察的入口变化；查看功能矩阵中的现有能力。'))+'</div></section>'
 }
 function innovationPage(tabs){
  var snapshot={releases:state.modelReleases,app:state.appUpdates,repos:state.repoRadar,batches:[{name:'AIHOT',items:state.aihot.items},{name:'AIPick',items:(state.aipick||{}).items}]},now=Date.now();
@@ -209,11 +238,12 @@ function innovationPage(tabs){
  var filtered=rows.filter(function(row){return matches([row.title,row.idea,row.form].concat(row.signals.map(function(s){return s.title+' '+s.origin})).join(' '))});
  var labels={model:'已核实模型发布',product:'官方产品日志',case:'创作者精选线索'};
  var body=filtered.map(function(row){
+  var implementation=innovationImplementationPlan(row);
   var evidence=row.signals.map(function(s){return '<div class="overview-row"><span><span class="overview-row-meta">'+esc(labels[s.type]+' · '+s.day+' · '+s.origin)+'</span><br><strong>'+esc(s.title)+'</strong></span><span>'+creatorLink(s.url,'原始证据')+'</span></div>'}).join('');
-  var refs=row.references.map(function(x){return '<div class="overview-row"><span><strong>'+esc(x.title)+'</strong> · '+esc(x.review==='readme-reviewed'?'README 已阅读':'仅元数据核查')+'<br><span class="overview-row-meta">'+esc(x.caution)+'</span></span>'+creatorLink(x.url,'仓库')+'</div>'}).join('');
-  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(row.latest+' · '+row.form+' · 产品机会假设')+'</span><strong>'+esc(row.title)+'</strong><span>'+esc(row.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>待验证的痛点：</strong>'+esc(row.pain)+'</p><p><strong>最小验证：</strong>'+esc(row.test)+'</p><h3>近七天主题信号 · '+row.signalCount+' 条（每类最多展示两条）</h3>'+evidence+'<h3>开源研究参考 · 不代表可直接采用</h3>'+(refs||'<p class="page-desc">当前快照暂无已核查的匹配仓库。</p>')+'</div></details></article>'
+  var refs=row.references.map(function(x){return '<div class="overview-row"><span><strong>'+esc(x.title)+'</strong> · '+esc(x.review==='readme-reviewed'?'README 已阅读':'仅元数据核查')+'<br><span class="overview-row-meta">'+esc([x.idea,x.license?'仓库许可 '+x.license:'许可待核验',x.caution].filter(Boolean).join(' · '))+'</span></span>'+creatorLink(x.url,'仓库')+'</div>'}).join('');
+  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(row.latest+' · '+row.form+' · 产品机会假设')+'</span><strong>'+esc(row.title)+'</strong><span>'+esc(row.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>待验证的痛点：</strong>'+esc(row.pain)+'</p><p><strong>最小验证：</strong>'+esc(row.test)+'</p><h3>近七天主题信号 · '+row.signalCount+' 条（每类最多展示两条）</h3>'+evidence+'<h3>最小实现路径 · '+esc(implementation.status)+'</h3><ol>'+implementation.steps.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ol><h3>开源研究参考 · 不代表可直接采用</h3>'+(refs||'<p class="page-desc">当前快照暂无已核查的匹配仓库。</p>')+'</div></details></article>'
  }).join('');
- return pageHead('行业简报','将近期模型、竞品功能和创作者实验关联为可验证的产品机会。','创新机会 · 近7天')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">规则匹配 · 按最近信号日期排序；主题相近不代表技术已兼容或竞品采用该仓库。所有产品构想均为假设，不是发布事实，不使用模型推理 API。</p><section class="briefing-digest-section"><div class="section-head"><h2>值得原型验证</h2><span class="head-meta">'+filtered.length+' 个方向</span></div><div class="briefing-list">'+(body||empty('当前七天快照暂无符合规则的主题信号；不代表没有创新机会。'))+'</div></section>'+innovationExplorationMarkup(snapshot,now)+'<details class="source-health"><summary>产品创新研究方法与官方入口</summary><p class="page-desc">研究资料不算近期上线事件。LibTV 官网可见版本更新入口，当前自动采集尚未读到功能级日志。</p><div class="briefing-original-links">'+creatorLink('https://higgsfield.ai/blog/inside-higgsfield','Inside Higgsfield · 产品研发复盘')+creatorLink('https://higgsfield.ai/blog/editorials','Higgsfield · 功能拆解')+creatorLink('https://www.liblib.tv/','LibTV · 官方产品与版本更新')+'</div></details>'
+ return pageHead('行业简报','将近期模型、竞品功能和创作者实验关联为可验证的产品机会。','创新机会 · 近7天')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">规则匹配 · 按最近信号日期排序；主题相近不代表技术已兼容或竞品采用该仓库。所有产品构想均为假设，不是发布事实，不使用模型推理 API。</p><section class="briefing-digest-section"><div class="section-head"><h2>值得原型验证</h2><span class="head-meta">'+filtered.length+' 个方向</span></div><div class="briefing-list">'+(body||empty('当前七天快照暂无符合规则的主题信号；不代表没有创新机会。'))+'</div></section>'+innovationExplorationMarkup(snapshot,now)+innovationSurfaceMarkup(snapshot.app,now)+'<details class="source-health"><summary>产品创新研究方法与官方入口</summary><p class="page-desc">研究资料不算近期上线事件。LibTV 官网可见版本更新入口，当前自动采集尚未读到功能级日志。</p><div class="briefing-original-links">'+creatorLink('https://higgsfield.ai/blog/inside-higgsfield','Inside Higgsfield · 产品研发复盘')+creatorLink('https://higgsfield.ai/blog/editorials','Higgsfield · 功能拆解')+creatorLink('https://www.liblib.tv/','LibTV · 官方产品与版本更新')+'</div></details>'
 }
 
 // Product signals are a reading priority, not a publication or model fact gate.
@@ -242,9 +272,9 @@ var competitorMatrixDimensions=[
 ];
 var competitorMatrixReviewed=[
  {brand:'Higgsfield',name:'Mangaka · 漫画工作台',dimensions:['studio','image'],url:'https://higgsfield.ai/blog/higgsfield-introduces-mangaka',reviewedOn:'2026-11-28',note:'官方介绍角色、场景、道具复用及画格编辑。'},
- {brand:'Higgsfield',name:'Canvas',dimensions:['canvas'],url:'https://higgsfield.ai/blog/higgsfield-introduces-mangaka',reviewedOn:'2026-11-28',note:'官网导航显示入口；未实测节点范围。'},
+ {brand:'Higgsfield',name:'Canvas',dimensions:['canvas'],url:'https://higgsfield.ai/canvas',reviewedOn:'2026-11-28',note:'官网导航显示入口；未实测节点范围。'},
  {brand:'LibTV',name:'LibTV 画布',dimensions:['canvas'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页展示画布入口。'},
- {brand:'LibTV',name:'LibTV 3D-BOX',dimensions:['video'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页展示产品入口；未实测镜头参数。'},
+ {brand:'LibTV',name:'LibTV 3D-BOX',dimensions:['video'],url:'https://www.liblib.tv/3d-box',reviewedOn:'2026-11-28',note:'官方说明含搭景、站位及手绘运镜；未实测镜头参数。'},
  {brand:'LibTV',name:'LibTV Agent BETA',dimensions:['agent'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页展示 Beta 入口。'},
  {brand:'LibTV',name:'音频生成',dimensions:['sound'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页列出能力；未实测具体音频工具。'},
  {brand:'LibTV',name:'智能剪辑',dimensions:['video'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页列出能力；未实测。'}
@@ -258,6 +288,13 @@ function competitorMatrixRows(app,now,reviewed){
   if(!competitorMatrixBrands.includes(brand)||!url||/折扣|促销|积分|价格|discount|coupon|pricing|credits|contest|giveaway|black friday/i.test(e.featureName))return;
   var dimensions=e.updateType==='model-integration'?['integration']:competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName+' '+(e.productArea||''))}).map(function(x){return x.id});
   add({brand:brand,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:chinaDay(e.publisherCalendarDay),kind:'官方日志',note:'日志记录，不代表当前仍可用。'});
+ });
+ sources.filter(function(s){return s.type==='product-surface'&&s.role==='competitor'&&competitorMatrixBrands.includes(s.vendor)}).forEach(function(source){
+  Object.values(source.entries||{}).filter(function(e){return e.claimType==='first-party-product-surface'&&e.visibleInLatestRead===true&&e.featureName&&e.lastObservedAt}).forEach(function(e){
+   var url=creatorOriginalUrl(e.featureUrl||source.url);if(!url)return;
+   var dimensions=competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName)}).map(function(x){return x.id});
+   add({brand:source.vendor,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:null,reviewedOn:chinaDay(e.lastObservedAt),kind:'官网自动观察',note:'最近成功读取的公开入口，不代表发布日期或登录后的完整功能。'});
+  })
  });
  (reviewed||[]).forEach(function(x){if(competitorMatrixBrands.includes(x.brand)&&creatorOriginalUrl(x.url))add(Object.assign({},x,{kind:'官网观察',day:null}))});
  return rows.sort(function(a,b){return String(b.day||'').localeCompare(String(a.day||''))||a.name.localeCompare(b.name)});
