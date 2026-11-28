@@ -43,11 +43,6 @@ on:
           - aipick
           - maintenance
           - deploy-only
-      verify_revid:
-        description: "Verify Revid authentication and one guarded search (no publication)"
-        type: boolean
-        required: false
-        default: false
 
 permissions:
   contents: write
@@ -140,25 +135,6 @@ jobs:
         env:
           RADAR_GITHUB_API_TOKEN: ${{ github.token }}
         run: python scripts/run_collection_batch.py recovery
-
-      # Read-only account probe on collector/config pushes or explicit manual verification.
-      # No search quota is consumed; no account fields are logged.
-      - name: Verify Revid production authentication
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.verify_revid == true)
-        timeout-minutes: 1
-        continue-on-error: true
-        env:
-          REVID_API_KEY: ${{ secrets.REVID_API_KEY }}
-        run: python -m scripts.check_revid_auth
-
-      - name: Verify Revid cloud search and quota persistence
-        if: github.event_name == 'workflow_dispatch' && inputs.verify_revid == true
-        timeout-minutes: 2
-        continue-on-error: true
-        env:
-          REVID_API_KEY: ${{ secrets.REVID_API_KEY }}
-          RADAR_GITHUB_API_TOKEN: ${{ github.token }}
-        run: python -m scripts.check_revid_cloud
 
       - name: Collect resources and rankings in isolated transactions
         id: resources_batch
