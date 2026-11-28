@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T00:02:45+00:00",
+  "checkedAt": "2026-11-28T00:17:51+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -460,7 +460,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T00:02:45+00:00",
+    "checkedAt": "2026-11-28T00:17:51+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -624,7 +624,24 @@
         "id": "flova-aihot",
         "label": "Flova",
         "term": "Flova",
-        "provider": "AIHOT"
+        "provider": "AIHOT",
+        "lastAttemptAt": "2026-11-28T00:17:51+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T00:17:51+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-42b37bf08eea1f2a\"",
+        "lastSuccessAt": "2026-11-28T00:17:51+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T08:17:51.152051+00:00"
       },
       {
         "id": "flova-aipick",
@@ -660,11 +677,18 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-27T23:17:48+00:00",
-      "nextAttemptAt": "2026-11-28T00:17:48.414578+00:00"
+      "lastSuccessAt": "2026-11-28T00:17:51+00:00",
+      "nextAttemptAt": "2026-11-28T00:42:51.152051+00:00"
     },
-    "providerServices": {},
-    "attemptedThisRun": 0,
+    "providerServices": {
+      "AIHOT": {
+        "consecutiveFailures": 0,
+        "error": null,
+        "lastSuccessAt": "2026-11-28T00:17:51+00:00",
+        "nextAttemptAt": "2026-11-28T00:42:51.152051+00:00"
+      }
+    },
+    "attemptedThisRun": 1,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [

@@ -1,6 +1,6 @@
 {
   "schema": "product-state/v1",
-  "checkedAt": "2026-11-28T00:02:46+00:00",
+  "checkedAt": "2026-11-28T00:17:53+00:00",
   "sources": [
     {
       "id": "models-dev",
@@ -2064,12 +2064,12 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T23:17:49+00:00",
-      "lastSuccessAt": "2026-11-27T23:17:49+00:00",
+      "checkedAt": "2026-11-28T00:17:53+00:00",
+      "lastSuccessAt": "2026-11-28T00:17:53+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T00:17:49.761826+00:00",
+      "nextAttemptAt": "2026-11-28T01:17:53.201408+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5152,12 +5152,12 @@
           "missingChecks": 2
         }
       },
-      "checkedAt": "2026-11-27T23:17:49+00:00",
-      "lastSuccessAt": "2026-11-27T23:17:49+00:00",
+      "checkedAt": "2026-11-28T00:17:53+00:00",
+      "lastSuccessAt": "2026-11-28T00:17:53+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T00:17:49.761826+00:00",
+      "nextAttemptAt": "2026-11-28T01:17:53.201408+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5500,12 +5500,12 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T23:17:49+00:00",
-      "lastSuccessAt": "2026-11-27T23:17:49+00:00",
+      "checkedAt": "2026-11-28T00:17:53+00:00",
+      "lastSuccessAt": "2026-11-28T00:17:53+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T00:17:49.761826+00:00",
+      "nextAttemptAt": "2026-11-28T01:17:53.201408+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     }
   ],
@@ -5959,7 +5959,7 @@
   "summary": {
     "configuredSources": 3,
     "sourcesWithBaseline": 3,
-    "successfulThisRun": 0,
+    "successfulThisRun": 3,
     "newEvents": 0,
     "retainedEvents": 18,
     "listedEntries": 544
