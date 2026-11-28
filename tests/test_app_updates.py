@@ -502,3 +502,50 @@ class FullProductHistoryTests(unittest.TestCase):
         self.assertEqual(first["events"][0]["publisherCalendarDay"],"2026-07-29")
         self.assertIsNone(first["events"][0]["releaseDate"])
         self.assertEqual(collect({"sources":[spec]},first,now+timedelta(hours=6),lambda _:parse_dated_changelog(page,spec))["events"],first["events"])
+
+
+class LibTVPluginReleaseTests(unittest.TestCase):
+    def test_explicit_official_plugin_versions_and_merge_duplicates(self):
+        from scripts.collect_app_updates import parse_libtv_plugin_releases
+        url="https://github.com/liblib-ai/marketplace"
+        spec={"id":"libtv-codex-plugin","name":"LibTV plugin","vendor":"LibTV","role":"competitor","url":url,"type":"github-plugin-release","links":[],"minIntervalMinutes":720}
+        def item(ch,subject,date="2026-11-27T09:29:09Z",parents=1):
+            sha=ch*40
+            return {"sha":sha,"html_url":url+"/commit/"+sha,"parents":[{}]*parents,"commit":{"message":subject,"committer":{"date":date}}}
+        merged="Merge pull request #13 from liblib-ai/feat/libtv-1.1.0\n\nfeat(plugin): 发布 LibTV 1.1.0，新增 libtv-use 顶层通用创作与模型路由技能"
+        rows=parse_libtv_plugin_releases([item("a",merged,parents=2),item("b","feat(plugin): 发布 LibTV 1.1.0"),item("c","fix: 更新文档"),item("d","feat(plugin): 发布 LibTV 1.0.0","2026-09-17T09:48:15Z"),{**item("e","feat(plugin): 发布 LibTV 9.0.0"),"html_url":"https://example.com/fake"}],spec)
+        values=list(rows.values())
+        self.assertEqual([v["productVersion"] for v in values],["1.1.0","1.0.0"])
+        self.assertEqual(values[0]["sourceUrl"],url+"/commit/"+"a"*40)
+        self.assertEqual(values[0]["publisherCalendarDay"],"2026-11-27")
+        self.assertTrue(all(v["claimType"]=="first-party-plugin-release" and v["updateType"]=="product-release" for v in values))
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        result=collect({"sources":[spec]}, {}, now, lambda _:rows)
+        self.assertEqual(len(result["events"]),2)
+        self.assertTrue(all(e["releaseDate"] is None and e["kind"]=="baseline-plugin-release" for e in result["events"]))
+        self.assertEqual(collect({"sources":[spec]},result,now+timedelta(hours=12),lambda _:rows)["events"],result["events"])
+        with self.assertRaises(ValueError):parse_libtv_plugin_releases([item("c","fix: 更新文档")],spec)
+        with self.assertRaises(ValueError):parse_libtv_plugin_releases([item("a",merged,parents=2)],{**spec,"url":"https://github.com/other/repo"})
+
+
+class PluginApiRateLimitTests(unittest.TestCase):
+    def test_token_is_used_only_for_fixed_api_and_redirects_rejected(self):
+        from unittest.mock import patch
+        from urllib.error import HTTPError
+        from scripts.collect_app_updates import plugin_request,PluginNoRedirect,LIBTV_PLUGIN_API
+        with patch.dict("os.environ",{"RADAR_GITHUB_API_TOKEN":"fixture-token"}):
+            req=plugin_request()
+        self.assertEqual(req.full_url,LIBTV_PLUGIN_API)
+        self.assertEqual(req.get_header("Authorization"),"Bearer fixture-token")
+        with self.assertRaises(HTTPError):
+            PluginNoRedirect().redirect_request(req,None,302,"redirect",{},"https://api.github.com/other")
+        with patch.dict("os.environ",{"RADAR_GITHUB_API_TOKEN":""}):
+            self.assertIsNone(plugin_request().get_header("Authorization"))
+    def test_rate_limit_resets_and_retained_snapshot(self):
+        from scripts.collect_app_updates import app_probe_retry_at
+        from urllib.error import HTTPError
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        reset=int((now+timedelta(hours=9)).timestamp())
+        error=HTTPError("https://api.github.com/",403,"rate limit",{"X-RateLimit-Remaining":"0","X-RateLimit-Reset":str(reset),"Retry-After":"3600"},None)
+        self.assertEqual(app_probe_retry_at(error,now,1),(now+timedelta(hours=9,minutes=1)).isoformat())
+        self.assertEqual(app_probe_retry_at(HTTPError("https://api.github.com/",429,"limit",{"Retry-After":"36000"},None),now,1),(now+timedelta(hours=10)).isoformat())

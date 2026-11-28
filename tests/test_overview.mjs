@@ -814,14 +814,29 @@ test('reviewed LibTV product milestones are explicit media evidence, not officia
  const {run,node}=setup({query:'?view=topics&topic=product-libtv',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
  const config=JSON.parse(fs.readFileSync(path.join(root,'config/app-update-sources.json'),'utf8'));
  const items=config.reviewedObservations.filter(e=>e.claimType==='corroborated-product-milestone');
- assert.equal(items.length,2);
+ assert.equal(items.length,3);
  const source=config.sources.find(s=>s.id==='libtv-entry');
  run('state.appUpdates='+JSON.stringify({sources:[source],events:[],reviewedObservations:items.concat([{...items[0],id:'bad',title:'Unproven launch',verificationUrl:items[0].sourceUrl},{...items[0],id:'promo',title:'Promo trailer',featureName:'Promo trailer'}])})+';render()');
  const markup=node('content').innerHTML;
  assert.match(markup,/datetime="2026-03-18"/);assert.match(markup,/datetime="2026-07-14"/);
  assert.match(markup,/媒体交叉报道（非官方日志）/);assert.match(markup,/原始报道/);assert.doesNotMatch(markup,/Unproven launch|Promo trailer/);
- assert.equal(run("topicMilestoneCounts(currentChronicleTopics().find(t=>t.id==='product-libtv')).verified"),2);
+ assert.equal(run("topicMilestoneCounts(currentChronicleTopics().find(t=>t.id==='product-libtv')).verified"),3);
  assert.equal(run("competitorBriefRows(state.appUpdates,[],{},Date.now()).length"),0);
  run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');
  assert.doesNotMatch(node('content').innerHTML,/无限画布与节点式视频工作流|LibTV Agent 与 Skill Hub 上线/);
+});
+
+test('official GitHub plugin releases are one shared dated product event, never model adoption',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=product-libtv',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
+ const url='https://github.com/liblib-ai/marketplace',source={id:'libtv-codex-plugin',vendor:'LibTV',role:'competitor',type:'github-plugin-release',url};
+ const event={id:'plugin',sourceId:source.id,sourceUrl:url+'/commit/'+'a'.repeat(40),claimType:'first-party-plugin-release',publisherCalendarDay:'2026-11-27',featureName:'LibTV Codex 插件 1.1.0 · 新增 libtv-use',productVersion:'1.1.0',productArea:'Codex / MCP / Skills',updateType:'product-release',observedAt:'2026-11-28T10:00:00Z'};
+ const app={sources:[source],events:[event]};
+ run('state.appUpdates='+JSON.stringify(app)+';render()');
+ assert.match(node('content').innerHTML,/LibTV Codex 插件 1\.1\.0/);assert.match(node('content').innerHTML,/官方插件发布提交/);
+ const rows=JSON.parse(run('JSON.stringify(competitorBriefRows(state.appUpdates,[],{},Date.now()))'));
+ assert.equal(rows[0].proof,'官方插件发布提交');assert.equal(rows[0].kind,'产品发布');
+ const matrix=JSON.parse(run('JSON.stringify(competitorMatrixRows(state.appUpdates,Date.now(),[]))'));
+ assert.ok(matrix[0].dimensions.includes('plugin'));assert.equal(matrix[0].kind,'官方插件发布提交');
+ run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');assert.match(node('content').innerHTML,/LibTV Codex 插件 1\.1\.0/);
+ assert.equal(run("productChronicleTopics({sources:state.appUpdates.sources,events:[{...state.appUpdates.events[0],sourceUrl:'https://github.com/other/repo/commit/'+'a'.repeat(40)}]},[]).find(t=>t.id==='product-libtv').milestones.length"),0);
 });

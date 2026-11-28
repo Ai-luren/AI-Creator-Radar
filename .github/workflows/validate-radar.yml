@@ -56,11 +56,13 @@ jobs:
         if: github.event_name == 'pull_request'
         run: python scripts/ci_changed_scopes.py
       - name: Read-only source diagnostics
+        env:
+          GH_TOKEN: ${{ github.token }}
         if: (github.event_name == 'workflow_dispatch' && inputs.probe_sources) || (github.event_name == 'pull_request' && steps.probe_needed.outputs.models == 'true')
         run: |
           python scripts/collect_models.py --dry-run --report /tmp/radar-source-probe.json
           python scripts/collect_cross_platform.py --dry-run --report /tmp/radar-cross-probe.json
-          python scripts/collect_app_updates.py --dry-run --report /tmp/radar-app-probe.json
+          RADAR_GITHUB_API_TOKEN="$GH_TOKEN" python scripts/collect_app_updates.py --dry-run --report /tmp/radar-app-probe.json
           python scripts/collect_product_state.py --dry-run --report /tmp/radar-product-probe.json
           python scripts/collect_source_search.py --dry-run --discovery /tmp/radar-cross-probe.json --product-state /tmp/radar-product-probe.json --report /tmp/radar-search-probe.json
           python scripts/collect_resolve_model_leads.py --dry-run --discovery /tmp/radar-cross-probe.json --source-search /tmp/radar-search-probe.json --report /tmp/radar-proof-probe.json

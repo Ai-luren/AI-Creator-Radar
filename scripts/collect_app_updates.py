@@ -7,6 +7,7 @@ from urllib.robotparser import RobotFileParser
 from html.parser import HTMLParser
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import urllib.request
@@ -32,6 +33,8 @@ DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
 PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/",
                   "oiioii-model-directory":"https://www.oiioii.ai/zh/explore/models"}
 PRODUCT_SURFACE_PARSER_VERSION=2
+LIBTV_PLUGIN_REPO="https://github.com/liblib-ai/marketplace"
+LIBTV_PLUGIN_API="https://api.github.com/repos/liblib-ai/marketplace/commits?sha=main&per_page=30"
 ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG,*DATED_CHANGELOGS.values(),*PRODUCT_SURFACES.values()}
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
@@ -721,9 +724,87 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
             "policy":"Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."}
 
 
+def parse_libtv_plugin_releases(payload,source):
+    """Read only explicit version-release commits on the official production plugin repo."""
+    if source.get("id")!="libtv-codex-plugin" or source.get("url")!=LIBTV_PLUGIN_REPO or not isinstance(payload,list):
+        raise ValueError("Unexpected LibTV plugin release source")
+    rows={}
+    for item in payload[:30]:
+        if not isinstance(item,dict):
+            continue
+        sha=item.get("sha","")
+        if not isinstance(sha,str) or not re.fullmatch(r"[0-9a-f]{40}",sha):
+            continue
+        commit=item.get("commit") or {}
+        if not isinstance(commit,dict):
+            continue
+        lines=str(commit.get("message","")).splitlines()
+        if not lines:
+            continue
+        # Merge announcements may carry the release subject as their second
+        # paragraph. Prefer the main-branch merge record over its child commit.
+        subject=lines[0]
+        if re.fullmatch(r"Merge pull request #\d+ from liblib-ai/.+",subject) and len(item.get("parents",[]))>=2:
+            subject=next((line for line in lines[1:] if line.strip()),"")
+        match=re.fullmatch(r"feat\(plugin\):\s*发布 LibTV (\d+\.\d+\.\d+)(?:[，,]\s*(.{1,100}))?",subject)
+        if not match:
+            continue
+        stamp=parse_stamp((commit.get("committer") or {}).get("date"))
+        if stamp is None:
+            continue
+        version,detail=match.groups()
+        key=hashlib.sha256(("libtv-codex-plugin|"+version).encode()).hexdigest()
+        url=LIBTV_PLUGIN_REPO+"/commit/"+sha
+        if item.get("html_url")!=url:
+            continue
+        if key in rows:
+            continue
+        rows[key]={"featureName":"LibTV Codex 插件 "+version+(" · "+detail if detail else ""),
+                   "publisherCalendarDay":stamp.date().isoformat(),"publisherCommitAt":stamp.isoformat(),
+                   "productVersion":version,"productArea":"Codex / MCP / Skills",
+                   "publisherLabel":"官方插件发布提交","updateType":"product-release",
+                   "category":"app","claimType":"first-party-plugin-release","sourceUrl":url}
+    if not rows:
+        raise ValueError("No explicit production plugin version release commits")
+    return rows
+
+
+class PluginNoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise urllib.error.HTTPError(req.full_url, code, "Plugin API redirect rejected", headers, fp)
+
+
+def plugin_request():
+    """Send an optional Actions token only to the fixed GitHub API URL."""
+    headers={"Accept":"application/vnd.github+json","User-Agent":USER_AGENT,"X-GitHub-Api-Version":"2022-11-28"}
+    token=os.environ.get("RADAR_GITHUB_API_TOKEN","").strip()
+    if token:
+        headers["Authorization"]="Bearer "+token
+    return urllib.request.Request(LIBTV_PLUGIN_API,headers=headers)
+
+
+def app_probe_retry_at(exc, now, count):
+    delay=timedelta(minutes=min(720,60*2**min(count-1,3)))
+    if isinstance(exc,urllib.error.HTTPError) and exc.code in (403,429,503):
+        delay=max(delay,timedelta(hours=6))
+        headers=exc.headers or {}
+        retry=headers.get("Retry-After","")
+        if str(retry).isdigit():
+            delay=max(delay,timedelta(seconds=int(retry)))
+        reset=headers.get("X-RateLimit-Reset","")
+        if str(reset).isdigit() and headers.get("X-RateLimit-Remaining")=="0":
+            delay=max(delay,datetime.fromtimestamp(int(reset),timezone.utc)-now+timedelta(minutes=1))
+    return (now+delay).isoformat()
+
+
 def fetch(source):
     is_store=source.get("type")=="apple-store-version"
-    if is_store:
+    is_plugin=source.get("type")=="github-plugin-release"
+    if is_plugin:
+        if source.get("id")!="libtv-codex-plugin" or source.get("url")!=LIBTV_PLUGIN_REPO:
+            raise ValueError("Unapproved plugin repository")
+        url=LIBTV_PLUGIN_API
+    elif is_store:
         if source.get("lookupUrl")!=APPLE_LOOKUP or source.get("trackId")!=6503676563:
             raise ValueError("Unapproved store lookup")
         url=APPLE_LOOKUP
@@ -746,11 +827,13 @@ def fetch(source):
         rules.parse(raw.decode("utf-8").splitlines())
         if not rules.can_fetch(USER_AGENT,url):
             raise ValueError("Changelog robots policy disallows access")
-    req=urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
-    with urllib.request.build_opener(SameHostRedirect()).open(req,timeout=18) as response:
+    req=plugin_request() if is_plugin else urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
+    with urllib.request.build_opener(PluginNoRedirect() if is_plugin else SameHostRedirect()).open(req,timeout=18) as response:
         data=response.read(MAX_BYTES+1)
     if len(data)>MAX_BYTES:
         raise ValueError("App surface exceeds byte limit")
+    if is_plugin:
+        return parse_libtv_plugin_releases(json.loads(data),source)
     if source.get("type")=="higgs-changelog":
         return parse_higgs_changelog(data.decode("utf-8"),source)
     if source.get("type")=="dated-changelog":
@@ -1051,7 +1134,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
             count=int(old.get("consecutiveFailures",0))+1
             sources.append({**row,"entries":entries,"checkedAt":stamp,"lastSuccessAt":old.get("lastSuccessAt"),
                             "status":"probe-unavailable","error":f"{type(exc).__name__}: {str(exc)[:160]}","deferred":False,
-                            "consecutiveFailures":count,"nextAttemptAt":(now+timedelta(minutes=min(720,60*2**min(count-1,3)))).isoformat()})
+                            "consecutiveFailures":count,"nextAttemptAt":app_probe_retry_at(exc,now,count)})
             continue
         surface_migration=(spec.get("type")=="product-surface" and old.get("surfaceParserVersion")!=PRODUCT_SURFACE_PARSER_VERSION)
         if spec.get("type")=="product-surface":
@@ -1067,6 +1150,8 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
                 elif value.get("claimType")=="first-party-product-milestone":
                     kind="new-product-milestone" if old.get("lastSuccessAt") else "baseline-product-milestone"
+                elif value.get("claimType")=="first-party-plugin-release":
+                    kind="new-plugin-release" if old.get("lastSuccessAt") else "baseline-plugin-release"
                 elif value.get("claimType")=="first-party-product-changelog":
                     old_day=(now.date()-timedelta(days=30)).isoformat()
                     kind=("historical-changelog-backfill" if value.get("publisherCalendarDay","")<old_day else

@@ -108,6 +108,16 @@
           "kind": "版本更新记录",
           "url": "https://www.liblib.tv/show",
           "access": "官网可见入口，正文尚未验证可自动读取"
+        },
+        {
+          "kind": "官方公众号 · 1.5 更新公告原文线索",
+          "url": "https://mp.weixin.qq.com/s/s4UiAlcaieiK6qEYVb1iqg",
+          "access": "聚合原始链接；正文当前无法自动读取，日期以媒体交叉核对为准"
+        },
+        {
+          "kind": "官方 Skills 仓库",
+          "url": "https://github.com/libtv-labs/libtv-skills",
+          "access": "公开技能文档，未见 GitHub Releases；不能把普通提交视为产品上新"
         }
       ]
     },
@@ -238,6 +248,22 @@
           "access": "按月发布历史版本；非实时接入时间"
         }
       ]
+    },
+    {
+      "id": "libtv-codex-plugin",
+      "name": "LibTV · 官方 Codex 插件版本",
+      "vendor": "LibTV",
+      "role": "competitor",
+      "url": "https://github.com/liblib-ai/marketplace",
+      "type": "github-plugin-release",
+      "minIntervalMinutes": 720,
+      "links": [
+        {
+          "kind": "官方插件提交记录",
+          "url": "https://github.com/liblib-ai/marketplace/commits/main/",
+          "access": "仅明确发布版本提交；不是网页功能上线日"
+        }
+      ]
     }
   ],
   "reviewedObservations": [
@@ -343,6 +369,23 @@
       "verificationUrl": "https://www.geekpark.net/news/371171",
       "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
       "note": "十字路口7月14日实测报道介绍 Agent 与 Skill Hub；Founder Park 原文标注7月14日并说明 Agent 上线、可选导演 Skill（极客公园后续转载）。不将外部 Agent 调用能力等同于平台全部功能开放。"
+    },
+    {
+      "id": "libtv-1-5-20260921-reviewed",
+      "sourceId": "libtv-entry",
+      "brand": "LibTV",
+      "claimType": "corroborated-product-milestone",
+      "title": "LibTV 1.5：TV Director 与全链路创作升级",
+      "featureName": "LibTV 1.5 全链路创作升级",
+      "kind": "产品发布",
+      "updateType": "product-release",
+      "productArea": "Agent / 角色资产 / 3D-BOX / 剧本 / 剪辑",
+      "releaseDate": "2026-09-21",
+      "observedOn": "2026-11-28",
+      "sourceUrl": "https://timeline.sohu.com/news/DnLQKsRUqg",
+      "verificationUrl": "https://www.woshipm.com/ai/6470479.html",
+      "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
+      "note": "9月28日实测文章明确回述9月21日上线；9月27日另一作者实测证实 TV Director、角色造型室、导演执导、3D-BOX 与片头功能。官方公众号原文链接见来源目录，正文不可读；不确认各功能分批开放日期。"
     }
   ],
   "targetedDiscovery": {
