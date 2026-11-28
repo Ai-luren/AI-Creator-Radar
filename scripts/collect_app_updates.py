@@ -435,7 +435,7 @@ def model_watch_queries(releases,now):
             continue
         seen.add(key)
         candidates.append((row,name,day))
-    candidates.sort(key=lambda x:(x[2],x[0].get("category")=="video",x[0].get("category")=="image",x[1]),reverse=True)
+    candidates.sort(key=lambda x:(x[0].get("category") in {"video","image","audio","music","tts","speech","audio-other"},x[2],x[0].get("category")=="video",x[1]),reverse=True)
     # At most three active model watches. Two provider slots remain the same.
     out=[]
     for row,name,day in candidates[:3]:
@@ -446,9 +446,17 @@ def model_watch_queries(releases,now):
                         "modelVersionId":row["modelVersionId"],"publisherCalendarDay":day})
     return out
 
+def model_watch_pattern(term):
+    # Accept spaces/hyphens between canonical name components, not another
+    # numeric version or a named variant of the base model.
+    parts=re.split(r"[\s_-]+",term.strip())
+    core=r"[\s_-]*".join(re.escape(part) for part in parts)
+    return re.compile(r"(?<![A-Za-z0-9])"+core+r"(?![A-Za-z0-9.]|[-_][A-Za-z0-9]|\s+(?:pro|fast|lite|flash|mini|max|turbo|ultra|preview|plus)\b)",re.I)
+
+
 def model_watch_counts(rows,term):
     # Metadata only. Counts are discovery signals, not published launch claims.
-    pattern=re.compile(r"(?<![A-Za-z0-9])"+re.escape(term)+r"(?![A-Za-z0-9.])",re.I)
+    pattern=model_watch_pattern(term)
     by_brand={b:0 for b in MODEL_WATCH_BRANDS}
     seen=set()
     for row in rows:
@@ -560,7 +568,7 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
         prior=old.get(spec["id"],{})
         if prior.get("term")!=spec["term"] or prior.get("category")!=spec.get("category") or prior.get("provider","AIPick")!=spec.get("provider","AIPick"):
             prior={}
-        rows.append({**prior,**spec})
+        rows.append({**prior,**spec,"queuedAt":prior.get("queuedAt") or stamp})
     service=dict(previous.get("service",{}))
     provider_services={k:dict(v) for k,v in previous.get("providerServices",{}).items()}
     if not provider_services and service.get("error"):
@@ -573,10 +581,13 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
     def priority_key(row):
         retry=parse_stamp(row.get("nextAttemptAt"))
         last=parse_stamp(row.get("lastAttemptAt"))
-        overdue=retry is not None and retry<=now-timedelta(hours=24)
-        tier=0 if overdue else int(row.get("priority",50))
-        if row.get("modelWatch") and last:
-            tier=-1 # first discovery takes precedence; repeat reads remain bounded
+        queued=parse_stamp(row.get("queuedAt"))
+        overdue=(retry or queued or now)<=now-timedelta(hours=24)
+        # New watches first; overdue ordinary queries outrank repeated watches.
+        if row.get("modelWatch"):
+            tier=-10 if not last else 5
+        else:
+            tier=-20 if overdue else int(row.get("priority",50))
         return (tier,bool(last),row.get("nextAttemptAt") or "",row["id"])
     due.sort(key=priority_key)
     attempted=0
@@ -850,7 +861,7 @@ def model_watch_official_gap(spec,targeted,previous,now):
             continue
         if any(not (now-timedelta(hours=12)<=(parse_stamp(r.get("lastAttemptAt")) or datetime.min.replace(tzinfo=timezone.utc))<=now) for r in rows):
             continue
-        pattern=re.compile(r"(?<![A-Za-z0-9])"+re.escape(term)+r"(?![A-Za-z0-9.])",re.I)
+        pattern=model_watch_pattern(term)
         day=rows[0].get("publisherCalendarDay") or ""
         if not any(d>=day and pattern.search(name) for name,d in evidence if isinstance(name,str) and isinstance(d,str)):
             gaps.append(term)
@@ -892,7 +903,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
         row.pop("skipReason",None)
         next_at=parse_stamp(old.get("nextAttemptAt"))
         if next_at and next_at>now:
-            sources.append({**row,"deferred":True})
+            sources.append({**row,"entries":entries,"deferred":True})
             continue
         try:
             fresh=fetcher(spec)
