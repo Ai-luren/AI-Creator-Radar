@@ -456,25 +456,65 @@ def aggregate_coverage(spec,targeted,now):
 
 
 
+# Recognize content permalinks, not merely an approved domain. Opaque
+# redirect links are deliberately not treated as resolved post identities.
+PLATFORM_CONTENT_PATHS={
+    "douyin":r"/(?:video|note)/[0-9]+",
+    "xiaohongshu":r"/(?:explore|discovery/item)/[A-Za-z0-9]+",
+    "kuaishou":r"/(?:short-video|photo)/[A-Za-z0-9_-]+",
+    "bilibili":r"/(?:video/(?:BV[A-Za-z0-9]+|av[0-9]+)|read/cv[0-9]+|opus/[0-9]+)",
+    "weibo":r"/(?:[0-9]+/[A-Za-z0-9]+|detail/[A-Za-z0-9]+|status/[A-Za-z0-9]+)",
+    "zhihu":r"/(?:question/[0-9]+/answer/[0-9]+|p/[0-9]+)",
+    "wechat-video":r"/(?:web/)?(?:video|feed)/[A-Za-z0-9_-]+",
+    "tiktok":r"/@[^/]+/(?:video|photo)/[0-9]+",
+    "instagram":r"/(?:p|reel|tv)/[A-Za-z0-9_-]+",
+    "youtube":r"/(?:shorts|live|embed)/[A-Za-z0-9_-]{11}",
+    "x":r"/(?:[^/]+/status|i/web/status)/[0-9]+",
+    "reddit":r"/r/[^/]+/comments/[A-Za-z0-9]+(?:/[^/]+){0,2}",
+    "linkedin":r"/(?:posts/[^/]+|feed/update/urn:li:[^/]+|pulse/[^/]+)",
+    "facebook":r"/(?:[^/]+/(?:posts|videos)/[^/]+|reel/[0-9]+|groups/[^/]+/posts/[^/]+)",
+    "grokipedia":r"/page/[^/]+"
+}
+
+
 def platform_key(original,platforms):
-    """Exact domain or proper subdomain only; no request or redirect resolution."""
+    """Conservative content-pointer recognition; no request or redirect resolution."""
     if not isinstance(original,str):
         return None
     try:
         u=urlsplit(original)
         host=(u.hostname or "").lower().rstrip(".")
-        if u.username or u.password or u.scheme not in ("http","https") or u.port not in (None,443,80):
+        if u.username or u.password or u.scheme not in ("http","https"):
+            return None
+        if u.port not in (None,443 if u.scheme=="https" else 80):
             return None
     except ValueError:
         return None
-    if u.scheme=="http" and not (host=="mp.weixin.qq.com" and re.match(r"^/s(?:/|$)",u.path)):
+    if u.scheme=="http" and host!="mp.weixin.qq.com":
         return None
+    from urllib.parse import parse_qs
+    path=u.path.rstrip("/")
+    query=parse_qs(u.query)
     for spec in platforms:
-        for domain in spec["domains"]:
-            if host==domain or host.endswith("."+domain):
-                # Generic article links, profile pages and navigation do not
-                # prove direct access to WeChat video or search channels.
-                return spec["id"]
+        if not any(host==domain or host.endswith("."+domain) for domain in spec["domains"]):
+            continue
+        key=spec["id"]
+        if key=="wechat-article":
+            valid=host=="mp.weixin.qq.com" and (
+                bool(re.fullmatch(r"/s/[A-Za-z0-9_-]+",path)) or
+                path=="/s" and bool(query.get("mid")))
+        elif key=="wechat-search":
+            valid=host=="weixin.sogou.com" and path=="/weixin" and bool(query.get("query"))
+        elif key=="youtube":
+            valid=(host=="youtu.be" and bool(re.fullmatch(r"/[A-Za-z0-9_-]{11}",path))) or (
+                host!="youtu.be" and (path=="/watch" and bool(re.fullmatch(r"[A-Za-z0-9_-]{11}",query.get("v",[""])[0])) or
+                bool(re.fullmatch(PLATFORM_CONTENT_PATHS[key],path))))
+        elif key=="facebook":
+            valid=bool(re.fullmatch(PLATFORM_CONTENT_PATHS[key],path)) or (
+                path in ("/story.php","/permalink.php") and bool(query.get("story_fbid")))
+        else:
+            valid=bool(re.fullmatch(PLATFORM_CONTENT_PATHS.get(key,r"(?!)"),path))
+        return key if valid else None
     return None
 
 
@@ -497,7 +537,10 @@ def snapshot_platform_coverage(platforms,snapshots,now):
             date=parse_stamp(item.get("publishedAt") or item.get("discoveredAt"))
             if not date or not now-timedelta(days=7)<=date<=now:
                 continue
-            original=(item.get("links") or {}).get("original")
+            links=item.get("links") or {}
+            if not isinstance(links,dict) or links.get("story"):
+                continue
+            original=links.get("original")
             key=platform_key(original,platforms)
             if not key:
                 continue
@@ -608,27 +651,40 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
                        "reviewedObservations":len(config.get("reviewedObservations",[]))},
             "policy":"App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only."}
 
+def refresh_platform_coverage(config, result, data_dir, now):
+    """Rebuild derived coverage from the final on-disk snapshots, without network IO."""
+    if result.get("schema")!="app-updates/v1":
+        raise ValueError("Unexpected app updates schema")
+    snapshots={}
+    for provider,filename in (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json")):
+        try:
+            snapshots[provider]=json.loads((data_dir/filename).read_text(encoding="utf-8"))
+        except (OSError,ValueError):
+            pass
+    return {**result,"platformCoverage":snapshot_platform_coverage(config.get("monitoredPlatforms",[]),snapshots,now)}
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--dry-run",action="store_true")
     p.add_argument("--report",type=Path)
+    p.add_argument("--coverage-only",action="store_true",help="Rebuild coverage after all upstream snapshot writes, without fetching")
     a=p.parse_args()
     read=lambda path:json.loads(path.read_text(encoding="utf-8"))
     config=read(ROOT/"config/app-update-sources.json")
-    now=datetime.now(timezone.utc)
-    result=collect(config,read(OUTPUT) if OUTPUT.exists() else {},now)
-    snapshots={}
-    for provider,filename in (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json")):
-        try:
-            snapshots[provider]=read(ROOT/"site/data"/filename)
-        except (OSError,ValueError):
-            pass
-    result["platformCoverage"]=snapshot_platform_coverage(config.get("monitoredPlatforms",[]),snapshots,now)
-    print("App updates:",json.dumps(result["summary"],ensure_ascii=False))
+    previous=read(OUTPUT) if OUTPUT.exists() else {}
+    if a.coverage_only:
+        # No source probe, query budget use or mutation of collector timestamps.
+        result=previous
+    else:
+        result=collect(config,previous,datetime.now(timezone.utc))
+    result=refresh_platform_coverage(config,result,ROOT/"site/data",datetime.now(timezone.utc))
     print("Platform coverage:",json.dumps(result["platformCoverage"],ensure_ascii=False))
-    for source in result["sources"]:
-        print("[APP]",source["id"],source["status"],"error=",source.get("error"))
-    print("AIPick targeted coverage:",json.dumps({"attempted":result["targetedDiscovery"].get("attemptedThisRun"),"queries":[{k:q.get(k) for k in ("id","status","counts","lastSuccessAt","error")} for q in result["targetedDiscovery"].get("queries",[])]},ensure_ascii=False))
+    if not a.coverage_only:
+        print("App updates:",json.dumps(result["summary"],ensure_ascii=False))
+        for source in result["sources"]:
+            print("[APP]",source["id"],source["status"],"error=",source.get("error"))
+        print("AIPick targeted coverage:",json.dumps({"attempted":result["targetedDiscovery"].get("attemptedThisRun"),"queries":[{k:q.get(k) for k in ("id","status","counts","lastSuccessAt","error")} for q in result["targetedDiscovery"].get("queries",[])]},ensure_ascii=False))
     if a.report:
         write_json(a.report,result)
     if not a.dry_run:
