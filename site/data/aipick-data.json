@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T13:02:41+00:00",
-  "checkedAt": "2026-11-28T13:02:41+00:00",
+  "fetchedAt": "2026-11-28T13:47:37+00:00",
+  "checkedAt": "2026-11-28T13:47:37+00:00",
   "etags": {
-    "items": "W/\"v1-items-7e23c5c1dc2a0c65\"",
-    "hotTopics": "W/\"v1-hot-9770d706481b1003\""
+    "items": "W/\"v1-items-dab0b0514e240584\"",
+    "hotTopics": "W/\"v1-hot-6b72e6db3e558157\""
   },
   "items": [
+    {
+      "id": "lyet5m3ebf4s0ddr56yx6g4yt",
+      "title": "四个免费 Claude Skills 让 AI 生成的网站不再像模板",
+      "originalTitle": "4 Free Claude Skills That Fix AI-Looking Websites #ai #aitools #artificialintelligence #claude #webdesign",
+      "summary": "博主 Nathan Hodgson 介绍了四个免费 Claude Skills，用来改善 AI 生成网站的外观。",
+      "source": {
+        "name": "TikTok · Nathan Hodgson"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/lyet5m3ebf4s0ddr56yx6g4yt",
+        "original": "https://www.tiktok.com/@nathanhodgson.ai/video/7713207862465514774"
+      },
+      "publishedAt": "2026-11-28T13:05:30.000Z",
+      "discoveredAt": "2026-11-28T13:34:20.829Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "视频用同一网站的前后对比展示四个免费 Claude Skills 的效果，适合逐个演示安装后字体、间距和动画的变化。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/lyet5m3ebf4s0ddr56yx6g4yt"
+      }
+    },
     {
       "id": "fz343su795ai24hmikh31iixv",
       "title": "实测 MAGI2 视频模型：价格约为 CDS 2.5 的 1/10，电商视频效果够用",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/me21uhaiopleyu5455h5e2v0h"
       }
-    },
-    {
-      "id": "jqgfpdf2cpqznyenhvwvl3nrf",
-      "title": "开发者用三个 MiniCPM 模型搭建本地记账 Agent，可自检纠错",
-      "originalTitle": "You snap a photo of a receipt and ask AI to update your ledger. But what if it misreads an item, misses a digit, or gets the total wrong? 🧾 Community developer @DogukanUrker built a local bookkeeping agent that checks its own work using three MiniCPM models. 🧠 MiniCPM-V 4.7 decides where to look and what to verify. 👀 MiniCPM-OCR 1.0 reads individual receipt regions. 🔍 MiniCPM-OCR Jev scores each reading and helps identify better candidates. In one real test, the agent misread \"COCONUT JELLY\" as \"COCONUT SLEET.\" Jev gave it a score of just 0.29, prompting the agent to zoom in and read again — successfully correcting the error. The agent also checks the math and flags uncertain fields for human review. On degraded CORD-v2 receipts, all 60 totals accepted without a review flag were correct. And your financial documents? They never need to leave your device. All three models run locally on a single RTX 3060, using just 10.2GB of VRAM.🤗 💻 GitHub: https://t.co/msjm2QlrvX https://t.co/2",
-      "summary": "社区开发者 DogukanUrker 用三个 MiniCPM 模型搭建了一个本地记账 Agent，能对收据识别结果自检并纠错。其中 MiniCPM-V 4.7 决定看哪里、验证什么，MiniCPM-OCR 1.0 读取收据局部区域，MiniCPM-OCR Jev 为每次识别打分并帮助筛选更优候选。",
-      "source": {
-        "name": "X · OpenBMB / MiniCPM"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/jqgfpdf2cpqznyenhvwvl3nrf",
-        "original": "https://x.com/OpenBMB/status/2126304982093947118"
-      },
-      "publishedAt": "2026-11-27T13:19:47.000Z",
-      "discoveredAt": "2026-11-27T14:12:36.858Z",
-      "category": "ai-products",
-      "score": 60,
-      "selected": true,
-      "reason": "社区开发者用三个 MiniCPM 模型搭出本地记账 Agent，可演示它把 COCONUT JELLY 误读后自检纠错的过程。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/jqgfpdf2cpqznyenhvwvl3nrf"
-      }
     }
   ],
   "hotTopics": [
@@ -729,29 +729,6 @@
     },
     {
       "rank": 2,
-      "id": "icm35onypxas5ucmkudxdifkj",
-      "title": "蚂蚁开源6B设计图像模型，图层模型下周发布",
-      "source": {
-        "name": "抖音 · 热点搜「6B设计图像模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/icm35onypxas5ucmkudxdifkj",
-        "original": "https://www.douyin.com/video/7712668921219878153",
-        "story": "https://aipick.news/story/a6719407-8433-4010-b508-83ed5a70422b"
-      },
-      "sourceCount": 4,
-      "signalCount": 0,
-      "participantCount": 4,
-      "sourceNames": [
-        "抖音 · 热点搜「6B设计图像模型」",
-        "公众号 · 智东西",
-        "微信公众号 · 百灵大模型",
-        "X · 蚂蚁 inclusionAI"
-      ],
-      "latestAt": "2026-11-27T16:41:21.000Z"
-    },
-    {
-      "rank": 3,
       "id": "x9kn0v5d0naqm47jnxhfk14jg",
       "title": "Higgsfield 黑五套餐最高 75% OFF，Secret 计划年付 258 美元/月",
       "source": {
@@ -772,7 +749,7 @@
       "latestAt": "2026-11-27T20:55:51.000Z"
     },
     {
-      "rank": 4,
+      "rank": 3,
       "id": "erpb8ni5g8247xgt7i7d77tpy",
       "title": "Higgsfield 上线 MAGI-2 视频模型，创作者实测褒贬不一",
       "source": {
@@ -794,7 +771,7 @@
       "latestAt": "2026-11-27T04:02:25.000Z"
     },
     {
-      "rank": 5,
+      "rank": 4,
       "id": "m86vuscd3760ndq7qzgn4s6jl",
       "title": "Sand.ai发布MAGI-2视频模型：登顶I2V榜、0.5元/秒并计划开源",
       "source": {
@@ -813,6 +790,28 @@
         "X · AIWarper"
       ],
       "latestAt": "2026-11-28T00:52:12.000Z"
+    },
+    {
+      "rank": 5,
+      "id": "icm35onypxas5ucmkudxdifkj",
+      "title": "蚂蚁开源6B设计图像模型，图层模型下周发布",
+      "source": {
+        "name": "抖音 · 热点搜「6B设计图像模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/icm35onypxas5ucmkudxdifkj",
+        "original": "https://www.douyin.com/video/7712668921219878153",
+        "story": "https://aipick.news/story/a6719407-8433-4010-b508-83ed5a70422b"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "抖音 · 热点搜「6B设计图像模型」",
+        "公众号 · 智东西",
+        "微信公众号 · 百灵大模型"
+      ],
+      "latestAt": "2026-11-27T16:41:21.000Z"
     },
     {
       "rank": 6,

@@ -6,13 +6,37 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-28T13:02:41+00:00",
-  "etag": "W/\"v1-items-cc87f4a29b9aa0a7\"",
+  "fetchedAt": "2026-11-28T13:47:37+00:00",
+  "etag": "W/\"v1-items-266f15a38d9c3e6a\"",
   "schemaVersion": 1,
   "page": {
-    "count": 0,
+    "count": 1,
     "hasMore": false,
     "nextCursor": null
   },
-  "items": []
+  "items": [
+    {
+      "id": "j903zx9d0v80rsxi3aw7yj12s",
+      "title": "MiniMax 评估内部模型逆向能力：200 万行 Rust 克隆知名二进制分析软件",
+      "originalTitle": null,
+      "summary": "MiniMax 发布对内部最智能模型逆向工程能力的内部评估报告，称模型可自主编排多智能体对闭源软件做端到端功能复刻，并绕过代码混淆与虚拟化保护。",
+      "source": {
+        "name": "公众号：MiniMax（稀宇科技）"
+      },
+      "links": {
+        "aihot": "https://aihot.news/items/j903zx9d0v80rsxi3aw7yj12s",
+        "original": "https://mp.weixin.qq.com/s/qUleB85D-VEQx4RO_Wfjsw"
+      },
+      "publishedAt": "2026-11-28T12:52:31.000Z",
+      "discoveredAt": "2026-11-28T13:01:58.696Z",
+      "category": "paper",
+      "score": 75,
+      "selected": true,
+      "reason": "MiniMax 以内部模型实测闭源软件克隆与虚拟化脱壳，给出了具体数字和能力边界，对关注软件保护体系的读者有参考价值。",
+      "attribution": {
+        "name": "AIHOT",
+        "url": "https://aihot.news/items/j903zx9d0v80rsxi3aw7yj12s"
+      }
+    }
+  ]
 }
