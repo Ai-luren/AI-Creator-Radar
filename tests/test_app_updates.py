@@ -383,3 +383,34 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(got["sources"][0]["modelWatchGap"],["Seedance 3.5"])
         self.assertTrue(got["sources"][0]["deferred"])
         self.assertEqual(got["summary"]["successfulThisRun"],0)
+
+    def test_model_watch_matches_spacing_without_collapsing_variants(self):
+        from scripts.collect_app_updates import model_watch_pattern
+        p=model_watch_pattern("MAGI-2")
+        self.assertTrue(p.search("Higgsfield 接入 MAGI 2"))
+        self.assertTrue(p.search("MAGI2模型上新"))
+        self.assertFalse(p.search("MAGI-20"))
+        self.assertFalse(p.search("MAGI-2.1"))
+        self.assertFalse(p.search("MAGI-2-fast"))
+        p=model_watch_pattern("Seedance 3.5")
+        self.assertFalse(p.search("Seedance 3.5 Pro"))
+        self.assertTrue(p.search("Seedance 3.5 视频模型"))
+
+    def test_old_ordinary_query_gets_slot_before_repeated_watch(self):
+        from scripts.collect_app_updates import collect_targeted
+        cfg={"maxProvidersPerRun":1,"intervalMinutes":720,"globalIntervalMinutes":25,
+             "queries":[{"id":"secondary","term":"Flova","provider":"AIHOT","priority":20}]}
+        row={"modelName":"MAGI-2","modelFamilyId":"magi","modelVersionId":"2","category":"video",
+             "publishedAt":self.now.date().isoformat(),"verifiedAt":self.now.date().isoformat(),
+             "evidenceType":"official-release","url":"https://example.org/official"}
+        from scripts.collect_app_updates import model_watch_queries
+        watches=model_watch_queries([row],self.now)
+        old={"queries":[{**cfg["queries"][0],"queuedAt":(self.now-timedelta(hours=25)).isoformat()},
+                        *[{**w,"lastAttemptAt":(self.now-timedelta(hours=7)).isoformat()} for w in watches]]}
+        calls=[]
+        def fetch(q,etag):
+            calls.append(q["id"])
+            return {"items":0},"tag"
+        got=collect_targeted(cfg,old,self.now,fetch,releases=[row])
+        self.assertEqual(calls,["secondary"])
+        self.assertEqual(got["attemptedThisRun"],1)
