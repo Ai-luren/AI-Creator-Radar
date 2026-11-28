@@ -1112,15 +1112,60 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
     return changed
 
 
-def fetch_source_once(source: dict, article_cache=None) -> tuple[dict, list[dict], str | None]:
-    request = urllib.request.Request(source["url"], headers={
+FEED_CACHE_MAX_AGE = timedelta(hours=6)
+
+
+def feed_cache_key(source, parser_revision):
+    return hashlib.sha256(json.dumps([source, parser_revision], sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
+def valid_feed_validator(value):
+    return isinstance(value, str) and 0 < len(value) <= 512 and not re.search(r"[\r\n]", value)
+
+
+def feed_items_hash(items):
+    return hashlib.sha256(json.dumps(items, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+
+
+def reusable_feed_cache(source, entry, now, parser_revision):
+    # Listing validators cannot validate independently mutable article dates.
+    if (not parser_revision or source.get("type", "html").lower() != "rss"
+            or source.get("articleDateCheck") or not isinstance(entry, dict)
+            or entry.get("key") != feed_cache_key(source, parser_revision)
+            or not valid_feed_validator(entry.get("etag"))):
+        return None
+    items = entry.get("items")
+    if (not isinstance(items, list) or len(items) > MAX_ITEMS_PER_SOURCE
+            or not all(isinstance(row, dict) and isinstance(row.get("title"), str)
+                       and isinstance(row.get("url"), str) for row in items)
+            or entry.get("itemsHash") != feed_items_hash(items)):
+        return None
+    try:
+        fetched = datetime.fromisoformat(entry["downloadedAt"])
+        if not fetched.tzinfo or not timedelta(0) <= now-fetched < FEED_CACHE_MAX_AGE:
+            return None
+    except (KeyError, TypeError, ValueError):
+        return None
+    return entry
+
+
+def fetch_source_once(source: dict, article_cache=None, conditional=None) -> tuple[dict, list[dict], str | None]:
+    # conditional is supplied only by the production collector, not independent diagnostics.
+    cache = None
+    if conditional:
+        cache = reusable_feed_cache(source, conditional.get("entry"), conditional["now"], conditional["revision"])
+    headers = {
         "User-Agent": USER_AGENT,
         "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, text/html;q=0.9, */*;q=0.8",
-    })
+    }
+    if cache:
+        headers["If-None-Match"] = cache["etag"]
+    request = urllib.request.Request(source["url"], headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=24) as response:
             body = response.read(MAX_BYTES + 1)
             content_type = response.headers.get("Content-Type", "")
+            etag = response.headers.get("ETag", "")
         if len(body) > MAX_BYTES:
             raise ValueError("Source exceeds 6 MB safety limit")
         source_type = source.get("type", "html").lower()
@@ -1148,8 +1193,21 @@ def fetch_source_once(source: dict, article_cache=None) -> tuple[dict, list[dict
                 items = version_document_json_items(page, source)
             else:
                 items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
-        return source, enrich_article_dates(source, items, article_cache), None
+        items = enrich_article_dates(source, items, article_cache)
+        effective = source
+        if (conditional and source_type == "rss" and not source.get("articleDateCheck")
+                and valid_feed_validator(etag)):
+            effective = {**source, "_feedCache": {
+                "key":feed_cache_key(source, conditional["revision"]), "etag":etag,
+                "downloadedAt":conditional["now"].isoformat(timespec="seconds"),
+                "items":items, "itemsHash":feed_items_hash(items)}}
+        return effective, items, None
     except Exception as exc:
+        if isinstance(exc, urllib.error.HTTPError) and exc.code == 304 and cache:
+            # The same validated representation is still current. Never fabricate
+            # dates or infer missing entries from the merged cross-source archive.
+            exc.close()
+            return {**source, "_feedCache":cache, "_notModified":True}, cache["items"], None
         error = f"{type(exc).__name__}: {str(exc)[:220]}"
         if isinstance(exc, urllib.error.HTTPError) and exc.code == 429 and exc.headers:
             retry = str(exc.headers.get("Retry-After", "")).strip()
@@ -1202,7 +1260,7 @@ def retryable_source_error(error: str) -> bool:
     return bool(re.search(r"HTTP Error (?:408|5\d\d)\b|timed? ?out|temporary failure|connection reset", error, re.I))
 
 
-def fetch_source(source: dict, prior=None, now=None, article_cache=None) -> tuple[dict, list[dict], str | None]:
+def fetch_source(source: dict, prior=None, now=None, article_cache=None, feed_state=None, parser_revision=None) -> tuple[dict, list[dict], str | None]:
     """Back off a repeatedly blocked endpoint without suppressing its independent fallback."""
     now = now or datetime.now(timezone.utc)
     stamp = now.isoformat(timespec="seconds")
@@ -1255,10 +1313,19 @@ def fetch_source(source: dict, prior=None, now=None, article_cache=None) -> tupl
             pass
         requested = True
         for attempt in range(2):
-            _, items, error = (fetch_source_once(endpoint, article_cache) if article_cache is not None
-                               else fetch_source_once(endpoint))
+            conditional = ({"entry":feed_state, "now":now, "revision":parser_revision}
+                           if parser_revision else None)
+            if conditional:
+                fetched_endpoint, items, error = fetch_source_once(endpoint, article_cache, conditional)
+            else:
+                fetched_endpoint, items, error = (fetch_source_once(endpoint, article_cache) if article_cache is not None
+                                                  else fetch_source_once(endpoint))
             record = {"url": url, "error": error, "itemCount": len(items) if error is None else None,
                       "checkedAt": stamp, "deferred": False}
+            if fetched_endpoint.get("_notModified"):
+                record["httpNotModified"] = True
+            if fetched_endpoint.get("_feedCache"):
+                record["representationFetchedAt"] = fetched_endpoint["_feedCache"]["downloadedAt"]
             # Access denial and missing routes need a different source, not immediate repeated requests.
             if error and re.search(r"HTTP Error (?:403|404)\b", error):
                 count = old.get("hardFailures", 0)
@@ -1275,7 +1342,8 @@ def fetch_source(source: dict, prior=None, now=None, article_cache=None) -> tupl
                 blocked[domain] = (retry, record)
             attempts.append(record)
             if error is None:
-                result = {**endpoint, "primaryUrl": primary_url, "attempts": attempts,
+                result = {**endpoint, **({"_feedCache":fetched_endpoint["_feedCache"]} if fetched_endpoint.get("_feedCache") else {}),
+                          "primaryUrl": primary_url, "attempts": attempts,
                           "primaryDegraded": url != primary_url, "sourceConfigHash": fingerprint}
                 if items or not source.get("fallbackOnZeroMatch"):
                     return result, items, None
@@ -1312,6 +1380,11 @@ def main() -> int:
     previous_updates = load_json(UPDATES_FILE, {"items": []})
     previous_status = load_json(STATUS_FILE, {"sources": []})
     old_status = {entry.get("id"): entry for entry in previous_status.get("sources", [])}
+    previous_state = load_json(STATE_FILE, {})
+    feed_state = previous_state.get("conditionalFeedCache", {}) if isinstance(previous_state, dict) else {}
+    if not isinstance(feed_state, dict):
+        feed_state = {}
+    parser_revision = None if args.dry_run else hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     now = datetime.now(timezone.utc)
     now_iso = now.isoformat(timespec="seconds").replace("+00:00", "Z")
 
@@ -1320,7 +1393,8 @@ def main() -> int:
     started = time.monotonic()
     def timed_source(source):
         begin = time.monotonic()
-        result = fetch_source(source, None if args.dry_run else old_status.get(source["id"]), now, article_cache)
+        result = fetch_source(source, None if args.dry_run else old_status.get(source["id"]), now, article_cache,
+                              feed_state.get(source["id"]), parser_revision)
         return result, round(time.monotonic() - begin, 3)
 
     durations = []
@@ -1334,6 +1408,7 @@ def main() -> int:
         "wallSeconds":round(time.monotonic()-started, 3),
         "articleProbeRequests":article_cache.requests,
         "articleProbeReused":article_cache.reused,
+        "conditionalFeed304":sum(a.get("httpNotModified", False) for s, _, _ in fetched for a in s.get("attempts", [])),
         "sources":sorted(durations, key=lambda row:(-row["seconds"],row["id"]))
     }), flush=True)
 
@@ -1479,7 +1554,9 @@ def main() -> int:
         else:
             print("All model sources failed; retaining the last model-updates snapshot unchanged.")
         write_json(STATUS_FILE, status)
-        write_json(STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active]})
+        write_json(STATE_FILE, {"checkedAt": now_iso, "sourceIds": [s["id"] for s in active],
+                               "conditionalFeedCache": {s["id"]:s["_feedCache"] for s, _, error in fetched
+                                                        if error is None and s.get("_feedCache")}})
     return 0
 
 

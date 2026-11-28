@@ -238,3 +238,68 @@ class CollectionPerformanceTests(unittest.TestCase):
             items = collector.html_page_items(page, source)
         self.assertEqual([i["title"] for i in items], ["Introducing Demo 2.0"])
         self.assertEqual(scan.call_count, 1)
+
+class ConditionalFeedTests(unittest.TestCase):
+    def setUp(self):
+        from datetime import datetime, timezone
+        self.now = datetime(2026,11,28,0,0,tzinfo=timezone.utc)
+        self.source = {"id":"feed","name":"Feed","url":"https://example.com/rss","type":"rss","modelMatches":{"demo":["demo"]}}
+        self.items = [{"title":"Demo 2.0 release","summary":"","url":"https://example.com/release","publishedAt":"2026-11-27T00:00:00Z","modelId":"demo","publicationDateKind":"feed-published"}]
+        self.cache = {"key":collector.feed_cache_key(self.source,"parser"),"etag":'"v1"',"downloadedAt":self.now.isoformat(),"items":self.items,"itemsHash":collector.feed_items_hash(self.items)}
+        self.conditional = {"entry":self.cache,"now":self.now,"revision":"parser"}
+
+    def test_304_reuses_exact_parsed_feed_and_original_download_time(self):
+        import urllib.error
+        err = urllib.error.HTTPError(self.source["url"],304,"Not Modified",{},None)
+        with patch.object(collector.urllib.request,"urlopen",side_effect=err) as fetch:
+            effective, items, error = collector.fetch_source_once(self.source,conditional=self.conditional)
+        self.assertIsNone(error)
+        self.assertEqual(items,self.items)
+        self.assertTrue(effective["_notModified"])
+        self.assertEqual(effective["_feedCache"]["downloadedAt"],self.cache["downloadedAt"])
+        self.assertEqual(fetch.call_args.args[0].get_header("If-none-match"),'"v1"')
+
+    def test_expired_changed_or_corrupt_cache_and_article_probes_not_reused(self):
+        from datetime import timedelta
+        for source, entry, now, revision in [
+            (self.source,self.cache,self.now+timedelta(hours=6),"parser"),
+            (self.source,self.cache,self.now,"new-parser"),
+            ({**self.source,"url":"https://example.com/other"},self.cache,self.now,"parser"),
+            ({**self.source,"articleDateCheck":True},self.cache,self.now,"parser"),
+            (self.source,{**self.cache,"items":[]},self.now,"parser"),
+            (self.source,{**self.cache,"downloadedAt":"bad"},self.now,"parser"),
+        ]:
+            self.assertIsNone(collector.reusable_feed_cache(source,entry,now,revision))
+
+    def test_unconditional_304_is_failure_not_empty_success(self):
+        import urllib.error
+        err = urllib.error.HTTPError(self.source["url"],304,"Not Modified",{},None)
+        with patch.object(collector.urllib.request,"urlopen",side_effect=err) as fetch:
+            effective, items, error = collector.fetch_source_once(self.source,conditional={**self.conditional,"entry":None})
+        self.assertIsNotNone(error)
+        self.assertEqual(items,[])
+        self.assertIsNone(fetch.call_args.args[0].get_header("If-none-match"))
+
+    def test_valid_200_stores_exact_representation(self):
+        from unittest.mock import MagicMock
+        response = MagicMock()
+        response.__enter__.return_value = response
+        response.headers = {"ETag":'"v2"',"Content-Type":"application/rss+xml"}
+        response.read.return_value = b"<rss/>"
+        with patch.object(collector.urllib.request,"urlopen",return_value=response), patch.object(collector,"rss_items",return_value=self.items):
+            effective, items, error = collector.fetch_source_once(self.source,conditional={**self.conditional,"entry":None})
+        self.assertIsNone(error)
+        self.assertEqual(items,self.items)
+        self.assertEqual(effective["_feedCache"]["etag"],'"v2"')
+        self.assertIsNotNone(collector.reusable_feed_cache(self.source,effective["_feedCache"],self.now,"parser"))
+
+    def test_source_attempt_records_304_without_changing_publication_date(self):
+        import urllib.error
+        err = urllib.error.HTTPError(self.source["url"],304,"Not Modified",{},None)
+        with patch.object(collector.urllib.request,"urlopen",side_effect=err):
+            effective, items, error = collector.fetch_source(self.source,now=self.now,feed_state=self.cache,parser_revision="parser")
+        self.assertIsNone(error)
+        self.assertEqual(items,self.items)
+        self.assertTrue(effective["attempts"][0]["httpNotModified"])
+        self.assertEqual(effective["attempts"][0]["representationFetchedAt"],self.cache["downloadedAt"])
+        self.assertEqual(items[0]["publishedAt"],"2026-11-27T00:00:00Z")
