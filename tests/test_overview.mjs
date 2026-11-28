@@ -877,3 +877,13 @@ test('official developer feature merge shares history and product views without 
  const brief=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify({sources:[source],events:[event]})+',[],{},Date.now()))'));
  assert.equal(brief[0].proof,'官方开发生态合并');assert.equal(brief[0].kind,'新功能');
 });
+
+test('month-precision platform backend history is not a daily model launch',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=product-oiioii',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
+ const url='https://www.oiioii.ai/zh/changelog',source={id:'oiioii-changelog-entry',vendor:'OiiOii',role:'competitor',url};
+ const event={id:'backend',sourceId:source.id,sourceUrl:url,claimType:'first-party-product-milestone',publisherCalendarMonth:'2026-06',datePrecision:'month',featureName:'Veo 3.1',productArea:'新增渲染后端',updateType:'model-integration',productVersion:'v5.0',observedAt:'2026-11-28T10:00:00Z'};
+ run('state.appUpdates='+JSON.stringify({sources:[source],events:[event]})+';render()');
+ assert.match(node('content').innerHTML,/datetime="2026-06"/);assert.match(node('content').innerHTML,/Veo 3\.1/);assert.match(node('content').innerHTML,/模型接入/);
+ assert.equal(run("competitorBriefRows(state.appUpdates,[],{},Date.now()).length"),0);
+ run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');assert.doesNotMatch(node('content').innerHTML,/新增渲染后端/);
+});
