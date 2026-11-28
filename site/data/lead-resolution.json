@@ -1,6 +1,6 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-28T15:56:33+00:00",
+  "checkedAt": "2026-11-28T16:17:42+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
     "attempted": 0,
@@ -103,35 +103,6 @@
       "status": "date-unresolved",
       "title": "GLM-5.4",
       "modelId": "glm"
-    },
-    {
-      "id": "recovery-224aeea821d78431f57b",
-      "urlKey": "https://www.zhipuai.cn/zh/research/164",
-      "url": "https://www.zhipuai.cn/zh/research/164",
-      "leadIds": [
-        "8a8f138b1e747373d559"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-27"
-      ],
-      "checkedAt": "2026-11-28T04:38:08+00:00",
-      "firstAttemptAt": "2026-11-27T04:31:59+00:00",
-      "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-29T04:38:08+00:00",
-      "status": "article-date-verified",
-      "title": "GLM-5.4：瞄向泛Coding，首个Loop Transformer带来的惊喜",
-      "modelId": "glm",
-      "vendor": "智谱 / Z.ai",
-      "category": "llm",
-      "articlePublishedAt": "2026-11-22T00:00:00Z",
-      "firstVerifiedAt": "2026-11-27T04:31:59+00:00"
     },
     {
       "id": "recovery-f5390a2aecae5dc01ca9",
@@ -358,6 +329,35 @@
       "status": "date-unresolved",
       "title": "Gemini Omni 1.2 Flash",
       "modelId": "gemini-omni-flash"
+    },
+    {
+      "id": "recovery-224aeea821d78431f57b",
+      "urlKey": "https://www.zhipuai.cn/zh/research/164",
+      "url": "https://www.zhipuai.cn/zh/research/164",
+      "leadIds": [
+        "8a8f138b1e747373d559"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-27"
+      ],
+      "checkedAt": "2026-11-28T04:38:08+00:00",
+      "firstAttemptAt": "2026-11-27T04:31:59+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-29T04:38:08+00:00",
+      "status": "article-date-verified",
+      "title": "GLM-5.4：瞄向泛Coding，首个Loop Transformer带来的惊喜",
+      "modelId": "glm",
+      "vendor": "智谱 / Z.ai",
+      "category": "llm",
+      "articlePublishedAt": "2026-11-22T00:00:00Z",
+      "firstVerifiedAt": "2026-11-27T04:31:59+00:00"
     },
     {
       "id": "recovery-5b4c18faabadfb3802c4",
