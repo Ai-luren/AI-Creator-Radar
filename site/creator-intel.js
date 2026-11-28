@@ -124,6 +124,7 @@ function competitorBriefRows(app,reports,social,now){
   });
  });
  (app.reviewedObservations||[]).forEach(function(e){
+  if(e.claimType==='corroborated-product-milestone')return;
   var s=sources.find(function(x){return x.id===e.sourceId}),brand=e.brand||(s&&s.vendor==='字节跳动'&&/^jimeng/.test(s.id)?'即梦':s&&s.vendor);
   if(!brand)return;
   add(brand,e.title,e.releaseDate||e.observedOn,e.kind,e.sourceUrl,e.releaseDate?(e.observationMethod==='官方文章发布日期'?'官方文章':'官方文档所述日期'):'官网人工观察 · 非发布日期',{modelName:e.modelName||'',note:e.note||''});
@@ -575,9 +576,22 @@ function productChronicleTopics(app,models){
   var row={date:eventDay,title:productReadingTitle(e.featureName),kind:kinds[e.updateType],url:url,summary:[e.productVersion?'版本 '+e.productVersion:'',e.productArea||'',(e.datePrecision==='month'?'官方日志仅标注月份；不推断具体日期。':'官方日志日期；不代表当前仍可用。')].filter(Boolean).join(' · '),verificationStatus:'已核实：官方产品日志',productCategory:productChronicleCategory(e),modelMentions:productChronicleModelRefs(e,models),sourceEventId:e.id||key};
   if(!nodes.has(brand))nodes.set(brand,[]);nodes.get(brand).push(row);
  });
+ // Reviewed media milestones use the existing persisted observation lane; they
+ // never count as official changelog, integration, or recent observation.
+ (app.reviewedObservations||[]).forEach(function(e){
+  if(e.claimType!=='corroborated-product-milestone'||e.observationMethod!=='媒体交叉报道 · 原始官方发布页未取得'||!chronicleDay(e.releaseDate)||!chronicleDay(e.observedOn)||e.observedOn<e.releaseDate||!e.id||!e.title||!e.featureName||!e.note||!['product-release','product-feature','product-improvement','product-update'].includes(e.updateType))return;
+  var source=sources.find(function(s){return s.id===e.sourceId&&s.vendor===e.brand&&s.role==='competitor'}),url=creatorOriginalUrl(e.sourceUrl),proof=creatorOriginalUrl(e.verificationUrl);
+  if(!source||!productChronicleIds[e.brand]||!url||!proof||new URL(url).hostname.replace(/^www\.|^m\./,'')===new URL(proof).hostname.replace(/^www\.|^m\./,''))return;
+  if(!productChronicleEligible(Object.assign({},e,{claimType:'first-party-product-changelog',publisherCalendarDay:e.releaseDate})))return;
+  var rows=nodes.get(e.brand)||[],key=[e.brand,e.releaseDate,String(e.featureName).normalize('NFKC').trim().toLowerCase(),e.updateType].join('|');
+  if(seen.has(key)||rows.some(function(r){return r.date===e.releaseDate&&r.title===e.title}))return;
+  seen.add(key);
+  rows.push({date:e.releaseDate,title:e.title,kind:e.kind||'产品发布',url:url,verificationUrl:proof,summary:e.note,verificationStatus:'已核实：媒体交叉报道（非官方日志）',verificationDate:e.observedOn,productCategory:productChronicleCategory(e),sourceEventId:e.id,reviewedProductHistory:true});
+  nodes.set(e.brand,rows);
+ });
  return trackingBrands.map(function(brand){
   var own=sources.filter(function(s){return (s.vendor===brand||brand==='即梦'&&s.vendor==='字节跳动'&&/^jimeng/.test(s.id))&&creatorOriginalUrl(s.url)}),url=(own.find(function(s){return /changelog/.test(s.type||'')})||own[0]||{}).url||competitorSites[brand]||'';
-  return {id:productChronicleIds[brand],name:brand,group:'创作平台',description:'面向 Renoise 产品设计研究的模型接入、创作工具与工作流演进。仅展示有明确官方日志日期的重大节点；未收录不代表没有更新。',topicUrl:url,milestones:nodes.get(brand)||[],productBrand:brand};
+  return {id:productChronicleIds[brand],name:brand,group:'创作平台',description:'面向 Renoise 产品设计研究的模型接入、创作工具与工作流演进。仅展示有明确官方日期或经过交叉核对的重大历史节点；未收录不代表没有更新。',topicUrl:url,milestones:nodes.get(brand)||[],productBrand:brand};
  });
 }
 function chronicleTopics(raw,models,app){

@@ -317,3 +317,5 @@ AIPick 精选与热点采用独立 25 分钟到期判断（调度仍由现有 30
 公开历史由 `chronicleTopics` 合并既有审核节点与 `models.json` 全量规范版本的已核实 releaseEvidence；按明确厂商身份与日期、原审核 ID、事件 ID 或同日原始来源及精确型号引用去重，保留独立事件阶段。未识别厂商、缺证日期或冲突不推断。产品历史从既有 `app-updates.json` 的官方日志事件读取，不从报道、宣传或无发布日期目录生成事件。时间线、计数及全局搜索复用同一投影，不写回主数据，不新增调度。原始审核状态和时间不被刷新。JS 的明确厂商别名表须与 config/chronicle-release-links.json 的已知映射同步。
 
 既有产品日志适配器在同一受限页面中保留至多400条按原始日期排序的产品事件；较旧条目标记历史回填而不是新发布。`first-party-product-milestone` 使用 `publisherCalendarMonth` 与 `datePrecision=month`，不填写日级日期、不进入近7/30天日精度发布或接入指标。OiiOii 官方版本日志每24小时最多一次，仍遵守同域、robots、退避、实际生产持久化门禁。共享历史仅投影，不写回独立副本。
+
+`app-updates.json.reviewedObservations` 允许明确 `claimType=corroborated-product-milestone` 的已审核产品历史，要求确切事件日、核对日、两个不同媒体来源、原文摘要、既有品牌来源 ID，明确非官方日志。只由共享历史投影消费；近期产品观察、官方接入与发现时延不计此类历史记录。正式日志取得后按同日同事件精确关联去重，保留来源差异。

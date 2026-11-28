@@ -809,3 +809,19 @@ test('older official product history is retained beyond the recent-news window',
  assert.match(node('content').innerHTML,/Reusable Elements/);
  run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');assert.doesNotMatch(node('content').innerHTML,/Reusable Elements/);
 });
+
+test('reviewed LibTV product milestones are explicit media evidence, not official or recent launch observations',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=product-libtv',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
+ const config=JSON.parse(fs.readFileSync(path.join(root,'config/app-update-sources.json'),'utf8'));
+ const items=config.reviewedObservations.filter(e=>e.claimType==='corroborated-product-milestone');
+ assert.equal(items.length,2);
+ const source=config.sources.find(s=>s.id==='libtv-entry');
+ run('state.appUpdates='+JSON.stringify({sources:[source],events:[],reviewedObservations:items.concat([{...items[0],id:'bad',title:'Unproven launch',verificationUrl:items[0].sourceUrl},{...items[0],id:'promo',title:'Promo trailer',featureName:'Promo trailer'}])})+';render()');
+ const markup=node('content').innerHTML;
+ assert.match(markup,/datetime="2026-03-18"/);assert.match(markup,/datetime="2026-07-14"/);
+ assert.match(markup,/媒体交叉报道（非官方日志）/);assert.match(markup,/原始报道/);assert.doesNotMatch(markup,/Unproven launch|Promo trailer/);
+ assert.equal(run("topicMilestoneCounts(currentChronicleTopics().find(t=>t.id==='product-libtv')).verified"),2);
+ assert.equal(run("competitorBriefRows(state.appUpdates,[],{},Date.now()).length"),0);
+ run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');
+ assert.doesNotMatch(node('content').innerHTML,/无限画布与节点式视频工作流|LibTV Agent 与 Skill Hub 上线/);
+});
