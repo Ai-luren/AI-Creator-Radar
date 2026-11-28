@@ -43,6 +43,11 @@ on:
           - aipick
           - maintenance
           - deploy-only
+      verify_revid:
+        description: "Explicit read-only Revid account authentication check (no search or publication)"
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -138,8 +143,9 @@ jobs:
 
       # Explicit one-time read-only probe. No account fields or upstream content in logs.
       - name: Verify Revid production authentication
-        if: github.event_name == 'workflow_dispatch' && inputs.scope == 'resources'
+        if: github.event_name == 'workflow_dispatch' && inputs.verify_revid == true
         timeout-minutes: 1
+        continue-on-error: true
         env:
           REVID_API_KEY: ${{ secrets.REVID_API_KEY }}
         run: python -m scripts.check_revid_auth
