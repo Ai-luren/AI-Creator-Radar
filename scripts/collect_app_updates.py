@@ -36,6 +36,7 @@ PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https
                   "oiioii-model-directory":"https://www.oiioii.ai/zh/explore/models",
                   "tapnow-agent-docs":"https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
                   "flova-agent-docs":"https://www.flova.ai/en/agent-mcp/",
+                  "flova-model-directory":"https://www.flova.ai/en/docs/features/generation/models/",
                   "oiioii-agent-home":"https://www.oiioii.ai/"}
 PRODUCT_SURFACE_PARSER_VERSION=2
 LIBTV_PLUGIN_REPO="https://github.com/liblib-ai/marketplace"
@@ -118,6 +119,36 @@ class ProductLinks(VisibleText):
         if tag=="a" and self.active is not None:
             self.links.append(self.active)
             self.active=None
+        super().handle_endtag(tag)
+
+
+class ModelTableRows(VisibleText):
+    """Read visible model-table rows only; ignore navigation and hidden markup."""
+    def __init__(self):
+        super().__init__()
+        self.rows=[]
+        self.row=None
+        self.cell=None
+    def handle_starttag(self,tag,attrs):
+        super().handle_starttag(tag,attrs)
+        if any(hidden for _,hidden in self.stack):
+            return
+        if tag=="tr" and any(t=="table" for t,_ in self.stack):
+            self.row=[]
+        elif tag in {"td","th"} and self.row is not None:
+            self.cell=[]
+    def handle_data(self,data):
+        super().handle_data(data)
+        if self.cell is not None and not any(hidden for _,hidden in self.stack):
+            self.cell.append(data)
+    def handle_endtag(self,tag):
+        if tag in {"td","th"} and self.cell is not None and self.row is not None:
+            self.row.append(" ".join(" ".join(self.cell).split()))
+            self.cell=None
+        elif tag=="tr" and self.row is not None:
+            self.rows.append(self.row)
+            self.row=None
+            self.cell=None
         super().handle_endtag(tag)
 
 
@@ -214,6 +245,27 @@ def parse_product_surface(page,source):
         for pattern,name in ((r"\bOii CLI is live!", "Oii CLI"),(r"\bOii Plugin is live!", "Oii Plugin"),(r"\bDownload Desktop\b","OiiOii 桌面端")):
             if re.search(pattern,text,re.I):
                 add(name,"公开开发生态",source["url"])
+    elif source["id"]=="flova-model-directory":
+        if "Supported Models" not in text or "directly selected" not in text or "Last checked on this page:" not in text:
+            raise ValueError("Flova supported-model documentation not readable")
+        table=ModelTableRows()
+        table.feed(page)
+        table.close()
+        header=["Model","Best for","Main Specification","Subscription"]
+        if header not in table.rows:
+            raise ValueError("Flova model table headers missing")
+        for cells in table.rows:
+            if len(cells)!=4 or cells==header:
+                continue
+            name=cells[0]
+            if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 .+_-]{1,79}",name):
+                continue
+            if re.search(r"coming soon|discontinued|deprecated|offline|hidden model",name+" "+cells[1],re.I):
+                continue
+            add(name,"官方模型目录",source["url"],"catalog-listed",
+                identity="model-directory|"+re.sub(r"[\s_-]+","",name.casefold()))
+        if len(rows)<2 or len(rows)>60:
+            raise ValueError("Unexpected Flova model directory size")
     elif source["id"]=="oiioii-model-directory":
         # Public model directory only; this is a catalogue listing, not
         # proof of authenticated generation or a dated integration.
@@ -285,7 +337,7 @@ def parse_product_surface(page,source):
             add(name,"公开产品入口",url,stage,identity="product-route|"+url)
     if not rows:
         raise ValueError("No explicit named public product capabilities")
-    return dict(list(rows.items())[:40])
+    return dict(list(rows.items())[:60 if source["id"]=="flova-model-directory" else 40])
 
 
 class ChangelogText(VisibleText):

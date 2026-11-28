@@ -666,6 +666,20 @@ class CoreMultichannelTests(unittest.TestCase):
         self.assertEqual(plugin_request("higgsfield-skills-features").full_url,HIGGS_SKILLS_API)
         with self.assertRaises(ValueError):
             plugin_request("arbitrary")
+    def test_flova_model_catalog_observations_are_not_launches(self):
+        from scripts.collect_app_updates import parse_product_surface,PRODUCT_SURFACES
+        spec={"id":"flova-model-directory","url":PRODUCT_SURFACES["flova-model-directory"]}
+        page=("<h1>Supported Models</h1><p>Models can be directly selected. Last checked on this page: 2026-11-26</p>"
+              "<table><tr><th>Model</th><th>Best for</th><th>Main Specification</th><th>Subscription</th></tr>"
+              "<tr><td>MiniMax H3 Image</td><td>Image</td><td>2K</td><td>No</td></tr>"
+              "<tr><td>Seedance 2.5 Flash</td><td>Video</td><td>30 sec</td><td>Required</td></tr>"
+              "<tr hidden><td>Fake Model 9</td><td>Video</td><td>4K</td><td>No</td></tr></table>")
+        rows=parse_product_surface(page,spec)
+        self.assertEqual({r["featureName"] for r in rows.values()},{"MiniMax H3 Image","Seedance 2.5 Flash"})
+        self.assertTrue(all(r["surfaceStage"]=="catalog-listed" and "publisherCalendarDay" not in r for r in rows.values()))
+        with self.assertRaises(ValueError):
+            parse_product_surface("<h1>Supported Models</h1>",spec)
+
     def test_bounded_official_agent_surfaces(self):
         from scripts.collect_app_updates import parse_product_surface,PRODUCT_SURFACES
         cases=[
