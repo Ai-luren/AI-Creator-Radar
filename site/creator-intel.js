@@ -104,6 +104,25 @@ function competitorBriefRows(app,reports,social,now){
    add(brand,e.featureName,e.observedAt,competitorEventType(e.featureName),e.featureUrl||e.sourceUrl,'官网入口变化 · 非发布日期');
   }
  });
+ // Public model labels from a migration/baseline are not a product launch.
+ // They are useful availability observations only when an exact active watch
+ // matches an explicit model label or recent recommendation.
+ var watches=((app.targetedDiscovery||{}).queries||[]).filter(function(q){return q.modelWatch&&withinDays(q.publisherCalendarDay,7,new Date(now))});
+ sources.forEach(function(s){
+  var brand=s.vendor==='字节跳动'&&/^jimeng/.test(s.id)?'即梦':s.vendor;
+  if(!trackingBrands.includes(brand))return;
+  Object.values(s.entries||{}).forEach(function(e){
+   if(!e.visibleInLatestRead||!e.lastObservedAt||e.surfaceStage==='coming-soon')return;
+   var label=e.modelName||e.featureName||'';
+   if(e.claimType!=='first-party-visible-label'&&!(e.claimType==='first-party-product-surface'&&/独家首发|模型上新|模型接入|模型上线/i.test(label)))return;
+   watches.forEach(function(q){
+    var name=String(q.term||'');if(!name)return;
+    var pattern=new RegExp('(^|[^a-z0-9])'+name.replace(/[.*+?^$()|[\]\\]/g,function(c){return '\\'+c})+'(?![a-z0-9.])','i');
+    if(!pattern.test(label))return;
+    add(brand,label,e.firstObservedAt||e.lastObservedAt,'模型可见 / 官网推荐',e.featureUrl||s.url,'官网可见 · 非发布日期',{modelName:name});
+   });
+  });
+ });
  (app.reviewedObservations||[]).forEach(function(e){
   var s=sources.find(function(x){return x.id===e.sourceId}),brand=e.brand||(s&&s.vendor==='字节跳动'&&/^jimeng/.test(s.id)?'即梦':s&&s.vendor);
   if(!brand)return;
