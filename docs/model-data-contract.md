@@ -295,3 +295,5 @@ AIHOT 定向索引补证使用 `source-search.json.aihotService` 独立退避与
 覆盖诊断 `maxProvidersPerRun=2` 最多每供应商一条，新增目标仍是计数而非文章缓存。个人阅读由客户端直接获取当前限定查询，来源数据仅内存，事件合集不算原文记录。
 
 创作情报原文链接兼容原始聚合数据的 `http://mp.weixin.qq.com/s` 文章链接，仅将该精确域名及文章路径升级为 HTTPS，不放宽任意 HTTP 或含凭据 URL。热点合集以 story URL 独立识别，代表帖不计入独立原文数；未知原文发布时间以真实 discoveredAt 标注发现时间，绝不冒充发布日期。
+
+`app-updates.json.platformCoverage` 从已有 AIHOT/AIPick 精选快照计算，配置17类平台以原文域名识别、跨源去重、保留快照时间。热点 sourceNames 仅作来源提及统计，独立于原文数量。此诊断不能证明直接平台可读、可持续采集、事件正确或全部覆盖；微信搜一搜是发现入口，Grokipedia 是参考资料。

@@ -455,6 +455,93 @@ def aggregate_coverage(spec,targeted,now):
             "successfulProviders":len(fresh),"policy":"Observed selected-report lanes, not exhaustive event coverage."}
 
 
+
+def platform_key(original,platforms):
+    """Exact domain or proper subdomain only; no request or redirect resolution."""
+    if not isinstance(original,str):
+        return None
+    try:
+        u=urlsplit(original)
+        host=(u.hostname or "").lower().rstrip(".")
+        if u.username or u.password or u.scheme not in ("http","https") or u.port not in (None,443,80):
+            return None
+    except ValueError:
+        return None
+    if u.scheme=="http" and not (host=="mp.weixin.qq.com" and re.match(r"^/s(?:/|$)",u.path)):
+        return None
+    for spec in platforms:
+        for domain in spec["domains"]:
+            if host==domain or host.endswith("."+domain):
+                # Generic article links, profile pages and navigation do not
+                # prove direct access to WeChat video or search channels.
+                return spec["id"]
+    return None
+
+
+def snapshot_platform_coverage(platforms,snapshots,now):
+    """Recent distinct original pointers in existing selected snapshots only."""
+    rows={s["id"]:{"id":s["id"],"label":s["label"],"role":s["role"],"originals":set(),"providers":set(),"hotMentions":set()} for s in platforms}
+    source_states=[]
+    for provider,payload in snapshots.items():
+        if not isinstance(payload,dict):
+            continue
+        stamp=parse_stamp(payload.get("fetchedAt"))
+        source_states.append({"provider":provider,"fetchedAt":payload.get("fetchedAt"),
+                              "selectedItems":len(payload.get("items",[])),
+                              "hotTopics":len(payload.get("hotTopics",[])),
+                              "errors":payload.get("errors",[]),
+                              "stale":not stamp or stamp>now or now-stamp>timedelta(hours=12)})
+        for item in payload.get("items",[]):
+            if not isinstance(item,dict) or item.get("selected") is not True:
+                continue
+            date=parse_stamp(item.get("publishedAt") or item.get("discoveredAt"))
+            if not date or not now-timedelta(days=7)<=date<=now:
+                continue
+            original=(item.get("links") or {}).get("original")
+            key=platform_key(original,platforms)
+            if not key:
+                continue
+            u=urlsplit(original)
+            host=(u.hostname or "").lower()
+            if host.startswith("www."):
+                host=host[4:]
+            if host=="twitter.com":
+                host="x.com"
+            # Preserve meaningful query parameters, remove tracking and fragment.
+            from urllib.parse import parse_qsl
+            query=urlencode(sorted((k,v) for k,v in parse_qsl(u.query,keep_blank_values=True) if not k.lower().startswith("utm_") and k.lower() not in {"fbclid","gclid"}))
+            rows[key]["originals"].add((host,u.path.rstrip("/"),query))
+            rows[key]["providers"].add(provider)
+        # Names in a topic are reported channel mentions, not original links.
+        for topic in payload.get("hotTopics",[]):
+            if not isinstance(topic,dict):
+                continue
+            date=parse_stamp(topic.get("latestAt"))
+            if not date or not now-timedelta(hours=48)<=date<=now:
+                continue
+            for name in topic.get("sourceNames",[]):
+                if not isinstance(name,str):
+                    continue
+                for spec in platforms:
+                    label=spec["label"]
+                    aliases=[label]
+                    if spec["id"]=="wechat-article":
+                        aliases+=["公众号"]
+                    if spec["id"]=="x":
+                        aliases+=["Twitter"]
+                    if any(name==alias or name.startswith(alias+" ") or name.startswith(alias+" ·") or name.startswith(alias+"：") for alias in aliases):
+                        rows[spec["id"]]["hotMentions"].add((provider,name))
+    result=[]
+    for row in rows.values():
+        count=len(row["originals"])
+        result.append({"id":row["id"],"label":row["label"],"role":row["role"],
+                       "originalCount":count,"providers":sorted(row["providers"]),
+                       "hotSourceMentionCount":len(row["hotMentions"]),
+                       "status":"original-observed" if count else "hot-mention-only" if row["hotMentions"] else "not-observed"})
+    return {"checkedAt":now.isoformat(timespec="seconds"),"window":"7d","sources":source_states,"platforms":result,
+            "policy":"Distinct recent selected original-link pointers in available snapshots, not direct platform access, verified update facts or exhaustive coverage. Hot source-name mentions are separate; zero is no sample observation, not an outage."}
+
+
 def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
@@ -527,8 +614,18 @@ def main():
     p.add_argument("--report",type=Path)
     a=p.parse_args()
     read=lambda path:json.loads(path.read_text(encoding="utf-8"))
-    result=collect(read(ROOT/"config/app-update-sources.json"),read(OUTPUT) if OUTPUT.exists() else {},datetime.now(timezone.utc))
+    config=read(ROOT/"config/app-update-sources.json")
+    now=datetime.now(timezone.utc)
+    result=collect(config,read(OUTPUT) if OUTPUT.exists() else {},now)
+    snapshots={}
+    for provider,filename in (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json")):
+        try:
+            snapshots[provider]=read(ROOT/"site/data"/filename)
+        except (OSError,ValueError):
+            pass
+    result["platformCoverage"]=snapshot_platform_coverage(config.get("monitoredPlatforms",[]),snapshots,now)
     print("App updates:",json.dumps(result["summary"],ensure_ascii=False))
+    print("Platform coverage:",json.dumps(result["platformCoverage"],ensure_ascii=False))
     for source in result["sources"]:
         print("[APP]",source["id"],source["status"],"error=",source.get("error"))
     print("AIPick targeted coverage:",json.dumps({"attempted":result["targetedDiscovery"].get("attemptedThisRun"),"queries":[{k:q.get(k) for k in ("id","status","counts","lastSuccessAt","error")} for q in result["targetedDiscovery"].get("queries",[])]},ensure_ascii=False))

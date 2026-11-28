@@ -159,3 +159,23 @@ class AppUpdatesTests(unittest.TestCase):
         second=collect_targeted(cfg,first,self.now+timedelta(minutes=30),fetch)
         self.assertEqual(calls,["a","b","c","d"])
         self.assertEqual(second["attemptedThisRun"],2)
+
+    def test_platform_coverage_counts_originals_separately_from_hot_mentions(self):
+        from scripts.collect_app_updates import snapshot_platform_coverage,platform_key
+        platforms=[{"id":"x","label":"X","role":"social","domains":["x.com","twitter.com"]},
+                   {"id":"wechat-article","label":"微信公众号","role":"social","domains":["mp.weixin.qq.com"]},
+                   {"id":"instagram","label":"Instagram","role":"social","domains":["instagram.com"]}]
+        def item(url,selected=True):
+            return {"selected":selected,"publishedAt":self.now.isoformat(),"links":{"original":url}}
+        snapshots={"AIHOT":{"fetchedAt":self.now.isoformat(),"items":[item("https://x.com/example/status/123?utm_source=a"),item("https://x.com.evil.test/status/123")]},
+                   "AIPick":{"fetchedAt":self.now.isoformat(),"items":[item("https://twitter.com/example/status/123"),item("http://mp.weixin.qq.com/s?mid=123"),item("https://instagram.com/p/one",False)],"hotTopics":[{"latestAt":self.now.isoformat(),"sourceNames":["Instagram · creator","X · example"]}]}}
+        result=snapshot_platform_coverage(platforms,snapshots,self.now)
+        rows={x["id"]:x for x in result["platforms"]}
+        self.assertEqual(rows["x"]["originalCount"],1)
+        self.assertEqual(rows["x"]["providers"],["AIHOT","AIPick"])
+        self.assertEqual(rows["wechat-article"]["originalCount"],1)
+        self.assertEqual(rows["instagram"]["status"],"hot-mention-only")
+        self.assertEqual(rows["instagram"]["originalCount"],0)
+        self.assertIsNone(platform_key("https://x.com.evil.test/status/123",platforms))
+        self.assertIsNone(platform_key("https://x.com:8000/status/123",platforms))
+        self.assertIsNone(platform_key("https://user@x.com/status/123",platforms))

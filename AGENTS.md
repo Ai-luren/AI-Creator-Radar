@@ -70,3 +70,5 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Prefer AIHOT + AIPick selected information first for competitor research; run direct changelog probes only for observed coverage gaps, preserve existing evidence and separate feature versus model-integration signals. A brand mention or a positive sample is not proof of exhaustive coverage. Avoid duplicate crawling and prioritize product design relevance over raw source volume.
 
 - Prioritize unattempted monitored brand/provider pairs with bounded independent request budgets. Personal direct-browser selected reading is not a public data mirror or proxy; verify real CORS, keep fallback links and never certify unsupported providers.
+
+- For the 17 user-selected platforms, report actual recent distinct original-link contributions from existing AIHOT/AIPick selected snapshots, separately from hot-topic source-name mentions and unobserved platforms. Do not mistake directories, counts-only queries or source labels for direct platform access. WeChat search is discovery; Grokipedia is reference. No new platform crawlers without a demonstrated gap.
