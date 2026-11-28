@@ -397,6 +397,31 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(result["Higgsfield"],1)
         self.assertEqual(result["LibTV"],0)
 
+    def test_named_propagation_gap_reuses_official_probe_and_respects_existing_cooldown(self):
+        from scripts.collect_app_updates import propagation_official_gap
+        spec={"id":"hf","name":"Higgsfield","vendor":"Higgsfield","type":"higgs-changelog","url":"https://higgsfield.ai/creator-hub/changelog","links":[],"minIntervalMinutes":360,"aggregateQueryIds":["a","b"]}
+        def item(title,url):
+            return {"title":title,"selected":True,"publishedAt":self.now.isoformat(),"links":{"original":url}}
+        first=item("实测 Higgsfield 新功能 Magic","https://example.org/one")
+        second=item("Higgsfield 新功能 Magic 上线","https://mp.weixin.qq.com/s/exampletwo")
+        duplicate=item("实测 Higgsfield 新功能 Magic","https://example.org/one?utm_source=duplicate")
+        snapshots={"AIPick":{"fetchedAt":self.now.isoformat(),"items":[first,duplicate,second,item("Higgsfield 新功能 Magic 折扣体验","https://example.org/promo")]}}
+        self.assertEqual(propagation_official_gap(spec,{},snapshots,self.now),["Magic"])
+        single={"AIPick":{**snapshots["AIPick"],"items":[first,duplicate]}}
+        self.assertEqual(propagation_official_gap(spec,{},single,self.now),[])
+        prior={"schema":"app-updates/v1","sources":[{**spec,"lastSuccessAt":self.now.isoformat()}],"events":[]}
+        self.assertEqual(propagation_official_gap(spec,prior,snapshots,self.now),[])
+        prior={"schema":"app-updates/v1","sources":[{**spec,"nextAttemptAt":(self.now+timedelta(hours=1)).isoformat()}],"events":[]}
+        cfg={"sources":[spec],"targetedDiscovery":{"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
+        got=collect(cfg,prior,self.now,lambda _:self.fail("honor cooldown"),lambda *_:({"items":0},"e"),snapshots=snapshots)
+        self.assertEqual(got["sources"][0]["propagationGap"],["Magic"])
+        self.assertTrue(got["sources"][0]["deferred"])
+        calls=[]
+        got=collect(cfg,{},self.now,lambda source:(calls.append(source["id"]) or {}),lambda *_:({"items":0},"e"),snapshots=snapshots)
+        self.assertEqual(calls,["hf"])
+        self.assertEqual(got["sources"][0]["propagationGap"],["Magic"])
+        self.assertEqual(got["events"],[])
+
     def test_model_watch_gap_enables_existing_official_probe_but_respects_cooldown(self):
         from scripts.collect_app_updates import model_watch_official_gap
         spec={"id":"hf","name":"Higgsfield","vendor":"Higgsfield","type":"higgs-changelog","url":"https://higgsfield.ai/creator-hub/changelog","links":[],"minIntervalMinutes":360}
