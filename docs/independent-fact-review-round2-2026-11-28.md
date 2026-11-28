@@ -14,3 +14,11 @@
 | inclusionai-ling-ling-3-2-air-20261123 | 2026-11-23 / official-model-card | [官方模型卡](https://huggingface.co/inclusionAI/Ling-3.2-air)确认型号及公开权重；[官方仓库历史](https://huggingface.co/inclusionAI/Ling-3.2-air/commits/main)有11月23日初始提交、权重文件上传活动及 README 更新。但无法证明仓库在当日已对公众开放（创建/上传/公开是不同阶段），模型卡正文无明确日期。 | 日期/开放阶段证据待补；不能据此判错或判通过 |
 
 结果：8 个尝试；7 个严格一致、0 个确认错误、1 个未决。已判定样本 7/7，但全样本可证实比例 7/8；未知不计入严格准确率的正确分子，也不声称全库准确率达标。尚无理由修改七条已确认记录或宣称 Ling 错误。Ling 需找到公开可用日期的直接发布者证明或可审计公共可见性历史，不把建库时间当作正式发布日期。此复核为独立留档，既有 machine-readable 首轮真值和正式门禁不修改；后续如获得明确日期证据，独立追加审计记录，保持原快照和未决状态历史。不得以重测旧八条代替新独立审计。
+
+## 追加核验：Ling-3.2-air（2026-11-28）
+
+- [Advance Intelligence 11月23日索引](https://www.advanceintelligence.ai/2026-11-23)定位到 [Ant Ling 官方介绍帖](https://x.com/AntLingAGI/status/2124891223597240338)，索引展示当日官方账号介绍开源权重型号。实际直读 X 返回403，官方 oEmbed 未能读取；索引转述不替代直接官方证明。
+- [Artificial Analysis 独立评测页](https://artificialanalysis.ai/models/ling-3-2-air)明确列出2026-11-23发布日期，与[官方模型卡](https://huggingface.co/inclusionAI/Ling-3.2-air)及[官方仓库提交历史](https://huggingface.co/inclusionAI/Ling-3.2-air/commits/main)的型号、开源权重与当日活动一致。
+- [ModelBrief 发布过程复盘](https://modelbrief.app/zh/ling-3-2-air/articles/ling-3-2-air-launch-overview/)指出当日仓库一度需要鉴权，不能把仓库创建时间等同公开时间。
+
+结论：11月23日公告日和记录发布日期得到更强交叉支持；保留原日期，仍不晋级严格公开可用阶段的独立审核（原帖尚未直接核验）。7/8 严格证实的原始样本判定不变，不能把转述当独立官方声明，也不反复请求被拒入口。此项记录为证据缺口而非已确认事实错误或八事件召回回归。
