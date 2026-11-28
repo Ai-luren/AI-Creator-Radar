@@ -652,3 +652,15 @@ test('innovation relevance audit retains actual creative demos regardless of edi
  const rows=JSON.parse(run('JSON.stringify(innovationSignals({batches:[{name:"AIPick",items:'+JSON.stringify(items)+'}]},Date.now()))'));
  assert.equal(rows.length,6);assert.ok(rows.every(row=>row.type==='case'));
 });
+
+test('creative case relevance retains model comparison and verb-first generation descriptions',()=>{
+ const {run}=setup();
+ const items=[
+ {title:'即梦 Dreamina 用 Seedance 2.5 生成 4K 甜品质感视频',category:'ai-products'},
+ {title:'LibTV 上架 MAGI-2 视频模型，创作者用四模型盲评对比',category:'ai-products'},
+ {title:'ChatGPT 推出会计产品，会计硕士拍视频吐槽自己失业',category:null},
+ {title:'某平台推出视频模型，限时优惠',category:'ai-products'},
+ {title:'某平台视频模型正式上线',category:'ai-products'}
+ ];
+ assert.deepEqual(JSON.parse(run('JSON.stringify('+JSON.stringify(items)+'.map(innovationCreativeCase))')),[true,true,false,false,false]);
+});
