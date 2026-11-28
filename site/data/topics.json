@@ -16,41 +16,6 @@
     "milestones": [
       {
         "date": "2026-11-09",
-        "kind": "模型发布",
-        "title": "Introducing Claude Fable 5.2 and Claude Mythos 5.2",
-        "summary": "Our most capable models for daunting technical work, Claude Fable 5.2 and Claude Mythos 5.2 set a new bar in coding, finance, and the sciences. Announcements",
-        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
-        "sourceId": "anthropic-model-news",
-        "sourceName": "Anthropic 官方新闻",
-        "sourceUpdateId": "b6edf533d574346e9f",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "claude",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "llm",
-        "modelMentions": [
-          {
-            "modelFamilyId": "claude",
-            "modelVersionId": "claude-fable-5-2",
-            "matchedName": "Claude Fable 5.2"
-          },
-          {
-            "modelFamilyId": "claude",
-            "modelVersionId": "claude-mythos-5-2",
-            "matchedName": "Claude Mythos 5.2"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "claude",
-            "matchedName": "Claude Mythos 5.2"
-          }
-        ]
-      },
-      {
-        "date": "2026-11-09",
         "kind": "模型",
         "title": "Claude Fable 5.2 与 Claude Mythos 5.2 发布",
         "summary": "Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2。官方说明这两个名称对应同一个底层模型，但面向不同用途和安全控制；Fable 可供一般用户使用，Mythos 主要面向经过验证的网络安全与生命科学机构。",
@@ -75,36 +40,6 @@
           {
             "modelFamilyId": "claude",
             "matchedName": "Claude Mythos 5.2"
-          }
-        ]
-      },
-      {
-        "date": "2026-10-07",
-        "kind": "模型发布",
-        "title": "Introducing Claude Haiku 5.5",
-        "summary": "Claude Haiku 5.5 is our fastest, most capable small model. Built for high-volume work like summarization, subagents, and browser use. Announcements",
-        "url": "https://www.anthropic.com/claude-haiku-5-5",
-        "sourceId": "anthropic-model-news",
-        "sourceName": "Anthropic 官方新闻",
-        "sourceUpdateId": "5534c5e9b31121f3bc",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "claude",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "llm",
-        "modelMentions": [
-          {
-            "modelFamilyId": "claude",
-            "modelVersionId": "claude-haiku-5-5",
-            "matchedName": "Claude Haiku 5.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "claude",
-            "matchedName": "Claude Haiku 5.5"
           }
         ]
       },
@@ -183,36 +118,6 @@
           {
             "modelFamilyId": "claude",
             "matchedName": "Claude Sonnet 5.5"
-          }
-        ]
-      },
-      {
-        "date": "2026-09-22",
-        "kind": "模型发布",
-        "title": "Introducing Claude Opus 5.5",
-        "summary": "Claude Opus 5.5 leads in agentic coding and knowledge work, and costs 40% less to run than Opus 5 on typical workloads. Features",
-        "url": "https://www.anthropic.com/claude-opus-5-5",
-        "sourceId": "anthropic-model-news",
-        "sourceName": "Anthropic 官方新闻",
-        "sourceUpdateId": "1d613fd24eac33beca",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "claude",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "llm",
-        "modelMentions": [
-          {
-            "modelFamilyId": "claude",
-            "modelVersionId": "claude-opus-5-5",
-            "matchedName": "Claude Opus 5.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "claude",
-            "matchedName": "Claude Opus 5.5"
           }
         ]
       },
@@ -4529,36 +4434,6 @@
       {
         "date": "2026-11-04",
         "kind": "模型发布",
-        "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
-        "summary": "DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.",
-        "url": "https://openai.com/index/devrev-enterprise-self-service",
-        "sourceId": "openai-news",
-        "sourceName": "OpenAI 官方新闻 RSS",
-        "sourceUpdateId": "8e450599cbb0276aac",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "gpt",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "llm",
-        "modelMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "modelVersionId": "gpt-6-1",
-            "matchedName": "GPT-6.1 Sol"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "gpt",
-            "matchedName": "GPT-6.1 Sol"
-          }
-        ]
-      },
-      {
-        "date": "2026-11-04",
-        "kind": "模型发布",
         "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
         "summary": "Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.",
         "url": "https://openai.com/index/daybreak-red-aws-govcloud",
@@ -6105,23 +5980,6 @@
       },
       {
         "date": "2025-10-21",
-        "kind": "模型发布",
-        "title": "v4.5-all: A new free model for everyone",
-        "summary": "v4.5-all is here because we believe that everyone should have access to tools that unlock their musical potential. This model delivers the sound your ideas deserve — richer, fuller, more dynamic — and it's free for anyone who wants to create. The only limit is your imagination. Start creating with v4.5-all and share your songs with us.",
-        "url": "https://suno.com/release-notes/v4-5-all-a-new-free-model-for-everyone",
-        "sourceId": "suno-release",
-        "sourceName": "Suno 官方更新日志",
-        "sourceUpdateId": "cde87921a4e22a4cb6",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "collectedAt": "2026-11-24T09:41:51Z",
-        "modelCategory": "music",
-        "sourceModelId": "suno",
-        "dateKind": "source-date"
-      },
-      {
-        "date": "2025-10-21",
         "kind": "模型",
         "title": "Suno V4.5-all · 发布",
         "summary": "面向所有用户的免费音乐模型。",
@@ -6938,36 +6796,6 @@
     "milestones": [
       {
         "date": "2026-11-09",
-        "kind": "模型发布",
-        "title": "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布",
-        "summary": "",
-        "url": "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5?view_from=homepage_tab",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "02f7888b26ecc3fff0",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "seedream",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "image",
-        "modelMentions": [
-          {
-            "modelFamilyId": "seedream",
-            "modelVersionId": "seedream-5-5",
-            "matchedName": "Seedream 5.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seedream",
-            "matchedName": "Seedream 5.5"
-          }
-        ]
-      },
-      {
-        "date": "2026-11-09",
         "kind": "模型",
         "title": "Seedream 5.5 图像生成模型",
         "summary": "提升图像生成与连续编辑能力。",
@@ -7017,29 +6845,6 @@
             "modelFamilyId": "seedream",
             "modelVersionId": "seedream-5-0-flash",
             "matchedName": "Seedream 5.0 Flash"
-          }
-        ]
-      },
-      {
-        "date": "2026-08-05",
-        "kind": "模型发布",
-        "title": "SeedRealtime 音视频全双工大模型发布：走向全模态自然交互",
-        "summary": "",
-        "url": "https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction?view_from=homepage_tab",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "a58e69516f39f27b5e",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "source-date",
-        "sourceModelId": "seed-realtime",
-        "collectedAt": "2026-11-26T12:21:52Z",
-        "modelCategory": "audio",
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seed-realtime",
-            "matchedName": "SeedRealtime"
           }
         ]
       },
@@ -7105,38 +6910,6 @@
         "auditId": "review-20261127-seedance-25",
         "verificationDate": "2026-11-27",
         "verificationUrl": "https://www.bytedance.com/newsroom/dreamina-seedance-2-5-dola-seedream-5"
-      },
-      {
-        "date": "2026-07-31",
-        "kind": "模型发布",
-        "title": "一镜成片，随心参考：Seedance 2.5 正式发布",
-        "summary": "",
-        "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab",
-        "sourceId": "seed-official",
-        "sourceName": "字节跳动 Seed 官方动态",
-        "sourceUpdateId": "839af1e97986262326",
-        "sourceTier": "official-primary",
-        "autoCollected": true,
-        "verificationStatus": "官方一手来源自动收录 · 待复核",
-        "dateKind": "article-publication-date",
-        "recoveryProofId": "recovery-f58d44a1f0031867aa29",
-        "previousSourceDate": "2026-11-16T00:00:00Z",
-        "sourceModelId": "seedance",
-        "collectedAt": "2026-11-27T02:37:01Z",
-        "modelCategory": "video",
-        "modelMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "modelVersionId": "seedance-2-5",
-            "matchedName": "Seedance 2.5"
-          }
-        ],
-        "modelFamilyMentions": [
-          {
-            "modelFamilyId": "seedance",
-            "matchedName": "Seedance"
-          }
-        ]
       },
       {
         "date": "2026-07-20",
