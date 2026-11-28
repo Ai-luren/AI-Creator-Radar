@@ -40,6 +40,34 @@ class SourceSearchTests(unittest.TestCase):
                      [dict(repo,url="https://huggingface.co/other/Ming-Image-0.2-Design"),lead]):
             self.assertEqual(build_targets(self.families,{"items":rows},{},{}),{})
 
+    def test_repository_backed_unknown_uses_aggregators_before_broad_search(self):
+        from scripts.collect_source_search import parse_aihot_pointers
+        name = "Ming-Image-0.2-Design"
+        repo = {"id":"repo","sourceId":"hf-inclusionai","title":"inclusionAI/"+name,
+                "url":"https://huggingface.co/inclusionAI/"+name,"dateKind":"repository-created-at",
+                "firstSeenAt":"2026-11-26T00:00:00Z"}
+        lead = {"id":"lead","sourceId":"local-aihot-daily","title":name+" 发布",
+                "firstSeenAt":"2026-11-26T00:00:00Z","officialArticleUrls":[]}
+        discovery = {"items":[repo,lead]}
+        calls = []
+        def primary(target, allowed, families, etag):
+            calls.append(target["query"])
+            payload = {"items":[{"category":"ai-models","title":name+" 发布",
+                       "links":{"original":"https://official.example/blog/design","aihot":"https://aihot.news/items/design"}},
+                      {"category":"ai-models","title":name+"-Layer 发布",
+                       "links":{"original":"https://official.example/blog/layer","aihot":"https://aihot.news/items/layer"}}]}
+            return parse_aihot_pointers(payload,target,allowed,families), '"etag"'
+        result = search(self.families,discovery,{}, {},{},self.allowed,self.now,
+                        lambda *a:self.fail("broad index before aggregator"),aihot_fetcher=primary)
+        self.assertEqual(calls,[name])
+        self.assertEqual(result["summary"]["attemptedThisRun"],1)
+        self.assertEqual(result["summary"]["aihotAttemptedThisRun"],1)
+        target = result["targets"][0]
+        self.assertTrue(target["repositoryBacked"])
+        self.assertIsNone(target["identity"])
+        self.assertEqual([r["officialCandidateUrl"] for r in target["results"]],["https://official.example/blog/design"])
+        self.assertNotIn("publishedAt",target["results"][0])
+
     def test_title_variant_and_host_validation(self):
         results = parse_results({"articles":[
             {"title":"Introducing Demo v3","url":"https://official.example/blog/v3","seendate":"20261126T120000Z"},
