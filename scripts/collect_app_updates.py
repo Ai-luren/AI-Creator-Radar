@@ -512,6 +512,25 @@ def parse_dated_changelog(page,source):
 
 
 APPLE_LOOKUP="https://itunes.apple.com/lookup?id=6503676563&country=cn&entity=software"
+# Fixed app identities and store regions; never accept arbitrary lookup URLs.
+APPLE_STORES={
+    "jimeng-ios-cn":(6503676563,"cn","即梦"),
+    "xiaoyunque-ios-cn":(6746231056,"cn","小云雀"),
+    "pippit-ios-sg":(6756709583,"sg","Pippit"),
+    "dreamina-ios-sg":(6749606485,"sg","Dreamina"),
+    "gemini-ios-us":(6477489729,"us","Google Gemini"),
+}
+
+def approved_store_url(source):
+    identity=APPLE_STORES.get(source.get("id"))
+    if not identity:
+        raise ValueError("Unapproved store lookup")
+    track,country,name=identity
+    url="https://itunes.apple.com/lookup?"+urlencode({"id":track,"country":country,"entity":"software"})
+    if source.get("trackId")!=track or source.get("expectedName")!=name or source.get("lookupUrl")!=url or source.get("url")!=f"https://apps.apple.com/{country}/app/id{track}":
+        raise ValueError("Unapproved store lookup")
+    return url
+
 AIPICK_QUERIES={
     ("即梦","ai-products"),("SeedAudio",None),("可灵","ai-products"),
     ("海螺","ai-products"),("Vidu","ai-products"),("PixVerse","ai-products"),("Sand.ai","ai-models"),
@@ -983,9 +1002,7 @@ def fetch(source):
             raise ValueError("Unapproved discovery feed")
         url=source["url"]
     elif is_store:
-        if source.get("lookupUrl")!=APPLE_LOOKUP or source.get("trackId")!=6503676563:
-            raise ValueError("Unapproved store lookup")
-        url=APPLE_LOOKUP
+        url=approved_store_url(source)
     else:
         if source["url"] not in ALLOWED:
             raise ValueError("Unapproved app surface")
