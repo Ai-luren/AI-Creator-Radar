@@ -44,7 +44,7 @@ on:
           - maintenance
           - deploy-only
       verify_revid:
-        description: "Explicit read-only Revid account authentication check (no search or publication)"
+        description: "Verify Revid authentication and one guarded search (no publication)"
         type: boolean
         required: false
         default: false
@@ -141,9 +141,10 @@ jobs:
           RADAR_GITHUB_API_TOKEN: ${{ github.token }}
         run: python scripts/run_collection_batch.py recovery
 
-      # Explicit one-time read-only probe. No account fields or upstream content in logs.
+      # Read-only account probe on collector/config pushes or explicit manual verification.
+      # No search quota is consumed; no account fields are logged.
       - name: Verify Revid production authentication
-        if: github.event_name == 'workflow_dispatch' && inputs.verify_revid == true
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.verify_revid == true)
         timeout-minutes: 1
         continue-on-error: true
         env:
