@@ -280,8 +280,8 @@ function competitorBriefRows(app,reports,social,now){
    watches.forEach(function(q){
     var name=String(q.term||'');if(!name)return;
     var pattern=competitorModelPattern(name);
-    if(!pattern.test(label))return;
-    add(brand,label,e.firstObservedAt||e.lastObservedAt,e.surfaceStage==='catalog-listed'?'模型目录展示':'模型可见 / 官网推荐',e.featureUrl||s.url,'官网可见 · 非发布日期',{modelName:name});
+    if(e.surfaceStage==='catalog-listed'?innovationModelKey(label)!==innovationModelKey(name):!pattern.test(label))return;
+    add(brand,label,e.firstObservedAt||e.lastObservedAt,e.surfaceStage==='catalog-listed'?'模型目录展示':'模型可见 / 官网推荐',e.featureUrl||s.url,'官网可见 · 非发布日期',{modelName:name,note:platformSpecLabel(e.platformSpecs)});
    });
   });
  });
@@ -313,7 +313,7 @@ function competitorModelTrace(rows,releases,now){
   var name=String(m.modelName||''),needle=innovationModelKey(name);
   if(!needle)return null;
   var pattern=competitorModelPattern(name);
-  var related=rows.filter(function(r){return withinDays(r.day,7,new Date(now))&&((r.modelName&&innovationModelKey(r.modelName)===needle)||(!r.modelName||r.modelName===r.title)&&pattern.test(r.title))&&r.kind!=='融资 / 公司动态'});
+  var related=rows.filter(function(r){return withinDays(r.day,7,new Date(now))&&(r.kind==='模型目录展示'?innovationModelKey(r.modelName||r.title)===needle:((r.modelName&&innovationModelKey(r.modelName)===needle)||(!r.modelName||r.modelName===r.title)&&pattern.test(r.title)))&&r.kind!=='融资 / 公司动态'});
   var brands=priorityCompetitors.concat(trackingBrands.filter(function(b){return !priorityCompetitors.includes(b)})).filter(function(brand){return related.some(function(r){return r.brand===brand})});
   if(!brands.length)return null;
   return {model:m,brands:brands,rows:related};
@@ -957,6 +957,18 @@ var competitorMatrixReviewed=[
  {brand:'LibTV',name:'图片生成',dimensions:['image'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'},
  {brand:'LibTV',name:'剧本生成',dimensions:['script'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'}
 ];
+function platformSpecLabel(spec){
+ if(!spec||typeof spec!=='object')return '';
+ var parts=[];
+ var resolutions=Array.isArray(spec.resolutions)?spec.resolutions.filter(function(x){return typeof x==='string'&&/^(?:\d{3,4}p|1(?:\.5)?K|2K|4K)$/.test(x)}).slice(0,8):[];
+ if(resolutions.length)parts.push('输出 '+resolutions.join('/'));
+ if(typeof spec.durationSeconds==='string'&&/^\d{1,3}(?:[-/]\d{1,3})*$/.test(spec.durationSeconds))parts.push(spec.durationSeconds.replace(/-/g,'–')+' 秒');
+ [['omniReferenceMax','混合参考最多'],['imageReferenceMax','图像参考最多'],['referenceMax','参考最多']].forEach(function(pair){var n=spec[pair[0]];if(Number.isInteger(n)&&n>0&&n<=100)parts.push(pair[1]+n+' 个')});
+ if(spec.nativeAudio===true)parts.push('标注原生音频');
+ if(Array.isArray(spec.projectRestrictions)&&spec.projectRestrictions.includes('new-projects'))parts.push('含新项目限制');
+ if(Array.isArray(spec.projectRestrictions)&&spec.projectRestrictions.includes('old-projects'))parts.push('含旧项目限制');
+ return parts.length?'平台文档 · '+parts.join(' · '):'';
+}
 function competitorMatrixRows(app,now,reviewed){
  app=app||{};var seen=new Map(),rows=[],sources=app.sources||[];
  function add(row){
@@ -981,7 +993,7 @@ function competitorMatrixRows(app,now,reviewed){
   Object.values(source.entries||{}).filter(function(e){return e.claimType==='first-party-product-surface'&&e.visibleInLatestRead===true&&e.featureName&&e.lastObservedAt}).forEach(function(e){
    var url=creatorOriginalUrl(e.featureUrl||source.url);if(!url||/^(独家首发|模型上新|View all presets)$/i.test(e.featureName))return;
    var dimensions=e.productArea==='官方模型目录'||/模型上新|模型接入|模型上线|已接入|独家首发/i.test(e.featureName)?['integration']:competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName)}).map(function(x){return x.id});
-   add({brand:source.vendor,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:null,reviewedOn:chinaDay(e.lastObservedAt),kind:e.surfaceStage==='coming-soon'?'官方预告 · 未上线':'官网自动观察',note:'最近成功读取的公开入口，不代表发布日期或登录后的完整功能。'});
+   add({brand:source.vendor,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:null,reviewedOn:chinaDay(e.lastObservedAt),kind:e.surfaceStage==='coming-soon'?'官方预告 · 未上线':'官网自动观察',platformSpec:platformSpecLabel(e.platformSpecs),note:'最近成功读取的公开入口，不代表发布日期或登录后的完整功能。'});
   })
  });
  (reviewed||[]).forEach(function(x){if(competitorMatrixBrands.includes(x.brand)&&creatorOriginalUrl(x.url))add(Object.assign({},x,{kind:'官网观察',day:null}))});
@@ -994,7 +1006,7 @@ function competitorMatrixPage(tabs){
  var body=dimensions.map(function(dim){
   return '<tr><th scope="row">'+esc(dim.name)+'</th>'+competitorMatrixBrands.map(function(brand){
    var cell=rows.filter(function(x){return x.brand===brand&&x.dimensions.includes(dim.id)&&matches([brand,dim.name,x.name,x.note].join(' '))});
-   function entry(x){return '<div class="matrix-feature">'+creatorLink(x.url,productReadingTitle(x.name))+'<small>'+esc(x.day?x.kind+' · '+x.day.slice(5):x.kind==='官方预告 · 未上线'?'官方预告 · 未上线':'官网观察 · 非上新')+'</small>'+(x.alternates.length?'<details class="matrix-evidence"><summary>补充证据 '+x.alternates.length+' 条</summary>'+x.alternates.map(function(e){return creatorLink(e.url,e.kind+' · '+(e.day||'日期未确认'))}).join('')+'</details>':'')+'</div>'}
+   function entry(x){return '<div class="matrix-feature">'+creatorLink(x.url,productReadingTitle(x.name))+'<small>'+esc(x.day?x.kind+' · '+x.day.slice(5):x.kind==='官方预告 · 未上线'?'官方预告 · 未上线':'官网观察 · 非上新')+'</small>'+(x.platformSpec?'<small>'+esc(x.platformSpec)+'</small>':'')+(x.alternates.length?'<details class="matrix-evidence"><summary>补充证据 '+x.alternates.length+' 条</summary>'+x.alternates.map(function(e){return creatorLink(e.url,e.kind+' · '+(e.day||'日期未确认'))}).join('')+'</details>':'')+'</div>'}
    return '<td>'+(cell.length?cell.slice(0,2).map(entry).join('')+(cell.length>2?'<details><summary>另 '+(cell.length-2)+' 条</summary>'+cell.slice(2).map(entry).join('')+'</details>':''):'<small class="matrix-unknown" aria-label="当前未观察">—</small>')+'</td>'
   }).join('')+'</tr>'
  }).join('');
