@@ -696,3 +696,16 @@ test('matrix dimension filter reduces rows without changing the full competitor 
  const out=node('content').innerHTML;assert.match(out,/Agentic Creative Canvas/);assert.match(out,/Renoise/);
  assert.match(out,/value="canvas" selected/);assert.equal((out.match(/scope="row"/g)||[]).length,1);
 });
+
+test('private competitor reading supplements saved evidence instead of erasing it',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("state.aihot.items=[{title:'TapNow 画布更新',publishedAt:'2026-11-27T01:00:00Z',links:{original:'https://example.org/saved'}}];state.aipick={items:[]};creatorBrand='TapNow';creatorPrivate['competitors|TapNow']={sources:{AIHOT:{data:{items:[]}},AIPick:{data:{items:[{title:'TapNow 官方演示',publishedAt:'2026-11-28T01:00:00Z',links:{original:'https://example.org/new'}}]}}}};render()");
+ const out=node('content').innerHTML;
+ assert.match(out,/TapNow 画布更新/);assert.match(out,/TapNow 官方演示/);assert.match(out,/补充读取 TapNow 最新精选/);
+});
+test('dated official comparison article is evidence of promotion, not first model adoption',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const rows=JSON.parse(run("JSON.stringify(competitorBriefRows({sources:[{id:'rn',vendor:'Renoise'}],reviewedObservations:[{sourceId:'rn',title:'MAGI-2 官方实测',modelName:'MAGI-2',kind:'宣发 / 演示',releaseDate:'2026-11-26',observedOn:'2026-11-28',observationMethod:'官方文章发布日期',sourceUrl:'https://renoise.ai/blog/magi-2-vs-seedance-2-5'}]},[],{},Date.now()))"));
+ assert.equal(rows[0].day,'2026-11-26');assert.equal(rows[0].proof,'官方文章');
+ assert.equal(run("competitorResponseStatus([{kind:'宣发 / 演示',proof:'官方文章',day:'2026-11-26'}]).label"),'官方宣发记录');
+});
