@@ -647,7 +647,7 @@ class AlternativeProductSourcesTests(unittest.TestCase):
         from urllib.error import HTTPError
         now=datetime(2026,11,28,12,tzinfo=timezone.utc)
         self.assertGreaterEqual(datetime.fromisoformat(app_probe_retry_at(HTTPError("https://example.org",403,"Forbidden",{},None),now,1)),now+timedelta(days=1))
-        self.assertGreaterEqual(datetime.fromisoformat(app_probe_retry_at(ValueError("shell"),now,3)),now+timedelta(days=7))
+        self.assertGreaterEqual(datetime.fromisoformat(app_probe_retry_at(ValueError("shell"),now,2)),now+timedelta(days=7))
         blocked={"id":"jimeng","name":"Jimeng","vendor":"字节跳动","url":"https://jimeng.jianying.com/ai-tool/home","type":"visible-model-labels","links":[],"minIntervalMinutes":360}
         fallback={"id":"aiguanchao-featured","name":"AI观潮","vendor":"AI观潮","url":"https://aiguanchao.com/feed/featured.xml","type":"product-discovery-feed","role":"discovery","links":[],"minIntervalMinutes":720}
         old={"schema":"app-updates/v1","sources":[{**blocked,"status":"probe-unavailable","consecutiveFailures":6,"checkedAt":(now-timedelta(hours=14)).isoformat(),"nextAttemptAt":(now-timedelta(hours=1)).isoformat(),"entries":{}}],"events":[]}

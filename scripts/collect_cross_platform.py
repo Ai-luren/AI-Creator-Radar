@@ -280,6 +280,13 @@ def collect(config, previous, now, fetcher=fetch):
         prior = old_status.get(source["id"], {})
         if prior.get("url") == source["url"] and prior.get("nextAttemptAt") and prior["nextAttemptAt"] > stamp:
             return False
+        if prior.get("url") == source["url"] and prior.get("consecutiveFailures",0)>=2 and prior.get("checkedAt"):
+            try:
+                failed_at=datetime.fromisoformat(prior["checkedAt"].replace("Z","+00:00"))
+                if now<failed_at+timedelta(days=7):
+                    return False
+            except (ValueError,TypeError):
+                pass
         if prior.get("url") == source["url"] and source.get("minIntervalMinutes") and prior.get("lastSuccessAt"):
             try:
                 elapsed = now - datetime.fromisoformat(prior["lastSuccessAt"].replace("Z", "+00:00"))
@@ -291,7 +298,15 @@ def collect(config, previous, now, fetcher=fetch):
     active = [source for source in config["sources"] if due(source)]
     for source in config["sources"]:
         if not due(source):
-            statuses.append({**old_status[source["id"]], "deferred": True})
+            prior=old_status[source["id"]]
+            row={**prior,"deferred":True}
+            if prior.get("consecutiveFailures",0)>=2 and prior.get("checkedAt"):
+                try:
+                    until=datetime.fromisoformat(prior["checkedAt"].replace("Z","+00:00"))+timedelta(days=7)
+                    row["nextAttemptAt"]=max(prior.get("nextAttemptAt") or "",until.isoformat(timespec="seconds"))
+                except (ValueError,TypeError):
+                    pass
+            statuses.append(row)
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
         results = list(pool.map(lambda s: fetcher(s, config["officialArticleHosts"]), active))
     for source, rows, error in results:
@@ -306,8 +321,12 @@ def collect(config, previous, now, fetcher=fetch):
             old[row_id] = {"id": row_id, **row, "firstSeenAt": first, "lastSeenAt": stamp}
             accepted += 1
         prior = old_status.get(source["id"], {})
-        failures = int(prior.get("consecutiveFailures", 0)) + 1 if error else 0
+        failures = int(prior.get("consecutiveFailures", 0)) + 1 if error and prior.get("url")==source["url"] else int(bool(error))
         delay = min(24 * 60, 30 * (2 ** min(failures, 6))) if error else 0
+        if failures>=2:
+            delay=max(delay,7*24*60)
+        elif error and ("HTTP Error 403" in error or "HTTP 403" in error):
+            delay=max(delay,24*60)
         statuses.append({"id": source["id"], "name": source["name"], "url": source["url"],
                          "error": error, "itemCount": accepted, "checkedAt": stamp,
                          "deferred": False, "consecutiveFailures": failures,

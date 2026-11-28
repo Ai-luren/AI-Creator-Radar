@@ -47,3 +47,22 @@ class CrossPlatformTests(unittest.TestCase):
                     "https://www.anthropic.com/news/","https://www.anthropic.com:444/news/x",
                     "https://user@www.anthropic.com/news/x"):
             self.assertEqual(article_url(url,self.allowed),"")
+
+    def test_repeated_failure_cools_only_failed_source_and_alternative_continues(self):
+        from datetime import timedelta
+        alternative={"id":"alternative","name":"Alternative","url":"https://example.org/other"}
+        config={"sources":[self.source,alternative],"officialArticleHosts":self.allowed}
+        calls=[]
+        def fetch(s,a):
+            calls.append(s["id"])
+            return s,[], "HTTP 403" if s["id"]=="test" else None
+        first=collect(config,{},self.now,fetch)
+        self.assertEqual(calls,["test","alternative"])
+        second=collect(config,first,self.now+timedelta(days=1),fetch)
+        failed=next(s for s in second["sources"] if s["id"]=="test")
+        self.assertEqual(failed["consecutiveFailures"],2)
+        self.assertEqual(datetime.fromisoformat(failed["nextAttemptAt"]),self.now+timedelta(days=8))
+        calls.clear()
+        third=collect(config,second,self.now+timedelta(days=2),fetch)
+        self.assertEqual(calls,["alternative"])
+        self.assertTrue(next(s for s in third["sources"] if s["id"]=="test")["deferred"])
