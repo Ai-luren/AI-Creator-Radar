@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T06:49:40+00:00",
+  "checkedAt": "2026-11-28T06:55:38+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -923,7 +923,7 @@
         }
       },
       "status": "observed",
-      "deferred": false,
+      "deferred": true,
       "checkedAt": "2026-11-28T06:49:40+00:00",
       "lastSuccessAt": "2026-11-28T06:49:40+00:00",
       "error": null,
@@ -1087,7 +1087,10 @@
       "lastSuccessAt": "2026-11-28T02:33:06+00:00",
       "error": null,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T08:33:06.814427+00:00"
+      "nextAttemptAt": "2026-11-28T08:33:06.814427+00:00",
+      "modelWatchGap": [
+        "MAGI-2"
+      ]
     },
     {
       "id": "libtv-entry",
@@ -1493,7 +1496,10 @@
       "error": null,
       "deferred": true,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00"
+      "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00",
+      "modelWatchGap": [
+        "MAGI-2"
+      ]
     },
     {
       "id": "renoise-models-entry",
@@ -1588,11 +1594,290 @@
       "lastSuccessAt": null,
       "error": null,
       "deferred": true
+    },
+    {
+      "id": "oiioii-model-directory",
+      "name": "OiiOii · 官方模型目录",
+      "vendor": "OiiOii",
+      "url": "https://www.oiioii.ai/zh/explore/models",
+      "links": [
+        {
+          "kind": "产品更新日志",
+          "url": "https://www.oiioii.ai/zh/changelog",
+          "access": "按月发布历史版本；非实时接入时间"
+        }
+      ],
+      "type": "product-surface",
+      "role": "competitor",
+      "modelWatchGap": [
+        "MAGI-2"
+      ],
+      "aggregateCoverage": {
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "queryLanes": [],
+        "readableLanes": [],
+        "successfulProviders": 2,
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
+      },
+      "surfaceParserVersion": 2,
+      "entries": {
+        "f6edb38eac2c57cfd6a694344f6586c07ba25fa66fe4d7fe4050f9d85947aef4": {
+          "featureName": "GPT Image 2.5",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/gpt-image-2-5",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "3250aa1fef34abd5b215879798ca7c8701b69aaaedc52c17fd5a6c2ae38421b1": {
+          "featureName": "GPT Image 2",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/gpt-image-2",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "bd2e136ec356ced97838a64433bce1db80dbc3ad2767fab672397b2b004dd930": {
+          "featureName": "GPT Image 2.6",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/gpt-image-2-6",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "35e9081b23c9746a801162246f62b9ffb3659184d26453aacaa57313065aaf25": {
+          "featureName": "Grok Imagine 1.5",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/grok-imagine-15",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "7754eba6a93cfc13916e76acf8b77da74956d9c24e3ec0eb762d284ff1664f77": {
+          "featureName": "HappyHorse 1.1",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/happyhorse1-1",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "5c6fc5f9c3579394a61b28dd91242de1493c95d1aabfa8b94f090849bb6a6d27": {
+          "featureName": "Kling 3.0",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/kling-30-standard",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "b6732e2148ce8880ea571df52e9c2fbc1a5d641a5ce52eb60af0981587de495b": {
+          "featureName": "Kling 4.0",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/kling-4-0",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "c63d939ba7465fed23196c7f802942b46e6556db4a761002388c8540bc23935c": {
+          "featureName": "Midjourney V8.1",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/midjourney-v81",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "9e00d299087b0ac8f8008aa7fe58938721bd64ffe6b7d96138f8f8065662495a": {
+          "featureName": "Midjourney V8.2",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/midjourney-v82",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "2e5130082770076309d52c63d37f8cfb71456431c3228b786bf4dccdb21ac246": {
+          "featureName": "Seedance 2.0",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedance-2-0",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "e96c994db19525c23d36f2e7ef3eb48c2c30e4155e6886819f79db0c55f16373": {
+          "featureName": "Seedance 2.0 Fast",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedance20fast",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "9b31b3226e136d019244dc709fe2c5a204eb8b729ddfd7bfb4e39ad1331e4d46": {
+          "featureName": "Seedance 2.0 Mini",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedance-20-mini",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "a73d2b5299e9293fdd12f80d7f458b745f695c9d75701cce02bc4f1a1389c332": {
+          "featureName": "Seedance 2.0 Pro",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedance20pro",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "5c433fc1d4583d1f3d7494cbbb132b9c946b6a5c028ffabea65cdacb7eda99e4": {
+          "featureName": "Seedream 4.5",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedream4-5",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "d280be0a64865e8cf0b621a458e827bb5fa8dc670f01fa023462ba52c37e034f": {
+          "featureName": "Seedream 5.0 Pro",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedream-50-pro",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "6808516f8000fdada50169cdbb99fc6ba560799a18b55934f50f70aa439b52d4": {
+          "featureName": "Seedream 5.0",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedream-50",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "c4aa94d42ac8b7fa4cd0956c586f2ad58b946f267fee8dd685d9818ebbb50910": {
+          "featureName": "Seedream 5.5",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedream-5-5",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "39ae910b139df23a4f0dbb41aea3ce596d486f820d1c8215c8dfbd633073037a": {
+          "featureName": "Wan 2.7",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/wan27",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "2c123a7d2c456905b5d23428f902288f3d6c1715e53bbbedd5f254aaeb12f783": {
+          "featureName": "Seedance 2.5",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/seedance2-5",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        },
+        "ff2a75fa6ccd0e4cb2ccc551ba999fab16856c57e7165b630c7833a17b853363": {
+          "featureName": "MiniMax H3",
+          "productArea": "官方模型目录",
+          "featureUrl": "https://www.oiioii.ai/zh/minimax-h3",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "catalog-listed",
+          "firstObservedAt": "2026-11-28T06:55:38+00:00",
+          "lastObservedAt": "2026-11-28T06:55:38+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T06:55:38+00:00",
+      "lastSuccessAt": "2026-11-28T06:55:38+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T06:49:40+00:00",
+    "checkedAt": "2026-11-28T06:55:38+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2470,7 +2755,35 @@
         "modelFamilyId": "magi-2",
         "modelVersionId": "magi-2",
         "publisherCalendarDay": "2026-11-24",
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T06:55:38+00:00",
+        "counts": {
+          "items": 22,
+          "wechatOriginalLinks": 2,
+          "otherOriginalLinks": 20,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 21,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "modelWatchBrandMentions": {
+            "Higgsfield": 0,
+            "LibTV": 0,
+            "TapNow": 0,
+            "OiiOii": 0,
+            "小云雀": 0,
+            "Pippit": 0,
+            "即梦": 0,
+            "Dreamina": 0,
+            "Gemini": 0
+          }
+        },
+        "countsObservedAt": "2026-11-28T06:55:38+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-04b412c6ff4ba444\"",
+        "lastSuccessAt": "2026-11-28T06:55:38+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00"
       },
       {
         "id": "model-watch-1bd7d344ac446786bc23-aipick",
@@ -2483,7 +2796,35 @@
         "modelFamilyId": "magi-2",
         "modelVersionId": "magi-2",
         "publisherCalendarDay": "2026-11-24",
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T06:55:38+00:00",
+        "counts": {
+          "items": 30,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 30,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 28,
+          "hasNextCursor": true,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "modelWatchBrandMentions": {
+            "Higgsfield": 0,
+            "LibTV": 1,
+            "TapNow": 0,
+            "OiiOii": 0,
+            "小云雀": 0,
+            "Pippit": 0,
+            "即梦": 0,
+            "Dreamina": 0,
+            "Gemini": 0
+          }
+        },
+        "countsObservedAt": "2026-11-28T06:55:38+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-71c22d7db99b1726\"",
+        "lastSuccessAt": "2026-11-28T06:55:38+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00"
       },
       {
         "id": "model-watch-74fe8f5670051bef5bfd-aihot",
@@ -2515,24 +2856,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T06:27:48+00:00",
-      "nextAttemptAt": "2026-11-28T06:52:48.240175+00:00"
+      "lastSuccessAt": "2026-11-28T06:55:38+00:00",
+      "nextAttemptAt": "2026-11-28T07:20:38.216486+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T06:27:48+00:00",
-        "nextAttemptAt": "2026-11-28T06:52:48.240175+00:00"
+        "lastSuccessAt": "2026-11-28T06:55:38+00:00",
+        "nextAttemptAt": "2026-11-28T07:20:38.216486+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T06:27:48+00:00",
-        "nextAttemptAt": "2026-11-28T06:52:48.240175+00:00"
+        "lastSuccessAt": "2026-11-28T06:55:38+00:00",
+        "nextAttemptAt": "2026-11-28T07:20:38.216486+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -2607,6 +2948,306 @@
     }
   ],
   "events": [
+    {
+      "id": "fa6b2e5d314d9aec6b507c07cb9a12f848f2ffdc6fb4d8fb0dfe1847a7810fcf",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Midjourney V8.1",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/midjourney-v81",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "eee1323c8e528490aed1e123de50ba7e5692a1ee34909bb5c986b9d33b5f7364",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedance 2.0 Pro",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedance20pro",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "e8f65335232e01b50f789b0d84a1b77445d6e160dd5ce9ba08303976658683c4",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "GPT Image 2.5",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/gpt-image-2-5",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "bf15f764478b610a1e87b506778636438761f7aa55f3d4eff635ed282a85dd61",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "HappyHorse 1.1",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/happyhorse1-1",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "ae073c3fb203097dcf516e5aad80b9a60f529b5914ce519e79ba63870da08c7d",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedance 2.0 Fast",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedance20fast",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "9c21ec7d9f50322f22df3849189fc773d366120597f03dad14fef2b737917dfd",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedream 4.5",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedream4-5",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "89e0ffee133e16aa8ef2859203c06097493382e30105aa17f75821a353a698df",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Wan 2.7",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/wan27",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "839e25a809114d098cb9752ce5b952e47f37868fa124f39c15861f724db30d40",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedream 5.0",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedream-50",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "7e0d02d304ff952a18985d75e32cb8b857ddf4d2f1533e8a78d4379635bc8d44",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedream 5.5",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedream-5-5",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "6e50091c1825ba0b19a010a564db27549cf262d74b1c561299ba7a9a0fdf7fb1",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "MiniMax H3",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/minimax-h3",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "5df6b09cdabb7b7781a9726ee1a46cfa637ae5b88072a2e81ae68d52f770d443",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedance 2.0",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedance-2-0",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "55b8857f79504dbb627c2fe7065d1d34a94e9a23672267a3d1cd568d924ab220",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Midjourney V8.2",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/midjourney-v82",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "434b0a5d369913bbe81a3913e9c1ec9253cc0ad50701ed7f60a25f15b822120b",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Grok Imagine 1.5",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/grok-imagine-15",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "3f716b458eb1a330afcdd054bc981a8ed3c4ef810f31b27275a8953515c4a674",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "GPT Image 2.6",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/gpt-image-2-6",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "370a9260f8d13cc941b1e4811862801a4149a60b58781d3faadf2d1b13772ea3",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedance 2.0 Mini",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedance-20-mini",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "296a3118c213ff43d75b447f389ad7a6da5a9ced0508f5abdf8f49f31b8a7f8b",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedream 5.0 Pro",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedream-50-pro",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "265e718aa47550115ab502a7dce474c7c358848d325c9aa4057a019b4393aeb6",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Kling 4.0",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/kling-4-0",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "1d249586065b7c8c15f2d415559f33457b2e704c5985e68e8a9ec7a26ee043cc",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Seedance 2.5",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/seedance2-5",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "12a9b455900447a87572cc863dba1150f1b25a92eb768fe28672a390f52c1729",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "Kling 3.0",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/kling-30-standard",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
+    {
+      "id": "0f564df62fa3b275f73fa0860b518b32df876257a1b0589d977116f523732a29",
+      "sourceId": "oiioii-model-directory",
+      "sourceUrl": "https://www.oiioii.ai/zh/explore/models",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T06:55:38+00:00",
+      "releaseDate": null,
+      "featureName": "GPT Image 2",
+      "productArea": "官方模型目录",
+      "featureUrl": "https://www.oiioii.ai/zh/gpt-image-2",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "catalog-listed"
+    },
     {
       "id": "fd9235637afc54ca670c962d3c1e817094056545fde4142dbfc9322305ae3f6b",
       "sourceId": "higgsfield-home",
@@ -4194,15 +4835,15 @@
     }
   ],
   "summary": {
-    "configuredSources": 13,
+    "configuredSources": 14,
     "successfulThisRun": 1,
-    "baselineSources": 6,
+    "baselineSources": 7,
     "listedModels": 0,
     "reviewedObservations": 5
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T06:50:39+00:00",
+    "checkedAt": "2026-11-28T06:55:46+00:00",
     "window": "7d",
     "sources": [
       {
