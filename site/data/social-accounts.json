@@ -595,13 +595,13 @@
           "platform": "Facebook",
           "handle": "Vidu AI",
           "url": "https://www.facebook.com/profile.php?id=61573012344072",
-          "status": "review",
-          "verification": "Facebook 页面显示“添加好友 / 好友”，是个人资料页而非公共主页；没有可读取的粉丝字段，不能把好友数当粉丝数。",
+          "status": "verified",
+          "verification": "用户确认保留该 Vidu Facebook 主页，并说明没有粉丝数据；此前观察为个人资料页，没有可读取的粉丝字段，不将好友数视为粉丝。",
           "followers": null,
-          "followersDisplay": "待核验",
-          "snapshotLabel": "主页类型待核验",
+          "followersDisplay": "未读取",
+          "snapshotLabel": "无可读取粉丝字段",
           "sourceUrl": "https://www.facebook.com/profile.php?id=61573012344072",
-          "note": "用户观察该账号暂无 Reels；账号是否为 Vidu 官方公共主页待核验。",
+          "note": "用户说明没有粉丝；当前无明确可验证的数值，不记为零，不纳入粉丝数统计。",
           "extraMetric": "0个Reels作品（用户观察）",
           "activityLabel": "0个Reels作品（用户观察）"
         }
@@ -2803,15 +2803,15 @@
         },
         {
           "platform": "小红书",
-          "handle": "Pika AIvideo（候选）",
-          "url": "https://www.xiaohongshu.com/user/profile/7027752781",
-          "status": "review",
-          "verification": "第三方资料曾指向该候选主页；Pika 官网未链接此账号，本轮主页未返回可核验资料，暂不能确认官方归属。",
-          "followers": null,
-          "followersDisplay": "待核验",
-          "snapshotLabel": "待核验",
-          "sourceUrl": "https://pika.art/",
-          "note": "候选账号未作为官方账号或粉丝快照计入。"
+          "handle": "Pika中国",
+          "url": "https://www.xiaohongshu.com/user/profile/65559350000000000203634f",
+          "status": "verified",
+          "verification": "用户明确确认该小红书主页为 Pika 官方账号，账号名称为 Pika中国；粉丝数 3303 由用户提供，未独立读取主页。",
+          "followers": 3303,
+          "followersDisplay": "3303",
+          "snapshotLabel": "2026-11-29 · 用户提供粉丝数",
+          "sourceUrl": "https://www.xiaohongshu.com/user/profile/65559350000000000203634f",
+          "note": "2026-11-29 用户提供粉丝数 3303；后续以本机实际读取的公开主页数值及日期更新。"
         },
         {
           "platform": "X",
