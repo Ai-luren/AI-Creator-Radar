@@ -454,7 +454,23 @@ def fetch_aipick(target, allowed, families, etag=None):
     return fetch_aggregator(target,allowed,families,etag,"aipick-targeted")
 
 
-def search(families, discovery, reconciliation, product_state, previous, allowed, now, fetcher=fetch, aihot_fetcher=None, aipick_fetcher=None):
+def focused_target(target, focus):
+    """Selection is a work budget, not evidence, identity or publication eligibility."""
+    if focus is None:
+        return True
+    if not isinstance(focus,dict):
+        raise ValueError("Invalid source search focus")
+    def match(value, prefixes):
+        if not isinstance(prefixes,list) or not prefixes or not all(isinstance(p,str) and p.strip() for p in prefixes):
+            raise ValueError("Invalid focus prefixes")
+        return any(re.match(r"^"+re.escape(p.casefold())+r"(?=$|[\s._-]|\d)",str(value or "").casefold()) for p in prefixes)
+    identity=target.get("identity") or {}
+    if identity.get("modelFamilyId"):
+        return match(identity["modelFamilyId"],focus.get("familyPrefixes"))
+    return match(target.get("query"),focus.get("modelNamePrefixes"))
+
+
+def search(families, discovery, reconciliation, product_state, previous, allowed, now, fetcher=fetch, aihot_fetcher=None, aipick_fetcher=None, focus=None):
     if previous and previous.get("schema") != "source-search/v1":
         raise ValueError("Unknown source search schema")
     checked = now.isoformat(timespec="seconds")
@@ -467,6 +483,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         prior = old.get(tid, {})
         same = prior.get("query") == target["query"]
         targets[tid] = {**(prior if same else {}), **target, "active": True,
+                        "scopeStatus":"focus" if focused_target(target,focus) else "passive",
                         "firstDetectedAt": prior.get("firstDetectedAt") or target.get("firstDetectedAt") or checked}
     for tid, prior in old.items():
         if tid not in targets:
@@ -482,7 +499,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         age = ((now + timedelta(hours=8)).date() - datetime.fromisoformat(day).date()).days
         return 0 if 0 <= age <= 2 else 1 if 3 <= age <= 6 else 2
 
-    due = [t for t in targets.values() if t["active"] and recent_tier(t) < 2 and
+    due = [t for t in targets.values() if t["active"] and t["scopeStatus"]=="focus" and recent_tier(t) < 2 and
            (not stamp(t.get("nextAttemptAt")) or stamp(t["nextAttemptAt"]) <= now)]
     # Latest three days first, then the rest of the seven-day window.
     # Older targets keep local context but receive no index requests.
@@ -502,7 +519,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         until = stamp(provider_state.get("nextAttemptAt"))
         if until and until>now:
             return []
-        rows = [t for t in targets.values() if t["active"] and (t.get("identity") or t.get("repositoryBacked"))
+        rows = [t for t in targets.values() if t["active"] and t["scopeStatus"]=="focus" and (t.get("identity") or t.get("repositoryBacked"))
                 and recent_tier(t)<2
                 and not any(r.get("officialCandidateUrl") for r in t.get("results",[]))
                 and (not stamp(t.get(prefix+"NextAttemptAt")) or stamp(t[prefix+"NextAttemptAt"])<=now)]
@@ -609,6 +626,9 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
                         "priorityTargetCounts": {"latestThreeDays": sum(recent_tier(t)==0 for t in active_rows),
                                                  "remainingSevenDays": sum(recent_tier(t)==1 for t in active_rows),
                                                  "outsideHotWindowOrUnknown": sum(recent_tier(t)==2 for t in active_rows)},
+                        "focusTargetCounts":{"focused":sum(t["scopeStatus"]=="focus" for t in active_rows),
+                                             "passive":sum(t["scopeStatus"]=="passive" for t in active_rows),
+                                             "focusedRecent":sum(t["scopeStatus"]=="focus" and recent_tier(t)<2 for t in active_rows)},
                         "broadDeferredForAggregators": len(due)-len(broad_due),
                         "broadDeadlineSeconds": BROAD_DEADLINE_SECONDS,
                         "targetsWithLocalContext": sum(bool(t["localContext"]) for t in active_rows),
@@ -633,7 +653,7 @@ def augment_discovery(discovery, search_state):
     items = list(discovery.get("items", []))
     seen = {r["id"] for r in items}
     for target in search_state.get("targets", []):
-        if not target.get("active"):
+        if not target.get("active") or target.get("scopeStatus")=="passive":
             continue
         for result in target.get("results", []):
             url = result.get("officialCandidateUrl")
@@ -672,7 +692,7 @@ def main():
     result = search(read(directory / "models.json"), read(args.discovery or directory / "cross-platform-discovery.json"),
                     read(directory / "event-reconciliation.json", True),
                     read(args.product_state or directory / "product-state.json", True),
-                    read(OUTPUT, True), config["officialArticleHosts"], datetime.now(timezone.utc), fetcher=bounded_broad_fetch, aihot_fetcher=fetch_aihot, aipick_fetcher=fetch_aipick)
+                    read(OUTPUT, True), config["officialArticleHosts"], datetime.now(timezone.utc), fetcher=bounded_broad_fetch, aihot_fetcher=fetch_aihot, aipick_fetcher=fetch_aipick, focus=config.get("sourceSearchFocus"))
     print("Source search:", json.dumps(result["summary"], ensure_ascii=False))
     if args.report:
         write_json(args.report, result)

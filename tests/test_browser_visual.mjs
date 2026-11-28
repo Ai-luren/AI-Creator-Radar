@@ -84,6 +84,16 @@ try{
    if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
    console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
   });
+  await check('creative open source and product research routes',async()=>{
+   await page.goto(base+'?view=platforms&category=opensource',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady&&state.repoRadar);
+   assert.equal(await page.locator('[data-platform-cat="opensource"]').getAttribute('aria-pressed'),'true');
+   assert.ok(await page.getByRole('heading',{name:'产品创新精选',exact:true}).isVisible());
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'open source horizontal overflow');
+   await page.locator('[data-platform-cat="product-research"]').click();await page.waitForFunction(()=>state.dataReady&&state.modelPractice.productResearch);
+   assert.ok(await page.getByRole('heading',{name:'动态表情包与品牌循环动图',exact:true}).isVisible());
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'product research horizontal overflow');
+   await page.screenshot({path:path.join(out,label+'-product-research.png')});
+  });
   await check('video rankings responsive comparison',async()=>{
    await page.goto(base+'?view=rankings&category=video&task=image-to-video-audio',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const panels=page.locator('.rank-task-panel');assert.equal(await panels.count(),2);

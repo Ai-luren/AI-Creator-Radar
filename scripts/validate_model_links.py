@@ -74,6 +74,22 @@ def main() -> int:
         if vid and (fid, vid) not in versions:
             errors.append(f"practice {item.get('id')}: modelVersionId {vid} does not belong to {fid}")
 
+    research=practice.get("productResearch",{}).get("items",[])
+    repo_ids={r["id"] for r in read("config/resource-sources.json").get("repositories",[])}
+    research_ids=set()
+    for item in research:
+        fid,vid=item.get("modelFamilyId"),item.get("modelVersionId")
+        rid=item.get("id")
+        if not rid or rid in research_ids:
+            errors.append(f"product research: invalid or duplicate id {rid}")
+        research_ids.add(rid)
+        if fid not in family_map or (fid,vid) not in versions:
+            errors.append(f"product research {rid}: unresolved model reference {fid}/{vid}")
+        if not item.get("evidence") or not all(str(e.get("url","")).startswith("https://") for e in item.get("evidence",[])):
+            errors.append(f"product research {rid}: missing source")
+        if not set(item.get("repoIds",[])).issubset(repo_ids):
+            errors.append(f"product research {rid}: unresolved repository references")
+
     for relative, section in [
         ("site/data/model-updates.json", "items"),
         ("site/data/aihot-daily.json", "items"),
