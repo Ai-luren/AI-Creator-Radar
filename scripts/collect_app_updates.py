@@ -651,27 +651,40 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
                        "reviewedObservations":len(config.get("reviewedObservations",[]))},
             "policy":"App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only."}
 
+def refresh_platform_coverage(config, result, data_dir, now):
+    """Rebuild derived coverage from the final on-disk snapshots, without network IO."""
+    if result.get("schema")!="app-updates/v1":
+        raise ValueError("Unexpected app updates schema")
+    snapshots={}
+    for provider,filename in (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json")):
+        try:
+            snapshots[provider]=json.loads((data_dir/filename).read_text(encoding="utf-8"))
+        except (OSError,ValueError):
+            pass
+    return {**result,"platformCoverage":snapshot_platform_coverage(config.get("monitoredPlatforms",[]),snapshots,now)}
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--dry-run",action="store_true")
     p.add_argument("--report",type=Path)
+    p.add_argument("--coverage-only",action="store_true",help="Rebuild coverage after all upstream snapshot writes, without fetching")
     a=p.parse_args()
     read=lambda path:json.loads(path.read_text(encoding="utf-8"))
     config=read(ROOT/"config/app-update-sources.json")
-    now=datetime.now(timezone.utc)
-    result=collect(config,read(OUTPUT) if OUTPUT.exists() else {},now)
-    snapshots={}
-    for provider,filename in (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json")):
-        try:
-            snapshots[provider]=read(ROOT/"site/data"/filename)
-        except (OSError,ValueError):
-            pass
-    result["platformCoverage"]=snapshot_platform_coverage(config.get("monitoredPlatforms",[]),snapshots,now)
-    print("App updates:",json.dumps(result["summary"],ensure_ascii=False))
+    previous=read(OUTPUT) if OUTPUT.exists() else {}
+    if a.coverage_only:
+        # No source probe, query budget use or mutation of collector timestamps.
+        result=previous
+    else:
+        result=collect(config,previous,datetime.now(timezone.utc))
+    result=refresh_platform_coverage(config,result,ROOT/"site/data",datetime.now(timezone.utc))
     print("Platform coverage:",json.dumps(result["platformCoverage"],ensure_ascii=False))
-    for source in result["sources"]:
-        print("[APP]",source["id"],source["status"],"error=",source.get("error"))
-    print("AIPick targeted coverage:",json.dumps({"attempted":result["targetedDiscovery"].get("attemptedThisRun"),"queries":[{k:q.get(k) for k in ("id","status","counts","lastSuccessAt","error")} for q in result["targetedDiscovery"].get("queries",[])]},ensure_ascii=False))
+    if not a.coverage_only:
+        print("App updates:",json.dumps(result["summary"],ensure_ascii=False))
+        for source in result["sources"]:
+            print("[APP]",source["id"],source["status"],"error=",source.get("error"))
+        print("AIPick targeted coverage:",json.dumps({"attempted":result["targetedDiscovery"].get("attemptedThisRun"),"queries":[{k:q.get(k) for k in ("id","status","counts","lastSuccessAt","error")} for q in result["targetedDiscovery"].get("queries",[])]},ensure_ascii=False))
     if a.report:
         write_json(a.report,result)
     if not a.dry_run:

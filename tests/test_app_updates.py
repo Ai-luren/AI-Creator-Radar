@@ -204,3 +204,29 @@ class AppUpdatesTests(unittest.TestCase):
         item={"selected":True,"publishedAt":self.now.isoformat(),"links":{"original":"https://x.com/a/status/123","story":"https://aipick.news/story/abc"}}
         coverage=snapshot_platform_coverage(platforms,{"AIPick":{"fetchedAt":self.now.isoformat(),"items":[item]}},self.now)
         self.assertEqual(coverage["platforms"][0]["originalCount"],0)
+
+    def test_refresh_coverage_uses_final_snapshot_without_rewriting_probe_state(self):
+        import json
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from scripts.collect_app_updates import refresh_platform_coverage
+        cfg={"monitoredPlatforms":[{"id":"x","label":"X","role":"social","domains":["x.com"]}]}
+        previous={"schema":"app-updates/v1","checkedAt":self.now.isoformat(),
+                  "sources":[{"id":"source","lastSuccessAt":self.now.isoformat()}],
+                  "targetedDiscovery":{"attemptedThisRun":1},"events":[{"id":"event"}],
+                  "platformCoverage":{"checkedAt":self.now.isoformat()}}
+        later=self.now+timedelta(minutes=2)
+        item={"selected":True,"publishedAt":later.isoformat(),"links":{"original":"https://x.com/a/status/123"}}
+        with TemporaryDirectory() as tmp:
+            directory=Path(tmp)
+            (directory/"aihot-items.json").write_text(json.dumps({"fetchedAt":self.now.isoformat(),"items":[]}),encoding="utf-8")
+            file=directory/"aipick-data.json"
+            file.write_text(json.dumps({"fetchedAt":self.now.isoformat(),"items":[]}),encoding="utf-8")
+            early=refresh_platform_coverage(cfg,previous,directory,self.now)
+            file.write_text(json.dumps({"fetchedAt":later.isoformat(),"items":[item]}),encoding="utf-8")
+            final=refresh_platform_coverage(cfg,early,directory,later)
+        self.assertEqual(early["platformCoverage"]["platforms"][0]["originalCount"],0)
+        self.assertEqual(final["platformCoverage"]["platforms"][0]["originalCount"],1)
+        self.assertEqual(final["platformCoverage"]["sources"][1]["fetchedAt"],later.isoformat())
+        self.assertEqual({k:v for k,v in final.items() if k!="platformCoverage"},
+                         {k:v for k,v in previous.items() if k!="platformCoverage"})

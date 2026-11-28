@@ -299,3 +299,5 @@ AIHOT 定向索引补证使用 `source-search.json.aihotService` 独立退避与
 `app-updates.json.platformCoverage` 从已有 AIHOT/AIPick 精选快照计算，配置17类平台以原文域名识别、跨源去重、保留快照时间。热点 sourceNames 仅作来源提及统计，独立于原文数量。此诊断不能证明直接平台可读、可持续采集、事件正确或全部覆盖；微信搜一搜是发现入口，Grokipedia 是参考资料。
 
 覆盖统计仅接受可识别的内容级固定链接；主页、个人资料、站内搜索、无法解析的短链及事件合集代表帖不计为原文。未知链接格式保守排除，不推断平台不可用或内容不存在；不发起额外请求。微信搜一搜保留发现入口口径。
+
+`platformCoverage` 为派生字段；生产持久化前按最终 AIHOT/AIPick 快照重算，保留真实 `fetchedAt` 和独立计算时间，不改写 `app-updates.checkedAt` 或厂商查询记录。

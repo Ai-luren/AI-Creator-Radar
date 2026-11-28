@@ -160,6 +160,10 @@ jobs:
           RADAR_RUN_ATTEMPT: ${{ github.run_attempt }}
         run: python scripts/collection_health.py --critical-output --output "$GITHUB_OUTPUT" --summary "$GITHUB_STEP_SUMMARY"
 
+      - name: Reconcile platform coverage with final upstream snapshots
+        if: steps.plan.outputs.collect == 'true'
+        run: python scripts/collect_app_updates.py --coverage-only
+
       - name: Reconcile derived release digest after all upstream writes
         if: steps.plan.outputs.collect == 'true'
         run: python scripts/preflight.py --digest-only --repair-digest
