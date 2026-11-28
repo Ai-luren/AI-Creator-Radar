@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T02:32:38+00:00",
-  "checkedAt": "2026-11-28T02:32:38+00:00",
+  "fetchedAt": "2026-11-28T02:59:13+00:00",
+  "checkedAt": "2026-11-28T02:59:13+00:00",
   "etags": {
-    "items": "W/\"v1-items-d9ab31809fb41ad7\"",
-    "hotTopics": "W/\"v1-hot-e24c3c8199dc91cb\""
+    "items": "W/\"v1-items-60a475dd43aef69f\"",
+    "hotTopics": "W/\"v1-hot-aa269f46c10761c2\""
   },
   "items": [
+    {
+      "id": "gsim2rxo1h967v5dd4g59fvm6",
+      "title": "即梦 Dreamina 用 Seedance 2.5 生成 4K 甜品质感视频",
+      "originalTitle": "From every grain of flour and delicate pastry layer to the glossy flow of melted chocolate, capture every tiny texture in stunning clarity. Made with Seedance 2.5 in 4K on Dreamina. https://t.co/sQNb4u1fWJ",
+      "summary": "即梦 Dreamina 发布一段由 Seedance 2.5 在 Dreamina 上生成的 4K 视频，画面呈现面粉颗粒、酥皮层次和融化巧克力的光泽流动等细微质感。官方称该视频用于展示模型对细节纹理的还原能力。",
+      "source": {
+        "name": "X · 即梦 Dreamina"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/gsim2rxo1h967v5dd4g59fvm6",
+        "original": "https://x.com/dreamina_ai/status/2126496301424820712"
+      },
+      "publishedAt": "2026-11-28T02:00:01.000Z",
+      "discoveredAt": "2026-11-28T02:44:49.498Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "官方放出用 Seedance 2.5 在 Dreamina 生成的 4K 样片，可围绕面粉颗粒、酥皮层次和融化巧克力展示质感细节。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/gsim2rxo1h967v5dd4g59fvm6"
+      }
+    },
     {
       "id": "jevnv61mch48csxo0p5hso47y",
       "title": "Fable 5.2 与 GPT 6.2 Astra 实测 12 个真实项目：7 比 5 胜出但成本高 7 倍",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/ungnkubnhj7d5ko4sh188g490"
       }
-    },
-    {
-      "id": "f1h5xw0ve8y2vujkgkxy64tai",
-      "title": "Einsia AI 联合多校用 AI 逆向真机视频，开源 10,807 个具身仿真训练场",
-      "originalTitle": "如何用 AI 逆向真机视频，生成万套具身环境",
-      "summary": "Einsia AI 联合清华、北大、UIUC、港大、UCL 和 UNC，用 GPT-Astra 观看 DROID、RoboDesk 等 18 个公开真机数据集录像并写代码，在 Isaac Sim 中搭出 10,807 个可自动判分的仿真训练场，其中单臂 Franka 4,132 个、双臂 AgileX 6,675 个。",
-      "source": {
-        "name": "公众号 · 赛博禅心"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/f1h5xw0ve8y2vujkgkxy64tai",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzkzNDQxOTU2MQ==&mid=2247523249&idx=1&sn=fc1ab9fedba7db4e14258a4bc78d8369&chksm=c3be30a1b39d3bfa7e31479185d58c4a4bd6472a371f471cd3e7a92766d76d741687a8c69912&scene=126&sessionid=0#rd"
-      },
-      "publishedAt": "2026-11-27T07:59:50.000Z",
-      "discoveredAt": "2026-11-27T09:49:34.623Z",
-      "category": "paper",
-      "score": 77,
-      "selected": true,
-      "reason": "原文给出开源仓库、500 道专家核验考题和 11 个大模型成绩断层，适合做一次多模型同题实测对比。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/f1h5xw0ve8y2vujkgkxy64tai"
-      }
     }
   ],
   "hotTopics": [
@@ -730,30 +730,6 @@
     },
     {
       "rank": 2,
-      "id": "m86vuscd3760ndq7qzgn4s6jl",
-      "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
-      "source": {
-        "name": "抖音 · 话题 #Seedance"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
-        "original": "https://www.douyin.com/video/7712158216540779377",
-        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
-      },
-      "sourceCount": 5,
-      "signalCount": 0,
-      "participantCount": 5,
-      "sourceNames": [
-        "抖音 · 热点搜「MAGI-2 视频模型」",
-        "X · AIWarper",
-        "量子位",
-        "公众号 · 赛博禅心",
-        "公众号 · 硅星人Pro"
-      ],
-      "latestAt": "2026-11-27T11:01:03.000Z"
-    },
-    {
-      "rank": 3,
       "id": "e5gl2mzmi3qtiqfik3lguee9k",
       "title": "腾讯混元发布Hy3D 3.6并接入多平台",
       "source": {
@@ -775,7 +751,7 @@
       "latestAt": "2026-11-27T16:09:43.000Z"
     },
     {
-      "rank": 4,
+      "rank": 3,
       "id": "x9kn0v5d0naqm47jnxhfk14jg",
       "title": "Higgsfield 黑五套餐最高 75% OFF，Secret 计划年付 258 美元/月",
       "source": {
@@ -796,7 +772,7 @@
       "latestAt": "2026-11-27T20:55:51.000Z"
     },
     {
-      "rank": 5,
+      "rank": 4,
       "id": "erpb8ni5g8247xgt7i7d77tpy",
       "title": "Higgsfield 上线 MAGI-2 视频模型，创作者实测褒贬不一",
       "source": {
@@ -816,6 +792,29 @@
         "X · Higgsfield"
       ],
       "latestAt": "2026-11-27T04:02:25.000Z"
+    },
+    {
+      "rank": 5,
+      "id": "m86vuscd3760ndq7qzgn4s6jl",
+      "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
+      "source": {
+        "name": "抖音 · 话题 #Seedance"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
+        "original": "https://www.douyin.com/video/7712158216540779377",
+        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
+      },
+      "sourceCount": 4,
+      "signalCount": 0,
+      "participantCount": 4,
+      "sourceNames": [
+        "抖音 · 热点搜「MAGI-2 视频模型」",
+        "X · AIWarper",
+        "量子位",
+        "公众号 · 赛博禅心"
+      ],
+      "latestAt": "2026-11-27T11:01:03.000Z"
     },
     {
       "rank": 6,
@@ -841,29 +840,6 @@
     },
     {
       "rank": 7,
-      "id": "dy4c01xbkqhpyduubgx4nahas",
-      "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
-      "source": {
-        "name": "公众号 · 新智元"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/dy4c01xbkqhpyduubgx4nahas",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745275&idx=2&sn=69a41c7c572e2e65dd5d255aeac62a87&chksm=f00abc5398e4de5b41b49f1ce2bdb06c0fd46d076d3ae047089e9066234f12f7538ee2d857b0&scene=126&sessionid=0#rd",
-        "story": "https://aipick.news/story/1bb5cece-a773-4345-8c46-9247af3d62ce"
-      },
-      "sourceCount": 4,
-      "signalCount": 0,
-      "participantCount": 4,
-      "sourceNames": [
-        "X · Bilawal Sidhu",
-        "X · Min Choi",
-        "公众号 · 新智元",
-        "X · Andrej Karpathy"
-      ],
-      "latestAt": "2026-11-26T20:15:27.000Z"
-    },
-    {
-      "rank": 8,
       "id": "hjt6j074njrxk9kbx6dxq4m58",
       "title": "蚂蚁灵波开源 LingBot-Map 2.0 与 Navi 导航模型",
       "source": {
@@ -885,7 +861,7 @@
       "latestAt": "2026-11-27T07:01:20.000Z"
     },
     {
-      "rank": 9,
+      "rank": 8,
       "id": "cg4q318bmvm8ra8i0gdjl5klb",
       "title": "Higgsfield 黑五折扣说法多次变化，最高至75%",
       "source": {
@@ -904,6 +880,28 @@
         "X · Higgsfield"
       ],
       "latestAt": "2026-11-27T14:54:40.000Z"
+    },
+    {
+      "rank": 9,
+      "id": "dy4c01xbkqhpyduubgx4nahas",
+      "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
+      "source": {
+        "name": "公众号 · 新智元"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/dy4c01xbkqhpyduubgx4nahas",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745275&idx=2&sn=69a41c7c572e2e65dd5d255aeac62a87&chksm=f00abc5398e4de5b41b49f1ce2bdb06c0fd46d076d3ae047089e9066234f12f7538ee2d857b0&scene=126&sessionid=0#rd",
+        "story": "https://aipick.news/story/1bb5cece-a773-4345-8c46-9247af3d62ce"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "X · Bilawal Sidhu",
+        "X · Min Choi",
+        "公众号 · 新智元"
+      ],
+      "latestAt": "2026-11-26T20:15:27.000Z"
     },
     {
       "rank": 10,
@@ -927,8 +925,6 @@
       "latestAt": "2026-11-26T19:26:08.000Z"
     }
   ],
-  "unchanged": [
-    "items"
-  ],
+  "unchanged": [],
   "errors": []
 }

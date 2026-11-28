@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-28T02:32:40Z",
+  "checkedAt": "2026-11-28T02:59:14Z",
   "sourceIds": [
     "seed-official",
     "kuaishou-ir",
@@ -49,84 +49,6 @@
     "zhipu-research-index"
   ],
   "conditionalFeedCache": {
-    "qwen-agent-releases": {
-      "key": "f00c36beae3fba8ab27f71fde6ffab7ee527d5de9fd25bd6ea8237bc5a1e3fa3",
-      "etag": "W/\"c1ce36e5bfcb7d83a49fa71e9dd72749\"",
-      "downloadedAt": "2026-11-28T02:06:14+00:00",
-      "items": [
-        {
-          "title": "v0.0.26",
-          "summary": "bugfix: support set sse_read_timeout and automatic reconnection for mcp",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.26",
-          "publishedAt": "2025-05-29T09:36:00Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.25",
-          "summary": "support streamable-http for mcp change license to apache 2.0",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.25",
-          "publishedAt": "2025-05-22T10:29:30Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.24",
-          "summary": "allow tool response to be empty string add a fallback for invalid tool call output support resource in mcp server as tool support transformers models, audio input, and fix openvino",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.24",
-          "publishedAt": "2025-05-19T11:19:10Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.23",
-          "summary": "fix missing dashscope api_key after creating fncall_agent with qwen3",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.23",
-          "publishedAt": "2025-05-16T04:48:21Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.22",
-          "summary": "add Qwen3 examples and MCP cookbooks change keygen model in rag bugfix: pass reasoning_content to oai interface",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.22",
-          "publishedAt": "2025-05-08T13:21:46Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.21",
-          "summary": "add qwen3 example fix bug of typewriter_print for code_interpreter",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.21",
-          "publishedAt": "2025-05-01T18:36:04Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.20",
-          "summary": "fix mcp dangling processes add truncation for function role set QWEN_AGENT_MAX_LLM_CALL_PER_RUN=20, QWEN_AGENT_DEFAULT_MAX_INPUT_TOKENS=58k",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.20",
-          "publishedAt": "2025-04-28T17:42:00Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.18",
-          "summary": "llm: Add omni support gui: Modify the dependency version of gradio",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.18",
-          "publishedAt": "2025-04-01T08:51:47Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.17",
-          "summary": "Adjust MCP as an optional dependency Modify some search strategy in RAG",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.17",
-          "publishedAt": "2025-03-30T12:47:02Z",
-          "modelId": "qwen-agent"
-        },
-        {
-          "title": "v0.0.16",
-          "summary": "Add reasoning_content filed to Message Adjust the default Function Call template Add a function to assist in printing streaming str response on the terminal",
-          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.16",
-          "publishedAt": "2025-03-18T09:06:32Z",
-          "modelId": "qwen-agent"
-        }
-      ],
-      "itemsHash": "f1a9ad4b1bc912b3e08b2f53f3678d1ee351b7b45e7d4746bd6688fccca99ae5"
-    },
     "claude-code-releases": {
       "key": "6ad3c59f15c89988a46c54147cad7dbc6493478ca615888e826033672d16334d",
       "etag": "W/\"e791f92fb10ddd075f7bc1c1f8e1e274\"",
@@ -204,6 +126,84 @@
         }
       ],
       "itemsHash": "e787e288a6477700f4c11078281b6b1a1ddb7a948413868215db4521722cd76e"
+    },
+    "qwen-agent-releases": {
+      "key": "f00c36beae3fba8ab27f71fde6ffab7ee527d5de9fd25bd6ea8237bc5a1e3fa3",
+      "etag": "W/\"c1ce36e5bfcb7d83a49fa71e9dd72749\"",
+      "downloadedAt": "2026-11-28T02:06:14+00:00",
+      "items": [
+        {
+          "title": "v0.0.26",
+          "summary": "bugfix: support set sse_read_timeout and automatic reconnection for mcp",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.26",
+          "publishedAt": "2025-05-29T09:36:00Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.25",
+          "summary": "support streamable-http for mcp change license to apache 2.0",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.25",
+          "publishedAt": "2025-05-22T10:29:30Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.24",
+          "summary": "allow tool response to be empty string add a fallback for invalid tool call output support resource in mcp server as tool support transformers models, audio input, and fix openvino",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.24",
+          "publishedAt": "2025-05-19T11:19:10Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.23",
+          "summary": "fix missing dashscope api_key after creating fncall_agent with qwen3",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.23",
+          "publishedAt": "2025-05-16T04:48:21Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.22",
+          "summary": "add Qwen3 examples and MCP cookbooks change keygen model in rag bugfix: pass reasoning_content to oai interface",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.22",
+          "publishedAt": "2025-05-08T13:21:46Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.21",
+          "summary": "add qwen3 example fix bug of typewriter_print for code_interpreter",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.21",
+          "publishedAt": "2025-05-01T18:36:04Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.20",
+          "summary": "fix mcp dangling processes add truncation for function role set QWEN_AGENT_MAX_LLM_CALL_PER_RUN=20, QWEN_AGENT_DEFAULT_MAX_INPUT_TOKENS=58k",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.20",
+          "publishedAt": "2025-04-28T17:42:00Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.18",
+          "summary": "llm: Add omni support gui: Modify the dependency version of gradio",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.18",
+          "publishedAt": "2025-04-01T08:51:47Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.17",
+          "summary": "Adjust MCP as an optional dependency Modify some search strategy in RAG",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.17",
+          "publishedAt": "2025-03-30T12:47:02Z",
+          "modelId": "qwen-agent"
+        },
+        {
+          "title": "v0.0.16",
+          "summary": "Add reasoning_content filed to Message Adjust the default Function Call template Add a function to assist in printing streaming str response on the terminal",
+          "url": "https://github.com/QwenLM/Qwen-Agent/releases/tag/v0.0.16",
+          "publishedAt": "2025-03-18T09:06:32Z",
+          "modelId": "qwen-agent"
+        }
+      ],
+      "itemsHash": "f1a9ad4b1bc912b3e08b2f53f3678d1ee351b7b45e7d4746bd6688fccca99ae5"
     },
     "codex-cli-releases": {
       "key": "96e21a9b2a6d9e38d7aed06a2bb2f73c1d569fecc935959b96e9fc3208a30ef9",

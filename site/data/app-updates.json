@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T02:33:06+00:00",
+  "checkedAt": "2026-11-28T02:59:32+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1076,7 +1076,7 @@
         }
       },
       "status": "observed",
-      "deferred": false,
+      "deferred": true,
       "checkedAt": "2026-11-28T02:33:06+00:00",
       "lastSuccessAt": "2026-11-28T02:33:06+00:00",
       "error": null,
@@ -1106,7 +1106,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T02:33:06+00:00",
+    "checkedAt": "2026-11-28T02:59:32+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1563,7 +1563,24 @@
         "label": "ElevenLabs",
         "term": "ElevenLabs",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T02:59:32+00:00",
+        "counts": {
+          "items": 10,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 10,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 3,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T02:59:32+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-9459abd782b51fed\"",
+        "lastSuccessAt": "2026-11-28T02:59:32+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T14:59:32.961331+00:00"
       },
       {
         "id": "elevenlabs-aipick",
@@ -1601,7 +1618,24 @@
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T02:59:32+00:00",
+        "counts": {
+          "items": 19,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 19,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 19,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T02:59:32+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-e587e62f1de554c8\"",
+        "lastSuccessAt": "2026-11-28T02:59:32+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T14:59:32.961331+00:00"
       },
       {
         "id": "jimeng-products-aihot",
@@ -1662,21 +1696,21 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T02:33:06+00:00",
-      "nextAttemptAt": "2026-11-28T02:58:06.814427+00:00"
+      "lastSuccessAt": "2026-11-28T02:59:32+00:00",
+      "nextAttemptAt": "2026-11-28T03:24:32.961331+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T02:33:06+00:00",
-        "nextAttemptAt": "2026-11-28T02:58:06.814427+00:00"
+        "lastSuccessAt": "2026-11-28T02:59:32+00:00",
+        "nextAttemptAt": "2026-11-28T03:24:32.961331+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T02:33:06+00:00",
-        "nextAttemptAt": "2026-11-28T02:58:06.814427+00:00"
+        "lastSuccessAt": "2026-11-28T02:59:32+00:00",
+        "nextAttemptAt": "2026-11-28T03:24:32.961331+00:00"
       }
     },
     "attemptedThisRun": 2,
@@ -2880,14 +2914,14 @@
   ],
   "summary": {
     "configuredSources": 6,
-    "successfulThisRun": 1,
+    "successfulThisRun": 0,
     "baselineSources": 4,
     "listedModels": 0,
     "reviewedObservations": 1
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T02:33:12+00:00",
+    "checkedAt": "2026-11-28T02:59:38+00:00",
     "window": "7d",
     "sources": [
       {
@@ -2900,7 +2934,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T02:32:38+00:00",
+        "fetchedAt": "2026-11-28T02:59:13+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -2977,11 +3011,11 @@
         "id": "wechat-article",
         "label": "微信公众号",
         "role": "social",
-        "originalCount": 3,
+        "originalCount": 2,
         "providers": [
           "AIPick"
         ],
-        "hotSourceMentionCount": 5,
+        "hotSourceMentionCount": 4,
         "status": "original-observed"
       },
       {
@@ -3028,12 +3062,12 @@
         "id": "x",
         "label": "X",
         "role": "social",
-        "originalCount": 10,
+        "originalCount": 11,
         "providers": [
           "AIHOT",
           "AIPick"
         ],
-        "hotSourceMentionCount": 9,
+        "hotSourceMentionCount": 8,
         "status": "original-observed"
       },
       {
