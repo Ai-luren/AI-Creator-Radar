@@ -291,3 +291,5 @@ AIHOT 定向索引补证使用 `source-search.json.aihotService` 独立退避与
 产品设计情报共用 `app-updates.json` 的 `first-party-product-changelog` 记录；`role=competitor` 明确平台角色，`publisherCalendarDay` 为原厂日志日，`observedAt` 为真实观察时间，`releaseDate=null`。无明确接入表述的记录归 product-update；只读入口为 navigation-only，永不生成自动证据或成功记录。品牌视图从该配置投影，不额外创建产品数据真值。
 
 `targetedDiscovery.providerServices` 分别保存 AIHOT/AIPick 状态，`selectedProductFeatures` / `selectedModelIntegrations` 仅统计限定样本的选中报道。`aggregateCoverage` / `skipReason` 明确等待、样本覆盖或缺口；跳过直接探测不更新官方观察时间或成功次数。相同原文及报道聚类不等于独立事实。
+
+覆盖诊断 `maxProvidersPerRun=2` 最多每供应商一条，新增目标仍是计数而非文章缓存。个人阅读由客户端直接获取当前限定查询，来源数据仅内存，事件合集不算原文记录。

@@ -68,3 +68,5 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Extend first-party product sources through the shared app-update adapter and configured brand roles. A navigation-only source or stale changelog is a coverage gap, not successful monitoring. Preserve original calendar days, first observations, distinct model integration and product update types; avoid duplicate data stores and new scheduling groups.
 
 - Prefer AIHOT + AIPick selected information first for competitor research; run direct changelog probes only for observed coverage gaps, preserve existing evidence and separate feature versus model-integration signals. A brand mention or a positive sample is not proof of exhaustive coverage. Avoid duplicate crawling and prioritize product design relevance over raw source volume.
+
+- Prioritize unattempted monitored brand/provider pairs with bounded independent request budgets. Personal direct-browser selected reading is not a public data mirror or proxy; verify real CORS, keep fallback links and never certify unsupported providers.
