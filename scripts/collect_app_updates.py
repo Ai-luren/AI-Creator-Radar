@@ -128,16 +128,35 @@ def parse_product_surface(page,source):
         for name in ("LibTV 画布","LibTV Agent BETA","LibTV 3D-BOX","视频生成","图片生成","音频生成","剧本生成","智能剪辑"):
             if name in text:
                 add(name,"公开功能入口",source["url"])
-        # Read only explicit recent-feature labels in the homepage's own bounded section.
+        # Project, asset and plugin are public navigation entries, not promises
+        # of specific features inside a logged-in workspace.
+        nav=text.split("创作",1)[0]
+        if "首页" in nav and all(x in nav for x in ("项目","资产","插件")):
+            for name in ("项目","资产","插件"):
+                add(name,"公开导航入口",source["url"])
+        # Read feature updates across the whole platform, not just canvas nodes.
+        # Restrict to the publisher's bounded recent-update section.
         if "最近上新" in text and "创作精选" in text.split("最近上新",1)[1]:
-            recent=text.split("最近上新",1)[1].split("创作精选",1)[0]
+            # Use positions, rather than substring membership in the concatenated
+            # section: a repeated label outside the section is not new evidence.
+            active=False
             for part in parser.parts:
                 label=" ".join(part.split()).strip()
-                if label and label in recent and (
-                    re.fullmatch(r"[\w .+-]{2,60}模型上新",label) or
-                    re.fullmatch(r"[\u4e00-\u9fff]{2,18}\s*New",label,re.I) or
-                    re.fullmatch(r"LibTV已接入[\w.-]{2,30}",label)):
-                    add(label,"首页近期推荐",source["url"])
+                if label=="最近上新":
+                    active=True
+                    continue
+                if active and label=="创作精选":
+                    break
+                if not active or not 2<=len(label)<=100:
+                    continue
+                if re.search(r"教程|课程|视频课|电影节|展评|比赛|挑战赛|活动|直播|获奖|作品精选|用户案例|tutorial|course|contest|festival|webinar",label,re.I):
+                    continue
+                if (re.search(r"新增|上新|上线|接入|升级|更新|优化|支持|已开放|正式开放|全新|功能发布|独家首发|\bnew\b|(?<=[\u4e00-\u9fff])New$|\b(?:launch(?:ed)?|introducing|now supports|now available)\b",label,re.I)):
+                    # Mixed promo and product headlines are retained only if the
+                    # explicit feature/model clause can be separated cleanly.
+                    label=re.split(r"[·|｜，,；;]",label,maxsplit=1)[0].strip()
+                    if re.search(r"新增|上新|上线|接入|升级|更新|优化|支持|已开放|正式开放|全新|功能发布|独家首发|\bnew\b|(?<=[\u4e00-\u9fff])New$|\b(?:launch(?:ed)?|introducing|now supports|now available)\b",label,re.I):
+                        add(label,"首页近期推荐",source["url"])
     else:
         if not all(x in text for x in ("Higgsfield","New drops","Cinema Studio")):
             raise ValueError("Higgsfield public product surface not readable")
