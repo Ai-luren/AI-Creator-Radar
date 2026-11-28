@@ -549,3 +549,31 @@ class PluginApiRateLimitTests(unittest.TestCase):
         error=HTTPError("https://api.github.com/",403,"rate limit",{"X-RateLimit-Remaining":"0","X-RateLimit-Reset":str(reset),"Retry-After":"3600"},None)
         self.assertEqual(app_probe_retry_at(error,now,1),(now+timedelta(hours=9,minutes=1)).isoformat())
         self.assertEqual(app_probe_retry_at(HTTPError("https://api.github.com/",429,"limit",{"Retry-After":"36000"},None),now,1),(now+timedelta(hours=10)).isoformat())
+
+
+class CoreMultichannelTests(unittest.TestCase):
+    def test_explicit_merged_skills_features_only(self):
+        from scripts.collect_app_updates import parse_higgs_skills_features,HIGGS_SKILLS_REPO,plugin_request,HIGGS_SKILLS_API
+        spec={"id":"higgsfield-skills-features","url":HIGGS_SKILLS_REPO}
+        def pr(n,title,merged="2026-11-05T01:43:23Z"):
+            return {"number":n,"title":title,"body":"Specific user-facing skill behavior.","merged_at":merged,"html_url":HIGGS_SKILLS_REPO+"/pull/"+str(n),"base":{"ref":"main","repo":{"full_name":"higgsfield-ai/skills"}}}
+        rows=parse_higgs_skills_features([pr(17,"feat(generate): default to GPT Image 2.6 with native GIF and SVG"),pr(15,"Add faceless video skill"),pr(16,"Add video skill",None),pr(14,"fix(video): refresh model examples"),pr(12,"Add docs for video skill"),{**pr(11,"Add image skill"),"html_url":"https://github.com/other/repo/pull/11"}],spec)
+        self.assertEqual(len(rows),2)
+        self.assertTrue(all(x["claimType"]=="first-party-developer-change" and x["updateType"]=="product-feature" for x in rows.values()))
+        self.assertEqual(plugin_request("higgsfield-skills-features").full_url,HIGGS_SKILLS_API)
+        with self.assertRaises(ValueError):
+            plugin_request("arbitrary")
+    def test_bounded_official_agent_surfaces(self):
+        from scripts.collect_app_updates import parse_product_surface,PRODUCT_SURFACES
+        cases=[
+            ("tapnow-agent-docs","<h1>Use TapNow in other Agents</h1><p>TapNow runs its own MCP service</p><p>Hand over the whole brief to TapNow Agent</p><h2>Connect an Agent from the canvas</h2>",3),
+            ("flova-agent-docs","<h1>Flova MCP for your Agent</h1><p>github.com/FlovaAI/flova-plugin Skills</p><p>Flova CLI https://cli.flova.ai/flovaCLI-setup.md</p>",2),
+            ("oiioii-agent-home","<h1>OiiOii</h1><nav>Oii Studio</nav><p>Oii Plugin is live!</p><p>Download Desktop</p><div hidden>Oii CLI is live!</div>",2)]
+        for sid,html,count in cases:
+            with self.subTest(source=sid):
+                spec={"id":sid,"url":PRODUCT_SURFACES[sid]}
+                rows=parse_product_surface(html,spec)
+                self.assertEqual(len(rows),count)
+                self.assertTrue(all(x["claimType"]=="first-party-product-surface" and "publisherCalendarDay" not in x for x in rows.values()))
+                with self.assertRaises(ValueError):
+                    parse_product_surface("<h1>Login</h1>",spec)

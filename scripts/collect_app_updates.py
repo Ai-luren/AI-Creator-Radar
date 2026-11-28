@@ -31,10 +31,16 @@ DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
                   "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog",
                   "oiioii-changelog-entry":"https://www.oiioii.ai/zh/changelog"}
 PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/",
-                  "oiioii-model-directory":"https://www.oiioii.ai/zh/explore/models"}
+                  "oiioii-model-directory":"https://www.oiioii.ai/zh/explore/models",
+                  "tapnow-agent-docs":"https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+                  "flova-agent-docs":"https://www.flova.ai/en/agent-mcp/",
+                  "oiioii-agent-home":"https://www.oiioii.ai/"}
 PRODUCT_SURFACE_PARSER_VERSION=2
 LIBTV_PLUGIN_REPO="https://github.com/liblib-ai/marketplace"
 LIBTV_PLUGIN_API="https://api.github.com/repos/liblib-ai/marketplace/commits?sha=main&per_page=30"
+HIGGS_SKILLS_REPO="https://github.com/higgsfield-ai/skills"
+HIGGS_SKILLS_API="https://api.github.com/repos/higgsfield-ai/skills/pulls?state=closed&base=main&sort=updated&direction=desc&per_page=30"
+GITHUB_PRODUCT_APIS={"libtv-codex-plugin":(LIBTV_PLUGIN_REPO,LIBTV_PLUGIN_API),"higgsfield-skills-features":(HIGGS_SKILLS_REPO,HIGGS_SKILLS_API)}
 ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG,*DATED_CHANGELOGS.values(),*PRODUCT_SURFACES.values()}
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
@@ -184,6 +190,28 @@ def parse_product_surface(page,source):
                     label=re.split(r"[·|｜，,；;]",label,maxsplit=1)[0].strip()
                     if re.search(r"新增|上新|上线|接入|升级|更新|优化|支持|已开放|正式开放|全新|功能发布|独家首发|\bnew\b|(?<=[\u4e00-\u9fff])New$|\b(?:launch(?:ed)?|introducing|now supports|now available)\b",label,re.I):
                         add(label,"首页近期推荐",source["url"])
+    elif source["id"]=="tapnow-agent-docs":
+        if not all(x in text for x in ("Use TapNow in other Agents","TapNow","MCP")):
+            raise ValueError("TapNow official MCP guide not readable")
+        if "TapNow runs its own MCP service" in text:
+            add("TapNow MCP 外部 Agent 创作入口","公开开发生态",source["url"])
+        if "Hand over the whole brief" in text and "TapNow Agent" in text:
+            add("外部 Agent 委托完整创作任务","公开开发生态",source["url"])
+        if "Connect an Agent from the canvas" in text:
+            add("从画布连接外部 Agent","公开开发生态",source["url"])
+    elif source["id"]=="flova-agent-docs":
+        if not all(x in text for x in ("Flova MCP","Flova","Agent")):
+            raise ValueError("Flova official MCP guide not readable")
+        if "github.com/FlovaAI/flova-plugin" in text and "Skills" in text:
+            add("Flova 官方 Agent 插件 / MCP / Skills","公开开发生态",source["url"])
+        if "Flova CLI" in text and "cli.flova.ai" in text:
+            add("Flova CLI","公开开发生态",source["url"])
+    elif source["id"]=="oiioii-agent-home":
+        if "OiiOii" not in text or "Oii Studio" not in text:
+            raise ValueError("OiiOii public product homepage not readable")
+        for pattern,name in ((r"\bOii CLI is live!", "Oii CLI"),(r"\bOii Plugin is live!", "Oii Plugin"),(r"\bDownload Desktop\b","OiiOii 桌面端")):
+            if re.search(pattern,text,re.I):
+                add(name,"公开开发生态",source["url"])
     elif source["id"]=="oiioii-model-directory":
         # Public model directory only; this is a catalogue listing, not
         # proof of authenticated generation or a dated integration.
@@ -769,18 +797,55 @@ def parse_libtv_plugin_releases(payload,source):
     return rows
 
 
+def parse_higgs_skills_features(payload,source):
+    """Only merged, explicitly user-facing Skills features; not website launches."""
+    if source.get("id")!="higgsfield-skills-features" or source.get("url")!=HIGGS_SKILLS_REPO or not isinstance(payload,list):
+        raise ValueError("Unexpected Higgsfield Skills source")
+    rows={}
+    for item in payload[:30]:
+        if not isinstance(item,dict):
+            continue
+        number=item.get("number")
+        stamp=parse_stamp(item.get("merged_at"))
+        url=item.get("html_url")
+        title=str(item.get("title") or "").strip()
+        body=str(item.get("body") or "").strip()
+        base=item.get("base") or {}
+        if type(number) is not int or number<1 or not stamp or url!=HIGGS_SKILLS_REPO+"/pull/"+str(number):
+            continue
+        if base.get("ref")!="main" or (base.get("repo") or {}).get("full_name")!="higgsfield-ai/skills":
+            continue
+        if not body or len(title)>140 or not re.match(r"^(?:feat(?:\([\w-]+\))?:\s*|Add\s+)",title,re.I):
+            continue
+        if not re.search(r"\b(?:skill|workflow|generate|generation|model|image|video|audio|GIF|SVG|agent|routing)\b",title,re.I):
+            continue
+        if re.search(r"\b(?:pricing|discount|credit|docs?|test|install|typo|dependency|readme|fix)\b",title,re.I):
+            continue
+        name=re.sub(r"^feat(?:\([\w-]+\))?:\s*","",title,flags=re.I)
+        key=hashlib.sha256(("higgsfield-skills-features|"+str(number)).encode()).hexdigest()
+        rows[key]={"featureName":"Higgsfield Skills · "+name,"publisherCalendarDay":stamp.date().isoformat(),
+                   "publisherCommitAt":stamp.isoformat(),"productArea":"Agent / Skills",
+                   "publisherLabel":"官方功能合并记录","updateType":"product-feature","category":"app",
+                   "claimType":"first-party-developer-change","sourceUrl":url}
+    if not rows:
+        raise ValueError("No explicit merged user-facing Skills features")
+    return rows
+
+
 class PluginNoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         raise urllib.error.HTTPError(req.full_url, code, "Plugin API redirect rejected", headers, fp)
 
 
-def plugin_request():
-    """Send an optional Actions token only to the fixed GitHub API URL."""
+def plugin_request(source_id="libtv-codex-plugin"):
+    """Send optional Actions token only to a fixed approved GitHub API URL."""
+    if source_id not in GITHUB_PRODUCT_APIS:
+        raise ValueError("Unapproved GitHub product API")
     headers={"Accept":"application/vnd.github+json","User-Agent":USER_AGENT,"X-GitHub-Api-Version":"2022-11-28"}
     token=os.environ.get("RADAR_GITHUB_API_TOKEN","").strip()
     if token:
         headers["Authorization"]="Bearer "+token
-    return urllib.request.Request(LIBTV_PLUGIN_API,headers=headers)
+    return urllib.request.Request(GITHUB_PRODUCT_APIS[source_id][1],headers=headers)
 
 
 def app_probe_retry_at(exc, now, count):
@@ -799,11 +864,13 @@ def app_probe_retry_at(exc, now, count):
 
 def fetch(source):
     is_store=source.get("type")=="apple-store-version"
-    is_plugin=source.get("type")=="github-plugin-release"
+    is_plugin=source.get("type") in {"github-plugin-release","github-feature-merge"}
     if is_plugin:
-        if source.get("id")!="libtv-codex-plugin" or source.get("url")!=LIBTV_PLUGIN_REPO:
-            raise ValueError("Unapproved plugin repository")
-        url=LIBTV_PLUGIN_API
+        approved=GITHUB_PRODUCT_APIS.get(source.get("id"))
+        expected={"libtv-codex-plugin":"github-plugin-release","higgsfield-skills-features":"github-feature-merge"}
+        if not approved or source.get("url")!=approved[0] or source.get("type")!=expected.get(source.get("id")):
+            raise ValueError("Unapproved GitHub product repository")
+        url=approved[1]
     elif is_store:
         if source.get("lookupUrl")!=APPLE_LOOKUP or source.get("trackId")!=6503676563:
             raise ValueError("Unapproved store lookup")
@@ -827,13 +894,13 @@ def fetch(source):
         rules.parse(raw.decode("utf-8").splitlines())
         if not rules.can_fetch(USER_AGENT,url):
             raise ValueError("Changelog robots policy disallows access")
-    req=plugin_request() if is_plugin else urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
+    req=plugin_request(source['id']) if is_plugin else urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
     with urllib.request.build_opener(PluginNoRedirect() if is_plugin else SameHostRedirect()).open(req,timeout=18) as response:
         data=response.read(MAX_BYTES+1)
     if len(data)>MAX_BYTES:
         raise ValueError("App surface exceeds byte limit")
     if is_plugin:
-        return parse_libtv_plugin_releases(json.loads(data),source)
+        return (parse_higgs_skills_features if source['id']=='higgsfield-skills-features' else parse_libtv_plugin_releases)(json.loads(data),source)
     if source.get("type")=="higgs-changelog":
         return parse_higgs_changelog(data.decode("utf-8"),source)
     if source.get("type")=="dated-changelog":
@@ -1150,6 +1217,8 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
                 elif value.get("claimType")=="first-party-product-milestone":
                     kind="new-product-milestone" if old.get("lastSuccessAt") else "baseline-product-milestone"
+                elif value.get("claimType")=="first-party-developer-change":
+                    kind="new-developer-change" if old.get("lastSuccessAt") else "baseline-developer-change"
                 elif value.get("claimType")=="first-party-plugin-release":
                     kind="new-plugin-release" if old.get("lastSuccessAt") else "baseline-plugin-release"
                 elif value.get("claimType")=="first-party-product-changelog":
