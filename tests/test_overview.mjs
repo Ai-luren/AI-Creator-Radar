@@ -729,3 +729,11 @@ test('model watch recognizes current public recommendations without inventing la
  const rows=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(app)+',[],{},Date.now()))'));
  assert.equal(rows.length,1);assert.equal(rows[0].modelName,'MAGI-2');assert.equal(rows[0].proof,'官网可见 · 非发布日期');
 });
+
+test('model-response exact matching accepts typography but not a different variant',()=>{
+ const {run}=setup();
+ assert.equal(run("competitorModelPattern('MAGI-2').test('MAGI 2 模型上新')"),true);
+ assert.equal(run("competitorModelPattern('MAGI-2').test('MAGI-20')"),false);
+ assert.equal(run("competitorModelPattern('Seedance 3.5').test('Seedance 3.5 Pro')"),false);
+ assert.equal(run("competitorModelPattern('Seedance 3.5 Pro').test('Seedance 3.5 Pro 上线')"),true);
+});
