@@ -64,13 +64,49 @@ def safe_name(value):
                     and re.search(r"[A-Za-z]", name) and re.search(r"\d", name)) else None
 
 
+def repository_backed_names(discovery):
+    """Exact version labels from existing configured HF repository observations.
+
+    A repository pointer is not release evidence. Match its literal basename
+    to a separate news lead; never synthesize a name from headline fragments.
+    """
+    names = {}
+    for row in discovery.get("items", []):
+        if row.get("dateKind") != "repository-created-at" or not str(row.get("sourceId", "")).startswith("hf-"):
+            continue
+        repo = str(row.get("title") or "")
+        if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo) or row.get("url") != "https://huggingface.co/" + repo:
+            continue
+        name = safe_name(repo.split("/", 1)[1])
+        if name:
+            names.setdefault(name.casefold(), []).append((name, row))
+    return names
+
+
+def exact_label_match(title, name):
+    pattern = r"(?<![A-Za-z0-9_.-])" + re.escape(name) + r"(?![A-Za-z0-9_.-]|\s+(?:pro|plus|flash|mini|lite|live|medical|fast|preview|ultra|max|omni|next|code|instruct)\b)"
+    return bool(re.search(pattern, str(title or ""), re.I))
+
+
+def exact_repository_names(title, names):
+    hits = []
+    for values in names.values():
+        name = values[0][0]
+        if len({row["url"] for _, row in values}) != 1:
+            continue
+        if exact_label_match(title, name):
+            hits.append(name)
+    return hits if len(hits) == 1 else []
+
+
 def build_targets(families, discovery, reconciliation, product_state):
     index = model_index(families)
     names = {(f["id"], v["id"]): (safe_name(v.get("name")) or safe_name((v.get("releaseEvidence") or {}).get("modelName")))
              for f in families for v in f.get("versions", [])}
     targets = {}
+    repository_names = repository_backed_names(discovery)
 
-    def add(name, identity, origin, first):
+    def add(name, identity, origin, first, repository_backed=False):
         name = safe_name(name)
         if not name:
             return
@@ -78,6 +114,7 @@ def build_targets(families, discovery, reconciliation, product_state):
         target = targets.setdefault(tid, {"id": tid, "query": name, "identity": (
             {"modelFamilyId": identity[0], "modelVersionId": identity[1]} if identity else None),
             "originIds": [], "firstDetectedAt": first})
+        target["repositoryBacked"] = bool(target.get("repositoryBacked") or repository_backed)
         target["originIds"] = sorted(set(target["originIds"] + [origin]))
         target["firstDetectedAt"] = min(x for x in (target["firstDetectedAt"], first) if x) if first or target["firstDetectedAt"] else None
 
@@ -87,6 +124,10 @@ def build_targets(families, discovery, reconciliation, product_state):
         identity = identify(index, lead.get("title"), lead.get("titleHints") or ())
         if identity in names:
             add(names[identity], identity, lead["id"], lead.get("firstSeenAt"))
+        elif not identity and str(lead.get("sourceId", "")).startswith(("local-aihot-", "local-juya-")):
+            matches = exact_repository_names(lead.get("title"), repository_names)
+            if matches:
+                add(matches[0], None, lead["id"], lead.get("firstSeenAt"), repository_backed=True)
     for task in reconciliation.get("tasks", []):
         if task.get("state") not in OPEN_STATES:
             continue
@@ -132,7 +173,14 @@ def local_context(target, discovery, reconciliation, product_state, index, allow
     obj = target.get("identity") or {}
     identity = (obj.get("modelFamilyId"), obj.get("modelVersionId"))
     if not all(identity):
-        return []
+        values = repository_backed_names(discovery).get(str(target.get("query") or "").casefold(), [])
+        if len({row["url"] for _, row in values}) != 1:
+            return []
+        return [{"kind": "repository-pointer-unverified", "sourceUrl": row["url"],
+                 "sourceRecordId": row["id"], "sourceId": row["sourceId"],
+                 "assertedDate": None, "originalVerificationAt": None,
+                 "lastObservedAt": row.get("lastSeenAt") or row.get("firstSeenAt"),
+                 "provenance": "existing-discovery"} for _, row in values[:1]]
     records = {}
 
     def add(row):
@@ -278,7 +326,7 @@ def bounded_broad_fetch(target,allowed,families,runner=subprocess.run):
 def broad_fallback_ready(target,now,recent_cutoff,providers):
     """A normal aggregator cooldown is not an observed coverage gap."""
     first = stamp(target.get("firstDetectedAt"))
-    if not target.get("identity") or first is None or first<recent_cutoff:
+    if not (target.get("identity") or target.get("repositoryBacked")) or first is None or first<recent_cutoff:
         return True
     # Targets with existing index pointers are intentionally not re-queried
     # by the aggregate adapter; allow their ordinary due broad recovery.
@@ -305,7 +353,7 @@ def parse_aihot_pointers(payload, target, allowed, families, provider="aihot-tar
         raise ValueError("Unexpected AIHOT response schema")
     identity = target.get("identity") or {}
     expected = (identity.get("modelFamilyId"), identity.get("modelVersionId"))
-    if not all(expected):
+    if not all(expected) and not (target.get("repositoryBacked") and safe_name(target.get("query"))):
         return []
     index = model_index(families)
     if provider not in {"aihot-targeted","aipick-targeted"}:
@@ -320,7 +368,10 @@ def parse_aihot_pointers(payload, target, allowed, families, provider="aihot-tar
         original = clean_text(item.get("originalTitle") or "")
         if not title or non_release_title(title) or (original and non_release_title(original)):
             continue
-        if identify(index, title, [original] if original else []) != expected:
+        if all(expected):
+            if identify(index, title, [original] if original else []) != expected:
+                continue
+        elif not (exact_label_match(title, target["query"]) or exact_label_match(original, target["query"])):
             continue
         links = item.get("links") or {}
         if not isinstance(links, dict):
@@ -421,7 +472,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         until = stamp(provider_state.get("nextAttemptAt"))
         if until and until>now:
             return []
-        rows = [t for t in targets.values() if t["active"] and t.get("identity")
+        rows = [t for t in targets.values() if t["active"] and (t.get("identity") or t.get("repositoryBacked"))
                 and recent_tier(t)<2
                 and not any(r.get("officialCandidateUrl") for r in t.get("results",[]))
                 and (not stamp(t.get(prefix+"NextAttemptAt")) or stamp(t[prefix+"NextAttemptAt"])<=now)]
