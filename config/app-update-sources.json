@@ -385,6 +385,26 @@
       ]
     },
     {
+      "id": "flova-model-directory",
+      "name": "Flova · 官方可选模型目录",
+      "vendor": "Flova",
+      "role": "competitor",
+      "url": "https://www.flova.ai/en/docs/features/generation/models/",
+      "type": "product-surface",
+      "minIntervalMinutes": 360,
+      "links": [
+        {
+          "kind": "官方更新日志",
+          "url": "https://www.flova.ai/en/docs/changelog/",
+          "access": "目录仅确认文档列出的可选模型；接入日期以明确日志为准"
+        }
+      ],
+      "aggregateQueryIds": [
+        "flova-aihot",
+        "flova-aipick"
+      ]
+    },
+    {
       "id": "flova-agent-docs",
       "name": "Flova · 官方开发生态入口",
       "vendor": "Flova",
