@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T11:32:59+00:00",
+  "checkedAt": "2026-11-28T12:18:14+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -54,7 +54,7 @@
       "lastSuccessAt": "2026-11-28T11:32:59+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T17:32:59.285372+00:00"
     },
@@ -1738,7 +1738,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "ff1e8cc5d221868ec88dcfb9c8331d524c438ef01cccab363fe90e5eeeca81f9": {
           "featureName": "Property Studio",
@@ -1749,7 +1749,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "a23eb14b31ed1d16adec870a743f6b0a7a5e6d389a4b52a39a6a735008603d68": {
           "featureName": "Shorts",
@@ -1760,7 +1760,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "5b14ddf4b9ec81c7c3cfd18a8aabe0e25dcb1bf093945ae7cb00ede408a58ba5": {
           "featureName": "Ads Studio",
@@ -1771,7 +1771,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "bbdb6b9c41386d00887cf82f6011ba69a4f2f1342cc4cb0c30e45bc451affd85": {
           "featureName": "GPU",
@@ -1782,7 +1782,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "5e67c198e7e8a6f96e0e393f9ce63f5cc182ffcb1d70e3d491db31bb1e898228": {
           "featureName": "Playable",
@@ -1793,7 +1793,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "e205fd4afb594f2fefb00d8cffe81b60c06a67c60be3fa37568fc5241bee48f8": {
           "featureName": "Supercomputer",
@@ -1804,7 +1804,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "654601de1048e6fab45cecc0ee9ee251cbf68acd48a6eb68a9d440fdcae63d8e": {
           "featureName": "Canvas",
@@ -1815,7 +1815,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "f47c93fc89e1fa6661796f1619ad8ecc10de051f263c6492376adf88b8cc0318": {
           "featureName": "Agentic",
@@ -1826,7 +1826,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "c354f48fc1aefe19044665af5d3d09576fc6ee136f4514eab20ed633ff3b4424": {
           "featureName": "CLOUD COMPUTER WITH GPU",
@@ -1837,7 +1837,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "e840a2fc7d95fe2f280734227add85875355c0b36200809bf0df98843b482b5b": {
           "featureName": "Higgsfield Editing Room",
@@ -1848,7 +1848,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "a3df1d5c6776fcc8ba7297e9db88079328115c409fd713d0a898bddd90038be7": {
           "featureName": "Higgsfield Editing Room Change the angle, light and camera of any video",
@@ -1859,7 +1859,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "5e82bf2357afec1697a4fdae7e90f7cb060631ec55952c4938351f3cbcc8389a": {
           "featureName": "Supercomputer Agent powered by Fable 5.2",
@@ -1870,7 +1870,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "fd938cce5b10ca80a14d117abe9dd76d71e3cebe9236aefbb9ba6f82293e77ab": {
           "featureName": "Higgsfield Shorts Studio",
@@ -1881,7 +1881,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "578b4fb4a67c4cda09de0e208844af63f7ae1abc507cb718a857182eb0561362": {
           "featureName": "View all presets",
@@ -1892,7 +1892,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "86c6641220fa24e0b15b8b40b0692ff58a071614939ae1c597a10d8368db69a0": {
           "featureName": "Lipsync Studio",
@@ -1903,19 +1903,175 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "visibleInLatestRead": false
+        },
+        "91f41c796328e80c8ed6f77fdd1c054b158191b2af6747ca1c076730782ba1a5": {
+          "featureName": "MCP",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/mcp",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "b5e4212843bbdafbb5fb71532eefbb153ce9c3b502c2b97b6e3f3bd944914886": {
+          "featureName": "Genjutsu",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/ai/video?model=genjutsu",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "911195a9679c298468b6e523eb0e768a027ea6320e2aa560b63ae268e950f33a": {
+          "featureName": "Short Drama",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/short-drama",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "40a65e5b5cf4f3c8d03de96b41b76392a41f5949505817263956abb675ad11de": {
+          "featureName": "Miracle",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/miracle",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "surfaceStage": "coming-soon",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "4ea6c2db4853a57c016437907d872fd5f13b9ba35466cf6f96529b4ca88defd2": {
+          "featureName": "Property Studio",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/property-studio",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "34d45a58dceb5cfeaa5ab5b380e1eb50075ead15c62158da4ae4d1fa24b027cd": {
+          "featureName": "Shorts Studio",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/shorts-studio",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "c8e91924a5e6e97889cd596edb8bc8e67f1a8060b74a0f2fcbd57ac7f6c0453a": {
+          "featureName": "Ads Studio",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/ads-studio",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "c8a09ef616847b72fe687e3464689c3eabefc7e4a8f72bc65bad8add386d3943": {
+          "featureName": "GPU",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/gpu",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "2c780796f547425e163e1f7d9f0d21d9cba3f545e2ac04e50280784a504ad381": {
+          "featureName": "Playable",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/playable",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "f17619d121bd221dcbbfd6d32c2bf005fed477506ec615cabda30251b1f76f6c": {
+          "featureName": "Supercomputer",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/supercomputer",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "383673a9d08051976ad88099d67c62858c8a71469a3d52b5130a4f88b63d5213": {
+          "featureName": "Plugins for Premiere Pro / After Effects",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/plugins/after-effects",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "00539136e163adc730ce7d0eb03a567e0fac801151690442ee000f86d68a57b9": {
+          "featureName": "Canvas",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/canvas",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "2c467b979536401dbd10e67ae952deb622734258d78a3791f1f293895fd327cc": {
+          "featureName": "Higgsfield Editing Room",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/editing-room",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "d96d088155cd004d25240f14914519d93311d7c2a9c6d1a8f1ca67aecbcaa080": {
+          "featureName": "Lipsync Studio",
+          "productArea": "公开产品入口",
+          "featureUrl": "https://higgsfield.ai/lipsync-studio",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         }
       },
-      "checkedAt": "2026-11-28T05:41:40+00:00",
-      "lastSuccessAt": "2026-11-28T05:41:40+00:00",
+      "checkedAt": "2026-11-28T12:18:14+00:00",
+      "lastSuccessAt": "2026-11-28T12:18:14+00:00",
       "status": "observed",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00",
+      "nextAttemptAt": "2026-11-28T18:18:14.308294+00:00",
       "modelWatchGap": [
         "Niji 8"
-      ]
+      ],
+      "surfaceParserVersion": 2
     },
     {
       "id": "libtv-home",
@@ -1953,7 +2109,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "13ea8ebc3b224dd4000a07708807680a9da63d2d1432fa531467a48558ab61b1": {
@@ -1964,7 +2120,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "b14d56d305fc877efde1064d238045159ce79d6c6a9e6ab60cf119f7bd55f393": {
@@ -1975,7 +2131,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "d996bbf72a15007ccb7e2b5bd8eba9c0c8cfc28c76eaf5483193b5626df140a6": {
@@ -1986,7 +2142,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "c4891467d3e0e9be7f1d5ef1e1f68c3d429f77aec101a538092ea815e270bbbf": {
@@ -1997,7 +2153,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "046aa769fabbf83f01dd18c3a3eb538509f7770c35ced28e0d1663cef0553402": {
@@ -2008,7 +2164,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "bdd20649da574e5c978f77c8643a15a1ff3f4ae7722e1df0ea4dabc4e3d90dc6": {
@@ -2019,7 +2175,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "54f49477fe7fb54660b078281a2d26db0fc1414faaafcb8198aa9f8752ed41e3": {
@@ -2030,7 +2186,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "589138efa97cfe8747f0264832d754ee73b5b5cc7e8491ecc0be11a7220eb542": {
@@ -2041,7 +2197,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "37c0b04e02148d8c6809dbec301a0d63cfdc96b97f44aeb9a6e514a55d5a0cf6": {
@@ -2052,7 +2208,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "bb6256667b3a8dec3674d311738454a7f928ef85ae73bf0712b81c9ea4d8a3c2": {
@@ -2063,7 +2219,7 @@
           "claimType": "first-party-product-surface",
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
-          "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         },
         "e8e36834de5b2f14bdbcdcc01611f699c0727037abdd8b4aaf6d6be26aed870e": {
@@ -2075,7 +2231,7 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
-          "visibleInLatestRead": true
+          "visibleInLatestRead": false
         },
         "56fee32a84f85d29aa13b30f42ae48a954fe1e132b06ede79dee3892cd6e6c76": {
           "featureName": "模型上新",
@@ -2086,20 +2242,43 @@
           "updateType": "surface-observation",
           "firstObservedAt": "2026-11-28T05:41:40+00:00",
           "lastObservedAt": "2026-11-28T05:41:40+00:00",
+          "visibleInLatestRead": false
+        },
+        "a972065aecffa8ee7e8fbef37713969f0862ac9a70ebc545d955c336ce4d9727": {
+          "featureName": "Seedance 2.5 Flash模型上新",
+          "productArea": "首页近期推荐",
+          "featureUrl": "https://www.liblib.tv/",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
+          "visibleInLatestRead": true
+        },
+        "dd59b56aab2ef7d5979ebf08743caef712d1232cfaa2c3de8de45d2c756762d5": {
+          "featureName": "Seedream 5.5模型上新",
+          "productArea": "首页近期推荐",
+          "featureUrl": "https://www.liblib.tv/",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T12:18:14+00:00",
+          "lastObservedAt": "2026-11-28T12:18:14+00:00",
           "visibleInLatestRead": true
         }
       },
-      "checkedAt": "2026-11-28T05:41:40+00:00",
-      "lastSuccessAt": "2026-11-28T05:41:40+00:00",
+      "checkedAt": "2026-11-28T12:18:14+00:00",
+      "lastSuccessAt": "2026-11-28T12:18:14+00:00",
       "status": "observed",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00",
+      "nextAttemptAt": "2026-11-28T18:18:14.308294+00:00",
       "modelWatchGap": [
         "MAGI-2",
         "Niji 8"
-      ]
+      ],
+      "surfaceParserVersion": 2
     },
     {
       "id": "renoise-models-entry",
@@ -2958,7 +3137,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T11:32:59+00:00",
+    "checkedAt": "2026-11-28T12:18:14+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -3015,21 +3194,24 @@
         "label": "可灵",
         "term": "可灵",
         "category": "ai-products",
-        "lastAttemptAt": "2026-11-27T17:54:09+00:00",
+        "lastAttemptAt": "2026-11-28T12:18:14+00:00",
         "counts": {
-          "items": 6,
+          "items": 7,
           "wechatOriginalLinks": 0,
-          "otherOriginalLinks": 6,
+          "otherOriginalLinks": 7,
           "missingOriginalLinks": 0,
-          "exactTitleMatches": 4,
-          "hasNextCursor": false
+          "exactTitleMatches": 5,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "selectedCreatorSignals": 0
         },
-        "countsObservedAt": "2026-11-27T17:54:09+00:00",
+        "countsObservedAt": "2026-11-28T12:18:14+00:00",
         "status": "observed",
-        "etag": "W/\"v1-items-da9cfee1a57c4e4a\"",
-        "lastSuccessAt": "2026-11-27T17:54:09+00:00",
+        "etag": "W/\"v1-items-045c329bcb8b1ffe\"",
+        "lastSuccessAt": "2026-11-28T12:18:14+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T23:54:09.333315+00:00",
+        "nextAttemptAt": "2026-11-29T12:18:14.308294+00:00",
         "priority": 20,
         "intervalMinutes": 1440,
         "queuedAt": "2026-11-28T06:49:40+00:00"
@@ -3469,7 +3651,25 @@
         "provider": "AIHOT",
         "priority": 20,
         "intervalMinutes": 1440,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T12:18:14+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "selectedCreatorSignals": 0
+        },
+        "countsObservedAt": "2026-11-28T12:18:14+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-0031750a0cf2f4d4\"",
+        "lastSuccessAt": "2026-11-28T12:18:14+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-29T12:18:14.308294+00:00"
       },
       {
         "id": "renoise-aipick",
@@ -4195,21 +4395,21 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T11:32:59+00:00",
-      "nextAttemptAt": "2026-11-28T11:57:59.285372+00:00"
+      "lastSuccessAt": "2026-11-28T12:18:14+00:00",
+      "nextAttemptAt": "2026-11-28T12:43:14.308294+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T11:32:59+00:00",
-        "nextAttemptAt": "2026-11-28T11:57:59.285372+00:00"
+        "lastSuccessAt": "2026-11-28T12:18:14+00:00",
+        "nextAttemptAt": "2026-11-28T12:43:14.308294+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T11:32:59+00:00",
-        "nextAttemptAt": "2026-11-28T11:57:59.285372+00:00"
+        "lastSuccessAt": "2026-11-28T12:18:14+00:00",
+        "nextAttemptAt": "2026-11-28T12:43:14.308294+00:00"
       }
     },
     "attemptedThisRun": 2,
@@ -4416,6 +4616,231 @@
     "policy": "Named relevant events only; upstream-attributed labels are not verified authors. Repeated coverage is not cooperation. No automatic subscriptions."
   },
   "events": [
+    {
+      "id": "d2c83fa7bb20687185208dc5afde8f91b90a0e5a744aa77c5680d5dc7968f760",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Miracle",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/miracle",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation",
+      "surfaceStage": "coming-soon"
+    },
+    {
+      "id": "c4df13e0b475193b21ce0512c3a7a0acdfde60e24f5762c0480b9d670a04a60b",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Higgsfield Editing Room",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/editing-room",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "c286549089143668d0a65b368da27c05e0c06e3075de14cd91ddb444dc2f2046",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "GPU",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/gpu",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "ae6c8550c65afbc23411ab60d3d22b5990299c0667d24bd9358d946431fe2615",
+      "sourceId": "libtv-home",
+      "sourceUrl": "https://www.liblib.tv/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Seedance 2.5 Flash模型上新",
+      "productArea": "首页近期推荐",
+      "featureUrl": "https://www.liblib.tv/",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "abdcd3ce2a67780795f70056a01c1e626a9aaa84790ff57d40d596e33bcb5893",
+      "sourceId": "libtv-home",
+      "sourceUrl": "https://www.liblib.tv/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Seedream 5.5模型上新",
+      "productArea": "首页近期推荐",
+      "featureUrl": "https://www.liblib.tv/",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "7d5205abddfbc5bf4e0cdaab81315a9450d9e699d4df32ce238e0c6fd05e27c4",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Supercomputer",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/supercomputer",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "6f57315f4137342ec53b6002d7a43b70a7d0358f2f444454a60ad661ae7c364c",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "MCP",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/mcp",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "6dcf6b77b5a1dd68ee722c52a364fdeea723cd9824dce07c0f39f29238de17cb",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Playable",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/playable",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "667f15d09b4bcbcce999f578065abdd53db52009046924897ccc74908e3bedeb",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Property Studio",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/property-studio",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "516b566e601e1323c6866187125df0177b33b965ea16846e0684cdb8f839240c",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Short Drama",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/short-drama",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "4760c25479ca864f6477eda2043f0e1fc83ae11dff4bb1650c278521eb39891d",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Genjutsu",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/ai/video?model=genjutsu",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "46eaed1ae3b05f07e28b85b13ed0142ed25e5bf3f114326cf2a1e4e7e5c5a5e9",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Ads Studio",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/ads-studio",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "4057d84a2cff47de2242d5b6a35c51d28ad3aba57eb6690059b371cc3998d7e3",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Canvas",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/canvas",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "2b0287c286536e4ee29a9b3a8e961a2650de71128df35f2930ec8747ca827687",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Shorts Studio",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/shorts-studio",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "24fa0dd2ca9312eaa7e0cd8bea02424643e2348aaf0c52cfd016f2dcb3fa8325",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Lipsync Studio",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/lipsync-studio",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "1faec09cc9973396de4c135be4ba77e606c7fcf79eafc0917be6c67e06688f9e",
+      "sourceId": "higgsfield-home",
+      "sourceUrl": "https://higgsfield.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T12:18:14+00:00",
+      "releaseDate": null,
+      "featureName": "Plugins for Premiere Pro / After Effects",
+      "productArea": "公开产品入口",
+      "featureUrl": "https://higgsfield.ai/plugins/after-effects",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
     {
       "id": "f40858b4bf38df3609e6afd341969b0b169532fd2f457f1a4f3dd0f7a99a1cab",
       "sourceId": "xiaoyunque-ios-cn",
@@ -7219,14 +7644,14 @@
   ],
   "summary": {
     "configuredSources": 25,
-    "successfulThisRun": 1,
+    "successfulThisRun": 2,
     "baselineSources": 19,
     "listedModels": 0,
     "reviewedObservations": 12
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T11:33:03+00:00",
+    "checkedAt": "2026-11-28T12:18:22+00:00",
     "window": "7d",
     "sources": [
       {
@@ -7239,7 +7664,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T11:32:41+00:00",
+        "fetchedAt": "2026-11-28T12:17:40+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],

@@ -6,11 +6,11 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T11:32:41+00:00",
-  "checkedAt": "2026-11-28T11:32:41+00:00",
+  "fetchedAt": "2026-11-28T12:17:40+00:00",
+  "checkedAt": "2026-11-28T12:17:40+00:00",
   "etags": {
     "items": "W/\"v1-items-bc089c6a8ee8cd62\"",
-    "hotTopics": "W/\"v1-hot-210912a5892239c8\""
+    "hotTopics": "W/\"v1-hot-3612a1651f172543\""
   },
   "items": [
     {
@@ -707,29 +707,6 @@
   "hotTopics": [
     {
       "rank": 1,
-      "id": "icm35onypxas5ucmkudxdifkj",
-      "title": "蚂蚁开源6B设计图像模型，图层模型下周发布",
-      "source": {
-        "name": "抖音 · 热点搜「6B设计图像模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/icm35onypxas5ucmkudxdifkj",
-        "original": "https://www.douyin.com/video/7712668921219878153",
-        "story": "https://aipick.news/story/a6719407-8433-4010-b508-83ed5a70422b"
-      },
-      "sourceCount": 5,
-      "signalCount": 0,
-      "participantCount": 5,
-      "sourceNames": [
-        "抖音 · 热点搜「6B设计图像模型」",
-        "公众号 · 智东西",
-        "微信公众号 · 百灵大模型",
-        "X · 蚂蚁 inclusionAI"
-      ],
-      "latestAt": "2026-11-27T16:41:21.000Z"
-    },
-    {
-      "rank": 2,
       "id": "kgvufyflrq3c0bgrhdx7e06d4",
       "title": "腾讯混元发布Hy3D 3.6并接入多平台",
       "source": {
@@ -749,6 +726,29 @@
         "量子位"
       ],
       "latestAt": "2026-11-28T01:00:58.000Z"
+    },
+    {
+      "rank": 2,
+      "id": "icm35onypxas5ucmkudxdifkj",
+      "title": "蚂蚁开源6B设计图像模型，图层模型下周发布",
+      "source": {
+        "name": "抖音 · 热点搜「6B设计图像模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/icm35onypxas5ucmkudxdifkj",
+        "original": "https://www.douyin.com/video/7712668921219878153",
+        "story": "https://aipick.news/story/a6719407-8433-4010-b508-83ed5a70422b"
+      },
+      "sourceCount": 4,
+      "signalCount": 0,
+      "participantCount": 4,
+      "sourceNames": [
+        "抖音 · 热点搜「6B设计图像模型」",
+        "公众号 · 智东西",
+        "微信公众号 · 百灵大模型",
+        "X · 蚂蚁 inclusionAI"
+      ],
+      "latestAt": "2026-11-27T16:41:21.000Z"
     },
     {
       "rank": 3,
@@ -923,8 +923,7 @@
     }
   ],
   "unchanged": [
-    "items",
-    "hotTopics"
+    "items"
   ],
   "errors": []
 }
