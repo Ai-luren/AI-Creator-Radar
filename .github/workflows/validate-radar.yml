@@ -34,16 +34,14 @@ jobs:
           echo "$RUNNER_TEMP/radar-bin" >> "$GITHUB_PATH"
       - name: Validate workflow syntax and derived snapshots
         run: python scripts/preflight.py --static-only
-      - name: Validate Python tests
-        run: python -m unittest discover -s tests -v
+      - name: Execute production snapshot validation wrapper
+        run: python scripts/validate_snapshot.py
       - name: Validate refresh planning on production snapshots (read only)
         run: python scripts/plan_refresh.py --event schedule --output /tmp/radar-plan.txt
       - name: Validate JavaScript tests
-        run: node --test tests/test_overview.mjs tests/test_scheduler_worker.mjs tests/test_deploy_verified_pages.cjs
+        run: node --test tests/test_scheduler_worker.mjs tests/test_deploy_verified_pages.cjs
       - name: Validate model references and evidence
         run: |
-          python scripts/validate_model_links.py
-          python scripts/audit_model_completeness.py
           python scripts/audit_radar_system.py
           python scripts/check_creator_links.py --dry-run
           python scripts/collect_creator_opportunities.py --dry-run

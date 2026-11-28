@@ -61,9 +61,8 @@ class CollectionHealthTests(unittest.TestCase):
         workflow = (Path(__file__).resolve().parents[1] / ".github/workflows/update-site.yml").read_text()
         self.assertNotIn("persistent-source-alert:", workflow)
         self.assertIn("python scripts/collection_health.py", workflow)
-        self.assertIn("python -m unittest discover -s tests -v", workflow)
-        self.assertIn("node --test tests/test_overview.mjs", workflow)
-        self.assertIn("python scripts/validate_model_links.py", workflow)
+        self.assertIn("run: python scripts/validate_snapshot.py", workflow)
+        self.assertLess(workflow.index("run: python scripts/validate_snapshot.py"), workflow.index("run: bash scripts/persist_data.sh"))
         self.assertIn('exit 1', workflow)  # real persistence failures remain blocking
 
     def test_same_run_retries_do_not_escalate_or_repeat_alerts(self):
