@@ -236,6 +236,58 @@
       ]
     },
     {
+      "id": "xiaoyunque-ios-cn",
+      "name": "小云雀 · iOS 中国区",
+      "vendor": "小云雀",
+      "role": "first-party",
+      "url": "https://apps.apple.com/cn/app/id6746231056",
+      "type": "apple-store-version",
+      "lookupUrl": "https://itunes.apple.com/lookup?id=6746231056&country=cn&entity=software",
+      "trackId": 6746231056,
+      "expectedName": "小云雀",
+      "minIntervalMinutes": 720,
+      "links": []
+    },
+    {
+      "id": "pippit-ios-sg",
+      "name": "Pippit · iOS 新加坡区",
+      "vendor": "Pippit",
+      "role": "first-party",
+      "url": "https://apps.apple.com/sg/app/id6756709583",
+      "type": "apple-store-version",
+      "lookupUrl": "https://itunes.apple.com/lookup?id=6756709583&country=sg&entity=software",
+      "trackId": 6756709583,
+      "expectedName": "Pippit",
+      "minIntervalMinutes": 720,
+      "links": []
+    },
+    {
+      "id": "dreamina-ios-sg",
+      "name": "Dreamina · iOS 新加坡区",
+      "vendor": "Dreamina",
+      "role": "first-party",
+      "url": "https://apps.apple.com/sg/app/id6749606485",
+      "type": "apple-store-version",
+      "lookupUrl": "https://itunes.apple.com/lookup?id=6749606485&country=sg&entity=software",
+      "trackId": 6749606485,
+      "expectedName": "Dreamina",
+      "minIntervalMinutes": 720,
+      "links": []
+    },
+    {
+      "id": "gemini-ios-us",
+      "name": "Gemini · iOS 美国区",
+      "vendor": "Gemini",
+      "role": "first-party",
+      "url": "https://apps.apple.com/us/app/id6477489729",
+      "type": "apple-store-version",
+      "lookupUrl": "https://itunes.apple.com/lookup?id=6477489729&country=us&entity=software",
+      "trackId": 6477489729,
+      "expectedName": "Google Gemini",
+      "minIntervalMinutes": 720,
+      "links": []
+    },
+    {
       "id": "gemini-app-updates",
       "name": "Gemini · 官方产品入口",
       "vendor": "Gemini",
@@ -395,6 +447,19 @@
   ],
   "reviewedObservations": [
     {
+      "id": "higgsfield-gpu-harness-20261123-article",
+      "sourceId": "higgsfield-changelog",
+      "brand": "Higgsfield",
+      "title": "GPU Harness 云端创作工作站介绍",
+      "kind": "产品介绍 / 工作流",
+      "category": "app",
+      "observedOn": "2026-11-28",
+      "releaseDate": "2026-11-23",
+      "sourceUrl": "https://higgsfield.ai/blog/higgsfield-gpu-harness",
+      "observationMethod": "官方文章发布日期",
+      "note": "11月23日官方文章介绍通过远程GPU运行创作应用（如 Blender）及 AI 工作负载；文章引用11月20日的渲染测试，因此不能将11月23日当作首次开放日期。只记录创作工作流，不追踪价格。"
+    },
+    {
       "id": "jimeng-seedaudio-1-5-20261127-observation",
       "sourceId": "jimeng",
       "title": "SeedAudio 1.5 已在即梦界面出现",
@@ -444,10 +509,10 @@
       "kind": "宣发 / 演示",
       "category": "video",
       "observedOn": "2026-11-28",
-      "releaseDate": null,
+      "releaseDate": "2026-11-25",
       "sourceUrl": "https://higgsfield.ai/blog/higgsfield-magi-2",
-      "observationMethod": "人工核对 · 官方文章索引",
-      "note": "单独的模型产品介绍，与11月24日接入日志分别保留。"
+      "observationMethod": "官方文章发布日期",
+      "note": "官方文章标注11月25日；这是产品介绍及演示日，与11月24日官方接入日志分别保留，不据宣发声称全球独家。"
     },
     {
       "id": "renoise-magi-2-arena-20261126",

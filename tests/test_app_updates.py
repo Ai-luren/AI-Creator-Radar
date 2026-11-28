@@ -51,6 +51,26 @@ class AppUpdatesTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_store(payload,spec)
 
+    def test_first_party_store_allowlist_matches_config_and_rejects_wrong_region_or_identity(self):
+        import json
+        from pathlib import Path
+        from scripts.collect_app_updates import APPLE_STORES, approved_store_url, parse_store
+        config=json.loads((Path(__file__).resolve().parents[1]/"config/app-update-sources.json").read_text(encoding="utf-8"))
+        stores=[s for s in config["sources"] if s.get("type")=="apple-store-version"]
+        self.assertEqual({s["id"] for s in stores},set(APPLE_STORES))
+        self.assertEqual(len(stores),5)
+        for spec in stores:
+            self.assertEqual(approved_store_url(spec),spec["lookupUrl"])
+            for changed in ({"trackId":1},{"lookupUrl":"https://example.org/lookup"},{"url":"https://apps.apple.com/us/app/id1"},{"expectedName":"other"}):
+                with self.assertRaises(ValueError):
+                    approved_store_url({**spec,**changed})
+            payload={"resultCount":1,"results":[{"trackId":spec["trackId"],"trackName":spec["expectedName"],"version":"1.2.3",
+                       "currentVersionReleaseDate":"2026-11-27T00:00:00Z","releaseNotes":"New features"}]}
+            row=next(iter(parse_store(payload,spec).values()))
+            self.assertEqual(row["claimType"],"first-party-store-version")
+            self.assertNotIn("releaseNotes",row)
+            self.assertNotIn("modelName",row)
+
     def test_targeted_query_keeps_counts_not_articles_and_respects_cooldown(self):
         from scripts.collect_app_updates import collect_targeted
         cfg={"intervalMinutes":360,"globalIntervalMinutes":60,"queries":[{"id":"a","term":"即梦","category":"ai-products"},{"id":"b","term":"Sand.ai","category":"ai-models"}]}
