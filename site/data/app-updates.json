@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T09:10:45+00:00",
+  "checkedAt": "2026-11-28T09:14:25+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -2958,7 +2958,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T09:10:45+00:00",
+    "checkedAt": "2026-11-28T09:14:25+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -4298,6 +4298,12 @@
       "note": "11月1日实操文章确认可在 WorkBuddy 中授权并调用 LibTV；另一篇10月27日实操指南回述10月26日官方公众号公告。原始公众号正文尚未读取，因此采用11月1日的已证实历史可见日期，不断言首次接入日。"
     }
   ],
+  "propagationSources": {
+    "windowDays": 30,
+    "observations": [],
+    "candidates": [],
+    "policy": "Named relevant events only; upstream-attributed labels are not verified authors. Repeated coverage is not cooperation. No automatic subscriptions."
+  },
   "events": [
     {
       "id": "f40858b4bf38df3609e6afd341969b0b169532fd2f457f1a4f3dd0f7a99a1cab",
@@ -7109,7 +7115,7 @@
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T09:10:51+00:00",
+    "checkedAt": "2026-11-28T09:14:29+00:00",
     "window": "7d",
     "sources": [
       {
