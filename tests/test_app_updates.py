@@ -577,3 +577,34 @@ class CoreMultichannelTests(unittest.TestCase):
                 self.assertTrue(all(x["claimType"]=="first-party-product-surface" and "publisherCalendarDay" not in x for x in rows.values()))
                 with self.assertRaises(ValueError):
                     parse_product_surface("<h1>Login</h1>",spec)
+
+
+class ProductChangelogRecallTests(unittest.TestCase):
+    def test_model_integrations_and_existing_capability_improvements_are_distinct(self):
+        from scripts.collect_app_updates import parse_higgs_changelog,parse_dated_changelog
+        page="<h1>What's new</h1><time>September 27, 2026</time><h2>Eleven v4</h2><p>Feature</p><p>Audio</p><p>A new text-to-speech model is now available in Audio.</p><h2>Claude Sonnet 5.5</h2><p>Feature</p><p>Supercomputer</p><p>A new model is now available in Supercomputer.</p><h2>FLUX 3 Video Upscaler update</h2><p>Feature</p><p>Models</p><p>It replaced the previous version.</p><h2>Editing Room</h2><p>Release</p><p>Video Tools</p><p>A new editor.</p>"
+        rows=list(parse_higgs_changelog(page,{}).values())
+        self.assertEqual([r["updateType"] for r in rows],["model-integration","model-integration","product-improvement","product-release"])
+        tap="<h1>TapNow changelog</h1><p>August 15, 2026</p><h2>Seedance 2.5 now supports 1080p</h2><p>Frames, references and editing can now use 1080p output.</p><p>August 7, 2026</p><h2>Generate with Seedance 2.5 on the canvas or in Agent</h2><p>Select the model and settings, then generate on the canvas.</p>"
+        self.assertEqual([r["updateType"] for r in parse_dated_changelog(tap,{"id":"tapnow-changelog"}).values()],["product-improvement","model-integration"])
+    def test_monthly_explicit_render_backends_are_separate_month_precision_records(self):
+        from scripts.collect_app_updates import parse_month_changelog
+        page="<h1>更新日志</h1><h2>v5.0 — 多 Agent 流水线正式版（2026-06）</h2><p>7 个 Agent 的创作流水线正式可用。</p><p>新增：Sora 2 和 Veo 3.1 作为渲染后端。</p><p>新增：英文、简体中文的原生界面。</p><p>即将支持 Seedance 3.5。</p>"
+        spec={"id":"oiioii-changelog-entry"}
+        rows=list(parse_month_changelog(page,spec).values())
+        self.assertEqual([r["featureName"] for r in rows],["多 Agent 流水线正式版","Sora 2","Veo 3.1"])
+        self.assertEqual([r["updateType"] for r in rows],["product-release","model-integration","model-integration"])
+        self.assertTrue(all(r["publisherCalendarMonth"]=="2026-06" and "publisherCalendarDay" not in r for r in rows))
+    def test_reclassification_keeps_existing_event_identity_and_observed_at(self):
+        from scripts.collect_app_updates import collect,parse_higgs_changelog
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        spec={"id":"higgsfield-changelog","name":"Higgsfield","vendor":"Higgsfield","role":"competitor","url":"https://higgsfield.ai/creator-hub/changelog","type":"higgs-changelog","links":[],"minIntervalMinutes":360}
+        page="<h1>What's new</h1><time>November 27, 2026</time><h2>Model update</h2><p>Feature</p><p>Models</p><p>Existing capability improvement.</p>"
+        fresh=parse_higgs_changelog(page,spec)
+        old={k:{**v,"updateType":"model-integration"} for k,v in fresh.items()}
+        first=collect({"sources":[spec]}, {}, now, lambda _:old)
+        later=collect({"sources":[spec]},first,now+timedelta(hours=6),lambda _:fresh)
+        self.assertEqual(len(later["events"]),1)
+        self.assertEqual(later["events"][0]["id"],first["events"][0]["id"])
+        self.assertEqual(later["events"][0]["observedAt"],first["events"][0]["observedAt"])
+        self.assertEqual(later["events"][0]["updateType"],"product-improvement")

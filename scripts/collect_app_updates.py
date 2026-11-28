@@ -356,7 +356,13 @@ def parse_higgs_changelog(page,source):
         product=row["tags"][1] if len(row["tags"])>1 and len(row["tags"][1])<=45 else ""
         # The Models area also contains improvements to already integrated
         # models. Publisher stage takes precedence over the area for these.
-        kind="product-improvement" if stage=="Improvement" else "model-integration" if product=="Models" else "product-feature" if stage=="Feature" else "product-release"
+        body=" ".join(row["tags"][2:])
+        # A model-area tag alone cannot turn an explicit version improvement
+        # into a new integration. Audio/Supercomputer can also announce models.
+        improvement=stage=="Improvement" or bool(re.search(r"\b(?:update|upgrades?|improvements?|now supports|new build)\b",title,re.I)) or bool(re.search(r"\breplaced the previous version\b",body,re.I))
+        explicit_model=bool(re.search(r"\bmodel\b.{0,180}\bnow (?:available|on|in)\b",body,re.I))
+        integration=stage=="Feature" and (product=="Models" or (product in {"Audio","Supercomputer","Video Tools","Image Tools"} and explicit_model))
+        kind="product-improvement" if improvement else "model-integration" if integration else "product-feature" if stage=="Feature" else "product-release"
         key=hashlib.sha256((row["day"]+"|"+title).encode()).hexdigest()
         output[key]={"featureName":title,"publisherCalendarDay":row["day"],"updateType":kind,
                      "productArea":product,"publisherLabel":stage,"category":"app",
@@ -400,6 +406,21 @@ def parse_month_changelog(page,source):
                      "publisherCalendarMonth":row["month"],"datePrecision":"month",
                      "updateType":"product-release","productArea":"平台版本","publisherLabel":"Changelog",
                      "category":"app","claimType":"first-party-product-milestone"}
+        # Preserve individually named new render backends in this version's
+        # explicitly dated paragraph. The month is not a precise launch date.
+        for paragraph in row["body"]:
+            match=re.fullmatch(r"新增[：:]\s*(.{3,100}?)\s*作为渲染后端[。.]?",paragraph)
+            if not match:
+                continue
+            names=re.split(r"\s*(?:、|和|及|与|，|,)\s*",match[1])
+            if not 1<=len(names)<=5 or not all(re.fullmatch(r"(?:Sora|Veo|Seedance|Kling|Vidu|Wan|MiniMax H|MAGI)[ -]?\d+(?:\.\d+)*(?:\s+(?:Pro|Fast|Flash|Mini|Max))?",n,re.I) for n in names):
+                continue
+            for name in names:
+                ident=hashlib.sha256((row["month"]+"|"+row["version"]+"|render-backend|"+name.casefold()).encode()).hexdigest()
+                output[ident]={"featureName":name,"productVersion":row["version"],
+                               "publisherCalendarMonth":row["month"],"datePrecision":"month",
+                               "updateType":"model-integration","productArea":"新增渲染后端",
+                               "publisherLabel":"Changelog","category":"app","claimType":"first-party-product-milestone"}
     if not output:
         raise ValueError("No explicit monthly product versions")
     return dict(list(output.items())[:MAX_CHANGELOG_ROWS])
@@ -473,7 +494,9 @@ def parse_dated_changelog(page,source):
         # Only explicit generation-model integration wording; ambiguous titles
         # remain product updates. No model catalog mutations.
         kind="product-update"
-        if re.search(r"\b(?:generate (?:images?|videos?|audio|music) with|(?:seedance|seedream|gpt image|kling|wan|nano banana|magi|vidu|gemini)\s+[\w. -]+(?:is here|is live|is available))\b",title,re.I):
+        if re.search(r"\b(?:now supports|adds?|upgrades?|update|improvements?)\b",title,re.I):
+            kind="product-improvement"
+        if re.search(r"\b(?:generate (?:images?|videos?|audio|music) with|generate with\s+(?:seedance|seedream|seed audio|gpt image|kling|wan|nano banana|magi|vidu|gemini|minimax|veo|sora)\s+[\d]|(?:seedance|seedream|seed audio|gpt image|kling|wan|nano banana|magi|vidu|gemini|minimax|veo|sora)\s+[\w. -]+(?:is here|is live|is available))\b",title,re.I) and kind!="product-improvement":
             kind="model-integration"
         key=hashlib.sha256(((row["day"] or row["month"])+"|"+title).encode()).hexdigest()
         output[key]={"featureName":title,"updateType":kind,"productArea":"","publisherLabel":"Changelog","category":"app",
@@ -1212,6 +1235,14 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
         for k,value in fresh.items():
             prev=entries.get(k,{})
             merged[k]={**value,"firstObservedAt":prev.get("firstObservedAt") or stamp,"lastObservedAt":stamp,"visibleInLatestRead":True}
+            if k in entries and value.get("claimType") in {"first-party-product-changelog","first-party-product-milestone"}:
+                # An improved parser can correct the existing record, without
+                # making a duplicate event or resetting the original observation.
+                original_stamp=prev.get("firstObservedAt")
+                eid=hashlib.sha256((spec["id"]+"|"+k+"|"+str(original_stamp)).encode()).hexdigest()
+                old_event=events.get(eid)
+                if old_event and old_event.get("sourceId")==spec["id"] and old_event.get("featureName")==value.get("featureName") and old_event.get("publisherCalendarDay")==value.get("publisherCalendarDay") and old_event.get("publisherCalendarMonth")==value.get("publisherCalendarMonth"):
+                    events[eid]={**old_event,**value}
             if k not in entries:
                 if value.get("claimType")=="first-party-store-version":
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
