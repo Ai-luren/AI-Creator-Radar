@@ -377,7 +377,8 @@ AIPICK_QUERIES={
     ("海螺","ai-products"),("Vidu","ai-products"),("PixVerse","ai-products"),("Sand.ai","ai-models"),
     ("Higgsfield",None),("Flova",None),("TapNow",None),("LibTV",None),
     ("OiiOii",None),("Lovart",None),("Updream",None),("ShotLab",None),("Renoise",None),("Liblib",None),
-    ("MiniMax",None),("Midjourney",None),("ElevenLabs",None),("Dreamina",None)
+    ("MiniMax",None),("Midjourney",None),("ElevenLabs",None),("Dreamina",None),
+    ("小云雀",None),("Pippit",None),("Gemini","ai-products")
 }
 
 
@@ -495,7 +496,13 @@ def collect_targeted(config,previous,now,fetcher=fetch_target):
         wait=parse_stamp(provider_services.get(row.get("provider","AIPick"),{}).get("nextAttemptAt"))
         return not wait or wait<=now
     due=[r for r in rows if provider_due(r) and (not parse_stamp(r.get("nextAttemptAt")) or parse_stamp(r["nextAttemptAt"])<=now)]
-    due.sort(key=lambda r:(bool(r.get("lastAttemptAt")),r.get("nextAttemptAt") or "",r.get("priority",50),r["id"]))
+    def priority_key(row):
+        retry=parse_stamp(row.get("nextAttemptAt"))
+        last=parse_stamp(row.get("lastAttemptAt"))
+        overdue=retry is not None and retry<=now-timedelta(hours=24)
+        tier=0 if overdue else int(row.get("priority",50))
+        return (tier,bool(last),row.get("nextAttemptAt") or "",row["id"])
+    due.sort(key=priority_key)
     attempted=0
     budget=min(2,max(1,int(config.get("maxProvidersPerRun",1))))
     chosen=[]
@@ -533,7 +540,7 @@ def collect_targeted(config,previous,now,fetcher=fetch_target):
                 row["counts"]=result
                 row["countsObservedAt"]=stamp
             row.update(status="unchanged" if result is None else "observed",etag=etag,lastSuccessAt=stamp,error=None,
-                       nextAttemptAt=(now+timedelta(minutes=config["intervalMinutes"])).isoformat())
+                       nextAttemptAt=(now+timedelta(minutes=max(360,int(row.get("intervalMinutes",config["intervalMinutes"]))))).isoformat())
             provider_state.update(consecutiveFailures=0,error=None,lastSuccessAt=stamp,
                            nextAttemptAt=(now+timedelta(minutes=config["globalIntervalMinutes"])).isoformat())
             service.update(consecutiveFailures=0,error=None,lastSuccessAt=stamp,
