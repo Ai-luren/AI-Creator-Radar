@@ -117,7 +117,7 @@ function competitorBriefRows(app,reports,social,now){
    if(e.claimType!=='first-party-visible-label'&&!(e.claimType==='first-party-product-surface'&&/独家首发|模型上新|模型接入|模型上线/i.test(label)))return;
    watches.forEach(function(q){
     var name=String(q.term||'');if(!name)return;
-    var pattern=new RegExp('(^|[^a-z0-9])'+name.replace(/[.*+?^$()|[\]\\]/g,function(c){return '\\'+c})+'(?![a-z0-9.])','i');
+    var pattern=competitorModelPattern(name);
     if(!pattern.test(label))return;
     add(brand,label,e.firstObservedAt||e.lastObservedAt,'模型可见 / 官网推荐',e.featureUrl||s.url,'官网可见 · 非发布日期',{modelName:name});
    });
@@ -141,13 +141,17 @@ function competitorBriefRows(app,reports,social,now){
  });
  return rows.sort(function(a,b){return b.day.localeCompare(a.day)||competitorEvidenceRank(a)-competitorEvidenceRank(b)||a.brand.localeCompare(b.brand)});
 }
+function competitorModelPattern(name){
+ var core=String(name||'').trim().split(/[\s_-]+/).map(function(s){return s.replace(/[.*+?^$()|[\]\\]/g,function(c){return '\\'+c})}).join('[\\s_-]*');
+ return new RegExp('(^|[^a-z0-9])'+core+'(?![a-z0-9.]|[-_][a-z0-9]|\\s+(?:pro|fast|lite|flash|mini|max|turbo|ultra|preview|plus)\\b)','i');
+}
 function competitorModelTrace(rows,releases,now){
  return (releases||[]).filter(function(m){return m.modelFamilyId&&m.modelVersionId&&m.verifiedAt&&m.evidenceType&&m.verificationStatus!=='pending'&&withinDays(m.publishedAt,7,new Date(now))&&creatorOriginalUrl(m.url)}).map(function(m){
   var name=String(m.modelName||''),needle=innovationModelKey(name);
   if(!needle)return null;
-  var pattern=new RegExp('(^|[^a-z0-9])'+name.replace(/[.*+?^$()|[\]\\]/g,function(c){return '\\'+c})+'(?![a-z0-9.])','i');
+  var pattern=competitorModelPattern(name);
   var related=rows.filter(function(r){return withinDays(r.day,7,new Date(now))&&((r.modelName&&innovationModelKey(r.modelName)===needle)||(!r.modelName||r.modelName===r.title)&&pattern.test(r.title))&&r.kind!=='融资 / 公司动态'});
-  var brands=trackingBrands.filter(function(brand){return related.some(function(r){return r.brand===brand})});
+  var brands=priorityCompetitors.concat(trackingBrands.filter(function(b){return !priorityCompetitors.includes(b)})).filter(function(brand){return related.some(function(r){return r.brand===brand})});
   if(!brands.length)return null;
   return {model:m,brands:brands,rows:related};
  }).filter(Boolean).sort(function(a,b){return b.brands.length-a.brands.length||String(b.model.publishedAt).localeCompare(String(a.model.publishedAt))});
@@ -175,7 +179,7 @@ function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
    (trace.watchQueries||(trace.watchQueries=[])).push(q);
   });
  }
- var traces=traceRows.map(function(x){return '<article class="briefing-card vendor-model"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(x.model.publishedAt+' · '+x.model.vendor+' · '+x.brands.length+' 家有相关证据')+'</span><strong>'+esc(x.model.modelName+' · 接入与宣发')+'</strong><span class="vendor-response">'+(x.brands.length?x.brands:[]).map(function(brand){var rs=x.rows.filter(function(r){return r.brand===brand}),status=competitorResponseStatus(rs);return '<span class="vendor-response-item"><span class="vendor-dot '+esc(status.level)+'"></span><span><strong>'+esc(brand)+'</strong><small>'+esc(status.label+(status.day?' · '+status.day.slice(5):''))+'</small></span></span>'}).join('')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+creatorLink(x.model.url,'模型官方发布')+(x.watchQueries?'<p class="page-desc">专项定向发现：'+esc(x.watchQueries.map(function(q){return q.provider+' · '+(q.lastSuccessAt?'已查询':q.lastAttemptAt?'查询未成功':'待查询')}).join(' / '))+'。命中数量不等于接入证据。</p>':'')+x.brands.map(function(brand){return '<h3>'+esc(brand)+'</h3>'+x.rows.filter(function(r){return r.brand===brand}).map(event).join('')}).join('')+(!term?'<p class="page-desc">重点平台尚无相关证据：'+esc(priorityCompetitors.concat(firstPartyProducts).filter(function(b){return !x.brands.includes(b)}).join('、')||'无')+'</p>':'')+'</div></details></article>'}).join('');
+ var traces=traceRows.map(function(x){return '<article class="briefing-card vendor-model"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(x.model.publishedAt+' · '+x.model.vendor+' · '+x.brands.length+' 家有相关证据')+'</span><strong>'+esc(x.model.modelName+' · 接入与宣发')+'</strong><span class="vendor-response">'+(x.brands.length?x.brands:[]).map(function(brand){var rs=x.rows.filter(function(r){return r.brand===brand}),status=competitorResponseStatus(rs);return '<span class="vendor-response-item"><span class="vendor-dot '+esc(status.level)+'"></span><span><strong>'+esc(brand)+'</strong><small>'+esc(status.label+(status.day?' · '+status.day.slice(5):''))+'</small></span></span>'}).join('')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+creatorLink(x.model.url,'模型官方发布')+(x.watchQueries?'<p class="page-desc">专项定向发现：'+esc(x.watchQueries.map(function(q){return q.provider+' · '+(q.status==='unavailable'?'最近查询未成功':q.lastSuccessAt?'已查询':q.lastAttemptAt?'查询未成功':'待查询')}).join(' / '))+'。命中数量不等于接入证据。</p>':'')+x.brands.map(function(brand){return '<h3>'+esc(brand)+'</h3>'+x.rows.filter(function(r){return r.brand===brand}).map(event).join('')}).join('')+(!term?'<p class="page-desc">重点平台尚无相关证据：'+esc(priorityCompetitors.concat(firstPartyProducts).filter(function(b){return !x.brands.includes(b)}).join('、')||'无')+'</p>':'')+'</div></details></article>'}).join('');
  var matrix=competitorMatrixRows(app,now,competitorMatrixReviewed);
  // Recent dated facts before reports on the same day; observed signals remain separate.
  var orderedBrands=brands.slice().sort(function(a,b){var ar=recentFor(a),br=recentFor(b);var pa=priorityCompetitors.indexOf(a),pb=priorityCompetitors.indexOf(b);return (pa<0?99:pa)-(pb<0?99:pb)||String(br[0]&&br[0].day||'').localeCompare(String(ar[0]&&ar[0].day||''))||Number(br.length>0)-Number(ar.length>0)||brands.indexOf(a)-brands.indexOf(b)});
