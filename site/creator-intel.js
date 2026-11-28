@@ -62,18 +62,39 @@ function competitorEventType(title){
  if(/发布|上线|推出|launch|introduc/i.test(v))return '产品 / 功能';
  return '相关报道';
 }
+function competitorEvidenceRank(row){
+ return row.proof==='官方日志'?0:row.proof==='官方社媒原帖'?1:row.proof==='官方文档所述日期'?2:/官网/.test(row.proof)?3:4;
+}
+function competitorResponseStatus(rows){
+ var official=rows.filter(function(r){return r.kind==='模型接入'&&r.proof==='官方日志'}).sort(function(a,b){return a.day.localeCompare(b.day)})[0];
+ if(official)return {label:'官方接入',day:official.day,level:'confirmed'};
+ var promo=rows.find(function(r){return r.kind.indexOf('宣发')>=0&&competitorEvidenceRank(r)<4});
+ if(promo)return {label:'官方宣发记录',day:promo.day,level:'observed'};
+ var observed=rows.find(function(r){return competitorEvidenceRank(r)<4});
+ if(observed)return {label:'官方相关记录',day:observed.day,level:'observed'};
+ if(rows.length)return {label:'相关报道',day:rows[0].day,level:'reported'};
+ return {label:'暂无记录',day:'',level:'unknown'};
+}
 function competitorBriefRows(app,reports,social,now){
- var rows=[],seen=new Set(),sources=(app||{}).sources||[];
+ app=app||{};social=social||{};var rows=[],seen=new Map(),sources=app.sources||[];
  function add(brand,title,day,kind,url,proof,meta){
   url=creatorOriginalUrl(url);if(!creatorBrands.competitors.includes(brand)||!title||!url||!withinDays(day,30,new Date(now)))return;
   if(/黑五|黑色星期五|优惠券|限时促销|discount|coupon|black friday|积分充值/i.test(title))return;
-  var key=[brand,newsUrlKey(url),title.toLowerCase().trim(),proof].join('|');if(seen.has(key))return;seen.add(key);
-  rows.push(Object.assign({brand:brand,title:title,day:chinaDay(day),kind:kind,url:url,proof:proof},meta||{}));
+  // The same dated original with the same title is one reading item.
+  // Distinct claims, dates and model versions stay separate.
+  var row=Object.assign({brand:brand,title:title,day:chinaDay(day),kind:kind,url:url,proof:proof,alternates:[]},meta||{});
+  var key=[brand,newsUrlKey(url),title.normalize('NFKC').trim().replace(/\s+/g,' ').toLowerCase(),row.day].join('|'),old=seen.get(key);
+  if(old){
+   if(competitorEvidenceRank(row)<competitorEvidenceRank(old)){row.alternates=old.alternates.concat([{proof:old.proof,url:old.url}]);rows[rows.indexOf(old)]=row;seen.set(key,row)}
+   else if(old.proof!==proof&&!old.alternates.some(function(x){return x.proof===proof&&x.url===url}))old.alternates.push({proof:proof,url:url});
+   return;
+  }
+  seen.set(key,row);rows.push(row);
  }
  (app.events||[]).forEach(function(e){
   var s=sources.find(function(x){return x.id===e.sourceId}),brand=s&&(s.vendor||(s.id==='higgsfield-changelog'?'Higgsfield':''));
   if(e.claimType==='first-party-product-changelog'){
-   var kinds={'model-integration':'模型接入','product-feature':'新功能','product-release':'产品发布','product-improvement':'能力改进'};
+   var kinds={'model-integration':'模型接入','product-feature':'新功能','product-release':'产品发布','product-improvement':'能力改进','product-update':'功能更新'};
    add(brand,e.featureName,e.publisherCalendarDay,kinds[e.updateType]||'官方产品更新',e.sourceUrl,'官方日志',{modelName:e.updateType==='model-integration'?e.featureName:''});
   }else if(e.claimType==='first-party-product-surface'&&e.kind==='new-product-surface'){
    add(brand,e.featureName,e.observedAt,competitorEventType(e.featureName),e.featureUrl||e.sourceUrl,'官网入口变化 · 非发布日期');
@@ -95,7 +116,7 @@ function competitorBriefRows(app,reports,social,now){
   var brand=(social.brands||[]).find(function(b){return b.id===x.brandId}),name=creatorBrands.competitors.find(function(b){return b.toLowerCase()===String(brand&&brand.name||x.brand||'').replace(/\s+AI$/i,'').toLowerCase()});
   add(name,x.title,x.sortKey||x.publishedLabel,competitorEventType(x.type+' '+x.title),x.url,'官方社媒原帖');
  });
- return rows.sort(function(a,b){return b.day.localeCompare(a.day)||a.brand.localeCompare(b.brand)});
+ return rows.sort(function(a,b){return b.day.localeCompare(a.day)||competitorEvidenceRank(a)-competitorEvidenceRank(b)||a.brand.localeCompare(b.brand)});
 }
 function competitorModelTrace(rows,releases,now){
  return (releases||[]).filter(function(m){return m.modelFamilyId&&m.modelVersionId&&m.verifiedAt&&m.evidenceType&&m.verificationStatus!=='pending'&&withinDays(m.publishedAt,7,new Date(now))&&creatorOriginalUrl(m.url)}).map(function(m){
@@ -116,13 +137,14 @@ function productReadingTitle(title){
 function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
  var app=state.appUpdates||{},all=competitorBriefRows(app,reports,state.social||{},now),brands=term?[term]:creatorBrands.competitors;
  var filtered=all.filter(function(r){return brands.includes(r.brand)&&matches([r.brand,r.title,productReadingTitle(r.title),r.kind,r.note].join(' '))});
- function event(r){return '<div class="vendor-event"><time>'+esc(r.day.slice(5))+'</time><div class="vendor-event-main"><strong>'+esc(productReadingTitle(r.title))+'</strong><small>'+esc(r.kind+' · '+r.proof)+'</small>'+(r.note?'<details class="vendor-note"><summary>说明</summary>'+esc(r.note)+'</details>':'')+'</div>'+creatorLink(r.url,'原文')+'</div>'}
+ function event(r){return '<div class="vendor-event"><time>'+esc(r.day.slice(5))+'</time><div class="vendor-event-main"><strong>'+esc(productReadingTitle(r.title))+'</strong><small>'+esc(r.kind+' · '+r.proof)+'</small>'+(r.note?'<details class="vendor-note"><summary>说明</summary>'+esc(r.note)+'</details>':'')+((r.alternates||[]).length?'<details class="vendor-note"><summary>补充证据</summary>'+r.alternates.map(function(a){return creatorLink(a.url,a.proof)}).join(' · ')+'</details>':'')+'</div>'+creatorLink(r.url,'原文')+'</div>'}
  function recentFor(brand){return filtered.filter(function(r){return r.brand===brand&&withinDays(r.day,7,new Date(now))})}
  var traceRows=competitorModelTrace(filtered,state.modelReleases||[],now);
- var traces=traceRows.map(function(x){return '<article class="briefing-card vendor-model"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(x.model.publishedAt+' · '+x.model.vendor+' · '+x.brands.length+' 家有相关证据')+'</span><strong>'+esc(x.model.modelName+' · 接入与宣发')+'</strong><span class="vendor-response">'+x.brands.map(function(brand){var rs=x.rows.filter(function(r){return r.brand===brand}),confirmed=rs.some(function(r){return r.kind==='模型接入'&&r.proof==='官方日志'});return '<span class="vendor-response-item"><span class="vendor-dot '+(confirmed?'confirmed':'')+'"></span>'+esc(brand+' · '+(confirmed?'官方接入':'有相关记录'))+'</span>'}).join('')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+creatorLink(x.model.url,'模型官方发布')+x.brands.map(function(brand){return '<h3>'+esc(brand)+'</h3>'+x.rows.filter(function(r){return r.brand===brand}).map(event).join('')}).join('')+'</div></details></article>'}).join('');
+ var traces=traceRows.map(function(x){return '<article class="briefing-card vendor-model"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(x.model.publishedAt+' · '+x.model.vendor+' · '+x.brands.length+' 家有相关证据')+'</span><strong>'+esc(x.model.modelName+' · 接入与宣发')+'</strong><span class="vendor-response">'+x.brands.map(function(brand){var rs=x.rows.filter(function(r){return r.brand===brand}),status=competitorResponseStatus(rs);return '<span class="vendor-response-item"><span class="vendor-dot '+esc(status.level)+'"></span><span><strong>'+esc(brand)+'</strong><small>'+esc(status.label+(status.day?' · '+status.day.slice(5):''))+'</small></span></span>'}).join('')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+creatorLink(x.model.url,'模型官方发布')+x.brands.map(function(brand){return '<h3>'+esc(brand)+'</h3>'+x.rows.filter(function(r){return r.brand===brand}).map(event).join('')}).join('')+'</div></details></article>'}).join('');
  var matrix=competitorMatrixRows(app,now,competitorMatrixReviewed);
  // Recent dated facts before reports on the same day; observed signals remain separate.
- var cards=brands.map(function(brand){
+ var orderedBrands=brands.slice().sort(function(a,b){var ar=recentFor(a),br=recentFor(b);return String(br[0]&&br[0].day||'').localeCompare(String(ar[0]&&ar[0].day||''))||Number(br.length>0)-Number(ar.length>0)||brands.indexOf(a)-brands.indexOf(b)});
+ var cards=orderedBrands.map(function(brand){
   var recent=recentFor(brand),older=filtered.filter(function(r){return r.brand===brand&&!withinDays(r.day,7,new Date(now))});
   var evidence=matrix.filter(function(r){return r.brand===brand&&!r.day}),highlights=evidence.slice(0,3).map(function(r){return creatorLink(r.url,r.name)}).join(' · ');
   return '<section class="competitor-brand-section overview-panel"><div class="section-head"><h2>'+esc(brand)+'</h2><span class="head-meta">'+recent.length+' 条 · '+creatorLink(competitorSites[brand],'官网')+'</span></div>'+(recent.slice(0,3).map(event).join('')||'<p class="overview-empty">暂无近期记录</p>')+(recent.length>3?'<details class="source-health vendor-more"><summary>其余 '+(recent.length-3)+' 条近期动态</summary>'+recent.slice(3).map(event).join('')+'</details>':'')+(highlights?'<p class="vendor-highlights"><strong>现有能力</strong> '+highlights+'</p>':'')+(older.length?'<details class="source-health vendor-more"><summary>近8–30天历史 · '+older.length+' 条</summary>'+older.map(event).join('')+'</details>':'')+'</section>'
@@ -427,15 +449,17 @@ function competitorMatrixRows(app,now,reviewed){
  (reviewed||[]).forEach(function(x){if(competitorMatrixBrands.includes(x.brand)&&creatorOriginalUrl(x.url))add(Object.assign({},x,{kind:'官网观察',day:null}))});
  return rows.sort(function(a,b){return String(b.day||'').localeCompare(String(a.day||''))||a.name.localeCompare(b.name)});
 }
+var competitorMatrixFocus='all';
 function competitorMatrixPage(tabs){
- var app=state.appUpdates||{},rows=competitorMatrixRows(app,Date.now(),competitorMatrixReviewed),sources=app.sources||[];
- var body=competitorMatrixDimensions.map(function(dim){
+ var app=state.appUpdates||{},rows=competitorMatrixRows(app,Date.now(),competitorMatrixReviewed),sources=app.sources||[],dimensions=competitorMatrixDimensions.filter(function(dim){return competitorMatrixFocus==='all'||dim.id===competitorMatrixFocus});
+ var select='<label class="compact-select">能力筛选<select data-matrix-focus aria-label="筛选能力维度"><option value="all">全部能力</option>'+competitorMatrixDimensions.map(function(dim){return '<option value="'+esc(dim.id)+'" '+(competitorMatrixFocus===dim.id?'selected':'')+'>'+esc(dim.name)+'</option>'}).join('')+'</select></label>';
+ var body=dimensions.map(function(dim){
   return '<tr><th scope="row">'+esc(dim.name)+'</th>'+competitorMatrixBrands.map(function(brand){
    var cell=rows.filter(function(x){return x.brand===brand&&x.dimensions.includes(dim.id)&&matches([brand,dim.name,x.name,x.note].join(' '))});
-   function entry(x){return '<div class="matrix-feature">'+creatorLink(x.url,x.name)+'<small>'+esc(x.kind+(x.day?' · '+x.day:' · 核查 '+x.reviewedOn))+'</small>'+(x.alternates.length?'<details class="matrix-evidence"><summary>补充证据 '+x.alternates.length+' 条</summary>'+x.alternates.map(function(e){return creatorLink(e.url,e.kind+' · '+(e.day||'日期未确认'))}).join('')+'</details>':'')+'</div>'}
-   return '<td>'+(cell.length?cell.slice(0,2).map(entry).join('')+(cell.length>2?'<details><summary>另 '+(cell.length-2)+' 条</summary>'+cell.slice(2).map(entry).join('')+'</details>':''):'<small>当前未观察</small>')+'</td>'
+   function entry(x){return '<div class="matrix-feature">'+creatorLink(x.url,productReadingTitle(x.name))+'<small>'+esc(x.day?'更新 · '+x.day.slice(5):x.kind==='官方预告 · 未上线'?'官方预告 · 未上线':'已观察 · 非上新')+'</small>'+(x.alternates.length?'<details class="matrix-evidence"><summary>补充证据 '+x.alternates.length+' 条</summary>'+x.alternates.map(function(e){return creatorLink(e.url,e.kind+' · '+(e.day||'日期未确认'))}).join('')+'</details>':'')+'</div>'}
+   return '<td>'+(cell.length?cell.slice(0,2).map(entry).join('')+(cell.length>2?'<details><summary>另 '+(cell.length-2)+' 条</summary>'+cell.slice(2).map(entry).join('')+'</details>':''):'<small class="matrix-unknown" aria-label="当前未观察">—</small>')+'</td>'
   }).join('')+'</tr>'
  }).join('');
  var health=competitorMatrixBrands.map(function(brand){var ss=sources.filter(function(s){return s.vendor===brand&&s.role==='competitor'});return '<p>'+esc(brand+' · '+(ss.length?ss.map(function(s){return s.type==='navigation-only'?'官网入口 · 功能日志未读':s.lastSuccessAt?'最近成功 '+overviewTime(s.lastSuccessAt):'尚无成功采集'}).join(' / '):'暂无已配置官方日志'))+'</p>'}).join('');
- return pageHead('行业简报','从官方功能证据横向比较创作平台，发现值得进一步验证的能力。','功能矩阵 · '+competitorMatrixBrands.length+' 家')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">整个平台的近30天官方功能更新 + 已核查官网能力，不限于画布。新增产品形态无法匹配时仍保留在其他产品功能。未观察不等于不支持；官网观察不是发布日期，也不是实际功能测试。</p><p class="matrix-scroll-hint">左右滑动比较厂商，左侧能力维度保持可见。</p><div class="competitor-matrix-wrap" tabindex="0" role="region" aria-label="竞品功能矩阵，可横向滚动"><table class="competitor-matrix"><thead><tr><th scope="col">能力维度</th>'+competitorMatrixBrands.map(function(x){return '<th scope="col">'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>'+body+'</tbody></table></div><details class="source-health"><summary>来源覆盖与局限</summary>'+health+'<p>其他关注平台仍在竞品动态定向发现中；尚未进入本矩阵，不代表不关注。</p></details>'
+ return pageHead('行业简报','从官方功能证据横向比较创作平台，发现值得进一步验证的能力。','功能矩阵 · '+competitorMatrixBrands.length+' 家')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">整个平台的近30天官方功能更新 + 已核查官网能力，不限于画布。新增产品形态无法匹配时仍保留在其他产品功能。未观察不等于不支持；官网观察不是发布日期，也不是实际功能测试。</p><div class="matrix-controls">'+select+'<span class="head-meta">— 暂无证据 · 不代表不支持</span></div><p class="matrix-scroll-hint">左右滑动比较厂商，左侧能力维度保持可见。</p><div class="competitor-matrix-wrap" tabindex="0" role="region" aria-label="竞品功能矩阵，可横向滚动"><table class="competitor-matrix"><thead><tr><th scope="col">能力维度</th>'+competitorMatrixBrands.map(function(x){return '<th scope="col">'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>'+body+'</tbody></table></div><details class="source-health"><summary>来源覆盖与局限</summary>'+health+'<p>其他关注平台仍在竞品动态定向发现中；尚未进入本矩阵，不代表不关注。</p></details>'
 }
