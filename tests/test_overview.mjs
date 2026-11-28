@@ -559,3 +559,20 @@ test('open source radar distinguishes curated research from metadata discovery a
  run("state.repoRadar={items:[{repo:'maker/whitebox',url:'https://github.com/maker/whitebox',name:'Whitebox',category:'video',license:'AGPL-3.0',research:{idea:'白模导演台',caution:'许可证需评估',review:'readme-reviewed',evidenceUrl:'https://github.com/maker/whitebox#readme'},metadataStatus:'ok'}],researchDiscovery:{items:[{repo:'maker/voice',url:'https://github.com/maker/voice',description:'audio separation',researchCategory:'audio',provider:'GitHub Search',stars:5,metadataCheckedAt:'2026-11-28T00:00:00Z'},{repo:'maker/unsafe',url:'https://github.com.evil.test/maker/unsafe',description:'Unsafe injected repository'}]}};render()");
  const out=node('content').innerHTML;assert.match(out,/白模导演台/);assert.match(out,/README 已阅读/);assert.match(out,/候选 · GitHub Search/);assert.match(out,/AGPL-3.0/);assert.doesNotMatch(out,/Unsafe injected repository/);assert.match(out,/非 GitHub 热榜/);
 });
+
+test('innovation page reads existing snapshots lazily and separates facts, themes and proposals',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=innovation',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ assert.equal(run('state.briefingTab'),'innovation');
+ for(const file of ['model-releases-30d.json','app-updates.json','aipick-data.json','awesome-repos.json'])assert.ok(requested.includes(file),file);
+ run("state.modelReleases=[{modelName:'Test AV',summary:'原生音视频生成',category:'video',modelFamilyId:'av',modelVersionId:'v1',verifiedAt:'2026-11-27',evidenceType:'official',publishedAt:'2026-11-27',url:'https://example.org/model'},{modelName:'Pending camera',summary:'镜头预演',category:'video',publishedAt:'2026-11-27',url:'https://example.org/pending'}];state.appUpdates={sources:[{id:'flova',role:'competitor',vendor:'Flova'}],events:[{sourceId:'flova',claimType:'first-party-product-changelog',featureName:'Audio processing and track separation',publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/log'},{sourceId:'flova',claimType:'first-party-product-changelog',featureName:'Old storyboard',publisherCalendarDay:'2026-11-01',observedAt:'2026-11-28',sourceUrl:'https://example.org/old'}]};state.aihot.items=[];state.aipick={items:[{title:'音轨分离案例',selected:true,category:'tip',publishedAt:'2026-11-27T02:00:00Z',links:{original:'https://example.org/case'}},{title:'未选中的漫画',selected:false,category:'tip',publishedAt:'2026-11-27',links:{original:'https://example.org/unselected'}}]};state.repoRadar={items:[{repo:'maker/audio',name:'Audio separation',url:'https://github.com/maker/audio',research:{review:'readme-reviewed',idea:'音轨分离',caution:'许可待查'}},{repo:'maker/unsafe',name:'Audio separation unsafe',url:'https://github.com.evil.org/maker/unsafe',research:{review:'readme-reviewed'}},{repo:'maker/old-previs',name:'白模预演',url:'https://github.com/maker/old-previs',research:{review:'readme-reviewed'}}]};render()");
+ const out=node('content').innerHTML;
+ assert.match(out,/影视声音工作台/);assert.match(out,/产品机会假设/);assert.match(out,/已核实模型发布/);assert.match(out,/官方产品日志/);assert.match(out,/创作者精选线索/);assert.match(out,/README 已阅读/);
+ assert.match(out,/https:\/\/example.org\/model/);assert.match(out,/https:\/\/example.org\/log/);
+ assert.doesNotMatch(out,/Pending camera|Old storyboard|未选中的漫画|unsafe|白模导演与镜头预演/);
+ run("state.query='does-not-exist';render()");assert.match(node('content').innerHTML,/暂无符合规则/);
+});
+test('innovation opportunities do not alter overview loading or promote missing dates and repository-only context',async()=>{
+ const {run,requested}=setup();await run('loadData()');assert.equal(requested.length,5);
+ const rows=run("innovationOpportunityRows({releases:[],app:{events:[]},batches:[{name:'AIHOT',items:[{title:'角色一致性',selected:true,category:'tip',discoveredAt:'2026-11-28',links:{original:'https://example.org/undated'}}]}],repos:{items:[{repo:'maker/whitebox',name:'白模预演',url:'https://github.com/maker/whitebox',research:{review:'readme-reviewed'}}]}},Date.now()).length");
+ assert.equal(rows,0);
+});
