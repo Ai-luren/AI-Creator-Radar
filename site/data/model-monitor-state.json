@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-28T13:47:39Z",
+  "checkedAt": "2026-11-28T14:32:42Z",
   "sourceIds": [
     "seed-official",
     "kuaishou-ir",
@@ -52,7 +52,7 @@
     "qwen-agent-releases": {
       "key": "f00c36beae3fba8ab27f71fde6ffab7ee527d5de9fd25bd6ea8237bc5a1e3fa3",
       "etag": "W/\"c1ce36e5bfcb7d83a49fa71e9dd72749\"",
-      "downloadedAt": "2026-11-28T08:14:38+00:00",
+      "downloadedAt": "2026-11-28T14:32:42+00:00",
       "items": [
         {
           "title": "v0.0.26",
@@ -130,7 +130,7 @@
     "claude-code-releases": {
       "key": "6ad3c59f15c89988a46c54147cad7dbc6493478ca615888e826033672d16334d",
       "etag": "W/\"e791f92fb10ddd075f7bc1c1f8e1e274\"",
-      "downloadedAt": "2026-11-28T08:14:38+00:00",
+      "downloadedAt": "2026-11-28T14:32:42+00:00",
       "items": [
         {
           "title": "v2.1.332",
@@ -208,7 +208,7 @@
     "codex-cli-releases": {
       "key": "96e21a9b2a6d9e38d7aed06a2bb2f73c1d569fecc935959b96e9fc3208a30ef9",
       "etag": "W/\"36b27e71c4577c80e33225b695a615bb\"",
-      "downloadedAt": "2026-11-28T08:14:38+00:00",
+      "downloadedAt": "2026-11-28T14:32:42+00:00",
       "items": [
         {
           "title": "0.174.0-alpha.9",
@@ -286,7 +286,7 @@
     "qwen-official-rss": {
       "key": "f693393a0d9b193fabc2b5a14ddce39630148e942fd96b19d4167d3b3ef68071",
       "etag": "\"6970c244-98ff\"",
-      "downloadedAt": "2026-11-28T08:14:38+00:00",
+      "downloadedAt": "2026-11-28T14:32:42+00:00",
       "items": [
         {
           "title": "Qwen2.5-Math: The world's leading open-sourced mathematical LLMs",

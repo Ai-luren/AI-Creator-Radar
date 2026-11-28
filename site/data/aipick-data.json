@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T13:47:37+00:00",
-  "checkedAt": "2026-11-28T13:47:37+00:00",
+  "fetchedAt": "2026-11-28T14:32:40+00:00",
+  "checkedAt": "2026-11-28T14:32:40+00:00",
   "etags": {
-    "items": "W/\"v1-items-dab0b0514e240584\"",
-    "hotTopics": "W/\"v1-hot-6b72e6db3e558157\""
+    "items": "W/\"v1-items-725b73ad1b6ac02a\"",
+    "hotTopics": "W/\"v1-hot-49e8f76ed48a19b0\""
   },
   "items": [
+    {
+      "id": "ei78s4dqqbjby2xoo7i87tmf9",
+      "title": "用Claude证明黎曼猜想的数学家Levent Alpöge称收到致命威胁",
+      "originalTitle": "用Claude证明黎曼猜想的90后数学家，收到了致命威胁",
+      "summary": "在Anthropic工作的数学家Levent Alpöge在X上公开表示，他用Claude协助完成黎曼猜想证明并上传1700万行Lean代码后，收到了致命威胁。他称整个论证耗时六周，自己负责把控方向、Claude负责执行，并因尚未完全掌握相关数学而只公布Lean代码。证明公开后评论区毁誉参半，有人质疑他本人贡献有限、称其为窃贼，他反驳称这些说法忽视了自己多年的数学准备。",
+      "source": {
+        "name": "量子位"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/ei78s4dqqbjby2xoo7i87tmf9",
+        "original": "https://www.qbitai.com/2026/11/513463.html"
+      },
+      "publishedAt": "2026-11-28T12:25:48.000Z",
+      "discoveredAt": "2026-11-28T14:01:18.174Z",
+      "category": "industry",
+      "score": 83,
+      "selected": true,
+      "reason": "围绕数学家公开称收到威胁这一争议点，梳理他用Claude完成黎曼猜想证明后遭遇的质疑与反驳。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/ei78s4dqqbjby2xoo7i87tmf9"
+      }
+    },
     {
       "id": "lyet5m3ebf4s0ddr56yx6g4yt",
       "title": "四个免费 Claude Skills 让 AI 生成的网站不再像模板",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/xx524eon5vskoquppkxn0uigx"
       }
-    },
-    {
-      "id": "me21uhaiopleyu5455h5e2v0h",
-      "title": "LTX 分享用 Blender ID pass 限制角色 LoRA 串味的工作流",
-      "originalTitle": "One Vesh, not a bunch of Veshes. A character LoRA bleeds onto every character, so @heydoughogan uses a Blender ID pass to keep it on Vesh alone. Full tutorial and all 7 workflows on YouTube:https://t.co/gELC2qJLJl #AIVFX #LoRA https://t.co/klX4Xsg6Pt",
-      "summary": "LTX 转发创作者 @heydoughogan 的做法：角色 LoRA 会串到画面里其他角色身上，他用 Blender ID pass 让 LoRA 只作用在 Vesh 这一个角色上。完整教程和 7 套工作流已发布在 YouTube，链接为 https://t.co/gELC2qJLJl。",
-      "source": {
-        "name": "X · LTX"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/me21uhaiopleyu5455h5e2v0h",
-        "original": "https://x.com/ltx_io/status/2126315117449007405"
-      },
-      "publishedAt": "2026-11-27T14:00:03.000Z",
-      "discoveredAt": "2026-11-27T14:38:34.832Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "原文点出角色 LoRA 会串到其他角色的问题，并给出用 Blender ID pass 限定作用范围的思路，适合做玩法教程拆解。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/me21uhaiopleyu5455h5e2v0h"
-      }
     }
   ],
   "hotTopics": [
@@ -750,6 +750,27 @@
     },
     {
       "rank": 3,
+      "id": "a8ch7qfq809afvld671n74qan",
+      "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Ship」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/a8ch7qfq809afvld671n74qan",
+        "original": "https://www.douyin.com/video/7711209260121591076",
+        "story": "https://aipick.news/story/4c790184-a881-40da-9a04-fa9997a5cc8c"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "量子位",
+        "公众号 · 硅星人Pro"
+      ],
+      "latestAt": "2026-11-28T12:25:48.000Z"
+    },
+    {
+      "rank": 4,
       "id": "erpb8ni5g8247xgt7i7d77tpy",
       "title": "Higgsfield 上线 MAGI-2 视频模型，创作者实测褒贬不一",
       "source": {
@@ -771,7 +792,7 @@
       "latestAt": "2026-11-27T04:02:25.000Z"
     },
     {
-      "rank": 4,
+      "rank": 5,
       "id": "m86vuscd3760ndq7qzgn4s6jl",
       "title": "Sand.ai发布MAGI-2视频模型：登顶I2V榜、0.5元/秒并计划开源",
       "source": {
@@ -792,7 +813,7 @@
       "latestAt": "2026-11-28T00:52:12.000Z"
     },
     {
-      "rank": 5,
+      "rank": 6,
       "id": "icm35onypxas5ucmkudxdifkj",
       "title": "蚂蚁开源6B设计图像模型，图层模型下周发布",
       "source": {
@@ -814,7 +835,7 @@
       "latestAt": "2026-11-27T16:41:21.000Z"
     },
     {
-      "rank": 6,
+      "rank": 7,
       "id": "cbhu8fz1dl8ttbucq9rqd6g7k",
       "title": "OpenAI反诉苹果窃取商业机密并阻挠供应商合作",
       "source": {
@@ -835,7 +856,7 @@
       "latestAt": "2026-11-28T01:08:25.000Z"
     },
     {
-      "rank": 7,
+      "rank": 8,
       "id": "zzhdfuax9o0ecxkduwy154a11",
       "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
       "source": {
@@ -856,7 +877,7 @@
       "latestAt": "2026-11-27T12:30:00.000Z"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "id": "hjt6j074njrxk9kbx6dxq4m58",
       "title": "蚂蚁灵波开源 LingBot-Map 2.0 与 Navi 导航模型",
       "source": {
@@ -878,7 +899,7 @@
       "latestAt": "2026-11-27T07:01:20.000Z"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "id": "cg4q318bmvm8ra8i0gdjl5klb",
       "title": "Higgsfield 黑五折扣说法多次变化，最高至75%",
       "source": {
@@ -897,27 +918,6 @@
         "X · Higgsfield"
       ],
       "latestAt": "2026-11-27T14:54:40.000Z"
-    },
-    {
-      "rank": 10,
-      "id": "hek7o2f64d2x9j66ntq5l4l47",
-      "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
-      "source": {
-        "name": "X · Ado Kukic"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/hek7o2f64d2x9j66ntq5l4l47",
-        "original": "https://x.com/adocomplete/status/2125999147719524580",
-        "story": "https://aipick.news/story/f4c28842-d519-4452-a3b4-59d247d0e7c1"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "X · Addy Osmani",
-        "X · Ado Kukic"
-      ],
-      "latestAt": "2026-11-26T19:26:08.000Z"
     }
   ],
   "unchanged": [],

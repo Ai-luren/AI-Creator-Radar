@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T13:47:58+00:00",
+  "checkedAt": "2026-11-28T14:32:56+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T12:18:06+00:00",
     "error": "OSError: URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
@@ -9,11 +9,11 @@
     "lastSuccessAt": "2026-11-28T01:09:27+00:00"
   },
   "aihotService": {
-    "lastAttemptAt": "2026-11-28T05:41:38+00:00",
-    "lastSuccessAt": "2026-11-28T05:41:38+00:00",
+    "lastAttemptAt": "2026-11-28T14:32:56+00:00",
+    "lastSuccessAt": "2026-11-28T14:32:56+00:00",
     "error": null,
     "consecutiveFailures": 0,
-    "nextAttemptAt": "2026-11-28T06:11:38.050698+00:00"
+    "nextAttemptAt": "2026-11-28T15:02:56.059471+00:00"
   },
   "aipickService": {
     "lastAttemptAt": "2026-11-28T06:27:45+00:00",
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -156,7 +156,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:39Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         },
         {
@@ -166,7 +166,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -309,6 +309,82 @@
       "aipickNextAttemptAt": "2026-11-29T05:47:46.285736+00:00"
     },
     {
+      "id": "335c0955a07fccd9ec6bcbebd6a33f021d706e78fdf4d78c837c50f414c3038d",
+      "query": "Claude Opus 4.5",
+      "identity": {
+        "modelFamilyId": "claude",
+        "modelVersionId": "claude-opus-4-5"
+      },
+      "originIds": [
+        "206f20bd6ca72eb15860"
+      ],
+      "firstDetectedAt": "2026-11-28T14:32:53+00:00",
+      "priorityDay": "2026-11-23",
+      "repositoryBacked": false,
+      "active": true,
+      "aihotLastAttemptAt": "2026-11-28T14:32:56+00:00",
+      "results": [],
+      "aihotETag": "W/\"v1-items-bc31f2310e06ade9\"",
+      "aihotLastSuccessAt": "2026-11-28T14:32:56+00:00",
+      "aihotStatus": "no-matching-index-results",
+      "aihotNextAttemptAt": "2026-11-29T14:32:56.059471+00:00",
+      "localContext": [
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "anthropic|claude-opus-4-5",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-28T13:03:04+00:00",
+          "reportedReleaseDate": "2025-11-24",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://models.dev/api.json",
+          "sourceRecordId": "anthropic|claude-opus-4-5-20251101",
+          "sourceId": "models-dev",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-28T13:03:04+00:00",
+          "reportedReleaseDate": "2025-11-24",
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "anthropic|anthropic/claude-opus-4.5",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-28T13:03:04+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-listing-observed",
+          "sourceUrl": "https://openrouter.ai/api/v1/models",
+          "sourceRecordId": "anthropic|anthropic/claude-opus-4.5:batch",
+          "sourceId": "openrouter-models",
+          "assertedDate": null,
+          "originalVerificationAt": "2026-11-28T13:03:04+00:00",
+          "reportedReleaseDate": null,
+          "firstObservedAt": "2026-11-27T03:11:31+00:00",
+          "provenance": "product-catalog"
+        },
+        {
+          "kind": "catalog-release",
+          "sourceUrl": "https://www.anthropic.com/news/claude-opus-4-5",
+          "sourceRecordId": "evidence-e2a35886dab816b81d5262241c99c5bd5094ec7851c2516c3c10f884b968db64",
+          "assertedDate": "2025-11-24",
+          "originalVerificationAt": "2026-11-24",
+          "datePrecision": "day",
+          "provenance": "persisted-evidence"
+        }
+      ]
+    },
+    {
       "id": "346b5b6c62024b1906ced28ec3690a698451bf3cd4620369c473979bf9f0f8fd",
       "query": "Macaron V1.1 Venti Pro",
       "identity": null,
@@ -401,7 +477,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -535,7 +611,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -642,7 +718,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -805,7 +881,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:39Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         },
         {
@@ -892,7 +968,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:39Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1010,7 +1086,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1020,7 +1096,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:39Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1030,7 +1106,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T12:17:42Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1089,7 +1165,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T12:17:42Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1270,7 +1346,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1395,7 +1471,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:39Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1405,7 +1481,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T13:47:54+00:00",
+          "lastObservedAt": "2026-11-28T14:32:53+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1415,7 +1491,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T12:17:42Z",
+          "lastObservedAt": "2026-11-28T14:32:42Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1430,30 +1506,30 @@
     }
   ],
   "summary": {
-    "activeTargets": 23,
-    "attemptedThisRun": 0,
+    "activeTargets": 24,
+    "attemptedThisRun": 1,
     "targetStates": {
-      "awaiting-search": 17,
+      "awaiting-search": 18,
       "index-unavailable": 5,
       "no-matching-index-results": 1
     },
     "priorityTargetCounts": {
       "latestThreeDays": 3,
-      "remainingSevenDays": 2,
+      "remainingSevenDays": 3,
       "outsideHotWindowOrUnknown": 18
     },
-    "broadDeferredForAggregators": 0,
+    "broadDeferredForAggregators": 1,
     "broadDeadlineSeconds": 8,
-    "targetsWithLocalContext": 17,
-    "localContextRecords": 75,
+    "targetsWithLocalContext": 18,
+    "localContextRecords": 80,
     "officialCandidates": 0,
     "indexReports": 0,
     "aipickAttemptedThisRun": 0,
     "aipickLastSuccessAt": "2026-11-28T06:27:45+00:00",
     "aipickError": null,
     "aipickPointers": 0,
-    "aihotAttemptedThisRun": 0,
-    "aihotLastSuccessAt": "2026-11-28T05:41:38+00:00",
+    "aihotAttemptedThisRun": 1,
+    "aihotLastSuccessAt": "2026-11-28T14:32:56+00:00",
     "aihotError": null,
     "aihotPointers": 0,
     "indexLastSuccessAt": "2026-11-28T01:09:27+00:00",

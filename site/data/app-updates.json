@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T13:48:00+00:00",
+  "checkedAt": "2026-11-28T14:32:58+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -2036,7 +2036,7 @@
       "lastSuccessAt": "2026-11-28T13:48:00+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T19:48:00.090487+00:00",
       "role": "competitor",
@@ -3665,8 +3665,15 @@
       "type": "dated-changelog",
       "role": "competitor",
       "aggregateCoverage": {
-        "status": "awaiting-aggregate",
-        "missingLanes": []
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "queryLanes": [],
+        "readableLanes": [],
+        "successfulProviders": 2,
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
       "entries": {
         "7749cf504651c0af364fca62be798bc0ce4450444bdf2de93789b5a7a1bf9cae": {
@@ -4772,8 +4779,17 @@
       "type": "product-surface",
       "role": "competitor",
       "aggregateCoverage": {
-        "status": "awaiting-aggregate",
-        "missingLanes": []
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "queryLanes": [
+          "selectedModelIntegrations"
+        ],
+        "readableLanes": [],
+        "successfulProviders": 2,
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
       "entries": {
         "299599761d29515375724c09d34c9cdbc5b84ae133317f7f91fb12f6541cdecc": {
@@ -5619,8 +5635,15 @@
         "Niji 8"
       ],
       "aggregateCoverage": {
-        "status": "awaiting-aggregate",
-        "missingLanes": []
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "queryLanes": [],
+        "readableLanes": [],
+        "successfulProviders": 2,
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
       "surfaceParserVersion": 2,
       "entries": {
@@ -5805,7 +5828,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T13:48:00+00:00",
+    "checkedAt": "2026-11-28T14:32:58+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -6091,7 +6114,7 @@
         "term": "TapNow",
         "provider": "AIHOT",
         "priority": 0,
-        "lastAttemptAt": "2026-11-28T01:47:03+00:00",
+        "lastAttemptAt": "2026-11-28T14:32:58+00:00",
         "counts": {
           "items": 0,
           "wechatOriginalLinks": 0,
@@ -6103,11 +6126,11 @@
           "selectedModelIntegrations": 0
         },
         "countsObservedAt": "2026-11-28T01:47:03+00:00",
-        "status": "observed",
+        "status": "unchanged",
         "etag": "W/\"v1-items-06210453074a4040\"",
-        "lastSuccessAt": "2026-11-28T01:47:03+00:00",
+        "lastSuccessAt": "2026-11-28T14:32:58+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:47:03.031793+00:00",
+        "nextAttemptAt": "2026-11-29T02:32:58.907452+00:00",
         "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
       },
@@ -6169,23 +6192,24 @@
         "term": "LibTV",
         "provider": "AIPick",
         "priority": 0,
-        "lastAttemptAt": "2026-11-28T01:47:03+00:00",
+        "lastAttemptAt": "2026-11-28T14:32:58+00:00",
         "counts": {
           "items": 30,
           "wechatOriginalLinks": 1,
           "otherOriginalLinks": 29,
           "missingOriginalLinks": 0,
-          "exactTitleMatches": 24,
+          "exactTitleMatches": 23,
           "hasNextCursor": true,
           "selectedProductFeatures": 0,
-          "selectedModelIntegrations": 1
+          "selectedModelIntegrations": 1,
+          "selectedCreatorSignals": 3
         },
-        "countsObservedAt": "2026-11-28T01:47:03+00:00",
+        "countsObservedAt": "2026-11-28T14:32:58+00:00",
         "status": "observed",
-        "etag": "W/\"v1-items-ffc8b290c7a08617\"",
-        "lastSuccessAt": "2026-11-28T01:47:03+00:00",
+        "etag": "W/\"v1-items-cb556efbf44e7c18\"",
+        "lastSuccessAt": "2026-11-28T14:32:58+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:47:03.031793+00:00",
+        "nextAttemptAt": "2026-11-29T02:32:58.907452+00:00",
         "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
       },
@@ -7064,21 +7088,21 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T13:48:00+00:00",
-      "nextAttemptAt": "2026-11-28T14:13:00.090487+00:00"
+      "lastSuccessAt": "2026-11-28T14:32:58+00:00",
+      "nextAttemptAt": "2026-11-28T14:57:58.907452+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T13:48:00+00:00",
-        "nextAttemptAt": "2026-11-28T14:13:00.090487+00:00"
+        "lastSuccessAt": "2026-11-28T14:32:58+00:00",
+        "nextAttemptAt": "2026-11-28T14:57:58.907452+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T13:48:00+00:00",
-        "nextAttemptAt": "2026-11-28T14:13:00.090487+00:00"
+        "lastSuccessAt": "2026-11-28T14:32:58+00:00",
+        "nextAttemptAt": "2026-11-28T14:57:58.907452+00:00"
       }
     },
     "attemptedThisRun": 2,
@@ -13646,14 +13670,14 @@
   ],
   "summary": {
     "configuredSources": 25,
-    "successfulThisRun": 1,
+    "successfulThisRun": 0,
     "baselineSources": 19,
     "listedModels": 0,
     "reviewedObservations": 12
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T13:48:05+00:00",
+    "checkedAt": "2026-11-28T14:33:04+00:00",
     "window": "7d",
     "sources": [
       {
@@ -13666,7 +13690,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T13:47:37+00:00",
+        "fetchedAt": "2026-11-28T14:32:40+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -13748,7 +13772,7 @@
           "AIHOT",
           "AIPick"
         ],
-        "hotSourceMentionCount": 2,
+        "hotSourceMentionCount": 3,
         "status": "original-observed"
       },
       {
@@ -13795,11 +13819,11 @@
         "id": "x",
         "label": "X",
         "role": "social",
-        "originalCount": 3,
+        "originalCount": 2,
         "providers": [
           "AIPick"
         ],
-        "hotSourceMentionCount": 6,
+        "hotSourceMentionCount": 4,
         "status": "original-observed"
       },
       {
