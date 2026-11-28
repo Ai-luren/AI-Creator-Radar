@@ -672,10 +672,15 @@ class CoreMultichannelTests(unittest.TestCase):
         page=("<h1>Supported Models</h1><p>Models can be directly selected. Last checked on this page: 2026-11-26</p>"
               "<table><tr><th>Model</th><th>Best for</th><th>Main Specification</th><th>Subscription</th></tr>"
               "<tr><td>MiniMax H3 Image</td><td>Image</td><td>2K</td><td>No</td></tr>"
-              "<tr><td>Seedance 2.5 Flash</td><td>Video</td><td>30 sec</td><td>Required</td></tr>"
+              "<tr><td>Seedance 2.5 Flash</td><td>Video</td><td>480p / 720p · 4–30 sec · Native audio · Omni Reference (Image/Video/Audio, up to 20) · Only new Projects</td><td>Required</td></tr>"
               "<tr hidden><td>Fake Model 9</td><td>Video</td><td>4K</td><td>No</td></tr></table>")
         rows=parse_product_surface(page,spec)
         self.assertEqual({r["featureName"] for r in rows.values()},{"MiniMax H3 Image","Seedance 2.5 Flash"})
+        spec_row=next(r for r in rows.values() if r["featureName"]=="Seedance 2.5 Flash")
+        self.assertEqual(spec_row["platformSpecs"],{"resolutions":["480p","720p"],"durationSeconds":"4-30","omniReferenceMax":20,"nativeAudio":True,"projectRestrictions":["new-projects"]})
+        from scripts.collect_app_updates import flova_platform_specs
+        self.assertEqual(flova_platform_specs("Text up to 2000 characters"),{})
+        self.assertEqual(flova_platform_specs("720p · 4 / 6 / 8 sec · Omni Reference (up to 10 images + 1 video clip)") ,{"resolutions":["720p"],"durationSeconds":"4/6/8","imageReferenceMax":10})
         self.assertTrue(all(r["surfaceStage"]=="catalog-listed" and "publisherCalendarDay" not in r for r in rows.values()))
         with self.assertRaises(ValueError):
             parse_product_surface("<h1>Supported Models</h1>",spec)
