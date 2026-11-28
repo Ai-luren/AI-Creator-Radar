@@ -11,7 +11,7 @@ from pathlib import Path
 import re
 import urllib.request
 import urllib.error
-from urllib.parse import urlencode, urlsplit, urljoin
+from urllib.parse import urlencode, urlsplit, urljoin, parse_qs
 from collections import Counter
 
 try:
@@ -28,6 +28,7 @@ HIGGS_CHANGELOG="https://higgsfield.ai/creator-hub/changelog"
 DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
                   "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog"}
 PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/"}
+PRODUCT_SURFACE_PARSER_VERSION=2
 ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG,*DATED_CHANGELOGS.values(),*PRODUCT_SURFACES.values()}
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
@@ -115,13 +116,17 @@ def parse_product_surface(page,source):
     parser.close()
     text=" ".join(" ".join(parser.parts).split())
     rows={}
-    def add(name,area,url):
+    def add(name,area,url,stage=None,identity=None):
         name=" ".join(name.split()).strip()
         if not 2<=len(name)<=100 or re.search(r"discount|coupon|pricing|black friday|% off|credits?|促销|折扣|积分|会员|低至|大赛|挑战赛",name,re.I):
             return
-        key=hashlib.sha256((area+"|"+name.casefold()+"|"+url).encode()).hexdigest()
+        if name in {"独家首发","模型上新","新增","上新","上线","升级","更新","优化","支持","New"}:
+            return
+        key=hashlib.sha256((identity or (area+"|"+name.casefold()+"|"+url)).encode()).hexdigest()
         rows[key]={"featureName":name,"productArea":area,"featureUrl":url,"category":"app",
                    "claimType":"first-party-product-surface","updateType":"surface-observation"}
+        if stage:
+            rows[key]["surfaceStage"]=stage
     if source["id"]=="libtv-home":
         if not all(x in text for x in ("LibTV","版本更新记录","新建画布创作")):
             raise ValueError("LibTV public product surface not readable")
@@ -140,6 +145,7 @@ def parse_product_surface(page,source):
             # Use positions, rather than substring membership in the concatenated
             # section: a repeated label outside the section is not new evidence.
             active=False
+            model_parts=[]
             for part in parser.parts:
                 label=" ".join(part.split()).strip()
                 if label=="最近上新":
@@ -147,7 +153,22 @@ def parse_product_surface(page,source):
                     continue
                 if active and label=="创作精选":
                     break
-                if not active or not 2<=len(label)<=100:
+                if not active or not label or len(label)>100:
+                    continue
+                if re.fullmatch(r"(?:独家首发|模型上新)",label):
+                    # Adjacent model-name fragments often occupy separate spans.
+                    candidate=" ".join(model_parts[-3:])
+                    match=re.search(r"([A-Za-z][A-Za-z0-9-]*(?:\s+\d+(?:\.\d+)*|-[0-9]+(?:\.[0-9]+)*)(?:\s+(?:Flash|Pro|Fast|Lite|Mini|Max|Turbo))?)$",candidate,re.I)
+                    if match:
+                        add(match[1]+label,"首页近期推荐",source["url"])
+                    model_parts=[]
+                    continue
+                if re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 .+-]{0,60}",label):
+                    model_parts.append(label)
+                    model_parts=model_parts[-3:]
+                else:
+                    model_parts=[]
+                if len(label)<2:
                     continue
                 if re.search(r"教程|课程|视频课|电影节|展评|比赛|挑战赛|活动|直播|获奖|作品精选|用户案例|tutorial|course|contest|festival|webinar",label,re.I):
                     continue
@@ -160,6 +181,12 @@ def parse_product_surface(page,source):
     else:
         if not all(x in text for x in ("Higgsfield","New drops","Cinema Studio")):
             raise ValueError("Higgsfield public product surface not readable")
+        # One identity per product route, not one per marketing CTA.
+        known={"/short-drama":"Short Drama","/shorts-studio":"Shorts Studio","/gpu":"GPU",
+               "/supercomputer":"Supercomputer","/editing-room":"Higgsfield Editing Room",
+               "/miracle":"Miracle","/mcp":"MCP","/plugins/after-effects":"Plugins for Premiere Pro / After Effects",
+               "/mangaka":"Mangaka"}
+        candidates={}
         for link in parser.links:
             try:
                 u=urlsplit(urljoin(source["url"],link["href"]))
@@ -170,18 +197,29 @@ def parse_product_surface(page,source):
             path=u.path.rstrip("/")
             label=" ".join(" ".join(link["parts"]).split())
             aria=" ".join(link["label"].split())
-            # Specific product routes and explicit promotional product labels.
-            # Exclude model-picker, login, pricing and community routes.
-            named=bool(re.fullmatch(r"/(?:[a-z0-9-]+-studio|editing-room|mangaka|canvas|supercomputer|playable|gpu|shorts|short-drama)",path))
+            named=bool(re.fullmatch(r"/(?:[a-z0-9-]+-studio|editing-room|mangaka|canvas|supercomputer|playable|gpu|shorts|short-drama|miracle|mcp|plugins/after-effects)",path))
             explicit=bool(re.fullmatch(r"/[a-z0-9-]{3,60}",path) and aria.startswith("Open ") and
                           re.search(r"\b(?:studio|editor|editing|tool|agent|canvas|computer)\b",aria,re.I))
-            if not (named or explicit):
+            genjutsu=path=="/ai/video" and parse_qs(u.query).get("model")==["genjutsu"]
+            if not (named or explicit or genjutsu):
                 continue
-            name=re.sub(r"^Open\s+","",aria or label,flags=re.I)
-            name=re.sub(r"\s+(?:New|Top|Soon)$","",name,flags=re.I)
-            if not name or len(name)>100:
+            raw=re.sub(r"^Open\s+","",aria or label,flags=re.I)
+            stage="coming-soon" if re.search(r"\b(?:coming soon|soon)\s*$",raw,re.I) else None
+            if re.search(r"^(?:view all|learn more|start generating|try now|see all|get started)\b",raw,re.I):
                 continue
-            add(name,"公开产品入口","https://higgsfield.ai"+path)
+            name=known.get(path) or ("Genjutsu" if genjutsu else re.sub(r"\s+(?:New|Top|Soon)$","",raw,flags=re.I))
+            if not name or len(name)>100 or re.search(r"^(?:view all|learn more|start generating|try now|see all|get started)\b",name,re.I):
+                continue
+            url="https://higgsfield.ai"+path+("?model=genjutsu" if genjutsu else "")
+            old=candidates.get(url)
+            # Prefer the explicit preview label if any link has it; otherwise
+            # retain the concise observed product name, not a sentence.
+            if not old or len(name)<len(old[0]):
+                candidates[url]=(name,stage or (old[1] if old else None))
+            elif stage:
+                candidates[url]=(old[0],stage)
+        for url,(name,stage) in candidates.items():
+            add(name,"公开产品入口",url,stage,identity="product-route|"+url)
     if not rows:
         raise ValueError("No explicit named public product capabilities")
     return dict(list(rows.items())[:40])
@@ -749,6 +787,9 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
                             "status":"probe-unavailable","error":f"{type(exc).__name__}: {str(exc)[:160]}","deferred":False,
                             "consecutiveFailures":count,"nextAttemptAt":(now+timedelta(minutes=min(720,60*2**min(count-1,3)))).isoformat()})
             continue
+        surface_migration=(spec.get("type")=="product-surface" and old.get("surfaceParserVersion")!=PRODUCT_SURFACE_PARSER_VERSION)
+        if spec.get("type")=="product-surface":
+            row["surfaceParserVersion"]=PRODUCT_SURFACE_PARSER_VERSION
         # Absence from home marketing/navigation is NOT a withdrawal or
         # delisting; preserve historical observations, track only current view.
         merged={k:{**v,"visibleInLatestRead":False} for k,v in entries.items()}
@@ -761,7 +802,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
                 elif value.get("claimType")=="first-party-product-changelog":
                     kind="new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry"
                 elif value.get("claimType")=="first-party-product-surface":
-                    kind="new-product-surface" if old.get("lastSuccessAt") else "baseline-product-surface"
+                    kind="new-product-surface" if old.get("lastSuccessAt") and not surface_migration else "baseline-product-surface"
                 else:
                     kind="new-visible-label" if old.get("lastSuccessAt") else "baseline-visible-label"
                 eid=hashlib.sha256((spec["id"]+"|"+k+"|"+stamp).encode()).hexdigest()

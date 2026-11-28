@@ -287,3 +287,30 @@ class AppUpdatesTests(unittest.TestCase):
         labels={v["featureName"] for v in parse_product_surface(page,spec).values()}
         self.assertTrue({"项目","资产","插件","新增资产共享功能","智能剪辑支持字幕导出","插件系统升级","MAGI-2独家首发"}<=labels)
         self.assertFalse({"全新AI视频课程","电影节活动上线","会员优惠上线","角色资产新功能上线"}&labels)
+
+    def test_real_surface_markup_identity_and_parser_upgrade(self):
+        from scripts.collect_app_updates import parse_product_surface
+        lib={**self.spec,"id":"libtv-home","url":"https://www.liblib.tv/","type":"product-surface"}
+        html="""<main>LibTV 版本更新记录 新建画布创作<h2>最近上新</h2>
+        <div><span>MAGI-2</span><span>独家首发</span></div>
+        <div><span>Seedance</span><span>2.5 Flash</span><span>模型上新</span></div>
+        <div><span>Seedream 5.5</span><span>模型上新</span></div>
+        <div>模型上新</div><h2>创作精选</h2></main>"""
+        names={e["featureName"] for e in parse_product_surface(html,lib).values()}
+        self.assertEqual(names,{"MAGI-2独家首发","Seedance 2.5 Flash模型上新","Seedream 5.5模型上新"})
+        hf={**self.spec,"id":"higgsfield-home","url":"https://higgsfield.ai/","type":"product-surface"}
+        page="""<main>Higgsfield New drops <a href="/cinema-studio">Cinema Studio</a>
+        <a href="/editing-room">Editing Room</a><a href="/editing-room">Higgsfield Editing Room Change the angle of any video</a>
+        <a href="/miracle">Miracle Soon</a><a href="/ai/video?model=genjutsu">Genjutsu Top</a>
+        <a href="/plugins/after-effects">Plugins</a><a href="/mcp?tab=claude">MCP for Claude</a>
+        <a href="/supercomputer">Agentic</a><a href="/supercomputer">Supercomputer</a>
+        <a href="/shorts-studio">View all presets</a></main>"""
+        fresh=parse_product_surface(page,hf)
+        self.assertEqual(len(fresh),7)
+        self.assertEqual(len([x for x in fresh.values() if x["featureUrl"].endswith("/editing-room")]),1)
+        self.assertEqual(next(x for x in fresh.values() if x["featureName"]=="Miracle")["surfaceStage"],"coming-soon")
+        self.assertTrue(any(x["featureUrl"].endswith("?model=genjutsu") for x in fresh.values()))
+        previous={"schema":"app-updates/v1","sources":[{**hf,"lastSuccessAt":(self.now-timedelta(hours=1)).isoformat(),"entries":{"old":{"featureName":"View all presets","claimType":"first-party-product-surface"}}}],"events":[]}
+        migrated=collect({"sources":[hf]},previous,self.now,lambda _:fresh)
+        self.assertTrue(all(e["kind"]=="baseline-product-surface" for e in migrated["events"]))
+        self.assertFalse(migrated["sources"][0]["entries"]["old"]["visibleInLatestRead"])
