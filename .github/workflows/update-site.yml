@@ -136,6 +136,14 @@ jobs:
           RADAR_GITHUB_API_TOKEN: ${{ github.token }}
         run: python scripts/run_collection_batch.py recovery
 
+      # Explicit one-time read-only probe. No account fields or upstream content in logs.
+      - name: Verify Revid production authentication
+        if: github.event_name == 'workflow_dispatch' && inputs.scope == 'resources'
+        timeout-minutes: 1
+        env:
+          REVID_API_KEY: ${{ secrets.REVID_API_KEY }}
+        run: python -m scripts.check_revid_auth
+
       - name: Collect resources and rankings in isolated transactions
         id: resources_batch
         continue-on-error: true
