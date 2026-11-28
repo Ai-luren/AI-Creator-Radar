@@ -2803,15 +2803,15 @@
         },
         {
           "platform": "小红书",
-          "handle": "Pika（用户确认）",
+          "handle": "Pika中国",
           "url": "https://www.xiaohongshu.com/user/profile/65559350000000000203634f",
           "status": "verified",
-          "verification": "用户明确确认此小红书主页为 Pika 官方账号；本轮未能独立读取主页正文和粉丝字段。",
-          "followers": null,
-          "followersDisplay": "未读取",
-          "snapshotLabel": "粉丝数未读取",
+          "verification": "用户明确确认该小红书主页为 Pika 官方账号，账号名称为 Pika中国；粉丝数 3303 由用户提供，未独立读取主页。",
+          "followers": 3303,
+          "followersDisplay": "3303",
+          "snapshotLabel": "2026-11-29 · 用户提供粉丝数",
           "sourceUrl": "https://www.xiaohongshu.com/user/profile/65559350000000000203634f",
-          "note": "官方归属依据用户确认；等待本机读取真实粉丝数，不使用搜索卡片或旧候选账号数据。"
+          "note": "2026-11-29 用户提供粉丝数 3303；后续以本机实际读取的公开主页数值及日期更新。"
         },
         {
           "platform": "X",
