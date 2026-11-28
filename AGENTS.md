@@ -61,6 +61,8 @@ The public reading workbench must not act as a manual review inbox. Recent relea
 
 ## Source strategy
 
+- Radar is a live intelligence reader, not a historical audit dashboard. First priority: accurate, timely model and competitor events within the latest 7 calendar days; second: fill the remainder of the 30-day window. Older confirmed facts and evidence remain available as reference, not recurring hot-path network probes. Historical maintenance uses existing low-frequency or explicit maintenance scopes. Distinguish original publisher dates from index discovery and re-observation; never inflate current release counts or weaken source/date/stage verification. Prefer recent eligible work over stale retries under fixed budgets; retain unresolved state honestly. Do not add a scheduler or new architecture for this policy.
+
 - Optimize effective event coverage, not HTTP success or source count. When an endpoint is denied, empty or repeatedly unproductive, prefer genuinely independent permitted alternatives and reuse existing aggregated clues before writing new scrapers.
 - Use AIHOT and other aggregators for discovery, not canonical release truth. Respect their published access and reuse rules; do not mirror or bulk redistribute. Prefer targeted queries, original publisher links, conditional requests and bounded retry; independently validate model identity, date and stage.
 - Before adding a collector or audit layer, compare a configuration change, a reused adapter, and simpler cross-domain approaches. Measure unique verified contribution, latency and request/maintenance cost; remove only demonstrably redundant routes, preserve evidence and negative controls. Do not repeatedly repair one blocked URL when an equivalent publisher source works.

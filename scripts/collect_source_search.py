@@ -395,11 +395,20 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
             targets[tid] = {**prior, "active": False}
     service = dict(previous.get("service", {}))
     cooldown = stamp(service.get("nextAttemptAt"))
-    due = [t for t in targets.values() if t["active"] and
+    def recent_tier(target):
+        # Current active input, not the durable first-detection timestamp,
+        # governs scheduling. Retain original detection for audit.
+        observed = stamp(active[target["id"]].get("firstDetectedAt"))
+        if observed is None or observed > now:
+            return 2
+        age = now - observed
+        return 0 if age < timedelta(days=7) else 1 if age < timedelta(days=30) else 2
+
+    due = [t for t in targets.values() if t["active"] and recent_tier(t) < 2 and
            (not stamp(t.get("nextAttemptAt")) or stamp(t["nextAttemptAt"]) <= now)]
-    # Oldest untried first, then least-recently attempted. A flood of new tasks
-    # cannot indefinitely starve an older retry with an earlier due time.
-    due.sort(key=lambda t: (t.get("nextAttemptAt") or t["firstDetectedAt"], t["id"]))
+    # Recent seven-day gaps precede the rest of the 30-day window;
+    # preserve fair due-time ordering within each tier.
+    due.sort(key=lambda t: (recent_tier(t), t.get("nextAttemptAt") or t["firstDetectedAt"], t["id"]))
     attempted = 0
     # Use existing high-quality aggregation before broad search. Independent
     # providers keep their own health and per-target cooldown. One request total.
@@ -413,7 +422,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         if until and until>now:
             return []
         rows = [t for t in targets.values() if t["active"] and t.get("identity")
-                and stamp(t.get("firstDetectedAt")) and stamp(t["firstDetectedAt"])>=recent_cutoff
+                and recent_tier(t)==0
                 and not any(r.get("officialCandidateUrl") for r in t.get("results",[]))
                 and (not stamp(t.get(prefix+"NextAttemptAt")) or stamp(t[prefix+"NextAttemptAt"])<=now)]
         if prefix=="aipick":

@@ -34,6 +34,19 @@ class SourceSearchTests(unittest.TestCase):
         self.assertEqual(sum(bool(r["officialCandidateUrl"]) for r in results),1)
         self.assertNotIn("publishedAt",results[0])
 
+    def test_historical_target_kept_without_index_requests(self):
+        old_discovery = {"items":[dict(self.discovery["items"][0], firstSeenAt="2026-09-01T00:00:00Z")]}
+        result = search(self.families,old_discovery,{}, {},{},self.allowed,self.now,lambda *a:self.fail("historical query"))
+        self.assertEqual(result["summary"]["attemptedThisRun"],0)
+        self.assertEqual(len(result["targets"]),1)
+        self.assertTrue(result["targets"][0]["active"])
+
+    def test_recent_target_precedes_older_due_target(self):
+        leads = {"items":self.discovery["items"]+[dict(self.discovery["items"][0],id="older",title="Demo v3 Live launched",firstSeenAt="2026-11-08T00:00:00Z")]}
+        calls = []
+        search(self.families,leads,{}, {},{},self.allowed,self.now,lambda target,*a:calls.append(target["query"]) or [])
+        self.assertEqual(calls,["Demo v3"])
+
     def test_single_request_budget_and_cooldown(self):
         calls=[]
         def fetch(*args):

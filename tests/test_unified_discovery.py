@@ -58,6 +58,25 @@ class UnifiedDiscoveryTests(unittest.TestCase):
         result=self.run_resolution(old,conflict,self.now+timedelta(days=1))
         self.assertEqual(result["items"][0]["status"],"date-unresolved")
         self.assertEqual(candidate_rows(result),[])
+    def test_old_verified_article_is_retained_without_network_polling(self):
+        old = self.run_resolution()
+        later = self.now + timedelta(days=40)
+        result = self.run_resolution(old, now=later)
+        self.assertEqual(result["summary"]["attempted"], 0)
+        self.assertEqual(result["items"], old["items"])
+
+    def test_recent_leads_precede_older_retries_under_request_budget(self):
+        from unittest.mock import patch
+        recent = self.url
+        older = "https://official.example/news/demo-older"
+        leads = {"items":[
+            {"id":"old","sourceId":"a","title":"Demo 3","reportedAt":"2026-11-05","officialArticleUrls":[older]},
+            {"id":"new","sourceId":"b","title":"Demo 3","reportedAt":"2026-11-25","officialArticleUrls":[recent]}]}
+        calls = []
+        with patch("scripts.collect_resolve_model_leads.MAX_PROBES", 1):
+            resolve(leads, {}, {"officialArticleHosts":self.hosts}, self.sources, self.families, self.now, lambda url: calls.append(url) or self.page)
+        self.assertEqual(calls, [recent])
+
     def test_recovery_is_independent_transaction_and_updates_derived_views(self):
         self.assertEqual(BATCHES["recovery"][1][0],BATCHES["models"][1][1])
         self.assertIn("collect_chronicle_updates",BATCHES["recovery"][1][0])

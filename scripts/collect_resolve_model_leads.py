@@ -258,14 +258,34 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
                 or (old.get("status") in {"identity-unresolved", "family-unresolved"}
                     and (not set(queue[key]["leadIds"]).issubset(old.get("leadIds", []))
                          or not set(queue[key]["titles"]).issubset(old.get("titleHintsChecked", [])))))
-    # New URLs first; then retries. Recently reported and multi-source leads take precedence.
-    ordered = sorted(queue, key=lambda k: (k not in previous_rows, len(queue[k]["sourceIds"]), len(related_counts.get(k, ())), queue[k]["latest"]), reverse=True)
-    eligible = [key for key in ordered if due(key)]
-    new = [key for key in eligible if key not in previous_rows]
-    retries = sorted((key for key in eligible if key in previous_rows), key=lambda k: previous_rows[k].get("nextAttemptAt") or "")
-    # Prevent a continuous stream of new leads from starving deferred evidence.
-    priority = new[:8] + retries[:4]
-    priority += [key for key in eligible if key not in priority]
+    def age_tier(key):
+        # Use a verified publisher date when known; a fresh index appearance
+        # cannot turn an old article into fresh news. Otherwise use the lead's
+        # original report/observation solely for probe priority.
+        old = previous_rows.get(key, {})
+        proof = old if old.get("articlePublishedAt") else old.get("lastVerifiedObservation") or {}
+        published = proof.get("articlePublishedAt")
+        value = article_day_stamp(published, old["url"]) if published and old.get("url") else queue[key]["latest"]
+        try:
+            day = datetime.fromisoformat(str(value).replace("Z", "+00:00")).date()
+        except (ValueError, TypeError):
+            return 1
+        age = (now.date() - day).days
+        return 0 if 0 <= age <= 6 else 1 if 0 <= age <= 29 else 2
+
+    tiers = {key: age_tier(key) for key in queue}
+    ordered = sorted(queue, key=lambda k: (-tiers[k], k not in previous_rows, len(queue[k]["sourceIds"]), len(related_counts.get(k, ())), queue[k]["latest"]), reverse=True)
+    # Historical observations remain available for date reconciliation, but
+    # are not repeatedly fetched on the hot path. Unknown-date first probes
+    # remain possible; they are not treated as formal releases.
+    eligible = [key for key in ordered if tiers[key] < 2 and due(key)]
+    priority = []
+    for tier in (0, 1):
+        group = [key for key in eligible if tiers[key] == tier]
+        new = [key for key in group if key not in previous_rows]
+        retries = sorted((key for key in group if key in previous_rows), key=lambda k: previous_rows[k].get("nextAttemptAt") or "")
+        first = new[:8] + retries[:4]
+        priority.extend(first + [key for key in group if key not in first])
     def probe(key):
         task, old = queue[key], previous_rows.get(key, {})
         request_url = choose_article_url(task, old, config)
