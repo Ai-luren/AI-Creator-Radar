@@ -8,6 +8,8 @@ import hashlib
 import json
 import re
 import urllib.request
+import urllib.error
+from email.utils import parsedate_to_datetime
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlsplit, parse_qsl, unquote
@@ -265,6 +267,9 @@ def fetch(source, allowed):
         else:
             rows = feed_leads(body, source, allowed)
         return source, rows, None
+    except urllib.error.HTTPError as exc:
+        # Preserve the response metadata until the scheduling decision is made.
+        return source, [], exc
     except Exception as exc:
         return source, [], f"{type(exc).__name__}: {str(exc)[:180]}"
 
@@ -280,6 +285,13 @@ def collect(config, previous, now, fetcher=fetch):
         prior = old_status.get(source["id"], {})
         if prior.get("url") == source["url"] and prior.get("nextAttemptAt") and prior["nextAttemptAt"] > stamp:
             return False
+        if prior.get("url") == source["url"] and prior.get("consecutiveFailures",0)>=2 and prior.get("checkedAt"):
+            try:
+                failed_at=datetime.fromisoformat(prior["checkedAt"].replace("Z","+00:00"))
+                if now<failed_at+timedelta(days=7):
+                    return False
+            except (ValueError,TypeError):
+                pass
         if prior.get("url") == source["url"] and source.get("minIntervalMinutes") and prior.get("lastSuccessAt"):
             try:
                 elapsed = now - datetime.fromisoformat(prior["lastSuccessAt"].replace("Z", "+00:00"))
@@ -291,7 +303,15 @@ def collect(config, previous, now, fetcher=fetch):
     active = [source for source in config["sources"] if due(source)]
     for source in config["sources"]:
         if not due(source):
-            statuses.append({**old_status[source["id"]], "deferred": True})
+            prior=old_status[source["id"]]
+            row={**prior,"deferred":True}
+            if prior.get("consecutiveFailures",0)>=2 and prior.get("checkedAt"):
+                try:
+                    until=datetime.fromisoformat(prior["checkedAt"].replace("Z","+00:00"))+timedelta(days=7)
+                    row["nextAttemptAt"]=max(prior.get("nextAttemptAt") or "",until.isoformat(timespec="seconds"))
+                except (ValueError,TypeError):
+                    pass
+            statuses.append(row)
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
         results = list(pool.map(lambda s: fetcher(s, config["officialArticleHosts"]), active))
     for source, rows, error in results:
@@ -306,13 +326,33 @@ def collect(config, previous, now, fetcher=fetch):
             old[row_id] = {"id": row_id, **row, "firstSeenAt": first, "lastSeenAt": stamp}
             accepted += 1
         prior = old_status.get(source["id"], {})
-        failures = int(prior.get("consecutiveFailures", 0)) + 1 if error else 0
+        retry_after = None
+        if isinstance(error, urllib.error.HTTPError):
+            value = (error.headers or {}).get("Retry-After", "").strip()
+            try:
+                if value.isdigit():
+                    retry_after = now + timedelta(seconds=int(value))
+                elif value:
+                    retry_after = parsedate_to_datetime(value)
+                    if retry_after.tzinfo is None:
+                        retry_after = retry_after.replace(tzinfo=timezone.utc)
+            except (ValueError, TypeError, OverflowError):
+                pass
+            error = f"HTTPError: {str(error)[:180]}"
+        failures = int(prior.get("consecutiveFailures", 0)) + 1 if error and prior.get("url")==source["url"] else int(bool(error))
         delay = min(24 * 60, 30 * (2 ** min(failures, 6))) if error else 0
+        if failures>=2:
+            delay=max(delay,7*24*60)
+        elif error and ("HTTP Error 403" in error or "HTTP 403" in error):
+            delay=max(delay,24*60)
+        next_attempt = now + timedelta(minutes=delay) if delay else None
+        if next_attempt is not None and retry_after is not None:
+            next_attempt = max(next_attempt, retry_after)
         statuses.append({"id": source["id"], "name": source["name"], "url": source["url"],
                          "error": error, "itemCount": accepted, "checkedAt": stamp,
                          "deferred": False, "consecutiveFailures": failures,
                          "lastSuccessAt": prior.get("lastSuccessAt") if error else stamp,
-                         "nextAttemptAt": (now + timedelta(minutes=delay)).isoformat(timespec="seconds") if delay else None})
+                         "nextAttemptAt": next_attempt.astimezone(timezone.utc).isoformat(timespec="seconds") if next_attempt else None})
     items = [r for r in old.values() if cutoff <= str(r.get("reportedAt") or r.get("firstSeenAt") or "")[:10] <= today]
     items.sort(key=lambda r: (r.get("reportedAt") or r["firstSeenAt"], r["id"]), reverse=True)
     return {"schema": "cross-platform-discovery/v1", "checkedAt": stamp,

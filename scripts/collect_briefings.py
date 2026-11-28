@@ -83,16 +83,21 @@ def parse_html(body: bytes | str) -> Node:
 def request(url: str, accept: str = "text/html,application/xml") -> bytes:
     req = urllib.request.Request(url, headers={"Accept": accept, "User-Agent": USER_AGENT})
     last_error = None
-    for attempt in range(3):
+    for attempt in range(2):
         try:
             with urllib.request.urlopen(req, timeout=30) as response:
                 body = response.read(5 * 1024 * 1024 + 1)
             break
         except (urllib.error.URLError, TimeoutError) as error:
             last_error = error
-            if attempt == 2:
+            # Access denials and rate limits are not transient retry work.
+            if isinstance(error, urllib.error.HTTPError) and error.code not in (500,502,503,504):
                 raise
-            time.sleep(attempt + 1)
+            if isinstance(error, urllib.error.HTTPError) and error.headers and error.headers.get("Retry-After"):
+                raise
+            if attempt == 1:
+                raise
+            time.sleep(1)
     else:
         raise last_error or RuntimeError(f"Could not fetch {url}")
     if len(body) > 5 * 1024 * 1024:

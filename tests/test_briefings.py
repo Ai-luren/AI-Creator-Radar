@@ -60,6 +60,23 @@ class BriefingCollectorTests(unittest.TestCase):
                     write_snapshot(path, {"title": title, "items": []})
                 self.assertEqual(json.loads(path.read_text()), current)
 
+    def test_denied_or_rate_limited_request_is_not_immediately_retried(self):
+        from urllib.error import HTTPError
+        from scripts.collect_briefings import request
+        for status in (403,429):
+            with patch("scripts.collect_briefings.urllib.request.urlopen",side_effect=HTTPError("https://example.org/feed",status,"blocked",{},None)) as fetch:
+                with self.assertRaises(HTTPError):
+                    request("https://example.org/feed")
+                self.assertEqual(fetch.call_count,1)
+
+    def test_transient_request_retries_at_most_once(self):
+        from urllib.error import URLError
+        from scripts.collect_briefings import request
+        with patch("scripts.collect_briefings.urllib.request.urlopen",side_effect=URLError("offline")) as fetch, patch("scripts.collect_briefings.time.sleep"):
+            with self.assertRaises(URLError):
+                request("https://example.org/feed")
+            self.assertEqual(fetch.call_count,2)
+
 
 if __name__ == "__main__":
     unittest.main()

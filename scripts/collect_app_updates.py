@@ -955,9 +955,9 @@ def app_probe_retry_at(exc, now, count):
         reset=headers.get("X-RateLimit-Reset","")
         if str(reset).isdigit() and headers.get("X-RateLimit-Remaining")=="0":
             delay=max(delay,datetime.fromtimestamp(int(reset),timezone.utc)-now+timedelta(minutes=1))
-    # Repeated inaccessible/changed pages are not a critical path. A third
+    # Repeated inaccessible/changed pages are not a critical path. A second
     # failure opens a seven-day circuit rather than spending every run on it.
-    if count>=3:
+    if count>=2:
         delay=max(delay,timedelta(days=7))
     elif isinstance(exc,urllib.error.HTTPError) and exc.code==403 and (exc.headers or {}).get("X-RateLimit-Remaining")!="0":
         delay=max(delay,timedelta(days=1))
@@ -1302,7 +1302,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                 continue
         row.pop("skipReason",None)
         next_at=parse_stamp(old.get("nextAttemptAt"))
-        if int(old.get("consecutiveFailures",0))>=3 and old.get("status")=="probe-unavailable":
+        if int(old.get("consecutiveFailures",0))>=2 and old.get("status")=="probe-unavailable":
             last_failure=parse_stamp(old.get("checkedAt"))
             if last_failure:
                 next_at=max(next_at or now,last_failure+timedelta(days=7))
