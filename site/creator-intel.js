@@ -204,6 +204,7 @@ function competitorEventType(title){
  if(/融资|投资轮|募资|funding|raises?|series [a-f]\b/i.test(v))return '融资 / 公司动态';
  if(/宣传片|官方演示|宣传|预告|showcase|trailer|demo/i.test(v))return '宣发 / 演示';
  if(/实测|测评|评测|教程|案例|使用心得|上手|\breview\b|\btutorial\b|\bhands[- ]on\b/i.test(v))return '实测 / 创作案例';
+ if(/已下架|正式下架|即将下架|计划下架|停止服务|停止支持|不再提供|\b(?:will be retired|has been retired|is discontinued|will be discontinued|end of support)\b/i.test(v))return '下架 / 停服通知';
  if(/接入|上架|独家首发|模型上新|model integration/i.test(v))return '模型接入';
  if(/发布|上线|推出|launch|introduc/i.test(v))return '产品 / 功能';
  return '相关报道';

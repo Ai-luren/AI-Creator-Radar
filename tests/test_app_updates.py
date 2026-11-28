@@ -318,6 +318,16 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual([e["featureName"] for e in changes],["Comic Studio"])
         self.assertIsNone(changes[0]["releaseDate"])
 
+    def test_libtv_explicit_lifecycle_notices_are_observations_not_inferred_withdrawals(self):
+        from scripts.collect_app_updates import parse_product_surface
+        spec={**self.spec,"id":"libtv-home","url":"https://www.liblib.tv/","type":"product-surface"}
+        page="<main>LibTV 版本更新记录 新建画布创作<h2>最近上新</h2><p>Seedance 2.0 模型即将下架</p><p>旧插件已下架</p><p>模型是否已下架？</p><p>下架风险提示</p><h2>创作精选</h2><p>其他模型正式下架</p></main>"
+        records=parse_product_surface(page,spec)
+        self.assertEqual({r["featureName"] for r in records.values()},{"Seedance 2.0 模型即将下架","旧插件已下架"})
+        self.assertTrue(all(r["productArea"]=="首页官方通知" and r["claimType"]=="first-party-product-surface" and "publisherCalendarDay" not in r for r in records.values()))
+        first=collect({"sources":[spec]}, {},self.now,lambda _:records)
+        self.assertTrue(all(e["releaseDate"] is None for e in first["events"]))
+
     def test_libtv_whole_product_updates_and_non_feature_exclusions(self):
         from scripts.collect_app_updates import parse_product_surface
         spec={**self.spec,"id":"libtv-home","url":"https://www.liblib.tv/","type":"product-surface"}
