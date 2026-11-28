@@ -35,6 +35,8 @@ class PipelineContractTests(unittest.TestCase):
         self.assertNotIn("git push --force", persist)
         self.assertLess(text.index("run: python scripts/validate_snapshot.py"), text.index("run: bash scripts/persist_data.sh"))
         self.assertIn("run: python scripts/validate_snapshot.py", text)
+        self.assertIn('run: python scripts/audit_radar_system.py --write --summary "$GITHUB_STEP_SUMMARY"', text)
+        self.assertLess(text.index("python scripts/audit_radar_system.py --write"), text.index("run: bash scripts/persist_data.sh"))
 
     def test_pages_artifacts_are_isolated_by_run_and_attempt(self):
         workflow = (ROOT / ".github/workflows/deploy-pages.yml").read_text()
