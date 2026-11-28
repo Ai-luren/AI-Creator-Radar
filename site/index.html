@@ -1478,6 +1478,7 @@ function topicMilestoneCounts(topic){
  var rows=(topic&&Array.isArray(topic.milestones)?topic.milestones:[]).filter(publishedChronicleNode);
  return {verified:rows.length,total:rows.length};
 }
+function isLocalAihot(){return location.protocol==='http:'&&/^(localhost|127\.0\.0\.1)$/.test(location.hostname||'')&&['8080','8081'].includes(location.port)}
 function topicEvidenceStatus(x){
  return '<span class="topic-event-status confirmed">'+esc(x.verificationStatus||'已核验')+(x.autoCollected&&x.sourceName?' · '+esc(x.sourceName):'')+'</span>';
 }
