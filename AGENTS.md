@@ -12,6 +12,10 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - `scripts/` contains Python collectors and builders; `tests/` contains their unit tests; `config/` contains source configuration; `.github/workflows/` contains automation.
 - Project Skills live under `.agents/skills/<short-name>/`.
 
+## Consumer publication gate
+
+The public reading workbench must not act as a manual review inbox. Recent releases, verified announcements, company histories, search entries, and account/contest discovery views must share evidence-based publication eligibility. Keep unresolved raw observations, conflicting dates, review tasks and automatic repair in the existing pipeline and audit datasets; never mark an unresolved row verified to remove a negative label. Known fields missing from an otherwise verified catalog identity remain honestly unknown. Legacy pending routes fall back to confirmed views. Test injected/unreviewed rows, search, counts, and old links; do not add a second data store or suppress production failures.
+
 ## Naming and data rules
 
 - Use stable kebab-case IDs for model and source records.
