@@ -449,3 +449,17 @@ class AppUpdatesTests(unittest.TestCase):
         first=collect({"sources":[spec]}, {},self.now,lambda _:rows)
         self.assertTrue(all(e["kind"]=="baseline-product-surface" and e["releaseDate"] is None for e in first["events"]))
         with self.assertRaises(ValueError):parse_product_surface("<main>OiiOii AI 创作模型介绍</main>",spec)
+
+
+class CoreCompetitorConfigTests(unittest.TestCase):
+    def test_five_core_competitors_use_same_query_band_and_model_watch(self):
+        from pathlib import Path
+        import json
+        from scripts.collect_app_updates import MODEL_WATCH_BRANDS
+        config=json.loads((Path(__file__).resolve().parents[1]/"config/app-update-sources.json").read_text(encoding="utf-8"))
+        core=["Higgsfield","LibTV","TapNow","OiiOii","Flova"]
+        self.assertEqual(list(MODEL_WATCH_BRANDS[:5]),core)
+        for brand in core:
+            rows=[q for q in config["targetedDiscovery"]["queries"] if q["term"]==brand]
+            self.assertEqual({q["provider"] for q in rows},{"AIHOT","AIPick"})
+            self.assertTrue(all(q["priority"]<10 and q["intervalMinutes"]==720 for q in rows))

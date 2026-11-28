@@ -747,3 +747,37 @@ test('official model directory listings feed matching watches but not invented p
  const matrix=JSON.parse(run('JSON.stringify(competitorMatrixRows('+JSON.stringify(app)+',Date.now(),[]))'));
  assert.deepEqual(matrix[0].dimensions,['integration']);assert.equal(matrix[0].day,null);
 });
+
+test('canonical releases and all history consumers share one projection; Niji 8 is visible and MAGI-2 is not doubled',async()=>{
+ const {run,node,requested}=setup({query:'?view=topics&topic=midjourney'});await run('loadData()');
+ assert.ok(requested.includes('models.json'));assert.ok(requested.includes('app-updates.json'));
+ assert.match(node('content').innerHTML,/Niji 8/);
+ const result=JSON.parse(run("JSON.stringify(currentChronicleTopics().find(t=>t.id==='midjourney').milestones.filter(publishedChronicleNode).filter(x=>(x.modelMentions||[]).some(r=>r.modelVersionId==='niji-8')))"));
+ assert.ok(result.some(x=>x.date==='2026-11-24'));
+ assert.equal(run("currentChronicleTopics().find(t=>t.id==='sandai').milestones.filter(publishedChronicleNode).filter(x=>x.date==='2026-11-24'&&(x.modelMentions||[]).some(r=>r.modelVersionId==='magi-2')).length"),1);
+ await run('ensureSearchData()');assert.ok(run("globalIndex.some(x=>x.type==='topic'&&/Niji 8/.test(x.title))"));
+ run("setView('topics',{activeTopic:'product-higgsfield',topicCategory:'all'})");assert.match(node('content').innerHTML,/MAGI-2/);
+});
+test('product chronology uses only official dated substantive events, not catalogue, promo, aggregate or unknown dates',()=>{
+ const {run}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const source={id:'hf',vendor:'Higgsfield',role:'competitor',url:'https://higgsfield.ai/changelog'};
+ const base={sourceId:'hf',sourceUrl:source.url,claimType:'first-party-product-changelog',publisherCalendarDay:'2026-11-24',updateType:'model-integration',featureName:'MAGI-2'};
+ const app={sources:[source],events:[base,{...base},{...base,featureName:'Editing Room',updateType:'product-release'},{...base,featureName:'Promo trailer'},{...base,featureName:'Credits discount'},{...base,featureName:'Unknown day',publisherCalendarDay:null},{...base,featureName:'Fake official',sourceUrl:'https://example.org/x'},{...base,featureName:'Catalog',claimType:'first-party-product-surface'}],reviewedObservations:[{title:'Promo',releaseDate:'2026-11-24'}]};
+ const rows=JSON.parse(run("JSON.stringify(productChronicleTopics("+JSON.stringify(app)+",[]).find(t=>t.id==='product-higgsfield').milestones)"));
+ assert.equal(rows.length,2);assert.equal(rows[0].title,'MAGI-2');assert.equal(rows[1].kind,'产品发布');
+ assert.equal(rows[0].productCategory,'integration');
+ assert.equal(run("priorityCompetitors.join(',')"),'Higgsfield,LibTV,TapNow,OiiOii,Flova');
+});
+test('history projection retains old canonical records without 30-day dependency and rejects incomplete or near-stage evidence',()=>{
+ const {run}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const t={id:'midjourney',name:'Midjourney',group:'公司与模型',milestones:[{date:'2025-01-01',title:'V1 预览',url:'https://midjourney.com/v1',verificationStatus:'已确认',modelMentions:[{modelFamilyId:'mj',modelVersionId:'v1'}]}]};
+ const e={eventId:'release-1',publishedAt:'2025-01-01',verifiedAt:'2025-01-02',sourceUrl:'https://midjourney.com/v1'};
+ const f={id:'mj',vendor:'Midjourney',category:'image',versions:[{id:'v1',name:'V1',releaseDate:'2025-01-01',releaseEvidence:e},{id:'v2',name:'V2',releaseEvidence:{...e,eventId:'bad',verifiedAt:''}}]};
+ const rows=JSON.parse(run("JSON.stringify(chronicleTopics("+JSON.stringify([t])+","+JSON.stringify([f])+",{}).find(x=>x.id==='midjourney').milestones)"));
+ assert.equal(rows.length,2);assert.equal(rows[1].title,'V1 发布');assert.equal(rows[1].verificationDate,'2025-01-02');
+});
+test('canonical vendor mapping preserves all configured exact aliases',()=>{
+ const {run}=setup();
+ const mapping=JSON.parse(fs.readFileSync(path.join(root,'config/chronicle-release-links.json'),'utf8')).vendorTopics;
+ for(const [id,names] of Object.entries(mapping))for(const vendor of names)assert.equal(run("chronicleModelTopic("+JSON.stringify({vendor})+")"),id);
+});
