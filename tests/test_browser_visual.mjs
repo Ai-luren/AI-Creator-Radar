@@ -180,6 +180,16 @@ try{
    assert.equal(await page.locator('.competitor-matrix thead th').count(),6);
    assert.ok(await page.locator('.competitor-matrix').getByText('LibTV 3D-BOX',{exact:false}).count());
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'matrix horizontal overflow');
+   if(viewport.width<761){
+    const wrap=page.locator('.competitor-matrix-wrap');
+    const first=wrap.locator('tbody tr').first().locator('th');
+    const before=await first.evaluate(el=>el.getBoundingClientRect().left);
+    await wrap.evaluate(el=>{el.scrollLeft=200});
+    assert.ok(await wrap.evaluate(el=>el.scrollLeft>0));
+    const after=await first.evaluate(el=>el.getBoundingClientRect().left);
+    assert.ok(Math.abs(before-after)<2,'matrix row label should stay visible while scrolling');
+    await wrap.evaluate(el=>{el.scrollLeft=0});
+   }
    await page.screenshot({path:path.join(out,label+'-competitor-matrix.png'),animations:'disabled'});
   });
   if(viewport.width!==360)await check('social views',async()=>{
