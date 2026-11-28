@@ -357,6 +357,47 @@ function curatedCreativeMarkup(now,term,reports){
  if(!rows.length)return '';
  return '<section class="briefing-digest-section"><div class="section-head"><h2>近3天 · 创作产品与模型线索</h2><span class="head-meta">'+rows.length+' 条日报补缺</span></div><p class="page-desc">复用精选日报的原始链接；日期为刊期，不代表模型发布或平台接入日期。未核实线索不写入正式模型库。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><div class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.day+' · '+r.providers.join(' / ')+' · '+r.proof)+'</span><strong>'+esc(r.title)+'</strong></span>'+creatorLink(r.url,'来源')+'</div></article>'}).join('')+'</div></section>';
 }
+// Reuse upstream story pointers and exact named feature/model anchors.
+// Never add upstream counts to local original counts or infer creator identity/sponsorship.
+function creatorPropagationGroups(reports,releases,events,now,term){
+ var groups=new Map(),brands=term?[term]:priorityCompetitors.concat(firstPartyProducts);
+ var models=(releases||[]).filter(function(m){return m.modelName&&m.modelFamilyId&&m.modelVersionId&&m.verifiedAt&&['official-release','official-model-card'].includes(m.evidenceType)&&m.verificationStatus!=='pending'});
+ function identity(title,brand){
+  var hits=models.filter(function(m){return competitorModelPattern(m.modelName).test(title)});
+  if(hits.length===1)return {name:hits[0].modelName,key:'model:'+hits[0].modelFamilyId+'|'+hits[0].modelVersionId,pattern:competitorModelPattern(hits[0].modelName)};
+  if(hits.length>1)return null;
+  var i=title.toLowerCase().indexOf(brand.toLowerCase()),tail=i<0?'':title.slice(i+brand.length).trim();
+  // Only explicit names, not generic words such as "new feature" or "AI".
+  var m=tail.match(/^([\u4e00-\u9fff]{2,8}(?:工作室|导演台|造型室|编辑器|工具箱))/)||title.match(/(?:新功能|功能|feature)\s*[「『“"]?([A-Za-z][A-Za-z0-9-]{2,35})(?=[」』”"\s，,。:：]|$)/i)||title.match(/[「『“"]([^」』”"\n]{3,35})[」』”"]\s*(?:功能|工作流|工具)/);
+  if(!m||/^(?:new|the|and|with|for|model|feature|workflow|studio|canvas|video|image|audio)$/i.test(m[1]))return null;
+  var name=m[1],escaped=name.replace(/[.*+?^$\x7b\x7d()|[\]\\]/g,'\\function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){'),pattern=new RegExp((/^[A-Za-z0-9]/.test(name)?'(?<![A-Za-z0-9])':'')+escaped+(/[A-Za-z0-9]$/.test(name)?'(?![A-Za-z0-9])':''),'i');
+  return {name:name,key:'feature:'+name.normalize('NFKC').toLowerCase(),pattern:pattern};
+ }
+ (reports||[]).forEach(function(r){
+  var x=r.item||{},title=String(x.title||''),links=x.links||{},date=r.story?x.latestAt:x.publishedAt;
+  if(!title||!date||!withinDays(date,3,new Date(now))||/黑五|折扣|优惠|促销|抽奖|discount|coupon|black friday|pricing|giveaway/i.test(title))return;
+  var bs=brands.filter(function(b){return creatorSubject(title,b)||creatorIntegrationTarget(title,b)||(!r.story&&creatorLaunchSignal(title,b))});
+  if(bs.length!==1)return;
+  var brand=bs[0],id=identity(title,brand),url=creatorOriginalUrl(r.story?links.story:links.original),story=r.story&&creatorStoryTarget(url);
+  if(!url||r.story&&!story)return;
+  var labels=r.story?Array.from(new Set((Array.isArray(x.sourceNames)?x.sourceNames:[]).filter(function(n){return typeof n==='string'&&n.trim()}))):[];
+  if(r.story&&labels.length<2||!r.story&&(!id||!creatorLaunchSignal(title,brand)))return;
+  var key=brand+'|'+(id?id.key:'story:'+newsUrlKey(url)),g=groups.get(key);
+  if(!g){g={brand:brand,name:id?id.name:title,pattern:id?id.pattern:null,originals:[],stories:[],latest:0,official:[]};groups.set(key,g)}
+  g.latest=Math.max(g.latest,Date.parse(date));
+  var lane=r.story?g.stories:g.originals;
+  if(!lane.some(function(z){return newsUrlKey(z.url)===newsUrlKey(url)}))lane.push({url:url,title:title,day:chinaDay(date),source:String(x.source&&x.source.name||''),labels:labels,providers:r.providers||[]});
+ });
+ return Array.from(groups.values()).filter(function(g){return g.originals.length>=2||g.stories.length}).map(function(g){
+  if(g.pattern)g.official=(events||[]).filter(function(e){return e.brand===g.brand&&g.pattern.test(e.title)&&['官方日志','官方插件发布提交','官方开发生态合并'].includes(e.proof)&&e.kind!=='下架 / 停服通知'});
+  return g;
+ }).sort(function(a,b){return b.latest-a.latest||b.originals.length-a.originals.length}).slice(0,12);
+}
+function creatorPropagationMarkup(reports,releases,events,now,term){
+ var groups=creatorPropagationGroups(reports,releases,events,now,term);
+ if(!groups.length)return '';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>近期新品传播信号</h2><span class="head-meta">近3天 · '+groups.length+' 个线索</span></div><p class="page-desc">复用聚合专题与同名功能原文；集中传播不等于商业合作或新品上线。上游来源标签与本站原文数分开记录，不相加。</p><div class="briefing-list">'+groups.map(function(g){return '<article class="briefing-card"><details '+(g.stories.some(function(r){return creatorStoryBusy===r.url||creatorStoryDisplay[r.url]})?'open':'')+'><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(chinaDay(new Date(g.latest).toISOString())+' · '+(g.official.length?'有官方相关记录':'待官方核验')+' · '+g.originals.length+' 条去重原文 / '+g.stories.length+' 个上游合集')+'</span><strong>'+esc(g.brand+' · '+g.name)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+g.official.map(function(r){return '<p>'+esc(r.day+' · '+r.kind+' · '+r.title)+' '+creatorLink(r.url,'官方记录')+'</p>'}).join('')+g.stories.map(function(r){return '<p>'+esc((r.providers||[]).join(' / ')+' · '+r.labels.join('、'))+' '+creatorLink(r.url,'报道合集')+'</p>'+creatorStoryReadMarkup(r.url)}).join('')+g.originals.map(function(r){return '<div class="vendor-event"><time>'+esc(r.day.slice(5))+'</time><div class="vendor-event-main"><strong>'+esc(r.title)+'</strong><small>'+esc(r.source+' · 创作者线索')+'</small></div>'+creatorLink(r.url,'原文')+'</div>'}).join('')+'<div class="briefing-original-links">'+creatorLink('https://aipick.news/api/v1/items?mode=all&window=7d&limit=20&q='+encodeURIComponent(g.brand+' '+g.name),'专项寻源')+'</div></div></details></article>'}).join('')+'</div></section>';
+}
 function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
  var app=state.appUpdates||{},all=competitorBriefRows(app,reports,state.social||{},now),brands=term?[term]:creatorBrands.competitors;
  var filtered=all.filter(function(r){return brands.includes(r.brand)&&matches([r.brand,r.title,productReadingTitle(r.title),r.kind,r.note].join(' '))});
@@ -387,7 +428,7 @@ function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
  var firstParty=term?'':'<section class="briefing-digest-section"><div class="section-head"><h2>一手产品动态</h2></div><div class="vendor-grid">'+firstPartyProducts.map(function(brand){var rs=all.filter(function(r){return r.brand===brand&&withinDays(r.day,7,new Date(now))&&matches([r.brand,r.title,r.kind].join(' '))}),buckets=competitorRecentBuckets(rs,now),source=(app.sources||[]).find(function(s){return s.vendor===brand||brand==='即梦'&&s.id==='jimeng'}),url=source&&source.url||(brand==='Dreamina'?'https://dreamina.capcut.com/':'');return '<section class="overview-panel"><div class="section-head"><h2>'+esc(brand)+'</h2>'+creatorLink(url,'官网')+'</div>'+(buckets.primary.slice(0,3).map(event).join('')||'<p class="overview-empty">近3天暂无记录</p>')+(buckets.primary.length>3?'<details class="source-health"><summary>其余 '+(buckets.primary.length-3)+' 条近3天记录</summary>'+buckets.primary.slice(3).map(event).join('')+'</details>':'')+(buckets.followup.length?'<details class="source-health"><summary>第4–7天补缺 · '+buckets.followup.length+' 条</summary>'+buckets.followup.map(event).join('')+'</details>':'')+'</section>'}).join('')+'</div></section>';
  var originalCount=reports.filter(function(r){return !r.story&&creatorBrandMatch(r.item.title,'competitors',term)}).length;
  var active=brands.filter(function(b){return recentFor(b).length>0}).length,primaryActive=brands.filter(function(b){return recentFor(b).some(function(r){return withinDays(r.day,3,new Date(now))})}).length;
- return head+toolbar+'<div class="vendor-overview-summary"><span><strong>'+primaryActive+'/'+brands.length+'</strong> 家有近3天记录</span><span><strong>'+active+'/'+brands.length+'</strong> 家有近7天记录</span><span><strong>'+traceRows.length+'</strong> 个模型响应追踪</span></div>'+(traces?'<section class="briefing-digest-section"><div class="section-head"><h2>重点模型 · 各平台接入与宣发</h2></div>'+traces+'</section>':'')+'<div class="briefing-original-links"><a href="?view=feeds&amp;briefing=hot">查看事件专题与报道合集 ↗</a></div><div class="section-head"><h2>近3天优先 · 近7天厂商动态</h2><span class="head-meta">'+originalCount+' 条原文去重</span></div><div class="vendor-grid">'+cards+'</div>'+firstParty+curatedCreativeMarkup(now,term,filtered)+'<p class="page-desc">近3天为重点，4–7天补缺；更早的已核实历史在厂商发展史自然沉淀。暂无记录不等于没有更新；现有能力不计作近期上新。模型响应仅统计可关联记录，不代表全部平台已接入。</p><details class="source-health"><summary>数据与信源诊断</summary>'+diagnostics+creatorCoverageMarkup('competitors',term)+'<details><summary>官方来源与历史观察</summary>'+creatorOfficialMarkup(now,term)+'</details></details>';
+ return head+toolbar+creatorPropagationMarkup(reports,state.modelReleases||[],all,now,term)+'<div class="vendor-overview-summary"><span><strong>'+primaryActive+'/'+brands.length+'</strong> 家有近3天记录</span><span><strong>'+active+'/'+brands.length+'</strong> 家有近7天记录</span><span><strong>'+traceRows.length+'</strong> 个模型响应追踪</span></div>'+(traces?'<section class="briefing-digest-section"><div class="section-head"><h2>重点模型 · 各平台接入与宣发</h2></div>'+traces+'</section>':'')+'<div class="briefing-original-links"><a href="?view=feeds&amp;briefing=hot">查看事件专题与报道合集 ↗</a></div><div class="section-head"><h2>近3天优先 · 近7天厂商动态</h2><span class="head-meta">'+originalCount+' 条原文去重</span></div><div class="vendor-grid">'+cards+'</div>'+firstParty+curatedCreativeMarkup(now,term,filtered)+'<p class="page-desc">近3天为重点，4–7天补缺；更早的已核实历史在厂商发展史自然沉淀。暂无记录不等于没有更新；现有能力不计作近期上新。模型响应仅统计可关联记录，不代表全部平台已接入。</p><details class="source-health"><summary>数据与信源诊断</summary>'+diagnostics+creatorCoverageMarkup('competitors',term)+'<details><summary>官方来源与历史观察</summary>'+creatorOfficialMarkup(now,term)+'</details></details>';
 }
 // A private refresh supplements persisted evidence; an empty or failed
 // upstream read must never erase the working production snapshot.

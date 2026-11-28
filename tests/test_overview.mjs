@@ -990,3 +990,18 @@ test('nonleading creator feature reviews enter competitor discovery as reports o
  const rows=JSON.parse(run('JSON.stringify(competitorBriefRows({},'+JSON.stringify(reports)+',{},Date.now()))'));
  assert.equal(rows.length,1);assert.equal(rows[0].brand,'LibTV');assert.equal(rows[0].kind,'创作者发现线索');assert.equal(rows[0].proof,'相关报道 · 非官方确认');assert.equal(run("creatorLaunchSignal('实测 LibTV 折扣新功能','LibTV')"),false);
 });
+
+test('propagation groups reuse real story and distinct same-feature originals without inventing launches',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const release={modelName:'MAGI-2',modelFamilyId:'magi',modelVersionId:'2',verifiedAt:'2026-11-24',evidenceType:'official-release'};
+ const story={story:true,providers:['AIPick'],item:{title:'Higgsfield 上线 MAGI-2 视频模型，创作者实测褒贬不一',latestAt:'2026-11-27T04:02:25Z',sourceNames:['抖音 · 热点搜','X · AIWarper','X · Higgsfield'],links:{story:'https://aipick.news/story/114bed16-4e0e-49ea-b6ca-f5eeb9e58ad3'}}};
+ const post=(title,url)=>({item:{title,publishedAt:'2026-11-27T10:42:36Z',links:{original:url},source:{name:'抖音 · 话题 #即梦AI'}}});
+ const posts=[post('即梦短剧工作室用 DreamScript 与 DreamShot 制作仙侠 AI 短片','https://www.douyin.com/video/7712766640047361299'),post('即梦短剧工作室上线，实测剧本模型dream script与分镜模型dream shot','https://www.douyin.com/video/7712730490340817081')];
+ const event={brand:'Higgsfield',kind:'模型接入',proof:'官方日志',title:'MAGI-2',day:'2026-11-24',url:'https://higgsfield.ai/creator-hub/changelog'};
+ const args=[[story,...posts,posts[0],post('即梦短剧工作室折扣体验','https://example.org/discount')],[release],[event]];
+ const groups=JSON.parse(run('JSON.stringify(creatorPropagationGroups('+args.map(x=>JSON.stringify(x)).join(',')+',Date.now(),""))'));
+ assert.equal(groups.length,2);
+ const jim=groups.find(x=>x.brand==='即梦');assert.equal(jim.name,'短剧工作室');assert.equal(jim.originals.length,2);assert.equal(jim.official.length,0);
+ const hf=groups.find(x=>x.brand==='Higgsfield');assert.equal(hf.stories.length,1);assert.equal(hf.stories[0].labels.length,3);assert.equal(hf.originals.length,0);assert.equal(hf.official.length,1);
+ const markup=run('creatorPropagationMarkup('+args.map(x=>JSON.stringify(x)).join(',')+',Date.now(),"")');assert.match(markup,/近期新品传播信号/);assert.match(markup,/待官方核验/);assert.match(markup,/有官方相关记录/);
+});
