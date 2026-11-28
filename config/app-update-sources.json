@@ -217,6 +217,20 @@
       "sourceUrl": "https://higgsfield.ai/blog/higgsfield-magi-2",
       "observationMethod": "人工核对 · 官方文章索引",
       "note": "单独的模型产品介绍，与11月24日接入日志分别保留。"
+    },
+    {
+      "id": "renoise-magi-2-arena-20261126",
+      "sourceId": "renoise-models-entry",
+      "brand": "Renoise",
+      "title": "MAGI-2 与 Seedance 2.5 官方同素材对比",
+      "modelName": "MAGI-2",
+      "kind": "宣发 / 演示",
+      "category": "video",
+      "observedOn": "2026-11-28",
+      "releaseDate": "2026-11-26",
+      "sourceUrl": "https://renoise.ai/blog/magi-2-vs-seedance-2-5",
+      "observationMethod": "官方文章发布日期",
+      "note": "国际站官方文章列出三组同提示词测试，涉及双人对白、快速运动和多镜头切换；11月26日为文章及实测日期，不等于首次接入日期，不将厂商自测当独立榜单。"
     }
   ],
   "targetedDiscovery": {
