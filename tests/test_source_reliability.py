@@ -189,3 +189,52 @@ class EndpointBackoffTests(unittest.TestCase):
         rows = collector.html_page_items('<a href="/blog/niji-8"><h2>Welcome to Niji 8!</h2><p>Details</p></a>', source)
         self.assertEqual(rows[0]["articleTitle"], "Welcome to Niji 8!")
         self.assertIsNone(rows[0]["publishedAt"])
+
+class CollectionPerformanceTests(unittest.TestCase):
+    def test_identical_article_probe_is_reused_but_different_title_is_not(self):
+        cache = collector.ArticleDateProbeCache()
+        source = {"url":"https://example.com/news","articleDateCheck":True}
+        original = {"url":"https://example.com/news/demo","title":"Demo model release"}
+        with patch.object(collector, "probe_article_date", return_value="2026-11-27T00:00:00Z") as probe:
+            first = collector.enrich_article_dates(source, [dict(original)], cache)
+            second = collector.enrich_article_dates(source, [dict(original)], cache)
+            collector.enrich_article_dates(source, [{**original,"title":"Another release"}], cache)
+        self.assertEqual(first, second)
+        self.assertEqual(first[0]["publicationDateKind"], "article-explicit-date")
+        self.assertEqual(probe.call_count, 2)
+        self.assertEqual((cache.requests, cache.reused), (2, 1))
+
+    def test_failed_probe_not_cached_or_promoted(self):
+        cache = collector.ArticleDateProbeCache()
+        key = ("https://example.com/news/demo", "Demo release")
+        with patch.object(collector, "probe_article_date", side_effect=[None, "2026-11-27T00:00:00Z"]) as probe:
+            self.assertIsNone(cache.get(key, lambda: probe(*key)))
+            self.assertEqual(cache.get(key, lambda: probe(*key)), "2026-11-27T00:00:00Z")
+            self.assertEqual(probe.call_count, 2)
+
+    def test_concurrent_probes_share_one_request(self):
+        from concurrent.futures import ThreadPoolExecutor
+        from threading import Event
+        cache = collector.ArticleDateProbeCache()
+        entered, release = Event(), Event()
+        def fetch():
+            entered.set()
+            self.assertTrue(release.wait(3))
+            return "2026-11-27T00:00:00Z"
+        key = ("https://example.com/news/demo", "Demo release")
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            first = pool.submit(cache.get, key, fetch)
+            self.assertTrue(entered.wait(3))
+            second = pool.submit(cache.get, key, lambda: self.fail("duplicate request"))
+            release.set()
+            self.assertEqual(first.result(timeout=3), second.result(timeout=3))
+        self.assertEqual((cache.requests, cache.reused), (1, 1))
+
+    def test_unmatched_headings_do_not_scan_full_page_for_date(self):
+        source = {"url":"https://example.com/news","modelMatches":{"demo":["demo"]}}
+        page = "".join("<h2>Navigation section %d</h2>" % n for n in range(100))
+        page += '<a href="/news/demo"><h2>Introducing Demo 2.0</h2></a>'
+        with patch.object(collector, "find_date_near_title", wraps=collector.find_date_near_title) as scan:
+            items = collector.html_page_items(page, source)
+        self.assertEqual([i["title"] for i in items], ["Introducing Demo 2.0"])
+        self.assertEqual(scan.call_count, 1)

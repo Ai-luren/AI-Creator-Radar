@@ -48,8 +48,12 @@ def run_batch(root, transactions, seconds, runner=subprocess.run, clock=time.mon
                     remaining = deadline - clock()
                     if remaining <= 0:
                         raise subprocess.TimeoutExpired(script, seconds)
-                    runner([sys.executable, str(root / "scripts" / (script + ".py"))],
-                           cwd=root, check=True, timeout=remaining)
+                    script_started = time.monotonic()
+                    try:
+                        runner([sys.executable, str(root / "scripts" / (script + ".py"))],
+                               cwd=root, check=True, timeout=remaining)
+                    finally:
+                        print(f"Collector timing: {script} {time.monotonic()-script_started:.3f}s", flush=True)
                 for file in data.rglob("*.json"):
                     current = json.loads(file.read_text(encoding="utf-8"))
                     previous = backup / file.relative_to(data)
