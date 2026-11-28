@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T07:28:48+00:00",
+  "checkedAt": "2026-11-28T07:36:49+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1110,6 +1110,16 @@
           "kind": "版本更新记录",
           "url": "https://www.liblib.tv/show",
           "access": "官网可见入口，正文尚未验证可自动读取"
+        },
+        {
+          "kind": "官方公众号 · 1.5 更新公告原文线索",
+          "url": "https://mp.weixin.qq.com/s/s4UiAlcaieiK6qEYVb1iqg",
+          "access": "聚合原始链接；正文当前无法自动读取，日期以媒体交叉核对为准"
+        },
+        {
+          "kind": "官方 Skills 仓库",
+          "url": "https://github.com/libtv-labs/libtv-skills",
+          "access": "公开技能文档，未见 GitHub Releases；不能把普通提交视为产品上新"
         }
       ],
       "type": "navigation-only",
@@ -1936,11 +1946,65 @@
       "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00"
+    },
+    {
+      "id": "libtv-codex-plugin",
+      "name": "LibTV · 官方 Codex 插件版本",
+      "vendor": "LibTV",
+      "url": "https://github.com/liblib-ai/marketplace",
+      "links": [
+        {
+          "kind": "官方插件提交记录",
+          "url": "https://github.com/liblib-ai/marketplace/commits/main/",
+          "access": "仅明确发布版本提交；不是网页功能上线日"
+        }
+      ],
+      "type": "github-plugin-release",
+      "role": "competitor",
+      "entries": {
+        "bf87b7d967e63d820fae451df5900dce3eae314674c80a7f21372220a3d10c96": {
+          "featureName": "LibTV Codex 插件 1.1.0 · 新增 libtv-use 顶层通用创作与模型路由技能",
+          "publisherCalendarDay": "2026-11-27",
+          "publisherCommitAt": "2026-11-27T09:29:09+00:00",
+          "productVersion": "1.1.0",
+          "productArea": "Codex / MCP / Skills",
+          "publisherLabel": "官方插件发布提交",
+          "updateType": "product-release",
+          "category": "app",
+          "claimType": "first-party-plugin-release",
+          "sourceUrl": "https://github.com/liblib-ai/marketplace/commit/742d09d219629b74322226145d957734df9dd8a9",
+          "firstObservedAt": "2026-11-28T07:36:49+00:00",
+          "lastObservedAt": "2026-11-28T07:36:49+00:00",
+          "visibleInLatestRead": true
+        },
+        "1fb937d1ca38df4cb11ab64aa4aa12d8dd67f1b08eb1ad242943de3293ac18b7": {
+          "featureName": "LibTV Codex 插件 1.0.0",
+          "publisherCalendarDay": "2026-09-17",
+          "publisherCommitAt": "2026-09-17T09:48:15+00:00",
+          "productVersion": "1.0.0",
+          "productArea": "Codex / MCP / Skills",
+          "publisherLabel": "官方插件发布提交",
+          "updateType": "product-release",
+          "category": "app",
+          "claimType": "first-party-plugin-release",
+          "sourceUrl": "https://github.com/liblib-ai/marketplace/commit/4ac581c3cbdaa53d0d42df85c6bf62e45600bc5f",
+          "firstObservedAt": "2026-11-28T07:36:49+00:00",
+          "lastObservedAt": "2026-11-28T07:36:49+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T07:36:49+00:00",
+      "lastSuccessAt": "2026-11-28T07:36:49+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T19:36:49.417790+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T07:28:48+00:00",
+    "checkedAt": "2026-11-28T07:36:49+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -3100,9 +3164,60 @@
       "verificationUrl": "https://www.geekpark.net/news/371171",
       "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
       "note": "十字路口7月14日实测报道介绍 Agent 与 Skill Hub；Founder Park 原文标注7月14日并说明 Agent 上线、可选导演 Skill（极客公园后续转载）。不将外部 Agent 调用能力等同于平台全部功能开放。"
+    },
+    {
+      "id": "libtv-1-5-20260921-reviewed",
+      "sourceId": "libtv-entry",
+      "brand": "LibTV",
+      "claimType": "corroborated-product-milestone",
+      "title": "LibTV 1.5：TV Director 与全链路创作升级",
+      "featureName": "LibTV 1.5 全链路创作升级",
+      "kind": "产品发布",
+      "updateType": "product-release",
+      "productArea": "Agent / 角色资产 / 3D-BOX / 剧本 / 剪辑",
+      "releaseDate": "2026-09-21",
+      "observedOn": "2026-11-28",
+      "sourceUrl": "https://timeline.sohu.com/news/DnLQKsRUqg",
+      "verificationUrl": "https://www.woshipm.com/ai/6470479.html",
+      "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
+      "note": "9月28日实测文章明确回述9月21日上线；9月27日另一作者实测证实 TV Director、角色造型室、导演执导、3D-BOX 与片头功能。官方公众号原文链接见来源目录，正文不可读；不确认各功能分批开放日期。"
     }
   ],
   "events": [
+    {
+      "id": "d7ea6ca3c0008bda60de8b7300b2a9d7dcbafa7b00bf33e1999fb4fb44866ba0",
+      "sourceId": "libtv-codex-plugin",
+      "sourceUrl": "https://github.com/liblib-ai/marketplace/commit/742d09d219629b74322226145d957734df9dd8a9",
+      "kind": "baseline-plugin-release",
+      "observedAt": "2026-11-28T07:36:49+00:00",
+      "releaseDate": null,
+      "featureName": "LibTV Codex 插件 1.1.0 · 新增 libtv-use 顶层通用创作与模型路由技能",
+      "publisherCalendarDay": "2026-11-27",
+      "publisherCommitAt": "2026-11-27T09:29:09+00:00",
+      "productVersion": "1.1.0",
+      "productArea": "Codex / MCP / Skills",
+      "publisherLabel": "官方插件发布提交",
+      "updateType": "product-release",
+      "category": "app",
+      "claimType": "first-party-plugin-release"
+    },
+    {
+      "id": "cef56ddf720aab57f3720198d18d92dd7940a6c2177b14f29244ea06795b3d2c",
+      "sourceId": "libtv-codex-plugin",
+      "sourceUrl": "https://github.com/liblib-ai/marketplace/commit/4ac581c3cbdaa53d0d42df85c6bf62e45600bc5f",
+      "kind": "baseline-plugin-release",
+      "observedAt": "2026-11-28T07:36:49+00:00",
+      "releaseDate": null,
+      "featureName": "LibTV Codex 插件 1.0.0",
+      "publisherCalendarDay": "2026-09-17",
+      "publisherCommitAt": "2026-09-17T09:48:15+00:00",
+      "productVersion": "1.0.0",
+      "productArea": "Codex / MCP / Skills",
+      "publisherLabel": "官方插件发布提交",
+      "updateType": "product-release",
+      "category": "app",
+      "claimType": "first-party-plugin-release"
+    },
     {
       "id": "9896c275fa20b29113c2f2910709cbf2ff937cadcae87e46550ef34f406bcd02",
       "sourceId": "oiioii-changelog-entry",
@@ -5041,15 +5156,15 @@
     }
   ],
   "summary": {
-    "configuredSources": 14,
-    "successfulThisRun": 0,
-    "baselineSources": 8,
+    "configuredSources": 15,
+    "successfulThisRun": 1,
+    "baselineSources": 9,
     "listedModels": 0,
-    "reviewedObservations": 7
+    "reviewedObservations": 8
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T07:28:53+00:00",
+    "checkedAt": "2026-11-28T07:36:53+00:00",
     "window": "7d",
     "sources": [
       {
