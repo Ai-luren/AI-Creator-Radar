@@ -11,6 +11,7 @@ import json
 import re
 import sys
 import tempfile
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -387,7 +388,54 @@ def parts_for_leading_date(url):
     return urlsplit(url).hostname in {"www.anthropic.com", "anthropic.com", "z.ai", "www.zhipuai.cn", "sand.ai", "www.sand.ai"}
 
 
-def enrich_article_dates(source, items):
+class ArticleDateProbeCache:
+    """Share identical in-flight probes within one collection run only."""
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.probes = {}
+        self.requests = 0
+        self.reused = 0
+
+    def get(self, key, fetch):
+        with self.lock:
+            future = self.probes.get(key)
+            owner = future is None
+            if owner:
+                future = concurrent.futures.Future()
+                self.probes[key] = future
+                self.requests += 1
+            else:
+                self.reused += 1
+        if not owner:
+            return future.result()
+        try:
+            value = fetch()
+            future.set_result(value)
+            return value
+        except BaseException as exc:
+            future.set_exception(exc)
+            raise
+        finally:
+            # Do not retain an unsuccessful probe; a later source can retry.
+            with self.lock:
+                if not future.done() or future.exception() is not None or future.result() is None:
+                    self.probes.pop(key, None)
+
+
+def probe_article_date(url, title):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html"})
+        with urllib.request.build_opener(SameHostRedirect()).open(req, timeout=12) as response:
+            raw = response.read(MAX_BYTES + 1)
+        if len(raw) > MAX_BYTES:
+            return None
+        return article_publication_date(raw.decode("utf-8", errors="replace"), title,
+                                        leading_date=parts_for_leading_date(url), publisher_host=urlsplit(url).hostname)
+    except (OSError, ValueError, TypeError):
+        return None
+
+
+def enrich_article_dates(source, items, article_cache=None):
     if not source.get("articleDateCheck"):
         return items
     allowed = set(source.get("articleHosts", [])) | {urlsplit(source["url"]).hostname}
@@ -404,23 +452,19 @@ def enrich_article_dates(source, items):
         selected.append((item, url))
         if len(selected) >= 5:
             break
+
     def probe(pair):
         item, url = pair
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html"})
-            with urllib.request.build_opener(SameHostRedirect()).open(req, timeout=12) as response:
-                raw = response.read(MAX_BYTES + 1)
-            if len(raw) > MAX_BYTES:
-                return
-            stamp = article_publication_date(raw.decode("utf-8", errors="replace"), item.get("articleTitle") or item["title"], leading_date=parts_for_leading_date(url), publisher_host=urlsplit(url).hostname)
-            if stamp:
-                listing = item.get("publishedAt")
-                if listing and listing[:10] != stamp[:10]:
-                    item["listingPublishedAt"] = listing
-                item["publishedAt"] = stamp
-                item["publicationDateKind"] = "article-explicit-date"
-        except (OSError, ValueError, TypeError):
-            pass
+        title = item.get("articleTitle") or item["title"]
+        stamp = (article_cache.get((url, title), lambda: probe_article_date(url, title))
+                 if article_cache is not None else probe_article_date(url, title))
+        if stamp:
+            listing = item.get("publishedAt")
+            if listing and listing[:10] != stamp[:10]:
+                item["listingPublishedAt"] = listing
+            item["publishedAt"] = stamp
+            item["publicationDateKind"] = "article-explicit-date"
+
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         list(pool.map(probe, selected))
     return items
@@ -714,6 +758,7 @@ def html_page_items(page: str, source: dict) -> list[dict]:
             return cards
 
     headings = [i for i, block in enumerate(blocks) if block["tag"] in {"h1", "h2", "h3", "h4", "h5", "h6"}]
+    anchors = [block for block in blocks if block["tag"] == "a"]
     candidates = []
 
     for heading_position, block_index in enumerate(headings):
@@ -727,8 +772,8 @@ def html_page_items(page: str, source: dict) -> list[dict]:
         published_at = find_date(heading["attrs"].get("datetime"))
         article_url = ""
         enclosing = [
-            block for block in blocks
-            if block["tag"] == "a" and block["sequence"] < heading["sequence"]
+            block for block in anchors
+            if block["sequence"] < heading["sequence"]
             < block.get("endSequence", block["sequence"] + 1)
         ]
         for anchor in reversed(enclosing):
@@ -741,8 +786,9 @@ def html_page_items(page: str, source: dict) -> list[dict]:
             if candidate["tag"] == "time":
                 published_at = published_at or find_date(attrs.get("datetime") or candidate["text"])
             elif candidate["tag"] in {"p", "li"}:
-                published_at = published_at or find_date(candidate["text"])
-                if candidate["text"] and not find_date(candidate["text"]) and len(summary_parts) < 2:
+                candidate_date = find_date(candidate["text"])
+                published_at = published_at or candidate_date
+                if candidate["text"] and not candidate_date and len(summary_parts) < 2:
                     summary_parts.append(candidate["text"])
             elif candidate["tag"] == "a":
                 href = attrs.get("href", "")
@@ -755,6 +801,10 @@ def html_page_items(page: str, source: dict) -> list[dict]:
                         article_url = valid_article_url(href, source["url"])
         combined = title + " " + " ".join(summary_parts)
         model_id = match_model(title, source) or (None if source.get("titleModelOnly") else match_model(combined, source))
+        # A heading without a matched model cannot produce a candidate.
+        # Avoid a whole-page regex scan for navigation and unrelated headings.
+        if not model_id:
+            continue
         published_at = published_at or find_date_near_title(page, title)
         if not article_url:
             # Accept a direct "Learn more" link only in this heading's own section.
@@ -1062,7 +1112,7 @@ def apply_recent_model_versions(models: dict, items: list[dict], now: datetime) 
     return changed
 
 
-def fetch_source_once(source: dict) -> tuple[dict, list[dict], str | None]:
+def fetch_source_once(source: dict, article_cache=None) -> tuple[dict, list[dict], str | None]:
     request = urllib.request.Request(source["url"], headers={
         "User-Agent": USER_AGENT,
         "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, text/html;q=0.9, */*;q=0.8",
@@ -1098,7 +1148,7 @@ def fetch_source_once(source: dict) -> tuple[dict, list[dict], str | None]:
                 items = version_document_json_items(page, source)
             else:
                 items = markdown_news_items(page, source) if source_type == "markdown-news" else html_page_items(page, source)
-        return source, enrich_article_dates(source, items), None
+        return source, enrich_article_dates(source, items, article_cache), None
     except Exception as exc:
         error = f"{type(exc).__name__}: {str(exc)[:220]}"
         if isinstance(exc, urllib.error.HTTPError) and exc.code == 429 and exc.headers:
@@ -1152,7 +1202,7 @@ def retryable_source_error(error: str) -> bool:
     return bool(re.search(r"HTTP Error (?:408|5\d\d)\b|timed? ?out|temporary failure|connection reset", error, re.I))
 
 
-def fetch_source(source: dict, prior=None, now=None) -> tuple[dict, list[dict], str | None]:
+def fetch_source(source: dict, prior=None, now=None, article_cache=None) -> tuple[dict, list[dict], str | None]:
     """Back off a repeatedly blocked endpoint without suppressing its independent fallback."""
     now = now or datetime.now(timezone.utc)
     stamp = now.isoformat(timespec="seconds")
@@ -1205,7 +1255,8 @@ def fetch_source(source: dict, prior=None, now=None) -> tuple[dict, list[dict], 
             pass
         requested = True
         for attempt in range(2):
-            _, items, error = fetch_source_once(endpoint)
+            _, items, error = (fetch_source_once(endpoint, article_cache) if article_cache is not None
+                               else fetch_source_once(endpoint))
             record = {"url": url, "error": error, "itemCount": len(items) if error is None else None,
                       "checkedAt": stamp, "deferred": False}
             # Access denial and missing routes need a different source, not immediate repeated requests.
@@ -1265,10 +1316,26 @@ def main() -> int:
     now_iso = now.isoformat(timespec="seconds").replace("+00:00", "Z")
 
     fetched = []
+    article_cache = ArticleDateProbeCache()
+    started = time.monotonic()
+    def timed_source(source):
+        begin = time.monotonic()
+        result = fetch_source(source, None if args.dry_run else old_status.get(source["id"]), now, article_cache)
+        return result, round(time.monotonic() - begin, 3)
+
+    durations = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=min(8, max(1, len(active)))) as pool:
-        futures = [pool.submit(fetch_source, source, None if args.dry_run else old_status.get(source["id"]), now) for source in active]
+        futures = [pool.submit(timed_source, source) for source in active]
         for future in concurrent.futures.as_completed(futures):
-            fetched.append(future.result())
+            result, seconds = future.result()
+            fetched.append(result)
+            durations.append({"id":result[0]["id"],"seconds":seconds,"attempts":len(result[0].get("attempts", []))})
+    print("Model collector timing:", json.dumps({
+        "wallSeconds":round(time.monotonic()-started, 3),
+        "articleProbeRequests":article_cache.requests,
+        "articleProbeReused":article_cache.reused,
+        "sources":sorted(durations, key=lambda row:(-row["seconds"],row["id"]))
+    }), flush=True)
 
     by_id = {}
     for item in previous_updates.get("items", []):
