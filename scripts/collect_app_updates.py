@@ -24,9 +24,11 @@ except ModuleNotFoundError:
 ROOT=Path(__file__).resolve().parents[1]
 OUTPUT=ROOT/"site/data/app-updates.json"
 MAX_BYTES=6*1024*1024
+MAX_CHANGELOG_ROWS=400
 HIGGS_CHANGELOG="https://higgsfield.ai/creator-hub/changelog"
 DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
-                  "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog"}
+                  "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog",
+                  "oiioii-changelog-entry":"https://www.oiioii.ai/zh/changelog"}
 PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/",
                   "oiioii-model-directory":"https://www.oiioii.ai/zh/explore/models"}
 PRODUCT_SURFACE_PARSER_VERSION=2
@@ -309,13 +311,13 @@ def parse_higgs_changelog(page,source):
     valid=[r for r in rows if r["tags"] and r["tags"][0] in {"Release","Feature","Improvement","Fix","Announcement"}]
     if not valid:
         raise ValueError("No dated product changelog entries")
-    newest=max(r["day"] for r in valid)
-    cutoff=(datetime.fromisoformat(newest)-timedelta(days=30)).date().isoformat()
     output={}
-    for row in valid:
+    # Same bounded page already fetched for recent intelligence. Retain older
+    # explicit publisher records too; only presentation applies recent windows.
+    for row in sorted(valid,key=lambda r:r["day"],reverse=True):
         title=row["title"]
         stage=row["tags"][0]
-        if row["day"]<cutoff or not title or len(title)>180 or stage not in {"Release","Feature","Improvement"}:
+        if not title or len(title)>180 or stage not in {"Release","Feature","Improvement"}:
             continue
         # Suppress price/credit-only announcements, not mixed technical updates.
         if re.search(r"black friday|(?:^|\b)(?:pricing|discount|sale|credits?|subscription|bonus|deal|unlimited)(?:\b|$)|refund|promo",title,re.I):
@@ -329,8 +331,47 @@ def parse_higgs_changelog(page,source):
                      "productArea":product,"publisherLabel":stage,"category":"app",
                      "claimType":"first-party-product-changelog"}
     if not output:
-        raise ValueError("No relevant recent product changelog entries")
-    return output
+        raise ValueError("No relevant dated product changelog entries")
+    return dict(list(output.items())[:MAX_CHANGELOG_ROWS])
+
+
+def parse_month_changelog(page,source):
+    """Official month-precision product versions; never invent a day or new model launch."""
+    if source.get("id")!="oiioii-changelog-entry":
+        raise ValueError("Unapproved month changelog")
+    parser=ChangelogText()
+    parser.feed(page)
+    parser.close()
+    if not any(v in {"更新日志","OiiOii 的新版本"} for _,v in parser.tokens):
+        raise ValueError("Expected OiiOii changelog marker absent")
+    rows=[]
+    current=None
+    for kind,value in parser.tokens:
+        if kind=="heading":
+            current=None
+            match=re.fullmatch(r"(v\d+(?:\.\d+)+)\s*[—–-]\s*(.{2,120}?)\s*[（(](\d{4}-\d{2})[）)]",value)
+            if match:
+                version,title,month=match.groups()
+                try:
+                    datetime.strptime(month,"%Y-%m")
+                except ValueError:
+                    continue
+                current={"version":version,"title":title,"month":month,"body":[]}
+                rows.append(current)
+        elif current is not None and len(current["body"])<8:
+            current["body"].append(value)
+    output={}
+    for row in rows:
+        if len(" ".join(row["body"]))<12 or re.search(r"优惠|价格|促销|积分|宣传片",row["title"]):
+            continue
+        key=hashlib.sha256((row["month"]+"|"+row["version"]+"|"+row["title"]).encode()).hexdigest()
+        output[key]={"featureName":row["title"],"productVersion":row["version"],
+                     "publisherCalendarMonth":row["month"],"datePrecision":"month",
+                     "updateType":"product-release","productArea":"平台版本","publisherLabel":"Changelog",
+                     "category":"app","claimType":"first-party-product-milestone"}
+    if not output:
+        raise ValueError("No explicit monthly product versions")
+    return dict(list(output.items())[:MAX_CHANGELOG_ROWS])
 
 
 def parse_dated_changelog(page,source):
@@ -343,16 +384,32 @@ def parse_dated_changelog(page,source):
     if not any(value.casefold()==marker.casefold() for _,value in tokens):
         raise ValueError("Expected official changelog heading absent")
     day=None
+    month=None
     version=None
     rows=[]
     current=None
     for kind,value in tokens:
         if value.casefold()==marker.casefold():
             day=None
+            month=None
             current=None
             continue
         if re.fullmatch(r"v\d+(?:\.\d+)+",value):
             version=value
+            continue
+        month_match=re.fullmatch(r"(\d{4}-\d{2})(?:\s*·\s*Flova\s+(\d+(?:\.\d+)+))?",value)
+        if source["id"]=="flova-changelog" and month_match:
+            try:
+                datetime.strptime(month_match[1],"%Y-%m")
+            except ValueError:
+                day=None
+                month=None
+                current=None
+                continue
+            day=None
+            month=month_match[1]
+            version="v"+month_match[2] if month_match[2] else None
+            current=None
             continue
         try:
             fmt="%Y-%m-%d" if re.fullmatch(r"\d{4}-\d{2}-\d{2}",value) else "%B %d, %Y"
@@ -361,10 +418,11 @@ def parse_dated_changelog(page,source):
             parsed=None
         if parsed:
             day=parsed
+            month=None
             current=None
             continue
         if kind=="heading":
-            current={"day":day,"title":value,"version":version,"body":[]} if day else None
+            current={"day":day,"month":month,"title":value,"version":version,"body":[]} if day or month else None
             if current:
                 rows.append(current)
         elif current is not None and len(current["body"])<8:
@@ -374,12 +432,10 @@ def parse_dated_changelog(page,source):
            row["title"].casefold() not in {"on this page","latest updates","changelog","tapnow changelog"}]
     if not valid:
         raise ValueError("No dated product feature records")
-    newest=max(row["day"] for row in valid)
-    cutoff=(datetime.fromisoformat(newest)-timedelta(days=30)).date().isoformat()
     output={}
-    for row in valid:
+    for row in sorted(valid,key=lambda r:r["day"] or r["month"],reverse=True):
         title=row["title"]
-        if row["day"]<cutoff or not 3<=len(title)<=180:
+        if not 3<=len(title)<=180:
             continue
         if re.search(r"\b(?:pricing|discount|credit estimates?|refund|invoic\w*|billing|coupons?|promotions?|black friday|spending|payment|plan renewal)\b",title,re.I):
             continue
@@ -388,15 +444,15 @@ def parse_dated_changelog(page,source):
         kind="product-update"
         if re.search(r"\b(?:generate (?:images?|videos?|audio|music) with|(?:seedance|seedream|gpt image|kling|wan|nano banana|magi|vidu|gemini)\s+[\w. -]+(?:is here|is live|is available))\b",title,re.I):
             kind="model-integration"
-        key=hashlib.sha256((row["day"]+"|"+title).encode()).hexdigest()
-        output[key]={"featureName":title,"publisherCalendarDay":row["day"],"updateType":kind,
-                     "productArea":"","publisherLabel":"Changelog","category":"app",
-                     "claimType":"first-party-product-changelog"}
+        key=hashlib.sha256(((row["day"] or row["month"])+"|"+title).encode()).hexdigest()
+        output[key]={"featureName":title,"updateType":kind,"productArea":"","publisherLabel":"Changelog","category":"app",
+                     **({"publisherCalendarDay":row["day"],"claimType":"first-party-product-changelog"} if row["day"] else
+                        {"publisherCalendarMonth":row["month"],"datePrecision":"month","claimType":"first-party-product-milestone"})}
         if row["version"]:
             output[key]["productVersion"]=row["version"]
     if not output:
         raise ValueError("No relevant dated product updates")
-    return output
+    return dict(list(output.items())[:MAX_CHANGELOG_ROWS])
 
 
 APPLE_LOOKUP="https://itunes.apple.com/lookup?id=6503676563&country=cn&entity=software"
@@ -433,7 +489,7 @@ def parse_store(payload,source):
 
 # Exact model names are derived only from verified release rows, not arbitrary
 # article text or external instructions. No URL/host is supplied by a model.
-MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","小云雀","Pippit","即梦","Dreamina","Gemini")
+MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","Flova","小云雀","Pippit","即梦","Dreamina","Gemini")
 MODEL_WATCH_NAME=re.compile(r"^(?:Seedance|Seedream|SeedAudio|MAGI|Kling|可灵|Vidu|Wan|HappyHorse|Veo|Gemini|GPT[- ]Image|Nano Banana|Hailuo|海螺|PixVerse|MiniMax|Niji|Midjourney|Suno|ElevenLabs|Scribe|Eleven|HY[- ]?3D)(?:[ -]|\d|$)",re.I)
 def valid_watch_term(term):
     return isinstance(term,str) and len(term)<=80 and bool(MODEL_WATCH_NAME.match(term)) and bool(re.fullmatch(r"[\w .+\-]+",term)) and bool(re.search(r"\d",term))
@@ -698,7 +754,7 @@ def fetch(source):
     if source.get("type")=="higgs-changelog":
         return parse_higgs_changelog(data.decode("utf-8"),source)
     if source.get("type")=="dated-changelog":
-        return parse_dated_changelog(data.decode("utf-8"),source)
+        return (parse_month_changelog if source["id"]=="oiioii-changelog-entry" else parse_dated_changelog)(data.decode("utf-8"),source)
     if source.get("type")=="product-surface":
         return parse_product_surface(data.decode("utf-8"),source)
     return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
@@ -1009,8 +1065,12 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
             if k not in entries:
                 if value.get("claimType")=="first-party-store-version":
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
+                elif value.get("claimType")=="first-party-product-milestone":
+                    kind="new-product-milestone" if old.get("lastSuccessAt") else "baseline-product-milestone"
                 elif value.get("claimType")=="first-party-product-changelog":
-                    kind="new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry"
+                    old_day=(now.date()-timedelta(days=30)).isoformat()
+                    kind=("historical-changelog-backfill" if value.get("publisherCalendarDay","")<old_day else
+                          "new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry")
                 elif value.get("claimType")=="first-party-product-surface":
                     kind="new-product-surface" if old.get("lastSuccessAt") and not surface_migration else "baseline-product-surface"
                 else:
