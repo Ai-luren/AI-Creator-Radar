@@ -6,13 +6,82 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T14:32:40+00:00",
-  "checkedAt": "2026-11-28T14:32:40+00:00",
+  "fetchedAt": "2026-11-28T15:17:42+00:00",
+  "checkedAt": "2026-11-28T15:17:42+00:00",
   "etags": {
-    "items": "W/\"v1-items-725b73ad1b6ac02a\"",
-    "hotTopics": "W/\"v1-hot-49e8f76ed48a19b0\""
+    "items": "W/\"v1-items-b66bda7bdb59ab58\"",
+    "hotTopics": "W/\"v1-hot-77ede68e9065ece9\""
   },
   "items": [
+    {
+      "id": "t07xfiu8rtnb529hfixagf7zc",
+      "title": "MiniMax 评估内部模型逆向工程能力：200 万行 Rust 代码克隆闭源软件，虚拟化混淆还原率超 90%",
+      "originalTitle": "MiniMax Research：重新思考软件保护的新范式",
+      "summary": "MiniMax 对内部最智能模型做逆向工程能力评估，模型自主编排 2000 个子智能体会话、生成约 200 万行 Rust 代码，等价重构了一款知名二进制分析软件的主要功能，重编译的核心共享库可原位替换原版程序。",
+      "source": {
+        "name": "微信公众号 · MiniMax 稀宇科技"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/t07xfiu8rtnb529hfixagf7zc",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzE5MTA3NzcxMQ==&mid=2247489332&idx=1&sn=e12ee76871439190e92ae2a7232ba809&chksm=97d6fe488d8f89d645045d873c230e6e780d65df2acebd165bb5b95086f09f81b669b9f802f3&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-28T12:51:15.000Z",
+      "discoveredAt": "2026-11-28T15:03:19.853Z",
+      "category": "paper",
+      "score": 72,
+      "selected": true,
+      "reason": "原文给出内部模型克隆闭源二进制分析软件、还原虚拟化混淆样本的具体数据，适合做一次能力边界与安全护栏的解读。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/t07xfiu8rtnb529hfixagf7zc"
+      }
+    },
+    {
+      "id": "uns5v2ud0678cso18jdhqvrah",
+      "title": "用即梦Seedream 5.5加Seedance 2.5，一张商品图生成英语口播带货短视频",
+      "originalTitle": "跨境电商短视频AI生成工具即梦双模型绝了。🌍 即梦AI这套组合，做跨境电商视频真的很方便！一张商品实拍图，就能尝试生成带真人英语口播的产品广告！ 最近在研究跨境电商短视频AI生成工具推荐，发现即梦Seedream 5.5＋Seedance 2.5的组合很值得试试。 两个模型分工很明确👇 🎨 Seedream 5.5负责做图 上传真实商品图，就能调整背景、光影和使用场景，还支持精准改图、透明背景，方便制作不同营销素材。 🎬 Seedance 2.5负责做视频 让静态商品图动起来，支持人物动作、镜头运转、英语口播和音画协同。 这次尝试了两个10秒带货案例： ① 保温杯厨房口播 用Seedream 5.5生成欧美博主手持保温杯的厨房场景，再用Seedance 2.5加入英语介绍、开盖音效和背景音乐。 ② 女包街头穿搭 上传真实托特包图片，生成海外博主街头穿搭场景，再制作自然走动、展示包包和英语口播的短视频。 不用重新搭景拍摄，就能尝试制作适合TikTok、Instagram Reels的产品宣传素材！ 不过，正式商用前记得检查商品外观、Logo和英语口播是否准确。 做跨境电商、TikTok带货的朋友，可以去即梦AI体验一下！✨ #跨境电商短视频AI生成工具推荐 #即梦AI #Seedream5.5 #Seedance2.5 #AI视频生成",
+      "summary": "作者实测即梦Seedream 5.5与Seedance 2.5组合，用一张商品实拍图生成带真人英语口播的产品广告视频。Seedream 5.5负责做图，可调整背景、光影和使用场景，支持精准改图与透明背景；Seedance 2.5负责让静态商品图动起来，支持人物动作、镜头运转、英语口播和音画协同。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/uns5v2ud0678cso18jdhqvrah",
+        "original": "https://www.douyin.com/video/7713222212174237284"
+      },
+      "publishedAt": "2026-11-28T14:01:32.000Z",
+      "discoveredAt": "2026-11-28T14:50:21.268Z",
+      "category": "tip",
+      "score": 60,
+      "selected": true,
+      "reason": "作者用一张商品实拍图跑通即梦双模型做带货视频的完整流程，适合按两个10秒案例拆解从商品图到英语口播的实操步骤。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/uns5v2ud0678cso18jdhqvrah"
+      }
+    },
+    {
+      "id": "a7jtpan4lyvxgfnlkrqqx1why",
+      "title": "黎曼猜想的7.6万行Lean形式化证明通过MIT与滑铁卢大学独立验证",
+      "originalTitle": "最新：黎曼猜想证明通过独立验证！",
+      "summary": "黎曼猜想的7.6万行Lean形式化证明通过MIT和滑铁卢大学研究人员的独立验证，六种检查全部通过。滑铁卢大学794个模块全部编译成功并交由Lean内核复核，零拒绝；MIT在两台机器断网编译，各自导出约5.17GB证明文件且逐字节一致。",
+      "source": {
+        "name": "量子位"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/a7jtpan4lyvxgfnlkrqqx1why",
+        "original": "https://www.qbitai.com/2026/11/513484.html"
+      },
+      "publishedAt": "2026-11-28T12:42:37.000Z",
+      "discoveredAt": "2026-11-28T14:47:18.101Z",
+      "category": "paper",
+      "score": 88,
+      "selected": true,
+      "reason": "原文给出两组独立验证的完整流程和六种检查器结果，适合梳理从原版到7.6万行精简版的验证时间线。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/a7jtpan4lyvxgfnlkrqqx1why"
+      }
+    },
     {
       "id": "ei78s4dqqbjby2xoo7i87tmf9",
       "title": "用Claude证明黎曼猜想的数学家Levent Alpöge称收到致命威胁",
@@ -633,75 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/r7hnwmegiy776j1lotmh9xz2l"
       }
-    },
-    {
-      "id": "to07o2pk1frsbri19utrrysnt",
-      "title": "Charaspower 分享真人奇幻 VFX 视频的完整提示词",
-      "originalTitle": "This looks like the final boss fight of a movie that doesn't exist. 🌊🔥 I've been experimenting with live-action fantasy VFX, and this concept is absolutely MASSIVE. The kind of scene that makes you wish there were another 2 hours to watch. Full prompt below 👇 A fierce sea-born warrior queen (adult woman, deep teal hair, bronze skin, curvy athletic build, pearl-and-coral armor, trident charged with bioluminescent energy, wet skin and battle paint) surfs a towering wave into a harbor under attack by abyssal raiders, she skewers two armored invaders with one thrust, spins the trident to redirect harpoons, leaps onto the back of a giant sea beast breaching through a warship, runs along its spine while slicing through barnacle armor, then reaches the skull just as a colossal leviathan rises behind the docks and swallows the entire ship; she drives the trident into the sea beast’s head and calls up a spiraling vortex that becomes a translucent serpent made of living water and smashes into",
-      "summary": "Charaspower 在 X 上分享了一段真人奇幻 VFX 实验视频，并公开了生成该场景的完整提示词。提示词描述一位海生女战士冲入遭袭击的港口，用三叉戟刺穿入侵者、跃上海兽脊背，最终召唤水蛇击碎利维坦的下颌，并指定了 IMAX 式广角、水面跟拍、大规模流体模拟和钢蓝风暴光等视觉参数。",
-      "source": {
-        "name": "X · Charaspower"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/to07o2pk1frsbri19utrrysnt",
-        "original": "https://x.com/CharaspowerAI/status/2126345359630745977"
-      },
-      "publishedAt": "2026-11-27T16:00:13.000Z",
-      "discoveredAt": "2026-11-27T16:01:33.666Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者公开了一段真人奇幻 VFX 的完整提示词，配了成片视频，适合对照提示词拆解镜头调度和流体特效的写法。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/to07o2pk1frsbri19utrrysnt"
-      }
-    },
-    {
-      "id": "dkxuqv9me573fx8epeyixswa9",
-      "title": "用ChatGPT把外语菜单翻译成带图片和美元价格的图文菜单",
-      "originalTitle": "One of the craziest ChatGPT use cases ever 😳 Take a photo of any menu in another language. Upload it into ChatGPT with the prompt: “Translate this menu and make it visual. Show the prices in US dollars too.” Seconds later, ChatGPT will turn it into a full picture menu, with a photo of every dish and the prices in US dollars. Save this for your next trip. Follow for more AI. #chatgpt #chatgptusecase #chatgptprompts #ai #travel",
-      "summary": "作者分享一个ChatGPT用法：拍下外语菜单上传，输入提示词“Translate this menu and make it visual. Show the prices in US dollars too.”，约8秒后ChatGPT生成整份带每道菜图片和美元价格的图文菜单。视频口播称这是其见过最好的ChatGPT用法之一，并建议收藏用于下次旅行。",
-      "source": {
-        "name": "TikTok · 搜「chatgpt」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/dkxuqv9me573fx8epeyixswa9",
-        "original": "https://www.tiktok.com/@maverickgpt/video/7712262938232392990"
-      },
-      "publishedAt": "2026-11-25T23:59:13.000Z",
-      "discoveredAt": "2026-11-27T15:25:35.534Z",
-      "category": "tip",
-      "score": 60,
-      "selected": true,
-      "reason": "原文给出了完整提示词和8秒出图的实际效果，适合照着录屏实测外语菜单翻译加美元标价的玩法。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/dkxuqv9me573fx8epeyixswa9"
-      }
-    },
-    {
-      "id": "xx524eon5vskoquppkxn0uigx",
-      "title": "创作者用即梦AI制作小妹妹与大怪兽打斗AI漫剧",
-      "originalTitle": "这是一期小妹妹和大怪兽叔叔打打闹闹的故事。 #ai漫剧 #即梦AI #即梦电脑版还是太全面了 #一站式AI创作工作台 #高燃打斗 灵感来源@阿沐沐AI",
-      "summary": "创作者弦歌行gc发布一期AI漫剧，讲述小妹妹和大怪兽叔叔打打闹闹的故事，带高燃打斗场面，灵感来源标注为@阿沐沐AI。视频文案带上#即梦AI、#即梦电脑版还是太全面了、#一站式AI创作工作台 等标签，展示用即梦电脑版完成漫剧创作。",
-      "source": {
-        "name": "抖音 · 话题 #即梦AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/xx524eon5vskoquppkxn0uigx",
-        "original": "https://www.douyin.com/video/7712458107795934490"
-      },
-      "publishedAt": "2026-11-26T12:37:06.000Z",
-      "discoveredAt": "2026-11-27T14:45:35.046Z",
-      "category": null,
-      "score": 45,
-      "selected": true,
-      "reason": "作者用即梦电脑版做出一段小妹妹与大怪兽的高燃打斗漫剧，可拆解从灵感到成片的制作流程。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/xx524eon5vskoquppkxn0uigx"
-      }
     }
   ],
   "hotTopics": [
@@ -767,7 +767,7 @@
         "量子位",
         "公众号 · 硅星人Pro"
       ],
-      "latestAt": "2026-11-28T12:25:48.000Z"
+      "latestAt": "2026-11-28T12:42:37.000Z"
     },
     {
       "rank": 4,
@@ -857,27 +857,6 @@
     },
     {
       "rank": 8,
-      "id": "zzhdfuax9o0ecxkduwy154a11",
-      "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
-      "source": {
-        "name": "X · Tripo"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/zzhdfuax9o0ecxkduwy154a11",
-        "original": "https://x.com/tripoai/status/2125605443527409780",
-        "story": "https://aipick.news/story/59236f2d-9199-498c-b1d1-e4b5c7285b12"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "抖音 · 热点搜「Tripo H3.5 Preview」",
-        "X · Tripo"
-      ],
-      "latestAt": "2026-11-27T12:30:00.000Z"
-    },
-    {
-      "rank": 9,
       "id": "hjt6j074njrxk9kbx6dxq4m58",
       "title": "蚂蚁灵波开源 LingBot-Map 2.0 与 Navi 导航模型",
       "source": {
@@ -899,7 +878,7 @@
       "latestAt": "2026-11-27T07:01:20.000Z"
     },
     {
-      "rank": 10,
+      "rank": 9,
       "id": "cg4q318bmvm8ra8i0gdjl5klb",
       "title": "Higgsfield 黑五折扣说法多次变化，最高至75%",
       "source": {
@@ -918,6 +897,27 @@
         "X · Higgsfield"
       ],
       "latestAt": "2026-11-27T14:54:40.000Z"
+    },
+    {
+      "rank": 10,
+      "id": "hek7o2f64d2x9j66ntq5l4l47",
+      "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
+      "source": {
+        "name": "X · Ado Kukic"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/hek7o2f64d2x9j66ntq5l4l47",
+        "original": "https://x.com/adocomplete/status/2125999147719524580",
+        "story": "https://aipick.news/story/f4c28842-d519-4452-a3b4-59d247d0e7c1"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "X · Addy Osmani",
+        "X · Ado Kukic"
+      ],
+      "latestAt": "2026-11-26T19:26:08.000Z"
     }
   ],
   "unchanged": [],
