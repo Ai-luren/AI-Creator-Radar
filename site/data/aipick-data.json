@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T15:17:42+00:00",
-  "checkedAt": "2026-11-28T15:17:42+00:00",
+  "fetchedAt": "2026-11-28T15:56:11+00:00",
+  "checkedAt": "2026-11-28T15:56:11+00:00",
   "etags": {
-    "items": "W/\"v1-items-b66bda7bdb59ab58\"",
-    "hotTopics": "W/\"v1-hot-77ede68e9065ece9\""
+    "items": "W/\"v1-items-53b3bfd443b4387e\"",
+    "hotTopics": "W/\"v1-hot-14198b82e0a817bc\""
   },
   "items": [
+    {
+      "id": "cd81csfglu9xl7esvfcp63as3",
+      "title": "黎曼猜想7.6万行形式化证明通过MIT等机构独立验证",
+      "originalTitle": "黎曼猜想压缩成功！MIT全票通过：7.6万行紧凑证明无误",
+      "summary": "黎曼猜想的7.6万行紧凑版形式化证明通过MIT、滑铁卢大学等机构及6个独立验证内核的交叉验证，794个模块全部编译成功、零拒绝，端到端验证涉及206,292项形式化声明、耗时约2小时26分钟。",
+      "source": {
+        "name": "公众号 · 新智元"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/cd81csfglu9xl7esvfcp63as3",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745604&idx=1&sn=0ffd3b1acb07daa264aadcc2444e0999&chksm=f015cc47d252d5bcd392fa6b2586dc0599abe5005d2da5f4af74b89039d8a3c79e4c310b2c19&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-28T09:00:18.000Z",
+      "discoveredAt": "2026-11-28T15:53:21.871Z",
+      "category": "paper",
+      "score": 88,
+      "selected": true,
+      "reason": "原文给出从1740万行精简到7.6万行的前后对比和家用电脑1到2小时可跑完的细节，适合做一次精简前后验证耗时的对比实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/cd81csfglu9xl7esvfcp63as3"
+      }
+    },
     {
       "id": "t07xfiu8rtnb529hfixagf7zc",
       "title": "MiniMax 评估内部模型逆向工程能力：200 万行 Rust 代码克隆闭源软件，虚拟化混淆还原率超 90%",
@@ -543,6 +566,29 @@
       }
     },
     {
+      "id": "nd3wc5fr4td912um0lhrb0maq",
+      "title": "实测 2780 元的宝妈 AI 算力主机：屏幕算力是动画，收益靠平台返钱",
+      "originalTitle": "买了宝妈同款的创业主机后，我被人当傻子了。。。",
+      "summary": "差评 X.PIN 花 2780 元买回一台宝妈创业 AI 算力主机，拆机抓包和逆向预装 Go 程序后发现，设备并未运行任何大模型，屏幕上的 HASH、BLOCK 等滚动代码是按预设公式和随机数生成的动画。",
+      "source": {
+        "name": "公众号 · 差评X.PIN"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/nd3wc5fr4td912um0lhrb0maq",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654711169&idx=1&sn=7d23870800d8c8cde88d8c4c1ddb68d1&chksm=8a1ca8c4038f19c0e7e24c6ab19e73b1477eeff28a8c05b0bda305dcf30cb20cc2b21f65887d&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-27T15:20:33.000Z",
+      "discoveredAt": "2026-11-27T21:53:35.795Z",
+      "category": "industry",
+      "score": 64,
+      "selected": true,
+      "reason": "作者花 2780 元买回宝妈 AI 算力主机，拆机抓包逆向后发现屏幕算力是动画、收益靠平台返钱，适合做实测拆解加骗局复盘。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/nd3wc5fr4td912um0lhrb0maq"
+      }
+    },
+    {
       "id": "s6zqziz4rq5bgekdx1ezgto8g",
       "title": "Anthropic 发布 37 分钟免费 AI 智能体搭建教程",
       "originalTitle": "The engineers who built Claude just released a free 37-minute guide on building AI agents. It's a video from Anthropic that shows you how to build agents that actually work. You give them one big job, they split it into smaller tasks and run everything on their own. The video comes with English and Spanish subtitles. Follow for more AI news like this. #claude #aiagents #anthropic #ai #agents",
@@ -656,57 +702,33 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/rjyenkg3mn135921uf1fp1m0g"
       }
-    },
-    {
-      "id": "j8h0yai9yjoikj4j48bd70fhn",
-      "title": "实测对比 Gemini 4 四大元素模型与 Cursor、Claude Code、Codex CLI、Antigravity 四款工具",
-      "originalTitle": "Gemini 4 四大元素模型谁最香？Neon 反超 谷歌把 Gemini 4 拆成 Neon、Carbon、Argon、Hydrogen 四个化学元素，但最贵的未必最适合写 Remotion 代码视频！两分钟用真实定价与榜单数据，对比四大模型及 Cursor、Claude Code、Codex CLI、Google Antigravity 四款工具。本片全流程（真实网图拉取、克隆配音、动画代码与渲染）正是通过 Orchestrator + Gemini 4 Neon Extra High 制作完成。#Gemini4 #Remotion #AI编程 #科普视频制作 #Antigravity #AI工具对比 #neon",
-      "summary": "作者用真实定价和榜单数据对比 Gemini 4 的 Neon、Carbon、Argon、Hydrogen 四个分层模型，以及 Cursor、Claude Code、Codex CLI、Google Antigravity 四款编码工具。",
-      "source": {
-        "name": "抖音 · 热点搜「6B设计图像模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/j8h0yai9yjoikj4j48bd70fhn",
-        "original": "https://www.douyin.com/video/7712724094097149235"
-      },
-      "publishedAt": "2026-11-27T05:48:48.000Z",
-      "discoveredAt": "2026-11-27T16:09:34.819Z",
-      "category": "tip",
-      "score": 62,
-      "selected": true,
-      "reason": "作者用真实定价和榜单数据横评 Gemini 4 四个分层模型与四款编码工具，还自曝整条视频由 Orchestrator 加 Neon 制作，适合照着复现这套组合实测。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/j8h0yai9yjoikj4j48bd70fhn"
-      }
-    },
-    {
-      "id": "r7hnwmegiy776j1lotmh9xz2l",
-      "title": "专家解读AI画不出13个鸡蛋：文生图模型不逐个清点数量",
-      "originalTitle": "#专家解读AI画不出13个鸡蛋 四川省人工智能研究院技术转化部部长冷君宁：AI工具的文生图大模型，学的是海量图片里的风格、构图、物体排布，并不会像人一样逐个清点数量。而训练数据里，蛋托大多是12枚、15枚这类常规规格，13个属于非常规组合。#媒体原创",
-      "summary": "四川省人工智能研究院技术转化部部长冷君宁解读AI画不出13个鸡蛋，称文生图大模型学的是海量图片里的风格、构图和物体排布，不会像人一样逐个清点数量，训练数据中蛋托多为12枚、15枚等常规规格，13个属于非常规组合。记者用同一指令实测豆包、元宝、文心一言和千问，豆包首次画出15个、多次修改后数量仍不正确，元宝一次生成4张图无一正确，文心一言也未生成正确图片，只有千问一次性正确生成指定图片。",
-      "source": {
-        "name": "抖音 · 热点搜「6B设计图像模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/r7hnwmegiy776j1lotmh9xz2l",
-        "original": "https://www.douyin.com/video/7712689988596627698"
-      },
-      "publishedAt": "2026-11-27T03:36:15.000Z",
-      "discoveredAt": "2026-11-27T16:09:34.810Z",
-      "category": "opinion",
-      "score": 58,
-      "selected": true,
-      "reason": "记者用同一句指令实测豆包、元宝、文心一言和千问画13个鸡蛋，只有千问一次画对，可顺着专家解释讲清文生图为何数不准数。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/r7hnwmegiy776j1lotmh9xz2l"
-      }
     }
   ],
   "hotTopics": [
     {
       "rank": 1,
+      "id": "a8ch7qfq809afvld671n74qan",
+      "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
+      "source": {
+        "name": "抖音 · 热点搜「Claude Ship」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/a8ch7qfq809afvld671n74qan",
+        "original": "https://www.douyin.com/video/7711209260121591076",
+        "story": "https://aipick.news/story/4c790184-a881-40da-9a04-fa9997a5cc8c"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "量子位",
+        "公众号 · 新智元",
+        "公众号 · 硅星人Pro"
+      ],
+      "latestAt": "2026-11-28T12:42:37.000Z"
+    },
+    {
+      "rank": 2,
       "id": "kgvufyflrq3c0bgrhdx7e06d4",
       "title": "腾讯混元发布Hy3D 3.6并接入多平台",
       "source": {
@@ -728,7 +750,7 @@
       "latestAt": "2026-11-28T01:00:58.000Z"
     },
     {
-      "rank": 2,
+      "rank": 3,
       "id": "x9kn0v5d0naqm47jnxhfk14jg",
       "title": "Higgsfield 黑五套餐最高 75% OFF，Secret 计划年付 258 美元/月",
       "source": {
@@ -747,27 +769,6 @@
         "X · Higgsfield"
       ],
       "latestAt": "2026-11-27T20:55:51.000Z"
-    },
-    {
-      "rank": 3,
-      "id": "a8ch7qfq809afvld671n74qan",
-      "title": "Lean 社区认证 Alpöge 与 Claude 的黎曼猜想证明",
-      "source": {
-        "name": "抖音 · 热点搜「Claude Ship」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/a8ch7qfq809afvld671n74qan",
-        "original": "https://www.douyin.com/video/7711209260121591076",
-        "story": "https://aipick.news/story/4c790184-a881-40da-9a04-fa9997a5cc8c"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "量子位",
-        "公众号 · 硅星人Pro"
-      ],
-      "latestAt": "2026-11-28T12:42:37.000Z"
     },
     {
       "rank": 4,
@@ -793,27 +794,6 @@
     },
     {
       "rank": 5,
-      "id": "m86vuscd3760ndq7qzgn4s6jl",
-      "title": "Sand.ai发布MAGI-2视频模型：登顶I2V榜、0.5元/秒并计划开源",
-      "source": {
-        "name": "抖音 · 话题 #Seedance"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
-        "original": "https://www.douyin.com/video/7712158216540779377",
-        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "抖音 · 热点搜「MAGI-2 视频模型」",
-        "X · AIWarper"
-      ],
-      "latestAt": "2026-11-28T00:52:12.000Z"
-    },
-    {
-      "rank": 6,
       "id": "icm35onypxas5ucmkudxdifkj",
       "title": "蚂蚁开源6B设计图像模型，图层模型下周发布",
       "source": {
@@ -824,18 +804,17 @@
         "original": "https://www.douyin.com/video/7712668921219878153",
         "story": "https://aipick.news/story/a6719407-8433-4010-b508-83ed5a70422b"
       },
-      "sourceCount": 3,
+      "sourceCount": 2,
       "signalCount": 0,
-      "participantCount": 3,
+      "participantCount": 2,
       "sourceNames": [
         "抖音 · 热点搜「6B设计图像模型」",
-        "公众号 · 智东西",
-        "微信公众号 · 百灵大模型"
+        "公众号 · 智东西"
       ],
       "latestAt": "2026-11-27T16:41:21.000Z"
     },
     {
-      "rank": 7,
+      "rank": 6,
       "id": "cbhu8fz1dl8ttbucq9rqd6g7k",
       "title": "OpenAI反诉苹果窃取商业机密并阻挠供应商合作",
       "source": {
@@ -856,7 +835,7 @@
       "latestAt": "2026-11-28T01:08:25.000Z"
     },
     {
-      "rank": 8,
+      "rank": 7,
       "id": "hjt6j074njrxk9kbx6dxq4m58",
       "title": "蚂蚁灵波开源 LingBot-Map 2.0 与 Navi 导航模型",
       "source": {
@@ -878,7 +857,7 @@
       "latestAt": "2026-11-27T07:01:20.000Z"
     },
     {
-      "rank": 9,
+      "rank": 8,
       "id": "cg4q318bmvm8ra8i0gdjl5klb",
       "title": "Higgsfield 黑五折扣说法多次变化，最高至75%",
       "source": {
@@ -899,7 +878,7 @@
       "latestAt": "2026-11-27T14:54:40.000Z"
     },
     {
-      "rank": 10,
+      "rank": 9,
       "id": "hek7o2f64d2x9j66ntq5l4l47",
       "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
       "source": {
@@ -918,6 +897,27 @@
         "X · Ado Kukic"
       ],
       "latestAt": "2026-11-26T19:26:08.000Z"
+    },
+    {
+      "rank": 10,
+      "id": "dy4c01xbkqhpyduubgx4nahas",
+      "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
+      "source": {
+        "name": "公众号 · 新智元"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/dy4c01xbkqhpyduubgx4nahas",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745275&idx=2&sn=69a41c7c572e2e65dd5d255aeac62a87&chksm=f00abc5398e4de5b41b49f1ce2bdb06c0fd46d076d3ae047089e9066234f12f7538ee2d857b0&scene=126&sessionid=0#rd",
+        "story": "https://aipick.news/story/1bb5cece-a773-4345-8c46-9247af3d62ce"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "X · Bilawal Sidhu",
+        "X · Min Choi"
+      ],
+      "latestAt": "2026-11-26T20:15:27.000Z"
     }
   ],
   "unchanged": [],
