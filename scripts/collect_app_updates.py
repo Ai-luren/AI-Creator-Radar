@@ -186,6 +186,11 @@ def parse_product_surface(page,source):
                     continue
                 if re.search(r"教程|课程|视频课|电影节|展评|比赛|挑战赛|活动|直播|获奖|作品精选|用户案例|tutorial|course|contest|festival|webinar",label,re.I):
                     continue
+                # Explicit lifecycle notices are evidence of an announcement,
+                # never inferred from a missing model or banner.
+                if re.search(r"已下架|正式下架|即将下架|计划下架|停止服务|停止支持|不再提供|\b(?:will be retired|has been retired|is discontinued|will be discontinued|end of support)\b",label,re.I) and not re.search(r"是否|会不会|可能|风险|如果|传闻|\?|？",label,re.I):
+                    add(label,"首页官方通知",source["url"])
+                    continue
                 if (re.search(r"新增|上新|上线|接入|升级|更新|优化|支持|已开放|正式开放|全新|功能发布|独家首发|\bnew\b|(?<=[\u4e00-\u9fff])New$|\b(?:launch(?:ed)?|introducing|now supports|now available)\b",label,re.I)):
                     # Mixed promo and product headlines are retained only if the
                     # explicit feature/model clause can be separated cleanly.

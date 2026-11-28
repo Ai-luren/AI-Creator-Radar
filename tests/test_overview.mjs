@@ -983,3 +983,10 @@ test('recent App Store versions use the store date rather than observation time'
  const rows=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(app)+',[],{},Date.now()))'));
  assert.equal(rows.length,1);assert.equal(rows[0].brand,'即梦');assert.equal(rows[0].day,'2026-11-23');assert.equal(rows[0].kind,'客户端版本');assert.match(rows[0].proof,/非模型发布日期/);
 });
+
+test('explicit product lifecycle notice is not a launch or inferred withdrawal',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ assert.equal(run("competitorEventType('LibTV Seedance 2.0 模型即将下架')"),'下架 / 停服通知');
+ assert.equal(run("competitorEventType('LibTV 接入 MAGI-2')"),'模型接入');
+ assert.equal(run("competitorEventType('LibTV 模型下架风险实测')"),'实测 / 创作案例');
+});
