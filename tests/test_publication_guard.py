@@ -46,3 +46,18 @@ class PublicationGuardTests(unittest.TestCase):
     def test_invalid_expected_tree_is_fatal(self):
         with self.assertRaises(ValueError):
             status('bad', lambda *a, **kw: self.fail('must not request'))
+
+    def test_live_gate_requires_actual_matching_tree(self):
+        from datetime import datetime, timezone
+        from scripts.publication_guard import verify_live
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        for tree,expected in ((TREE,"pass"),("c"*40,"unverified")):
+            proof=verify_live(TREE,lambda *a,**kw: Response(json.dumps({"commit":COMMIT,"siteTree":tree}).encode()),now)
+            self.assertEqual(proof["gate"],expected)
+            self.assertEqual(proof["expectedSiteTree"],TREE)
+            self.assertEqual(proof["checkedAt"],now.isoformat())
+        def offline(*a,**kw):
+            raise URLError("offline")
+        proof=verify_live(TREE,offline,now)
+        self.assertEqual(proof["gate"],"unverified")
+        self.assertEqual(proof["status"],"unknown")

@@ -1,6 +1,8 @@
 """Compare the published site tree with the committed site, without credentials."""
 import argparse
+from datetime import datetime, timezone
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -48,12 +50,43 @@ def status(expected, opener=urlopen):
         return 'unknown'
 
 
+def verify_live(expected, opener=urlopen, now=None):
+    """Post-deploy proof of the exact site tree, not a self-certifying data audit."""
+    if not SHA.fullmatch(expected):
+        raise ValueError("Invalid expected site tree")
+    result = status(expected, opener)
+    return {"schema":"radar-live-publication/v1",
+            "checkedAt":(now or datetime.now(timezone.utc)).isoformat(),
+            "expectedSiteTree":expected,"status":result,
+            "gate":"pass" if result=="current" else "unverified",
+            "policy":"Marker matches the committed site tree; not proof of every asset or factual accuracy."}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--write-marker', action='store_true')
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--verify-live', action='store_true')
+    parser.add_argument('--summary', type=Path)
     args = parser.parse_args()
     current = revision()
+    if args.verify_live and args.write_marker:
+        parser.error('--verify-live and --write-marker are mutually exclusive')
+    if args.verify_live:
+        proof=verify_live(current['siteTree'])
+        proof.update(expectedCommit=current['commit'],runId=os.environ.get('GITHUB_RUN_ID'),
+                     runAttempt=os.environ.get('GITHUB_RUN_ATTEMPT'))
+        print('Live publication proof:',json.dumps(proof,sort_keys=True))
+        if args.summary:
+            with args.summary.open('a',encoding='utf-8') as stream:
+                stream.write('### Post-publication live marker\\n'+
+                             '- Status: '+proof['gate']+' ('+proof['status']+')\\n'+
+                             '- Checked: '+proof['checkedAt']+'\\n'+
+                             '- Expected site tree: '+proof['expectedSiteTree']+'\\n'+
+                             '- Expected commit: '+proof['expectedCommit']+'\\n')
+        if proof['gate']!='pass':
+            print('::warning::Live publication not verified; deployment API success alone is not acceptance.')
+        return
     if args.write_marker:
         (ROOT / 'site/deploy-revision.json').write_text(json.dumps(current) + '\n', encoding='utf-8')
         print('Publishing revision:', current['commit'], 'site tree:', current['siteTree'])

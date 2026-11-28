@@ -73,3 +73,10 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("publication_guard.py --write-marker", deploy)
         self.assertEqual(deploy.count("if: inputs.force || steps.publication.outputs.publication_status != 'current'"), 5)
         self.assertIn("force:", deploy)
+
+    def test_live_verification_is_after_deploy_and_not_a_new_writer(self):
+        text=(ROOT/".github/workflows/deploy-pages.yml").read_text()
+        self.assertLess(text.index("Deploy to GitHub Pages"),text.index("Verify publicly served site revision"))
+        self.assertIn('timeout 12s python scripts/publication_guard.py --verify-live --summary "$GITHUB_STEP_SUMMARY"',text)
+        self.assertIn("publication remains unverified",text)
+        self.assertNotIn("git push",text)
