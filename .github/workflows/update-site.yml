@@ -150,6 +150,15 @@ jobs:
           REVID_API_KEY: ${{ secrets.REVID_API_KEY }}
         run: python -m scripts.check_revid_auth
 
+      - name: Verify Revid cloud search and quota persistence
+        if: github.event_name == 'workflow_dispatch' && inputs.verify_revid == true
+        timeout-minutes: 2
+        continue-on-error: true
+        env:
+          REVID_API_KEY: ${{ secrets.REVID_API_KEY }}
+          RADAR_GITHUB_API_TOKEN: ${{ github.token }}
+        run: python -m scripts.check_revid_cloud
+
       - name: Collect resources and rankings in isolated transactions
         id: resources_batch
         continue-on-error: true
