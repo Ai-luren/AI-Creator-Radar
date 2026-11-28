@@ -682,3 +682,17 @@ test('model trace matches exact version references in reports without regex corr
  assert.equal(result.length,1);assert.deepEqual(result[0].brands,['LibTV']);
  assert.equal(run("productReadingTitle('Seedream 5.5 now supports 4K')"),'Seedream 5.5 支持 4K 输出');
 });
+
+test('vendor response status preserves evidence class and deduplicates exact original claims',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const out=JSON.parse(run("JSON.stringify([competitorResponseStatus([{kind:'模型接入',proof:'官方日志',day:'2026-11-24'}]),competitorResponseStatus([{kind:'模型接入 / 宣发',proof:'官网人工观察 · 非发布日期',day:'2026-11-28'}]),competitorResponseStatus([{kind:'模型接入',proof:'相关报道 · 非官方确认',day:'2026-11-27'}])])"));
+ assert.deepEqual(out.map(x=>x.label),['官方接入','官方宣发记录','相关报道']);
+ const rows=JSON.parse(run("JSON.stringify(competitorBriefRows({sources:[{id:'hf',vendor:'Higgsfield'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Higgsfield MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://higgsfield.ai/update'}]},[{item:{title:'Higgsfield MAGI-2',publishedAt:'2026-11-24T03:00:00Z',links:{original:'https://higgsfield.ai/update'}}}],{posts:[]},Date.now()))"));
+ assert.equal(rows.length,1);assert.equal(rows[0].proof,'官方日志');assert.equal(rows[0].alternates.length,1);
+});
+test('matrix dimension filter reduces rows without changing the full competitor set',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=matrix',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("competitorMatrixFocus='canvas';render()");
+ const out=node('content').innerHTML;assert.match(out,/Agentic Creative Canvas/);assert.match(out,/Renoise/);
+ assert.match(out,/value="canvas" selected/);assert.equal((out.match(/scope="row"/g)||[]).length,1);
+});
