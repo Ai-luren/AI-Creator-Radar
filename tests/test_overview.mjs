@@ -1040,3 +1040,13 @@ test('agent research charter keeps evaluation targets separate from tested produ
  const html=run('agentResearchCharterMarkup()');
  assert.match(html,/Renoise Agent/);assert.match(html,/人物三视图/);assert.match(html,/模型路由/);assert.match(html,/局部修改/);assert.match(html,/同素材、同约束/);assert.match(html,/无实测不宣称改进/);assert.match(html,/不是现有能力或已测效果/);
 });
+
+test('Agent task research turns recent creative evidence into test hypotheses without fabricated metrics',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const snapshot={releases:[],app:{sources:[{id:'lib',role:'competitor',vendor:'LibTV'}],events:[{sourceId:'lib',claimType:'first-party-plugin-release',featureName:'LibTV Codex 插件 1.1.0 · 新增 libtv-use 顶层通用创作与模型路由技能',publisherCalendarDay:'2026-11-27',sourceUrl:'https://github.com/liblib-ai/marketplace/commit/742d09d219629b74322226145d957734df9dd8a9'}]},batches:[{name:'AIPick',items:[{title:'用 MAGI-2 实操拆解多场景 AI 短片：23 个分镜怎么接',selected:true,publishedAt:'2026-11-27T12:09:33Z',links:{original:'https://www.douyin.com/video/7712779201556357745'}},{title:'用新模型制作产品广告视频',selected:true,publishedAt:'2026-11-27T12:09:33Z',links:{original:'https://example.org/ad'}},{title:'ChatGPT 会计产品 Agent',selected:true,publishedAt:'2026-11-27T12:09:33Z',links:{original:'https://example.org/accounting'}},{title:'产品广告优惠促销',selected:true,publishedAt:'2026-11-27T12:09:33Z',links:{original:'https://example.org/promo'}}]}]};
+ const arg=JSON.stringify(snapshot);
+ const rows=JSON.parse(run('JSON.stringify(agentTaskResearchRows('+arg+',Date.now()))'));
+ assert.deepEqual(rows.map(r=>r.id).sort(),['agent-workflow','product-ad','story']);assert.equal(rows.find(r=>r.id==='story').signalCount,1);
+ const out=run('agentTaskResearchMarkup('+arg+',Date.now())');assert.match(out,/待实测/);assert.match(out,/首次可用作品所需时间/);assert.match(out,/不填造指标值/);assert.doesNotMatch(out,/accounting|promo/);
+ assert.equal(run('agentTaskResearchMarkup({releases:[],app:{},batches:[]},Date.now())'),'');
+});
