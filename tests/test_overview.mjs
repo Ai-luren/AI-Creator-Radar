@@ -718,3 +718,14 @@ test('priority platform tracking includes official product responses without tre
  assert.ok(out.indexOf('<h2>LibTV</h2>')<out.indexOf('<h2>Flova</h2>'));
  assert.match(out,/1 家有相关证据/);assert.match(out,/重点平台尚无相关证据/);
 });
+
+test('model watch recognizes current public recommendations without inventing launch dates',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const app={sources:[{id:'libtv-home',vendor:'LibTV',url:'https://www.liblib.tv/',entries:{
+ a:{claimType:'first-party-product-surface',featureName:'MAGI-2独家首发',visibleInLatestRead:true,firstObservedAt:'2026-11-28T02:00:00Z',lastObservedAt:'2026-11-28T03:00:00Z'},
+ b:{claimType:'first-party-product-surface',featureName:'MAGI-20模型上新',visibleInLatestRead:true,lastObservedAt:'2026-11-28T03:00:00Z'},
+ c:{claimType:'first-party-product-surface',featureName:'MAGI-2模型上新',visibleInLatestRead:true,lastObservedAt:'2026-11-28T03:00:00Z',surfaceStage:'coming-soon'}}}],
+ targetedDiscovery:{queries:[{modelWatch:true,term:'MAGI-2',publisherCalendarDay:'2026-11-24'}]}};
+ const rows=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(app)+',[],{},Date.now()))'));
+ assert.equal(rows.length,1);assert.equal(rows[0].modelName,'MAGI-2');assert.equal(rows[0].proof,'官网可见 · 非发布日期');
+});
