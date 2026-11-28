@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T07:17:40+00:00",
+  "checkedAt": "2026-11-28T07:24:43+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -393,7 +393,7 @@
       "lastSuccessAt": "2026-11-28T07:17:40+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T13:17:40.338452+00:00",
       "role": "competitor",
@@ -407,7 +407,10 @@
         "readableLanes": [],
         "successfulProviders": 2,
         "policy": "Require both query and readable selected evidence; not exhaustive coverage."
-      }
+      },
+      "modelWatchGap": [
+        "Niji 8"
+      ]
     },
     {
       "id": "flova-changelog",
@@ -928,7 +931,11 @@
       "lastSuccessAt": "2026-11-28T06:49:40+00:00",
       "error": null,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T12:49:40.360992+00:00"
+      "nextAttemptAt": "2026-11-28T12:49:40.360992+00:00",
+      "modelWatchGap": [
+        "MAGI-2",
+        "Niji 8"
+      ]
     },
     {
       "id": "tapnow-changelog",
@@ -1089,7 +1096,8 @@
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T08:33:06.814427+00:00",
       "modelWatchGap": [
-        "MAGI-2"
+        "MAGI-2",
+        "Niji 8"
       ]
     },
     {
@@ -1315,7 +1323,10 @@
       "error": null,
       "deferred": true,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00"
+      "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00",
+      "modelWatchGap": [
+        "Niji 8"
+      ]
     },
     {
       "id": "libtv-home",
@@ -1498,7 +1509,8 @@
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00",
       "modelWatchGap": [
-        "MAGI-2"
+        "MAGI-2",
+        "Niji 8"
       ]
     },
     {
@@ -1577,7 +1589,7 @@
     },
     {
       "id": "oiioii-changelog-entry",
-      "name": "OiiOii · 官方产品入口",
+      "name": "OiiOii · 官方版本历史",
       "vendor": "OiiOii",
       "url": "https://www.oiioii.ai/zh/changelog",
       "links": [
@@ -1587,13 +1599,63 @@
           "access": "目录不等于发布日期"
         }
       ],
-      "type": "navigation-only",
+      "type": "dated-changelog",
       "role": "competitor",
-      "status": "navigation-only",
-      "entries": {},
-      "lastSuccessAt": null,
+      "status": "observed",
+      "entries": {
+        "edec9c4218c05277fa25496bd641a97ac864feca82d0ad7607384a253f80f166": {
+          "featureName": "多 Agent 流水线正式版",
+          "productVersion": "v5.0",
+          "publisherCalendarMonth": "2026-06",
+          "datePrecision": "month",
+          "updateType": "product-release",
+          "productArea": "平台版本",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-milestone",
+          "firstObservedAt": "2026-11-28T07:24:43+00:00",
+          "lastObservedAt": "2026-11-28T07:24:43+00:00",
+          "visibleInLatestRead": true
+        },
+        "58a0c4152f8a38266c558976ebc941ed1c4f825387a1e6e39d288c73b325c20d": {
+          "featureName": "角色一致性引擎",
+          "productVersion": "v4.5",
+          "publisherCalendarMonth": "2026-04",
+          "datePrecision": "month",
+          "updateType": "product-release",
+          "productArea": "平台版本",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-milestone",
+          "firstObservedAt": "2026-11-28T07:24:43+00:00",
+          "lastObservedAt": "2026-11-28T07:24:43+00:00",
+          "visibleInLatestRead": true
+        },
+        "3374304c00c9e0002f3f353285e722bd93d76ec357db6caa5b0583f7b556bd27": {
+          "featureName": "画布式镜头编辑器",
+          "productVersion": "v4.0",
+          "publisherCalendarMonth": "2026-02",
+          "datePrecision": "month",
+          "updateType": "product-release",
+          "productArea": "平台版本",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-milestone",
+          "firstObservedAt": "2026-11-28T07:24:43+00:00",
+          "lastObservedAt": "2026-11-28T07:24:43+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "lastSuccessAt": "2026-11-28T07:24:43+00:00",
       "error": null,
-      "deferred": true
+      "deferred": false,
+      "modelWatchGap": [
+        "MAGI-2",
+        "Niji 8"
+      ],
+      "checkedAt": "2026-11-28T07:24:43+00:00",
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-29T07:24:43.297116+00:00"
     },
     {
       "id": "oiioii-model-directory",
@@ -1610,7 +1672,8 @@
       "type": "product-surface",
       "role": "competitor",
       "modelWatchGap": [
-        "MAGI-2"
+        "MAGI-2",
+        "Niji 8"
       ],
       "aggregateCoverage": {
         "status": "aggregate-gap",
@@ -1877,7 +1940,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T07:17:40+00:00",
+    "checkedAt": "2026-11-28T07:24:43+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2120,8 +2183,8 @@
         "lastSuccessAt": "2026-11-28T00:17:51+00:00",
         "error": null,
         "nextAttemptAt": "2026-11-28T08:17:51.152051+00:00",
-        "priority": 20,
-        "intervalMinutes": 1440,
+        "priority": 4,
+        "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
@@ -2129,7 +2192,7 @@
         "label": "Flova",
         "term": "Flova",
         "provider": "AIPick",
-        "priority": 20,
+        "priority": 4,
         "lastAttemptAt": "2026-11-28T00:49:36+00:00",
         "counts": {
           "items": 0,
@@ -2147,7 +2210,7 @@
         "lastSuccessAt": "2026-11-28T00:49:36+00:00",
         "error": null,
         "nextAttemptAt": "2026-11-28T12:49:36.036028+00:00",
-        "intervalMinutes": 1440,
+        "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
@@ -2837,7 +2900,36 @@
         "modelFamilyId": "midjourney",
         "modelVersionId": "niji-8",
         "publisherCalendarDay": "2026-11-24",
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T07:24:43+00:00",
+        "counts": {
+          "items": 1,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 1,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "modelWatchBrandMentions": {
+            "Higgsfield": 0,
+            "LibTV": 0,
+            "TapNow": 0,
+            "OiiOii": 0,
+            "Flova": 0,
+            "小云雀": 0,
+            "Pippit": 0,
+            "即梦": 0,
+            "Dreamina": 0,
+            "Gemini": 0
+          }
+        },
+        "countsObservedAt": "2026-11-28T07:24:43+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-8d5d04d46bfacefb\"",
+        "lastSuccessAt": "2026-11-28T07:24:43+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T13:24:43.297116+00:00"
       },
       {
         "id": "model-watch-74fe8f5670051bef5bfd-aipick",
@@ -2850,30 +2942,59 @@
         "modelFamilyId": "midjourney",
         "modelVersionId": "niji-8",
         "publisherCalendarDay": "2026-11-24",
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T07:24:43+00:00",
+        "counts": {
+          "items": 2,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 2,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "modelWatchBrandMentions": {
+            "Higgsfield": 0,
+            "LibTV": 0,
+            "TapNow": 0,
+            "OiiOii": 0,
+            "Flova": 0,
+            "小云雀": 0,
+            "Pippit": 0,
+            "即梦": 0,
+            "Dreamina": 0,
+            "Gemini": 0
+          }
+        },
+        "countsObservedAt": "2026-11-28T07:24:43+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-f5d5cf61ea1be5a9\"",
+        "lastSuccessAt": "2026-11-28T07:24:43+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T13:24:43.297116+00:00"
       }
     ],
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T06:55:38+00:00",
-      "nextAttemptAt": "2026-11-28T07:20:38.216486+00:00"
+      "lastSuccessAt": "2026-11-28T07:24:43+00:00",
+      "nextAttemptAt": "2026-11-28T07:49:43.297116+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T06:55:38+00:00",
-        "nextAttemptAt": "2026-11-28T07:20:38.216486+00:00"
+        "lastSuccessAt": "2026-11-28T07:24:43+00:00",
+        "nextAttemptAt": "2026-11-28T07:49:43.297116+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T06:55:38+00:00",
-        "nextAttemptAt": "2026-11-28T07:20:38.216486+00:00"
+        "lastSuccessAt": "2026-11-28T07:24:43+00:00",
+        "nextAttemptAt": "2026-11-28T07:49:43.297116+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -2948,6 +3069,57 @@
     }
   ],
   "events": [
+    {
+      "id": "9896c275fa20b29113c2f2910709cbf2ff937cadcae87e46550ef34f406bcd02",
+      "sourceId": "oiioii-changelog-entry",
+      "sourceUrl": "https://www.oiioii.ai/zh/changelog",
+      "kind": "baseline-product-milestone",
+      "observedAt": "2026-11-28T07:24:43+00:00",
+      "releaseDate": null,
+      "featureName": "多 Agent 流水线正式版",
+      "productVersion": "v5.0",
+      "publisherCalendarMonth": "2026-06",
+      "datePrecision": "month",
+      "updateType": "product-release",
+      "productArea": "平台版本",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-milestone"
+    },
+    {
+      "id": "7dbf287e0e5fd407a33d0366c51a8d924c2a106a7f8168734d4fddf3a76a51f4",
+      "sourceId": "oiioii-changelog-entry",
+      "sourceUrl": "https://www.oiioii.ai/zh/changelog",
+      "kind": "baseline-product-milestone",
+      "observedAt": "2026-11-28T07:24:43+00:00",
+      "releaseDate": null,
+      "featureName": "角色一致性引擎",
+      "productVersion": "v4.5",
+      "publisherCalendarMonth": "2026-04",
+      "datePrecision": "month",
+      "updateType": "product-release",
+      "productArea": "平台版本",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-milestone"
+    },
+    {
+      "id": "5af61f8a5154e10833fcf2e5cc298bb8cbc7375e7c4ca7e8a8580b9b438147ab",
+      "sourceId": "oiioii-changelog-entry",
+      "sourceUrl": "https://www.oiioii.ai/zh/changelog",
+      "kind": "baseline-product-milestone",
+      "observedAt": "2026-11-28T07:24:43+00:00",
+      "releaseDate": null,
+      "featureName": "画布式镜头编辑器",
+      "productVersion": "v4.0",
+      "publisherCalendarMonth": "2026-02",
+      "datePrecision": "month",
+      "updateType": "product-release",
+      "productArea": "平台版本",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-milestone"
+    },
     {
       "id": "fa6b2e5d314d9aec6b507c07cb9a12f848f2ffdc6fb4d8fb0dfe1847a7810fcf",
       "sourceId": "oiioii-model-directory",
@@ -4837,13 +5009,13 @@
   "summary": {
     "configuredSources": 14,
     "successfulThisRun": 1,
-    "baselineSources": 7,
+    "baselineSources": 8,
     "listedModels": 0,
     "reviewedObservations": 5
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T07:17:45+00:00",
+    "checkedAt": "2026-11-28T07:24:54+00:00",
     "window": "7d",
     "sources": [
       {
