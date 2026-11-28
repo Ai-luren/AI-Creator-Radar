@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T12:17:40+00:00",
-  "checkedAt": "2026-11-28T12:17:40+00:00",
+  "fetchedAt": "2026-11-28T13:02:41+00:00",
+  "checkedAt": "2026-11-28T13:02:41+00:00",
   "etags": {
-    "items": "W/\"v1-items-bc089c6a8ee8cd62\"",
-    "hotTopics": "W/\"v1-hot-3612a1651f172543\""
+    "items": "W/\"v1-items-7e23c5c1dc2a0c65\"",
+    "hotTopics": "W/\"v1-hot-9770d706481b1003\""
   },
   "items": [
+    {
+      "id": "fz343su795ai24hmikh31iixv",
+      "title": "实测 MAGI2 视频模型：价格约为 CDS 2.5 的 1/10，电商视频效果够用",
+      "originalTitle": "MAGI2 可以冲 做ai 视频的电商人 #magi2 #ai带货视频 #ai视频 #视频带货 #ai电商",
+      "summary": "作者实测新出的 AI 视频模型 MAGI2，认为其价格只要 CDS 2.5 的 1/10，所有电商视频场景已经够用，且视频、图片都能作为参考。用同一组产品提示词对比，MAGI2 的效果明显好于 CDS 2.5 Flash，作者也认为这一轮 MAGI2 比 CDS 2.5 更好。综合实用性与成本，作者称 MAGI2 是目前最适合拿来做生产的视频模型。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/fz343su795ai24hmikh31iixv",
+        "original": "https://www.douyin.com/video/7712849717843572666"
+      },
+      "publishedAt": "2026-11-27T13:56:04.000Z",
+      "discoveredAt": "2026-11-28T12:22:20.178Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用同一组产品提示词对比 MG2 与 CDS 2.5、2.5 Flash 的生成结果，并给出价格约为 2.5 的 1/10，适合做同题实测对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/fz343su795ai24hmikh31iixv"
+      }
+    },
     {
       "id": "q01xhbh5d8oiv1vmh9bxghyy1",
       "title": "Anthropic 两周内上线 10 项 Claude 更新，含 MCP 2.0 与 Code Mode",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/jqgfpdf2cpqznyenhvwvl3nrf"
       }
-    },
-    {
-      "id": "egxw9i3127xvq7r83hp4oguxh",
-      "title": "RGB Mocap 开源工具可将单段视频转为 3D 动画，支持 Blender 与 Unreal Engine",
-      "originalTitle": "RGB Mocap turns one video into 3D animation with free, open-source AI for Blender and Unreal Engine. #AI #MotionCapture #Blender #UnrealEngine",
-      "summary": "RGB Mocap 是一款免费开源 AI 工具，能把一段普通视频转成可直接用于 Blender 或 Unreal Engine 的 3D 动画。它支持脚部锁定防滑、手指追踪和同画面多人捕捉，还能把动画套到现成 3D 角色上。工具在本地 NVIDIA GPU 上运行，安装时可将 GitHub 链接交给 Claude 或 ChatGPT 完成，模型通过内置模型管理器下载。",
-      "source": {
-        "name": "TikTok · ai.with.andrew"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/egxw9i3127xvq7r83hp4oguxh",
-        "original": "https://www.tiktok.com/@ai.with.andrew/video/7712774093757566229"
-      },
-      "publishedAt": "2026-11-27T09:02:42.000Z",
-      "discoveredAt": "2026-11-27T13:31:33.583Z",
-      "category": "ai-products",
-      "score": 75,
-      "selected": true,
-      "reason": "原文给出免费开源入口和单视频转 3D 动画的完整流程，适合录屏实测从一段视频到 Blender 或 Unreal Engine 的落地效果。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/egxw9i3127xvq7r83hp4oguxh"
-      }
     }
   ],
   "hotTopics": [
@@ -816,28 +816,6 @@
     },
     {
       "rank": 6,
-      "id": "zzhdfuax9o0ecxkduwy154a11",
-      "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
-      "source": {
-        "name": "X · Tripo"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/zzhdfuax9o0ecxkduwy154a11",
-        "original": "https://x.com/tripoai/status/2125605443527409780",
-        "story": "https://aipick.news/story/59236f2d-9199-498c-b1d1-e4b5c7285b12"
-      },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "抖音 · 热点搜「Tripo H3.5 Preview」",
-        "X · Tripo",
-        "量子位"
-      ],
-      "latestAt": "2026-11-27T12:30:00.000Z"
-    },
-    {
-      "rank": 7,
       "id": "cbhu8fz1dl8ttbucq9rqd6g7k",
       "title": "OpenAI反诉苹果窃取商业机密并阻挠供应商合作",
       "source": {
@@ -856,6 +834,27 @@
         "The Decoder"
       ],
       "latestAt": "2026-11-28T01:08:25.000Z"
+    },
+    {
+      "rank": 7,
+      "id": "zzhdfuax9o0ecxkduwy154a11",
+      "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
+      "source": {
+        "name": "X · Tripo"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/zzhdfuax9o0ecxkduwy154a11",
+        "original": "https://x.com/tripoai/status/2125605443527409780",
+        "story": "https://aipick.news/story/59236f2d-9199-498c-b1d1-e4b5c7285b12"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "抖音 · 热点搜「Tripo H3.5 Preview」",
+        "X · Tripo"
+      ],
+      "latestAt": "2026-11-27T12:30:00.000Z"
     },
     {
       "rank": 8,
@@ -922,8 +921,6 @@
       "latestAt": "2026-11-26T19:26:08.000Z"
     }
   ],
-  "unchanged": [
-    "items"
-  ],
+  "unchanged": [],
   "errors": []
 }
