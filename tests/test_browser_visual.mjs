@@ -171,7 +171,7 @@ try{
    await page.goto(base+'?view=feeds&briefing=competitors',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.locator('.competitor-brand-section').count(),8);
    assert.equal(await page.locator('.vendor-model details[open]').count(),0);
-   assert.equal(await page.locator('.vendor-grid').count(),1);
+   assert.equal(await page.locator('.vendor-grid').count(),2);
    assert.equal(await page.locator('[data-briefing="competitors"]').getAttribute('aria-pressed'),'true');
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'vendor briefing horizontal overflow');
    await page.screenshot({path:path.join(out,label+'-vendor-briefing.png'),animations:'disabled'});
