@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T03:29:22+00:00",
-  "checkedAt": "2026-11-28T03:29:22+00:00",
+  "fetchedAt": "2026-11-28T04:02:42+00:00",
+  "checkedAt": "2026-11-28T04:02:42+00:00",
   "etags": {
-    "items": "W/\"v1-items-a8ba718abac5c46f\"",
-    "hotTopics": "W/\"v1-hot-ea36be85a16ba415\""
+    "items": "W/\"v1-items-fce315389b221dae\"",
+    "hotTopics": "W/\"v1-hot-6ff3eb6f4522e3d5\""
   },
   "items": [
+    {
+      "id": "whmqyu8s4d1cuobxq49b78bdc",
+      "title": "数学家沈钰谈AI证明黎曼猜想：从崩溃到重新看待数学",
+      "originalTitle": "一个人类数学家的崩溃时刻",
+      "summary": "Anthropic数学家莱文特·阿尔波格与Claude合作宣称证明黎曼猜想及广义黎曼猜想，Lean与Mathlib社区随后确认证明通过形式化验证。佛罗里达州立大学博士后沈钰在访谈中讲述自己的震惊与焦虑，也提到这份证明最初有1700多万行代码，经Claude重写后精简到约7.6万行。他认为突破性思路来自莱文特本人，把功劳全归给AI是错误的，同时担忧强模型集中在少数不开源公司手中。",
+      "source": {
+        "name": "公众号 · 硅星人Pro"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/whmqyu8s4d1cuobxq49b78bdc",
+        "original": "http://mp.weixin.qq.com/s?__biz=MzkyNjU2ODM2NQ==&mid=2247635941&idx=2&sn=d07ed8658a28c382f58555670792f1ba&chksm=c3e9673bf47d7e51de9dbe3c7b2c4427bee858c21c9f205eb78ba585d79460e70290fcadbe9d&scene=126&sessionid=0#rd"
+      },
+      "publishedAt": "2026-11-28T03:19:15.000Z",
+      "discoveredAt": "2026-11-28T03:51:50.911Z",
+      "category": "opinion",
+      "score": 88,
+      "selected": true,
+      "reason": "从一位数学博士后的情绪崩溃切入，用他三天发20条视频的反应和访谈原话，讲AI证明黎曼猜想后数学家的复杂心态。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/whmqyu8s4d1cuobxq49b78bdc"
+      }
+    },
     {
       "id": "x9eue4zjmo8940lmaijv62iae",
       "title": "ChatGPT 推出会计产品，会计硕士拍视频吐槽自己失业",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/p56ej4p8o4f8a5pz8nfjcy6y8"
       }
-    },
-    {
-      "id": "uo4rnc08wzwv2tu9qpst2nq8c",
-      "title": "网友用未发布的 Claude Opus 5.6 纯代码做出交互式 PPT 和动画",
-      "originalTitle": "Claude Opus 5.6 做出了史上最牛的 PPT，直接杀死比赛？",
-      "summary": "APPSO 汇总了网友在 Opus 5.5 中意外体验到的 Claude Opus 5.6 案例，其中一段提示词在 42 分钟后生成了可交互的代码 PPT《The Last Boring Slide》，在 X 上获得千万次浏览。",
-      "source": {
-        "name": "公众号 · APPSO"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/uo4rnc08wzwv2tu9qpst2nq8c",
-        "original": "http://mp.weixin.qq.com/s?__biz=MjM5MjAyNDUyMA==&mid=2651118714&idx=1&sn=12b43ead22503cd01f6cf1648f1f553b&chksm=bca1f23f1758ae390c169469b68c8de5257ffa34dc4858856d25a292fde4877a322b6bb4e6b5&scene=126&sessionid=0#rd"
-      },
-      "publishedAt": "2026-11-27T09:02:43.000Z",
-      "discoveredAt": "2026-11-27T09:51:39.782Z",
-      "category": "industry",
-      "score": 80,
-      "selected": true,
-      "reason": "原文汇集多个网友用未发布的 Claude Opus 5.6 纯代码生成 PPT、动画和 3D 场景的案例，适合做效果合集盘点并对比 Opus 5.5。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/uo4rnc08wzwv2tu9qpst2nq8c"
-      }
     }
   ],
   "hotTopics": [
@@ -839,6 +839,27 @@
     },
     {
       "rank": 7,
+      "id": "cbhu8fz1dl8ttbucq9rqd6g7k",
+      "title": "OpenAI反诉苹果窃取商业机密并阻挠供应商合作",
+      "source": {
+        "name": "The Decoder"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/cbhu8fz1dl8ttbucq9rqd6g7k",
+        "original": "https://the-decoder.com/openai-countersues-apple-over-trade-secret-theft-and-alleged-coercion-of-shared-suppliers/",
+        "story": "https://aipick.news/story/6d81b7fe-15e8-4e27-a721-f5143b220f3f"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "公众号 · 智东西",
+        "The Decoder"
+      ],
+      "latestAt": "2026-11-28T01:08:25.000Z"
+    },
+    {
+      "rank": 8,
       "id": "hjt6j074njrxk9kbx6dxq4m58",
       "title": "蚂蚁灵波开源 LingBot-Map 2.0 与 Navi 导航模型",
       "source": {
@@ -860,7 +881,7 @@
       "latestAt": "2026-11-27T07:01:20.000Z"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "id": "cg4q318bmvm8ra8i0gdjl5klb",
       "title": "Higgsfield 黑五折扣说法多次变化，最高至75%",
       "source": {
@@ -881,7 +902,7 @@
       "latestAt": "2026-11-27T14:54:40.000Z"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "id": "dy4c01xbkqhpyduubgx4nahas",
       "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
       "source": {
@@ -901,27 +922,6 @@
         "公众号 · 新智元"
       ],
       "latestAt": "2026-11-26T20:15:27.000Z"
-    },
-    {
-      "rank": 10,
-      "id": "hek7o2f64d2x9j66ntq5l4l47",
-      "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
-      "source": {
-        "name": "X · Ado Kukic"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/hek7o2f64d2x9j66ntq5l4l47",
-        "original": "https://x.com/adocomplete/status/2125999147719524580",
-        "story": "https://aipick.news/story/f4c28842-d519-4452-a3b4-59d247d0e7c1"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "X · Addy Osmani",
-        "X · Ado Kukic"
-      ],
-      "latestAt": "2026-11-26T19:26:08.000Z"
     }
   ],
   "unchanged": [],

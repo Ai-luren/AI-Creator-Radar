@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T03:49:08+00:00",
+  "checkedAt": "2026-11-28T04:02:49+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1106,7 +1106,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T03:49:08+00:00",
+    "checkedAt": "2026-11-28T04:02:49+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1528,7 +1528,24 @@
         "label": "Liblib",
         "term": "Liblib",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T04:02:49+00:00",
+        "counts": {
+          "items": 2,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 2,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 2,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T04:02:49+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-6fef2504f35f6b97\"",
+        "lastSuccessAt": "2026-11-28T04:02:49+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T16:02:49.767367+00:00"
       },
       {
         "id": "minimax-aihot",
@@ -1660,7 +1677,24 @@
         "term": "即梦",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T04:02:49+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T04:02:49+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-47094f95f53fd23d\"",
+        "lastSuccessAt": "2026-11-28T04:02:49+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T16:02:49.767367+00:00"
       },
       {
         "id": "jimeng-seedaudio-aihot",
@@ -1730,24 +1764,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T03:29:53+00:00",
-      "nextAttemptAt": "2026-11-28T03:54:53.118219+00:00"
+      "lastSuccessAt": "2026-11-28T04:02:49+00:00",
+      "nextAttemptAt": "2026-11-28T04:27:49.767367+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T03:29:53+00:00",
-        "nextAttemptAt": "2026-11-28T03:54:53.118219+00:00"
+        "lastSuccessAt": "2026-11-28T04:02:49+00:00",
+        "nextAttemptAt": "2026-11-28T04:27:49.767367+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T03:29:53+00:00",
-        "nextAttemptAt": "2026-11-28T03:54:53.118219+00:00"
+        "lastSuccessAt": "2026-11-28T04:02:49+00:00",
+        "nextAttemptAt": "2026-11-28T04:27:49.767367+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -2955,7 +2989,7 @@
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T03:49:12+00:00",
+    "checkedAt": "2026-11-28T04:02:54+00:00",
     "window": "7d",
     "sources": [
       {
@@ -2968,7 +3002,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T03:29:22+00:00",
+        "fetchedAt": "2026-11-28T04:02:42+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -3101,7 +3135,7 @@
           "AIHOT",
           "AIPick"
         ],
-        "hotSourceMentionCount": 8,
+        "hotSourceMentionCount": 6,
         "status": "original-observed"
       },
       {

@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T03:49:06+00:00",
+  "checkedAt": "2026-11-28T04:02:47+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T01:46:48+00:00",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
@@ -16,11 +16,11 @@
     "nextAttemptAt": "2026-11-28T04:19:06.165020+00:00"
   },
   "aipickService": {
-    "lastAttemptAt": "2026-11-28T03:29:50+00:00",
-    "lastSuccessAt": "2026-11-28T03:29:50+00:00",
+    "lastAttemptAt": "2026-11-28T04:02:47+00:00",
+    "lastSuccessAt": "2026-11-28T04:02:47+00:00",
     "error": null,
     "consecutiveFailures": 0,
-    "nextAttemptAt": "2026-11-28T03:59:50.288214+00:00"
+    "nextAttemptAt": "2026-11-28T04:32:47.538487+00:00"
   },
   "targets": [
     {
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -164,7 +164,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -376,7 +376,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -508,7 +508,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -611,7 +611,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -964,7 +964,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -993,7 +993,12 @@
       "aihotETag": "W/\"v1-items-d6dbe8e2ff08aba0\"",
       "aihotLastSuccessAt": "2026-11-28T00:49:31+00:00",
       "aihotStatus": "no-matching-index-results",
-      "aihotNextAttemptAt": "2026-11-29T00:49:31.828767+00:00"
+      "aihotNextAttemptAt": "2026-11-29T00:49:31.828767+00:00",
+      "aipickLastAttemptAt": "2026-11-28T04:02:47+00:00",
+      "aipickETag": "W/\"v1-items-90406a0307ef0c0e\"",
+      "aipickLastSuccessAt": "2026-11-28T04:02:47+00:00",
+      "aipickStatus": "no-matching-index-results",
+      "aipickNextAttemptAt": "2026-11-29T04:02:47.538487+00:00"
     },
     {
       "id": "a3a020c6c27bd085d4e65b2e382d78cc1a07153657220bbced98411fbff7c670",
@@ -1176,7 +1181,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1269,7 +1274,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T03:49:04+00:00",
+          "lastObservedAt": "2026-11-28T04:02:45+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1299,17 +1304,17 @@
       "index-unavailable": 4,
       "no-matching-index-results": 1
     },
-    "broadDeferredForAggregators": 7,
+    "broadDeferredForAggregators": 6,
     "broadDeadlineSeconds": 8,
     "targetsWithLocalContext": 15,
     "localContextRecords": 73,
     "officialCandidates": 0,
     "indexReports": 0,
-    "aipickAttemptedThisRun": 0,
-    "aipickLastSuccessAt": "2026-11-28T03:29:50+00:00",
+    "aipickAttemptedThisRun": 1,
+    "aipickLastSuccessAt": "2026-11-28T04:02:47+00:00",
     "aipickError": null,
     "aipickPointers": 0,
-    "aihotAttemptedThisRun": 1,
+    "aihotAttemptedThisRun": 0,
     "aihotLastSuccessAt": "2026-11-28T03:49:06+00:00",
     "aihotError": null,
     "aihotPointers": 0,
