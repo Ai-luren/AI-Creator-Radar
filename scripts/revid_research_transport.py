@@ -5,6 +5,7 @@ import urllib.request
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urlencode
 from scripts.revid_research_core import personal_candidates
+from scripts.revid_creative_triage import classify, group_topics
 
 ENDPOINT = "https://www.revid.ai/api/public/v3/search-viral-videos"
 MAX_BYTES = 4 * 1024 * 1024
@@ -15,7 +16,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
-def search(query, key, reserve, *, now=None, opener=None):
+def search(query, key, reserve, *, now=None, opener=None, creative_only=False):
     """Reserve a durable quota slot via caller before I/O; no automatic retry.
 
     The caller must honor rate-limited status across runs. Raw content stays
@@ -44,7 +45,21 @@ def search(query, key, reserve, *, now=None, opener=None):
         data = json.loads(raw)
         if not isinstance(data, dict) or data.get("success") != 1 or not isinstance(data.get("videos"), list):
             raise ValueError("unexpected schema")
-        return {"status": "ok", "candidates": personal_candidates(data["videos"][:12], now)}
+        rows = data["videos"][:12]
+        if not creative_only:
+            return {"status": "ok", "candidates": personal_candidates(rows, now)}
+        accepted = {}
+        for row in rows:
+            labels = classify(row)
+            if not labels:
+                continue
+            for candidate in personal_candidates([row], now):
+                if candidate["views"] < 10000:
+                    continue
+                candidate["creativeTopics"] = list(labels)
+                accepted.setdefault(candidate["url"], candidate)
+        candidates = list(accepted.values())
+        return {"status": "ok", "candidates": candidates, "topics": group_topics(candidates)}
     except urllib.error.HTTPError as exc:
         if exc.code == 429:
             return {"status": "rate-limited", "candidates": []}
