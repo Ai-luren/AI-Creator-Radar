@@ -429,7 +429,7 @@ test('AIHOT unchanged content keeps download date but uses successful validation
 
 // The retired broad-news snapshot must not affect current briefing availability.
 test('briefings load only the three current snapshots and never request retired news',async()=>{
- const {run,node,requested}=setup({query:'?view=feeds',fail:['news-today.json']});
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=combined',fail:['news-today.json']});
  await run('loadData()');
  assert.deepEqual([...requested].sort(),['aihot-daily.json','aihot-items.json','juya-daily.json']);
  assert.doesNotMatch(node('content').innerHTML,/部分数据未加载/);
@@ -663,4 +663,15 @@ test('creative case relevance retains model comparison and verb-first generation
  {title:'某平台视频模型正式上线',category:'ai-products'}
  ];
  assert.deepEqual(JSON.parse(run('JSON.stringify('+JSON.stringify(items)+'.map(innovationCreativeCase))')),[true,true,false,false,false]);
+});
+
+test('vendor-first briefing groups actual product updates and cross-platform model adoption without inventing launch dates',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ assert.ok(requested.includes('model-releases-30d.json'));assert.ok(requested.includes('social-accounts.json'));
+ run("state.appUpdates={sources:[{id:'hf',vendor:'Higgsfield',role:'competitor'},{id:'lib',vendor:'LibTV',role:'competitor'},{id:'flova',vendor:'Flova',role:'competitor'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://higgsfield.ai/creator-hub/changelog'},{sourceId:'flova',claimType:'first-party-product-changelog',featureName:'Audio track separation',publisherCalendarDay:'2026-11-24',sourceUrl:'https://www.flova.ai/en/docs/changelog/'}],reviewedObservations:[{sourceId:'lib',brand:'LibTV',title:'MAGI-2 官网宣传',modelName:'MAGI-2',kind:'模型接入 / 宣发',observedOn:'2026-11-28',releaseDate:null,sourceUrl:'https://www.liblib.tv/'}]};state.modelReleases=[{modelName:'MAGI-2',vendor:'Sand.ai',publishedAt:'2026-11-24',modelFamilyId:'magi',modelVersionId:'v2',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'}];state.aihot.items=[];state.aipick={items:[]};state.social={posts:[],brands:[]};render()");
+ const out=node('content').innerHTML;
+ assert.match(out,/重点模型 · 各平台接入与宣发/);assert.match(out,/2 家有相关证据/);assert.match(out,/Audio track separation/);assert.match(out,/官网人工观察 · 非发布日期/);assert.match(out,/TapNow/);assert.match(out,/Updream/);assert.doesNotMatch(out,/data-creator-brand="Lovart"/);
+ assert.ok(out.indexOf('近7天厂商动态')<out.indexOf('数据与信源诊断'));
+ const rows=JSON.parse(run("JSON.stringify(competitorBriefRows(state.appUpdates,[],state.social,Date.now()))"));
+ assert.equal(rows.find(x=>x.brand==='LibTV').proof,'官网人工观察 · 非发布日期');
 });
