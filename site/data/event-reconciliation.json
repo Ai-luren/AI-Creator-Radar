@@ -1,9 +1,9 @@
 {
   "schema": "event-reconciliation/v1",
-  "checkedAt": "2026-11-28T05:47:50+00:00",
+  "checkedAt": "2026-11-28T06:02:47+00:00",
   "inputObservations": {
-    "discovery": "2026-11-28T05:47:44+00:00",
-    "resolution": "2026-11-28T05:47:48+00:00"
+    "discovery": "2026-11-28T06:02:40+00:00",
+    "resolution": "2026-11-28T06:02:44+00:00"
   },
   "evidence": [
     {
@@ -4208,7 +4208,7 @@
       "titles": [
         "Grok Voice 3.0"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://x.ai/news/grok-voice-3"
       ],
@@ -4235,7 +4235,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-2"
       ],
@@ -4262,7 +4262,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4513,7 +4513,7 @@
         "Gemini 4 Hydrogen",
         "Gemini 4 Hydrogen — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
       ],
@@ -4575,7 +4575,7 @@
       "titles": [
         "GPT-Live-1.1 — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -4637,7 +4637,7 @@
         "GLM-5.4",
         "Z.ai launches GLM-5.4"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://docs.z.ai/guides/llm/glm-5.4",
         "https://z.ai/blog/glm-5.4"
@@ -4811,7 +4811,7 @@
       "titles": [
         "Expanding our partnership with GSA to bring Claude to all levels of government"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/expanding-partnership-gsa"
       ],
@@ -4921,7 +4921,7 @@
       "titles": [
         "Gemini Decision 1 — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4962,7 +4962,7 @@
       "titles": [
         "Early progress on accelerating drug development with Claude"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -4992,7 +4992,7 @@
         "GPT-6.2 Astra — OpenAI",
         "OpenAI releases GPT-6.2 Astra"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -5076,7 +5076,7 @@
       "titles": [
         "Gemini Omni 1.2 Flash — Google DeepMind"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -5447,7 +5447,7 @@
         "Gemini 4 Carbon — Google DeepMind",
         "Google announces Gemini 4 Carbon"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
       ],
@@ -5666,7 +5666,7 @@
       "titles": [
         "ElevenLabs: Scribe v3 Live Medical helps conversational agents get clinical details right"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://elevenlabs.io/blog/scribe-v3-live-medical"
       ],
@@ -5693,7 +5693,7 @@
       "titles": [
         "GPT-6-Cyber — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -5740,7 +5740,7 @@
         "GPT-Image-2.6 Sunburst",
         "GPT-Image-2.6 Sunburst — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -5954,7 +5954,7 @@
         "GPT-Image-2.6 Flare",
         "GPT-Image-2.6 Flare — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-images-2-6"
       ],
@@ -6013,7 +6013,7 @@
       "titles": [
         "Muse Ember — Meta AI"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -6229,7 +6229,7 @@
       "titles": [
         "Introducing Claude Fable 5.2 and Claude Mythos 5.2"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://www.anthropic.com/news/claude-fable-and-mythos-5-2"
       ],
@@ -6265,7 +6265,7 @@
         "GPT-6.2 Sol — OpenAI",
         "OpenAI releases GPT-6.2 Sol"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-2-astra-sol"
       ],
@@ -6407,7 +6407,7 @@
       "titles": [
         "Claude Fable 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,
@@ -6729,7 +6729,7 @@
       "titles": [
         "GPT-6 Rosalind — OpenAI"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null
@@ -6759,7 +6759,7 @@
         "Gemini 4 Neon — Google DeepMind",
         "Google releases Gemini 4 Neon"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
       ],
@@ -6828,7 +6828,7 @@
         "GPT-6.1 Terra",
         "OpenAI releases GPT-6.1 Terra"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [
         "https://openai.com/index/introducing-gpt-6-1-terra"
       ],
@@ -6870,7 +6870,7 @@
       "titles": [
         "Claude Mythos 5.2 — Anthropic"
       ],
-      "lastSourceObservationAt": "2026-11-28T05:47:44+00:00",
+      "lastSourceObservationAt": "2026-11-28T06:02:40+00:00",
       "originalUrls": [],
       "probeStates": {},
       "nextAttemptAt": null,

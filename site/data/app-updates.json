@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T05:47:49+00:00",
+  "checkedAt": "2026-11-28T06:02:45+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1484,7 +1484,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T05:47:49+00:00",
+    "checkedAt": "2026-11-28T06:02:45+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1836,14 +1836,48 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T06:02:45+00:00",
+        "counts": {
+          "items": 1,
+          "wechatOriginalLinks": 1,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 1,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T06:02:45+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-aaa7d71b3dc1249f\"",
+        "lastSuccessAt": "2026-11-28T06:02:45+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T18:02:45.092942+00:00"
       },
       {
         "id": "lovart-aihot",
         "label": "Lovart",
         "term": "Lovart",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T06:02:45+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T06:02:45+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-b176edd9726f40af\"",
+        "lastSuccessAt": "2026-11-28T06:02:45+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T18:02:45.092942+00:00"
       },
       {
         "id": "lovart-aipick",
@@ -2244,24 +2278,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T05:28:56+00:00",
-      "nextAttemptAt": "2026-11-28T05:53:56.938858+00:00"
+      "lastSuccessAt": "2026-11-28T06:02:45+00:00",
+      "nextAttemptAt": "2026-11-28T06:27:45.092942+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T05:28:56+00:00",
-        "nextAttemptAt": "2026-11-28T05:53:56.938858+00:00"
+        "lastSuccessAt": "2026-11-28T06:02:45+00:00",
+        "nextAttemptAt": "2026-11-28T06:27:45.092942+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T05:28:56+00:00",
-        "nextAttemptAt": "2026-11-28T05:53:56.938858+00:00"
+        "lastSuccessAt": "2026-11-28T06:02:45+00:00",
+        "nextAttemptAt": "2026-11-28T06:27:45.092942+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -3875,7 +3909,7 @@
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T05:47:52+00:00",
+    "checkedAt": "2026-11-28T06:02:49+00:00",
     "window": "7d",
     "sources": [
       {
@@ -3888,7 +3922,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T05:28:42+00:00",
+        "fetchedAt": "2026-11-28T06:02:38+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
