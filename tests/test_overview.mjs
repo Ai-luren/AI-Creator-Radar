@@ -904,3 +904,13 @@ test('alternative feed reports supplement competitor discovery without becoming 
  assert.equal(rows.length,1);assert.equal(rows[0].proof,'第三方报道日期 · 非上线日期');
  assert.equal(run('productChronicleTopics('+JSON.stringify(app)+',[]).find(t=>t.id==="product-higgsfield").milestones.length'),0);
 });
+
+test('hot grouping preserves upstream ranks and never adds source or participant counts',()=>{
+ const {run}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const release={modelFamilyId:'magi',modelVersionId:'2',modelName:'MAGI-2',vendor:'Sand.ai',publishedAt:'2026-11-24',verifiedAt:'2026-11-25',evidenceType:'official-release'};
+ function item(title,rank,url,sourceNames,latestAt='2026-11-27T09:00:00Z'){return {title,rank,links:{story:url},sourceNames,latestAt,sourceCount:3,participantCount:4}}
+ const batches=[{name:'AIHOT',items:[item('Higgsfield 上线 MAGI-2',2,'https://aihot.news/story/a',['X · Higgsfield']),item('Sand.ai 发布 MAGI-2',1,'https://aihot.news/story/b',['Sand.ai'])]},{name:'AIPick',items:[item('Higgsfield 接入 MAGI-2',4,'https://aipick.news/story/a',['X · Higgsfield','抖音']),item('LibTV 接入 MAGI-2',5,'https://aipick.news/story/b',['LibTV']),item('Higgsfield 黑五套餐',1,'https://aipick.news/story/p',[]),item('旧事件',1,'https://aipick.news/story/o',[],'2026-11-20T10:00:00Z')]}];
+ const rows=JSON.parse(run('JSON.stringify(creatorHotGroups('+JSON.stringify(batches)+',Date.now(),'+JSON.stringify([release])+'))'));
+ assert.equal(rows.length,3);assert.equal(rows[0].records.length,2);assert.deepEqual(rows[0].sourceLabels,['X · Higgsfield','抖音']);assert.deepEqual(rows[0].records.map(r=>r.rank),[2,4]);assert.ok(rows[0].records.every(r=>r.sourceCount===3&&r.participantCount===4));assert.equal(rows[0].sourceCount,undefined);
+ assert.notEqual(rows[1].key,rows[0].key);
+});
