@@ -321,3 +321,5 @@ AIPick 精选与热点采用独立 25 分钟到期判断（调度仍由现有 30
 `app-updates.json.reviewedObservations` 允许明确 `claimType=corroborated-product-milestone` 的已审核产品历史，要求确切事件日、核对日、两个不同媒体来源、原文摘要、既有品牌来源 ID，明确非官方日志。只由共享历史投影消费；近期产品观察、官方接入与发现时延不计此类历史记录。正式日志取得后按同日同事件精确关联去重，保留来源差异。
 
 `first-party-plugin-release` 为官方插件版本发布提交，包含 `publisherCalendarDay`（UTC 日期）、`publisherCommitAt`、`productVersion`、永久 `sourceUrl`，仅来自固定可信仓库明确发布版本记录。可展示于产品近期更新、竞品动态、功能矩阵与历史；证据类别与网页官方日志区分，不计正式模型发布或平台接入延迟。未确认的社媒与公众号链接仍仅用于发现；不将转载或账号可见视为原帖核实。
+
+历史产品能力的双媒体实测补证使用 `corroborated-product-observation`，`releaseDate=null`、`historicalEvidenceDate` 为有据可查的实测日、`observedOn` 为实际核对日。只进入历史投影，标为「截至该日已实测」，不作为首发、自动采集成功、近期上新或模型接入指标；缺证、混淆发布日或重复来源均拒绝。
