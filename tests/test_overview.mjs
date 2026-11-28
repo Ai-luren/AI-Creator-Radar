@@ -1050,3 +1050,15 @@ test('Agent task research turns recent creative evidence into test hypotheses wi
  const out=run('agentTaskResearchMarkup('+arg+',Date.now())');assert.match(out,/待实测/);assert.match(out,/首次可用作品所需时间/);assert.match(out,/不填造指标值/);assert.doesNotMatch(out,/accounting|promo/);
  assert.equal(run('agentTaskResearchMarkup({releases:[],app:{},batches:[]},Date.now())'),'');
 });
+
+test('Agent task research covers visual and reusable character quality with distinct changelog entries',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const m=(name,summary,id)=>({modelName:name,summary,modelFamilyId:id,modelVersionId:id+'-v1',verifiedAt:'2026-11-25',evidenceType:'official-release',category:'image',publishedAt:'2026-11-24',url:'https://example.org/'+id});
+ const event=(featureName)=>({sourceId:'flova',claimType:'first-party-product-changelog',featureName,publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/changelog'});
+ const snap={releases:[m('Niji 8','新版动画风格图像模型，支持高清生成和保持角色一致性的编辑。','niji'),m('SenseNova U1.6','支持图像生成与编辑，8B 开放权重版本可检查初稿并自我修正画面文字。','sense')],app:{sources:[{id:'flova',vendor:'Flova',role:'competitor'}],events:[event('Video and timeline audio translation'),event('Audio processing and track separation'),event('Audio processing and track separation')]},batches:[]};
+ const rows=JSON.parse(run('JSON.stringify(agentTaskResearchRows('+JSON.stringify(snap)+',Date.now()))'));
+ assert.equal(rows.find(x=>x.id==='character-assets').signals[0].title,'Niji 8');
+ assert.equal(rows.find(x=>x.id==='visual-qa').signals[0].title,'SenseNova U1.6');
+ assert.equal(rows.find(x=>x.id==='sound').signalCount,2);
+ assert.equal(rows.find(x=>x.id==='sound').signals.length,2);
+});
