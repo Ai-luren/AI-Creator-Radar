@@ -672,7 +672,7 @@ function copyResearchOrTemplate(target){
  return true;
 }
 function researchHandoffMarkup(text){
- return '<details class="source-health"><summary>研发任务单 · 可复制</summary><div class="prompt-row"><pre data-research-brief>'+esc(text)+'</pre><button type="button" class="filter-chip" data-copy-research-brief>复制研发任务单</button></div></details>';
+ return '<div class="prompt-row"><h3>研发任务单 · 可复制</h3><p class="page-desc">复制后可粘贴到研发讨论或任务文档；不自动立项。</p><pre data-research-brief>'+esc(text)+'</pre><button type="button" class="filter-chip" data-copy-research-brief>复制研发任务单</button></div>';
 }
 function modelResearchHandoff(model,review){
  return ['# 模型能力验证｜'+(model.modelName||model.title),'状态：待实测；非已立项或已接入。','官方来源：'+review.source,'官方摘要：'+(review.detail||'现有摘要不足，先查官方模型卡及规格。'),'访问条件：'+(review.access||'待核实 API、权限及商用许可。'),'目标：改善 Renoise Agent 创作质量、效率或可控性。','实验：固定授权素材、创作 brief、输出规格和当前产品基线；记录精确模型版本、接口模式、参数及重复样本。','专项验证：'].concat(review.axes.length?review.axes.map(function(a){return '- '+a.label+'：'+a.check}):['- 先核实输入输出契约、能力边界及可执行接口。'],['统一验收：人工盲评与技术检查分开；记录失败、返工、耗时、生成/重试/后期总成本及可用交付数。','交付：最小可复现工作流/Skill 或工具契约、输入输出样例、失败样本、对比结果及接入/暂缓建议。','决策：未实测不得填入效果提升；先核对内部现状和授权。']).join('\n');
