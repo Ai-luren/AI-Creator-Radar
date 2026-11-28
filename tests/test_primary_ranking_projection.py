@@ -7,6 +7,7 @@ from unittest.mock import patch
 from scripts import build_unified_rankings as legacy
 from scripts import ranking_identity
 from scripts.build_primary_ranking_projection import project, build_document
+from scripts import build_primary_ranking_projection as primary
 
 
 def primary_fields(document):
@@ -57,6 +58,21 @@ class PrimaryRankingProjectionTests(unittest.TestCase):
         original = legacy.build_rankings(copy.deepcopy(self.inputs), json.loads(before))
         ranking_identity.attach_rankings(original, self.families, *self.identity_inputs)
         self.assertEqual(primary_fields(candidate), primary_fields(original))
+
+    def test_writer_uses_only_primary_fields_and_keeps_baseline_untouched(self):
+        import tempfile
+        from pathlib import Path
+        before = legacy.BASELINE.read_bytes()
+        live = legacy.OUTPUT.read_bytes()
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "primary.json"
+            with patch("sys.argv", ["build_primary_ranking_projection.py", "--output", str(path)]):
+                primary.main()
+            saved = json.loads(path.read_text(encoding="utf-8"))
+            self.assertEqual(primary_fields(saved), primary_fields(build_document()))
+            self.assertNotIn("calibrations", saved)
+        self.assertEqual(legacy.BASELINE.read_bytes(), before)
+        self.assertEqual(legacy.OUTPUT.read_bytes(), live)
 
     def test_empty_primary_sources_are_not_fabricated(self):
         inputs = {"reference": {}, "maomu": {}, "primary": {}, "metadata": {}}

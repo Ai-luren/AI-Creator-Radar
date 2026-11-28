@@ -16,8 +16,8 @@ GROUPS = {
     "aipick": (("aipick-data.json", "fetchedAt"),),
     "aihot_daily": (("aihot-daily.json", "fetchedAt"),),
     "juya_daily": (("juya-daily.json", "fetchedAt"),),
-    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt"), ("maomu-rankings.json", "checkedAt"), ("unified-rankings.json", "calculatedAt"), ("social-trends.json", "fetchedAt")),
-    "maintenance": (("model-resource-status.json", "checkedAt"), ("creator-link-status.json", "checkedAt"), ("creator-opportunity-discovery.json", "checkedAt"), ("model-evaluations.json", "generatedAt"), ("historical-evidence.json", "checkedAt")),
+    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt"), ("maomu-rankings.json", "checkedAt"), ("unified-rankings.json", "calculatedAt")),
+    "maintenance": (("model-resource-status.json", "checkedAt"), ("creator-link-status.json", "checkedAt"), ("creator-opportunity-discovery.json", "checkedAt"), ("historical-evidence.json", "checkedAt")),
 }
 INTERVAL_MINUTES = {"models": 25, "selected": 25, "aipick": 25, "aihot_daily": 10, "juya_daily": 10, "resources": 350, "maintenance": 1430}
 MANUAL = {

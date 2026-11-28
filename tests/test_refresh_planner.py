@@ -55,6 +55,15 @@ class RefreshPlannerTests(unittest.TestCase):
             self.assertTrue(result["maintenance"])
             self.assertFalse(plan(self.data, "workflow_dispatch", "models", self.now)["maintenance"])
 
+    def test_retired_snapshot_timestamps_do_not_trigger_refresh(self):
+        for group in GROUPS:
+            self.stamp(group)
+        for name in ("social-trends.json", "model-evaluations.json"):
+            self.assertFalse((self.data / name).exists())
+        result = plan(self.data, "schedule", now=self.now)
+        self.assertFalse(result["resources"])
+        self.assertFalse(result["maintenance"])
+
     def test_missing_or_future_timestamp_is_due(self):
         self.stamp("models", -5)
         self.assertTrue(plan(self.data, "push", now=self.now)["models"])

@@ -1398,7 +1398,7 @@ function unifiedRankingsPage(){
  if(view==='video'&&videoTasks.some(function(x){return x[0]===state.rankVideoTask})===false)state.rankVideoTask='text-to-video-audio';
  var taskTabs=view==='video'?'<div class="tabs ranking-task-tabs" aria-label="有声视频任务">'+videoTasks.map(function(x){return '<button class="tab '+(state.rankVideoTask===x[0]?'active':'')+'" aria-pressed="'+(state.rankVideoTask===x[0])+'" data-rank-video-task="'+x[0]+'">'+x[1]+'</button>'}).join('')+'</div>':'';
  var head=pageHead('创作者能力参考榜','Top 10 合资格模型 · 保留来源原榜名次和分数。','本地整理 · '+(state.unifiedRankings.calculatedAt||'待生成'))+'<div class="rank-board-nav rank-principles"><strong>保留来源原榜，不混合分数</strong><details><summary>如何阅读名次与评测区间</summary><p>主表保留评测源自己的分数刻度。不同机构、视频任务池之间不直接相加。名次表示该来源任务中的盲测偏好，不代表市场使用量或创作者采用率；当前没有可靠的创作者实际使用份额数据可以直接替代这项评测。</p><p>经资格筛选后保留原榜序号，不保证序号连续。分数区间和名次范围有重叠时，不能把单个位次当成稳定胜负。</p></details></div><div class="tabs ranking-view-tabs">'+views+'</div>'+rankSub+taskTabs;
- if(!category)return head+empty(view==='audio-other'?'暂无可核验的语音识别、实时交互及综合音频原榜；不混用音乐或语音合成分数。':'榜单数据尚未生成。运行 scripts/build_unified_rankings.py 更新。');
+ if(!category)return head+empty(view==='audio-other'?'暂无可核验的语音识别、实时交互及综合音频原榜；不混用音乐或语音合成分数。':'榜单数据尚未生成。运行 scripts/build_primary_ranking_projection.py 更新。');
  function renderBoard(primary){
  if(!primary)return empty('这个类别尚无经过来源确认的原榜快照。');
  var rows=primary.rows||[],displayRows=rows.slice(0,10).filter(function(row){return matches([row.name,row.provider].join(' '))});
@@ -1420,7 +1420,7 @@ function unifiedRankingsPage(){
  var scope=primary.snapshotScope?' · '+esc(primary.snapshotScope):'';
  var meta='<div class="rank-board-nav"><strong>'+esc(primary.sourceName)+' · 主榜合资格候选前 10</strong><p>'+esc(primary.snapshotPublisher||'')+' · '+sourceDate+checked+scope+' · 显示 '+displayRows.length+' / '+rows.length+' 个合资格候选</p>'+method+rankEvidence+'</div>';
  var table=displayRows.length?'<div class="rank-snapshot"><div class="rank-snapshot-meta"><span>'+esc(primary.sourceName)+' · '+esc(primary.evaluationVersion||'原榜版本待核实')+'</span><span>'+sourceDate+'</span></div><p class="table-scroll-hint">横向滑动查看原榜分数与样本量。</p><div class="rank-table-wrap" role="region" tabindex="0" aria-label="原榜表格，可横向滚动"><table class="rank-table rank-table-curated"><thead><tr><th scope="col">原榜</th><th scope="col">模型 / 厂商</th><th scope="col">'+esc(primary.scoreLabel||'原榜分数')+'</th><th scope="col">'+esc(primary.sampleLabel||'样本量')+'</th></tr></thead><tbody>'+body+'</tbody></table></div><div class="rank-pagination"><span>最多显示前 10 个合资格候选；保留来源原榜名次，不把过滤后的顺序重新标成官方名次。</span></div></div>':empty(state.query?'没有匹配的主榜候选；可清除当前页面筛选。':'当前来源没有可显示的榜单记录。');
- var foot='<div class="footer"><span>跨来源试算仅保留在审计数据中，尚未通过可比性验证，不作为主榜名次。</span><span>'+sourceLink+'</span></div>';
+ var foot='<div class="footer"><span>不同原榜的分数和名次不可直接合并；本页仅显示来源原榜。</span><span>'+sourceLink+'</span></div>';
  return table+meta+foot
  }
  if(view==='video')return head+'<div class="rank-video-dual">'+videoTasks.map(function(task){return '<section class="rank-task-panel'+(state.rankVideoTask===task[0]?' rank-task-selected':'')+'" aria-label="'+esc(task[1])+'"><h2 class="rank-task-heading">'+esc(task[1])+'</h2>'+renderBoard(primaryBoards&&primaryBoards[task[0]])+'</section>'}).join('')+'</div>';

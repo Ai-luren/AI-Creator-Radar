@@ -155,12 +155,20 @@ def audit_cards(observations,indexes,previous,now,fetcher):
     attempted=0
     if fetcher is None or (next_attempt and next_attempt>now):
         return service,attempted
+    # The independent repository observation window is not a request queue.
+    # Keep its denominator and retained proof; only fresh repositories need
+    # repeated card reads. Parent identity is still rechecked locally.
+    def recent(row):
+        created = parse_stamp(row.get("repositoryCreatedAt"))
+        return created is not None and now-timedelta(days=7) <= created <= now
+
     due=[r for r in observations.values() if r["author"] in indexes
          and r.get("initialPipelineTag") in TASKS and r["currentState"]!="exact-catalog-match"
-         and parse_stamp(r["repositoryCreatedAt"])>=now-timedelta(days=45)
+         and recent(r)
          and (not parse_stamp((r.get("cardReview") or {}).get("nextAttemptAt"))
               or parse_stamp(r["cardReview"]["nextAttemptAt"])<=now)]
-    due.sort(key=lambda r:((r.get("cardReview") or {}).get("nextAttemptAt") or r["firstObservedAt"],r["id"]))
+    due.sort(key=lambda r:(parse_stamp(r["repositoryCreatedAt"]) < now-timedelta(days=3),
+                            (r.get("cardReview") or {}).get("nextAttemptAt") or r["firstObservedAt"],r["id"]))
     for row in due[:CARD_BUDGET]:
         old=row.get("cardReview") or {}
         attempted+=1
