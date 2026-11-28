@@ -17,6 +17,25 @@ class SourceSearchTests(unittest.TestCase):
         return search(self.families,self.discovery,{}, {},old or {},self.allowed,
                       self.now+timedelta(hours=hours),fetcher)
 
+    def test_product_focus_precedes_freshness_without_destroying_passive_evidence(self):
+        lead={"id":"ming","sourceId":"local-aihot-daily","title":"Ming-Image-0.2-Design 发布",
+              "url":"https://huggingface.co/inclusionAI/Ming-Image-0.2-Design",
+              "reportedAt":"2026-11-27","firstSeenAt":"2026-11-27T00:00:00Z","officialArticleUrls":[]}
+        calls=[]
+        focus={"familyPrefixes":["demo"],"modelNamePrefixes":["Demo"]}
+        result=search(self.families,{"items":self.discovery["items"]+[lead]}, {}, {},{},self.allowed,self.now,
+                      lambda *a:self.fail("broad before primary"),aihot_fetcher=lambda t,*a:(calls.append(t["query"]) or [],"tag"),focus=focus)
+        self.assertEqual(calls,["Demo v3"])
+        passive=next(x for x in result["targets"] if x["query"].startswith("Ming"))
+        self.assertTrue(passive["active"])
+        self.assertEqual(passive["scopeStatus"],"passive")
+        self.assertEqual(passive["localContext"][0]["sourceUrl"],lead["url"])
+        self.assertEqual(result["summary"]["focusTargetCounts"],{"focused":1,"passive":1,"focusedRecent":1})
+        only=search(self.families,{"items":[lead]}, {}, {},result,self.allowed,self.now+timedelta(hours=1),
+                    lambda *a:self.fail("passive broad lookup"),aihot_fetcher=lambda *a:self.fail("passive primary"),aipick_fetcher=lambda *a:self.fail("passive secondary"),focus=focus)
+        self.assertEqual(only["summary"]["attemptedThisRun"],0)
+        self.assertEqual(augment_discovery({"items":[lead]},only),{"items":[lead]})
+
     def test_build_targets_does_not_guess_unknown_headlines(self):
         rows = {"items":self.discovery["items"]+[{"id":"ambiguous","sourceId":"feed","title":"Demo v3 vs Demo v3 Live","officialArticleUrls":[]},
                                                 {"id":"upload","sourceId":"hf","title":"Demo v3 Live","dateKind":"repository-created-at"}]}

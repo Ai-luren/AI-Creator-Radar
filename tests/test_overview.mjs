@@ -559,3 +559,15 @@ test('open source radar distinguishes curated research from metadata discovery a
  run("state.repoRadar={items:[{repo:'maker/whitebox',url:'https://github.com/maker/whitebox',name:'Whitebox',category:'video',license:'AGPL-3.0',research:{idea:'白模导演台',caution:'许可证需评估',review:'readme-reviewed',evidenceUrl:'https://github.com/maker/whitebox#readme'},metadataStatus:'ok'}],researchDiscovery:{items:[{repo:'maker/voice',url:'https://github.com/maker/voice',description:'audio separation',researchCategory:'audio',provider:'GitHub Search',stars:5,metadataCheckedAt:'2026-11-28T00:00:00Z'},{repo:'maker/unsafe',url:'https://github.com.evil.test/maker/unsafe',description:'Unsafe injected repository'}]}};render()");
  const out=node('content').innerHTML;assert.match(out,/白模导演台/);assert.match(out,/README 已阅读/);assert.match(out,/候选 · GitHub Search/);assert.match(out,/AGPL-3.0/);assert.doesNotMatch(out,/Unsafe injected repository/);assert.match(out,/非 GitHub 热榜/);
 });
+
+test('product research links verified model ability to explicitly hypothetical workflow',async()=>{
+ const {run,node,requested}=setup({query:'?view=platforms&category=product-research'});await run('loadData()');
+ assert.ok(requested.includes('model-practice.json'));assert.ok(requested.includes('awesome-repos.json'));
+ const out=node('content').innerHTML;assert.match(out,/动态表情包与品牌循环动图/);assert.match(out,/白模导演台/);assert.match(out,/研究构想 · 非已上线功能/);assert.match(out,/已核实能力/);assert.match(out,/data-model-open="gpt-image"/);assert.match(out,/https:\/\/openai\.com\/index\/introducing-images-2-6\//);
+});
+test('home foregrounds recent creative product reports and excludes promotions',async()=>{
+ const {run,node,requested}=setup({now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("state.aihot.items=[{title:'Higgsfield 新增白模工作流',selected:true,category:'ai-products',publishedAt:'2026-11-27T00:00:00Z',links:{original:'https://example.com/previs'}},{title:'Higgsfield 黑五新增折扣',selected:true,category:'ai-products',publishedAt:'2026-11-27T00:00:00Z',links:{original:'https://example.com/discount'}}];render()");
+ const out=node('content').innerHTML;assert.ok(out.indexOf('产品情报 · 优先阅读')<out.indexOf('近 7 天 · 新模型发布'));assert.equal((out.match(/Higgsfield 新增白模工作流/g)||[]).length,1);assert.equal(requested.length,5);
+ assert.equal(run("productResearchHeadline('Higgsfield 黑五新增折扣')"),false);assert.equal(run("productResearchHeadline('Ming-Image 新增图像功能')"),false);
+});

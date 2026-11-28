@@ -544,5 +544,145 @@
       "modelFamilyId": "suno",
       "modelVersionId": "suno-v6"
     }
-  ]
+  ],
+  "productResearch": {
+    "reviewedAt": "2026-11-28",
+    "items": [
+      {
+        "id": "gif-meme-studio",
+        "title": "动态表情包与品牌循环动图",
+        "category": "image",
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-flare",
+        "modelName": "GPT Image 2.6",
+        "capability": "原生 GIF 输出；官方列举角色动画、社交 Meme 和商品循环展示。",
+        "evidence": [
+          {
+            "label": "OpenAI 官方发布",
+            "url": "https://openai.com/index/introducing-images-2-6/"
+          }
+        ],
+        "repoIds": [
+          "gpt-image-playground"
+        ],
+        "userNeed": "快速生成能分享的循环表情、角色反应和品牌动图。",
+        "workflow": [
+          "上传角色图或输入主题",
+          "选择动作、帧数与循环节奏",
+          "生成预览与局部迭代",
+          "导出 GIF"
+        ],
+        "validate": "确认接口参数与尺寸约束、循环衔接、身份一致性、版权及输出文件体积。"
+      },
+      {
+        "id": "svg-markup-design",
+        "title": "矢量资产与标注式编辑工具",
+        "category": "image",
+        "modelFamilyId": "gpt-image",
+        "modelVersionId": "gpt-image-2-6-flare",
+        "modelName": "GPT Image 2.6",
+        "capability": "官方 API 新增 SVG 导出及标注指导编辑。",
+        "evidence": [
+          {
+            "label": "OpenAI 官方发布",
+            "url": "https://openai.com/index/introducing-images-2-6/"
+          }
+        ],
+        "repoIds": [
+          "gpt-image-playground"
+        ],
+        "userNeed": "生成可继续编辑的素材，并用可视化批注精确表达修改位置。",
+        "workflow": [
+          "生成初版图像",
+          "圈选或画线标注修改",
+          "迭代预览",
+          "按任务选择 SVG 或栅格输出"
+        ],
+        "validate": "确认 SVG 可编辑结构、图形保真、注入安全、尺寸和字体依赖；不假设所有图像都能无损矢量化。"
+      },
+      {
+        "id": "whitebox-director",
+        "title": "白模导演台",
+        "category": "video",
+        "modelFamilyId": "seedance",
+        "modelVersionId": "seedance-2-5",
+        "modelName": "Seedance 2.5",
+        "capability": "官方说明白模参考可以控制空间结构、姿态、运动和机位，增强光照参考。",
+        "evidence": [
+          {
+            "label": "Seed 官方发布",
+            "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
+          }
+        ],
+        "repoIds": [
+          "cozyclay",
+          "previsforge"
+        ],
+        "userNeed": "先确定人物调度、场景和运镜，再生成复杂镜头，减少重做。",
+        "workflow": [
+          "搭建简化场景与角色",
+          "设置动作、机位及时间段",
+          "导出参考帧或白模视频",
+          "交给视频模型生成成片"
+        ],
+        "validate": "测试输出格式、模型对相机与运动轨迹的遵循度、修改成本；AGPL 与 Blender 依赖分别评估。"
+      },
+      {
+        "id": "character-scene-pack",
+        "title": "一键角色与场景资产包",
+        "category": "workflow",
+        "modelFamilyId": "seedance",
+        "modelVersionId": "seedance-2-5",
+        "modelName": "Seedance 2.5",
+        "capability": "官方发布支持多模态参考；参考素材可表达人物、场景、道具与构图。",
+        "evidence": [
+          {
+            "label": "Seed 官方发布",
+            "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
+          }
+        ],
+        "repoIds": [
+          "character-turnaround-sheets",
+          "storyboard-scavenger",
+          "comfy-workflows"
+        ],
+        "userNeed": "为长短片建立可重用角色三视图、无头服装参考和多角度场景设定。",
+        "workflow": [
+          "建立锁定角色与场景档案",
+          "生成并检查多视图、服装和道具",
+          "按镜头组织参考资产",
+          "适配目标视频模型提示词"
+        ],
+        "validate": "无头服装与场景资产属于设计构想，需测试资产一致性、引用映射及接口实际限制。"
+      },
+      {
+        "id": "timestamp-audio-rework",
+        "title": "按时间段修改视频与独立音轨",
+        "category": "workflow",
+        "modelFamilyId": "seedance",
+        "modelVersionId": "seedance-2-5",
+        "modelName": "Seedance 2.5",
+        "capability": "官方发布支持按时间戳定向编辑音视频，并强化参考与绿幕编辑。",
+        "evidence": [
+          {
+            "label": "Seed 官方发布",
+            "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"
+          }
+        ],
+        "repoIds": [
+          "renoise-kit",
+          "audio-separator",
+          "whisperx"
+        ],
+        "userNeed": "只修改不满意的镜头或声音，避免全部重生成。",
+        "workflow": [
+          "生成与分析素材",
+          "定位目标时间段及对白",
+          "选择局部重做或音轨分离替换",
+          "合成并做帧级和声音质检"
+        ],
+        "validate": "SeedAudio 或其他音频模型接入是待实测的组合构想；确认音频接口、音画对齐、分离伪影、许可和编辑保真。"
+      }
+    ]
+  }
 }

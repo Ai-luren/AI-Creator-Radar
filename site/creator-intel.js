@@ -120,3 +120,21 @@ function repositoryRadarPage(tabs){
  var candidates=(discovery.items||[]).filter(x=>valid(x)&&matched(x)).sort((a,b)=>String(b.metadataCheckedAt||'').localeCompare(String(a.metadataCheckedAt||'')));
  return pageHead('创作工具','开源创新雷达 · 从可用技术到产品功能','研究参考，不是集成结论')+'<div class="platform-tabs">'+tabs+'</div><section class="launch-section"><div class="section-head"><div><h2>产品创新精选</h2><p>按实际创作任务整理的项目、可借鉴方向与采用限制。</p></div><span class="head-meta">'+focused.length+' 项</span></div><div class="creator-list">'+(focused.map(x=>row(x,true)).join('')||empty('研究精选待资源采集上线。'))+'</div></section><section class="launch-section"><div class="section-head"><div><h2>近期发现 · 创作相关 GitHub 项目</h2><p>优先复用 AIHOT / AIPick 已精选的原始链接，否则定向搜索近期有推送的相关仓库。仅元数据发现，非 GitHub 热榜，不自动运行代码。</p></div><span class="head-meta">'+esc(discovery.lastSuccessAt?overviewTime(discovery.lastSuccessAt):'首次发现待运行')+'</span></div>'+(discovery.error?'<p class="creator-note">发现暂不可用，保留旧记录：'+esc(discovery.error)+'</p>':'')+'<div class="creator-list">'+(candidates.map(x=>row(x,false)).join('')||empty('当前没有已获取元数据的匹配候选；不表示没有相关项目。'))+'</div></section><details class="source-health"><summary>既有提示词与创作索引 · '+other.length+' 项</summary><div class="creator-list">'+other.map(x=>row(x,true)).join('')+'</div></details>';
 }
+
+
+function productResearchHeadline(title){
+ var t=String(title||'');
+ if(/黑五|黑色星期五|折扣|优惠|积分|促销|black friday|discount|coupon|credits?|pricing/i.test(t))return false;
+ var core=creatorBrandMatch(t,'competitors')||creatorBrandMatch(t,'vendors')||['HappyHorse','Wan','通义万相','Veo','GPT Image','GPT-Image','Nano Banana','Suno','ElevenLabs'].some(b=>creatorSubject(t,b));
+ return core&&/新功能|功能|工作流|画布|编辑|接入|上线|工具|新增|支持|插件|分镜|运镜|白模|GIF|SVG|Agent|MCP|Skills?|feature|workflow|integrat|edit|canvas/i.test(t);
+}
+function productResearchPage(tabs){
+ var data=(state.modelPractice||{}).productResearch||{},repos=new Map(((state.repoRadar||{}).items||[]).map(x=>[x.id,x])),rows=(data.items||[]).filter(x=>matches([x.title,x.modelName,x.capability,x.userNeed,(x.workflow||[]).join(' ')].join(' ')));
+ var cat={image:'图像',video:'视频',audio:'音频',workflow:'组合工作流'};
+ function renderRow(x){
+  var links=(x.evidence||[]).map(e=>creatorLink(e.url,e.label)).join(' '),references=(x.repoIds||[]).map(id=>repos.get(id)).filter(Boolean);
+  var repoLinks=references.map(repo=>creatorLink(repo.url,repo.name||repo.repo)).join(' ');
+  return '<article class="creator-row"><div class="creator-when"><strong>'+esc(cat[x.category]||x.category)+'</strong><small>研究构想 · 非已上线功能</small></div><div class="creator-main"><h3>'+esc(x.title)+'</h3><div class="overview-row-meta">'+esc(x.modelName)+'</div><p><strong>已核实能力：</strong>'+esc(x.capability)+'</p><p><strong>用户需求假设：</strong>'+esc(x.userNeed)+'</p><div class="practice-tags">'+(x.workflow||[]).map((step,i)=>'<span class="pill">'+esc((i+1)+'. '+step)+'</span>').join('')+'</div><p><strong>验证与采用边界：</strong>'+esc(x.validate)+'</p><div class="launch-links">'+links+'</div><div class="launch-links">'+(repoLinks||'<small>关联仓库等待资源快照刷新</small>')+'</div></div><div class="creator-actions">'+(x.modelFamilyId?'<button class="text-link" data-model-open="'+esc(x.modelFamilyId)+'"'+(x.modelVersionId?' data-model-version="'+esc(x.modelVersionId)+'"':'')+'>模型资料 →</button>':'')+'</div></article>';
+ }
+ return pageHead('创作工具','能力与产品机会 · 官方能力、用户问题和技术参考分开','研究记录 '+esc(data.reviewedAt||'待建立'))+'<div class="platform-tabs">'+tabs+'</div><section class="launch-section"><div class="section-head"><div><h2>模型能力产品化与组合工作流</h2><p>公开资料支持的能力关联到产品构想；不是 Renoise 内部路线图，也不判断现有功能缺失。</p></div><span class="head-meta">'+rows.length+' 项</span></div><div class="creator-list">'+(rows.map(renderRow).join('')||empty('暂无匹配研究记录。'))+'</div><div class="launch-links"><a href="?view=platforms&amp;category=opensource">开源创新雷达 ↗</a></div></section>';
+}
