@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T17:02:56+00:00",
+  "checkedAt": "2026-11-28T17:17:19+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -6384,7 +6384,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T17:02:56+00:00",
+    "checkedAt": "2026-11-28T17:17:19+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -7663,7 +7663,7 @@
         "nextAttemptAt": "2026-11-28T17:27:56.647077+00:00"
       }
     },
-    "attemptedThisRun": 2,
+    "attemptedThisRun": 0,
     "recentPolicy": {
       "calendarTimezone": "Asia/Shanghai",
       "primaryCalendarDays": 3,
@@ -14880,7 +14880,7 @@
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T17:03:02+00:00",
+    "checkedAt": "2026-11-28T17:18:24+00:00",
     "window": "7d",
     "sources": [
       {

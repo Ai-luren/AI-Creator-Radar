@@ -1,17 +1,17 @@
 {
   "schema": "scheduler-health/v1",
-  "generatedAt": "2026-11-28T17:03:11.507669+00:00",
-  "nextDueAt": "2026-11-28T17:03:11.507669+00:00",
+  "generatedAt": "2026-11-28T17:18:37.806962+00:00",
+  "nextDueAt": "2026-11-28T17:28:37.806962+00:00",
   "trigger": {
-    "event": "workflow_dispatch",
-    "runId": "46168325025",
+    "event": "push",
+    "runId": "46169630112",
     "attempt": "1",
     "schedule": "",
-    "scope": "due"
+    "scope": ""
   },
   "groups": {
     "models": {
-      "oldestSnapshotAt": "2026-11-28T17:02:43+00:00",
+      "oldestSnapshotAt": "2026-11-28T17:17:03+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
@@ -41,9 +41,9 @@
       "retryAfter": null
     },
     "resources": {
-      "oldestSnapshotAt": "2026-11-28T11:00:19+00:00",
-      "due": true,
-      "eligible": true,
+      "oldestSnapshotAt": "2026-11-28T17:17:21+00:00",
+      "due": false,
+      "eligible": false,
       "retryAfter": null
     },
     "maintenance": {
@@ -53,8 +53,6 @@
       "retryAfter": null
     }
   },
-  "deferredSlowGroups": [
-    "resources"
-  ],
+  "deferredSlowGroups": [],
   "policy": "Validated snapshot freshness; due is raw staleness, eligible applies bounded retry backoff. Heartbeat is not proof every source succeeded."
 }

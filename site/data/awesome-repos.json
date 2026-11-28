@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T11:00:19Z",
+  "generatedAt": "2026-11-28T17:17:21Z",
   "items": [
     {
       "id": "goodcase-seedance",
@@ -17,14 +17,14 @@
       "readmePath": "README_zh.md",
       "priority": 1,
       "url": "https://github.com/LearnPrompt/awesome-seedance",
-      "stars": 2671,
+      "stars": 2677,
       "forks": 404,
-      "updatedAt": "2026-11-28T07:56:58Z",
+      "updatedAt": "2026-11-28T14:26:14Z",
       "pushedAt": "2026-11-28T09:05:31Z",
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -34,12 +34,16 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 2671
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 2677
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
-        "delta": 2
+        "to": "2026-11-28T17:17:21Z",
+        "delta": 8
       }
     },
     {
@@ -58,14 +62,14 @@
       "readmePath": "README_zh.md",
       "priority": 2,
       "url": "https://github.com/ai-boost/awesome-image-video-prompts",
-      "stars": 3544,
+      "stars": 3545,
       "forks": 254,
-      "updatedAt": "2026-11-28T07:39:43Z",
+      "updatedAt": "2026-11-28T17:00:36Z",
       "pushedAt": "2026-11-27T18:06:05Z",
       "license": "GPL-3.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -75,12 +79,16 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 3544
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 3545
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
-        "delta": 1
+        "to": "2026-11-28T17:17:21Z",
+        "delta": 2
       }
     },
     {
@@ -106,7 +114,7 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -116,11 +124,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 469
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 469
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -141,13 +153,13 @@
       "priority": 4,
       "url": "https://github.com/ZeroLu/awesome-seedance",
       "stars": 2886,
-      "forks": 318,
-      "updatedAt": "2026-11-28T07:13:51Z",
-      "pushedAt": "2026-11-28T00:21:34Z",
+      "forks": 319,
+      "updatedAt": "2026-11-28T15:47:50Z",
+      "pushedAt": "2026-11-28T12:11:16Z",
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -157,11 +169,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 2886
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 2886
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 1
       }
     },
@@ -189,7 +205,7 @@
       "license": "CC-BY-4.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -199,11 +215,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 85
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 85
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -224,12 +244,12 @@
       "url": "https://github.com/ZeroLu/awesome-nanobanana-pro",
       "stars": 10422,
       "forks": 873,
-      "updatedAt": "2026-11-28T08:52:50Z",
+      "updatedAt": "2026-11-28T16:30:14Z",
       "pushedAt": "2026-11-28T05:39:06Z",
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -239,11 +259,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 10422
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 10422
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": -1
       }
     },
@@ -263,14 +287,14 @@
       "readmePath": "README.md",
       "priority": 7,
       "url": "https://github.com/UnderleveledBuilder/awesome-short-drama-skills",
-      "stars": 2931,
-      "forks": 360,
-      "updatedAt": "2026-11-28T10:45:05Z",
+      "stars": 2941,
+      "forks": 361,
+      "updatedAt": "2026-11-28T17:13:19Z",
       "pushedAt": "2026-11-23T17:16:46Z",
       "license": "CC0-1.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -280,12 +304,16 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 2931
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 2941
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
-        "delta": 6
+        "to": "2026-11-28T17:17:21Z",
+        "delta": 16
       }
     },
     {
@@ -307,14 +335,14 @@
         "evidenceUrl": "https://github.com/HaD0Yun/CozyClay#readme"
       },
       "url": "https://github.com/HaD0Yun/CozyClay",
-      "stars": 1896,
-      "forks": 212,
-      "updatedAt": "2026-11-28T10:59:56Z",
-      "pushedAt": "2026-11-28T10:47:53Z",
+      "stars": 1904,
+      "forks": 213,
+      "updatedAt": "2026-11-28T15:52:14Z",
+      "pushedAt": "2026-11-28T17:10:16Z",
       "license": "AGPL-3.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -324,12 +352,16 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 1896
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 1904
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
-        "delta": 1
+        "to": "2026-11-28T17:17:21Z",
+        "delta": 9
       }
     },
     {
@@ -358,7 +390,7 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -368,11 +400,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 2
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 2
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -402,7 +438,7 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -412,11 +448,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 3
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 3
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -446,7 +486,7 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -456,11 +496,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 6
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 6
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -490,7 +534,7 @@
       "license": "MIT",
       "defaultBranch": "master",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -500,11 +544,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 255
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 255
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -534,7 +582,7 @@
       "license": "GPL-3.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -544,11 +592,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 97
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 97
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -578,7 +630,7 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -588,11 +640,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 1
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 1
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -616,13 +672,13 @@
       },
       "url": "https://github.com/nomadkaraoke/python-audio-separator",
       "stars": 1516,
-      "forks": 217,
+      "forks": 218,
       "updatedAt": "2026-11-27T15:15:27Z",
       "pushedAt": "2026-10-29T17:22:08Z",
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -632,11 +688,15 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 1516
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 1516
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
+        "to": "2026-11-28T17:17:21Z",
         "delta": 0
       }
     },
@@ -659,14 +719,14 @@
         "evidenceUrl": "https://github.com/m-bain/whisperX"
       },
       "url": "https://github.com/m-bain/whisperX",
-      "stars": 26041,
-      "forks": 2646,
-      "updatedAt": "2026-11-28T10:47:39Z",
+      "stars": 26108,
+      "forks": 2649,
+      "updatedAt": "2026-11-28T17:12:06Z",
       "pushedAt": "2026-11-21T12:32:21Z",
       "license": "BSD-2-Clause",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T11:00:19Z",
+      "metadataCheckedAt": "2026-11-28T17:17:21Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
@@ -676,30 +736,76 @@
         {
           "at": "2026-11-28T11:00:19Z",
           "stars": 26041
+        },
+        {
+          "at": "2026-11-28T17:17:21Z",
+          "stars": 26108
         }
       ],
       "observedStarChange": {
         "from": "2026-11-28T06:49:43Z",
-        "to": "2026-11-28T11:00:19Z",
-        "delta": 39
+        "to": "2026-11-28T17:17:21Z",
+        "delta": 106
       }
     }
   ],
   "researchDiscovery": {
     "status": "ok",
-    "checkedAt": "2026-11-28T11:00:19+00:00",
-    "lastSuccessAt": "2026-11-28T11:00:19+00:00",
+    "checkedAt": "2026-11-28T17:17:21+00:00",
+    "lastSuccessAt": "2026-11-28T17:17:21+00:00",
     "lastProvider": "GitHub Search",
-    "lastLane": "video",
-    "lastMatched": 19,
+    "lastLane": "audio",
+    "lastMatched": 2,
     "nextAttemptAt": null,
     "error": null,
     "consecutiveFailures": 0,
-    "nextLane": 2,
+    "nextLane": 3,
     "recentPointerAttempts": [],
     "deferred": false,
     "policy": "One bounded selected pointer or scoped GitHub API search. Metadata candidates, not verified features or adoption recommendations. Star change uses actual observations.",
     "items": [
+      {
+        "repo": "thedavidweng/OpenKara",
+        "url": "https://github.com/thedavidweng/OpenKara",
+        "description": "A desktop karaoke app that transforms your local music library into sing-along tracks using on-device AI stem separation and online synced lyrics, making karaoke affordable and reusable with the songs you already own.",
+        "researchCategory": "audio",
+        "provider": "GitHub Search",
+        "stars": 39,
+        "pushedAt": "2026-11-28T15:11:56Z",
+        "license": "AGPL-3.0",
+        "metadataCheckedAt": "2026-11-28T17:17:21+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T17:17:21+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T17:17:21Z",
+            "stars": 39
+          }
+        ]
+      },
+      {
+        "repo": "kajisho5/ffmpeg-skill",
+        "url": "https://github.com/kajisho5/ffmpeg-skill",
+        "description": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 12212,
+        "pushedAt": "2026-11-28T17:12:01Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T17:17:21+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T17:17:21+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T17:17:21Z",
+            "stars": 12212
+          }
+        ]
+      },
       {
         "repo": "xumeng-0905/suojingtai",
         "url": "https://github.com/xumeng-0905/suojingtai",
@@ -1420,48 +1526,6 @@
           {
             "at": "2026-11-28T06:49:43Z",
             "stars": 65
-          }
-        ]
-      },
-      {
-        "repo": "fujc683/awesome-gpt-image-2-6-prompts",
-        "url": "https://github.com/fujc683/awesome-gpt-image-2-6-prompts",
-        "description": "252 curated GPT Image 2.6 prompts (Flare + Sunburst) with preview images, grouped by use case.",
-        "researchCategory": "image",
-        "provider": "GitHub Search",
-        "stars": 85,
-        "pushedAt": "2026-11-28T06:08:28Z",
-        "license": "NOASSERTION",
-        "metadataCheckedAt": "2026-11-28T06:49:43+00:00",
-        "review": "metadata-only",
-        "archived": false,
-        "lastMetadataProvider": "GitHub Search",
-        "firstObservedAt": "2026-11-28T06:49:43+00:00",
-        "starObservations": [
-          {
-            "at": "2026-11-28T06:49:43Z",
-            "stars": 85
-          }
-        ]
-      },
-      {
-        "repo": "fujc683/awesome-flux-3-klein-prompts",
-        "url": "https://github.com/fujc683/awesome-flux-3-klein-prompts",
-        "description": "252 curated FLUX 3 Image Klein prompts with preview images, grouped by use case.",
-        "researchCategory": "image",
-        "provider": "GitHub Search",
-        "stars": 64,
-        "pushedAt": "2026-11-28T06:21:38Z",
-        "license": "NOASSERTION",
-        "metadataCheckedAt": "2026-11-28T06:49:43+00:00",
-        "review": "metadata-only",
-        "archived": false,
-        "lastMetadataProvider": "GitHub Search",
-        "firstObservedAt": "2026-11-28T06:49:43+00:00",
-        "starObservations": [
-          {
-            "at": "2026-11-28T06:49:43Z",
-            "stars": 64
           }
         ]
       }
