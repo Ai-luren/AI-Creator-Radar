@@ -617,3 +617,15 @@ test('competitor matrix covers whole product, including unfamiliar feature shape
  assert.deepEqual(rows.find(x=>x.name==='MAGI-2独家首发').dimensions,['integration']);
  assert.deepEqual(rows.find(x=>x.name==='全新光谱实验室').dimensions,['other']);
 });
+
+test('matrix groups duplicate surface observations while retaining distinct evidence and dated history',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const rows=JSON.parse(run("JSON.stringify(competitorMatrixRows({sources:[{id:'hf',vendor:'Higgsfield',role:'competitor',type:'product-surface',entries:{a:{featureName:'Canvas',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://higgsfield.ai/canvas'}}}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Canvas',publisherCalendarDay:'2026-11-24',sourceUrl:'https://higgsfield.ai/changelog'}]},Date.now(),[{brand:'Higgsfield',name:'Canvas',dimensions:['canvas','project'],url:'https://higgsfield.ai/blog/canvas',reviewedOn:'2026-11-28'}]))"));
+ assert.equal(rows.length,2);
+ const surface=rows.find(x=>x.day===null);assert.deepEqual(surface.dimensions,['canvas','project']);assert.equal(surface.alternates[0].url,'https://higgsfield.ai/blog/canvas');assert.equal(surface.kind,'官网自动观察');
+});
+test('homepage excludes explicit promotional headlines without deleting briefing records',()=>{
+ const {run}=setup();
+ const rows=JSON.parse(run("JSON.stringify(overviewProductNews([{title:'阶跃星辰：免费赠送 3 个月 Step Plan Pro',category:'其他'},{title:'硅基流动限免上线模型',category:'其他'},{title:'LibTV 新画布节点',category:'产品'},{title:'其他开源工具更新',category:'产品'}]).map(x=>x.title))"));
+ assert.deepEqual(rows,['LibTV 新画布节点','其他开源工具更新']);
+});
