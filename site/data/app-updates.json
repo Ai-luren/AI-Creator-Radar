@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T11:07:15+00:00",
+  "checkedAt": "2026-11-28T11:32:59+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -46,17 +46,17 @@
           "category": "app",
           "claimType": "first-party-store-version",
           "firstObservedAt": "2026-11-27T04:20:20+00:00",
-          "lastObservedAt": "2026-11-28T05:28:56+00:00",
+          "lastObservedAt": "2026-11-28T11:32:59+00:00",
           "visibleInLatestRead": true
         }
       },
-      "checkedAt": "2026-11-28T05:28:56+00:00",
-      "lastSuccessAt": "2026-11-28T05:28:56+00:00",
+      "checkedAt": "2026-11-28T11:32:59+00:00",
+      "lastSuccessAt": "2026-11-28T11:32:59+00:00",
       "status": "observed",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:28:56.938858+00:00"
+      "nextAttemptAt": "2026-11-28T17:32:59.285372+00:00"
     },
     {
       "id": "higgsfield-changelog",
@@ -2958,7 +2958,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T11:07:15+00:00",
+    "checkedAt": "2026-11-28T11:32:59+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -3406,7 +3406,25 @@
         "provider": "AIPick",
         "priority": 20,
         "intervalMinutes": 1440,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T11:32:59+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "selectedCreatorSignals": 0
+        },
+        "countsObservedAt": "2026-11-28T11:32:59+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-80b2b7548bcf5ef5\"",
+        "lastSuccessAt": "2026-11-28T11:32:59+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-29T11:32:59.285372+00:00"
       },
       {
         "id": "shotlab-aihot",
@@ -3814,7 +3832,25 @@
         "provider": "AIHOT",
         "priority": 20,
         "intervalMinutes": 1440,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T11:32:59+00:00",
+        "counts": {
+          "items": 14,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 14,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 14,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "selectedCreatorSignals": 0
+        },
+        "countsObservedAt": "2026-11-28T11:32:59+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-60f9a619e6e17b15\"",
+        "lastSuccessAt": "2026-11-28T11:32:59+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-29T11:32:59.285372+00:00"
       },
       {
         "id": "sand-models-aihot",
@@ -4159,24 +4195,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T10:58:55+00:00",
-      "nextAttemptAt": "2026-11-28T11:23:55.965256+00:00"
+      "lastSuccessAt": "2026-11-28T11:32:59+00:00",
+      "nextAttemptAt": "2026-11-28T11:57:59.285372+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T10:58:55+00:00",
-        "nextAttemptAt": "2026-11-28T11:23:55.965256+00:00"
+        "lastSuccessAt": "2026-11-28T11:32:59+00:00",
+        "nextAttemptAt": "2026-11-28T11:57:59.285372+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T10:58:55+00:00",
-        "nextAttemptAt": "2026-11-28T11:23:55.965256+00:00"
+        "lastSuccessAt": "2026-11-28T11:32:59+00:00",
+        "nextAttemptAt": "2026-11-28T11:57:59.285372+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "recentPolicy": {
       "calendarTimezone": "Asia/Shanghai",
       "primaryCalendarDays": 3,
@@ -7183,14 +7219,14 @@
   ],
   "summary": {
     "configuredSources": 25,
-    "successfulThisRun": 0,
+    "successfulThisRun": 1,
     "baselineSources": 19,
     "listedModels": 0,
     "reviewedObservations": 12
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T11:07:19+00:00",
+    "checkedAt": "2026-11-28T11:33:03+00:00",
     "window": "7d",
     "sources": [
       {
@@ -7203,7 +7239,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T11:00:02+00:00",
+        "fetchedAt": "2026-11-28T11:32:41+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],

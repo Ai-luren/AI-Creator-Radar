@@ -1,6 +1,6 @@
 {
   "schema": "product-state/v1",
-  "checkedAt": "2026-11-28T11:07:15+00:00",
+  "checkedAt": "2026-11-28T11:33:00+00:00",
   "sources": [
     {
       "id": "models-dev",
@@ -2064,12 +2064,12 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-28T10:17:54+00:00",
-      "lastSuccessAt": "2026-11-28T10:17:54+00:00",
+      "checkedAt": "2026-11-28T11:33:00+00:00",
+      "lastSuccessAt": "2026-11-28T11:33:00+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:17:54.082721+00:00",
+      "nextAttemptAt": "2026-11-28T12:33:00.434821+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5051,6 +5051,16 @@
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
           "missingChecks": 0
         },
+        "z-ai|z-ai/glm-5.2:batch": {
+          "product": {
+            "providerId": "z-ai",
+            "productId": "z-ai/glm-5.2:batch",
+            "name": "Z.ai: GLM 5.2 (batch)",
+            "providerRecordCreatedAt": "2026-06-16T17:45:30+00:00"
+          },
+          "firstSeenAt": "2026-11-27T03:11:31+00:00",
+          "missingChecks": 0
+        },
         "z-ai|z-ai/glm-5.3": {
           "product": {
             "providerId": "z-ai",
@@ -5140,24 +5150,14 @@
           },
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
           "missingChecks": 2
-        },
-        "z-ai|z-ai/glm-5.2:batch": {
-          "product": {
-            "providerId": "z-ai",
-            "productId": "z-ai/glm-5.2:batch",
-            "name": "Z.ai: GLM 5.2 (batch)",
-            "providerRecordCreatedAt": "2026-06-16T17:45:30+00:00"
-          },
-          "firstSeenAt": "2026-11-27T03:11:31+00:00",
-          "missingChecks": 2
         }
       },
-      "checkedAt": "2026-11-28T10:17:54+00:00",
-      "lastSuccessAt": "2026-11-28T10:17:54+00:00",
+      "checkedAt": "2026-11-28T11:33:00+00:00",
+      "lastSuccessAt": "2026-11-28T11:33:00+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:17:54.082721+00:00",
+      "nextAttemptAt": "2026-11-28T12:33:00.434821+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5500,16 +5500,40 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-28T10:17:54+00:00",
-      "lastSuccessAt": "2026-11-28T10:17:54+00:00",
+      "checkedAt": "2026-11-28T11:33:00+00:00",
+      "lastSuccessAt": "2026-11-28T11:33:00+00:00",
       "error": null,
-      "deferred": true,
+      "deferred": false,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T11:17:54.082721+00:00",
+      "nextAttemptAt": "2026-11-28T12:33:00.434821+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     }
   ],
   "events": [
+    {
+      "id": "3dc4f513800907fa2c46f44b9fa66f152e4ffa0b17f0b21c066c155a43bc5577",
+      "sourceId": "openrouter-models",
+      "sourceUrl": "https://openrouter.ai/api/v1/models",
+      "attribution": {
+        "name": "OpenRouter",
+        "url": "https://openrouter.ai/docs/api/api-reference/models/get-models"
+      },
+      "eventType": "reappeared-in-catalog",
+      "observedAt": "2026-11-28T11:33:00+00:00",
+      "productKey": "z-ai|z-ai/glm-5.2:batch",
+      "product": {
+        "providerId": "z-ai",
+        "productId": "z-ai/glm-5.2:batch",
+        "name": "Z.ai: GLM 5.2 (batch)",
+        "providerRecordCreatedAt": "2026-06-16T17:45:30+00:00"
+      },
+      "previousProduct": null,
+      "identity": {
+        "modelFamilyId": "glm",
+        "modelVersionId": "5-2"
+      },
+      "claimType": "catalog-observation"
+    },
     {
       "id": "e445ecf57de11f702e3fbc6b69cb44c25425681809af8c94ee02b7a09e9cca4e",
       "sourceId": "openrouter-models",
@@ -5983,10 +6007,10 @@
   "summary": {
     "configuredSources": 3,
     "sourcesWithBaseline": 3,
-    "successfulThisRun": 0,
-    "newEvents": 0,
-    "retainedEvents": 19,
-    "listedEntries": 543
+    "successfulThisRun": 3,
+    "newEvents": 1,
+    "retainedEvents": 20,
+    "listedEntries": 544
   },
   "policy": "Public catalog observations only; never equate provider creation, reported metadata, first observation, addition or absence with formal launch, availability or withdrawal."
 }
