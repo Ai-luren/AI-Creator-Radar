@@ -14,6 +14,8 @@ import io
 import json
 from pathlib import Path
 import re
+import subprocess
+import sys
 import urllib.error
 import urllib.request
 from urllib.parse import urlencode, urlsplit
@@ -38,6 +40,8 @@ AIHOT_ATTRIBUTION = {"name": "AIHOT", "url": "https://aihot.news"}
 AIPICK_ENDPOINT = "https://aipick.news/api/v1/items"
 AIPICK_ATTRIBUTION = {"name": "AIPick", "url": "https://aipick.news"}
 MAX_BYTES = 2 * 1024 * 1024
+BROAD_DEADLINE_SECONDS = 8
+BROAD_SOCKET_TIMEOUT_SECONDS = 6
 OPEN_STATES = {"needs-source", "probe-unresolved", "awaiting-probe", "needs-product-identity", "needs-repository-identity"}
 
 
@@ -220,11 +224,77 @@ def fetch(target, allowed, families):
                        "maxrecords": 30, "timespan": "3m", "sort": "HybridRel"})
     req = urllib.request.Request(ENDPOINT + "?" + query,
                                  headers={"Accept": "application/json", "User-Agent": USER_AGENT})
-    with urllib.request.build_opener(SameHostRedirect()).open(req, timeout=15) as response:
+    with urllib.request.build_opener(SameHostRedirect()).open(req, timeout=BROAD_SOCKET_TIMEOUT_SECONDS) as response:
         body = response.read(MAX_BYTES + 1)
     if len(body) > MAX_BYTES:
         raise ValueError("Index response exceeds size limit")
     return parse_results(json.loads(body), target, allowed, families)
+
+
+class BroadSearchDeadlineExceeded(TimeoutError):
+    pass
+
+
+def broad_search_worker():
+    """One fixed-provider, read-only request; only the parent persists results."""
+    request = json.load(sys.stdin)
+    try:
+        rows = fetch(request["target"],request["allowed"],request["families"])
+        response = {"rows":rows}
+    except urllib.error.HTTPError as exc:
+        response = {"httpError":exc.code,"reason":str(exc.reason)[:120],
+                    "retryAfter":exc.headers.get("Retry-After","") if exc.headers else ""}
+    except (OSError,ValueError,TypeError) as exc:
+        response = {"error":f"{type(exc).__name__}: {str(exc)[:160]}"}
+    print(json.dumps(response,ensure_ascii=False))
+    return 0
+
+
+def bounded_broad_fetch(target,allowed,families,runner=subprocess.run):
+    payload = json.dumps({"target":target,"allowed":allowed,"families":families},ensure_ascii=False)
+    try:
+        completed = runner([sys.executable,str(Path(__file__).resolve()),"--broad-search-worker"],
+                           input=payload,text=True,capture_output=True,check=True,timeout=BROAD_DEADLINE_SECONDS)
+    except subprocess.TimeoutExpired as exc:
+        raise BroadSearchDeadlineExceeded(f"GDELT hard wall-clock budget {BROAD_DEADLINE_SECONDS}s") from exc
+    except subprocess.SubprocessError as exc:
+        raise OSError("GDELT worker failed") from exc
+    obj = json.loads(completed.stdout)
+    if not isinstance(obj,dict):
+        raise ValueError("Invalid GDELT worker response")
+    if "httpError" in obj:
+        code = obj["httpError"]
+        if type(code) is not int or not 400<=code<=599:
+            raise ValueError("Invalid GDELT HTTP error")
+        raise urllib.error.HTTPError(ENDPOINT,code,obj.get("reason",""),
+                                     {"Retry-After":obj.get("retryAfter","")},None)
+    if "error" in obj:
+        raise OSError(obj["error"])
+    if not isinstance(obj.get("rows"),list):
+        raise ValueError("Missing GDELT worker rows")
+    return obj["rows"]
+
+
+def broad_fallback_ready(target,now,recent_cutoff,providers):
+    """A normal aggregator cooldown is not an observed coverage gap."""
+    first = stamp(target.get("firstDetectedAt"))
+    if not target.get("identity") or first is None or first<recent_cutoff:
+        return True
+    # Targets with existing index pointers are intentionally not re-queried
+    # by the aggregate adapter; allow their ordinary due broad recovery.
+    if any(row.get("officialCandidateUrl") for row in target.get("results",[])):
+        return True
+    for prefix,state,configured in providers:
+        if not configured:
+            continue
+        attempted = stamp(target.get(prefix+"LastAttemptAt"))
+        until = stamp(state.get("nextAttemptAt"))
+        if attempted is not None and attempted<=now:
+            continue
+        if state.get("error") and until is not None and until>now:
+            continue
+        return False
+    return True
 
 
 def parse_aihot_pointers(payload, target, allowed, families, provider="aihot-targeted"):
@@ -394,8 +464,11 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         elif secondary:
             aipick_attempted=attempted=1
             search_aggregated(secondary[0],"aipick-targeted","aipick",aipick_service,aipick_fetcher)
-    if not attempted and due and (not cooldown or cooldown <= now):
-        target = due[0]
+    providers = (("aihot",aihot_service,aihot_fetcher is not None),
+                 ("aipick",aipick_service,aipick_fetcher is not None))
+    broad_due = [t for t in due if broad_fallback_ready(t,now,recent_cutoff,providers)]
+    if not attempted and broad_due and (not cooldown or cooldown <= now):
+        target = broad_due[0]
         attempted = 1
         try:
             results = fetcher(target, allowed, families)
@@ -404,6 +477,10 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         except (OSError, ValueError, TypeError) as exc:
             count = int(service.get("consecutiveFailures", 0)) + 1
             delay = min(1440, 60 * 2 ** min(count, 5))
+            if isinstance(exc,BroadSearchDeadlineExceeded):
+                # A deadline may hide a late rate-limit response; do not
+                # increase pressure on a slow provider by retrying immediately.
+                delay = max(delay,360)
             if isinstance(exc, urllib.error.HTTPError):
                 retry = exc.headers.get("Retry-After", "") if exc.headers else ""
                 if str(retry).isdigit():
@@ -439,6 +516,8 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
             "targets": sorted(targets.values(), key=lambda t: t["id"]),
             "summary": {"activeTargets": len(active_rows), "attemptedThisRun": attempted,
                         "targetStates": dict(sorted(counts.items())),
+                        "broadDeferredForAggregators": len(due)-len(broad_due),
+                        "broadDeadlineSeconds": BROAD_DEADLINE_SECONDS,
                         "targetsWithLocalContext": sum(bool(t["localContext"]) for t in active_rows),
                         "localContextRecords": sum(len(t["localContext"]) for t in active_rows),
                         "officialCandidates": sum(bool(r.get("officialCandidateUrl")) for t in active_rows for r in t.get("results", [])),
@@ -500,7 +579,7 @@ def main():
     result = search(read(directory / "models.json"), read(args.discovery or directory / "cross-platform-discovery.json"),
                     read(directory / "event-reconciliation.json", True),
                     read(args.product_state or directory / "product-state.json", True),
-                    read(OUTPUT, True), config["officialArticleHosts"], datetime.now(timezone.utc), aihot_fetcher=fetch_aihot, aipick_fetcher=fetch_aipick)
+                    read(OUTPUT, True), config["officialArticleHosts"], datetime.now(timezone.utc), fetcher=bounded_broad_fetch, aihot_fetcher=fetch_aihot, aipick_fetcher=fetch_aipick)
     print("Source search:", json.dumps(result["summary"], ensure_ascii=False))
     if args.report:
         write_json(args.report, result)
@@ -510,4 +589,4 @@ def main():
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(broad_search_worker() if sys.argv[1:]==["--broad-search-worker"] else main())

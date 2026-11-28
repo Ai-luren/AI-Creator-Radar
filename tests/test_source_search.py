@@ -200,3 +200,72 @@ class AIHOTTargetedTests(unittest.TestCase):
     def test_aipick_cannot_relabel_aihot_pointer_as_independent(self):
         from scripts.collect_source_search import parse_aihot_pointers
         self.assertEqual(parse_aihot_pointers(self.payload(),next(iter(build_targets(self.families,self.discovery,{},{}).values())),self.allowed,self.families,"aipick-targeted"),[])
+
+class BoundedBroadSearchTests(unittest.TestCase):
+    setUp=SourceSearchTests.setUp
+    run_search=SourceSearchTests.run_search
+
+    def test_normal_aggregator_cooldown_is_not_permission_to_use_broad_search(self):
+        calls=[]
+        def primary(*args):
+            calls.append("aihot")
+            return [],"a"
+        def secondary(*args):
+            calls.append("aipick")
+            return [],"b"
+        def broad(*args):
+            calls.append("gdelt")
+            return []
+        old=search(self.families,self.discovery,{}, {},{},self.allowed,self.now,broad,
+                   aihot_fetcher=primary,aipick_fetcher=secondary)
+        # Simulate a different target with no provider observations during
+        # normal successful provider cooldown, not a failed provider.
+        other={"items":[{"id":"lead2","sourceId":"feed","title":"Demo v3 Live launched",
+                        "officialArticleUrls":[],"firstSeenAt":"2026-11-26T00:00:00Z"}]}
+        old["aipickService"]={"lastSuccessAt":self.now.isoformat(),
+                              "nextAttemptAt":(self.now+timedelta(minutes=30)).isoformat(),"error":None}
+        later=search(self.families,other,{}, {},old,self.allowed,self.now+timedelta(minutes=5),broad,
+                     aihot_fetcher=primary,aipick_fetcher=secondary)
+        self.assertEqual(calls,["aihot"])
+        self.assertEqual(later["summary"]["attemptedThisRun"],0)
+        self.assertEqual(later["summary"]["broadDeferredForAggregators"],1)
+
+    def test_actual_gap_after_both_providers_allows_broad_recovery(self):
+        calls=[]
+        def broad(*args):
+            calls.append("gdelt")
+            return []
+        first=search(self.families,self.discovery,{}, {},{},self.allowed,self.now,broad,
+                     aihot_fetcher=lambda *a:([],"a"),aipick_fetcher=lambda *a:([],"b"))
+        second=search(self.families,self.discovery,{}, {},first,self.allowed,self.now+timedelta(minutes=5),broad,
+                      aihot_fetcher=lambda *a:([],"a"),aipick_fetcher=lambda *a:([],"b"))
+        third=search(self.families,self.discovery,{}, {},second,self.allowed,self.now+timedelta(minutes=10),broad,
+                     aihot_fetcher=lambda *a:([],"a"),aipick_fetcher=lambda *a:([],"b"))
+        self.assertEqual(calls,["gdelt"])
+        self.assertEqual(third["summary"]["attemptedThisRun"],1)
+
+    def test_worker_deadline_preserves_previous_success_and_backoff(self):
+        import subprocess
+        from unittest.mock import Mock
+        from scripts.collect_source_search import bounded_broad_fetch, BroadSearchDeadlineExceeded
+        runner=Mock(side_effect=subprocess.TimeoutExpired("worker",8))
+        with self.assertRaises(BroadSearchDeadlineExceeded):
+            bounded_broad_fetch(self.target,self.allowed,self.families,runner)
+        self.assertEqual(runner.call_args.kwargs["timeout"],8)
+        first=self.run_search(fetcher=lambda *a:[])
+        def timed(*args):
+            return bounded_broad_fetch(*args,runner=runner)
+        second=self.run_search(first,hours=25,fetcher=timed)
+        self.assertIn("BroadSearchDeadlineExceeded",second["service"]["error"])
+        self.assertEqual(second["service"]["lastSuccessAt"],first["service"]["lastSuccessAt"])
+        self.assertGreaterEqual(datetime.fromisoformat(second["service"]["nextAttemptAt"]),
+                                self.now+timedelta(hours=31))
+
+    def test_worker_preserves_http_error_and_retry_after(self):
+        from types import SimpleNamespace
+        from unittest.mock import Mock
+        from scripts.collect_source_search import bounded_broad_fetch
+        runner=Mock(return_value=SimpleNamespace(stdout='{"httpError":429,"reason":"limit","retryAfter":"86400"}'))
+        result=self.run_search(fetcher=lambda *args: bounded_broad_fetch(*args,runner=runner))
+        self.assertIn("429",result["service"]["error"])
+        self.assertEqual(result["service"]["nextAttemptAt"],(self.now+timedelta(days=1)).isoformat())
