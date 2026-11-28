@@ -403,9 +403,82 @@ def parse_store(payload,source):
                  "claimType":"first-party-store-version"}}
 
 
+# Exact model names are derived only from verified release rows, not arbitrary
+# article text or external instructions. No URL/host is supplied by a model.
+MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","小云雀","Pippit","即梦","Dreamina","Gemini")
+MODEL_WATCH_NAME=re.compile(r"^(?:Seedance|Seedream|SeedAudio|MAGI|Kling|可灵|Vidu|Wan|HappyHorse|Veo|Gemini|GPT[- ]Image|Nano Banana|Hailuo|海螺|PixVerse|MiniMax|Niji|Midjourney|Suno|ElevenLabs|Scribe|Eleven|HY[- ]?3D)(?:[ -]|\d|$)",re.I)
+def valid_watch_term(term):
+    return isinstance(term,str) and len(term)<=80 and bool(MODEL_WATCH_NAME.match(term)) and bool(re.fullmatch(r"[\w .+\-]+",term)) and bool(re.search(r"\d",term))
+
+def model_watch_queries(releases,now):
+    candidates=[]
+    seen=set()
+    for row in releases or []:
+        if not isinstance(row,dict):
+            continue
+        name=row.get("modelName")
+        day=row.get("publishedAt")
+        try:
+            published=datetime.strptime(day,"%Y-%m-%d").replace(tzinfo=timezone.utc)
+            url=urlsplit(row.get("url") or "")
+        except (TypeError,ValueError):
+            continue
+        if not (now.date()-timedelta(days=6)<=published.date()<=now.date() and
+                row.get("category") in {"video","image","audio","music","tts","speech","audio-other","llm"} and
+                row.get("modelFamilyId") and row.get("modelVersionId") and row.get("verifiedAt") and
+                row.get("evidenceType") in {"official-release","official-model-card"} and
+                row.get("verificationStatus")!="pending" and url.scheme=="https" and url.hostname and
+                not url.username and not url.password and valid_watch_term(name)):
+            continue
+        key=(row["modelFamilyId"],row["modelVersionId"])
+        if key in seen:
+            continue
+        seen.add(key)
+        candidates.append((row,name,day))
+    candidates.sort(key=lambda x:(x[2],x[0].get("category")=="video",x[0].get("category")=="image",x[1]),reverse=True)
+    # At most three active model watches. Two provider slots remain the same.
+    out=[]
+    for row,name,day in candidates[:3]:
+        key=hashlib.sha256((row["modelFamilyId"]+"|"+row["modelVersionId"]+"|"+day).encode()).hexdigest()[:20]
+        for provider in ("AIHOT","AIPick"):
+            out.append({"id":"model-watch-"+key+"-"+provider.lower(),"term":name,"label":name,"provider":provider,
+                        "priority":-10,"intervalMinutes":360,"modelWatch":True,"modelFamilyId":row["modelFamilyId"],
+                        "modelVersionId":row["modelVersionId"],"publisherCalendarDay":day})
+    return out
+
+def model_watch_counts(rows,term):
+    # Metadata only. Counts are discovery signals, not published launch claims.
+    pattern=re.compile(r"(?<![A-Za-z0-9])"+re.escape(term)+r"(?![A-Za-z0-9.])",re.I)
+    by_brand={b:0 for b in MODEL_WATCH_BRANDS}
+    seen=set()
+    for row in rows:
+        if not isinstance(row,dict) or row.get("selected") is not True:
+            continue
+        title=str(row.get("title") or "")
+        if not pattern.search(title) or re.search(r"折扣|优惠券|黑五|discount|coupon|black friday",title,re.I):
+            continue
+        links=row.get("links") or {}
+        original=links.get("original") if isinstance(links,dict) else None
+        if not isinstance(original,str) or links.get("story"):
+            continue
+        try:
+            u=urlsplit(original)
+            if not u.hostname or u.username or u.password or u.port not in (None,443) or u.scheme!="https":
+                continue
+        except ValueError:
+            continue
+        for brand in MODEL_WATCH_BRANDS:
+            if not re.search(r"(?<![A-Za-z0-9])"+re.escape(brand)+r"(?![A-Za-z0-9])",title,re.I):
+                continue
+            k=(brand,u.hostname,u.path,u.query)
+            if k not in seen:
+                seen.add(k)
+                by_brand[brand]+=1
+    return by_brand
+
 def fetch_target(spec,etag):
     term,category=spec["term"],spec.get("category")
-    if (term,category) not in AIPICK_QUERIES:
+    if (term,category) not in AIPICK_QUERIES and not (spec.get("modelWatch") is True and category is None and valid_watch_term(term)):
         raise ValueError("Unapproved targeted query")
     params={"mode":"all","window":"7d","by":"published","q":term,"limit":30}
     if category:
@@ -469,20 +542,21 @@ def fetch_target(spec,etag):
             return {"items":len(rows),"wechatOriginalLinks":domains["wechat"],
                     "otherOriginalLinks":domains["other"],"missingOriginalLinks":domains["missing"],
                     "exactTitleMatches":exact,"hasNextCursor":bool(payload.get("nextCursor") or (payload.get("page") or {}).get("nextCursor")),
-                    "selectedProductFeatures":selected_updates["productFeature"],"selectedModelIntegrations":selected_updates["modelIntegration"]},response.headers.get("ETag","")
+                    "selectedProductFeatures":selected_updates["productFeature"],"selectedModelIntegrations":selected_updates["modelIntegration"],
+                    **({"modelWatchBrandMentions":model_watch_counts(rows,term)} if spec.get("modelWatch") else {})},response.headers.get("ETag","")
     except urllib.error.HTTPError as exc:
         if exc.code==304 and etag:
             return None,etag
         raise
 
 
-def collect_targeted(config,previous,now,fetcher=fetch_target):
+def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
     if not config:
         return {}
     stamp=now.isoformat(timespec="seconds")
     old={q["id"]:q for q in previous.get("queries",[])}
     rows=[]
-    for spec in config["queries"]:
+    for spec in [*config["queries"],*model_watch_queries(releases,now)]:
         prior=old.get(spec["id"],{})
         if prior.get("term")!=spec["term"] or prior.get("category")!=spec.get("category") or prior.get("provider","AIPick")!=spec.get("provider","AIPick"):
             prior={}
@@ -501,6 +575,8 @@ def collect_targeted(config,previous,now,fetcher=fetch_target):
         last=parse_stamp(row.get("lastAttemptAt"))
         overdue=retry is not None and retry<=now-timedelta(hours=24)
         tier=0 if overdue else int(row.get("priority",50))
+        if row.get("modelWatch") and last:
+            tier=-1 # first discovery takes precedence; repeat reads remain bounded
         return (tier,bool(last),row.get("nextAttemptAt") or "",row["id"])
     due.sort(key=priority_key)
     attempted=0
@@ -752,14 +828,14 @@ def correct_model_improvement(row):
     return row
 
 
-def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
+def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releases=None):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
     stamp=now.isoformat(timespec="seconds")
     prior={s["id"]:s for s in previous.get("sources",[])}
     events={e["id"]:correct_model_improvement(e) if e.get("sourceId")=="higgsfield-changelog" else e
             for e in previous.get("events",[])}
-    targeted=collect_targeted(config.get("targetedDiscovery"),previous.get("targetedDiscovery",{}),now,target_fetcher)
+    targeted=collect_targeted(config.get("targetedDiscovery"),previous.get("targetedDiscovery",{}),now,target_fetcher,releases)
     sources=[]
     for spec in config["sources"]:
         old=prior.get(spec["id"],{})
@@ -853,7 +929,9 @@ def main():
         # No source probe, query budget use or mutation of collector timestamps.
         result=previous
     else:
-        result=collect(config,previous,datetime.now(timezone.utc))
+        release_path=ROOT/"site/data/model-releases-30d.json"
+        releases=read(release_path).get("items",[]) if release_path.exists() else []
+        result=collect(config,previous,datetime.now(timezone.utc),releases=releases)
     result=refresh_platform_coverage(config,result,ROOT/"site/data",datetime.now(timezone.utc))
     print("Platform coverage:",json.dumps(result["platformCoverage"],ensure_ascii=False))
     if not a.coverage_only:
