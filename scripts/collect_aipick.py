@@ -72,12 +72,14 @@ def atomic_write(payload: dict) -> None:
 def collect(dry_run: bool = False) -> dict:
     previous = read_existing()
     etags = previous.get("etags", {}) if isinstance(previous.get("etags"), dict) else {}
+    checked = datetime.now(timezone.utc).isoformat(timespec="seconds")
     payload = {
         "source": "AIPick",
         "sourceUrl": "https://aipick.news",
         "attribution": {"name": "AIPick", "url": "https://aipick.news"},
         "window": "7d",
-        "fetchedAt": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "fetchedAt": previous.get("fetchedAt"),
+        "checkedAt": checked,
         "etags": dict(etags),
         "items": previous.get("items", []),
         "hotTopics": previous.get("hotTopics", []),
@@ -86,8 +88,11 @@ def collect(dry_run: bool = False) -> dict:
     }
     for key, url in ENDPOINTS.items():
         try:
-            data, etag, unchanged = request_json(url, etags.get(key, ""))
+            has_snapshot = isinstance(previous.get(key), list)
+            data, etag, unchanged = request_json(url, etags.get(key, "") if has_snapshot else "")
             if unchanged:
+                if not has_snapshot:
+                    raise ValueError("304 without existing snapshot")
                 payload["unchanged"].append(key)
                 continue
             if key == "items":
@@ -97,8 +102,10 @@ def collect(dry_run: bool = False) -> dict:
             payload["etags"][key] = etag
         except Exception as error:
             payload["errors"].append(f"{key}: {error}")
-            if not payload[key]:
+            if not isinstance(previous.get(key), list):
                 raise RuntimeError(f"{key} failed and no previous snapshot exists") from error
+    if not payload["errors"]:
+        payload["fetchedAt"] = checked
     if not dry_run:
         atomic_write(payload)
     return payload
@@ -115,6 +122,7 @@ def main() -> int:
         print("Unchanged via ETag:", ", ".join(data["unchanged"]))
     if data["errors"]:
         print("Warnings:", "; ".join(data["errors"]))
+        return 1
     return 0
 
 

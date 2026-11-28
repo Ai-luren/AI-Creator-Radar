@@ -50,7 +50,7 @@ class RefreshPlannerTests(unittest.TestCase):
     def test_explicit_scope_and_deploy_only(self):
         self.assertFalse(any(plan(self.data, "workflow_dispatch", "deploy-only", self.now).values()))
         self.assertEqual({k for k, v in plan(self.data, "workflow_dispatch", "models", self.now).items() if v}, {"models", "selected"})
-        self.assertEqual({k for k, v in plan(self.data, "workflow_dispatch", "resources", self.now).items() if v}, {"resources", "aihot_daily", "juya_daily"})
+        self.assertEqual({k for k, v in plan(self.data, "workflow_dispatch", "resources", self.now).items() if v}, {"resources", "aihot_daily", "juya_daily", "aipick"})
 
     def test_daily_issue_not_fetch_timestamp_drives_independent_morning_refresh(self):
         morning = datetime(2026, 11, 27, 0, 5, tzinfo=timezone.utc)
@@ -122,3 +122,29 @@ class RefreshPlannerTests(unittest.TestCase):
         del payload["items"]
         path.write_text(json.dumps(payload))
         self.assertTrue(plan(self.data, "schedule", now=self.now)["selected"])
+
+    def test_aipick_freshness_independent_of_rankings(self):
+        for group in GROUPS:
+            self.stamp(group)
+        self.stamp("aipick", 26)
+        result = plan(self.data, "schedule", now=self.now)
+        self.assertTrue(result["aipick"])
+        self.assertFalse(result["resources"])
+        self.assertTrue(plan(self.data, "push", now=self.now)["aipick"])
+        self.stamp("aipick")
+        self.stamp("resources", 400)
+        result = plan(self.data, "schedule", now=self.now)
+        self.assertTrue(result["resources"])
+        self.assertFalse(result["aipick"])
+        self.assertEqual({k for k,v in plan(self.data,"workflow_dispatch","aipick",self.now).items() if v},{"aipick"})
+
+    def test_aipick_failure_does_not_block_other_due_groups(self):
+        for group in GROUPS:
+            self.stamp(group, 1500)
+        (self.data / "collection-health.json").write_text(json.dumps({"sources":{"aipick-selected":{
+            "status":"degraded","consecutiveFailures":2,"lastAttemptAt":self.now.isoformat()}}}))
+        result = plan(self.data,"schedule",now=self.now)
+        self.assertFalse(result["aipick"])
+        self.assertTrue(result["models"])
+        self.assertTrue(result["resources"])
+        self.assertTrue(plan(self.data,"schedule",now=self.now+timedelta(minutes=30))["aipick"])

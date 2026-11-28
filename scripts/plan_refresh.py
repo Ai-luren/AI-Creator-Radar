@@ -13,16 +13,18 @@ ROOT = Path(__file__).resolve().parents[1]
 GROUPS = {
     "models": (("model-monitor-status.json", "checkedAt"), ("chronicle-updates-status.json", "checkedAt"), ("model-releases-30d.json", "updatedAt"), ("cross-platform-discovery.json", "checkedAt"), ("lead-resolution.json", "checkedAt"), ("model-intake.json", "checkedAt"), ("release-recall-status.json", "checkedAt"), ("model-release-verification-status.json", "checkedAt"), ("event-reconciliation.json", "checkedAt"), ("product-state.json", "checkedAt"), ("source-search.json", "checkedAt"), ("event-claims.json", "checkedAt"), ("independent-coverage.json", "checkedAt"), ("historical-evidence.json", "checkedAt"), ("app-updates.json", "checkedAt")),
     "selected": (("aihot-items.json", "fetchedAt"),),
+    "aipick": (("aipick-data.json", "fetchedAt"),),
     "aihot_daily": (("aihot-daily.json", "fetchedAt"),),
     "juya_daily": (("juya-daily.json", "fetchedAt"),),
-    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt"), ("maomu-rankings.json", "checkedAt"), ("unified-rankings.json", "calculatedAt"), ("aipick-data.json", "fetchedAt"), ("social-trends.json", "fetchedAt")),
+    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt"), ("maomu-rankings.json", "checkedAt"), ("unified-rankings.json", "calculatedAt"), ("social-trends.json", "fetchedAt")),
     "maintenance": (("model-resource-status.json", "checkedAt"), ("creator-link-status.json", "checkedAt"), ("creator-opportunity-discovery.json", "checkedAt"), ("model-evaluations.json", "generatedAt")),
 }
-INTERVAL_MINUTES = {"models": 25, "selected": 25, "aihot_daily": 10, "juya_daily": 10, "resources": 350, "maintenance": 1430}
+INTERVAL_MINUTES = {"models": 25, "selected": 25, "aipick": 25, "aihot_daily": 10, "juya_daily": 10, "resources": 350, "maintenance": 1430}
 MANUAL = {
     "all": set(GROUPS),
     "models": {"models", "selected"},
-    "resources": {"resources", "aihot_daily", "juya_daily"},
+    "resources": {"resources", "aihot_daily", "juya_daily", "aipick"},
+    "aipick": {"aipick"},
     "maintenance": {"maintenance"},
     "deploy-only": set(),
 }
@@ -98,7 +100,7 @@ def daily_due(data_dir, group, now):
 
 # Delay only a group with a recorded failure, never unrelated collectors.
 # Keep the cap within the existing 30-minute scheduler heartbeat horizon.
-HEALTH_SOURCE = {"models": "models-batch", "selected": "aihot-selected",
+HEALTH_SOURCE = {"models": "models-batch", "selected": "aihot-selected", "aipick": "aipick-selected",
                  "aihot_daily": "aihot-daily", "juya_daily": "juya-daily",
                  "resources": "resources-batch", "maintenance": "maintenance-batch"}
 

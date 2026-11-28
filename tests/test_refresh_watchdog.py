@@ -69,8 +69,9 @@ class WatchdogTests(unittest.TestCase):
         self.health = {"sources": {
             "models-batch": {"status": "degraded", "consecutiveFailures": 2, "lastAttemptAt": self.now.isoformat()},
             "aihot-selected": {"status": "degraded", "consecutiveFailures": 2, "lastAttemptAt": self.now.isoformat()},
+            "aipick-selected": {"status": "degraded", "consecutiveFailures": 2, "lastAttemptAt": self.now.isoformat()},
         }}
-        # Only the two short-interval groups would otherwise be due.
+        # Only the three short-interval groups would otherwise be due.
         # At 20:00 China time both daily editions are already current.
         self.assertEqual(self.run_check(), "fresh")
         self.assertFalse(any(a[1] == "workflow" for a in self.calls))

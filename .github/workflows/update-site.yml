@@ -35,6 +35,7 @@ on:
           - due
           - models
           - resources
+          - aipick
           - maintenance
           - deploy-only
 
@@ -107,6 +108,13 @@ jobs:
             python scripts/collect_aihot.py
           fi
 
+      - name: Collect AIPick selected items and hot topics independently
+        id: aipick
+        continue-on-error: true
+        timeout-minutes: 2
+        if: steps.plan.outputs.aipick == 'true'
+        run: python scripts/collect_aipick.py
+
       - name: Collect model updates and derived views transactionally
         id: models_batch
         continue-on-error: true
@@ -149,6 +157,7 @@ jobs:
         if: steps.plan.outputs.collect == 'true'
         env:
           AIHOT_SELECTED: ${{ steps.aihot.outcome }}
+          AIPICK_SELECTED: ${{ steps.aipick.outcome }}
           AIHOT_DAILY: ${{ steps.aihot_daily.outcome }}
           JUYA_DAILY: ${{ steps.juya_daily.outcome }}
           MODEL_BATCH: ${{ steps.models_batch.outcome }}
