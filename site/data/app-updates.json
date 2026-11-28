@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T16:23:05+00:00",
+  "checkedAt": "2026-11-28T17:02:56+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -6384,7 +6384,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T16:23:05+00:00",
+    "checkedAt": "2026-11-28T17:02:56+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -7189,7 +7189,7 @@
         "term": "SeedAudio",
         "provider": "AIHOT",
         "priority": 4,
-        "lastAttemptAt": "2026-11-28T04:28:30+00:00",
+        "lastAttemptAt": "2026-11-28T17:02:56+00:00",
         "counts": {
           "items": 0,
           "wechatOriginalLinks": 0,
@@ -7201,11 +7201,11 @@
           "selectedModelIntegrations": 0
         },
         "countsObservedAt": "2026-11-28T04:28:30+00:00",
-        "status": "observed",
+        "status": "unchanged",
         "etag": "W/\"v1-items-f7711022748fb2d8\"",
-        "lastSuccessAt": "2026-11-28T04:28:30+00:00",
+        "lastSuccessAt": "2026-11-28T17:02:56+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T16:28:30.542865+00:00",
+        "nextAttemptAt": "2026-11-29T05:02:56.647077+00:00",
         "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
       },
@@ -7611,7 +7611,7 @@
         "modelVersionId": "niji-8",
         "publisherCalendarDay": "2026-11-24",
         "queuedAt": "2026-11-28T06:49:40+00:00",
-        "lastAttemptAt": "2026-11-28T07:24:43+00:00",
+        "lastAttemptAt": "2026-11-28T17:02:56+00:00",
         "counts": {
           "items": 2,
           "wechatOriginalLinks": 0,
@@ -7635,32 +7635,32 @@
           }
         },
         "countsObservedAt": "2026-11-28T07:24:43+00:00",
-        "status": "observed",
+        "status": "unchanged",
         "etag": "W/\"v1-items-f5d5cf61ea1be5a9\"",
-        "lastSuccessAt": "2026-11-28T07:24:43+00:00",
+        "lastSuccessAt": "2026-11-28T17:02:56+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:24:43.297116+00:00",
+        "nextAttemptAt": "2026-11-29T05:02:56.647077+00:00",
         "watchWindow": "followup-7d"
       }
     ],
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T16:23:05+00:00",
-      "nextAttemptAt": "2026-11-28T16:48:05.849270+00:00"
+      "lastSuccessAt": "2026-11-28T17:02:56+00:00",
+      "nextAttemptAt": "2026-11-28T17:27:56.647077+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T16:23:05+00:00",
-        "nextAttemptAt": "2026-11-28T16:48:05.849270+00:00"
+        "lastSuccessAt": "2026-11-28T17:02:56+00:00",
+        "nextAttemptAt": "2026-11-28T17:27:56.647077+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T16:23:05+00:00",
-        "nextAttemptAt": "2026-11-28T16:48:05.849270+00:00"
+        "lastSuccessAt": "2026-11-28T17:02:56+00:00",
+        "nextAttemptAt": "2026-11-28T17:27:56.647077+00:00"
       }
     },
     "attemptedThisRun": 2,
@@ -14880,7 +14880,7 @@
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T16:23:12+00:00",
+    "checkedAt": "2026-11-28T17:03:02+00:00",
     "window": "7d",
     "sources": [
       {
@@ -14893,7 +14893,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T16:22:50+00:00",
+        "fetchedAt": "2026-11-28T17:02:42+00:00",
         "selectedItems": 30,
         "hotTopics": 9,
         "errors": [],
@@ -14905,7 +14905,7 @@
         "id": "douyin",
         "label": "抖音",
         "role": "social",
-        "originalCount": 17,
+        "originalCount": 19,
         "providers": [
           "AIPick"
         ],
@@ -14970,7 +14970,7 @@
         "id": "wechat-article",
         "label": "微信公众号",
         "role": "social",
-        "originalCount": 5,
+        "originalCount": 4,
         "providers": [
           "AIHOT",
           "AIPick"
@@ -14991,7 +14991,7 @@
         "id": "tiktok",
         "label": "TikTok",
         "role": "social",
-        "originalCount": 5,
+        "originalCount": 4,
         "providers": [
           "AIPick"
         ],

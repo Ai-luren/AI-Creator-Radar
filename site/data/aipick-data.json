@@ -6,13 +6,105 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T16:22:50+00:00",
-  "checkedAt": "2026-11-28T16:22:50+00:00",
+  "fetchedAt": "2026-11-28T17:02:42+00:00",
+  "checkedAt": "2026-11-28T17:02:42+00:00",
   "etags": {
-    "items": "W/\"v1-items-df3d6eff84e29db9\"",
+    "items": "W/\"v1-items-8d61e5b74cc2c2df\"",
     "hotTopics": "W/\"v1-hot-5488555797bd84c6\""
   },
   "items": [
+    {
+      "id": "wg9cgu0j6fz80if0m6s4ab987",
+      "title": "两张国际视频榜中国模型均居首，MAGI-2与通义万相3.0分列第一",
+      "originalTitle": "两张国际榜，中国视频模型都拿了第一 同一张图做成有声视频，三呆科技的MAGI-2暂列第一，字节紧跟其后。只给文字，阿里通义万相领跑。看完巨花和香水样片，再算一笔账：做同样5秒的1080p视频，2.50元和18.71元能差出几次生成机会？ #MAGI2 #AI视频 #视频生成 #通义万相 #骏科技觀察",
+      "summary": "两张国际视频生成榜的第一名都来自中国：同图生成有声视频的盲审榜上，三呆科技 MAGI-2 暂列第一，字节跳动模型以5分之差紧随；纯文字生成画面和声音的榜上，阿里通义万相3.0 领跑。作者还对比了成本，做5秒1080p横屏视频、不加参考视频时，MAGI-2 公开报价2.50元，字节该模型估算18.71元，前者同样预算可生成约7条。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/wg9cgu0j6fz80if0m6s4ab987",
+        "original": "https://www.douyin.com/video/7713070027833986330"
+      },
+      "publishedAt": "2026-11-28T04:11:16.000Z",
+      "discoveredAt": "2026-11-28T16:23:20.121Z",
+      "category": "industry",
+      "score": 70,
+      "selected": true,
+      "reason": "原文给出两张国际视频榜的排名和同规格5秒1080p视频2.50元与18.71元的报价差，适合做成本对比实测。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/wg9cgu0j6fz80if0m6s4ab987"
+      }
+    },
+    {
+      "id": "obaq747mnt9ivd6424pgerg8d",
+      "title": "实测MAGI-2视频模型：风格化画风稳定，成本降至原来十分之一",
+      "originalTitle": "测完MAGI2，那我之前抽卡的经济损失呢 以前做AI视频最肉疼的就是反复抽卡烧积分，现在看到这成本我真破防了！ 为了测出国产黑马 Magi-2 的真实水准，我前前后后烧了几万积分实测。结果不仅高辨识度的风格化画风稳得一批，连多模态动作参考都能把原片的运镜节奏原封不动复刻下来。关键现在做出这种成片，只需要原来十分之一的成本，以后再也不用抠抠搜搜省算力抽卡了。 #后会友期 #AI视频 #许飞 #AI #MAGI2",
+      "summary": "创作者小杰AIGC烧了几万积分实测MAGI-2视频模型，认为其高辨识度风格化画风在连续动作和多场景切换中保持统一，多模态动作参考能替换人物并保留原片动作节奏与镜头语言。他称该模型价格低至5分1秒，做出同样成片只需原来十分之一的成本，并提到在libtv画布中选择MAGI-2、上传资产图和提示词即可生成。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/obaq747mnt9ivd6424pgerg8d",
+        "original": "https://www.douyin.com/video/7713167415051381937"
+      },
+      "publishedAt": "2026-11-28T12:27:00.000Z",
+      "discoveredAt": "2026-11-28T16:23:20.112Z",
+      "category": "ai-products",
+      "score": 60,
+      "selected": true,
+      "reason": "作者烧了几万积分实测MAGI-2，可拍风格化画风一致性、动作参考复刻运镜和5分1秒成本的前后对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/obaq747mnt9ivd6424pgerg8d"
+      }
+    },
+    {
+      "id": "kctmgsaxmy1oejondxdobn1lr",
+      "title": "MAGI-2 与 Seedance 2.5 视频生成实测对比",
+      "originalTitle": "Seedance2.5和MAGI-2测评 用Libtv试了一下最新出炉的MAGI-2 1080P，跑出来的12s视频成片大小要比Seedance 2.5 720P的略低，12s的MAGI-2是15M，12s的Seedance是19M。整个质感其实非常接近，仔细看MAGI-2可能较Sd2.5 略逊一筹，但是价格有巨大优势，带视频参考的MAGI-2 1080P是SD2.5 720P的差不多1/6到1/7#MAGI2 #seedance #阳光沙滩和排球 #治愈系海边氛围感 #斩杀线",
+      "summary": "作者用 Libtv 实测最新出炉的 MAGI-2 1080P，并与 Seedance 2.5 720P 对比：12s 成片 MAGI-2 为 15M，Seedance 为 19M。作者认为两者质感非常接近，细看 MAGI-2 可能略逊一筹，但带视频参考的 MAGI-2 1080P 价格约为 Seedance 2.5 720P 的 1/6 到 1/7。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/kctmgsaxmy1oejondxdobn1lr",
+        "original": "https://www.douyin.com/video/7713157904497809899"
+      },
+      "publishedAt": "2026-11-28T09:52:00.000Z",
+      "discoveredAt": "2026-11-28T16:23:20.094Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用 Libtv 实测 MAGI-2 1080P 与 Seedance 2.5 720P 的 12s 成片，可对比文件大小、质感差异和约 1/6 到 1/7 的价差。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/kctmgsaxmy1oejondxdobn1lr"
+      }
+    },
+    {
+      "id": "epolloynmno5juuiifjkenzgm",
+      "title": "MAGI-2 实测挑战 Seedance 2.5：三个视频场景表现如何",
+      "originalTitle": "视频生成擂台来了新人MAGI-2 挑战 Seedance 霸榜视频生成领域数月，Seedance 2.5 终于迎来了一位强劲挑战者：MAGI-2。 #MAGI #Deepseek做视频 #AI工具实测",
+      "summary": "作者自费33元用MAGI-2实测三个视频生成场景，30秒长视频中人物与物品保持一致，12秒对白场景口型基本对得上，六张参考图连续换装借吊扇遮挡完成转场。但火柴穿玻璃、火柴直接伸进灯芯等物理一致性问题明显，人物躺下动作僵硬，走API每秒0.08美元约为SVD2.5的1/7。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/epolloynmno5juuiifjkenzgm",
+        "original": "https://www.douyin.com/video/7713087241332985138"
+      },
+      "publishedAt": "2026-11-28T05:18:09.000Z",
+      "discoveredAt": "2026-11-28T16:23:20.087Z",
+      "category": "ai-products",
+      "score": 68,
+      "selected": true,
+      "reason": "作者自费33元实测MAGI-2三个场景，长视频一致性过关但火柴穿玻璃、人物躺下僵硬等瑕疵可做效果对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/epolloynmno5juuiifjkenzgm"
+      }
+    },
     {
       "id": "gcvgeazcc2vzwh4exv59ps9ck",
       "title": "Charaspower 分享老僧徒手拦火车 AI VFX 完整提示词",
@@ -610,98 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/wzfwthla4sk0anrm9e6nl9djn"
       }
-    },
-    {
-      "id": "nd3wc5fr4td912um0lhrb0maq",
-      "title": "实测 2780 元的宝妈 AI 算力主机：屏幕算力是动画，收益靠平台返钱",
-      "originalTitle": "买了宝妈同款的创业主机后，我被人当傻子了。。。",
-      "summary": "差评 X.PIN 花 2780 元买回一台宝妈创业 AI 算力主机，拆机抓包和逆向预装 Go 程序后发现，设备并未运行任何大模型，屏幕上的 HASH、BLOCK 等滚动代码是按预设公式和随机数生成的动画。",
-      "source": {
-        "name": "公众号 · 差评X.PIN"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/nd3wc5fr4td912um0lhrb0maq",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzA5NDc1NzQ4MA==&mid=2654711169&idx=1&sn=7d23870800d8c8cde88d8c4c1ddb68d1&chksm=8a1ca8c4038f19c0e7e24c6ab19e73b1477eeff28a8c05b0bda305dcf30cb20cc2b21f65887d&scene=126&sessionid=0#rd"
-      },
-      "publishedAt": "2026-11-27T15:20:33.000Z",
-      "discoveredAt": "2026-11-27T21:53:35.795Z",
-      "category": "industry",
-      "score": 64,
-      "selected": true,
-      "reason": "作者花 2780 元买回宝妈 AI 算力主机，拆机抓包逆向后发现屏幕算力是动画、收益靠平台返钱，适合做实测拆解加骗局复盘。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/nd3wc5fr4td912um0lhrb0maq"
-      }
-    },
-    {
-      "id": "s6zqziz4rq5bgekdx1ezgto8g",
-      "title": "Anthropic 发布 37 分钟免费 AI 智能体搭建教程",
-      "originalTitle": "The engineers who built Claude just released a free 37-minute guide on building AI agents. It's a video from Anthropic that shows you how to build agents that actually work. You give them one big job, they split it into smaller tasks and run everything on their own. The video comes with English and Spanish subtitles. Follow for more AI news like this. #claude #aiagents #anthropic #ai #agents",
-      "summary": "Anthropic 发布一段 37 分钟的免费视频教程，讲解如何搭建真正可用的 AI 智能体。教程演示智能体接到一个大任务后，会自主拆分成更小的任务并独立执行，最后再合并结果。视频配有英语、西班牙语等多种语言字幕。",
-      "source": {
-        "name": "TikTok · 搜「ai tools」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/s6zqziz4rq5bgekdx1ezgto8g",
-        "original": "https://www.tiktok.com/@saraev.clips/video/7712799925695794435"
-      },
-      "publishedAt": "2026-11-27T10:43:00.000Z",
-      "discoveredAt": "2026-11-27T21:25:35.958Z",
-      "category": "tip",
-      "score": 55,
-      "selected": true,
-      "reason": "Anthropic 官方 37 分钟智能体搭建教程，可截取其中任务拆分与自主执行的讲解片段做要点拆解。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/s6zqziz4rq5bgekdx1ezgto8g"
-      }
-    },
-    {
-      "id": "z2gdv7babcauk2gi3uoxdu7f0",
-      "title": "同一张高难度动作图，开源与闭源图像模型实测对比",
-      "originalTitle": "开源闭源一线模型挑战同一张超难动作谁胜谁 输#Ai生图 #Ai生图模型 #Ai图片 #Ai模型测评 #Ai制图",
-      "summary": "作者用同一套提示词和16:9、200万像素设置，让开源与闭源图像模型复刻同一张高难度动作图并逐张对比。闭源侧多版出图出现腿部畸形、脚部错位等问题，开源侧moss两张均未出错，千问则把脚藏了起来。作者还提到提示词统一按MG格式书写，并指出部分模型存在穿高跟鞋、仪表台缺失等与提示词不符的细节。",
-      "source": {
-        "name": "抖音 · 热点搜「6B设计图像模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/z2gdv7babcauk2gi3uoxdu7f0",
-        "original": "https://www.douyin.com/video/7712833331008147446"
-      },
-      "publishedAt": "2026-11-27T12:52:29.000Z",
-      "discoveredAt": "2026-11-27T20:10:34.597Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者用同一套提示词把开源和闭源图像模型跑同一张高难度动作图，逐张指出腿、脚、烟等崩坏细节，适合做同题出图对比实测。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/z2gdv7babcauk2gi3uoxdu7f0"
-      }
-    },
-    {
-      "id": "ou3qx8dich2cwnt3kna5h7jr7",
-      "title": "苹果16 Pro本地跑起26B的Incline 2 Mini模型",
-      "originalTitle": "苹果手机本地部署26B模型！ #科技 #模型 #ai",
-      "summary": "Incline 2 Mini 26B模型已在苹果16 Pro上本地运行，采用1比特量化后模型文件仅6.88GB，保留81.1%原始精度。借助MOE专家闪存卸载方案，推理速度提升40%，实测约3 token每秒，全程离线无需联网和云端。",
-      "source": {
-        "name": "抖音 · 热点搜「6B设计图像模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ou3qx8dich2cwnt3kna5h7jr7",
-        "original": "https://www.douyin.com/video/7712424524704255251"
-      },
-      "publishedAt": "2026-11-27T01:30:00.000Z",
-      "discoveredAt": "2026-11-27T20:10:34.575Z",
-      "category": "ai-models",
-      "score": 58,
-      "selected": true,
-      "reason": "作者在苹果16 Pro上实测26B的Incline 2 Mini本地运行，可拍成上手实测，重点展示6.88GB模型文件、3 token每秒的速度和离线运行。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ou3qx8dich2cwnt3kna5h7jr7"
-      }
     }
   ],
   "hotTopics": [
@@ -899,6 +899,8 @@
       "latestAt": "2026-11-26T19:26:08.000Z"
     }
   ],
-  "unchanged": [],
+  "unchanged": [
+    "hotTopics"
+  ],
   "errors": []
 }
