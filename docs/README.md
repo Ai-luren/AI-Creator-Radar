@@ -29,12 +29,12 @@
 
 文件名按用途分组，保持一个目录和一份在线副本：
 
-- **模型**：`models.json`、`model-updates.json`、`model-monitor-*.json`、`model-evaluations.json`、`model-practice.json`、`model-resource-status.json`、`model-releases-30d.json`。
+- **模型**：`models.json`、`model-updates.json`、`model-monitor-*.json`、`model-practice.json`、`model-resource-status.json`、`model-releases-30d.json`。
 - **榜单**：`rankings.json`、`ranking-sources.json`、`reference-rankings.json`、`maomu-rankings.json`、`leaderboard-reference-snapshots.json`、`unified-rankings.json`。
 - **简报与动态**：`aihot-*.json`、`juya-daily.json`、`feed-items.json`、`topics.json`、`chronicle-updates-status.json`。
 - **创作资源**：`aipick-data.json`、`awesome-repos.json`、`tutorials.json`、`resource-sources.json`、`resource-status.json`。
 - **创作机会**：`creator-contests.json`、`creator-link-status.json`、`creator-opportunity-discovery.json`。
-- **官方社媒**：`social-accounts.json`、`social-platforms.json`、`social-trends.json`。
+- **官方社媒**：`social-accounts.json`、`social-platforms.json`。
 - **发现与证据**：`cross-platform-discovery.json`、`lead-resolution.json`、`model-intake.json`、`model-release-verification-status.json`、`release-recall-status.json`。
 - **运行治理**：`collection-health.json`（尝试、成功和连续失败）、`scheduler-health.json`（到期与可重试边界）、`system-audit.json`（结构和覆盖审计）；线上 `deploy-revision.json` 为发布产物。
 
@@ -61,3 +61,5 @@ Cloudflare 已部署为正式备用调度器，首次生产补采及 Pages 发�
 
 现行文档相对文件链接与退役采集器隔离由 Python 回归测试自动检查。旧版综合新闻采集器及配套材料见 [历史归档](../archive/legacy-news/README.md)，不在生产任务或发布包中运行。
 旧版 `site/data/news-today.json` 快照暂保留用于历史追溯，不参与现行简报或全局检索的数据加载；迁移或删除快照须先核查外部引用。
+
+- 旧社会热点 RSS 和模型测评候选快照已停止例行采集；保留原始快照与手动脚本，详见 [退役调度记录](retired-collector-schedule.md)。
