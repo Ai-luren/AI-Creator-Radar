@@ -584,3 +584,17 @@ test('innovation exploration preserves new product shapes outside fixed themes a
  assert.equal(result.find(r=>r.signal.url.endsWith('/integration')).related.modelVersionId,'magi-2');
  assert.equal(result.find(r=>r.signal.url.endsWith('/lite')).related,null);
 });
+
+test('competitor feature matrix keeps official observations separate from dated logs and never infers missing support',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=matrix',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ assert.ok(requested.includes('app-updates.json'));assert.ok(!requested.includes('models.json'));
+ run("state.appUpdates={sources:[{id:'hf',vendor:'Higgsfield',role:'competitor'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/model'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Editing Room',updateType:'product-release',publisherCalendarDay:'2026-11-20',sourceUrl:'https://example.org/edit'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Black Friday credits',publisherCalendarDay:'2026-11-25',sourceUrl:'https://example.org/promo'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Old storyboard',publisherCalendarDay:'2026-10-01',sourceUrl:'https://example.org/old'}]};render()");
+ const out=node('content').innerHTML;assert.match(out,/Mangaka/);assert.match(out,/LibTV 3D-BOX/);assert.match(out,/官网观察/);assert.match(out,/官方日志/);assert.match(out,/当前未观察/);assert.match(out,/MAGI-2/);assert.doesNotMatch(out,/Black Friday credits|Old storyboard/);
+ const matrix=JSON.parse(run("JSON.stringify(competitorMatrixRows(state.appUpdates,Date.now(),competitorMatrixReviewed))"));
+ assert.deepEqual(matrix.find(x=>x.name==='MAGI-2').dimensions,['integration']);assert.equal(matrix.find(x=>x.name==='LibTV 3D-BOX').day,null);
+});
+test('overview prioritizes core product reporting without promoting promotions or dropping other news',()=>{
+ const {run}=setup();
+ const result=JSON.parse(run("JSON.stringify(prioritizeProductNews([{title:'普通行业新闻',category:'行业'},{title:'Higgsfield Black Friday discount',category:'产品'},{title:'LibTV 新画布节点',category:'产品'},{title:'其他工具更新',category:'产品'}]).map(x=>x.title))"));
+ assert.deepEqual(result,['LibTV 新画布节点','普通行业新闻','Higgsfield Black Friday discount','其他工具更新']);
+});
