@@ -21,7 +21,7 @@ APP_UPDATES = ("collect_app_updates",)
 BATCHES = {
     "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), RECOVERY, APP_UPDATES, PRODUCT_STATE, INDEPENDENT_AUDIT, HISTORICAL_EVIDENCE, EVENT_CLAIMS, RECONCILE)),
     "recovery": (180, (RECOVERY, APP_UPDATES, PRODUCT_STATE, INDEPENDENT_AUDIT, HISTORICAL_EVIDENCE, EVENT_CLAIMS, RECONCILE)),
-    "resources": (540, (("collect_resources",), ("collect_rankings", "collect_maomu_rankings", "build_unified_rankings"), ("collect_aipick",), ("collect_social_trends",))),
+    "resources": (540, (("collect_resources",), ("collect_rankings", "collect_maomu_rankings", "build_unified_rankings"), ("collect_social_trends",))),
     "maintenance": (540, (("check_model_resources",), ("check_creator_links",), ("collect_creator_opportunities",), ("collect_model_evaluations",))),
 }
 BASELINE = Path("config/unified-ranking-baseline.json")

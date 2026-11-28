@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCES = {"aihot-selected": "AIHOT_SELECTED", "aihot-daily": "AIHOT_DAILY", "juya-daily": "JUYA_DAILY"}
+SOURCES = {"aihot-selected": "AIHOT_SELECTED", "aipick-selected": "AIPICK_SELECTED", "aihot-daily": "AIHOT_DAILY", "juya-daily": "JUYA_DAILY"}
 CRITICAL_BATCHES = {"models-batch": "MODEL_BATCH", "recovery-batch": "RECOVERY_BATCH", "resources-batch": "RESOURCES_BATCH", "maintenance-batch": "MAINTENANCE_BATCH"}
 SOURCES.update(CRITICAL_BATCHES)
 THRESHOLD = 3
