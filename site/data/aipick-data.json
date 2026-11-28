@@ -6,8 +6,8 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T09:32:31+00:00",
-  "checkedAt": "2026-11-28T09:32:31+00:00",
+  "fetchedAt": "2026-11-28T10:17:38+00:00",
+  "checkedAt": "2026-11-28T10:17:38+00:00",
   "etags": {
     "items": "W/\"v1-items-bc089c6a8ee8cd62\"",
     "hotTopics": "W/\"v1-hot-210912a5892239c8\""
@@ -923,6 +923,7 @@
     }
   ],
   "unchanged": [
+    "items",
     "hotTopics"
   ],
   "errors": []
