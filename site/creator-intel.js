@@ -516,11 +516,35 @@ function creativeDemandMarkup(batches,now){
  return '<section class="briefing-digest-section"><div class="section-head"><h2>创作爆点与复刻线索</h2><span class="head-meta">近3天 · '+rows.length+' 条原帖入口</span></div><p class="page-desc">来自已有精选原帖，不是社媒实时播放量榜。标题中的走红或播放量说法仅为报道线索；当前快照没有可核实播放量，不以精选分数代替。热门 IP、人物和音乐优先提炼可授权或原创的风格、镜头、创意与工作流。</p><div class="briefing-list">'+(rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.day+' · '+r.platform+' · '+(r.reportedTrend?'传播线索 · 播放量待核实':'创作玩法参考 · 非爆款认证'))+'</span><strong>'+esc(r.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>快速研究：</strong>打开原帖核对发布时间与公开播放量；拆解开头、视觉钩子、叙事、镜头和声音；用自有或授权素材复现关键手法；验证是否可封装模板、Skill 或 Agent 工作流。</p><p><strong>活动判断：</strong>核实需求、品牌适配及权利限制，再决定是否制作演示或发起创作者活动。</p>'+creatorLink(r.url,'原帖 / 核对指标')+'</div></details></article>'}).join('')||empty('当前快照暂无匹配创作爆点；未测量 Instagram / X 实际传播，不代表没有热点。'))+'</div><div class="briefing-original-links">'+creatorLink('https://www.instagram.com/explore/','Instagram 探索')+creatorLink('https://x.com/search?q=AI%20video%20viral&src=typed_query&f=live','X 创作热点搜索')+'</div></section>';
 }
 // A deterministic planning calendar, not a claim that a company has scheduled a campaign.
+// Date offsets are planning deadlines, not evidence of completion.
+function campaignMilestones(day,days){
+ var start=Date.parse(day+'T00:00:00Z');
+ if(!Number.isFinite(start)||!Number.isInteger(days))return [];
+ return [
+  {offset:-30,title:'机会与能力研究',owner:'产品研究',deliverable:'目标市场、用户创作场景、竞品功能、候选模型及工作流、素材授权边界'},
+  {offset:-14,title:'产品与工作流准备',owner:'产品 / Agent 工程',deliverable:'可复用模板或 Skill、模型与工具契约、同素材基线及候选方案、异常恢复'},
+  {offset:-7,title:'成片与功能验收',owner:'创作 / 工程',deliverable:'示范作品、生成质量及耗时对照、失败样本、局部修改和操作验证'},
+  {offset:-3,title:'上线与传播准备',owner:'产品 / 创作者运营',deliverable:'已验证入口、发布素材、官方演示与候选 KOL；地区、授权和时间确认'},
+  {offset:0,title:'发布与观察',owner:'产品 / 运营',deliverable:'实际发布状态、用户反馈、有效交付及异常记录；未授权不自动执行活动'},
+  {offset:7,title:'复盘与沉淀',owner:'产品 / Agent 工程',deliverable:'经授权的使用数据、成片质量与返工记录、可复用资产/Skills、下一轮修正'}
+ ].map(function(m){var until=days+m.offset;return Object.assign({},m,{day:new Date(start+m.offset*86400000).toISOString().slice(0,10),status:until<0?'计划日已过 · 完成未知':until===0?'今日计划 · 待确认':'计划节点'})});
+}
+function campaignPreparationStage(days){
+ if(days===0)return 'D-Day · 发布与观察';
+ if(days<=3)return 'D-3 · 上线与传播准备';
+ if(days<=7)return 'D-7 · 成片与功能验收';
+ if(days<=14)return 'D-14 · 产品与工作流准备';
+ if(days<=30)return 'D-30 · 机会与能力研究';
+ return '提前规划';
+}
+function campaignResearchHandoff(r){
+ return ['# 营销创作研究任务｜'+r.title,'状态：策划候选，非已立项或发布。','日期：'+(r.approx?'预计 ':'')+r.day+'｜市场：'+r.market,'创作机会：'+r.idea,'研究重点：候选模型优势、竞品同类入口、可复用 Agent 工具/Skill、原创或授权素材及创作需求。','当前计划阶段：'+r.stage,'计划节点（日期不表示完成）：'].concat(r.milestones.map(function(m){return '- '+m.day+'｜'+m.title+'｜'+m.owner+'（建议协作）｜'+m.deliverable+'｜'+m.status}),['验收：同素材对照，记录作品质量、可用交付、操作与返工成本；只有取得经授权的实际使用数据才判断用户增长和留存。','逾期：先核对已完成事项与可交付范围；时间不足时使用已验证能力或暂缓，不强行上线。',r.approx?'预计日期须按当地公告重算。':'日期和市场活动须按当地公告复核。']).join('\n');
+}
 function creativeCampaignCalendar(now){
  var today=chinaDay(new Date(now).toISOString()),start=Date.parse(today+'T00:00:00Z'),year=Number(today.slice(0,4)),rows=[];
  function add(day,title,market,idea,source,priority,approx){
   var left=Math.round((Date.parse(day+'T00:00:00Z')-start)/86400000);if(!Number.isInteger(left)||left<0||left>90)return;
-  rows.push({day:day,title:title,market:market,idea:idea,source:source||'',priority:priority||(/中国电商|^中国$|^国内及适用市场$/.test(market)?'domestic':'global'),approx:!!approx,days:left,stage:left<=3?'临近 · 发布准备':left<=14?'制作与联调':left<=30?'模板与演示准备':'提前规划'});
+  rows.push({day:day,title:title,market:market,idea:idea,source:source||'',priority:priority||(/中国电商|^中国$|^国内及适用市场$/.test(market)?'domestic':'global'),approx:!!approx,days:left,stage:campaignPreparationStage(left),milestones:campaignMilestones(day,left)});
  }
  for(var y=year;y<=year+1;y++){
   [['01-01','元旦 / New Year','国内外','跨年与新年主题宣传、年度回顾'],
@@ -544,15 +568,15 @@ function creativeCampaignCalendar(now){
  }
  var lunarSource='https://www.info.gov.hk/gia/general/202605/15/P2026051400300p.htm';
  [['2027-02-06','春节 / Lunar New Year','春节祝福、国风角色、品牌团圆故事'],['2027-04-05','清明','尊重文化语境的春季创作'],['2027-06-09','端午节','传统文化、节令产品与视觉风格'],['2027-09-15','中秋节','团圆、礼品广告、月夜主题']].forEach(function(e){add(e[0],e[1],'中国及适用市场',e[2],lunarSource)});
- add('2027-02-08','Ramadan 预计开始','中东及全球穆斯林社群','尊重文化习俗的家庭、餐饮和节期内容；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/','global',true);
- add('2027-03-10','Eid al-Fitr 预计日期','中东及全球穆斯林社群','尊重文化习俗的祝福、家庭及节日视觉；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/','global',true);
+ add('2027-02-08','Ramadan 预计开始','中东及全球穆斯林社群','尊重文化习俗的家庭、餐饮和节期内容；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/ramadan-timetable/','global',true);
+ add('2027-03-10','Eid al-Fitr 预计日期','中东及全球穆斯林社群','尊重文化习俗的祝福、家庭及节日视觉；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/ramadan-timetable/','global',true);
  add('2027-03-28','Easter Sunday','采用西方教会历法的市场','春季主题、节日创意与品牌故事','https://www.info.gov.hk/gia/general/202605/15/P2026051400300p.htm','global');
  return rows.sort(function(a,b){return Number(a.priority==='domestic')-Number(b.priority==='domestic')||a.day.localeCompare(b.day)||a.title.localeCompare(b.title)});
 }
 function creativeCampaignMarkup(now){
  var rows=creativeCampaignCalendar(now).filter(function(r){return matches([r.title,r.market,r.idea].join(' '))});
  if(!rows.length)return '';
- return '<section class="briefing-digest-section"><div class="section-head"><h2>节日与营销创作机会</h2><span class="head-meta">海外优先 · 未来90天</span></div><p class="page-desc">海外及跨市场节点优先，国内电商与本地节日补充。日历不代表已安排活动；各地区庆祝日期与文化语境须核对，预计日期以当地公告为准。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc((r.priority==='domestic'?'国内补充':'海外 / 跨市场')+' · '+(r.approx?'预计 ':'')+r.day+' · '+(r.days===0?'今天':'还有 '+r.days+' 天')+' · '+r.stage+' · '+r.market)+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>候选准备：</strong>确定主题与授权素材，制作 Agent 可复用模板、同素材测试、示范视频和活动创意；核对上线资源、用户交付与传播时间。不是已立项活动。</p>'+(r.source?creatorLink(r.source,'已核对日期依据'):'')+'</div></details></article>'}).join('')+'</div></section>';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>节日与营销创作机会</h2><span class="head-meta">海外优先 · 未来90天</span></div><p class="page-desc">海外及跨市场节点优先，国内电商与本地节日补充。日历不代表已安排活动；各地区庆祝日期与文化语境须核对，预计日期以当地公告为准。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc((r.priority==='domestic'?'国内补充':'海外 / 跨市场')+' · '+(r.approx?'预计 ':'')+r.day+' · '+(r.days===0?'今天':'还有 '+r.days+' 天')+' · '+r.stage+' · '+r.market)+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>候选准备：</strong>确定主题与授权素材，制作 Agent 可复用模板、同素材测试、示范视频和活动创意；核对上线资源、用户交付与传播时间。不是已立项活动。</p>'+(r.source?creatorLink(r.source,r.approx?'预计日期参考':'已核对日期依据'):'')+researchHandoffMarkup(campaignResearchHandoff(r))+'</div></details></article>'}).join('')+'</div></section>';
 }
 function creatorIntelPage(tabs){
  var mode=state.briefingTab,hot=mode==='hot',cases=mode==='cases',now=Date.now(),a=state.aipick||{},brands=creatorBrands[mode]||[],term=brands.includes(creatorBrand)?creatorBrand:'',priv=creatorPrivate[mode+'|'+term]||{},sources=priv.sources||{},from=function(name,key,fallback){return sources[name]&&sources[name].data?sources[name].data[key]||[]:fallback||[]},stamp=function(name,fallback){return sources[name]&&sources[name].data?sources[name].observedAt:fallback};
