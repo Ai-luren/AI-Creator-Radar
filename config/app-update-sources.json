@@ -617,7 +617,7 @@
         "label": "Flova",
         "term": "Flova",
         "provider": "AIHOT",
-        "priority": 4,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -625,7 +625,7 @@
         "label": "Flova",
         "term": "Flova",
         "provider": "AIPick",
-        "priority": 4,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -633,7 +633,7 @@
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIHOT",
-        "priority": 2,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -641,7 +641,7 @@
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIPick",
-        "priority": 2,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -649,7 +649,7 @@
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIHOT",
-        "priority": 1,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -657,7 +657,7 @@
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIPick",
-        "priority": 1,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -665,7 +665,7 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIHOT",
-        "priority": 3,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -673,7 +673,7 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIPick",
-        "priority": 3,
+        "priority": 0,
         "intervalMinutes": 720
       },
       {
@@ -901,7 +901,17 @@
         "category": "ai-products"
       }
     ],
-    "maxProvidersPerRun": 2
+    "maxProvidersPerRun": 2,
+    "recentPolicy": {
+      "primaryCalendarDays": 3,
+      "followupCalendarDays": 7,
+      "reviewCalendarDays": 30,
+      "primaryModelIntervalMinutes": 360,
+      "followupModelIntervalMinutes": 720,
+      "primaryBrandPriority": 0,
+      "secondaryBrandPriority": 20,
+      "secondaryOverdueHours": 24
+    }
   },
   "monitoredPlatforms": [
     {

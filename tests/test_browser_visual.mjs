@@ -144,6 +144,8 @@ try{
    assert.ok(new URL(page.url()).searchParams.get('status')==='apps');
    assert.equal(await page.locator('[data-release-window]').isVisible(),true);
    assert.equal(await page.locator('[data-release-window]').inputValue(),'7');
+   await page.locator('[data-release-window]').selectOption('3');
+   assert.equal(await page.evaluate(()=>state.releaseWindow),'3');
    await page.locator('[data-release-window]').selectOption('30');
    assert.equal(await page.evaluate(()=>state.releaseWindow),'30');
    await page.locator('[data-release-window]').selectOption('7');

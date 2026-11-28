@@ -543,6 +543,18 @@ def parse_store(payload,source):
 
 # Exact model names are derived only from verified release rows, not arbitrary
 # article text or external instructions. No URL/host is supplied by a model.
+PRIMARY_CALENDAR_DAYS=3
+FOLLOWUP_CALENDAR_DAYS=7
+REVIEW_CALENDAR_DAYS=30
+def china_calendar_day(now):
+    return now.astimezone(timezone(timedelta(hours=8))).date()
+
+def release_calendar_age(day, now):
+    try:
+        return (china_calendar_day(now)-datetime.strptime(day,"%Y-%m-%d").date()).days
+    except (TypeError,ValueError):
+        return None
+
 MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","Flova","小云雀","Pippit","即梦","Dreamina","Gemini")
 MODEL_WATCH_NAME=re.compile(r"^(?:Seedance|Seedream|SeedAudio|MAGI|Kling|可灵|Vidu|Wan|HappyHorse|Veo|Gemini|GPT[- ]Image|Nano Banana|Hailuo|海螺|PixVerse|MiniMax|Niji|Midjourney|Suno|ElevenLabs|Scribe|Eleven|HY[- ]?3D)(?:[ -]|\d|$)",re.I)
 def valid_watch_term(term):
@@ -561,7 +573,8 @@ def model_watch_queries(releases,now):
             url=urlsplit(row.get("url") or "")
         except (TypeError,ValueError):
             continue
-        if not (now.date()-timedelta(days=6)<=published.date()<=now.date() and
+        age=release_calendar_age(day,now)
+        if not (age is not None and 0<=age<FOLLOWUP_CALENDAR_DAYS and
                 row.get("category") in {"video","image","audio","music","tts","speech","audio-other","llm"} and
                 row.get("modelFamilyId") and row.get("modelVersionId") and row.get("verifiedAt") and
                 row.get("evidenceType") in {"official-release","official-model-card"} and
@@ -573,14 +586,15 @@ def model_watch_queries(releases,now):
             continue
         seen.add(key)
         candidates.append((row,name,day))
-    candidates.sort(key=lambda x:(x[0].get("category") in {"video","image","audio","music","tts","speech","audio-other"},x[2],x[0].get("category")=="video",x[1]),reverse=True)
+    candidates.sort(key=lambda x:(release_calendar_age(x[2],now)<PRIMARY_CALENDAR_DAYS,x[0].get("category") in {"video","image","audio","music","tts","speech","audio-other"},x[2],x[0].get("category")=="video",x[1]),reverse=True)
     # At most three active model watches. Two provider slots remain the same.
     out=[]
     for row,name,day in candidates[:3]:
         key=hashlib.sha256((row["modelFamilyId"]+"|"+row["modelVersionId"]+"|"+day).encode()).hexdigest()[:20]
+        primary=release_calendar_age(day,now)<PRIMARY_CALENDAR_DAYS
         for provider in ("AIHOT","AIPick"):
             out.append({"id":"model-watch-"+key+"-"+provider.lower(),"term":name,"label":name,"provider":provider,
-                        "priority":-10,"intervalMinutes":360,"modelWatch":True,"modelFamilyId":row["modelFamilyId"],
+                        "priority":-10 if primary else 10,"intervalMinutes":360 if primary else 720,"watchWindow":"primary-3d" if primary else "followup-7d","modelWatch":True,"modelFamilyId":row["modelFamilyId"],
                         "modelVersionId":row["modelVersionId"],"publisherCalendarDay":day})
     return out
 
@@ -721,12 +735,15 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
         last=parse_stamp(row.get("lastAttemptAt"))
         queued=parse_stamp(row.get("queuedAt"))
         overdue=(retry or queued or now)<=now-timedelta(hours=24)
-        # New watches first; overdue ordinary queries outrank repeated watches.
+        # New three-day watches are urgent; repeat watches never monopolize
+        # provider slots. Ordinary overdue queries retain a bounded fairness
+        # escape. Four-to-seven-day watches are follow-up, not launch alerts.
         if row.get("modelWatch"):
-            tier=-10 if not last else 5
+            primary=row.get("watchWindow")=="primary-3d"
+            tier=(-10 if not last else 5) if primary else (10 if not last else 15)
         else:
             tier=-20 if overdue else int(row.get("priority",50))
-        return (tier,bool(last),row.get("nextAttemptAt") or "",row["id"])
+        return (tier,bool(last),row.get("nextAttemptAt") or "",row.get("lastAttemptAt") or "",row["id"])
     due.sort(key=priority_key)
     attempted=0
     budget=min(2,max(1,int(config.get("maxProvidersPerRun",1))))
@@ -772,6 +789,7 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
                            nextAttemptAt=(now+timedelta(minutes=config["globalIntervalMinutes"])).isoformat())
     return {"source":"AIHOT + AIPick" if any(r.get("provider")=="AIHOT" for r in rows) else "AIPick","checkedAt":stamp,"queries":rows,"service":service,"providerServices":provider_services,
             "attemptedThisRun":attempted,
+            "recentPolicy":{"calendarTimezone":"Asia/Shanghai","primaryCalendarDays":PRIMARY_CALENDAR_DAYS,"followupCalendarDays":FOLLOWUP_CALENDAR_DAYS,"reviewCalendarDays":REVIEW_CALENDAR_DAYS},
             "policy":"Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."}
 
 
@@ -1253,7 +1271,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                 elif value.get("claimType")=="first-party-plugin-release":
                     kind="new-plugin-release" if old.get("lastSuccessAt") else "baseline-plugin-release"
                 elif value.get("claimType")=="first-party-product-changelog":
-                    old_day=(now.date()-timedelta(days=30)).isoformat()
+                    old_day=(china_calendar_day(now)-timedelta(days=REVIEW_CALENDAR_DAYS-1)).isoformat()
                     kind=("historical-changelog-backfill" if value.get("publisherCalendarDay","")<old_day else
                           "new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry")
                 elif value.get("claimType")=="first-party-product-surface":

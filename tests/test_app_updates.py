@@ -608,3 +608,22 @@ class ProductChangelogRecallTests(unittest.TestCase):
         self.assertEqual(later["events"][0]["id"],first["events"][0]["id"])
         self.assertEqual(later["events"][0]["observedAt"],first["events"][0]["observedAt"])
         self.assertEqual(later["events"][0]["updateType"],"product-improvement")
+
+class RecentFirstPolicyTests(unittest.TestCase):
+    def test_model_watch_calendar_priority_and_expiry(self):
+        from scripts.collect_app_updates import model_watch_queries
+        now=datetime(2026,11,27,16,30,tzinfo=timezone.utc)
+        def row(name,day,category="video"):
+            return {"modelName":name,"modelFamilyId":name,"modelVersionId":name,"category":category,"publishedAt":day,"verifiedAt":day,"evidenceType":"official-release","url":"https://example.org/release"}
+        watches=model_watch_queries([row("Seedance 3.5","2026-11-28"),row("MAGI-2","2026-11-26"),row("Niji 8","2026-11-25","image"),row("Veo 4","2026-11-21"),row("Kling 5","2026-11-29")],now)
+        self.assertEqual(len(watches),6)
+        self.assertEqual([(q["term"],q["watchWindow"],q["intervalMinutes"]) for q in watches[::2]],[("Seedance 3.5","primary-3d",360),("MAGI-2","primary-3d",360),("Niji 8","followup-7d",720)])
+    def test_followup_watch_does_not_displace_core_brand(self):
+        from scripts.collect_app_updates import collect_targeted
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        model={"modelName":"MAGI-2","modelFamilyId":"magi","modelVersionId":"2","category":"video","publishedAt":"2026-11-24","verifiedAt":"2026-11-24","evidenceType":"official-release","url":"https://example.org/release"}
+        cfg={"maxProvidersPerRun":1,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[{"id":"core","term":"Higgsfield","provider":"AIHOT","priority":0}]}
+        calls=[]
+        result=collect_targeted(cfg,{},now,lambda q,e:(calls.append(q["id"]) or {"items":0},""),releases=[model])
+        self.assertEqual(calls,["core"])
+        self.assertEqual(result["recentPolicy"]["primaryCalendarDays"],3)
