@@ -179,3 +179,28 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertIsNone(platform_key("https://x.com.evil.test/status/123",platforms))
         self.assertIsNone(platform_key("https://x.com:8000/status/123",platforms))
         self.assertIsNone(platform_key("https://user@x.com/status/123",platforms))
+
+    def test_platform_coverage_rejects_non_content_urls_and_story_representatives(self):
+        from scripts.collect_app_updates import platform_key,snapshot_platform_coverage
+        platforms=[{"id":"x","label":"X","role":"social","domains":["x.com","twitter.com"]},
+                   {"id":"wechat-article","label":"微信公众号","role":"social","domains":["mp.weixin.qq.com"]},
+                   {"id":"douyin","label":"抖音","role":"social","domains":["douyin.com"]},
+                   {"id":"youtube","label":"YouTube","role":"social","domains":["youtube.com","youtu.be"]},
+                   {"id":"instagram","label":"Instagram","role":"social","domains":["instagram.com"]}]
+        for url in ("https://x.com","https://x.com/Higgsfield","https://x.com/search?q=Higgsfield",
+                    "https://mp.weixin.qq.com/","https://mp.weixin.qq.com/s",
+                    "https://www.douyin.com/user/123","https://youtube.com/@creator",
+                    "https://youtu.be/","https://instagram.com/creator/","https://x.com:80/a/status/123"):
+            with self.subTest(url=url):
+                self.assertIsNone(platform_key(url,platforms))
+        for url,key in (("https://x.com/Higgsfield/status/123","x"),
+                        ("https://www.douyin.com/video/123","douyin"),
+                        ("https://www.youtube.com/watch?v=dQw4w9WgXcQ","youtube"),
+                        ("https://youtu.be/dQw4w9WgXcQ","youtube"),
+                        ("https://instagram.com/reel/ABC123/","instagram"),
+                        ("http://mp.weixin.qq.com/s?mid=123","wechat-article")):
+            with self.subTest(url=url):
+                self.assertEqual(platform_key(url,platforms),key)
+        item={"selected":True,"publishedAt":self.now.isoformat(),"links":{"original":"https://x.com/a/status/123","story":"https://aipick.news/story/abc"}}
+        coverage=snapshot_platform_coverage(platforms,{"AIPick":{"fetchedAt":self.now.isoformat(),"items":[item]}},self.now)
+        self.assertEqual(coverage["platforms"][0]["originalCount"],0)
