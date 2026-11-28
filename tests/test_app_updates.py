@@ -397,6 +397,30 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(result["Higgsfield"],1)
         self.assertEqual(result["LibTV"],0)
 
+    def test_propagation_source_learning_distinct_events_and_unverified_labels(self):
+        from scripts.collect_app_updates import propagation_source_learning
+        cfg={"monitoredPlatforms":[{"id":"x","domains":["x.com"]},{"id":"douyin","domains":["douyin.com"]},{"id":"wechat-article","domains":["mp.weixin.qq.com"]},{"id":"youtube","domains":["youtube.com"]}]}
+        def item(title,url,label):
+            return {"title":title,"selected":True,"publishedAt":self.now.isoformat(),"links":{"original":url},"source":{"name":label}}
+        items=[item("实测 Higgsfield 新功能 Magic","https://x.com/artist/status/123","X · Artist"),
+               item("Higgsfield 新功能 Magic 上线","https://x.com/ARTIST/status/456","X · Artist"),
+               item("实测 LibTV 新功能 Magic","https://x.com/artist/status/789","X · Artist"),
+               item("实测 LibTV 新功能 Magic","https://www.douyin.com/video/123","抖音 · 热点搜「Magic」"),
+               item("实测 LibTV 新功能 Magic","https://mp.weixin.qq.com/s?__biz=abc&mid=1","公众号 · 媒体A"),
+               item("实测 LibTV 新功能 Magic","https://www.youtube.com/watch?v=12345678901","Creator A"),
+               item("LibTV 新功能 Magic 优惠体验","https://x.com/promo/status/123","X · Promo")]
+        snapshots={"AIPick":{"fetchedAt":self.now.isoformat(),"items":items}}
+        first=propagation_source_learning(cfg,{},snapshots,[],self.now)
+        self.assertEqual(len(first["observations"]),4)
+        by={r["label"]:r for r in first["candidates"]}
+        self.assertEqual(by["@artist"]["distinctEvents"],2)
+        self.assertEqual(by["@artist"]["brands"],["Higgsfield","LibTV"])
+        self.assertEqual(by["媒体A"]["identity"],"publisher-id-in-post-url")
+        self.assertEqual(by["Creator A"]["identity"],"upstream-attributed-label")
+        self.assertNotIn("profileUrl",by["Creator A"])
+        self.assertEqual(propagation_source_learning(cfg,first,snapshots,[],self.now),first)
+        self.assertEqual(propagation_source_learning(cfg,first,{},[],self.now+timedelta(days=30))["observations"],[])
+
     def test_named_propagation_gap_reuses_official_probe_and_respects_existing_cooldown(self):
         from scripts.collect_app_updates import propagation_official_gap
         spec={"id":"hf","name":"Higgsfield","vendor":"Higgsfield","type":"higgs-changelog","url":"https://higgsfield.ai/creator-hub/changelog","links":[],"minIntervalMinutes":360,"aggregateQueryIds":["a","b"]}

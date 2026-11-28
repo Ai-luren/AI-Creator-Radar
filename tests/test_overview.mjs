@@ -1015,3 +1015,10 @@ test('model vendor propagation uses canonical publisher evidence and does not as
  assert.equal(groups.length,1);assert.equal(groups[0].brand,'Sand.ai');assert.equal(groups[0].official[0].kind,'模型发布记录');assert.equal(groups[0].official[0].day,'2026-11-24');
  assert.equal(JSON.parse(run('JSON.stringify(creatorPropagationGroups('+args+',Date.now(),""))')).length,0);
 });
+
+test('source learning displays repeated event coverage as candidates, not verified partnerships',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const app={propagationSources:{candidates:[{label:'@artist',platform:'x',identity:'account-in-post-url',distinctEvents:2,brands:['LibTV'],lastPublishedDay:'2026-11-27',profileUrl:'https://x.com/artist'},{label:'Creator A',platform:'youtube',identity:'upstream-attributed-label',distinctEvents:1,brands:['LibTV'],lastPublishedDay:'2026-11-27'}]}};
+ const out=run('creatorSourceLearningMarkup('+JSON.stringify(app)+',"competitors","LibTV")');
+ assert.match(out,/高价值传播信源候选/);assert.match(out,/2 个不同事件/);assert.match(out,/上游归属名称 · 未核实/);assert.match(out,/不自动订阅/);assert.equal(run('creatorSourceLearningMarkup('+JSON.stringify(app)+',"competitors","Higgsfield")'),'');
+});

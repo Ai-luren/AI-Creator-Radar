@@ -1387,6 +1387,109 @@ def propagation_official_gap(spec,previous,snapshots,now):
     return sorted(result)[:3]
 
 
+def propagation_source_identity(item,platforms):
+    """Public post account identifiers or upstream-attributed labels, never guessed authors."""
+    links=item.get("links") or {}
+    if not isinstance(links,dict) or links.get("story"):
+        return None
+    url=links.get("original")
+    platform=platform_key(url,platforms)
+    if platform not in {"x","tiktok","wechat-article","youtube","douyin","xiaohongshu","bilibili"}:
+        return None
+    u=urlsplit(url)
+    label=str((item.get("source") or {}).get("name") or "").strip()[:100] if isinstance(item.get("source"),dict) else ""
+    if platform=="x":
+        m=re.fullmatch(r"/([A-Za-z0-9_]{1,15})/status/[0-9]+/?",u.path)
+        if m:
+            handle=m[1].lower()
+            return {"id":"x:"+handle,"platform":platform,"label":"@"+handle,"identity":"account-in-post-url","profileUrl":"https://x.com/"+handle}
+    if platform=="tiktok":
+        m=re.fullmatch(r"/@([A-Za-z0-9_.]{1,50})/(?:video|photo)/[0-9]+/?",u.path)
+        if m:
+            handle=m[1].lower()
+            return {"id":"tiktok:"+handle,"platform":platform,"label":"@"+handle,"identity":"account-in-post-url","profileUrl":"https://www.tiktok.com/@"+handle}
+    # Names from upstream are not resolved author IDs. Topic/search labels
+    # must never become an account, regardless of the number of posts.
+    name=re.sub(r"^(?:微信公众号|公众号|YouTube|B站|哔哩哔哩|抖音|小红书|X|TikTok)\s*[·:：]\s*","",label,flags=re.I).strip()
+    if not name or re.search(r"热点|话题|搜索|搜[「『“\"]|^#|trending|search|topic",name,re.I) or name.casefold() in {"youtube","bilibili","douyin","抖音","小红书","公众号","微信公众号","x","tiktok","未知","unknown"}:
+        return None
+    if platform=="wechat-article":
+        biz=parse_qs(u.query).get("__biz",[""])[0]
+        if biz:
+            return {"id":"wechat:"+hashlib.sha256(biz.encode()).hexdigest()[:24],"platform":platform,"label":name,"identity":"publisher-id-in-post-url"}
+    # No synthetic homepage URL and no cross-platform identity merging.
+    return {"id":"label:"+hashlib.sha256((platform+"|"+name.casefold()).encode()).hexdigest()[:24],"platform":platform,"label":name,"identity":"upstream-attributed-label"}
+
+
+def propagation_source_learning(config,previous,snapshots,releases,now):
+    """Bounded 30-calendar-day metadata ledger from already saved original posts.
+    Distinct named product/model events, not repost volume or commercial relationships.
+    No new article copies, raw URLs, fetches or subscription changes.
+    """
+    today=china_calendar_day(now)
+    oldest=(today-timedelta(days=29)).isoformat()
+    latest=today.isoformat()
+    ledger={}
+    for row in (previous or {}).get("observations",[]):
+        if not isinstance(row,dict) or not isinstance(row.get("source"),dict) or not isinstance(row.get("day"),str):
+            continue
+        if oldest<=row["day"]<=latest and isinstance(row.get("eventKey"),str) and row["source"].get("id"):
+            ledger[(row["source"]["id"],row["eventKey"])]=row
+    brands=MODEL_WATCH_BRANDS
+    models=[]
+    for model in releases or []:
+        if not isinstance(model,dict) or model.get("category") not in {"video","image","audio","music","tts","speech","audio-other"}:
+            continue
+        name=model.get("modelName")
+        if not (valid_watch_term(name) and model.get("vendor") and model.get("modelFamilyId") and model.get("modelVersionId") and model.get("verifiedAt") and model.get("evidenceType") in {"official-release","official-model-card"} and model.get("verificationStatus")!="pending"):
+            continue
+        models.append((model,model_watch_pattern(name)))
+    for payload in (snapshots or {}).values():
+        if not isinstance(payload,dict):
+            continue
+        stamp=parse_stamp(payload.get("fetchedAt"))
+        if not stamp or not now-timedelta(hours=12)<=stamp<=now:
+            continue
+        for item in payload.get("items",[]):
+            if not isinstance(item,dict) or item.get("selected") is not True:
+                continue
+            published=parse_stamp(item.get("publishedAt"))
+            title=item.get("title")
+            if not published or not now-timedelta(days=7)<=published<=now or not isinstance(title,str) or re.search(r"折扣|优惠|黑五|促销|赠送|抽奖|discount|coupon|black friday|giveaway|pricing",title,re.I):
+                continue
+            source=propagation_source_identity(item,config.get("monitoredPlatforms",[]))
+            if not source:
+                continue
+            features=[(brand,propagation_feature_name(title,brand)) for brand in brands]
+            features=[(brand,name) for brand,name in features if name]
+            hits=[m for m,p in models if p.search(title)]
+            if len(features)==1:
+                brand,name=features[0]
+                identity="feature|"+brand.casefold()+"|"+name.casefold()
+            elif not features and len(hits)==1 and re.search(r"发布|推出|上线|上新|接入|实测|测评|评测|体验|上手|教程|演示|制作|案例|发布|review|tutorial|demo|hands[- ]on|workflow|launch|release|introduc",title,re.I):
+                model=hits[0]
+                brand=model["vendor"]
+                identity="model|"+model["modelFamilyId"]+"|"+model["modelVersionId"]
+            else:
+                continue
+            key=hashlib.sha256(identity.encode()).hexdigest()[:32]
+            day=china_calendar_day(published).isoformat()
+            record={"source":source,"eventKey":key,"brand":brand,"day":day}
+            old=ledger.get((source["id"],key))
+            if not old or day>old["day"]:
+                ledger[(source["id"],key)]=record
+    observations=sorted(ledger.values(),key=lambda x:(x["day"],x["source"]["id"],x["eventKey"]),reverse=True)[:300]
+    candidates={}
+    for row in observations:
+        source=row["source"]
+        c=candidates.setdefault(source["id"],{**source,"distinctEvents":0,"brands":set(),"lastPublishedDay":row["day"]})
+        c["distinctEvents"]+=1
+        c["brands"].add(row["brand"])
+    rows=[{**c,"brands":sorted(c["brands"])} for c in candidates.values()]
+    rows.sort(key=lambda x:(x["distinctEvents"],x["lastPublishedDay"],x["id"]),reverse=True)
+    return {"windowDays":30,"observations":observations,"candidates":rows[:60],"policy":"Named relevant events only; upstream-attributed labels are not verified authors. Repeated coverage is not cooperation. No automatic subscriptions."}
+
+
 def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releases=None,snapshots=None):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
@@ -1493,6 +1596,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                         "nextAttemptAt":(now+timedelta(minutes=spec["minIntervalMinutes"])).isoformat()})
     return {"schema":"app-updates/v1","checkedAt":stamp,"sources":sources,"targetedDiscovery":targeted,
             "reviewedObservations":config.get("reviewedObservations",[]),
+            "propagationSources":propagation_source_learning(config,previous.get("propagationSources",{}),snapshots,releases,now),
             "events":sorted(events.values(),key=lambda e:(e["observedAt"],e["id"]),reverse=True),
             "summary":{"configuredSources":len(config["sources"]),"successfulThisRun":sum(not s.get("deferred") and s["status"]=="observed" for s in sources),
                        "baselineSources":sum(bool(s.get("lastSuccessAt")) for s in sources),
