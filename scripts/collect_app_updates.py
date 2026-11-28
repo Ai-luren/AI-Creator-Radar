@@ -7,6 +7,7 @@ from urllib.robotparser import RobotFileParser
 from html.parser import HTMLParser
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import urllib.request
@@ -768,6 +769,34 @@ def parse_libtv_plugin_releases(payload,source):
     return rows
 
 
+class PluginNoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise urllib.error.HTTPError(req.full_url, code, "Plugin API redirect rejected", headers, fp)
+
+
+def plugin_request():
+    """Send an optional Actions token only to the fixed GitHub API URL."""
+    headers={"Accept":"application/vnd.github+json","User-Agent":USER_AGENT,"X-GitHub-Api-Version":"2022-11-28"}
+    token=os.environ.get("RADAR_GITHUB_API_TOKEN","").strip()
+    if token:
+        headers["Authorization"]="Bearer "+token
+    return urllib.request.Request(LIBTV_PLUGIN_API,headers=headers)
+
+
+def app_probe_retry_at(exc, now, count):
+    delay=timedelta(minutes=min(720,60*2**min(count-1,3)))
+    if isinstance(exc,urllib.error.HTTPError) and exc.code in (403,429,503):
+        delay=max(delay,timedelta(hours=6))
+        headers=exc.headers or {}
+        retry=headers.get("Retry-After","")
+        if str(retry).isdigit():
+            delay=max(delay,timedelta(seconds=int(retry)))
+        reset=headers.get("X-RateLimit-Reset","")
+        if str(reset).isdigit() and headers.get("X-RateLimit-Remaining")=="0":
+            delay=max(delay,datetime.fromtimestamp(int(reset),timezone.utc)-now+timedelta(minutes=1))
+    return (now+delay).isoformat()
+
+
 def fetch(source):
     is_store=source.get("type")=="apple-store-version"
     is_plugin=source.get("type")=="github-plugin-release"
@@ -798,8 +827,8 @@ def fetch(source):
         rules.parse(raw.decode("utf-8").splitlines())
         if not rules.can_fetch(USER_AGENT,url):
             raise ValueError("Changelog robots policy disallows access")
-    req=urllib.request.Request(url,headers={"Accept":"application/json" if is_store or is_plugin else "text/html","User-Agent":USER_AGENT})
-    with urllib.request.build_opener(SameHostRedirect()).open(req,timeout=18) as response:
+    req=plugin_request() if is_plugin else urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
+    with urllib.request.build_opener(PluginNoRedirect() if is_plugin else SameHostRedirect()).open(req,timeout=18) as response:
         data=response.read(MAX_BYTES+1)
     if len(data)>MAX_BYTES:
         raise ValueError("App surface exceeds byte limit")
@@ -1105,7 +1134,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
             count=int(old.get("consecutiveFailures",0))+1
             sources.append({**row,"entries":entries,"checkedAt":stamp,"lastSuccessAt":old.get("lastSuccessAt"),
                             "status":"probe-unavailable","error":f"{type(exc).__name__}: {str(exc)[:160]}","deferred":False,
-                            "consecutiveFailures":count,"nextAttemptAt":(now+timedelta(minutes=min(720,60*2**min(count-1,3)))).isoformat()})
+                            "consecutiveFailures":count,"nextAttemptAt":app_probe_retry_at(exc,now,count)})
             continue
         surface_migration=(spec.get("type")=="product-surface" and old.get("surfaceParserVersion")!=PRODUCT_SURFACE_PARSER_VERSION)
         if spec.get("type")=="product-surface":

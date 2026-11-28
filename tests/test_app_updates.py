@@ -526,3 +526,26 @@ class LibTVPluginReleaseTests(unittest.TestCase):
         self.assertEqual(collect({"sources":[spec]},result,now+timedelta(hours=12),lambda _:rows)["events"],result["events"])
         with self.assertRaises(ValueError):parse_libtv_plugin_releases([item("c","fix: 更新文档")],spec)
         with self.assertRaises(ValueError):parse_libtv_plugin_releases([item("a",merged,parents=2)],{**spec,"url":"https://github.com/other/repo"})
+
+
+class PluginApiRateLimitTests(unittest.TestCase):
+    def test_token_is_used_only_for_fixed_api_and_redirects_rejected(self):
+        from unittest.mock import patch
+        from urllib.error import HTTPError
+        from scripts.collect_app_updates import plugin_request,PluginNoRedirect,LIBTV_PLUGIN_API
+        with patch.dict("os.environ",{"RADAR_GITHUB_API_TOKEN":"fixture-token"}):
+            req=plugin_request()
+        self.assertEqual(req.full_url,LIBTV_PLUGIN_API)
+        self.assertEqual(req.get_header("Authorization"),"Bearer fixture-token")
+        with self.assertRaises(HTTPError):
+            PluginNoRedirect().redirect_request(req,None,302,"redirect",{},"https://api.github.com/other")
+        with patch.dict("os.environ",{"RADAR_GITHUB_API_TOKEN":""}):
+            self.assertIsNone(plugin_request().get_header("Authorization"))
+    def test_rate_limit_resets_and_retained_snapshot(self):
+        from scripts.collect_app_updates import app_probe_retry_at
+        from urllib.error import HTTPError
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        reset=int((now+timedelta(hours=9)).timestamp())
+        error=HTTPError("https://api.github.com/",403,"rate limit",{"X-RateLimit-Remaining":"0","X-RateLimit-Reset":str(reset),"Retry-After":"3600"},None)
+        self.assertEqual(app_probe_retry_at(error,now,1),(now+timedelta(hours=9,minutes=1)).isoformat())
+        self.assertEqual(app_probe_retry_at(HTTPError("https://api.github.com/",429,"limit",{"Retry-After":"36000"},None),now,1),(now+timedelta(hours=10)).isoformat())

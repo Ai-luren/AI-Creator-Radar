@@ -124,12 +124,16 @@ jobs:
         id: models_batch
         continue-on-error: true
         if: steps.plan.outputs.models == 'true'
+        env:
+          RADAR_GITHUB_API_TOKEN: ${{ github.token }}
         run: python scripts/run_collection_batch.py models
 
       - name: Recover model leads from freshly collected briefings
         id: recovery_batch
         continue-on-error: true
         if: steps.plan.outputs.models != 'true' && (steps.aihot.outcome == 'success' || steps.aihot_daily.outcome == 'success' || steps.juya_daily.outcome == 'success')
+        env:
+          RADAR_GITHUB_API_TOKEN: ${{ github.token }}
         run: python scripts/run_collection_batch.py recovery
 
       - name: Collect resources and rankings in isolated transactions
