@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-28T04:16:50Z",
+  "checkedAt": "2026-11-28T04:28:14Z",
   "sourceIds": [
     "seed-official",
     "kuaishou-ir",
@@ -127,84 +127,6 @@
       ],
       "itemsHash": "f1a9ad4b1bc912b3e08b2f53f3678d1ee351b7b45e7d4746bd6688fccca99ae5"
     },
-    "codex-cli-releases": {
-      "key": "96e21a9b2a6d9e38d7aed06a2bb2f73c1d569fecc935959b96e9fc3208a30ef9",
-      "etag": "W/\"36b27e71c4577c80e33225b695a615bb\"",
-      "downloadedAt": "2026-11-28T02:06:14+00:00",
-      "items": [
-        {
-          "title": "0.174.0-alpha.9",
-          "summary": "Release 0.174.0-alpha.9",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.9",
-          "publishedAt": "2026-11-27T17:01:23Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.8",
-          "summary": "Release 0.174.0-alpha.8",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.8",
-          "publishedAt": "2026-11-26T22:02:24Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.7",
-          "summary": "Release 0.174.0-alpha.7",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.7",
-          "publishedAt": "2026-11-26T04:42:57Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.6",
-          "summary": "Release 0.174.0-alpha.6",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.6",
-          "publishedAt": "2026-11-25T19:41:38Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.5",
-          "summary": "Release 0.174.0-alpha.5",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.5",
-          "publishedAt": "2026-11-25T01:23:23Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.4",
-          "summary": "Release 0.174.0-alpha.4",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.4",
-          "publishedAt": "2026-11-24T23:06:32Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.3",
-          "summary": "Release 0.174.0-alpha.3",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.3",
-          "publishedAt": "2026-11-24T20:18:38Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.2",
-          "summary": "Release 0.174.0-alpha.2",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.2",
-          "publishedAt": "2026-11-24T16:21:51Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.174.0-alpha.1",
-          "summary": "Release 0.174.0-alpha.1",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.1",
-          "publishedAt": "2026-11-24T01:51:10Z",
-          "modelId": "codex"
-        },
-        {
-          "title": "0.173.0-alpha.5",
-          "summary": "Release 0.173.0-alpha.5",
-          "url": "https://github.com/openai/codex/releases/tag/rust-v0.173.0-alpha.5",
-          "publishedAt": "2026-11-24T06:48:20Z",
-          "modelId": "codex"
-        }
-      ],
-      "itemsHash": "26787a97b21d0ef2005b5c5db627fbc411efff18171609d91f4c653727cccc36"
-    },
     "claude-code-releases": {
       "key": "6ad3c59f15c89988a46c54147cad7dbc6493478ca615888e826033672d16334d",
       "etag": "W/\"e791f92fb10ddd075f7bc1c1f8e1e274\"",
@@ -282,6 +204,84 @@
         }
       ],
       "itemsHash": "e787e288a6477700f4c11078281b6b1a1ddb7a948413868215db4521722cd76e"
+    },
+    "codex-cli-releases": {
+      "key": "96e21a9b2a6d9e38d7aed06a2bb2f73c1d569fecc935959b96e9fc3208a30ef9",
+      "etag": "W/\"36b27e71c4577c80e33225b695a615bb\"",
+      "downloadedAt": "2026-11-28T02:06:14+00:00",
+      "items": [
+        {
+          "title": "0.174.0-alpha.9",
+          "summary": "Release 0.174.0-alpha.9",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.9",
+          "publishedAt": "2026-11-27T17:01:23Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.8",
+          "summary": "Release 0.174.0-alpha.8",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.8",
+          "publishedAt": "2026-11-26T22:02:24Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.7",
+          "summary": "Release 0.174.0-alpha.7",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.7",
+          "publishedAt": "2026-11-26T04:42:57Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.6",
+          "summary": "Release 0.174.0-alpha.6",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.6",
+          "publishedAt": "2026-11-25T19:41:38Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.5",
+          "summary": "Release 0.174.0-alpha.5",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.5",
+          "publishedAt": "2026-11-25T01:23:23Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.4",
+          "summary": "Release 0.174.0-alpha.4",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.4",
+          "publishedAt": "2026-11-24T23:06:32Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.3",
+          "summary": "Release 0.174.0-alpha.3",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.3",
+          "publishedAt": "2026-11-24T20:18:38Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.2",
+          "summary": "Release 0.174.0-alpha.2",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.2",
+          "publishedAt": "2026-11-24T16:21:51Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.174.0-alpha.1",
+          "summary": "Release 0.174.0-alpha.1",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.174.0-alpha.1",
+          "publishedAt": "2026-11-24T01:51:10Z",
+          "modelId": "codex"
+        },
+        {
+          "title": "0.173.0-alpha.5",
+          "summary": "Release 0.173.0-alpha.5",
+          "url": "https://github.com/openai/codex/releases/tag/rust-v0.173.0-alpha.5",
+          "publishedAt": "2026-11-24T06:48:20Z",
+          "modelId": "codex"
+        }
+      ],
+      "itemsHash": "26787a97b21d0ef2005b5c5db627fbc411efff18171609d91f4c653727cccc36"
     },
     "qwen-official-rss": {
       "key": "f693393a0d9b193fabc2b5a14ddce39630148e942fd96b19d4167d3b3ef68071",

@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T04:17:01+00:00",
+  "checkedAt": "2026-11-28T04:28:27+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T01:46:48+00:00",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
@@ -9,11 +9,11 @@
     "lastSuccessAt": "2026-11-28T01:09:27+00:00"
   },
   "aihotService": {
-    "lastAttemptAt": "2026-11-28T03:49:06+00:00",
-    "lastSuccessAt": "2026-11-28T03:49:06+00:00",
+    "lastAttemptAt": "2026-11-28T04:28:27+00:00",
+    "lastSuccessAt": "2026-11-28T04:28:27+00:00",
     "error": null,
     "consecutiveFailures": 0,
-    "nextAttemptAt": "2026-11-28T04:19:06.165020+00:00"
+    "nextAttemptAt": "2026-11-28T04:58:27.216904+00:00"
   },
   "aipickService": {
     "lastAttemptAt": "2026-11-28T04:02:47+00:00",
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -82,7 +82,8 @@
       "aipickLastSuccessAt": "2026-11-27T23:45:25+00:00",
       "aipickStatus": "no-matching-index-results",
       "aipickNextAttemptAt": "2026-11-28T23:45:25.249869+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-04"
     },
     {
       "id": "1aff7a8d28b89ea8bec8d39356d74a73ae3cbbb72e2c9c0ed82bf9723ae8ead9",
@@ -165,7 +166,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -183,7 +184,8 @@
       "aipickLastSuccessAt": "2026-11-28T00:17:47+00:00",
       "aipickStatus": "no-matching-index-results",
       "aipickNextAttemptAt": "2026-11-29T00:17:47.181630+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-12"
     },
     {
       "id": "21414fc13ce51484e4f5b425c603b85fbd69b3f0e3b4847b9ab51c63d65617e2",
@@ -233,7 +235,8 @@
       "lastSuccessfulSearchAt": "2026-11-28T01:09:27+00:00",
       "status": "no-matching-index-results",
       "nextAttemptAt": "2026-11-29T01:09:27.076456+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-19"
     },
     {
       "id": "26b9a8b6c8dbd72605fde23ddfa2ab2866ffe93a0d64501bb5b0f989634a1cf4",
@@ -246,7 +249,8 @@
       "firstDetectedAt": "2026-11-27T17:54:10+00:00",
       "active": true,
       "localContext": [],
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-09-22"
     },
     {
       "id": "2ebcb011dc5429bb65ce8b57bea0eeca69d29a12b96264f7fdde81e662da79d7",
@@ -290,7 +294,8 @@
           "provenance": "persisted-evidence"
         }
       ],
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-24"
     },
     {
       "id": "346b5b6c62024b1906ced28ec3690a698451bf3cd4620369c473979bf9f0f8fd",
@@ -303,7 +308,8 @@
       "firstDetectedAt": "2026-11-27T17:54:10+00:00",
       "active": true,
       "localContext": [],
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-09-22"
     },
     {
       "id": "3662ad369130e57c72f6f71064045548d6c842758884813375c9d3f55103d437",
@@ -318,7 +324,8 @@
       "firstDetectedAt": "2026-11-27T03:11:31+00:00",
       "active": true,
       "localContext": [],
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-02"
     },
     {
       "id": "3843b105fc1b6fdfe30b25bcc6bec85feb6db5d9456562caf855a098e251aab1",
@@ -383,7 +390,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -401,7 +408,8 @@
       "lastAttemptAt": "2026-11-28T01:46:48+00:00",
       "status": "index-unavailable",
       "nextAttemptAt": "2026-11-28T07:46:48.626953+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-10-26"
     },
     {
       "id": "3bd840f49f12ec7106315b15d5b01bbd6affa6bb1d05927a7ef8650d6b68cae7",
@@ -516,7 +524,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -531,7 +539,8 @@
       "aipickLastSuccessAt": "2026-11-28T02:06:28+00:00",
       "aipickStatus": "no-matching-index-results",
       "aipickNextAttemptAt": "2026-11-29T02:06:28.752300+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-04"
     },
     {
       "id": "47293ee1bddd83e0da4157e21ff57d8fdb9696c7cc81914c9dfc11e553fa4d39",
@@ -544,7 +553,8 @@
       "firstDetectedAt": "2026-11-27T17:54:10+00:00",
       "active": true,
       "localContext": [],
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-09-22"
     },
     {
       "id": "5fca3baf448a3ee37022bb084d0b1d73153c6a00a790a91cc7220d6aca0e6193",
@@ -621,7 +631,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -636,7 +646,8 @@
       "aipickLastSuccessAt": "2026-11-28T02:59:30+00:00",
       "aipickStatus": "no-matching-index-results",
       "aipickNextAttemptAt": "2026-11-29T02:59:30.960990+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-17"
     },
     {
       "id": "670ef3aafeeecfdfcc7b0e373862dff769aabc5e8aac7244d2043de4b43984f1",
@@ -724,7 +735,8 @@
       "aipickLastSuccessAt": "2026-11-28T03:29:50+00:00",
       "aipickStatus": "no-matching-index-results",
       "aipickNextAttemptAt": "2026-11-29T03:29:50.288214+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-09"
     },
     {
       "id": "67544bb6efe73684cb14ed6c57bcd05e813d99a0a25de1f16343f7174801be50",
@@ -736,7 +748,8 @@
       "firstDetectedAt": "2026-11-27T03:33:27+00:00",
       "active": true,
       "localContext": [],
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-06"
     },
     {
       "id": "6b42c151f60cc82de210c659a71785ed20ca65d6cd6fba9e4aad00054da48e5b",
@@ -781,7 +794,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:50Z",
+          "lastObservedAt": "2026-11-28T04:28:14Z",
           "provenance": "existing-discovery"
         },
         {
@@ -816,7 +829,8 @@
       "aipickLastSuccessAt": "2026-11-27T18:32:35+00:00",
       "aipickStatus": "no-matching-index-results",
       "aipickNextAttemptAt": "2026-11-28T18:32:35.965693+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-26"
     },
     {
       "id": "7dd27af5b3f6f0fe690d03a72d92d7262b9209b30d036703d8b0d73f7902cb45",
@@ -867,7 +881,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:50Z",
+          "lastObservedAt": "2026-11-28T04:28:14Z",
           "provenance": "existing-discovery"
         },
         {
@@ -905,7 +919,8 @@
       "aihotLastSuccessAt": "2026-11-28T03:49:06+00:00",
       "aihotStatus": "no-matching-index-results",
       "aihotNextAttemptAt": "2026-11-29T03:49:06.165020+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-23"
     },
     {
       "id": "82287b8fe00f14cbcad3f5eb9e16532159c57b926c5e175216e37a824f8161ca",
@@ -979,7 +994,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1014,7 +1029,8 @@
       "aipickLastSuccessAt": "2026-11-28T04:02:47+00:00",
       "aipickStatus": "no-matching-index-results",
       "aipickNextAttemptAt": "2026-11-29T04:02:47.538487+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-18"
     },
     {
       "id": "a3a020c6c27bd085d4e65b2e382d78cc1a07153657220bbced98411fbff7c670",
@@ -1067,7 +1083,8 @@
       "aihotLastSuccessAt": "2026-11-28T01:24:34+00:00",
       "aihotStatus": "no-matching-index-results",
       "aihotNextAttemptAt": "2026-11-29T01:24:34.656681+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-05"
     },
     {
       "id": "a67180385036954c3156fa7cee88acf3b545a5af8ac587c4a4028032ace7b75b",
@@ -1099,7 +1116,8 @@
       "aihotLastSuccessAt": "2026-11-28T01:56:29+00:00",
       "aihotStatus": "no-matching-index-results",
       "aihotNextAttemptAt": "2026-11-29T01:56:29.718794+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-09"
     },
     {
       "id": "c15b4a90facb49a5df97768e531f372c8ab808d88c18aa0a91a7a6d0a1cf14c1",
@@ -1123,7 +1141,8 @@
       "firstDetectedAt": "2026-11-27T17:54:10+00:00",
       "active": true,
       "localContext": [],
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-07-21"
     },
     {
       "id": "d171936a59a651a4a0cef10e742d57c64ed929cdc295ca718f9c8a58e6a5e9e9",
@@ -1200,7 +1219,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1210,7 +1229,8 @@
       "aihotLastSuccessAt": "2026-11-28T02:33:04+00:00",
       "aihotStatus": "no-matching-index-results",
       "aihotNextAttemptAt": "2026-11-29T02:33:04.285673+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-11-17"
     },
     {
       "id": "d384c4a51001c9b2ef0748bfeee92e25ad8e67d442e7f05d8d25194a8bdfdabb",
@@ -1235,7 +1255,14 @@
           "lastObservedAt": "2026-11-28T04:16:59+00:00",
           "provenance": "existing-discovery"
         }
-      ]
+      ],
+      "priorityDay": "2026-11-27",
+      "aihotLastAttemptAt": "2026-11-28T04:28:27+00:00",
+      "results": [],
+      "aihotETag": "W/\"v1-items-7075f24f31aa5cb4\"",
+      "aihotLastSuccessAt": "2026-11-28T04:28:27+00:00",
+      "aihotStatus": "no-matching-index-results",
+      "aihotNextAttemptAt": "2026-11-29T04:28:27.216904+00:00"
     },
     {
       "id": "f3521190c7e1cec59ec5f87b18f8f2bdb269aa0d3cf76063115e3d747f34ab18",
@@ -1319,7 +1346,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T04:28:24+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1339,18 +1366,24 @@
       "aihotLastSuccessAt": "2026-11-28T03:17:36+00:00",
       "aihotStatus": "no-matching-index-results",
       "aihotNextAttemptAt": "2026-11-29T03:17:36.175157+00:00",
-      "repositoryBacked": false
+      "repositoryBacked": false,
+      "priorityDay": "2026-10-28"
     }
   ],
   "summary": {
     "activeTargets": 22,
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "targetStates": {
       "awaiting-search": 17,
       "index-unavailable": 4,
       "no-matching-index-results": 1
     },
-    "broadDeferredForAggregators": 7,
+    "priorityTargetCounts": {
+      "latestThreeDays": 2,
+      "remainingSevenDays": 2,
+      "outsideHotWindowOrUnknown": 18
+    },
+    "broadDeferredForAggregators": 3,
     "broadDeadlineSeconds": 8,
     "targetsWithLocalContext": 16,
     "localContextRecords": 74,
@@ -1360,8 +1393,8 @@
     "aipickLastSuccessAt": "2026-11-28T04:02:47+00:00",
     "aipickError": null,
     "aipickPointers": 0,
-    "aihotAttemptedThisRun": 0,
-    "aihotLastSuccessAt": "2026-11-28T03:49:06+00:00",
+    "aihotAttemptedThisRun": 1,
+    "aihotLastSuccessAt": "2026-11-28T04:28:27+00:00",
     "aihotError": null,
     "aihotPointers": 0,
     "indexLastSuccessAt": "2026-11-28T01:09:27+00:00",

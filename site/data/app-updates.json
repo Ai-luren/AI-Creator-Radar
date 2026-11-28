@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T04:17:02+00:00",
+  "checkedAt": "2026-11-28T04:28:30+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -23,10 +23,10 @@
       "lastSuccessAt": null,
       "error": "ValueError: Expected app navigation absent; login, client-rendered shell or changed template",
       "status": "probe-unavailable",
-      "checkedAt": "2026-11-27T20:18:19+00:00",
-      "deferred": true,
-      "consecutiveFailures": 5,
-      "nextAttemptAt": "2026-11-28T04:18:19.413628+00:00",
+      "checkedAt": "2026-11-28T04:28:30+00:00",
+      "deferred": false,
+      "consecutiveFailures": 6,
+      "nextAttemptAt": "2026-11-28T12:28:30.542865+00:00",
       "type": "visible-model-labels"
     },
     {
@@ -1106,7 +1106,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T04:17:02+00:00",
+    "checkedAt": "2026-11-28T04:28:30+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1472,7 +1472,24 @@
         "label": "Lovart",
         "term": "Lovart",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T04:28:30+00:00",
+        "counts": {
+          "items": 1,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 1,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T04:28:30+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-98a6d93351226ac6\"",
+        "lastSuccessAt": "2026-11-28T04:28:30+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T16:28:30.542865+00:00"
       },
       {
         "id": "updream-aihot",
@@ -1701,7 +1718,24 @@
         "label": "SeedAudio",
         "term": "SeedAudio",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T04:28:30+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T04:28:30+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-f7711022748fb2d8\"",
+        "lastSuccessAt": "2026-11-28T04:28:30+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T16:28:30.542865+00:00"
       },
       {
         "id": "kling-products-aihot",
@@ -1764,24 +1798,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T04:02:49+00:00",
-      "nextAttemptAt": "2026-11-28T04:27:49.767367+00:00"
+      "lastSuccessAt": "2026-11-28T04:28:30+00:00",
+      "nextAttemptAt": "2026-11-28T04:53:30.542865+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T04:02:49+00:00",
-        "nextAttemptAt": "2026-11-28T04:27:49.767367+00:00"
+        "lastSuccessAt": "2026-11-28T04:28:30+00:00",
+        "nextAttemptAt": "2026-11-28T04:53:30.542865+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T04:02:49+00:00",
-        "nextAttemptAt": "2026-11-28T04:27:49.767367+00:00"
+        "lastSuccessAt": "2026-11-28T04:28:30+00:00",
+        "nextAttemptAt": "2026-11-28T04:53:30.542865+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -2989,7 +3023,7 @@
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T04:17:05+00:00",
+    "checkedAt": "2026-11-28T04:28:37+00:00",
     "window": "7d",
     "sources": [
       {
@@ -3002,7 +3036,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T04:02:42+00:00",
+        "fetchedAt": "2026-11-28T04:28:12+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -3014,7 +3048,7 @@
         "id": "douyin",
         "label": "抖音",
         "role": "social",
-        "originalCount": 14,
+        "originalCount": 16,
         "providers": [
           "AIPick"
         ],
@@ -3130,7 +3164,7 @@
         "id": "x",
         "label": "X",
         "role": "social",
-        "originalCount": 11,
+        "originalCount": 9,
         "providers": [
           "AIHOT",
           "AIPick"

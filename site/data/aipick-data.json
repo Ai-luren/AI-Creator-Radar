@@ -6,13 +6,59 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T04:02:42+00:00",
-  "checkedAt": "2026-11-28T04:02:42+00:00",
+  "fetchedAt": "2026-11-28T04:28:12+00:00",
+  "checkedAt": "2026-11-28T04:28:12+00:00",
   "etags": {
-    "items": "W/\"v1-items-fce315389b221dae\"",
+    "items": "W/\"v1-items-7edeb86682296dcb\"",
     "hotTopics": "W/\"v1-hot-6ff3eb6f4522e3d5\""
   },
   "items": [
+    {
+      "id": "aehdpfhbsjmr6i4a0x9l1nsqz",
+      "title": "同素材实测MAGI-2与sd2.0视频生成效果对比",
+      "originalTitle": "浅测了一下magi2与sd2.0的效果对比 总结： 不吹不黑，MAGI-2确实有点东西，但是 sd2.0还是那个sd2.0，还是很能打。 第一，角色的声音台词。Sd2.0 基本就是一次性直出，人物声音比较真实，还带环境方位感，连背景环境音都很连贯！magi2不知道什么原因，生出来的台词总在读字上总是自己加一些莫名字进去，是会出一些小瑕疵。 第二，角色的表情和切镜头的逻辑上，还是sd2.0更胜一筹。sd2.0 的表演和镜头的调度上更自然，magi2的有一种贴在场景上的感觉。可以只抽了一次有一定局限性。 第三，现在sd2.0生成是真的快，完全不排队，不折磨人，效率直接翻倍！ 当然了，MAGI-2 本身实力确实也挺猛，至于光影层次、人物肤感这些细节嘛，萝卜青菜各有所爱。那看完这两条片子，大伙觉得哪条更对味儿？评论区直接唠唠！ #Seedance2 #magi2 #测评 #教程分享",
+      "summary": "作者用同一组图片和提示词分别让MAGI-2与sd2.0各生成一条视频做对比，认为MAGI-2有实力但sd2.0依然能打。sd2.0的人物声音更真实、带环境方位感和连贯背景音，表情与镜头调度更自然，且生成快、不排队；MAGI-2的台词读字时会自行加入莫名内容，画面有贴在场景上的感觉，作者也说明只抽了一次存在局限。",
+      "source": {
+        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/aehdpfhbsjmr6i4a0x9l1nsqz",
+        "original": "https://www.douyin.com/video/7712852497521560883"
+      },
+      "publishedAt": "2026-11-27T14:07:33.000Z",
+      "discoveredAt": "2026-11-28T04:20:49.665Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用同一组图和提示词各抽一条视频，对比MAGI-2与sd2.0的台词、表情和生成速度，适合做同素材盲测对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/aehdpfhbsjmr6i4a0x9l1nsqz"
+      }
+    },
+    {
+      "id": "wn4137r1hzi1kohh57oc4qjps",
+      "title": "博主让Astra与Fable在虚幻引擎5.9中24小时复刻GTA6，成本相差4倍",
+      "originalTitle": "AI挑战复刻GTA6！两大顶级模型正面对决 当AI开始进入游戏开发领域，距离一个人制作3A游戏还有多远？ 这次，一位博主让两款顶尖AI模型 Astra 和 Fable，在虚幻引擎5.9中展开24小时极限挑战。从角色建模、场景搭建到NPC交互和任务流程，全程尝试交给AI完成。 结果却出乎意料：Astra消耗1300美元，生成500多个模型，却出现角色扭曲、NPC穿模等问题；Fable仅花费不到300美元，就完成了质量更高的游戏场景与基础交互。 这场测试揭示了AI游戏开发的真实现状：AI已经能够大幅降低游戏制作门槛，但距离独立完成一款成熟的3A游戏，仍有很长的路要走。#AI游戏开发 #GTA游戏 #AI复刻 #Astra #Fable",
+      "summary": "博主让Astra和Fable两款模型在虚幻引擎5.9中进行24小时复刻GTA6的极限测试，从角色建模、场景搭建到NPC交互和任务流程全程交给AI完成。Astra消耗1300美元、生成500多个模型，却出现角色扭曲和NPC穿模；Fable花费不到300美元、生成142个模型，场景光影和基础交互质量更高。测试显示AI已能大幅降低游戏制作门槛，但距离独立完成一款成熟3A游戏仍有很长的路要走。",
+      "source": {
+        "name": "抖音 · 热点搜「6B设计图像模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/wn4137r1hzi1kohh57oc4qjps",
+        "original": "https://www.douyin.com/video/7712672783808908580"
+      },
+      "publishedAt": "2026-11-27T04:30:25.000Z",
+      "discoveredAt": "2026-11-28T04:11:54.429Z",
+      "category": "tip",
+      "score": 58,
+      "selected": true,
+      "reason": "博主在虚幻引擎5.9里让Astra和Fable各跑24小时复刻GTA6，可用1300美元与不到300美元的成本差和穿模画面对比做实测复盘。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/wn4137r1hzi1kohh57oc4qjps"
+      }
+    },
     {
       "id": "whmqyu8s4d1cuobxq49b78bdc",
       "title": "数学家沈钰谈AI证明黎曼猜想：从崩溃到重新看待数学",
@@ -656,52 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/nw02w7jkdginvl4jmrbfklt9p"
       }
-    },
-    {
-      "id": "qf19s04yeq6gllp3tt3fbknya",
-      "title": "剪映将上线 Seed Audio 1.5，支持多轨音频生成与 30 语言配音",
-      "originalTitle": "Coming soon: Seed Audio 1.5 is bringing multitrack audio generation to CapCut. Generate up to 6 minutes of dialogue, ambience, sound effects, and music in one go. Then edit each track independently, fine-tune the timing. Dub into 30 languages while preserving the original voice, emotion, and natural delivery. Every track is yours to shape. Stay tuned.",
-      "summary": "剪映（CapCut）预告即将上线 Seed Audio 1.5，把多轨音频生成带入剪映。该功能可一次生成最长 6 分钟的对白、环境音、音效和音乐，并支持每条音轨独立编辑、微调时间点。它还能配音成 30 种语言，同时保留原始音色、情绪和自然表达。",
-      "source": {
-        "name": "X · CapCut 剪映"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/qf19s04yeq6gllp3tt3fbknya",
-        "original": "https://x.com/CapCutApp/status/2126260197509530095"
-      },
-      "publishedAt": "2026-11-27T10:21:49.000Z",
-      "discoveredAt": "2026-11-27T10:32:34.416Z",
-      "category": "ai-products",
-      "score": 58,
-      "selected": true,
-      "reason": "官方预告 Seed Audio 1.5 将多轨音频生成接入剪映，可一次生成 6 分钟对白、环境音、音效和音乐并分轨编辑，适合围绕多轨分轨编辑和 30 语言配音做功能前瞻。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/qf19s04yeq6gllp3tt3fbknya"
-      }
-    },
-    {
-      "id": "p56ej4p8o4f8a5pz8nfjcy6y8",
-      "title": "腾讯混元 Hy-MT3-30B-A3B 发布 GGUF 版本，支持 102 种语言本地运行",
-      "originalTitle": "Hy-MT3-30B-A3B is now available in GGUF 🚀 🌍 102 languages ⚡ MoE with only 3B active params 🏆 Beats every non-thinking model we tested and gets close to top closed-source thinking models 💻 Runs locally with llama.cpp (IQ2 / Q4_K_M / Q8_0) https://t.co/FzHOGaiBgF",
-      "summary": "腾讯混元宣布 Hy-MT3-30B-A3B 已提供 GGUF 版本，支持 102 种语言，采用 MoE 架构、仅 3B 激活参数。官方称该模型在测试中超过所有非思考型模型，并接近顶级闭源思考型模型。用户可通过 llama.cpp 在本地运行，提供 IQ2、Q4_K_M、Q8_0 三种量化版本。",
-      "source": {
-        "name": "X · 腾讯混元"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/p56ej4p8o4f8a5pz8nfjcy6y8",
-        "original": "https://x.com/TencentHunyuan/status/2126261924803535020"
-      },
-      "publishedAt": "2026-11-27T10:28:41.000Z",
-      "discoveredAt": "2026-11-27T10:32:34.032Z",
-      "category": "ai-models",
-      "score": 47,
-      "selected": true,
-      "reason": "官方放出 Hy-MT3-30B-A3B 的 GGUF 量化版本，适合用 llama.cpp 在本地跑一遍 102 语言翻译，展示 IQ2 到 Q8_0 的体积与效果差异。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/p56ej4p8o4f8a5pz8nfjcy6y8"
-      }
     }
   ],
   "hotTopics": [
@@ -924,6 +924,8 @@
       "latestAt": "2026-11-26T20:15:27.000Z"
     }
   ],
-  "unchanged": [],
+  "unchanged": [
+    "hotTopics"
+  ],
   "errors": []
 }
