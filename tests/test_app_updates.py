@@ -164,6 +164,22 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(second["summary"]["successfulThisRun"],0)
         self.assertEqual(second["events"],[])
 
+    def test_priority_bands_keep_existing_budget_and_lower_secondary_frequency(self):
+        from scripts.collect_app_updates import collect_targeted
+        cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[
+          {"id":"secondary","term":"Flova","provider":"AIHOT","priority":20,"intervalMinutes":1440},
+          {"id":"primary","term":"TapNow","provider":"AIHOT","priority":0,"intervalMinutes":720}]}
+        calls=[]
+        def fetch(spec,etag):
+            calls.append(spec["id"])
+            return {"items":1},"e"
+        first=collect_targeted(cfg,{},self.now,fetch)
+        self.assertEqual(calls,["primary"])
+        second=collect_targeted(cfg,first,self.now+timedelta(minutes=30),fetch)
+        self.assertEqual(calls,["primary","secondary"])
+        secondary=next(x for x in second["queries"] if x["id"]=="secondary")
+        self.assertEqual(secondary["nextAttemptAt"],(self.now+timedelta(days=1,minutes=30)).isoformat())
+
     def test_dual_provider_round_robin_keeps_one_request_each_and_prioritizes_unseen(self):
         from scripts.collect_app_updates import collect_targeted
         cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[
