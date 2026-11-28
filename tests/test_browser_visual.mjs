@@ -142,6 +142,13 @@ try{
    await page.locator('[data-release-mode="apps"]').click();await page.waitForFunction(()=>state.dataReady&&state.appUpdates);
    assert.equal(await page.locator('[data-release-mode="apps"]').getAttribute('aria-pressed'),'true');
    assert.ok(new URL(page.url()).searchParams.get('status')==='apps');
+   assert.equal(await page.locator('[data-release-window]').isVisible(),true);
+   assert.equal(await page.locator('[data-release-window]').inputValue(),'7');
+   await page.locator('[data-release-window]').selectOption('30');
+   assert.equal(await page.evaluate(()=>state.releaseWindow),'30');
+   await page.locator('[data-release-window]').selectOption('7');
+   assert.equal(await page.evaluate(()=>state.releaseWindow),'7');
+   assert.ok(await page.evaluate(()=>Array.from(document.querySelectorAll('.source-health-row a')).filter(a=>a.textContent.includes(' · AIHOT')).every(a=>new URL(a.href).hostname==='aihot.news')));
    assert.equal(await page.getByRole('link',{name:'官方更新日志 ↗',exact:true}).count(),1);
    assert.equal(await page.getByRole('link',{name:'官方教程专区 ↗',exact:true}).count(),1);
    assert.equal(await page.getByRole('link',{name:'即梦 / 字节专题 ↗',exact:true}).getAttribute('href'),'https://aipick.news/topics/doubao');
