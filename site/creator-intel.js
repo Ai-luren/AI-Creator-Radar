@@ -446,7 +446,7 @@ function modelAdoptionOpportunities(releases,reports,app,social,now){
 function modelAdoptionOpportunityMarkup(releases,reports,app,social,now){
  var rows=modelAdoptionOpportunities(releases,reports,app,social,now).filter(function(r){return matches([r.model.modelName,r.model.vendor,r.model.summary].join(' '))});
  if(!rows.length)return '';
- return '<section class="briefing-digest-section"><div class="section-head"><h2>模型接入机会</h2><span class="head-meta">近3天传播 · 近30天正式模型</span></div><p class="page-desc">传播证据、接入证据和本方证据分别呈现。优先评估不代表必须接入；暂无证据不等于未接入。原榜、查询命中及原文数不相加。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.priority+' · '+r.model.publishedAt+' · '+r.model.vendor)+'</span><strong>'+esc(r.model.modelName)+'</strong><span>'+esc(r.confirmed.length+' 家官方日志确认接入 · '+r.originals.length+' 条近3天原文 · '+r.stories.length+' 个上游专题')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p>'+esc(r.model.summary||'模型能力详见官方发布')+' '+creatorLink(r.model.url,'官方发布')+'</p><p><strong>竞品接入：</strong>'+esc(r.confirmed.join('、')||'当前无官方日志确认')+'</p><p><strong>其他官方线索：</strong>'+esc(r.observed.join('、')||'暂无')+'</p>'+r.official.map(function(e){return '<p>'+esc(e.brand+' · '+e.day)+' '+creatorLink(e.url,'官方日志')+'</p>'}).join('')+'<p><strong>Renoise：</strong>'+esc(r.own.length?'已有官方相关记录；需核对具体地区及实际可用性':'暂无可核实记录；先核对内部实际状态')+'</p>'+r.own.slice(0,3).map(function(e){return '<p>'+esc(e.title+' · '+(e.note||e.proof))+' '+creatorLink(e.url,'原始证据')+'</p>'}).join('')+'<p><strong>需求传播：</strong>'+esc(r.queryCounts.map(function(q){return q.provider+' '+q.count+' 条精确命中'+(q.truncated?'（未翻页）':'')}).join(' / ')||'尚无近期定向查询统计')+'</p>'+r.stories.slice(0,3).map(function(e){return '<p>'+esc(e.labels.join('、'))+' '+creatorLink(e.url,'报道合集')+'</p>'}).join('')+r.originals.slice(0,4).map(function(e){return '<p>'+esc(e.title)+' '+creatorLink(e.url,'原文')+'</p>'}).join('')+'<p><strong>下一步：</strong>核实官方接入条件、商业使用权限和本方可用性，用相同输入对比目标创作场景；已有接入则研究能力差异和工作流，而非重复接入。</p></div></details></article>'}).join('')+'</div></section>';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>模型接入机会</h2><span class="head-meta">近3天传播 · 近30天正式模型</span></div><p class="page-desc">传播证据、接入证据和本方证据分别呈现。优先评估不代表必须接入；暂无证据不等于未接入。原榜、查询命中及原文数不相加。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.priority+' · '+r.model.publishedAt+' · '+r.model.vendor)+'</span><strong>'+esc(r.model.modelName)+'</strong><span>'+esc(r.confirmed.length+' 家官方日志确认接入 · '+r.originals.length+' 条近3天原文 · '+r.stories.length+' 个上游专题')+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p>'+esc(r.model.summary||'模型能力详见官方发布')+' '+creatorLink(r.model.url,'官方发布')+'</p>'+modelCapabilityReviewMarkup(r.model)+'<p><strong>竞品接入：</strong>'+esc(r.confirmed.join('、')||'当前无官方日志确认')+'</p><p><strong>其他官方线索：</strong>'+esc(r.observed.join('、')||'暂无')+'</p>'+r.official.map(function(e){return '<p>'+esc(e.brand+' · '+e.day)+' '+creatorLink(e.url,'官方日志')+'</p>'}).join('')+'<p><strong>Renoise：</strong>'+esc(r.own.length?'已有官方相关记录；需核对具体地区及实际可用性':'暂无可核实记录；先核对内部实际状态')+'</p>'+r.own.slice(0,3).map(function(e){return '<p>'+esc(e.title+' · '+(e.note||e.proof))+' '+creatorLink(e.url,'原始证据')+'</p>'}).join('')+'<p><strong>需求传播：</strong>'+esc(r.queryCounts.map(function(q){return q.provider+' '+q.count+' 条精确命中'+(q.truncated?'（未翻页）':'')}).join(' / ')||'尚无近期定向查询统计')+'</p>'+r.stories.slice(0,3).map(function(e){return '<p>'+esc(e.labels.join('、'))+' '+creatorLink(e.url,'报道合集')+'</p>'}).join('')+r.originals.slice(0,4).map(function(e){return '<p>'+esc(e.title)+' '+creatorLink(e.url,'原文')+'</p>'}).join('')+'<p><strong>下一步：</strong>核实官方接入条件、商业使用权限和本方可用性，用相同输入对比目标创作场景；已有接入则研究能力差异和工作流，而非重复接入。</p></div></details></article>'}).join('')+'</div></section>';
 }
 function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
  var app=state.appUpdates||{},all=competitorBriefRows(app,reports,state.social||{},now),brands=term?[term]:creatorBrands.competitors;
@@ -588,7 +588,7 @@ function innovationSignals(snapshot,now){
  }
  (snapshot.releases||[]).forEach(function(x){
   if(!x||!x.modelFamilyId||!x.modelVersionId||!x.verifiedAt||!x.evidenceType||releaseCategoryOrder(x.category)>=99||x.verificationStatus==='pending')return;
-  add('model',x.modelName,x.summary,x.url,x.publishedAt,x.vendor,{category:x.category,modelFamilyId:x.modelFamilyId,modelVersionId:x.modelVersionId});
+  add('model',x.modelName,x.summary,x.url,x.publishedAt,x.vendor,{category:x.category,modelFamilyId:x.modelFamilyId,modelVersionId:x.modelVersionId,evidenceType:x.evidenceType,access:x.access||''});
  });
  (app.events||[]).forEach(function(x){
   if(!productDatedEvent(x)||!x.publisherCalendarDay)return;
@@ -634,13 +634,38 @@ function innovationExplorationRows(snapshot,now){
   rows.push({signal:s,related:links.length===1?links[0]:null,question:s.updateType==='model-integration'?'该型号可用的输入、输出与控制项是什么？能否封装成独立工具，而非只增加模型选项？':'这个功能把哪项创作操作变成了独立入口、节点或可重复流程？是否可用更少操作实现同一交付？'});
  });
  models.forEach(function(s){
-  if(!['video','image','audio','music','tts'].includes(s.category)&&!innovationThemes.some(function(t){return t.pattern.test(s.title+' '+s.detail)}))return;
+  if(!['video','image','audio','music','tts','speech','audio-other'].includes(s.category)&&!innovationThemes.some(function(t){return t.pattern.test(s.title+' '+s.detail)})&&!(s.category==='llm'&&modelCreativeLlmCandidate(s.detail)))return;
   rows.push({signal:s,related:null,question:'对照上一代，用固定素材分别验证可控性、失败边界及输出；再决定是否值得封装。'});
  });
  signals.filter(function(s){return s.type==='case'&&!innovationThemes.some(function(t){return t.pattern.test(s.title+' '+s.detail)})}).forEach(function(s){
   rows.push({signal:s,related:null,question:'阅读创作者原帖，拆出输入、关键步骤和可复现结果；先判断是否属于创作产品机会。'});
  });
  return rows.sort(function(a,b){return b.signal.day.localeCompare(a.signal.day)||({product:0,model:1,case:2}[a.signal.type]-{product:0,model:1,case:2}[b.signal.type])});
+}
+// Research axes are prompts for verification, not structured claims of model support.
+function modelCreativeLlmCandidate(text){
+ return /视频理解|视频分析|视频剪辑|剪辑决策|镜头理解|分镜规划|创作规划|工具调用|多模态.{0,18}(?:视频|图像|音频)|video understanding|video analysis|video edit|shot planning|storyboard|tool.calling|multimodal.{0,24}(?:video|image|audio)/i.test(String(text||''));
+}
+function modelCapabilityReview(model){
+ if(!model||!['official-release','official-model-card'].includes(model.evidenceType)||!creatorOriginalUrl(model.url))return null;
+ var detail=String(model.summary||model.detail||''),category=model.category||'',axes=[];
+ var rules=[
+  {id:'resolution',label:'画质与输出规格',pattern:/(?:\b(?:4K|8K|1080p|720p|768p|2160p|4320p)\b|高清生成|超分辨率|分辨率|native resolution|upscal)/i,check:'确认原生生成还是后置超分、各模式的实际像素及压缩；同素材比较细节与交付可用性。'},
+  {id:'duration',label:'时长与连续叙事',pattern:/\d+\s*(?:秒|分钟|seconds?|minutes?)|多镜头|多场景|连续叙事|multi.shot|multi.scene/i,check:'逐档测试最长可用时长、动作和镜头连续性；核对时长与分辨率、参考控制是否可同时使用。'},
+  {id:'control',label:'空间、运镜与白模控制',pattern:/3D\s*运镜|三维运镜|白模|灰模|相机轨迹|镜头控制|运镜|3D camera|camera path|camera control|previs|depth map|深度图|姿态控制/i,check:'验证相机轨迹、几何布局、遮挡与白模参考遵循；明确需要何种输入，不默认支持白模渲染。'},
+  {id:'reference',label:'参考资产与局部编辑',pattern:/首尾帧|参考图|参考生成|图像编辑|角色一致性|角色保持|人物一致性|多参考|reference image|keyframe|image edit|character consistency|identity preservation/i,check:'固定产品或角色参考，测试身份、Logo、姿态、风格保持及局部编辑边界。'},
+  {id:'audio',label:'声音与音画联动',pattern:/原生音频|原生音视频|音视频生成|音画同步|音频生成|配音|口型同步|native audio|audio.video generation|lip.sync/i,check:'核对可用音轨、对白声线、同步、音质与分轨输出，区分原生生成和后期合成。'},
+  {id:'repair',label:'视觉自检与修复',pattern:/自我修正|自我纠错|画面文字|文字校正|self.correct|self.repair|text rendering|text correction/i,check:'提供带准确品牌文案的失败样本，测试错误检测、局部修复、误改率及人工审美。'},
+  {id:'agent',label:'Agent 理解、规划与剪辑',pattern:/视频理解|视频分析|视频剪辑|剪辑决策|镜头理解|分镜规划|创作规划|工具调用|video understanding|video analysis|video edit|shot planning|storyboard|tool.calling/i,check:'固定原片及创作 brief，要求结构化镜头表、剪辑点、工具参数及可执行时间线；验证实际工具执行，不把视频理解等同于剪辑能力。'},
+  {id:'economy',label:'推理效率与生成经济性',pattern:/低成本|高性价比|推理成本|低延迟|推理加速|生成速度|吞吐|cost.efficien|inference cost|low.latency|throughput|faster inference/i,check:'同模式、同输出规格、同质量门槛记录实际生成成本和等待时间；计入失败、重试及后期，不拿套餐折扣当推理成本。'}
+ ];
+ rules.forEach(function(r){if(r.pattern.test(detail))axes.push({id:r.id,label:r.label,check:r.check})});
+ if(category==='llm'&&modelCreativeLlmCandidate(detail)&&!axes.some(function(r){return r.id==='agent'}))axes.push({id:'agent',label:'Agent 多模态创作研究',check:'固定素材，验证理解准确性、结构化规划和真实工具执行；不预设支持视频编辑。'});
+ return {axes:axes,access:String(model.access||''),detail:detail,source:model.url};
+}
+function modelCapabilityReviewMarkup(model){
+ var r=modelCapabilityReview(model);if(!r)return '';
+ return '<h3>能力上限与产品化研究 · 待实测</h3><p class="page-desc">以下按已有官方来源摘要匹配研究维度；提及不等于已支持，未提及不等于不支持。上限与模式组合仍需查官方规格及实测。</p>'+(r.access?'<p><strong>已记录访问方式：</strong>'+esc(r.access)+'</p>':'')+(r.axes.length?'<div class="briefing-list">'+r.axes.map(function(a){return '<p><strong>'+esc(a.label)+'：</strong>'+esc(a.check)+'</p>'}).join('')+'</div>':'<p>现有摘要不足以识别明确的特殊能力，先检查官方模型卡与接口规格。</p>')+'<p><strong>统一经济性验证：</strong>同质量门槛下记录总生成、重试、后期成本与可用交付数，计算每个可用作品成本；未取得实际数据前不判断便宜程度。</p><p><strong>产品化判断：</strong>将可重复验证的能力封装成工具、Skill 或画布节点，再验证 Agent 是否可以稳定调用。 '+creatorLink(r.source,'官方能力证据')+'</p>';
 }
 function innovationModelTestPlan(signal){
  if(!signal||signal.type!=='model')return null;
@@ -667,7 +692,7 @@ function innovationImplementationPlan(row){
 function innovationExplorationMarkup(snapshot,now){
  var rows=innovationExplorationRows(snapshot,now).filter(function(r){return matches([r.signal.title,r.signal.origin,r.signal.detail,r.question].join(' '))}),labels={model:'已核实模型发布',product:'官方产品日志',case:'创作者精选线索'};
  var list=rows.slice(0,12).map(function(r){var s=r.signal,plan=innovationModelTestPlan(s);
-  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(s.day+' · '+labels[s.type]+' · '+s.origin)+'</span><strong>'+esc(s.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+(s.detail?'<p>'+esc(s.detail)+'</p>':'')+'<p><strong>探索问题：</strong>' +esc(r.question)+'</p>'+(plan?'<p><strong>能力测试清单 · '+esc(plan.status)+'</strong></p><p>'+esc(plan.baseline)+'</p><ol>'+plan.steps.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>':'')+'<div class="briefing-original-links">'+creatorLink(s.url,'原始记录')+'</div>'+(r.related?'<p><strong>同名型号关联：</strong>'+esc(r.related.origin+' · '+r.related.title+' · '+r.related.day)+' '+creatorLink(r.related.url,'独立模型记录')+'。同名候选，不证明接口、权重或能力完全一致。</p>':'')+'</div></details></article>';
+  return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(s.day+' · '+labels[s.type]+' · '+s.origin)+'</span><strong>'+esc(s.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+(s.detail?'<p>'+esc(s.detail)+'</p>':'')+(s.type==='model'?modelCapabilityReviewMarkup(s):'')+'<p><strong>探索问题：</strong>' +esc(r.question)+'</p>'+(plan?'<p><strong>能力测试清单 · '+esc(plan.status)+'</strong></p><p>'+esc(plan.baseline)+'</p><ol>'+plan.steps.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>':'')+'<div class="briefing-original-links">'+creatorLink(s.url,'原始记录')+'</div>'+(r.related?'<p><strong>同名型号关联：</strong>'+esc(r.related.origin+' · '+r.related.title+' · '+r.related.day)+' '+creatorLink(r.related.url,'独立模型记录')+'。同名候选，不证明接口、权重或能力完全一致。</p>':'')+'</div></details></article>';
  }).join('');
  return '<section class="briefing-digest-section"><div class="section-head"><h2>新能力与功能探索</h2><span class="head-meta">'+Math.min(rows.length,12)+' / '+rows.length+' 条</span></div><p class="page-desc">保留主题之外的信号；不把既有模型功能认定为新增能力，不把官方日志日期当模型首发日期。</p><div class="briefing-list">'+(list||empty('近七天暂无符合条件的探索信号。'))+'</div></section>';
 }

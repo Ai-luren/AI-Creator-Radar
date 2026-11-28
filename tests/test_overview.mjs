@@ -599,6 +599,23 @@ test('overview prioritizes core product reporting without promoting promotions o
  assert.deepEqual(result,['LibTV 新画布节点','普通行业新闻','Higgsfield Black Friday discount','其他工具更新']);
 });
 
+test('model capability research uses official evidence, preserves unknowns and retains creative LLMs',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const model=(name,category,summary)=>({modelName:name,modelFamilyId:name,modelVersionId:name+'-v1',vendor:'test',category,summary,publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://example.org/model'});
+ const magi=model('MAGI-2','video','支持原生音视频生成，最高 1080p、30 秒。官方称权重后续开源。');
+ const ling=model('Ling-3.2-air','llm','原生多模态语言模型，支持图片和视频理解。');
+ const control=model('Test Camera','video','官方提及 4K、白模参考、3D 运镜与低成本模式。');
+ const profile=m=>JSON.parse(run('JSON.stringify(modelCapabilityReview('+JSON.stringify(m)+'))'));
+ assert.deepEqual(profile(magi).axes.map(a=>a.id),['resolution','duration','audio']);
+ assert.deepEqual(profile(control).axes.map(a=>a.id),['resolution','control','economy']);
+ assert.deepEqual(profile(ling).axes.map(a=>a.id),['agent']);
+ assert.equal(profile({...magi,evidenceType:'external-report'}),null);
+ assert.match(run('modelCapabilityReviewMarkup('+JSON.stringify(magi)+')'),/未取得实际数据前不判断便宜程度/);
+ assert.match(run('modelCapabilityReviewMarkup('+JSON.stringify(ling)+')'),/不把视频理解等同于剪辑能力/);
+ const rows=JSON.parse(run('JSON.stringify(innovationExplorationRows('+JSON.stringify({releases:[ling,model('General code','llm','面向软件工程任务的编码语言模型。')],app:{},batches:[]})+',Date.now()))'));
+ assert.deepEqual(rows.map(r=>r.signal.title),['Ling-3.2-air']);
+});
+
 test('public feature baseline is matrix context and only later deltas enter innovation observations',async()=>{
  const {run,node}=setup({query:'?view=feeds&briefing=innovation',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
  run("state.appUpdates={sources:[{id:'libtv-home',vendor:'LibTV',role:'competitor',type:'product-surface',entries:{a:{featureName:'新画布节点',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'}}}],events:[{sourceId:'libtv-home',kind:'baseline-product-surface',claimType:'first-party-product-surface',featureName:'初始基线功能',observedAt:'2026-11-28T02:00:00Z',sourceUrl:'https://www.liblib.tv/'},{sourceId:'libtv-home',kind:'new-product-surface',claimType:'first-party-product-surface',featureName:'新发现入口',observedAt:'2026-11-28T02:00:00Z',sourceUrl:'https://www.liblib.tv/'}]};render()");

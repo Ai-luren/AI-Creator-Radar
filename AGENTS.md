@@ -8,6 +8,8 @@ Maintain a personal AI product-design and creator radar focused on trustworthy r
 
 Follow [Renoise Agent 产品研究纲领](docs/renoise-agent-research.md) as the product-value constraint: prioritize creative quality, efficiency, controllability and product differentiation over information volume. Convert relevant evidence into user pain, reusable Agent skills/workflows or feature hypotheses and reproducible minimum tests. Distinguish research hypotheses, observed competitor facts, internal product status and actual test results; never assert unmeasured improvement. No new collection or architecture merely to increase counts.
 
+Model research must retain explicit official capability limits and modes (native resolution versus upscaling, duration, spatial/camera/reference controls, native audio, editing/understanding and tool execution), including creative LLM capabilities. Meaningful inference cost and efficiency are relevant product signals, but subscription promotions remain excluded; compare cost per accepted output under equivalent quality and settings. Never infer support or actual cost from a keyword, an advertisement, or a benchmark alone.
+
 ## Directory conventions
 
 - `site/index.html` is the single website entry point; `site/assets/` contains published assets.
