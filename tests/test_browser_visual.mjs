@@ -159,12 +159,19 @@ try{
    await page.locator('[data-release-mode="confirmed"]').click();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-release-window]').isVisible(),true);
   });
   if(viewport.width!==360)await check('news category and details',async()=>{
-   await page.goto(base+'?view=feeds',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.goto(base+'?view=feeds&briefing=combined',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const days=await page.evaluate(()=>({day:latestBriefingDay(),events:combinedNews(latestBriefingDay()).map(x=>x.day)}));assert.ok(days.events.every(d=>d===days.day),'mixed briefing dates');assert.ok(await page.locator('.briefing-digest-section').count()<=1,'multiple briefing days');
    await page.locator('[data-briefing="juya"]').click();assert.equal(await page.locator('.briefing-list .briefing-list').count(),0);assert.equal(await page.locator('.briefing-digest-groups').count(),1);await page.screenshot({path:path.join(out,label+'-juya-digest.png')});await page.locator('[data-briefing="combined"]').click();
    await page.locator('[data-briefing-category="模型"]').click();assert.equal(await page.evaluate(()=>state.briefingCategory),'模型');
    const details=page.locator('.combined-news-card details').first();if(await details.count()){await details.locator('summary').click();assert.equal(await details.evaluate(el=>el.open),true);}else{assert.equal(await page.evaluate(()=>combinedNews(latestBriefingDay()).filter(x=>x.category==='模型').length),0);assert.ok(await page.locator('#content .empty').count()>0);}
    await page.screenshot({path:path.join(out,label+'-news-detail.png')});
+  });
+  await check('vendor first briefing responsive reading',async()=>{
+   await page.goto(base+'?view=feeds&briefing=competitors',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   assert.equal(await page.locator('.competitor-brand-section').count(),8);
+   assert.equal(await page.locator('[data-briefing="competitors"]').getAttribute('aria-pressed'),'true');
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'vendor briefing horizontal overflow');
+   await page.screenshot({path:path.join(out,label+'-vendor-briefing.png'),animations:'disabled'});
   });
   await check('innovation opportunity responsive reading',async()=>{
    await page.goto(base+'?view=feeds&briefing=innovation',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
@@ -177,7 +184,7 @@ try{
   await check('competitor matrix responsive reading',async()=>{
    await page.goto(base+'?view=feeds&briefing=matrix',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.locator('[data-briefing="matrix"]').getAttribute('aria-pressed'),'true');
-   assert.equal(await page.locator('.competitor-matrix thead th').count(),6);
+   assert.equal(await page.locator('.competitor-matrix thead th').count(),9);
    assert.ok(await page.locator('.competitor-matrix').getByText('LibTV 3D-BOX',{exact:false}).count());
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'matrix horizontal overflow');
    if(viewport.width<761){
