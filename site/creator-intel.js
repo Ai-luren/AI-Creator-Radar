@@ -256,6 +256,11 @@ function isCoreProductNews(row){
 function prioritizeProductNews(rows){
  return rows.slice().sort(function(a,b){return Number(isCoreProductNews(b))-Number(isCoreProductNews(a))});
 }
+function overviewProductNews(rows){
+ // Explicit promotional headlines do not consume scarce home-page slots;
+ // the full briefing remains untouched, including mixed technical reports.
+ return prioritizeProductNews(rows.filter(function(x){return !/免费赠送|限免|限时免费|折扣|优惠券|限时促销|黑五|黑色星期五|积分充值|black friday|discount|coupon/i.test(String(x.title||''))}));
+}
 
 // Manually observed official capabilities are context, not recent releases or
 // guarantees of access. Existing collector logs remain the only live input.
@@ -292,8 +297,18 @@ var competitorMatrixReviewed=[
  {brand:'LibTV',name:'剧本生成',dimensions:['script'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'}
 ];
 function competitorMatrixRows(app,now,reviewed){
- app=app||{};var seen=new Set(),rows=[],sources=app.sources||[];
- function add(row){var key=[row.brand,row.name,row.kind,row.day||''].join('|').toLowerCase();if(seen.has(key))return;seen.add(key);rows.push(row)}
+ app=app||{};var seen=new Map(),rows=[],sources=app.sources||[];
+ function add(row){
+  var name=String(row.name||'').normalize('NFKC').trim().replace(/\s+/g,' ').toLowerCase();
+  var key=[row.brand,name,row.day?'dated':'surface',row.day||''].join('|');
+  var old=seen.get(key);
+  if(old){
+   old.dimensions=Array.from(new Set(old.dimensions.concat(row.dimensions)));
+   if(row.url!==old.url&&!old.alternates.some(function(x){return x.url===row.url}))old.alternates.push({url:row.url,kind:row.kind,day:row.day||row.reviewedOn});
+   return;
+  }
+  row.alternates=[];seen.set(key,row);rows.push(row);
+ }
  (app.events||[]).forEach(function(e){
   if(!e||e.claimType!=='first-party-product-changelog'||!e.featureName||!e.publisherCalendarDay||!withinDays(e.publisherCalendarDay,30,new Date(now)))return;
   var source=sources.find(function(s){return s.id===e.sourceId&&s.role==='competitor'}),brand=source&&source.vendor,url=creatorOriginalUrl(e.sourceUrl);
@@ -316,10 +331,10 @@ function competitorMatrixPage(tabs){
  var body=competitorMatrixDimensions.map(function(dim){
   return '<tr><th scope="row">'+esc(dim.name)+'</th>'+competitorMatrixBrands.map(function(brand){
    var cell=rows.filter(function(x){return x.brand===brand&&x.dimensions.includes(dim.id)&&matches([brand,dim.name,x.name,x.note].join(' '))});
-   function entry(x){return creatorLink(x.url,x.name)+'<small>'+esc(x.kind+(x.day?' · '+x.day:' · 核查 '+x.reviewedOn))+'</small>'}
+   function entry(x){return '<div class="matrix-feature">'+creatorLink(x.url,x.name)+'<small>'+esc(x.kind+(x.day?' · '+x.day:' · 核查 '+x.reviewedOn))+'</small>'+(x.alternates.length?'<details class="matrix-evidence"><summary>补充证据 '+x.alternates.length+' 条</summary>'+x.alternates.map(function(e){return creatorLink(e.url,e.kind+' · '+(e.day||'日期未确认'))}).join('')+'</details>':'')+'</div>'}
    return '<td>'+(cell.length?cell.slice(0,2).map(entry).join('')+(cell.length>2?'<details><summary>另 '+(cell.length-2)+' 条</summary>'+cell.slice(2).map(entry).join('')+'</details>':''):'<small>当前未观察</small>')+'</td>'
   }).join('')+'</tr>'
  }).join('');
  var health=competitorMatrixBrands.map(function(brand){var ss=sources.filter(function(s){return s.vendor===brand&&s.role==='competitor'});return '<p>'+esc(brand+' · '+(ss.length?ss.map(function(s){return s.type==='navigation-only'?'官网入口 · 功能日志未读':s.lastSuccessAt?'最近成功 '+overviewTime(s.lastSuccessAt):'尚无成功采集'}).join(' / '):'暂无已配置官方日志'))+'</p>'}).join('');
- return pageHead('行业简报','从官方功能证据横向比较创作平台，发现值得进一步验证的能力。','功能矩阵 · 重点5家')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">整个平台的近30天官方功能更新 + 已核查官网能力，不限于画布。新增产品形态无法匹配时仍保留在其他产品功能。未观察不等于不支持；官网观察不是发布日期，也不是实际功能测试。</p><div class="competitor-matrix-wrap" tabindex="0" role="region" aria-label="竞品功能矩阵，可横向滚动"><table class="competitor-matrix"><thead><tr><th scope="col">能力维度</th>'+competitorMatrixBrands.map(function(x){return '<th scope="col">'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>'+body+'</tbody></table></div><details class="source-health"><summary>来源覆盖与局限</summary>'+health+'<p>其他关注平台仍在竞品动态定向发现中；尚未进入本矩阵，不代表不关注。</p></details>'
+ return pageHead('行业简报','从官方功能证据横向比较创作平台，发现值得进一步验证的能力。','功能矩阵 · 重点5家')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">整个平台的近30天官方功能更新 + 已核查官网能力，不限于画布。新增产品形态无法匹配时仍保留在其他产品功能。未观察不等于不支持；官网观察不是发布日期，也不是实际功能测试。</p><p class="matrix-scroll-hint">左右滑动比较厂商，左侧能力维度保持可见。</p><div class="competitor-matrix-wrap" tabindex="0" role="region" aria-label="竞品功能矩阵，可横向滚动"><table class="competitor-matrix"><thead><tr><th scope="col">能力维度</th>'+competitorMatrixBrands.map(function(x){return '<th scope="col">'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>'+body+'</tbody></table></div><details class="source-health"><summary>来源覆盖与局限</summary>'+health+'<p>其他关注平台仍在竞品动态定向发现中；尚未进入本矩阵，不代表不关注。</p></details>'
 }
