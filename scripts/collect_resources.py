@@ -12,10 +12,10 @@ import sys
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urlencode, urljoin, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "config" / "resource-sources.json"
@@ -220,9 +220,203 @@ def write_json(path: Path, payload):
     temp.replace(path)
 
 
+
+# Deliberately narrow creative-product lanes. Topic search is recent activity,
+# not GitHub Trending or proof of usefulness. General LLM frameworks are out.
+RESEARCH_LANES = (
+    ("image", "topic:image-generation", r"image generation|image editing|image-generation|image-editing|character design|turnaround|图像生成|图像编辑|三视图|场景设定"),
+    ("video", "topic:ai-video", r"storyboard|previs|shot planning|filmmak|video edit|video generat|cinematic|camera control|ai.video|分镜|白模|运镜|视频生成"),
+    ("audio", "topic:audio-processing", r"stem separation|audio separation|sound effect|audio generat|music generat|speech synthesis|word.level timestamp|lip.sync|音轨|音效|语音合成"),
+    ("workflow", "topic:comfyui-workflow", r"comfyui|comfy workflow|creative workflow|storyboard workflow|multi.model|创作工作流"),
+    ("component", "topic:video-editor", r"video editor|video editing|timeline|video render|video composit|video editing|视频剪辑|时间线"),
+    ("prompt", "topic:prompt-engineering", r"image prompt|video prompt|image generation|video generat|seedance|seedream|storyboard|turnaround|图像提示词|视频提示词|人物设定"),
+)
+REPO_NAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9_.-]+")
+RESEARCH_LIMIT = 36
+
+
+def repo_identity(url):
+    try:
+        u = urlsplit(str(url or ""))
+        path = u.path.strip("/")
+        if (u.scheme != "https" or u.netloc.lower() != "github.com"
+                or not REPO_NAME.fullmatch(path)
+                or any(p in {".", ".."} for p in path.split("/"))
+                or path.split("/")[0].lower() in {"topics", "search", "orgs", "users", "marketplace", "settings", "collections", "sponsors"}):
+            return None
+        return path
+    except ValueError:
+        return None
+
+
+def research_lane(text, preferred=None):
+    text = str(text or "")[:2000]
+    for lane, _, pattern in sorted(RESEARCH_LANES, key=lambda x: x[0] != preferred):
+        if re.search(pattern, text, re.I):
+            return lane
+    return None
+
+
+def curated_repo_pointers(snapshots, now):
+    """Use selected recent original repo URLs only, never rehost aggregator copy."""
+    seen = set()
+    rows = []
+    for provider, snapshot in snapshots:
+        for item in snapshot.get("items", []):
+            if not isinstance(item, dict) or item.get("selected") is not True:
+                continue
+            day = parse_date(item.get("publishedAt"))
+            if not day or not now-timedelta(days=7) <= datetime.fromisoformat(day) <= now:
+                continue
+            links = item.get("links") or {}
+            if not isinstance(links, dict) or links.get("story"):
+                continue
+            repo = repo_identity(links.get("original"))
+            lane = research_lane(item.get("title"))
+            if repo and lane and repo.lower() not in seen:
+                rows.append((repo, provider, lane, day))
+                seen.add(repo.lower())
+    return sorted(rows, key=lambda x:x[3], reverse=True)
+
+
+def github_json(url):
+    # Public GitHub metadata only. Do not execute repository code.
+    request = urllib.request.Request(url, headers={
+        "User-Agent": USER_AGENT, "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    })
+    with urllib.request.urlopen(request, timeout=10) as response:
+        raw = response.read(2*1024*1024+1)
+    if len(raw)>2*1024*1024:
+        raise ValueError("GitHub response exceeds size limit")
+    data = json.loads(raw)
+    if not isinstance(data, dict):
+        raise ValueError("Unexpected GitHub schema")
+    return data
+
+
+def search_creative_repos(query, now):
+    q = query+" pushed:>="+(now-timedelta(days=7)).date().isoformat()+" archived:false fork:false"
+    payload = github_json("https://api.github.com/search/repositories?"+urlencode({
+        "q":q,"sort":"updated","order":"desc","per_page":20,
+    }))
+    rows=payload.get("items")
+    if not isinstance(rows, list) or len(rows)>20:
+        raise ValueError("Unexpected search results")
+    return rows
+
+
+def candidate_repo(payload, provider, now, preferred=None):
+    if not isinstance(payload, dict) or payload.get("archived") is not False or payload.get("fork") is not False or payload.get("private") is not False:
+        return None
+    repo=payload.get("full_name")
+    if not isinstance(repo,str) or repo_identity(payload.get("html_url"))!=repo:
+        return None
+    description=str(payload.get("description") or "")[:500]
+    topics=payload.get("topics") or []
+    if not isinstance(topics,list) or not all(isinstance(t,str) for t in topics):
+        return None
+    category=research_lane(description+" "+" ".join(topics), preferred)
+    stars=payload.get("stargazers_count")
+    pushed=parse_date(payload.get("pushed_at"))
+    if not category or type(stars) is not int or stars<0 or not pushed or datetime.fromisoformat(pushed)>now:
+        return None
+    # Keep repo candidates in the reading window by actual repository activity;
+    # a new post about a stale repo does not imply active maintenance.
+    if provider=="GitHub Search" and datetime.fromisoformat(pushed)<now-timedelta(days=7):
+        return None
+    license_info=payload.get("license") or {}
+    if not isinstance(license_info,dict):
+        return None
+    return {"repo":repo,"url":payload["html_url"],"description":description,
+            "researchCategory":category,"provider":provider,
+            "stars":stars,"pushedAt":pushed,"license":license_info.get("spdx_id"),
+            "metadataCheckedAt":now.isoformat(timespec="seconds"),
+            "review":"metadata-only","archived":False}
+
+
+def observed_stars(row, previous, now):
+    """Actual sampled star counts only, not an inferred trend ranking."""
+    current=row.get("stars")
+    if type(current) is not int or current<0:
+        return row
+    cutoff=now-timedelta(days=7)
+    history={}
+    for point in previous.get("starObservations", []):
+        stamp=parse_date(point.get("at"))
+        if stamp and cutoff<=datetime.fromisoformat(stamp)<=now and type(point.get("stars")) is int and point["stars"]>=0:
+            history[stamp]=point["stars"]
+    stamp=now.isoformat(timespec="seconds").replace("+00:00","Z")
+    history[stamp]=current
+    points=[{"at":k,"stars":v} for k,v in sorted(history.items())][-32:]
+    row={**row,"starObservations":points}
+    if len(points)>1:
+        row["observedStarChange"]={"from":points[0]["at"],"to":stamp,"delta":current-points[0]["stars"]}
+    else:
+        row.pop("observedStarChange",None)
+    return row
+
+
+def discover_repos(snapshots, previous, curated, now, fetcher=github_json, searcher=search_creative_repos):
+    """One lookup for an existing original pointer OR one scoped API search per
+    existing resources run; cache candidates and back off on service failures."""
+    stamp=now.isoformat(timespec="seconds")
+    excluded={r["repo"].lower() for r in curated}
+    rows={r["repo"].lower():r for r in previous.get("items", [])
+          if isinstance(r,dict) and isinstance(r.get("repo"),str)
+          and r["repo"].lower() not in excluded
+          and parse_date(r.get("metadataCheckedAt"))
+          and now-timedelta(days=14)<=datetime.fromisoformat(parse_date(r["metadataCheckedAt"]))<=now}
+    index=int(previous.get("nextLane",0))%len(RESEARCH_LANES)
+    state={k:v for k,v in previous.items() if k!="items"}
+    retry=parse_date(previous.get("nextAttemptAt"))
+    if retry and datetime.fromisoformat(retry)>now:
+        return {**state,"items":list(rows.values()),"deferred":True}
+    pointers=[p for p in curated_repo_pointers(snapshots,now)
+              if p[0].lower() not in excluded and p[0].lower() not in rows
+              and p[0].lower() not in previous.get("recentPointerAttempts",[])]
+    attempts=list(previous.get("recentPointerAttempts",[]))[-24:]
+    lane,query,_=RESEARCH_LANES[index]
+    try:
+        if pointers:
+            repo,provider,lane,_=pointers[0]
+            attempts=(attempts+[repo.lower()])[-24:]
+            payload=fetcher("https://api.github.com/repos/"+repo)
+            if str(payload.get("full_name","")).lower()!=repo.lower():
+                raise ValueError("Repository identity changed")
+            payloads=[payload]
+        else:
+            provider="GitHub Search"
+            payloads=searcher(query,now)
+            index=(index+1)%len(RESEARCH_LANES)
+        if not isinstance(payloads,list):
+            raise ValueError("Invalid discovery result")
+        added=0
+        for payload in payloads[:20]:
+            row=candidate_repo(payload,provider,now,lane)
+            if not row or row["repo"].lower() in excluded:
+                continue
+            key=row["repo"].lower()
+            prior=rows.get(key,{})
+            rows[key]=observed_stars({**row,"firstObservedAt":prior.get("firstObservedAt") or stamp},prior,now)
+            added+=1
+        state.update(status="ok",checkedAt=stamp,lastSuccessAt=stamp,
+                     lastProvider=provider,lastLane=lane,lastMatched=added,
+                     nextAttemptAt=None,error=None,consecutiveFailures=0)
+    except (OSError, ValueError, TypeError) as exc:
+        failures=int(previous.get("consecutiveFailures",0))+1
+        state.update(status="cached",checkedAt=stamp,error=f"{type(exc).__name__}: {str(exc)[:160]}",
+                     consecutiveFailures=failures,nextAttemptAt=(now+timedelta(hours=min(48,6*2**min(failures-1,3)))).isoformat())
+    state.update(nextLane=index,recentPointerAttempts=attempts,deferred=False,
+                 policy="One bounded selected pointer or scoped GitHub API search. Metadata candidates, not verified features or adoption recommendations. Star change uses actual observations.")
+    items=sorted(rows.values(),key=lambda x:(x["metadataCheckedAt"],x["repo"]),reverse=True)[:RESEARCH_LIMIT]
+    return {**state,"items":items}
+
+
 def main() -> int:
     config = load_json(CONFIG, {"feeds": [], "repositories": []})
-    now_iso = datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    now = datetime.now(timezone.utc)
+    now_iso = now.isoformat(timespec="seconds").replace("+00:00", "Z")
     old_feeds = load_json(FEED_DATA, {"generatedAt": None, "items": []})
     old_repos = load_json(REPO_DATA, {"generatedAt": None, "items": []})
     old_status = load_json(STATUS_DATA, {"feeds": [], "repositories": []})
@@ -282,6 +476,7 @@ def main() -> int:
                 result["metadataStatus"] = "cached"
             if result.get("metadataStatus") == "ok":
                 repo_success += 1
+                result = observed_stars(result, previous, now)
             repo_items.append(result)
             repo_status.append({
                 "id": repo["id"], "repo": repo["repo"],
@@ -297,7 +492,10 @@ def main() -> int:
     repo_status.sort(key=lambda x: x["repo"])
 
     write_json(FEED_DATA, {"generatedAt": now_iso, "items": feed_items})
-    write_json(REPO_DATA, {"generatedAt": now_iso, "items": repo_items})
+    snapshots = [(name, load_json(ROOT / "site/data" / filename, {})) for name,filename in
+                 (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json"))]
+    discovery=discover_repos(snapshots,old_repos.get("researchDiscovery",{}),repos_config,now)
+    write_json(REPO_DATA, {"generatedAt": now_iso, "items": repo_items, "researchDiscovery": discovery})
     write_json(STATUS_DATA, {
         "checkedAt": now_iso,
         "feedCount": len(active_feeds),
@@ -307,7 +505,9 @@ def main() -> int:
         "repositorySuccess": repo_success,
         "feeds": feed_status,
         "repositories": repo_status,
+        "researchDiscovery": {k:v for k,v in discovery.items() if k not in {"items","recentPointerAttempts"}},
     })
+    print("Creative repository discovery:",json.dumps({k:v for k,v in discovery.items() if k not in {"items","recentPointerAttempts"}},ensure_ascii=False))
     print(f"Resources: {feed_success}/{len(active_feeds)} RSS feeds OK; {repo_success}/{len(repos_config)} GitHub repos refreshed.")
     for item in feed_status:
         print(f"[{item['status'].upper()}] {item['name']}: {item['itemCount']} items" + (f" — {item['error']}" if item.get("error") else ""))

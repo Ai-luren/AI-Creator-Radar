@@ -135,6 +135,177 @@
       "liveUrl": "https://shortdramaskills.com",
       "readmePath": "README.md",
       "priority": 7
+    },
+    {
+      "id": "cozyclay",
+      "repo": "HaD0Yun/CozyClay",
+      "name": "CozyClay",
+      "category": "video",
+      "description": "浏览器白模预演：人物站位、动作、镜头与切换，导出参考帧、灰模视频及提示词。",
+      "highlights": [
+        "视频创作"
+      ],
+      "liveUrl": "https://cozyclay.org/#try",
+      "readmePath": "README.md",
+      "priority": 20,
+      "research": {
+        "idea": "白模导演台：先调度场景，再向视频模型交付参考。",
+        "caution": "AGPL 网络服务义务及素材授权需独立评估。",
+        "review": "readme-reviewed",
+        "evidenceUrl": "https://github.com/HaD0Yun/CozyClay#readme"
+      }
+    },
+    {
+      "id": "previsforge",
+      "repo": "Pluviobyte/previsforge",
+      "name": "PrevisForge",
+      "category": "video",
+      "description": "SceneSpec 驱动的 Blender 白模场景、GLB、参考视频；README 标明 Alpha/MVP。",
+      "highlights": [
+        "视频创作"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 21,
+      "research": {
+        "idea": "场景结构化编辑与生成前预演。",
+        "caution": "Alpha；Blender、FFmpeg、导出兼容性待验证。",
+        "review": "readme-reviewed",
+        "evidenceUrl": "https://github.com/Pluviobyte/previsforge#readme"
+      }
+    },
+    {
+      "id": "character-turnaround-sheets",
+      "repo": "talvanes/character-turnaround-sheets",
+      "name": "Character Turnaround Sheets",
+      "category": "image",
+      "description": "角色设定 Skill：全身多角度、面部视图、换装，使用锁定角色档案和参考图组织提示词。",
+      "highlights": [
+        "图像创作"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 22,
+      "research": {
+        "idea": "一键角色设定集、衣装资产和一致性检查。",
+        "caution": "模型遵循度与参考图版权需验证。",
+        "review": "readme-reviewed",
+        "evidenceUrl": "https://github.com/talvanes/character-turnaround-sheets#readme"
+      }
+    },
+    {
+      "id": "storyboard-scavenger",
+      "repo": "ouxxyy/storyboard-scavenger",
+      "name": "Storyboard Scavenger",
+      "category": "workflow",
+      "description": "创意转七要素分镜提示词；提供 Kling、Seedance、Veo 等模型适配工作流。",
+      "highlights": [
+        "创作工作流"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 23,
+      "research": {
+        "idea": "统一分镜结构与跨模型提示词转换。",
+        "caution": "生成视频能力由外部平台提供；先核查 Skill 执行边界。",
+        "review": "readme-reviewed",
+        "evidenceUrl": "https://github.com/ouxxyy/storyboard-scavenger#readme"
+      }
+    },
+    {
+      "id": "gpt-image-playground",
+      "repo": "alasano/gpt-image-playground",
+      "name": "GPT Image Playground",
+      "category": "image",
+      "description": "GPT Image 生成与编辑界面，README 描述 GIF、SVG、标注、帧参数和尺寸约束。",
+      "highlights": [
+        "图像创作"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 24,
+      "research": {
+        "idea": "动态表情包、循环 GIF、矢量资产和标注编辑小工具。",
+        "caution": "需独立核验模型 API 参数、输出质量和接口可用性。",
+        "review": "readme-reviewed",
+        "evidenceUrl": "https://github.com/alasano/gpt-image-playground#readme"
+      }
+    },
+    {
+      "id": "comfy-workflows",
+      "repo": "Comfy-Org/workflows",
+      "name": "Comfy Workflows",
+      "category": "workflow",
+      "description": "Comfy 官方分享的工作流文件及模型、节点、输入说明。",
+      "highlights": [
+        "创作工作流"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 25,
+      "research": {
+        "idea": "将创作步骤封装为可复用模板，明确节点输入输出。",
+        "caution": "GPL 及每个节点、权重、素材的许可证分别核查。",
+        "review": "readme-reviewed",
+        "evidenceUrl": "https://github.com/Comfy-Org/workflows#readme"
+      }
+    },
+    {
+      "id": "renoise-kit",
+      "repo": "renoise-ai/renoise-kit",
+      "name": "Renoise Kit",
+      "category": "component",
+      "description": "帧级媒体探测、接触表、EDL 组装、渲染、质检和交付工具。",
+      "highlights": [
+        "产品组件"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 26,
+      "research": {
+        "idea": "Agent 剪辑的可视化质检和时间线交互参考。",
+        "caution": "仅研究公开工具；不推断公司内部实现；FFmpeg 等依赖需核查。",
+        "review": "readme-reviewed",
+        "evidenceUrl": "https://github.com/renoise-ai/renoise-kit#readme"
+      }
+    },
+    {
+      "id": "audio-separator",
+      "repo": "nomadkaraoke/python-audio-separator",
+      "name": "Audio Separator",
+      "category": "audio",
+      "description": "GitHub 项目简介：命令行或 Python 包进行人声、伴奏等音轨分离。",
+      "highlights": [
+        "音频创作"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 27,
+      "research": {
+        "idea": "生成视频的音轨拆分与独立替换。",
+        "caution": "仅核查项目元数据；模型权重许可与分离质量待核查。",
+        "review": "metadata-reviewed",
+        "evidenceUrl": "https://github.com/nomadkaraoke/python-audio-separator"
+      }
+    },
+    {
+      "id": "whisperx",
+      "repo": "m-bain/whisperX",
+      "name": "WhisperX",
+      "category": "audio",
+      "description": "GitHub 项目简介：语音识别、单词级时间戳及说话人区分。",
+      "highlights": [
+        "音频创作"
+      ],
+      "liveUrl": "",
+      "readmePath": "README.md",
+      "priority": 28,
+      "research": {
+        "idea": "对白定位、字幕对齐及局部音频编辑。",
+        "caution": "仅核查项目元数据；模型许可、中文对齐和说话人区分待实测。",
+        "review": "metadata-reviewed",
+        "evidenceUrl": "https://github.com/m-bain/whisperX"
+      }
     }
   ]
 }
