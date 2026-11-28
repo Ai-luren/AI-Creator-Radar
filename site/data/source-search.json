@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T01:09:27+00:00",
+  "checkedAt": "2026-11-28T01:15:57+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T01:09:27+00:00",
     "error": null,
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -164,7 +164,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -376,7 +376,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -500,7 +500,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -598,7 +598,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -745,7 +745,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:06:01Z",
+          "lastObservedAt": "2026-11-28T01:15:46Z",
           "provenance": "existing-discovery"
         },
         {
@@ -830,7 +830,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:06:01Z",
+          "lastObservedAt": "2026-11-28T01:15:46Z",
           "provenance": "existing-discovery"
         },
         {
@@ -935,7 +935,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -955,7 +955,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T00:57:53Z",
+          "lastObservedAt": "2026-11-28T01:15:46Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1007,7 +1007,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T00:57:53Z",
+          "lastObservedAt": "2026-11-28T01:15:46Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -1135,7 +1135,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         }
       ]
@@ -1222,7 +1222,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T01:09:24+00:00",
+          "lastObservedAt": "2026-11-28T01:15:54+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1232,7 +1232,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T00:57:53Z",
+          "lastObservedAt": "2026-11-28T01:15:46Z",
           "provenance": "existing-discovery"
         }
       ]
@@ -1240,7 +1240,7 @@
   ],
   "summary": {
     "activeTargets": 21,
-    "attemptedThisRun": 1,
+    "attemptedThisRun": 0,
     "targetStates": {
       "awaiting-search": 17,
       "index-unavailable": 3,
