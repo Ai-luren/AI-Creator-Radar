@@ -203,6 +203,7 @@ function competitorEventType(title){
  var v=String(title||'');
  if(/融资|投资轮|募资|funding|raises?|series [a-f]\b/i.test(v))return '融资 / 公司动态';
  if(/宣传片|官方演示|宣传|预告|showcase|trailer|demo/i.test(v))return '宣发 / 演示';
+ if(/实测|测评|评测|教程|案例|使用心得|上手|\breview\b|\btutorial\b|\bhands[- ]on\b/i.test(v))return '实测 / 创作案例';
  if(/接入|上架|独家首发|模型上新|model integration/i.test(v))return '模型接入';
  if(/发布|上线|推出|launch|introduc/i.test(v))return '产品 / 功能';
  return '相关报道';
@@ -243,6 +244,9 @@ function competitorBriefRows(app,reports,social,now){
   }else if(productDatedEvent(e)){
    var kinds={'model-integration':'模型接入','product-feature':'新功能','product-release':'产品发布','product-improvement':'能力改进','product-update':'功能更新'};
    add(brand,e.featureName,e.publisherCalendarDay,kinds[e.updateType]||'官方产品更新',e.sourceUrl,productEventProof(e),{modelName:e.updateType==='model-integration'?e.featureName:''});
+  }else if(e.claimType==='first-party-store-version'&&firstPartyProducts.includes(brand)){
+   // Store release timestamps refer to the client version, not model or feature launch.
+   if(/^\d+(?:\.\d+){1,4}$/.test(String(e.storeVersion||''))&&withinDays(e.storeVersionReleasedAt,7,new Date(now)))add(brand,'iOS 客户端 '+e.storeVersion,e.storeVersionReleasedAt,'客户端版本',e.sourceUrl,'App Store 版本日期 · 非模型发布日期',{note:'仅确认客户端版本记录，不推断功能或模型首次上线。'});
   }else if(e.claimType==='first-party-visible-label'&&e.kind==='new-visible-label'&&firstPartyProducts.includes(brand)){
    add(brand,e.modelName,e.observedAt,'模型可见',e.sourceUrl,'官网入口变化 · 非发布日期',{modelName:e.modelName});
   }else if(e.claimType==='first-party-product-surface'&&e.kind==='new-product-surface'){
