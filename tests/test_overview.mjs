@@ -1005,3 +1005,13 @@ test('propagation groups reuse real story and distinct same-feature originals wi
  const hf=groups.find(x=>x.brand==='Higgsfield');assert.equal(hf.stories.length,1);assert.equal(hf.stories[0].labels.length,3);assert.equal(hf.originals.length,0);assert.equal(hf.official.length,1);
  const markup=run('creatorPropagationMarkup('+args.map(x=>JSON.stringify(x)).join(',')+',Date.now(),"")');assert.match(markup,/近期新品传播信号/);assert.match(markup,/待官方核验/);assert.match(markup,/有官方相关记录/);
 });
+
+test('model vendor propagation uses canonical publisher evidence and does not assert platform adoption',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const release={modelName:'MAGI-2',modelFamilyId:'magi',modelVersionId:'2',vendor:'Sand.ai',publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'};
+ const story={story:true,providers:['AIPick'],item:{title:'Sand.ai发布MAGI-2视频模型：登顶I2V榜、0.5元/秒并计划开源',latestAt:'2026-11-28T00:52:12Z',sourceNames:['抖音 · 热点搜','X · AIWarper'],links:{story:'https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820'}}};
+ const args=[[story],[release],[]].map(x=>JSON.stringify(x)).join(',');
+ const groups=JSON.parse(run('JSON.stringify(creatorPropagationGroups('+args+',Date.now(),"","vendors"))'));
+ assert.equal(groups.length,1);assert.equal(groups[0].brand,'Sand.ai');assert.equal(groups[0].official[0].kind,'模型发布记录');assert.equal(groups[0].official[0].day,'2026-11-24');
+ assert.equal(JSON.parse(run('JSON.stringify(creatorPropagationGroups('+args+',Date.now(),""))')).length,0);
+});
