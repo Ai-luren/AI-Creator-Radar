@@ -546,3 +546,8 @@ test('platform coverage displays measured originals, hot mentions and unexecuted
  assert.equal(run("creatorBrandMatch('Creatify Aurora 2.0 上线 ElevenCreative','vendors','ElevenCreative')"),true);
  assert.equal(run("creatorBrandMatch('MAGI-2 视频模型上线 LibTV','competitors','LibTV')"),true);
 });
+
+
+test('recent release view defaults to seven days in reverse publication order',async()=>{
+ const {run}=setup({query:'?view=today'});await run('loadAllForTests()');assert.equal(run('state.releaseWindow'),'7');assert.equal(run('state.releaseSort'),'date');
+});

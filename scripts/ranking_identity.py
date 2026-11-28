@@ -56,7 +56,7 @@ def primary_boards(document):
     for category in document.get("categories", []):
         if category.get("primaryLeaderboard"):
             yield category["primaryLeaderboard"]
-        # A task may have no source snapshot; keep it missing, not a synthetic board.
+        # Missing task snapshots remain missing, not fabricated boards.
         yield from (board for board in category.get("primaryLeaderboards", {}).values()
                     if board is not None)
 

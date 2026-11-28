@@ -1,6 +1,6 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-28T03:17:39+00:00",
+  "checkedAt": "2026-11-28T03:36:53+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
     "attempted": 0,
@@ -13,6 +13,152 @@
     "weakCandidateDatesCorrected": 10
   },
   "items": [
+    {
+      "id": "recovery-2eb810fd1adf8021f21e",
+      "urlKey": "https://sand.ai/blog/magi-2",
+      "url": "https://sand.ai/blog/magi-2",
+      "leadIds": [
+        "dfb358964f6ef7e29df4",
+        "e60abd81042c5811d827"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases",
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "MAGI-2",
+        "MAGI-2: A 480B Frontier Video Generation ModelNovember 24, 2026 · Research"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-24"
+      ],
+      "checkedAt": "2026-11-27T17:21:30+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "article-date-verified",
+      "title": "MAGI-2: A 480B Frontier Video Generation Model",
+      "modelId": "magi-2",
+      "vendor": "Sand.ai",
+      "category": "video",
+      "articlePublishedAt": "2026-11-24T00:00:00Z",
+      "titleMethod": "publisher-document-title-plus-heading-and-launch",
+      "publisherReleaseStatement": {
+        "modelName": "MAGI-2",
+        "statement": "Today, we are launching MAGI-2",
+        "calendarDay": "2026-11-24",
+        "kind": "explicit-present-day-launch"
+      },
+      "firstVerifiedAt": "2026-11-27T17:21:30+00:00"
+    },
+    {
+      "id": "recovery-f1db7ce98881d8901597",
+      "urlKey": "https://z.ai/blog/glm-5.4",
+      "url": "https://z.ai/blog/glm-5.4",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-27T17:21:30+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "identity-unresolved"
+    },
+    {
+      "id": "recovery-0f77f061dfedac16453d",
+      "urlKey": "https://docs.z.ai/guides/llm/glm-5.4",
+      "url": "https://docs.z.ai/guides/llm/glm-5.4",
+      "leadIds": [
+        "4c53475e2cd1ac2dfd15"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4",
+        "GLM-5.4 docs",
+        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-23"
+      ],
+      "checkedAt": "2026-11-27T17:21:30+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "date-unresolved",
+      "title": "GLM-5.4",
+      "modelId": "glm"
+    },
+    {
+      "id": "recovery-224aeea821d78431f57b",
+      "urlKey": "https://www.zhipuai.cn/zh/research/164",
+      "url": "https://www.zhipuai.cn/zh/research/164",
+      "leadIds": [
+        "8a8f138b1e747373d559"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "GLM-5.4"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-27"
+      ],
+      "checkedAt": "2026-11-27T04:31:59+00:00",
+      "firstAttemptAt": "2026-11-27T04:31:59+00:00",
+      "consecutiveUnresolved": 0,
+      "nextAttemptAt": "2026-11-28T04:31:59+00:00",
+      "status": "article-date-verified",
+      "title": "GLM-5.4：瞄向泛Coding，首个Loop Transformer带来的惊喜",
+      "modelId": "glm",
+      "vendor": "智谱 / Z.ai",
+      "category": "llm",
+      "articlePublishedAt": "2026-11-22T00:00:00Z",
+      "firstVerifiedAt": "2026-11-27T04:31:59+00:00"
+    },
+    {
+      "id": "recovery-f5390a2aecae5dc01ca9",
+      "urlKey": "https://nijijourney.com/blog/niji-8",
+      "url": "https://nijijourney.com/blog/niji-8",
+      "leadIds": [
+        "ecab231e4cc0db197f84"
+      ],
+      "discoverySourceIds": [
+        "isitsota-releases"
+      ],
+      "titleHintsChecked": [
+        "Niji 8",
+        "Niji V8",
+        "Welcome to Niji 8!"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-24"
+      ],
+      "checkedAt": "2026-11-28T01:53:54+00:00",
+      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-29T01:53:54+00:00",
+      "status": "fetch-failed",
+      "error": "HTTPError: HTTP Error 403: Forbidden"
+    },
     {
       "id": "recovery-be0aed2f51056a6d6c6f",
       "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon",
@@ -80,45 +226,6 @@
       "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
     },
     {
-      "id": "recovery-2eb810fd1adf8021f21e",
-      "urlKey": "https://sand.ai/blog/magi-2",
-      "url": "https://sand.ai/blog/magi-2",
-      "leadIds": [
-        "dfb358964f6ef7e29df4",
-        "e60abd81042c5811d827"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases",
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "MAGI-2",
-        "MAGI-2: A 480B Frontier Video Generation ModelNovember 24, 2026 · Research"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-24"
-      ],
-      "checkedAt": "2026-11-27T17:21:30+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
-      "status": "article-date-verified",
-      "title": "MAGI-2: A 480B Frontier Video Generation Model",
-      "modelId": "magi-2",
-      "vendor": "Sand.ai",
-      "category": "video",
-      "articlePublishedAt": "2026-11-24T00:00:00Z",
-      "titleMethod": "publisher-document-title-plus-heading-and-launch",
-      "publisherReleaseStatement": {
-        "modelName": "MAGI-2",
-        "statement": "Today, we are launching MAGI-2",
-        "calendarDay": "2026-11-24",
-        "kind": "explicit-present-day-launch"
-      },
-      "firstVerifiedAt": "2026-11-27T17:21:30+00:00"
-    },
-    {
       "id": "recovery-a989f1582084d0cf153c",
       "urlKey": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
@@ -149,32 +256,6 @@
       "category": "llm",
       "articlePublishedAt": "2026-11-09T00:00:00Z",
       "firstVerifiedAt": "2026-11-26T17:23:36+00:00"
-    },
-    {
-      "id": "recovery-550f4d88633d42452645",
-      "urlKey": "https://www.anthropic.com/news/expanding-partnership-gsa",
-      "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
-      "leadIds": [
-        "17beaffacb91f706b08c",
-        "c69166643fbc30c82eff"
-      ],
-      "discoverySourceIds": [
-        "olshansk-anthropic-feed",
-        "turing-anthropic-feed"
-      ],
-      "titleHintsChecked": [
-        "Expanding our partnership with GSA to bring Claude to all levels of government"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-10-27"
-      ],
-      "checkedAt": "2026-11-27T17:21:30+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
-      "status": "not-model-announcement",
-      "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
     },
     {
       "id": "recovery-8f6af8c44a4a1bfb5de3",
@@ -254,82 +335,6 @@
       "status": "identity-unresolved"
     },
     {
-      "id": "recovery-a92d7b7ef0e2da4d5922",
-      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
-      "leadIds": [
-        "f6f1c9902b71cf51798f"
-      ],
-      "discoverySourceIds": [
-        "llm-world-json"
-      ],
-      "titleHintsChecked": [
-        "Gemini 4 Carbon"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-10-28"
-      ],
-      "checkedAt": "2026-11-27T17:21:30+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 5,
-      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
-      "status": "not-model-announcement",
-      "title": "Gemini 4 Carbon: our next frontier model"
-    },
-    {
-      "id": "recovery-f1db7ce98881d8901597",
-      "urlKey": "https://z.ai/blog/glm-5.4",
-      "url": "https://z.ai/blog/glm-5.4",
-      "leadIds": [
-        "4c53475e2cd1ac2dfd15"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4",
-        "GLM-5.4 docs",
-        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-23"
-      ],
-      "checkedAt": "2026-11-27T17:21:30+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 6,
-      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
-      "status": "identity-unresolved"
-    },
-    {
-      "id": "recovery-0f77f061dfedac16453d",
-      "urlKey": "https://docs.z.ai/guides/llm/glm-5.4",
-      "url": "https://docs.z.ai/guides/llm/glm-5.4",
-      "leadIds": [
-        "4c53475e2cd1ac2dfd15"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4",
-        "GLM-5.4 docs",
-        "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-23"
-      ],
-      "checkedAt": "2026-11-27T17:21:30+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 6,
-      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
-      "status": "date-unresolved",
-      "title": "GLM-5.4",
-      "modelId": "glm"
-    },
-    {
       "id": "recovery-a2cadac0f94d0864a5cd",
       "urlKey": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash",
       "url": "https://deepmind.google/models/model-cards/gemini-omni-1-2-flash/",
@@ -353,116 +358,6 @@
       "status": "date-unresolved",
       "title": "Gemini Omni 1.2 Flash",
       "modelId": "gemini-omni-flash"
-    },
-    {
-      "id": "recovery-35e334c198740f741663",
-      "urlKey": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "leadIds": [
-        "72359e3d5f2a94123af0"
-      ],
-      "discoverySourceIds": [
-        "llm-world-json"
-      ],
-      "titleHintsChecked": [
-        "GPT-6.1 Terra"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-10-26"
-      ],
-      "checkedAt": "2026-11-27T17:21:30+00:00",
-      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
-      "consecutiveUnresolved": 6,
-      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
-      "status": "date-unresolved",
-      "title": "GPT-6.1Terra",
-      "modelId": "gpt"
-    },
-    {
-      "id": "recovery-63f49d49814eed7e99b3",
-      "urlKey": "https://www.zhipuai.cn/zh/research/155",
-      "url": "https://www.zhipuai.cn/zh/research/155",
-      "leadIds": [
-        "aa7977f20f561257af23"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "GLM-5-Turbo"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-27"
-      ],
-      "checkedAt": "2026-11-27T18:24:36+00:00",
-      "firstAttemptAt": "2026-11-27T18:24:36+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-28T18:24:36+00:00",
-      "status": "outside-current-window",
-      "title": "GLM-5-Turbo：龙虾增强的基座模型",
-      "articlePublishedAt": "2026-03-15T16:00:00Z",
-      "modelId": "glm",
-      "vendor": "智谱 / Z.ai",
-      "category": "llm"
-    },
-    {
-      "id": "recovery-b6b62dc2e4dd824ba351",
-      "urlKey": "https://www.zhipuai.cn/en/research/155",
-      "url": "https://www.zhipuai.cn/en/research/155",
-      "leadIds": [
-        "a61d28a9abeea9f08781"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "GLM-5-Turbo"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-27"
-      ],
-      "checkedAt": "2026-11-27T04:31:59+00:00",
-      "firstAttemptAt": "2026-11-27T04:31:59+00:00",
-      "consecutiveUnresolved": 1,
-      "nextAttemptAt": "2026-11-28T04:31:59+00:00",
-      "status": "outside-current-window",
-      "title": "GLM-5-Turbo: A Foundation Model Enhanced for OpenClaw",
-      "articlePublishedAt": "2026-03-15T16:00:00Z",
-      "modelId": "glm",
-      "vendor": "智谱 / Z.ai",
-      "category": "llm"
-    },
-    {
-      "id": "recovery-224aeea821d78431f57b",
-      "urlKey": "https://www.zhipuai.cn/zh/research/164",
-      "url": "https://www.zhipuai.cn/zh/research/164",
-      "leadIds": [
-        "8a8f138b1e747373d559"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "GLM-5.4"
-      ],
-      "resolverRevision": 4,
-      "reportedDates": [
-        "2026-11-27"
-      ],
-      "checkedAt": "2026-11-27T04:31:59+00:00",
-      "firstAttemptAt": "2026-11-27T04:31:59+00:00",
-      "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-28T04:31:59+00:00",
-      "status": "article-date-verified",
-      "title": "GLM-5.4：瞄向泛Coding，首个Loop Transformer带来的惊喜",
-      "modelId": "glm",
-      "vendor": "智谱 / Z.ai",
-      "category": "llm",
-      "articlePublishedAt": "2026-11-22T00:00:00Z",
-      "firstVerifiedAt": "2026-11-27T04:31:59+00:00"
     },
     {
       "id": "recovery-5b4c18faabadfb3802c4",
@@ -493,116 +388,6 @@
       "category": "llm",
       "articlePublishedAt": "2026-11-10T00:00:00Z",
       "firstVerifiedAt": "2026-11-26T17:29:49+00:00"
-    },
-    {
-      "id": "recovery-729b5981c11c6f6a048a",
-      "urlKey": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste",
-      "url": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste",
-      "leadIds": [
-        "988f9d1c9f395f8cec79"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Introducing v5.5: Voices, Custom Models, and My Taste"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-26"
-      ],
-      "checkedAt": "2026-11-27T17:32:46+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
-      "status": "outside-current-window",
-      "title": "Introducing v5.5: Voices, Custom Models, and My Taste",
-      "articlePublishedAt": "2026-03-26T17:21:00Z",
-      "modelId": "suno",
-      "vendor": "Suno",
-      "category": "music"
-    },
-    {
-      "id": "recovery-7ecefc6567b5334dd990",
-      "urlKey": "https://suno.com/release-notes/introducing-v6",
-      "url": "https://suno.com/release-notes/introducing-v6",
-      "leadIds": [
-        "80c333fcc30697abc772"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Introducing v6"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-26"
-      ],
-      "checkedAt": "2026-11-27T17:32:46+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
-      "status": "outside-current-window",
-      "title": "Introducing v6",
-      "articlePublishedAt": "2026-09-09T15:10:20Z",
-      "modelId": "suno",
-      "vendor": "Suno",
-      "category": "music"
-    },
-    {
-      "id": "recovery-438533b2a7fab7e7ef95",
-      "urlKey": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
-      "url": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
-      "leadIds": [
-        "7b7633eb1d4a42b0de25"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Introducing v5 - the world's best music model"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-26"
-      ],
-      "checkedAt": "2026-11-27T17:32:46+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
-      "status": "outside-current-window",
-      "title": "Introducing v5 - the world's best music model",
-      "articlePublishedAt": "2025-09-23T18:17:00Z",
-      "modelId": "suno",
-      "vendor": "Suno",
-      "category": "music"
-    },
-    {
-      "id": "recovery-f5390a2aecae5dc01ca9",
-      "urlKey": "https://nijijourney.com/blog/niji-8",
-      "url": "https://nijijourney.com/blog/niji-8",
-      "leadIds": [
-        "ecab231e4cc0db197f84"
-      ],
-      "discoverySourceIds": [
-        "isitsota-releases"
-      ],
-      "titleHintsChecked": [
-        "Niji 8",
-        "Niji V8",
-        "Welcome to Niji 8!"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-24"
-      ],
-      "checkedAt": "2026-11-28T01:53:54+00:00",
-      "firstAttemptAt": "2026-11-26T17:44:51+00:00",
-      "consecutiveUnresolved": 6,
-      "nextAttemptAt": "2026-11-29T01:53:54+00:00",
-      "status": "fetch-failed",
-      "error": "HTTPError: HTTP Error 403: Forbidden"
     },
     {
       "id": "recovery-22d3b928da2e6e05e221",
@@ -669,36 +454,6 @@
         "kind": "explicit-present-day-launch"
       },
       "firstVerifiedAt": "2026-11-26T17:48:59+00:00"
-    },
-    {
-      "id": "recovery-f58d44a1f0031867aa29",
-      "urlKey": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
-      "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab",
-      "leadIds": [
-        "11c8dfb572322932a313",
-        "23f1f2ecc4cb8b45aa2a"
-      ],
-      "discoverySourceIds": [
-        "local-official-candidates"
-      ],
-      "titleHintsChecked": [
-        "Seedance 2.5",
-        "一镜成片，随心参考：Seedance 2.5 正式发布"
-      ],
-      "resolverRevision": 5,
-      "reportedDates": [
-        "2026-11-16"
-      ],
-      "checkedAt": "2026-11-27T17:32:46+00:00",
-      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
-      "consecutiveUnresolved": 2,
-      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
-      "status": "outside-current-window",
-      "title": "一镜成片，随心参考｜Seedance 2.5 正式发布",
-      "articlePublishedAt": "2026-07-31T00:00:00Z",
-      "modelId": "seedance",
-      "vendor": "字节跳动 Seed / 即梦",
-      "category": "video"
     },
     {
       "id": "recovery-e9a194686567e1779632",
@@ -806,6 +561,251 @@
       "title": "MiniMax H3-Image 开源：让 4K 图像生成进入 10 秒时代",
       "articlePublishedAt": "2026-11-10T15:00:58Z",
       "possibleModelFamilyIds": []
+    },
+    {
+      "id": "recovery-550f4d88633d42452645",
+      "urlKey": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "url": "https://www.anthropic.com/news/expanding-partnership-gsa",
+      "leadIds": [
+        "17beaffacb91f706b08c",
+        "c69166643fbc30c82eff"
+      ],
+      "discoverySourceIds": [
+        "olshansk-anthropic-feed",
+        "turing-anthropic-feed"
+      ],
+      "titleHintsChecked": [
+        "Expanding our partnership with GSA to bring Claude to all levels of government"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-10-27"
+      ],
+      "checkedAt": "2026-11-27T17:21:30+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "not-model-announcement",
+      "title": "Expanding our partnership with GSA to bring Claude to all levels of government"
+    },
+    {
+      "id": "recovery-a92d7b7ef0e2da4d5922",
+      "urlKey": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "leadIds": [
+        "f6f1c9902b71cf51798f"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "titleHintsChecked": [
+        "Gemini 4 Carbon"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-10-28"
+      ],
+      "checkedAt": "2026-11-27T17:21:30+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 5,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "not-model-announcement",
+      "title": "Gemini 4 Carbon: our next frontier model"
+    },
+    {
+      "id": "recovery-35e334c198740f741663",
+      "urlKey": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "leadIds": [
+        "72359e3d5f2a94123af0"
+      ],
+      "discoverySourceIds": [
+        "llm-world-json"
+      ],
+      "titleHintsChecked": [
+        "GPT-6.1 Terra"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-10-26"
+      ],
+      "checkedAt": "2026-11-27T17:21:30+00:00",
+      "firstAttemptAt": "2026-11-26T17:23:36+00:00",
+      "consecutiveUnresolved": 6,
+      "nextAttemptAt": "2026-11-28T17:21:30+00:00",
+      "status": "date-unresolved",
+      "title": "GPT-6.1Terra",
+      "modelId": "gpt"
+    },
+    {
+      "id": "recovery-63f49d49814eed7e99b3",
+      "urlKey": "https://www.zhipuai.cn/zh/research/155",
+      "url": "https://www.zhipuai.cn/zh/research/155",
+      "leadIds": [
+        "aa7977f20f561257af23"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "GLM-5-Turbo"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-27"
+      ],
+      "checkedAt": "2026-11-27T18:24:36+00:00",
+      "firstAttemptAt": "2026-11-27T18:24:36+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-28T18:24:36+00:00",
+      "status": "outside-current-window",
+      "title": "GLM-5-Turbo：龙虾增强的基座模型",
+      "articlePublishedAt": "2026-03-15T16:00:00Z",
+      "modelId": "glm",
+      "vendor": "智谱 / Z.ai",
+      "category": "llm"
+    },
+    {
+      "id": "recovery-b6b62dc2e4dd824ba351",
+      "urlKey": "https://www.zhipuai.cn/en/research/155",
+      "url": "https://www.zhipuai.cn/en/research/155",
+      "leadIds": [
+        "a61d28a9abeea9f08781"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "GLM-5-Turbo"
+      ],
+      "resolverRevision": 4,
+      "reportedDates": [
+        "2026-11-27"
+      ],
+      "checkedAt": "2026-11-27T04:31:59+00:00",
+      "firstAttemptAt": "2026-11-27T04:31:59+00:00",
+      "consecutiveUnresolved": 1,
+      "nextAttemptAt": "2026-11-28T04:31:59+00:00",
+      "status": "outside-current-window",
+      "title": "GLM-5-Turbo: A Foundation Model Enhanced for OpenClaw",
+      "articlePublishedAt": "2026-03-15T16:00:00Z",
+      "modelId": "glm",
+      "vendor": "智谱 / Z.ai",
+      "category": "llm"
+    },
+    {
+      "id": "recovery-729b5981c11c6f6a048a",
+      "urlKey": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste",
+      "url": "https://suno.com/release-notes/introducing-v5-5-voices-custom-models-and-my-taste",
+      "leadIds": [
+        "988f9d1c9f395f8cec79"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "Introducing v5.5: Voices, Custom Models, and My Taste"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-26"
+      ],
+      "checkedAt": "2026-11-27T17:32:46+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
+      "status": "outside-current-window",
+      "title": "Introducing v5.5: Voices, Custom Models, and My Taste",
+      "articlePublishedAt": "2026-03-26T17:21:00Z",
+      "modelId": "suno",
+      "vendor": "Suno",
+      "category": "music"
+    },
+    {
+      "id": "recovery-7ecefc6567b5334dd990",
+      "urlKey": "https://suno.com/release-notes/introducing-v6",
+      "url": "https://suno.com/release-notes/introducing-v6",
+      "leadIds": [
+        "80c333fcc30697abc772"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "Introducing v6"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-26"
+      ],
+      "checkedAt": "2026-11-27T17:32:46+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
+      "status": "outside-current-window",
+      "title": "Introducing v6",
+      "articlePublishedAt": "2026-09-09T15:10:20Z",
+      "modelId": "suno",
+      "vendor": "Suno",
+      "category": "music"
+    },
+    {
+      "id": "recovery-438533b2a7fab7e7ef95",
+      "urlKey": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
+      "url": "https://suno.com/release-notes/introducing-v5-the-world-s-best-music-model",
+      "leadIds": [
+        "7b7633eb1d4a42b0de25"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "Introducing v5 - the world's best music model"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-26"
+      ],
+      "checkedAt": "2026-11-27T17:32:46+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
+      "status": "outside-current-window",
+      "title": "Introducing v5 - the world's best music model",
+      "articlePublishedAt": "2025-09-23T18:17:00Z",
+      "modelId": "suno",
+      "vendor": "Suno",
+      "category": "music"
+    },
+    {
+      "id": "recovery-f58d44a1f0031867aa29",
+      "urlKey": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "url": "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab",
+      "leadIds": [
+        "11c8dfb572322932a313",
+        "23f1f2ecc4cb8b45aa2a"
+      ],
+      "discoverySourceIds": [
+        "local-official-candidates"
+      ],
+      "titleHintsChecked": [
+        "Seedance 2.5",
+        "一镜成片，随心参考：Seedance 2.5 正式发布"
+      ],
+      "resolverRevision": 5,
+      "reportedDates": [
+        "2026-11-16"
+      ],
+      "checkedAt": "2026-11-27T17:32:46+00:00",
+      "firstAttemptAt": "2026-11-26T17:29:49+00:00",
+      "consecutiveUnresolved": 2,
+      "nextAttemptAt": "2026-11-28T17:32:46+00:00",
+      "status": "outside-current-window",
+      "title": "一镜成片，随心参考｜Seedance 2.5 正式发布",
+      "articlePublishedAt": "2026-07-31T00:00:00Z",
+      "modelId": "seedance",
+      "vendor": "字节跳动 Seed / 即梦",
+      "category": "video"
     },
     {
       "id": "recovery-12251940b3b4d2234012",

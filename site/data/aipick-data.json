@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T02:59:13+00:00",
-  "checkedAt": "2026-11-28T02:59:13+00:00",
+  "fetchedAt": "2026-11-28T03:29:22+00:00",
+  "checkedAt": "2026-11-28T03:29:22+00:00",
   "etags": {
-    "items": "W/\"v1-items-60a475dd43aef69f\"",
-    "hotTopics": "W/\"v1-hot-aa269f46c10761c2\""
+    "items": "W/\"v1-items-a8ba718abac5c46f\"",
+    "hotTopics": "W/\"v1-hot-ea36be85a16ba415\""
   },
   "items": [
+    {
+      "id": "x9eue4zjmo8940lmaijv62iae",
+      "title": "ChatGPT 推出会计产品，会计硕士拍视频吐槽自己失业",
+      "originalTitle": "My student loans have a longer life expectancy than my career. #ChatGPT #OpenAI #Accounting #CPA #StudentLoans",
+      "summary": "ChatGPT 近期推出面向会计的产品，可处理发票、银行对账、财务报告和识别会计错误。一位拥有会计硕士、背负 18.7 万美元学生贷款的从业者拍视频吐槽，称该产品让自己变得不可替代性更低，并追问 ChatGPT 究竟把自己解放出来做什么。ChatGPT 回应称可协助财务分析、商业策略和客户咨询，也能帮用户做预算。",
+      "source": {
+        "name": "TikTok · 搜「chatgpt」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/x9eue4zjmo8940lmaijv62iae",
+        "original": "https://www.tiktok.com/@filmerbrian/video/7712556132866264334"
+      },
+      "publishedAt": "2026-11-26T18:56:57.000Z",
+      "discoveredAt": "2026-11-28T03:26:50.469Z",
+      "category": null,
+      "score": 58,
+      "selected": true,
+      "reason": "作者用一段自嘲式对话演示 ChatGPT 会计产品能处理发票、对账和财报，适合做成吐槽向短剧，突出会计从业者的真实反应。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/x9eue4zjmo8940lmaijv62iae"
+      }
+    },
     {
       "id": "gsim2rxo1h967v5dd4g59fvm6",
       "title": "即梦 Dreamina 用 Seedance 2.5 生成 4K 甜品质感视频",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/uo4rnc08wzwv2tu9qpst2nq8c"
       }
-    },
-    {
-      "id": "ungnkubnhj7d5ko4sh188g490",
-      "title": "新智元闭卷实测：GPT-6.2、Gemini 4、Claude Opus 5.5 做 Codeforces E2 难题",
-      "originalTitle": "冠军熬到109分钟才过的题，GPT 12分钟交对，Claude先写暴力验自己",
-      "summary": "新智元把 11 月 21 日 Codeforces 一级组 E2 原题闭卷贴进 GPT-6.2 Astra、Gemini 4 Neon 和 Claude Opus 5.5 的命令行，GPT 在第 12 分 31 秒交回代码，Gemini 在第 15 分 32 秒交回，两家对拍一万组小局面全对。",
-      "source": {
-        "name": "公众号 · 新智元"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ungnkubnhj7d5ko4sh188g490",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745428&idx=2&sn=fe0c200d3f45f23efd12e112170b89c1&chksm=f02cba5eff3616b9e7468147cee6eddd037aad8512c56f90b30db7d32414d3f640f357043899&scene=126&sessionid=0#rd"
-      },
-      "publishedAt": "2026-11-27T05:46:34.000Z",
-      "discoveredAt": "2026-11-27T09:49:35.158Z",
-      "category": null,
-      "score": 80,
-      "selected": true,
-      "reason": "作者把五天前的 Codeforces 一级组 E2 原题闭卷喂给三家模型并掐表对拍，可拍成同一道题三家交卷时间与验证方式的对比实测。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/ungnkubnhj7d5ko4sh188g490"
-      }
     }
   ],
   "hotTopics": [
@@ -795,29 +795,6 @@
     },
     {
       "rank": 5,
-      "id": "m86vuscd3760ndq7qzgn4s6jl",
-      "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
-      "source": {
-        "name": "抖音 · 话题 #Seedance"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
-        "original": "https://www.douyin.com/video/7712158216540779377",
-        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
-      },
-      "sourceCount": 4,
-      "signalCount": 0,
-      "participantCount": 4,
-      "sourceNames": [
-        "抖音 · 热点搜「MAGI-2 视频模型」",
-        "X · AIWarper",
-        "量子位",
-        "公众号 · 赛博禅心"
-      ],
-      "latestAt": "2026-11-27T11:01:03.000Z"
-    },
-    {
-      "rank": 6,
       "id": "zzhdfuax9o0ecxkduwy154a11",
       "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
       "source": {
@@ -837,6 +814,28 @@
         "量子位"
       ],
       "latestAt": "2026-11-27T12:30:00.000Z"
+    },
+    {
+      "rank": 6,
+      "id": "m86vuscd3760ndq7qzgn4s6jl",
+      "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
+      "source": {
+        "name": "抖音 · 话题 #Seedance"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
+        "original": "https://www.douyin.com/video/7712158216540779377",
+        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
+      },
+      "sourceCount": 3,
+      "signalCount": 0,
+      "participantCount": 3,
+      "sourceNames": [
+        "抖音 · 热点搜「MAGI-2 视频模型」",
+        "X · AIWarper",
+        "量子位"
+      ],
+      "latestAt": "2026-11-27T11:01:03.000Z"
     },
     {
       "rank": 7,

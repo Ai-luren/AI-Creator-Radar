@@ -6,7 +6,7 @@ from unittest.mock import patch
 
 from scripts import build_unified_rankings as legacy
 from scripts import ranking_identity
-from scripts.build_primary_ranking_projection import project
+from scripts.build_primary_ranking_projection import project, build_document
 
 
 def primary_fields(document):
@@ -43,6 +43,20 @@ class PrimaryRankingProjectionTests(unittest.TestCase):
                   for key in ("image", "music", "tts", "coding")] + list(video.values())
         self.assertTrue(all(board and board["rows"] for board in boards))
         self.assertTrue(all(len(board["rows"]) <= 10 for board in boards))
+
+    def test_complete_reader_document_without_composite_or_baseline_write(self):
+        before = legacy.BASELINE.read_bytes()
+        with patch.object(legacy, "build_rankings", side_effect=AssertionError("composite invoked")):
+            candidate = build_document()
+        self.assertEqual(legacy.BASELINE.read_bytes(), before)
+        self.assertEqual(candidate["schema"], "ai-creator-radar-primary-rankings/1")
+        self.assertTrue(candidate["calculatedAt"])
+        self.assertNotIn("calibrations", candidate)
+        self.assertNotIn("categoryAnchors", candidate)
+        self.assertTrue(all("rows" not in c for c in candidate["categories"]))
+        original = legacy.build_rankings(copy.deepcopy(self.inputs), json.loads(before))
+        ranking_identity.attach_rankings(original, self.families, *self.identity_inputs)
+        self.assertEqual(primary_fields(candidate), primary_fields(original))
 
     def test_empty_primary_sources_are_not_fabricated(self):
         inputs = {"reference": {}, "maomu": {}, "primary": {}, "metadata": {}}
