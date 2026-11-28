@@ -75,7 +75,6 @@ def main() -> int:
             errors.append(f"practice {item.get('id')}: modelVersionId {vid} does not belong to {fid}")
 
     for relative, section in [
-        ("site/data/model-evaluations.json", "items"),
         ("site/data/model-updates.json", "items"),
         ("site/data/aihot-daily.json", "items"),
         ("site/data/juya-daily.json", "items"),

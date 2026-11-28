@@ -38,6 +38,29 @@ class RepositoryHygieneTests(unittest.TestCase):
         for name in ("news.json", "status.json", "sources.json"):
             self.assertIsNone(re.search(r"['\"](?:data/)?" + re.escape(name) + r"['\"]", page), name)
 
+    def test_retired_reading_collectors_and_snapshots_are_archived(self):
+        import hashlib
+        archived = {
+            "scripts/collect_social_trends.py": "dade5a3a3202d7e8192e0bd682d68c54039a7aee",
+            "scripts/collect_model_evaluations.py": "f8e2d905f4a7f14a08f023220d5c764136d103c2",
+            "tests/test_model_evaluations.py": "c5cc04ceb76a09d5893c2f493354eac8aafa2d65",
+            "site/data/social-trends.json": "ef3a2b863cc7ca9d790f3581cbac6b215dc64f9b",
+            "site/data/model-evaluations.json": "1c71e61aa6ecd5ab5ed95dcb86a19999104b6d46",
+        }
+        for name, expected in archived.items():
+            self.assertFalse((ROOT / name).exists(), name)
+            target = ROOT / "archive/retired-reading-collectors" / name
+            raw = target.read_bytes()
+            blob = b"blob " + str(len(raw)).encode() + b"\x00" + raw
+            self.assertEqual(hashlib.sha1(blob).hexdigest(), expected, name)
+        for name in ("link_model_records.py", "validate_model_links.py", "plan_refresh.py", "run_collection_batch.py"):
+            source = (ROOT / "scripts" / name).read_text()
+            for retired in ("model-evaluations.json", "social-trends.json", "collect_model_evaluations", "collect_social_trends"):
+                self.assertNotIn(retired, source, name)
+        page = (ROOT / "site/index.html").read_text()
+        self.assertNotIn("model-evaluations.json", page)
+        self.assertNotIn("social-trends.json", page)
+
     def test_current_documentation_links_resolve(self):
         paths = list(ROOT.glob("*.md")) + list((ROOT / "docs").rglob("*.md"))
         paths += list((ROOT / "ops").rglob("*.md")) + list((ROOT / ".agents").rglob("*.md"))
