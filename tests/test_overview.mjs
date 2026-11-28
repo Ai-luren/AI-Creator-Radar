@@ -1180,3 +1180,13 @@ test('Revid remains a direct external search link in hot and cases without impor
   assert.doesNotMatch(html,/revidPersonalInput|data-revid-personal|导入个人 Revid|海外爆款 · 个人研究/);
  }
 });
+
+test('competitor card freshness is source coverage, not event or availability confirmation',()=>{
+ const {run}=setup({now:'2026-11-29T12:00:00+08:00'});
+ const app={sources:[{vendor:'Higgsfield',type:'dated-changelog',status:'observed',lastSuccessAt:'2026-11-29T01:00:00Z'},{vendor:'Higgsfield',type:'product-surface',status:'observed',lastSuccessAt:'2026-11-28T08:00:00Z'},{vendor:'Higgsfield',type:'product-surface',status:'probe-unavailable',lastSuccessAt:'2026-11-29T02:00:00Z'},{vendor:'Higgsfield',type:'navigation-only',status:'navigation-only'},{vendor:'Renoise',type:'navigation-only',status:'navigation-only'}]};
+ const data=JSON.parse(run('JSON.stringify(competitorSourceReadStatus('+JSON.stringify(app)+',"Higgsfield",Date.now()))'));
+ assert.equal(data.automatic,3);assert.equal(data.fresh,1);assert.equal(data.failed,1);assert.equal(data.navigation,1);assert.equal(data.last,'2026-11-29T02:00:00.000Z');
+ const html=run('competitorSourceReadMarkup('+JSON.stringify(app)+',"Higgsfield",Date.now())');assert.match(html,/近12小时有效读源 1\/3/);assert.match(html,/1 个最近读取失败/);assert.match(html,/不代表完整更新覆盖/);
+ assert.match(run('competitorSourceReadMarkup('+JSON.stringify(app)+',"Renoise",Date.now())'),/仅有导航入口/);
+ assert.match(run('competitorSourceReadMarkup('+JSON.stringify(app)+',"ShotLab",Date.now())'),/尚无官方自动读源/);
+});
