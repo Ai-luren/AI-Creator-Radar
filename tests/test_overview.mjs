@@ -709,3 +709,12 @@ test('dated official comparison article is evidence of promotion, not first mode
  assert.equal(rows[0].day,'2026-11-26');assert.equal(rows[0].proof,'官方文章');
  assert.equal(run("competitorResponseStatus([{kind:'宣发 / 演示',proof:'官方文章',day:'2026-11-26'}]).label"),'官方宣发记录');
 });
+
+test('priority platform tracking includes official product responses without treating them as competitors',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("state.appUpdates={sources:[{id:'pippit-product',vendor:'Pippit',role:'first-party'}],events:[{sourceId:'pippit-product',claimType:'first-party-product-changelog',featureName:'MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-25',sourceUrl:'https://www.pippit.ai/updates'}]};state.modelReleases=[{modelName:'MAGI-2',vendor:'Sand.ai',publishedAt:'2026-11-24',modelFamilyId:'magi',modelVersionId:'v2',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'}];state.aihot.items=[];state.aipick={items:[]};render()");
+ const out=node('content').innerHTML;assert.match(out,/一手产品动态/);assert.match(out,/Pippit/);assert.match(out,/小云雀/);assert.match(out,/Gemini/);
+ assert.equal((out.match(/class="competitor-brand-section overview-panel"/g)||[]).length,8);
+ assert.ok(out.indexOf('<h2>LibTV</h2>')<out.indexOf('<h2>Flova</h2>'));
+ assert.match(out,/1 家有相关证据/);assert.match(out,/重点平台尚无相关证据/);
+});
