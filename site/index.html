@@ -746,12 +746,23 @@ button.text-link:focus-visible,.rank-model-link:focus-visible,.v34-control:focus
 @media(max-width:760px){.overview-metrics-panel .overview-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.overview-metrics-panel .overview-category:nth-child(2n){border-right:0}.overview-metrics-panel .overview-category:nth-child(-n+2){border-bottom:1px solid var(--line)}.model-category-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.audio-sub-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.audio-sub-tabs .tab{text-align:center;min-height:36px}.ranking-view-tabs{flex-wrap:wrap}}
 /* Evidence matrix: horizontal reading remains inside the table on narrow screens. */
 .competitor-matrix-wrap{overflow:auto;max-width:100%;border:1px solid var(--line);border-radius:12px;overscroll-behavior-inline:contain}
-.competitor-matrix{width:100%;min-width:790px;border-collapse:collapse;background:var(--panel,#fff);table-layout:fixed}
-.competitor-matrix th,.competitor-matrix td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;overflow-wrap:anywhere;font-size:13px}
-.competitor-matrix th:first-child{width:110px}
-.competitor-matrix td a{display:block;margin-top:5px}
-.competitor-matrix td small{display:block;color:var(--muted);margin-top:4px}
+.competitor-matrix{width:100%;min-width:790px;border-collapse:separate;border-spacing:0;background:var(--paper);table-layout:fixed}
+.competitor-matrix th,.competitor-matrix td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;overflow-wrap:anywhere;font-size:13px}
+.competitor-matrix th:first-child{width:110px;position:sticky;left:0;z-index:1;background:var(--paper);box-shadow:1px 0 0 var(--line)}
+.competitor-matrix thead th{background:var(--paper2)}
+.competitor-matrix thead th:first-child{background:var(--paper2);z-index:2}
+.competitor-matrix td a,.briefing-expanded .overview-row a{color:var(--blue);text-decoration:none;line-height:1.5}
+.competitor-matrix td a{display:block}
+.competitor-matrix td a:hover,.briefing-expanded .overview-row a:hover{text-decoration:underline}
+.competitor-matrix td small{display:block;color:var(--muted);margin-top:3px;line-height:1.45}
 .competitor-matrix th{font-weight:650}
+.matrix-feature+.matrix-feature{margin-top:9px}
+.matrix-evidence{margin-top:4px;color:var(--muted);font-size:12px}
+.matrix-scroll-hint{display:none}
+.overview-panel-actions{display:flex;flex-wrap:wrap;gap:2px 8px;justify-content:flex-end;min-width:0}
+.overview-panel-head>div:first-child{flex-shrink:0}
+@media(max-width:760px){.matrix-scroll-hint{display:block;font-size:12px;color:var(--muted);margin:6px 0}.competitor-matrix th:first-child{width:90px}.overview-panel-actions{justify-content:flex-start}.overview-panel-head{flex-wrap:wrap}}
+
 </style>
 </head>
 <body>
@@ -1190,7 +1201,7 @@ function overviewPage(){
  function action(view,label,attrs){return '<button type="button" class="overview-link" data-view="'+view+'" '+(attrs||'')+'>'+esc(label)+' →</button>'}
  function row(title,meta,detail,links,modelButton){return '<article class="overview-row"><div class="overview-row-main"><div class="overview-row-meta">'+esc(meta)+'</div><h3>'+(modelButton||esc(title||'未命名记录'))+'</h3>'+(detail?'<p>'+esc(detail)+'</p>':'')+'</div>'+(links||'')+'</article>'}
  function sourceLink(url,label){return safeUrl(url)!=='#'?'<a class="overview-row-link" href="'+safeUrl(url)+'" target="_blank" rel="noopener noreferrer">'+esc(label)+' ↗</a>':''}
- function panel(title,sub,rows,button,emptyText){return '<section class="overview-panel"><header class="overview-panel-head"><div><h2>'+esc(title)+'</h2><p>'+esc(sub)+'</p></div>'+button+'</header><div class="overview-list">'+(rows||'<p class="overview-empty">'+esc(emptyText)+'</p>')+'</div></section>'}
+ function panel(title,sub,rows,button,emptyText){return '<section class="overview-panel"><header class="overview-panel-head"><div><h2>'+esc(title)+'</h2><p>'+esc(sub)+'</p></div>'+ '<div class="overview-panel-actions">'+button+'</div></header><div class="overview-list">'+(rows||'<p class="overview-empty">'+esc(emptyText)+'</p>')+'</div></section>'}
  var categories=MODEL_TABS.map(function(x){return x[0]});
  var counts=categories.map(function(c){var count=allRecent.filter(function(x){return categoryFilter(x,c)}).length;return '<button type="button" class="overview-category'+(!releaseMissing&&!count?' zero':'')+'" data-view="today" data-release-target="'+c+'" data-release-mode-target="confirmed" data-release-window-target="7" aria-label="'+esc(categoryName(c)+'：'+(releaseMissing?'正式发布数据暂缺':count+' 次正式发布'))+'"><span class="overview-category-label">'+esc(categoryName(c))+'</span><span class="overview-category-metric"><strong>'+esc(releaseMissing?'—':count)+'</strong></span></button>'}).join('');
  var confirmed=allRecent.filter(releaseEventMatches),seen={},shortlist=confirmed.filter(function(x){var c=x.category;seen[c]=(seen[c]||0)+1;return seen[c]<=1}).slice(0,4);
@@ -1211,7 +1222,7 @@ function overviewPage(){
  ];
  coveredReleaseNews.forEach(function(x){if(shortlist.some(function(e){return e.modelFamilyId===x.family&&chinaDay(e.publishedAt)===x.day}))confirmedUrls.add(newsUrlKey(x.article))});
  var news=combinedNews(latestBriefingDay()).filter(newsMatches).filter(function(e){return !e.keys.some(function(k){return k.startsWith('url:')&&confirmedUrls.has(k.slice(4))})});
- var featured=prioritizeProductNews(news).slice(0,4),newsRows=featured.map(function(x){var first=newsEventLinks(x)[0];return row(x.title,[x.day||'日期待确认',isCoreProductNews(x)?'产品情报 · 相关报道':x.category,x.sources.length+' 类来源'].join(' · '),'',first?sourceLink(first.url,'来源'):'')}).join('');
+ var featured=overviewProductNews(news).slice(0,4),newsRows=featured.map(function(x){var first=newsEventLinks(x)[0];return row(x.title,[x.day||'日期待确认',isCoreProductNews(x)?'产品情报 · 相关报道':x.category,x.sources.length+' 类来源'].join(' · '),'',first?sourceLink(first.url,'来源'):'')}).join('');
  function stale(value,hours){var age=(now.getTime()-Date.parse(value||''))/3600000;return !Number.isFinite(age)||age<0||age>hours}
  var monitorSuccess=modelSuccessStamp(monitor),monitorStale=stale(monitorSuccess,2);
  var freshness=[['模型信源',monitorSuccess,monitorStale],['发布清单',releaseData&&releaseData.updatedAt,stale(releaseData&&releaseData.updatedAt,2)],['AIHOT 精选验证',selectedValidationStamp(),stale(selectedValidationStamp(),2)],['AIHOT 日报',state.aihotDaily&&state.aihotDaily.fetchedAt,briefIssueStale(state.aihotDaily,8,now)],['橘鸦早报',state.juyaDaily&&state.juyaDaily.fetchedAt,briefIssueStale(state.juyaDaily,10,now)]];
