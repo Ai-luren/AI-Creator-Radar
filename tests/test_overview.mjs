@@ -925,3 +925,15 @@ test('model dossier refreshes on recent progress, preserves release date and doe
  const rows=JSON.parse(run('JSON.stringify(creatorDossiers('+args.map(x=>JSON.stringify(x)).join(',')+',Date.now()))'));
  assert.equal(rows.length,1);assert.equal(rows[0].model.publishedAt,'2026-11-15');assert.equal(rows[0].latestDay,'2026-11-28');assert.equal(rows[0].updates.length,2);assert.equal(rows[0].brands.find(x=>x.brand==='Higgsfield').status.level,'reported');assert.ok(rows[0].updates.every(x=>!x.title.includes('MAGI-20')));
 });
+
+test('on-demand story reader accepts only returned story pointers, deduplicates original reports and caches',async()=>{
+ const {run,ctx}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const link='https://aipick.news/story/demo';
+ run('state.aipick={hotTopics:[{links:{story:'+JSON.stringify(link)+'}}]}');
+ const calls=[];
+ ctx.mockRequest=async(url,opts)=>{calls.push({url,opts});return {ok:true,status:200,headers:{get:()=>null},text:async()=>JSON.stringify({schemaVersion:1,story:{publicId:'demo',title:'MAGI-2',reportCount:75,sourceCount:7,reports:[{title:'MAGI-2 报道',publishedAt:'2026-11-27T09:00:00Z',links:{original:'https://example.org/a'}},{title:'重复',publishedAt:'2026-11-27T10:00:00Z',links:{original:'https://example.org/a?utm_source=x'}},{title:'旧闻',publishedAt:'2026-11-01T00:00:00Z',links:{original:'https://example.org/old'}}]}})}};
+ const first=JSON.parse(await run('readCreatorStory('+JSON.stringify(link)+',mockRequest).then(JSON.stringify)'));
+ assert.equal(first.story.reportCount,75);assert.equal(first.story.rows.length,1);assert.equal(calls[0].url,'https://aipick.news/api/v1/stories/demo');assert.equal(calls[0].opts.credentials,'omit');
+ await run('readCreatorStory('+JSON.stringify(link)+',mockRequest)');assert.equal(calls.length,1);
+ await assert.rejects(run("readCreatorStory('https://aipick.news/story/guessed',mockRequest)"));assert.equal(calls.length,1);
+});

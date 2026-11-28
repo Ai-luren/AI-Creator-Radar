@@ -76,7 +76,7 @@ function creatorDossiers(releases,batches,app,social,digests,now){
    if(isOfficial)k+='|'+newsTitleKey(title);
    var row=byKey.get(k);
    if(!row){row={title:title,day:day,url:link,providers:[],kind:kind,proof:proof,extra:extra||null};byKey.set(k,row)}
-   if(provider&&!row.providers.includes(provider))row.providers.push(provider);
+   if(provider)String(provider).split(' / ').forEach(function(p){if(p&&!row.providers.includes(p))row.providers.push(p)});
    if(extra&&extra.brand&&!row.extra){row.extra=extra;row.kind=kind;row.proof=proof}
   }
   responses.forEach(function(r){if(r.kind==='融资 / 公司动态')return;add(r.title,r.day,r.url,(r.providers||[]).join(' / '),r.kind,r.proof,{brand:r.brand,modelName:r.modelName});});
@@ -94,10 +94,60 @@ function creatorDossiers(releases,batches,app,social,digests,now){
  });
  return out.sort(function(a,b){return b.latestDay.localeCompare(a.latestDay)||b.updates.length-a.updates.length||b.model.publishedAt.localeCompare(a.model.publishedAt)});
 }
+// Personal reading only. Never persist upstream Story content to public snapshots.
+var creatorStoryCache={},creatorStoryBusy='';
+function creatorStoryTarget(link){
+ try{var u=new URL(link),m=u.pathname.match(/^\/story\/([A-Za-z0-9-]{1,128})\/?$/),provider={'aihot.news':'AIHOT','aipick.news':'AIPick'}[u.hostname];
+ if(!provider||!m||u.protocol!=='https:'||u.username||u.password||u.port||u.search||u.hash)return null;
+ return {provider:provider,id:m[1],url:u.origin+'/story/'+m[1],api:u.origin+'/api/v1/stories/'+m[1]};
+ }catch(e){return null}
+}
+function creatorKnownStory(link){
+ var target=creatorStoryTarget(link);if(!target)return null;
+ var a=state.aipick||{},priv=creatorPrivate['hot|']||{},p=priv.sources||{},rows=target.provider==='AIPick'?(a.hotTopics||[]):[];
+ rows=rows.concat(p[target.provider]&&p[target.provider].data&&p[target.provider].data.items||[]);
+ return rows.some(function(r){var t=creatorStoryTarget(r.links&&r.links.story);return t&&t.url===target.url})?target:null;
+}
+async function readCreatorStory(link,request){
+ var t=creatorKnownStory(link);if(!t)throw Error('仅允许读取上游已返回的专题');
+ var now=Date.now(),cached=creatorStoryCache[t.url]||{},prior=cached.entry||{};
+ if(now<(creatorLiveCooldown[t.provider]||0))return Object.assign({},prior,{error:'上游冷却中，仍可打开原专题'});
+ if(cached.checkedAt&&now-cached.checkedAt<(cached.ttl||600000))return prior;
+ try{
+  var headers={Accept:'application/json'};if(cached.etag)headers['If-None-Match']=cached.etag;
+  var opts={method:'GET',mode:'cors',credentials:'omit',redirect:'error',referrerPolicy:'no-referrer',cache:'no-store',headers:headers};
+  if(typeof AbortSignal!=='undefined'&&typeof AbortSignal.timeout==='function')opts.signal=AbortSignal.timeout(15000);
+  var res=await (request||fetch)(t.api,opts);
+  if(res.status===304&&prior.story){creatorStoryCache[t.url]=Object.assign({},cached,{checkedAt:now});return prior}
+  if(!res.ok){var retry=res.headers&&res.headers.get('Retry-After'),n=Number(retry),d=Date.parse(retry||'');creatorLiveCooldown[t.provider]=now+Math.max(res.status===403?86400000:res.status===429||res.status===503?3600000:600000,Number.isFinite(n)?n*1000:0,Number.isFinite(d)?d-now:0);throw Error('HTTP '+res.status)}
+  var raw=await res.text();if(raw.length>2097152)throw Error('响应过大');
+  var json=JSON.parse(raw),s=json.story;if(!s||s.publicId!==t.id||typeof s.title!=='string'||!Array.isArray(s.reports)||s.reports.length>500)throw Error('专题数据格式异常');
+  var seen=new Set(),rows=[];
+  s.reports.forEach(function(r){if(!r||typeof r.title!=='string'||!r.title||!r.links)return;var url=creatorOriginalUrl(r.links.original),k=newsUrlKey(url);if(!k||seen.has(k)||!withinDays(r.publishedAt,7,new Date(now)))return;seen.add(k);rows.push({title:r.title.slice(0,300),url:url,day:chinaDay(r.publishedAt),source:String(r.source&&r.source.name||'').slice(0,120)})});
+  rows.sort(function(a,b){return b.day.localeCompare(a.day)});
+  var story={title:s.title,reportCount:Number.isInteger(s.reportCount)&&s.reportCount>=0?s.reportCount:null,sourceCount:Number.isInteger(s.sourceCount)&&s.sourceCount>=0?s.sourceCount:null,latestAt:s.latestAt,rows:rows.slice(0,50)};
+  var cc=res.headers&&res.headers.get('Cache-Control')||'',m=cc.match(/(?:s-maxage|max-age)=(\d+)/i),ttl=Math.max(600000,m?Number(m[1])*1000:0),entry={story:story,observedAt:new Date(now).toISOString()};
+  creatorStoryCache[t.url]={entry:entry,checkedAt:now,ttl:ttl,etag:res.headers&&res.headers.get('ETag')||''};
+  var keys=Object.keys(creatorStoryCache).sort(function(a,b){return creatorStoryCache[a].checkedAt-creatorStoryCache[b].checkedAt});while(keys.length>12)delete creatorStoryCache[keys.shift()];
+  return entry
+ }catch(e){if(!(creatorLiveCooldown[t.provider]>now))creatorLiveCooldown[t.provider]=now+600000;return Object.assign({},prior,{error:String(e.message||e)})}
+}
+var creatorStoryDisplay={};
+function creatorStoryReadMarkup(link){
+ var t=creatorKnownStory(link);if(!t)return '';
+ var entry=creatorStoryDisplay[t.url]||{},s=entry.story;
+ return '<div class="briefing-expanded"><button type="button" class="tab" data-creator-story="'+esc(t.url)+'" '+(creatorStoryBusy?'disabled':'')+'>'+(creatorStoryBusy===t.url?'读取中…':'个人阅读 · 展开上游报道')+'</button>'+(entry.error?'<p class="page-desc">'+esc(entry.error)+' · 请打开原专题。</p>':'')+(s?'<p class="page-desc">'+esc(t.provider+' 原专题统计：'+(s.reportCount===null?'报道数未知':s.reportCount+' 篇报道')+' · '+(s.sourceCount===null?'来源数未知':s.sourceCount+' 个来源')+'；以下为近7天最多50条去重原文，时间可能为上游采集时间。')+'</p>'+s.rows.map(function(r){return '<div class="vendor-event"><time>'+esc(r.day.slice(5))+'</time><div class="vendor-event-main"><strong>'+esc(r.title)+'</strong><small>'+esc(r.source+' · 上游报道，非接入确认')+'</small></div>'+creatorLink(r.url,'原文')+'</div>'}).join(''):'')+'</div>'
+}
+async function refreshCreatorStory(link){
+ var t=creatorKnownStory(link);if(!t||creatorStoryBusy)return;
+ creatorStoryBusy=t.url;render();
+ try{creatorStoryDisplay[t.url]=await readCreatorStory(t.url)}catch(e){creatorStoryDisplay[t.url]={error:String(e.message||e)}}
+ finally{creatorStoryBusy='';var keys=Object.keys(creatorStoryDisplay);while(keys.length>12)delete creatorStoryDisplay[keys.shift()];render()}
+}
 function creatorDossierMarkup(dossiers,now){
- function item(r){return '<div class="vendor-event"><time>'+esc(r.day.slice(5))+'</time><div class="vendor-event-main"><strong>'+esc(productReadingTitle(r.title))+'</strong><small>'+esc(r.kind+' · '+r.proof+(r.providers.length?' · '+r.providers.join(' / '):''))+'</small></div>'+creatorLink(r.url,'原文')+'</div>'}
+ function item(r){return '<div class="vendor-event"><time>'+esc(r.day.slice(5))+'</time><div class="vendor-event-main"><strong>'+esc(productReadingTitle(r.title))+'</strong><small>'+esc(r.kind+' · '+r.proof+(r.providers.length?' · '+r.providers.join(' / '):''))+'</small></div>'+creatorLink(r.url,'原文')+'</div>'+creatorStoryReadMarkup(r.url)}
  function card(d){var m=d.model,known=d.brands.filter(function(b){return b.status.level!=='unknown'}).length,primary=d.updates.filter(function(r){return withinDays(r.day,3,new Date(now))}),followup=d.updates.filter(function(r){return !withinDays(r.day,3,new Date(now))});
-  return '<article class="briefing-card vendor-model"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(m.vendor+' · 最近进展 '+d.latestDay+' · '+known+' 家有相关证据 · '+d.updates.length+' 条关联记录')+'</span><strong>'+esc(m.modelName+' · 事件专题')+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p>'+esc(m.summary||'')+'</p><p class="page-desc">'+esc('正式发布 '+m.publishedAt+' · 不因新报道改写首发日')+'</p><div class="briefing-original-links">'+creatorLink(m.url,'模型官方发布')+'</div><h3>各平台响应</h3><div class="vendor-response">'+d.brands.map(function(b){return '<span class="vendor-response-item"><span class="vendor-dot '+esc(b.status.level)+'"></span><span><strong>'+esc(b.brand)+'</strong><small>'+esc(b.status.label+(b.status.day?' · '+b.status.day.slice(5):''))+'</small></span></span>'}).join('')+'</div><h3>最近3天进展</h3>'+(primary.map(item).join('')||empty('暂无近3天相关记录。'))+(followup.length?'<details class="source-health"><summary>第4–7天进展 · '+followup.length+' 条</summary>'+followup.map(item).join('')+'</details>':'')+'<div class="briefing-original-links">'+creatorLink(m.url,'首发证据')+'</div><p class="page-desc">关联记录按已读原文和明确模型名称归拢，不等于新增发布次数；报道、演示和官网观察不是实际接入确认。上游报道全集请打开对应 Story。</p></div></details></article>'
+  return '<article class="briefing-card vendor-model"><details '+(d.updates.some(function(r){return creatorStoryBusy===r.url||creatorStoryDisplay[r.url]})?'open':'')+'><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(m.vendor+' · 最近进展 '+d.latestDay+' · '+known+' 家有相关证据 · '+d.updates.length+' 条关联记录')+'</span><strong>'+esc(m.modelName+' · 事件专题')+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p>'+esc(m.summary||'')+'</p><p class="page-desc">'+esc('正式发布 '+m.publishedAt+' · 不因新报道改写首发日')+'</p><div class="briefing-original-links">'+creatorLink(m.url,'模型官方发布')+'</div><h3>各平台响应</h3><div class="vendor-response">'+d.brands.map(function(b){return '<span class="vendor-response-item"><span class="vendor-dot '+esc(b.status.level)+'"></span><span><strong>'+esc(b.brand)+'</strong><small>'+esc(b.status.label+(b.status.day?' · '+b.status.day.slice(5):''))+'</small></span></span>'}).join('')+'</div><h3>最近3天进展</h3>'+(primary.map(item).join('')||empty('暂无近3天相关记录。'))+(followup.length?'<details class="source-health"><summary>第4–7天进展 · '+followup.length+' 条</summary>'+followup.map(item).join('')+'</details>':'')+'<div class="briefing-original-links">'+creatorLink(m.url,'首发证据')+'</div><p class="page-desc">关联记录按已读原文和明确模型名称归拢，不等于新增发布次数；报道、演示和官网观察不是实际接入确认。上游报道全集请打开对应 Story。</p></div></details></article>'
  }
  var filtered=dossiers.filter(function(d){return matches([d.model.modelName,d.model.vendor,d.updates.map(function(r){return r.title}).join(' ')].join(' '))}),primary=filtered.filter(function(d){return withinDays(d.latestDay,3,new Date(now))}),followup=filtered.filter(function(d){return !withinDays(d.latestDay,3,new Date(now))});
  return '<section class="briefing-digest-section"><div class="section-head"><h2>事件专题</h2><span class="head-meta">近3天 '+primary.length+' 个 · 近7天 '+filtered.length+' 个</span></div><p class="page-desc">一个已核实模型版本，一个专题；按最近关联进展排序，近期有新进展的较早发布仍可回到前面。</p><div class="briefing-list">'+(primary.map(card).join('')||empty('近3天暂无可核实的模型专题进展。'))+'</div>'+(followup.length?'<details class="source-health"><summary>第4–7天专题 · '+followup.length+' 个</summary><div class="briefing-list">'+followup.map(card).join('')+'</div></details>':'')+'</section>';
