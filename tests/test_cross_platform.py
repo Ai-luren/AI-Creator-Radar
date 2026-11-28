@@ -66,3 +66,23 @@ class CrossPlatformTests(unittest.TestCase):
         third=collect(config,second,self.now+timedelta(days=2),fetch)
         self.assertEqual(calls,["alternative"])
         self.assertTrue(next(s for s in third["sources"] if s["id"]=="test")["deferred"])
+
+    def test_http_retry_after_preserved_across_runs(self):
+        from datetime import timedelta
+        from email.utils import format_datetime
+        from urllib.error import HTTPError
+        from unittest.mock import patch
+        from scripts.collect_cross_platform import fetch
+        source = dict(self.source, type="rss")
+        config = {"sources":[source],"officialArticleHosts":self.allowed}
+        until = self.now + timedelta(days=9)
+        for value in (str(9 * 86400), format_datetime(until, usegmt=True)):
+            error = HTTPError(source["url"], 429, "Too Many Requests", {"Retry-After":value}, None)
+            with patch("scripts.collect_cross_platform.urllib.request.build_opener") as opener:
+                opener.return_value.open.side_effect = error
+                first = collect(config, {}, self.now, fetch)
+                self.assertIn("429", first["sources"][0]["error"])
+                self.assertEqual(datetime.fromisoformat(first["sources"][0]["nextAttemptAt"]), until)
+                second = collect(config, first, self.now + timedelta(days=2), fetch)
+                self.assertTrue(second["sources"][0]["deferred"])
+                self.assertEqual(opener.return_value.open.call_count, 1)
