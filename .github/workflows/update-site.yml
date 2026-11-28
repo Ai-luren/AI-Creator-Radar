@@ -16,6 +16,7 @@ on:
       - 'scripts/publication_guard.py'
       - 'scripts/persist_data.sh'
       - 'scripts/run_collection_batch.py'
+      - 'scripts/validate_snapshot.py'
       - 'config/**'
       - '.github/workflows/update-site.yml'
   schedule:
@@ -177,17 +178,8 @@ jobs:
         if: steps.plan.outputs.collect == 'true'
         run: python scripts/preflight.py --digest-only --repair-digest
 
-      - name: Test collectors and current data after regeneration
-        run: python -m unittest discover -s tests -v
-
-      - name: Test overview and navigation rendering
-        run: node --test tests/test_overview.mjs
-
-      - name: Validate shared model references
-        run: python scripts/validate_model_links.py
-
-      - name: Audit model and historical evidence coverage
-        run: python scripts/audit_model_completeness.py
+      - name: Validate regenerated snapshot in isolated parallel lanes
+        run: python scripts/validate_snapshot.py
 
       - name: Publish cross-module integrity audit
         if: steps.plan.outputs.collect == 'true'
