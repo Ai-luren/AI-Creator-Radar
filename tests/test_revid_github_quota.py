@@ -37,7 +37,11 @@ class CloudQuotaTests(unittest.TestCase):
     def test_persisted_limit_across_runners(self):
         api = FakeGitHub()
         for i in range(16):
-            self.assertTrue(GitHubQuota("Ai-luren/AI-Creator-Radar", "test", opener=api).reserve(NOW + timedelta(seconds=i)))
+            runner = GitHubQuota("Ai-luren/AI-Creator-Radar", "test", opener=api)
+            now = NOW + timedelta(seconds=i)
+            self.assertTrue(runner.reserve(now))
+            self.assertFalse(GitHubQuota("Ai-luren/AI-Creator-Radar", "test", opener=api).reserve(now))
+            self.assertTrue(runner.complete_success(now))
         q = GitHubQuota("Ai-luren/AI-Creator-Radar", "test", opener=api)
         self.assertFalse(q.reserve(NOW + timedelta(hours=23)))
         self.assertTrue(q.reserve(NOW + timedelta(hours=25)))
@@ -61,3 +65,12 @@ class CloudQuotaTests(unittest.TestCase):
         q = GitHubQuota("Ai-luren/AI-Creator-Radar", "test", opener=api)
         self.assertFalse(q.reserve(NOW + timedelta(hours=23)))
         self.assertTrue(q.reserve(NOW + timedelta(hours=25)))
+
+    def test_abandoned_request_holds_gate(self):
+        api = FakeGitHub()
+        q = GitHubQuota("Ai-luren/AI-Creator-Radar", "test", opener=api)
+        self.assertTrue(q.reserve(NOW))
+        replacement = GitHubQuota("Ai-luren/AI-Creator-Radar", "test", opener=api)
+        self.assertFalse(replacement.reserve(NOW + timedelta(hours=23)))
+        self.assertFalse(replacement.complete_success(NOW))
+        self.assertTrue(replacement.reserve(NOW + timedelta(hours=25)))
