@@ -95,9 +95,10 @@ def main():
     directory=ROOT/"site/data"
     def read(name):return json.loads((directory/name).read_text(encoding="utf-8"))
     data={k:read(v) for k,v in {"models":"models.json","topics":"topics.json","digest":"model-releases-30d.json",
-              "recall":"release-recall-status.json","monitor":"model-monitor-status.json"}.items()}
+              "recall":"release-recall-status.json","monitor":"model-monitor-status.json","updates":"model-updates.json"}.items()}
     for key,name in (("discovery","cross-platform-discovery.json"),("resolution","lead-resolution.json"),("reconciliation","event-reconciliation.json"),("product","product-state.json"),("source_search","source-search.json"),("event_claims","event-claims.json"),("independent","independent-coverage.json"),("historical","historical-evidence.json"),("app_updates","app-updates.json")):
         data[key]=read(name) if (directory/name).exists() else {}
+    data["model_source_config"]=json.loads((ROOT/"config/model-sources.json").read_text(encoding="utf-8"))
     fact_path=ROOT/"config/independent-fact-reviews.json"
     data["independent_fact_reviews"]=json.loads(fact_path.read_text(encoding="utf-8")) if fact_path.exists() else {}
     data["health"]=read("collection-health.json") if (directory/"collection-health.json").exists() else {}
