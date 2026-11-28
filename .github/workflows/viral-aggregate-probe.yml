@@ -1,0 +1,100 @@
+name: One-time public viral aggregate probe
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/viral-aggregate-probe.yml'
+permissions:
+  contents: read
+jobs:
+  probe:
+    if: github.head_ref == 'probe/p0-viral-aggregate-once'
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check documented free aggregate endpoint without storing raw data
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import datetime
+          import urllib.request
+          import urllib.error
+          from urllib.parse import urlparse
+
+          url = "https://viraloutliers.com/api/v1/trending"
+          try:
+              request = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "AI-Creator-Radar capability probe"})
+              with urllib.request.urlopen(request, timeout=15) as response:
+                  print("status", response.status, "content-type", response.headers.get("Content-Type"))
+                  if urlparse(response.geturl()).hostname not in ("viraloutliers.com", "www.viraloutliers.com"):
+                      raise ValueError("unexpected redirect")
+                  raw = response.read(2_000_001)
+              if len(raw) > 2_000_000:
+                  raise ValueError("response exceeds 2MB")
+              data = json.loads(raw)
+              print("root_type", type(data).__name__)
+              if isinstance(data, dict):
+                  print("root_keys", sorted(data.keys())[:50])
+              arrays = []
+              def walk(value, path="", depth=0):
+                  if depth > 5:
+                      return
+                  if isinstance(value, list):
+                      if value and isinstance(value[0], dict):
+                          arrays.append((path, value))
+                      return
+                  if isinstance(value, dict):
+                      for key, item in value.items():
+                          if isinstance(item, (dict, list)):
+                              walk(item, path + "." + str(key), depth + 1)
+              walk(data, "root")
+              if not arrays:
+                  print("NO_RECORD_ARRAY")
+              now = datetime.datetime.now(datetime.timezone.utc)
+              def flatten(x, prefix="", depth=0):
+                  out = {}
+                  if depth > 3 or not isinstance(x, dict):
+                      return out
+                  for k, v in x.items():
+                      p = prefix + "." + k if prefix else k
+                      if isinstance(v, dict):
+                          out.update(flatten(v,p,depth+1))
+                      elif not isinstance(v, list):
+                          out[p] = v
+                  return out
+              for path, arr in arrays[:8]:
+                  records = [flatten(x) for x in arr[:200] if isinstance(x, dict)]
+                  keys = sorted(set().union(*(r.keys() for r in records))) if records else []
+                  print("array", path, "count", len(arr), "field_names", keys[:80])
+                  metrics = [k for k in keys if "view" in k.lower() and not ("url" in k.lower() or "preview" in k.lower())]
+                  urls = [k for k in keys if "url" in k.lower()]
+                  dates = [k for k in keys if any(w in k.lower() for w in ("published","posted","created","timestamp"))]
+                  for k in metrics:
+                      values = [r[k] for r in records if isinstance(r.get(k), (int,float)) and not isinstance(r[k], bool)]
+                      print("metric",k,"numeric_count",len(values),"million_plus",sum(v>=1000000 for v in values))
+                  for k in urls:
+                      domains = sorted({urlparse(r[k]).hostname for r in records if isinstance(r.get(k),str) and r[k].startswith("https://") and urlparse(r[k]).hostname})
+                      print("url_field",k,"domains",domains[:12])
+                  for k in dates:
+                      count = 0
+                      for r in records:
+                          value = r.get(k)
+                          try:
+                              if isinstance(value,str):
+                                  dt = datetime.datetime.fromisoformat(value.replace("Z","+00:00"))
+                              elif isinstance(value,(int,float)):
+                                  dt = datetime.datetime.fromtimestamp(value / 1000 if value>10**12 else value,datetime.timezone.utc)
+                              else:
+                                  continue
+                              if dt.tzinfo and 0 <= (now-dt).total_seconds() <= 3*86400:
+                                  count += 1
+                          except (ValueError, OverflowError, OSError):
+                              pass
+                      print("date_field",k,"recent_72h_count",count)
+              print("PROBE_FINISHED_NO_RAW_RECORDS_STORED")
+          except urllib.error.HTTPError as exc:
+              print("PROBE_HTTP_ERROR",exc.code,"retry-after",exc.headers.get("Retry-After"))
+          except Exception as exc:
+              print("PROBE_UNAVAILABLE",type(exc).__name__)
+          PY
