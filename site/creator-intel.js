@@ -215,3 +215,62 @@ function innovationPage(tabs){
  }).join('');
  return pageHead('行业简报','将近期模型、竞品功能和创作者实验关联为可验证的产品机会。','创新机会 · 近7天')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">规则匹配 · 按最近信号日期排序；主题相近不代表技术已兼容或竞品采用该仓库。所有产品构想均为假设，不是发布事实，不使用模型推理 API。</p><section class="briefing-digest-section"><div class="section-head"><h2>值得原型验证</h2><span class="head-meta">'+filtered.length+' 个方向</span></div><div class="briefing-list">'+(body||empty('当前七天快照暂无符合规则的主题信号；不代表没有创新机会。'))+'</div></section>'+innovationExplorationMarkup(snapshot,now)+'<details class="source-health"><summary>产品创新研究方法与官方入口</summary><p class="page-desc">研究资料不算近期上线事件。LibTV 官网可见版本更新入口，当前自动采集尚未读到功能级日志。</p><div class="briefing-original-links">'+creatorLink('https://higgsfield.ai/blog/inside-higgsfield','Inside Higgsfield · 产品研发复盘')+creatorLink('https://higgsfield.ai/blog/editorials','Higgsfield · 功能拆解')+creatorLink('https://www.liblib.tv/','LibTV · 官方产品与版本更新')+'</div></details>'
 }
+
+// Product signals are a reading priority, not a publication or model fact gate.
+function isCoreProductNews(row){
+ if(!row||row.category!=='产品')return false;
+ var title=String(row.title||'');
+ if(/折扣|优惠券|限时促销|黑五|黑色星期五|积分充值|discount|coupon|black friday|pricing/i.test(title))return false;
+ return /Higgsfield|LibTV|Liblib|Lovart|OiiOii|TapNow|Renoise|Flova|ShotLab|Updream|即梦|Dreamina|可灵|Kling|海螺|MiniMax|Vidu|PixVerse/i.test(title);
+}
+function prioritizeProductNews(rows){
+ return rows.slice().sort(function(a,b){return Number(isCoreProductNews(b))-Number(isCoreProductNews(a))});
+}
+
+// Manually observed official capabilities are context, not recent releases or
+// guarantees of access. Existing collector logs remain the only live input.
+var competitorMatrixBrands=['Higgsfield','LibTV','Flova','TapNow','Renoise'];
+var competitorMatrixDimensions=[
+ {id:'canvas',name:'创作画布',pattern:/画布|canvas|workflow|工作流|node|节点/i},
+ {id:'studio',name:'垂直 Studio',pattern:/Mangaka|漫画|漫剧|Short Drama Studio|Property Studio|Shorts Studio|Ads Studio|Cinema Studio|studio\b/i},
+ {id:'image',name:'图像与角色',pattern:/角色|三视图|character|image edit|图片编辑|图像编辑|reframe.*panel/i},
+ {id:'video',name:'视频与预演',pattern:/白模|预演|3D.BOX|Editing Room|video edit|智能剪辑|camera control|运镜|video.*timeline|分镜/i},
+ {id:'sound',name:'音频与对白',pattern:/audio|音频|音轨|对白|lip.sync|Intone|配音/i},
+ {id:'agent',name:'Agent / Skills',pattern:/agent|Supercomputer|导演分身|TV Director|skills/i},
+ {id:'integration',name:'模型接入',pattern:null},
+ {id:'other',name:'其他产品功能',pattern:null}
+];
+var competitorMatrixReviewed=[
+ {brand:'Higgsfield',name:'Mangaka · 漫画工作台',dimensions:['studio','image'],url:'https://higgsfield.ai/blog/higgsfield-introduces-mangaka',reviewedOn:'2026-11-28',note:'官方介绍角色、场景、道具复用及画格编辑。'},
+ {brand:'Higgsfield',name:'Canvas',dimensions:['canvas'],url:'https://higgsfield.ai/blog/higgsfield-introduces-mangaka',reviewedOn:'2026-11-28',note:'官网导航显示入口；未实测节点范围。'},
+ {brand:'LibTV',name:'LibTV 画布',dimensions:['canvas'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页展示画布入口。'},
+ {brand:'LibTV',name:'LibTV 3D-BOX',dimensions:['video'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页展示产品入口；未实测镜头参数。'},
+ {brand:'LibTV',name:'LibTV Agent BETA',dimensions:['agent'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页展示 Beta 入口。'},
+ {brand:'LibTV',name:'音频生成',dimensions:['sound'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页列出能力；未实测具体音频工具。'},
+ {brand:'LibTV',name:'智能剪辑',dimensions:['video'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页列出能力；未实测。'}
+];
+function competitorMatrixRows(app,now,reviewed){
+ app=app||{};var seen=new Set(),rows=[],sources=app.sources||[];
+ function add(row){var key=[row.brand,row.name,row.kind,row.day||''].join('|').toLowerCase();if(seen.has(key))return;seen.add(key);rows.push(row)}
+ (app.events||[]).forEach(function(e){
+  if(!e||e.claimType!=='first-party-product-changelog'||!e.featureName||!e.publisherCalendarDay||!withinDays(e.publisherCalendarDay,30,new Date(now)))return;
+  var source=sources.find(function(s){return s.id===e.sourceId&&s.role==='competitor'}),brand=source&&source.vendor,url=creatorOriginalUrl(e.sourceUrl);
+  if(!competitorMatrixBrands.includes(brand)||!url||/折扣|促销|积分|价格|discount|coupon|pricing|credits|contest|giveaway|black friday/i.test(e.featureName))return;
+  var dimensions=e.updateType==='model-integration'?['integration']:competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName+' '+(e.productArea||''))}).map(function(x){return x.id});
+  add({brand:brand,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:chinaDay(e.publisherCalendarDay),kind:'官方日志',note:'日志记录，不代表当前仍可用。'});
+ });
+ (reviewed||[]).forEach(function(x){if(competitorMatrixBrands.includes(x.brand)&&creatorOriginalUrl(x.url))add(Object.assign({},x,{kind:'官网观察',day:null}))});
+ return rows.sort(function(a,b){return String(b.day||'').localeCompare(String(a.day||''))||a.name.localeCompare(b.name)});
+}
+function competitorMatrixPage(tabs){
+ var app=state.appUpdates||{},rows=competitorMatrixRows(app,Date.now(),competitorMatrixReviewed),sources=app.sources||[];
+ var body=competitorMatrixDimensions.map(function(dim){
+  return '<tr><th scope="row">'+esc(dim.name)+'</th>'+competitorMatrixBrands.map(function(brand){
+   var cell=rows.filter(function(x){return x.brand===brand&&x.dimensions.includes(dim.id)&&matches([brand,dim.name,x.name,x.note].join(' '))});
+   function entry(x){return creatorLink(x.url,x.name)+'<small>'+esc(x.kind+(x.day?' · '+x.day:' · 核查 '+x.reviewedOn))+'</small>'}
+   return '<td>'+(cell.length?cell.slice(0,2).map(entry).join('')+(cell.length>2?'<details><summary>另 '+(cell.length-2)+' 条</summary>'+cell.slice(2).map(entry).join('')+'</details>':''):'<small>当前未观察</small>')+'</td>'
+  }).join('')+'</tr>'
+ }).join('');
+ var health=competitorMatrixBrands.map(function(brand){var ss=sources.filter(function(s){return s.vendor===brand&&s.role==='competitor'});return '<p>'+esc(brand+' · '+(ss.length?ss.map(function(s){return s.type==='navigation-only'?'官网入口 · 功能日志未读':s.lastSuccessAt?'最近成功 '+overviewTime(s.lastSuccessAt):'尚无成功采集'}).join(' / '):'暂无已配置官方日志'))+'</p>'}).join('');
+ return pageHead('行业简报','从官方功能证据横向比较创作平台，发现值得进一步验证的能力。','功能矩阵 · 重点5家')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">近30天官方更新日志 + 已核查官网能力。未观察不等于不支持；官网观察不是发布日期，也不是实际功能测试。功能形态归类仅供研究。</p><div class="competitor-matrix-wrap" tabindex="0" role="region" aria-label="竞品功能矩阵，可横向滚动"><table class="competitor-matrix"><thead><tr><th scope="col">能力维度</th>'+competitorMatrixBrands.map(function(x){return '<th scope="col">'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>'+body+'</tbody></table></div><details class="source-health"><summary>来源覆盖与局限</summary>'+health+'<p>其他关注平台仍在竞品动态定向发现中；尚未进入本矩阵，不代表不关注。</p></details>'
+}
