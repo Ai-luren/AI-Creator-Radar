@@ -293,3 +293,5 @@ AIHOT 定向索引补证使用 `source-search.json.aihotService` 独立退避与
 `targetedDiscovery.providerServices` 分别保存 AIHOT/AIPick 状态，`selectedProductFeatures` / `selectedModelIntegrations` 仅统计限定样本的选中报道。`aggregateCoverage` / `skipReason` 明确等待、样本覆盖或缺口；跳过直接探测不更新官方观察时间或成功次数。相同原文及报道聚类不等于独立事实。
 
 覆盖诊断 `maxProvidersPerRun=2` 最多每供应商一条，新增目标仍是计数而非文章缓存。个人阅读由客户端直接获取当前限定查询，来源数据仅内存，事件合集不算原文记录。
+
+创作情报原文链接兼容原始聚合数据的 `http://mp.weixin.qq.com/s` 文章链接，仅将该精确域名及文章路径升级为 HTTPS，不放宽任意 HTTP 或含凭据 URL。热点合集以 story URL 独立识别，代表帖不计入独立原文数；未知原文发布时间以真实 discoveredAt 标注发现时间，绝不冒充发布日期。

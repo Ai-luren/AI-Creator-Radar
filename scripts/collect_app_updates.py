@@ -299,7 +299,9 @@ def fetch_target(spec,etag):
                 if row.get("selected") is not True or not host or not isinstance(original,str):
                     continue
                 u=urlsplit(original)
-                if u.scheme!="https" or u.username or u.password:
+                if u.username or u.password or u.port not in (None,443):
+                    continue
+                if u.scheme!="https" and not (u.scheme=="http" and host=="mp.weixin.qq.com" and u.port is None and re.match(r"^/s(?:/|$)",u.path)):
                     continue
                 if not re.match(r"^"+re.escape(term)+r"(?![A-Za-z0-9])",title.strip(),re.I):
                     continue

@@ -510,3 +510,14 @@ test('platform adoption phrased model-first is recognized without confusing the 
  assert.equal(run("creatorIntegrationTarget('MAGI-2 视频模型上线 LibTVextra','LibTV')"),false);
  assert.equal(run("creatorIntegrationTarget('Sand.ai 发布 MAGI-2，LibTV 用户讨论','LibTV')"),false);
 });
+
+test('creator rows retain WeChat originals and distinguish story from representative original',()=>{
+ const {run}=setup({now:'2026-11-28T00:00:00+08:00'});
+ const rows=JSON.parse(run("JSON.stringify(creatorRows([{name:'AIPick',items:[{title:'Higgsfield 新功能',publishedAt:null,discoveredAt:'2026-11-27T06:00:00Z',links:{original:'http://mp.weixin.qq.com/s?mid=123&idx=1'}},{title:'Higgsfield 新功能',publishedAt:'2026-11-27T06:00:00Z',links:{original:'https://mp.weixin.qq.com/s?idx=1&mid=123'}},{title:'Higgsfield 热点合集',latestAt:'2026-11-27T07:00:00Z',links:{original:'https://mp.weixin.qq.com/s?mid=123&idx=1',story:'https://aipick.news/story/demo'}},{title:'不安全原文',publishedAt:'2026-11-27T07:00:00Z',links:{original:'http://example.org/article'}}]}],Date.now()))"));
+ assert.equal(rows.length,2);
+ assert.equal(rows.filter(x=>x.story).length,1);
+ assert.equal(rows.filter(x=>!x.story).length,1);
+ assert.equal(run("creatorOriginalUrl('http://mp.weixin.qq.com/s?mid=123')"),'https://mp.weixin.qq.com/s?mid=123');
+ assert.equal(run("creatorOriginalUrl('http://mp.weixin.qq.com.evil.org/s?mid=123')"),'');
+ assert.equal(run("creatorOriginalUrl('https://user:pass@mp.weixin.qq.com/s')"),'');
+});
