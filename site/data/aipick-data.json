@@ -6,13 +6,59 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T07:51:54+00:00",
-  "checkedAt": "2026-11-28T07:51:54+00:00",
+  "fetchedAt": "2026-11-28T08:32:40+00:00",
+  "checkedAt": "2026-11-28T08:32:40+00:00",
   "etags": {
-    "items": "W/\"v1-items-a77d9e12efb03533\"",
-    "hotTopics": "W/\"v1-hot-f81c77e0330f495f\""
+    "items": "W/\"v1-items-c65bb39416814710\"",
+    "hotTopics": "W/\"v1-hot-bbaf1620606da535\""
   },
   "items": [
+    {
+      "id": "z49e304m2h496g4cjrl0jrcx3",
+      "title": "腾讯混元3D 3.6实测：高模与PBR材质贴图生成能力提升",
+      "originalTitle": "建模师、技术美术！轻松3D建模！Hy3D 3.6实测上手 #3D#AI#3D建模 #抖音精选app知识充电站 #建模",
+      "summary": "腾讯混元3D 3.6面向专业3D建模创作，重点优化了高模和PBR材质贴图的生成能力。作者实测显示，几何表面和结构更清晰，装备组成、护甲分层和饰品轮廓明显改善，服装的层次表现与曲面褶皱也更稳定。研究者表示3.6更擅长角色、生物、服装的建模任务。",
+      "source": {
+        "name": "抖音 · 热点搜「Hy3D 3.6」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/z49e304m2h496g4cjrl0jrcx3",
+        "original": "https://www.douyin.com/video/7712779756613291327"
+      },
+      "publishedAt": "2026-11-27T09:25:12.000Z",
+      "discoveredAt": "2026-11-28T08:12:20.312Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "作者实测腾讯混元3D 3.6，重点展示高模与PBR材质贴图生成效果，适合用装备、护甲、服装等复杂模型做新旧版本对比。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/z49e304m2h496g4cjrl0jrcx3"
+      }
+    },
+    {
+      "id": "m6b40rvki8kofa9k7vanhal7c",
+      "title": "布布讲AI分享把实拍照片转成GTA风格的通用提示词",
+      "originalTitle": "欢迎来到GTA6的时代#即梦AI #一站式AI创作工作台 #一二布布 #gta6",
+      "summary": "布布讲AI分享了一段通用提示词，可把真人自拍、街景、风景图或电商图转换成 GTA 风格。操作是在画布上添加图片节点关联底图，模型选 c dream 5.5，图片比例与底图保持一致，输入提示词后约一分钟即可生成。",
+      "source": {
+        "name": "抖音 · 热点搜「6B设计图像模型」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/m6b40rvki8kofa9k7vanhal7c",
+        "original": "https://www.douyin.com/video/7712808775036206947"
+      },
+      "publishedAt": "2026-11-27T11:17:12.000Z",
+      "discoveredAt": "2026-11-28T08:12:20.182Z",
+      "category": "tip",
+      "score": 55,
+      "selected": true,
+      "reason": "作者给出可截图的通用提示词，并在画布上用 c dream 5.5 把自拍、街景、电商图转成 GTA 风格，适合照着复现同一张底图的转换效果。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/m6b40rvki8kofa9k7vanhal7c"
+      }
+    },
     {
       "id": "gze8uxpdrlcj315mlr4u9o17g",
       "title": "即梦短剧工作室用 DreamScript 与 DreamShot 制作仙侠 AI 短片",
@@ -656,52 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/uwynu0hnzr8avvi3bo7q5l121"
       }
-    },
-    {
-      "id": "pbc747oiu8g1xzzjnnlvfdsms",
-      "title": "LibTV 上架 MAGI-2 视频模型，创作者用四模型盲评对比",
-      "originalTitle": "深度体验！LibTV上架神秘模型MAGI-2，这次拉上我的副编导一起“压力”它！ #LibTV #aigc #ai #aigc模型 #MAGI2",
-      "summary": "创作者在 LibTV 上发现新上架的 MAGI-2 视频模型，该模型仅提供 1080p 单一选项、支持 4~30 秒生成，在 LibTV 生成折算 0.05 每秒。",
-      "source": {
-        "name": "抖音 · 热点搜「MAGI-2 视频模型」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/pbc747oiu8g1xzzjnnlvfdsms",
-        "original": "https://www.douyin.com/video/7712735330633387304"
-      },
-      "publishedAt": "2026-11-27T09:12:28.000Z",
-      "discoveredAt": "2026-11-27T12:17:34.056Z",
-      "category": "ai-products",
-      "score": 58,
-      "selected": true,
-      "reason": "作者用同一组8000字提示词盲评四个视频模型，可拍成四模型同题生成的效果对比与盲猜揭晓。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/pbc747oiu8g1xzzjnnlvfdsms"
-      }
-    },
-    {
-      "id": "rzwd4qnxuwdjn6rvc2go3dfos",
-      "title": "Creatify Aurora 2.0 上线 ElevenCreative，单图加音频生成说话数字人",
-      "originalTitle": "Creatify Aurora 2.0 is now live in ElevenCreative. - Turn a single photo and an audio clip into a talking avatar video. - Get full expressiveness, not just lip sync. - Create in 2K for up to 14 seconds, or in 1080p for up to 59 seconds. Try it here: https://t.co/lQ5gj6yqeV https://t.co/3SObawzAW2",
-      "summary": "Creatify Aurora 2.0 已在 ElevenCreative 上线，可用一张照片加一段音频生成说话数字人视频。官方称其提供完整表情表现力而不只是口型同步，支持 2K 最长 14 秒或 1080p 最长 59 秒，并给出了试用链接。",
-      "source": {
-        "name": "X · ElevenLabs"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/rzwd4qnxuwdjn6rvc2go3dfos",
-        "original": "https://x.com/ElevenCreative/status/2126272633314451587"
-      },
-      "publishedAt": "2026-11-27T11:11:14.000Z",
-      "discoveredAt": "2026-11-27T11:11:35.471Z",
-      "category": "ai-products",
-      "score": 58,
-      "selected": true,
-      "reason": "官方给出开放入口和单图加音频生成说话数字人的规格，适合拿一张照片和一段音频实测表情与口型表现。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/rzwd4qnxuwdjn6rvc2go3dfos"
-      }
     }
   ],
   "hotTopics": [
@@ -730,14 +730,14 @@
     },
     {
       "rank": 2,
-      "id": "e5gl2mzmi3qtiqfik3lguee9k",
+      "id": "kgvufyflrq3c0bgrhdx7e06d4",
       "title": "腾讯混元发布Hy3D 3.6并接入多平台",
       "source": {
         "name": "抖音 · 热点搜「Hy3D 3.6」"
       },
       "links": {
-        "aihot": "https://aipick.news/items/e5gl2mzmi3qtiqfik3lguee9k",
-        "original": "https://www.douyin.com/video/7712884021822295305",
+        "aihot": "https://aipick.news/items/kgvufyflrq3c0bgrhdx7e06d4",
+        "original": "https://www.douyin.com/video/7713020951788571954",
         "story": "https://aipick.news/story/db762f2b-ce92-4d2a-9140-cb703c31e6df"
       },
       "sourceCount": 3,
@@ -748,7 +748,7 @@
         "公众号 · 智东西",
         "量子位"
       ],
-      "latestAt": "2026-11-27T16:09:43.000Z"
+      "latestAt": "2026-11-28T01:00:58.000Z"
     },
     {
       "rank": 3,
@@ -795,6 +795,27 @@
     },
     {
       "rank": 5,
+      "id": "m86vuscd3760ndq7qzgn4s6jl",
+      "title": "Sand.ai发布MAGI-2视频模型：登顶I2V榜、0.5元/秒并计划开源",
+      "source": {
+        "name": "抖音 · 话题 #Seedance"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
+        "original": "https://www.douyin.com/video/7712158216540779377",
+        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "抖音 · 热点搜「MAGI-2 视频模型」",
+        "X · AIWarper"
+      ],
+      "latestAt": "2026-11-28T00:52:12.000Z"
+    },
+    {
+      "rank": 6,
       "id": "zzhdfuax9o0ecxkduwy154a11",
       "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
       "source": {
@@ -816,7 +837,7 @@
       "latestAt": "2026-11-27T12:30:00.000Z"
     },
     {
-      "rank": 6,
+      "rank": 7,
       "id": "cbhu8fz1dl8ttbucq9rqd6g7k",
       "title": "OpenAI反诉苹果窃取商业机密并阻挠供应商合作",
       "source": {
@@ -835,27 +856,6 @@
         "The Decoder"
       ],
       "latestAt": "2026-11-28T01:08:25.000Z"
-    },
-    {
-      "rank": 7,
-      "id": "m86vuscd3760ndq7qzgn4s6jl",
-      "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
-      "source": {
-        "name": "抖音 · 话题 #Seedance"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
-        "original": "https://www.douyin.com/video/7712158216540779377",
-        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "抖音 · 热点搜「MAGI-2 视频模型」",
-        "X · AIWarper"
-      ],
-      "latestAt": "2026-11-27T11:01:03.000Z"
     },
     {
       "rank": 8,
@@ -923,9 +923,6 @@
       "latestAt": "2026-11-26T20:15:27.000Z"
     }
   ],
-  "unchanged": [
-    "items",
-    "hotTopics"
-  ],
+  "unchanged": [],
   "errors": []
 }

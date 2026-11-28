@@ -6,11 +6,11 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-28T07:17:31+00:00",
-  "etag": "W/\"v1-items-2c7cac9d88c24d10\"",
+  "fetchedAt": "2026-11-28T08:32:40+00:00",
+  "etag": "W/\"v1-items-63528167e61efb58\"",
   "schemaVersion": 1,
   "page": {
-    "count": 2,
+    "count": 1,
     "hasMore": false,
     "nextCursor": null
   },
@@ -36,29 +36,6 @@
       "attribution": {
         "name": "AIHOT",
         "url": "https://aihot.news/items/tiqf353lek6sib8ktn8uvc6nc"
-      }
-    },
-    {
-      "id": "v5fxjqr2vapkk9vn1j9a8ke96",
-      "title": "Dragos 调查称 MiniMax 在用户请求不存储的情况下仍打开提示词中的私有链接",
-      "originalTitle": "According to US security firm Dragos, MiniMax collected private links from user prompts and opened them, even under no-storage requests.",
-      "summary": "据美国安全公司 Dragos，MiniMax 收集并打开了用户提示词中的私有链接，即便用户要求不存储数据。",
-      "source": {
-        "name": "X：Rohan Paul (@rohanpaul_ai)"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/v5fxjqr2vapkk9vn1j9a8ke96",
-        "original": "https://x.com/rohanpaul_ai/status/2126214860421914884"
-      },
-      "publishedAt": "2026-11-27T07:21:40.000Z",
-      "discoveredAt": "2026-11-27T07:30:35.954Z",
-      "category": "industry",
-      "score": 84,
-      "selected": true,
-      "reason": "转述 Dragos 的金丝雀测试细节，读者可以据此评估把敏感数据交给 AI 服务商的风险和供应商的隐私承诺可信度。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/v5fxjqr2vapkk9vn1j9a8ke96"
       }
     }
   ]

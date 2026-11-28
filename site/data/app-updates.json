@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T08:15:07+00:00",
+  "checkedAt": "2026-11-28T08:32:47+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1388,14 +1388,13 @@
       "aggregateCoverage": {
         "status": "aggregate-gap",
         "missingLanes": [
-          "selectedProductFeatures"
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
         ],
         "queryLanes": [
           "selectedModelIntegrations"
         ],
-        "readableLanes": [
-          "selectedModelIntegrations"
-        ],
+        "readableLanes": [],
         "successfulProviders": 2,
         "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
@@ -2267,7 +2266,7 @@
       "lastSuccessAt": "2026-11-28T08:15:07+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T20:15:07.516524+00:00"
     },
@@ -2290,14 +2289,14 @@
       "lastSuccessAt": "2026-11-28T08:15:07+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T20:15:07.516524+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T08:15:07+00:00",
+    "checkedAt": "2026-11-28T08:32:47+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2523,7 +2522,7 @@
         "label": "Flova",
         "term": "Flova",
         "provider": "AIHOT",
-        "lastAttemptAt": "2026-11-28T00:17:51+00:00",
+        "lastAttemptAt": "2026-11-28T08:32:47+00:00",
         "counts": {
           "items": 0,
           "wechatOriginalLinks": 0,
@@ -2535,11 +2534,11 @@
           "selectedModelIntegrations": 0
         },
         "countsObservedAt": "2026-11-28T00:17:51+00:00",
-        "status": "observed",
+        "status": "unchanged",
         "etag": "W/\"v1-items-42b37bf08eea1f2a\"",
-        "lastSuccessAt": "2026-11-28T00:17:51+00:00",
+        "lastSuccessAt": "2026-11-28T08:32:47+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T08:17:51.152051+00:00",
+        "nextAttemptAt": "2026-11-28T20:32:47.197577+00:00",
         "priority": 0,
         "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
@@ -3142,7 +3141,24 @@
         "provider": "AIPick",
         "priority": 4,
         "intervalMinutes": 720,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T08:32:47+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T08:32:47+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-d302af71384d2d02\"",
+        "lastSuccessAt": "2026-11-28T08:32:47+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T20:32:47.197577+00:00"
       },
       {
         "id": "gemini-app-aihot",
@@ -3372,24 +3388,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T07:52:16+00:00",
-      "nextAttemptAt": "2026-11-28T08:17:16.947276+00:00"
+      "lastSuccessAt": "2026-11-28T08:32:47+00:00",
+      "nextAttemptAt": "2026-11-28T08:57:47.197577+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T07:52:16+00:00",
-        "nextAttemptAt": "2026-11-28T08:17:16.947276+00:00"
+        "lastSuccessAt": "2026-11-28T08:32:47+00:00",
+        "nextAttemptAt": "2026-11-28T08:57:47.197577+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T07:52:16+00:00",
-        "nextAttemptAt": "2026-11-28T08:17:16.947276+00:00"
+        "lastSuccessAt": "2026-11-28T08:32:47+00:00",
+        "nextAttemptAt": "2026-11-28T08:57:47.197577+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "recentPolicy": {
       "calendarTimezone": "Asia/Shanghai",
       "primaryCalendarDays": 3,
@@ -5649,27 +5665,27 @@
   ],
   "summary": {
     "configuredSources": 21,
-    "successfulThisRun": 2,
+    "successfulThisRun": 0,
     "baselineSources": 15,
     "listedModels": 0,
     "reviewedObservations": 11
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T08:15:14+00:00",
+    "checkedAt": "2026-11-28T08:32:52+00:00",
     "window": "7d",
     "sources": [
       {
         "provider": "AIHOT",
-        "fetchedAt": "2026-11-28T07:17:31+00:00",
-        "selectedItems": 2,
+        "fetchedAt": "2026-11-28T08:32:40+00:00",
+        "selectedItems": 1,
         "hotTopics": 0,
         "errors": [],
         "stale": false
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T07:51:54+00:00",
+        "fetchedAt": "2026-11-28T08:32:40+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -5681,7 +5697,7 @@
         "id": "douyin",
         "label": "抖音",
         "role": "social",
-        "originalCount": 16,
+        "originalCount": 17,
         "providers": [
           "AIPick"
         ],
@@ -5797,7 +5813,7 @@
         "id": "x",
         "label": "X",
         "role": "social",
-        "originalCount": 8,
+        "originalCount": 6,
         "providers": [
           "AIHOT",
           "AIPick"
