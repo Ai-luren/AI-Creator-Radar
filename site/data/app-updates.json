@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T07:24:43+00:00",
+  "checkedAt": "2026-11-28T07:28:48+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1648,7 +1648,7 @@
       },
       "lastSuccessAt": "2026-11-28T07:24:43+00:00",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "modelWatchGap": [
         "MAGI-2",
         "Niji 8"
@@ -1940,7 +1940,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T07:24:43+00:00",
+    "checkedAt": "2026-11-28T07:28:48+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2994,7 +2994,7 @@
         "nextAttemptAt": "2026-11-28T07:49:43.297116+00:00"
       }
     },
-    "attemptedThisRun": 2,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -3066,6 +3066,40 @@
       "sourceUrl": "https://renoise.ai/blog/magi-2-vs-seedance-2-5",
       "observationMethod": "官方文章发布日期",
       "note": "国际站官方文章列出三组同提示词测试，涉及双人对白、快速运动和多镜头切换；11月26日为文章及实测日期，不等于首次接入日期，不将厂商自测当独立榜单。"
+    },
+    {
+      "id": "libtv-launch-20260318-reviewed",
+      "sourceId": "libtv-entry",
+      "brand": "LibTV",
+      "claimType": "corroborated-product-milestone",
+      "title": "LibTV 正式推出：无限画布与节点式视频工作流",
+      "featureName": "LibTV 正式推出",
+      "kind": "产品发布",
+      "updateType": "product-release",
+      "productArea": "Canvas / workflow",
+      "releaseDate": "2026-03-18",
+      "observedOn": "2026-11-28",
+      "sourceUrl": "https://m.jiemian.com/article/14128214.html",
+      "verificationUrl": "https://www.donews.com/news/detail/4/6476018.html",
+      "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
+      "note": "界面新闻于3月18日报道产品推出；DoNews 于3月20日明确回述3月18日发布，并描述无限画布、节点式工作流及面向人和 Agent 的入口。仅确认发布节点，不确认首日访问量或所有功能当日全量开放。"
+    },
+    {
+      "id": "libtv-agent-20260714-reviewed",
+      "sourceId": "libtv-entry",
+      "brand": "LibTV",
+      "claimType": "corroborated-product-milestone",
+      "title": "LibTV Agent 与 Skill Hub 上线",
+      "featureName": "LibTV Agent 与 Skill Hub 上线",
+      "kind": "产品发布",
+      "updateType": "product-release",
+      "productArea": "Agent / Skills",
+      "releaseDate": "2026-07-14",
+      "observedOn": "2026-11-28",
+      "sourceUrl": "https://elsewhere.news/zh/crossing/libtv-agent",
+      "verificationUrl": "https://www.geekpark.net/news/371171",
+      "observationMethod": "媒体交叉报道 · 原始官方发布页未取得",
+      "note": "十字路口7月14日实测报道介绍 Agent 与 Skill Hub；Founder Park 原文标注7月14日并说明 Agent 上线、可选导演 Skill（极客公园后续转载）。不将外部 Agent 调用能力等同于平台全部功能开放。"
     }
   ],
   "events": [
@@ -5008,14 +5042,14 @@
   ],
   "summary": {
     "configuredSources": 14,
-    "successfulThisRun": 1,
+    "successfulThisRun": 0,
     "baselineSources": 8,
     "listedModels": 0,
-    "reviewedObservations": 5
+    "reviewedObservations": 7
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T07:24:54+00:00",
+    "checkedAt": "2026-11-28T07:28:53+00:00",
     "window": "7d",
     "sources": [
       {

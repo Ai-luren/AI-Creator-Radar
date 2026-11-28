@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T07:24:40+00:00",
+  "checkedAt": "2026-11-28T07:28:45+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T01:46:48+00:00",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -156,7 +156,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:55:24Z",
+          "lastObservedAt": "2026-11-28T07:28:20Z",
           "provenance": "existing-discovery"
         },
         {
@@ -166,7 +166,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -401,7 +401,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -535,7 +535,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -642,7 +642,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -805,7 +805,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:26Z",
+          "lastObservedAt": "2026-11-28T07:28:20Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1010,7 +1010,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1020,7 +1020,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:55:24Z",
+          "lastObservedAt": "2026-11-28T07:28:20Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1270,7 +1270,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1392,7 +1392,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:55:24Z",
+          "lastObservedAt": "2026-11-28T07:28:20Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1402,7 +1402,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:24:37+00:00",
+          "lastObservedAt": "2026-11-28T07:28:42+00:00",
           "provenance": "existing-discovery"
         },
         {
