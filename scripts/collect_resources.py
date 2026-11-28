@@ -373,18 +373,27 @@ def discover_repos(snapshots, previous, curated, now, fetcher=github_json, searc
     if retry and datetime.fromisoformat(retry)>now:
         return {**state,"items":list(rows.values()),"deferred":True}
     pointers=[p for p in curated_repo_pointers(snapshots,now)
-              if p[0].lower() not in excluded and p[0].lower() not in rows
+              if p[0].lower() not in excluded
+              and (p[0].lower() not in rows or rows[p[0].lower()].get("provider")=="GitHub Search")
               and p[0].lower() not in previous.get("recentPointerAttempts",[])]
     attempts=list(previous.get("recentPointerAttempts",[]))[-24:]
     lane,query,_=RESEARCH_LANES[index]
     try:
         if pointers:
             repo,provider,lane,_=pointers[0]
+            try:
+                payload=fetcher("https://api.github.com/repos/"+repo)
+            except urllib.error.HTTPError as exc:
+                if exc.code not in {404, 410}:
+                    raise
+                # Removed or unavailable public repository: consume this pointer
+                # without claiming a candidate. Transient failures remain retryable.
+                payloads=[]
+            else:
+                if str(payload.get("full_name","")).lower()!=repo.lower():
+                    raise ValueError("Repository identity changed")
+                payloads=[payload]
             attempts=(attempts+[repo.lower()])[-24:]
-            payload=fetcher("https://api.github.com/repos/"+repo)
-            if str(payload.get("full_name","")).lower()!=repo.lower():
-                raise ValueError("Repository identity changed")
-            payloads=[payload]
         else:
             provider="GitHub Search"
             payloads=searcher(query,now)
@@ -398,6 +407,12 @@ def discover_repos(snapshots, previous, curated, now, fetcher=github_json, searc
                 continue
             key=row["repo"].lower()
             prior=rows.get(key,{})
+            # Preserve the selected source attribution if a later search
+            # merely refreshes metadata. A selected pointer can upgrade a
+            # previously search-only candidate, never the reverse.
+            if provider=="GitHub Search" and prior.get("provider") in {"AIHOT","AIPick"}:
+                row["provider"]=prior["provider"]
+            row["lastMetadataProvider"]=provider
             rows[key]=observed_stars({**row,"firstObservedAt":prior.get("firstObservedAt") or stamp},prior,now)
             added+=1
         state.update(status="ok",checkedAt=stamp,lastSuccessAt=stamp,
