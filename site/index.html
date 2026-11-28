@@ -957,7 +957,7 @@ var viewData={
  platforms:['platforms'],
  opportunities:['contests','platforms','creatorStatus','creatorDiscovery']
 };
-function currentDataKeys(){return Array.from(new Set((viewData[state.view]||viewData.overview).concat(state.view==='today'&&state.releaseMode==='apps'?['appUpdates']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['aipick']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['appUpdates']:[],state.view==='feeds'&&state.briefingTab==='innovation'?['release','appUpdates','aipick','repoRadar']:[],state.view==='feeds'&&state.briefingTab==='matrix'?['appUpdates']:[],state.view==='feeds'&&state.briefingTab==='competitors'?['release','social']:[],state.view==='feeds'&&state.briefingTab==='hot'?['release']:[],state.view==='platforms'&&state.platformCategory==='opensource'?['repoRadar']:[],state.selectedModelId?viewData.models:[])))}
+function currentDataKeys(){return Array.from(new Set((viewData[state.view]||viewData.overview).concat(state.view==='today'&&state.releaseMode==='apps'?['appUpdates']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['aipick']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['appUpdates']:[],state.view==='feeds'&&state.briefingTab==='innovation'?['release','appUpdates','aipick','repoRadar']:[],state.view==='feeds'&&state.briefingTab==='matrix'?['appUpdates']:[],state.view==='feeds'&&state.briefingTab==='competitors'?['release','social']:[],state.view==='feeds'&&state.briefingTab==='hot'?['release','social']:[],state.view==='platforms'&&state.platformCategory==='opensource'?['repoRadar']:[],state.selectedModelId?viewData.models:[])))}
 function requestData(key){
  if(dataRequests[key])return dataRequests[key];
  var spec=dataFiles[key],name=spec[0],options={cache:'no-cache'};
@@ -1483,7 +1483,7 @@ function aihotCategoryName(v){return {'ai-models':'人工智能模型','ai-produ
 
 
 function feedsPage(){
- var sources=[['competitors','竞品动态',''],['innovation','创新机会',''],['matrix','功能矩阵',''],['vendors','模型厂商',''],['hot','事件热点',''],['cases','热门创作',''],['combined','综合资讯',''],['aihot','AIHOT 日报',''],['juya','橘鸦 AI 早报',''],['selected','AIHOT 精选','']];
+ var sources=[['competitors','竞品动态',''],['innovation','创新机会',''],['matrix','功能矩阵',''],['vendors','模型厂商',''],['hot','事件专题',''],['cases','热门创作',''],['combined','综合资讯',''],['aihot','AIHOT 日报',''],['juya','橘鸦 AI 早报',''],['selected','AIHOT 精选','']];
  var day=latestBriefingDay(),active=sources.find(function(x){return x[0]===state.briefingTab});if(!active){active=sources[0];state.briefingTab=active[0]}
  var industry=['combined','vendors','hot','cases','aihot','juya','selected'],inIndustry=industry.includes(state.briefingTab);
  function tab(x,label,active){return '<button class="tab '+(active?'active':'')+'" aria-pressed="'+active+'" data-briefing="'+x[0]+'">'+esc(label||x[1])+'</button>'}
