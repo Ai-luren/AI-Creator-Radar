@@ -914,3 +914,14 @@ test('hot grouping preserves upstream ranks and never adds source or participant
  assert.equal(rows.length,3);assert.equal(rows[0].records.length,2);assert.deepEqual(rows[0].sourceLabels,['X · Higgsfield','抖音']);assert.deepEqual(rows[0].records.map(r=>r.rank),[2,4]);assert.ok(rows[0].records.every(r=>r.sourceCount===3&&r.participantCount===4));assert.equal(rows[0].sourceCount,undefined);
  assert.notEqual(rows[1].key,rows[0].key);
 });
+
+test('model dossier refreshes on recent progress, preserves release date and does not duplicate shared original',()=>{
+ const {run}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const m={modelName:'MAGI-2',vendor:'Sand.ai',modelFamilyId:'magi',modelVersionId:'2',publishedAt:'2026-11-15',verifiedAt:'2026-11-16',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'};
+ const item={title:'Higgsfield 接入 MAGI-2',publishedAt:'2026-11-27T10:00:00Z',links:{original:'https://example.org/article'}};
+ const wrong={title:'Higgsfield 接入 MAGI-20',publishedAt:'2026-11-28T10:00:00Z',links:{original:'https://example.org/wrong'}};
+ const feedback={title:'实测 MAGI-2 视频',publishedAt:'2026-11-28T10:00:00Z',links:{original:'https://example.org/review'}};
+ const args=[[m,{...m,modelName:'Veo 4',modelFamilyId:'veo',modelVersionId:'4'}],[{name:'AIHOT',items:[item,wrong]},{name:'AIPick',items:[item,feedback]}],{}, {}, [],];
+ const rows=JSON.parse(run('JSON.stringify(creatorDossiers('+args.map(x=>JSON.stringify(x)).join(',')+',Date.now()))'));
+ assert.equal(rows.length,1);assert.equal(rows[0].model.publishedAt,'2026-11-15');assert.equal(rows[0].latestDay,'2026-11-28');assert.equal(rows[0].updates.length,2);assert.equal(rows[0].brands.find(x=>x.brand==='Higgsfield').status.level,'reported');assert.ok(rows[0].updates.every(x=>!x.title.includes('MAGI-20')));
+});
