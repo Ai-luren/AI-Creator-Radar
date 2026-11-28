@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "sources": {
     "aihot-selected": {
-      "lastAttemptAt": "2026-11-28T00:03:14+00:00",
-      "lastSuccessAt": "2026-11-28T00:03:14+00:00",
+      "lastAttemptAt": "2026-11-28T02:06:37+00:00",
+      "lastSuccessAt": "2026-11-28T02:06:37+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
@@ -14,14 +14,14 @@
       "consecutiveFailures": 0
     },
     "juya-daily": {
-      "lastAttemptAt": "2026-11-27T02:17:58+00:00",
-      "lastSuccessAt": "2026-11-27T02:17:58+00:00",
+      "lastAttemptAt": "2026-11-28T02:06:37+00:00",
+      "lastSuccessAt": "2026-11-28T02:06:37+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },
     "models-batch": {
-      "lastAttemptAt": "2026-11-28T02:00:55+00:00",
-      "lastSuccessAt": "2026-11-28T02:00:55+00:00",
+      "lastAttemptAt": "2026-11-28T02:06:37+00:00",
+      "lastSuccessAt": "2026-11-28T02:06:37+00:00",
       "status": "healthy",
       "consecutiveFailures": 0
     },

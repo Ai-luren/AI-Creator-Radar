@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-28T02:00:38Z",
+  "checkedAt": "2026-11-28T02:06:14Z",
   "sourceIds": [
     "seed-official",
     "kuaishou-ir",
@@ -50,9 +50,9 @@
   ],
   "conditionalFeedCache": {
     "qwen-agent-releases": {
-      "key": "78ca746a94f57d6d4e5cadd11fd8b3eedb3c9999fe75a6966d8484178611785a",
+      "key": "f00c36beae3fba8ab27f71fde6ffab7ee527d5de9fd25bd6ea8237bc5a1e3fa3",
       "etag": "W/\"c1ce36e5bfcb7d83a49fa71e9dd72749\"",
-      "downloadedAt": "2026-11-28T01:46:23+00:00",
+      "downloadedAt": "2026-11-28T02:06:14+00:00",
       "items": [
         {
           "title": "v0.0.26",
@@ -128,9 +128,9 @@
       "itemsHash": "f1a9ad4b1bc912b3e08b2f53f3678d1ee351b7b45e7d4746bd6688fccca99ae5"
     },
     "claude-code-releases": {
-      "key": "f3bde4d888d7d4de494b11991daa9bc92dff5c3885cb0ac00104868487d96f61",
+      "key": "6ad3c59f15c89988a46c54147cad7dbc6493478ca615888e826033672d16334d",
       "etag": "W/\"e791f92fb10ddd075f7bc1c1f8e1e274\"",
-      "downloadedAt": "2026-11-28T01:46:23+00:00",
+      "downloadedAt": "2026-11-28T02:06:14+00:00",
       "items": [
         {
           "title": "v2.1.332",
@@ -206,9 +206,9 @@
       "itemsHash": "e787e288a6477700f4c11078281b6b1a1ddb7a948413868215db4521722cd76e"
     },
     "codex-cli-releases": {
-      "key": "1fdfe67818841c639f6479bc9b7cfae3ed697c76a02352776fa1fab9f675a8d1",
+      "key": "96e21a9b2a6d9e38d7aed06a2bb2f73c1d569fecc935959b96e9fc3208a30ef9",
       "etag": "W/\"36b27e71c4577c80e33225b695a615bb\"",
-      "downloadedAt": "2026-11-28T01:46:23+00:00",
+      "downloadedAt": "2026-11-28T02:06:14+00:00",
       "items": [
         {
           "title": "0.174.0-alpha.9",
@@ -284,9 +284,9 @@
       "itemsHash": "26787a97b21d0ef2005b5c5db627fbc411efff18171609d91f4c653727cccc36"
     },
     "qwen-official-rss": {
-      "key": "a5c35eb55cc9aabce4416a8f017e20c4467d603002f265f6b6fa3b3045668a37",
+      "key": "f693393a0d9b193fabc2b5a14ddce39630148e942fd96b19d4167d3b3ef68071",
       "etag": "\"6970c244-98ff\"",
-      "downloadedAt": "2026-11-28T01:46:23+00:00",
+      "downloadedAt": "2026-11-28T02:06:14+00:00",
       "items": [
         {
           "title": "Qwen2.5-Math: The world's leading open-sourced mathematical LLMs",
@@ -294,7 +294,8 @@
           "url": "https://qwenlm.github.io/blog/qwen2.5-math/",
           "publishedAt": "2024-09-18T16:00:01Z",
           "modelId": "qwen",
-          "publicationDateKind": "feed-published"
+          "publicationDateKind": "feed-published",
+          "preciseFeedPublishedAt": "2024-09-18T16:00:01Z"
         },
         {
           "title": "Introducing Qwen2-Math",
@@ -302,7 +303,8 @@
           "url": "https://qwenlm.github.io/blog/qwen2-math/",
           "publishedAt": "2024-08-07T16:00:00Z",
           "modelId": "qwen",
-          "publicationDateKind": "feed-published"
+          "publicationDateKind": "feed-published",
+          "preciseFeedPublishedAt": "2024-08-07T16:00:00Z"
         },
         {
           "title": "Introducing Qwen1.5",
@@ -310,10 +312,11 @@
           "url": "https://qwenlm.github.io/blog/qwen1.5/",
           "publishedAt": "2024-02-04T05:33:00Z",
           "modelId": "qwen",
-          "publicationDateKind": "feed-published"
+          "publicationDateKind": "feed-published",
+          "preciseFeedPublishedAt": "2024-02-04T05:33:00Z"
         }
       ],
-      "itemsHash": "410589a2683b44f178f5db0732e6b94cf02decc31b261f0cd665657562693ce1"
+      "itemsHash": "8ae063ec08e507c97c9979f309aa7a39d57ff12f5d9b379a168660072e734d9f"
     }
   }
 }
