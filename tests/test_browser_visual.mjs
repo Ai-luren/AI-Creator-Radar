@@ -149,10 +149,11 @@ try{
    await page.locator('[data-release-window]').selectOption('7');
    assert.equal(await page.evaluate(()=>state.releaseWindow),'7');
    assert.ok(await page.evaluate(()=>Array.from(document.querySelectorAll('.source-health-row a')).filter(a=>a.textContent.includes(' · AIHOT')).every(a=>new URL(a.href).hostname==='aihot.news')));
+   await page.locator('details.source-health').filter({has:page.locator('summary',{hasText:'数据与信源诊断'})}).locator(':scope > summary').click();
    assert.equal(await page.getByRole('link',{name:'官方更新日志 ↗',exact:true}).count(),1);
    assert.equal(await page.getByRole('link',{name:'官方教程专区 ↗',exact:true}).count(),1);
    assert.equal(await page.getByRole('link',{name:'即梦 / 字节专题 ↗',exact:true}).getAttribute('href'),'https://aipick.news/topics/doubao');
-   assert.ok(await page.getByRole('heading',{name:'SeedAudio 1.5 已在即梦界面出现',exact:true}).isVisible());
+   assert.ok(await page.getByRole('heading',{name:'即梦 AI · SeedAudio 1.5 已在即梦界面出现',exact:true}).isVisible());
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'app updates horizontal overflow');
    await page.screenshot({path:path.join(out,label+'-app-updates.png')});
    await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady&&state.appUpdates);assert.equal(await page.evaluate(()=>state.releaseMode),'apps');
@@ -169,6 +170,8 @@ try{
   await check('vendor first briefing responsive reading',async()=>{
    await page.goto(base+'?view=feeds&briefing=competitors',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.locator('.competitor-brand-section').count(),8);
+   assert.equal(await page.locator('.vendor-model details[open]').count(),0);
+   assert.equal(await page.locator('.vendor-grid').count(),1);
    assert.equal(await page.locator('[data-briefing="competitors"]').getAttribute('aria-pressed'),'true');
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'vendor briefing horizontal overflow');
    await page.screenshot({path:path.join(out,label+'-vendor-briefing.png'),animations:'disabled'});
