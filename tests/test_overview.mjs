@@ -608,3 +608,12 @@ test('public feature baseline is matrix context and only later deltas enter inno
  const plan=JSON.parse(run("JSON.stringify(innovationModelTestPlan({type:'model',category:'video'}))"));assert.equal(plan.status,'待实测');assert.equal(plan.steps.length,3);
  const impl=JSON.parse(run("JSON.stringify(innovationImplementationPlan({id:'sound',references:[]}))"));assert.equal(impl.steps.length,3);assert.match(impl.status,/未运行/);
 });
+
+test('competitor matrix covers whole product, including unfamiliar feature shapes',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const rows=JSON.parse(run("JSON.stringify(competitorMatrixRows({sources:[{id:'lib',vendor:'LibTV',role:'competitor',type:'product-surface',entries:{a:{featureName:'新增资产共享功能',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'},b:{featureName:'插件系统升级',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'},c:{featureName:'MAGI-2独家首发',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'},d:{featureName:'全新光谱实验室',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'}}}]},Date.now(),[]))"));
+ assert.ok(rows.find(x=>x.name==='新增资产共享功能').dimensions.includes('asset'));
+ assert.ok(rows.find(x=>x.name==='插件系统升级').dimensions.includes('plugin'));
+ assert.deepEqual(rows.find(x=>x.name==='MAGI-2独家首发').dimensions,['integration']);
+ assert.deepEqual(rows.find(x=>x.name==='全新光谱实验室').dimensions,['other']);
+});
