@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T07:52:16+00:00",
+  "checkedAt": "2026-11-28T07:58:04+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -2086,7 +2086,7 @@
       "lastSuccessAt": "2026-11-28T07:52:16+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T19:52:16.947276+00:00"
     },
@@ -2153,7 +2153,7 @@
       "lastSuccessAt": "2026-11-28T07:52:16+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-29T07:52:16.947276+00:00"
     },
@@ -2198,7 +2198,7 @@
       "lastSuccessAt": "2026-11-28T07:52:16+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-29T07:52:16.947276+00:00"
     },
@@ -2243,14 +2243,14 @@
       "lastSuccessAt": "2026-11-28T07:52:16+00:00",
       "status": "observed",
       "error": null,
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-29T07:52:16.947276+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T07:52:16+00:00",
+    "checkedAt": "2026-11-28T07:58:04+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -3338,7 +3338,7 @@
         "nextAttemptAt": "2026-11-28T08:17:16.947276+00:00"
       }
     },
-    "attemptedThisRun": 2,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -5592,14 +5592,14 @@
   ],
   "summary": {
     "configuredSources": 19,
-    "successfulThisRun": 4,
+    "successfulThisRun": 0,
     "baselineSources": 13,
     "listedModels": 0,
     "reviewedObservations": 11
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T07:52:28+00:00",
+    "checkedAt": "2026-11-28T07:58:07+00:00",
     "window": "7d",
     "sources": [
       {
