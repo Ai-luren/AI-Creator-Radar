@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T07:58:04+00:00",
+  "checkedAt": "2026-11-28T08:15:07+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -26,8 +26,9 @@
       "checkedAt": "2026-11-28T04:28:30+00:00",
       "deferred": true,
       "consecutiveFailures": 6,
-      "nextAttemptAt": "2026-11-28T12:28:30.542865+00:00",
-      "type": "visible-model-labels"
+      "nextAttemptAt": "2026-12-05T04:28:30+00:00",
+      "type": "visible-model-labels",
+      "skipReason": "source-circuit-open"
     },
     {
       "id": "jimeng-ios-cn",
@@ -2246,11 +2247,57 @@
       "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-29T07:52:16.947276+00:00"
+    },
+    {
+      "id": "aiguanchao-featured",
+      "name": "AI观潮 · 精选 RSS",
+      "vendor": "AI观潮",
+      "url": "https://aiguanchao.com/feed/featured.xml",
+      "links": [
+        {
+          "kind": "精选与原文",
+          "url": "https://aiguanchao.com/picks",
+          "access": "第三方发现，报道日期不是上线日期"
+        }
+      ],
+      "type": "product-discovery-feed",
+      "role": "discovery",
+      "entries": {},
+      "checkedAt": "2026-11-28T08:15:07+00:00",
+      "lastSuccessAt": "2026-11-28T08:15:07+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T20:15:07.516524+00:00"
+    },
+    {
+      "id": "kreatorflow-creator-news",
+      "name": "KreatorFlow · 创作资讯 RSS",
+      "vendor": "KreatorFlow",
+      "url": "https://kreatorflow.ai/news/rss.xml",
+      "links": [
+        {
+          "kind": "创作资讯",
+          "url": "https://kreatorflow.ai/news",
+          "access": "第三方发现，非独立官方证据"
+        }
+      ],
+      "type": "product-discovery-feed",
+      "role": "discovery",
+      "entries": {},
+      "checkedAt": "2026-11-28T08:15:07+00:00",
+      "lastSuccessAt": "2026-11-28T08:15:07+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T20:15:07.516524+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T07:58:04+00:00",
+    "checkedAt": "2026-11-28T08:15:07+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2493,7 +2540,7 @@
         "lastSuccessAt": "2026-11-28T00:17:51+00:00",
         "error": null,
         "nextAttemptAt": "2026-11-28T08:17:51.152051+00:00",
-        "priority": 4,
+        "priority": 0,
         "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
       },
@@ -2502,7 +2549,7 @@
         "label": "Flova",
         "term": "Flova",
         "provider": "AIPick",
-        "priority": 4,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T00:49:36+00:00",
         "counts": {
           "items": 0,
@@ -2528,7 +2575,7 @@
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIHOT",
-        "priority": 2,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T01:47:03+00:00",
         "counts": {
           "items": 0,
@@ -2554,7 +2601,7 @@
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIPick",
-        "priority": 2,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T02:33:06+00:00",
         "counts": {
           "items": 0,
@@ -2580,7 +2627,7 @@
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIHOT",
-        "priority": 1,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T01:15:59+00:00",
         "counts": {
           "items": 3,
@@ -2606,7 +2653,7 @@
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIPick",
-        "priority": 1,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T01:47:03+00:00",
         "counts": {
           "items": 30,
@@ -2632,7 +2679,7 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIHOT",
-        "priority": 3,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T06:27:48+00:00",
         "counts": {
           "items": 2,
@@ -2658,7 +2705,7 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIPick",
-        "priority": 3,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T06:02:45+00:00",
         "counts": {
           "items": 1,
@@ -3156,8 +3203,8 @@
         "term": "MAGI-2",
         "label": "MAGI-2",
         "provider": "AIHOT",
-        "priority": -10,
-        "intervalMinutes": 360,
+        "priority": 10,
+        "intervalMinutes": 720,
         "modelWatch": true,
         "modelFamilyId": "magi-2",
         "modelVersionId": "magi-2",
@@ -3190,15 +3237,16 @@
         "etag": "W/\"v1-items-04b412c6ff4ba444\"",
         "lastSuccessAt": "2026-11-28T06:55:38+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00"
+        "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00",
+        "watchWindow": "followup-7d"
       },
       {
         "id": "model-watch-1bd7d344ac446786bc23-aipick",
         "term": "MAGI-2",
         "label": "MAGI-2",
         "provider": "AIPick",
-        "priority": -10,
-        "intervalMinutes": 360,
+        "priority": 10,
+        "intervalMinutes": 720,
         "modelWatch": true,
         "modelFamilyId": "magi-2",
         "modelVersionId": "magi-2",
@@ -3231,15 +3279,16 @@
         "etag": "W/\"v1-items-71c22d7db99b1726\"",
         "lastSuccessAt": "2026-11-28T06:55:38+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00"
+        "nextAttemptAt": "2026-11-28T12:55:38.216486+00:00",
+        "watchWindow": "followup-7d"
       },
       {
         "id": "model-watch-74fe8f5670051bef5bfd-aihot",
         "term": "Niji 8",
         "label": "Niji 8",
         "provider": "AIHOT",
-        "priority": -10,
-        "intervalMinutes": 360,
+        "priority": 10,
+        "intervalMinutes": 720,
         "modelWatch": true,
         "modelFamilyId": "midjourney",
         "modelVersionId": "niji-8",
@@ -3273,15 +3322,16 @@
         "etag": "W/\"v1-items-8d5d04d46bfacefb\"",
         "lastSuccessAt": "2026-11-28T07:24:43+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:24:43.297116+00:00"
+        "nextAttemptAt": "2026-11-28T13:24:43.297116+00:00",
+        "watchWindow": "followup-7d"
       },
       {
         "id": "model-watch-74fe8f5670051bef5bfd-aipick",
         "term": "Niji 8",
         "label": "Niji 8",
         "provider": "AIPick",
-        "priority": -10,
-        "intervalMinutes": 360,
+        "priority": 10,
+        "intervalMinutes": 720,
         "modelWatch": true,
         "modelFamilyId": "midjourney",
         "modelVersionId": "niji-8",
@@ -3315,7 +3365,8 @@
         "etag": "W/\"v1-items-f5d5cf61ea1be5a9\"",
         "lastSuccessAt": "2026-11-28T07:24:43+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:24:43.297116+00:00"
+        "nextAttemptAt": "2026-11-28T13:24:43.297116+00:00",
+        "watchWindow": "followup-7d"
       }
     ],
     "service": {
@@ -3339,6 +3390,12 @@
       }
     },
     "attemptedThisRun": 0,
+    "recentPolicy": {
+      "calendarTimezone": "Asia/Shanghai",
+      "primaryCalendarDays": 3,
+      "followupCalendarDays": 7,
+      "reviewCalendarDays": 30
+    },
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -5591,15 +5648,15 @@
     }
   ],
   "summary": {
-    "configuredSources": 19,
-    "successfulThisRun": 0,
-    "baselineSources": 13,
+    "configuredSources": 21,
+    "successfulThisRun": 2,
+    "baselineSources": 15,
     "listedModels": 0,
     "reviewedObservations": 11
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T07:58:07+00:00",
+    "checkedAt": "2026-11-28T08:15:14+00:00",
     "window": "7d",
     "sources": [
       {
