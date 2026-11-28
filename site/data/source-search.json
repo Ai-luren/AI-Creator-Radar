@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T06:02:43+00:00",
+  "checkedAt": "2026-11-28T06:27:45+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T01:46:48+00:00",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
@@ -16,11 +16,11 @@
     "nextAttemptAt": "2026-11-28T06:11:38.050698+00:00"
   },
   "aipickService": {
-    "lastAttemptAt": "2026-11-28T05:47:46+00:00",
-    "lastSuccessAt": "2026-11-28T05:47:46+00:00",
+    "lastAttemptAt": "2026-11-28T06:27:45+00:00",
+    "lastSuccessAt": "2026-11-28T06:27:45+00:00",
     "error": null,
     "consecutiveFailures": 0,
-    "nextAttemptAt": "2026-11-28T06:17:46.285736+00:00"
+    "nextAttemptAt": "2026-11-28T06:57:45.311649+00:00"
   },
   "targets": [
     {
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -156,7 +156,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T05:47:34Z",
+          "lastObservedAt": "2026-11-28T06:27:34Z",
           "provenance": "existing-discovery"
         },
         {
@@ -166,7 +166,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -401,7 +401,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -535,7 +535,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -642,7 +642,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -805,7 +805,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T05:47:34Z",
+          "lastObservedAt": "2026-11-28T06:27:34Z",
           "provenance": "existing-discovery"
         },
         {
@@ -892,7 +892,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T05:47:34Z",
+          "lastObservedAt": "2026-11-28T06:27:34Z",
           "provenance": "existing-discovery"
         },
         {
@@ -931,7 +931,12 @@
       "aihotStatus": "no-matching-index-results",
       "aihotNextAttemptAt": "2026-11-29T03:49:06.165020+00:00",
       "repositoryBacked": false,
-      "priorityDay": "2026-11-23"
+      "priorityDay": "2026-11-23",
+      "aipickLastAttemptAt": "2026-11-28T06:27:45+00:00",
+      "aipickETag": "W/\"v1-items-596ddcd9323337d2\"",
+      "aipickLastSuccessAt": "2026-11-28T06:27:45+00:00",
+      "aipickStatus": "no-matching-index-results",
+      "aipickNextAttemptAt": "2026-11-29T06:27:45.311649+00:00"
     },
     {
       "id": "82287b8fe00f14cbcad3f5eb9e16532159c57b926c5e175216e37a824f8161ca",
@@ -1005,7 +1010,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1015,7 +1020,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T05:47:34Z",
+          "lastObservedAt": "2026-11-28T06:27:34Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1265,7 +1270,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1298,7 +1303,7 @@
           "sourceId": "hf-inclusionai",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T04:16:59+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1387,7 +1392,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T05:47:34Z",
+          "lastObservedAt": "2026-11-28T06:27:34Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1397,7 +1402,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T06:02:40+00:00",
+          "lastObservedAt": "2026-11-28T06:27:43+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1423,7 +1428,7 @@
   ],
   "summary": {
     "activeTargets": 23,
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "targetStates": {
       "awaiting-search": 18,
       "index-unavailable": 4,
@@ -1434,14 +1439,14 @@
       "remainingSevenDays": 2,
       "outsideHotWindowOrUnknown": 18
     },
-    "broadDeferredForAggregators": 1,
+    "broadDeferredForAggregators": 0,
     "broadDeadlineSeconds": 8,
     "targetsWithLocalContext": 17,
     "localContextRecords": 75,
     "officialCandidates": 0,
     "indexReports": 0,
-    "aipickAttemptedThisRun": 0,
-    "aipickLastSuccessAt": "2026-11-28T05:47:46+00:00",
+    "aipickAttemptedThisRun": 1,
+    "aipickLastSuccessAt": "2026-11-28T06:27:45+00:00",
     "aipickError": null,
     "aipickPointers": 0,
     "aihotAttemptedThisRun": 0,

@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T06:02:45+00:00",
+  "checkedAt": "2026-11-28T06:27:48+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1480,11 +1480,31 @@
       "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T11:41:40.580721+00:00"
+    },
+    {
+      "id": "renoise-models-entry",
+      "name": "Renoise · 模型文档",
+      "vendor": "Renoise",
+      "url": "https://renoise.ai/models/magi-2",
+      "links": [
+        {
+          "kind": "国内产品入口",
+          "url": "https://renoise.tv/",
+          "access": "国内上线日期未核实"
+        }
+      ],
+      "type": "navigation-only",
+      "role": "competitor",
+      "status": "navigation-only",
+      "entries": {},
+      "lastSuccessAt": null,
+      "error": null,
+      "deferred": true
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T06:02:45+00:00",
+    "checkedAt": "2026-11-28T06:27:48+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1829,14 +1849,31 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 0,
+        "lastAttemptAt": "2026-11-28T06:27:48+00:00",
+        "counts": {
+          "items": 2,
+          "wechatOriginalLinks": 1,
+          "otherOriginalLinks": 1,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 2,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T06:27:48+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-fb0fc9ff09c082c2\"",
+        "lastSuccessAt": "2026-11-28T06:27:48+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T18:27:48.240175+00:00"
       },
       {
         "id": "oiioii-aipick",
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIPick",
-        "priority": 10,
+        "priority": 0,
         "lastAttemptAt": "2026-11-28T06:02:45+00:00",
         "counts": {
           "items": 1,
@@ -1856,142 +1893,63 @@
         "nextAttemptAt": "2026-11-28T18:02:45.092942+00:00"
       },
       {
-        "id": "lovart-aihot",
-        "label": "Lovart",
-        "term": "Lovart",
-        "provider": "AIHOT",
-        "priority": 10,
-        "lastAttemptAt": "2026-11-28T06:02:45+00:00",
-        "counts": {
-          "items": 0,
-          "wechatOriginalLinks": 0,
-          "otherOriginalLinks": 0,
-          "missingOriginalLinks": 0,
-          "exactTitleMatches": 0,
-          "hasNextCursor": false,
-          "selectedProductFeatures": 0,
-          "selectedModelIntegrations": 0
-        },
-        "countsObservedAt": "2026-11-28T06:02:45+00:00",
-        "status": "observed",
-        "etag": "W/\"v1-items-b176edd9726f40af\"",
-        "lastSuccessAt": "2026-11-28T06:02:45+00:00",
-        "error": null,
-        "nextAttemptAt": "2026-11-28T18:02:45.092942+00:00"
-      },
-      {
-        "id": "lovart-aipick",
-        "label": "Lovart",
-        "term": "Lovart",
-        "provider": "AIPick",
-        "priority": 10,
-        "lastAttemptAt": "2026-11-28T04:28:30+00:00",
-        "counts": {
-          "items": 1,
-          "wechatOriginalLinks": 0,
-          "otherOriginalLinks": 1,
-          "missingOriginalLinks": 0,
-          "exactTitleMatches": 0,
-          "hasNextCursor": false,
-          "selectedProductFeatures": 0,
-          "selectedModelIntegrations": 0
-        },
-        "countsObservedAt": "2026-11-28T04:28:30+00:00",
-        "status": "observed",
-        "etag": "W/\"v1-items-98a6d93351226ac6\"",
-        "lastSuccessAt": "2026-11-28T04:28:30+00:00",
-        "error": null,
-        "nextAttemptAt": "2026-11-28T16:28:30.542865+00:00"
-      },
-      {
         "id": "updream-aihot",
         "label": "Updream",
         "term": "Updream",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 0
       },
       {
         "id": "updream-aipick",
         "label": "Updream",
         "term": "Updream",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 0
       },
       {
         "id": "shotlab-aihot",
         "label": "ShotLab",
         "term": "ShotLab",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 0
       },
       {
         "id": "shotlab-aipick",
         "label": "ShotLab",
         "term": "ShotLab",
         "provider": "AIPick",
-        "priority": 10
+        "priority": 0
       },
       {
         "id": "renoise-aihot",
         "label": "Renoise",
         "term": "Renoise",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 0
       },
       {
         "id": "renoise-aipick",
         "label": "Renoise",
         "term": "Renoise",
         "provider": "AIPick",
-        "priority": 10
-      },
-      {
-        "id": "liblib-aihot",
-        "label": "Liblib",
-        "term": "Liblib",
-        "provider": "AIHOT",
-        "priority": 10,
-        "lastAttemptAt": "2026-11-28T05:28:56+00:00",
+        "priority": 0,
+        "lastAttemptAt": "2026-11-28T06:27:48+00:00",
         "counts": {
-          "items": 0,
+          "items": 1,
           "wechatOriginalLinks": 0,
-          "otherOriginalLinks": 0,
+          "otherOriginalLinks": 1,
           "missingOriginalLinks": 0,
-          "exactTitleMatches": 0,
+          "exactTitleMatches": 1,
           "hasNextCursor": false,
           "selectedProductFeatures": 0,
           "selectedModelIntegrations": 0
         },
-        "countsObservedAt": "2026-11-28T05:28:56+00:00",
+        "countsObservedAt": "2026-11-28T06:27:48+00:00",
         "status": "observed",
-        "etag": "W/\"v1-items-026424f8e49ac790\"",
-        "lastSuccessAt": "2026-11-28T05:28:56+00:00",
+        "etag": "W/\"v1-items-56e80acee6c5f5bb\"",
+        "lastSuccessAt": "2026-11-28T06:27:48+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T17:28:56.938858+00:00"
-      },
-      {
-        "id": "liblib-aipick",
-        "label": "Liblib",
-        "term": "Liblib",
-        "provider": "AIPick",
-        "priority": 10,
-        "lastAttemptAt": "2026-11-28T04:02:49+00:00",
-        "counts": {
-          "items": 2,
-          "wechatOriginalLinks": 0,
-          "otherOriginalLinks": 2,
-          "missingOriginalLinks": 0,
-          "exactTitleMatches": 2,
-          "hasNextCursor": false,
-          "selectedProductFeatures": 0,
-          "selectedModelIntegrations": 0
-        },
-        "countsObservedAt": "2026-11-28T04:02:49+00:00",
-        "status": "observed",
-        "etag": "W/\"v1-items-6fef2504f35f6b97\"",
-        "lastSuccessAt": "2026-11-28T04:02:49+00:00",
-        "error": null,
-        "nextAttemptAt": "2026-11-28T16:02:49.767367+00:00"
+        "nextAttemptAt": "2026-11-28T18:27:48.240175+00:00"
       },
       {
         "id": "minimax-aihot",
@@ -2278,21 +2236,21 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T06:02:45+00:00",
-      "nextAttemptAt": "2026-11-28T06:27:45.092942+00:00"
+      "lastSuccessAt": "2026-11-28T06:27:48+00:00",
+      "nextAttemptAt": "2026-11-28T06:52:48.240175+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T06:02:45+00:00",
-        "nextAttemptAt": "2026-11-28T06:27:45.092942+00:00"
+        "lastSuccessAt": "2026-11-28T06:27:48+00:00",
+        "nextAttemptAt": "2026-11-28T06:52:48.240175+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T06:02:45+00:00",
-        "nextAttemptAt": "2026-11-28T06:27:45.092942+00:00"
+        "lastSuccessAt": "2026-11-28T06:27:48+00:00",
+        "nextAttemptAt": "2026-11-28T06:52:48.240175+00:00"
       }
     },
     "attemptedThisRun": 2,
@@ -2311,6 +2269,62 @@
       "sourceUrl": "https://jimeng.jianying.com/ai-tool/home",
       "observationMethod": "人工核对 · 用户界面截图与公开搜索页面记录",
       "note": "截图显示 New；公开页面不同抓取结果存在差异。首次上架日、全量可用性及权益未确认。"
+    },
+    {
+      "id": "libtv-magi-2-20261128-observation",
+      "sourceId": "libtv-home",
+      "brand": "LibTV",
+      "title": "MAGI-2 官网首发宣传",
+      "modelName": "MAGI-2",
+      "kind": "模型接入 / 宣发",
+      "category": "video",
+      "observedOn": "2026-11-28",
+      "releaseDate": null,
+      "sourceUrl": "https://www.liblib.tv/?sourceId=005864",
+      "observationMethod": "人工核对 · 官方公开首页",
+      "note": "首页显示 MAGI-2 首发宣传，确切接入日期未标明；不判断全球独家。"
+    },
+    {
+      "id": "renoise-magi-2-20261125-observation",
+      "sourceId": "renoise-models-entry",
+      "brand": "Renoise",
+      "title": "MAGI-2 接入 Renoise 国际站",
+      "modelName": "MAGI-2",
+      "kind": "模型接入 / 产品介绍",
+      "category": "video",
+      "observedOn": "2026-11-28",
+      "releaseDate": null,
+      "sourceUrl": "https://renoise.ai/models/magi-2",
+      "observationMethod": "人工核对 · 官方文档搜索索引",
+      "note": "官方索引称11月25日上线；当前正文无法独立打开，国内站日期未核实。"
+    },
+    {
+      "id": "higgsfield-magi-2-20261125-promo",
+      "sourceId": "higgsfield-changelog",
+      "brand": "Higgsfield",
+      "title": "MAGI-2 专属产品介绍与演示",
+      "modelName": "MAGI-2",
+      "kind": "宣发 / 演示",
+      "category": "video",
+      "observedOn": "2026-11-28",
+      "releaseDate": null,
+      "sourceUrl": "https://higgsfield.ai/blog/higgsfield-magi-2",
+      "observationMethod": "人工核对 · 官方文章索引",
+      "note": "单独的模型产品介绍，与11月24日接入日志分别保留。"
+    },
+    {
+      "id": "renoise-magi-2-arena-20261126",
+      "sourceId": "renoise-models-entry",
+      "brand": "Renoise",
+      "title": "MAGI-2 与 Seedance 2.5 官方同素材对比",
+      "modelName": "MAGI-2",
+      "kind": "宣发 / 演示",
+      "category": "video",
+      "observedOn": "2026-11-28",
+      "releaseDate": "2026-11-26",
+      "sourceUrl": "https://renoise.ai/blog/magi-2-vs-seedance-2-5",
+      "observationMethod": "官方文章发布日期",
+      "note": "国际站官方文章列出三组同提示词测试，涉及双人对白、快速运动和多镜头切换；11月26日为文章及实测日期，不等于首次接入日期，不将厂商自测当独立榜单。"
     }
   ],
   "events": [
@@ -3901,15 +3915,15 @@
     }
   ],
   "summary": {
-    "configuredSources": 8,
+    "configuredSources": 9,
     "successfulThisRun": 0,
     "baselineSources": 6,
     "listedModels": 0,
-    "reviewedObservations": 1
+    "reviewedObservations": 5
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T06:02:49+00:00",
+    "checkedAt": "2026-11-28T06:27:57+00:00",
     "window": "7d",
     "sources": [
       {
