@@ -598,3 +598,22 @@ test('overview prioritizes core product reporting without promoting promotions o
  const result=JSON.parse(run("JSON.stringify(prioritizeProductNews([{title:'普通行业新闻',category:'行业'},{title:'Higgsfield Black Friday discount',category:'产品'},{title:'LibTV 新画布节点',category:'产品'},{title:'其他工具更新',category:'产品'}]).map(x=>x.title))"));
  assert.deepEqual(result,['LibTV 新画布节点','普通行业新闻','Higgsfield Black Friday discount','其他工具更新']);
 });
+
+test('public feature baseline is matrix context and only later deltas enter innovation observations',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=innovation',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("state.appUpdates={sources:[{id:'libtv-home',vendor:'LibTV',role:'competitor',type:'product-surface',entries:{a:{featureName:'新画布节点',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'}}}],events:[{sourceId:'libtv-home',kind:'baseline-product-surface',claimType:'first-party-product-surface',featureName:'初始基线功能',observedAt:'2026-11-28T02:00:00Z',sourceUrl:'https://www.liblib.tv/'},{sourceId:'libtv-home',kind:'new-product-surface',claimType:'first-party-product-surface',featureName:'新发现入口',observedAt:'2026-11-28T02:00:00Z',sourceUrl:'https://www.liblib.tv/'}]};render()");
+ assert.match(node('content').innerHTML,/新发现入口/);assert.doesNotMatch(node('content').innerHTML,/初始基线功能/);
+ const rows=JSON.parse(run("JSON.stringify(competitorMatrixRows(state.appUpdates,Date.now(),[]))"));
+ assert.equal(rows[0].day,null);assert.equal(rows[0].kind,'官网自动观察');
+ const plan=JSON.parse(run("JSON.stringify(innovationModelTestPlan({type:'model',category:'video'}))"));assert.equal(plan.status,'待实测');assert.equal(plan.steps.length,3);
+ const impl=JSON.parse(run("JSON.stringify(innovationImplementationPlan({id:'sound',references:[]}))"));assert.equal(impl.steps.length,3);assert.match(impl.status,/未运行/);
+});
+
+test('competitor matrix covers whole product, including unfamiliar feature shapes',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const rows=JSON.parse(run("JSON.stringify(competitorMatrixRows({sources:[{id:'lib',vendor:'LibTV',role:'competitor',type:'product-surface',entries:{a:{featureName:'新增资产共享功能',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'},b:{featureName:'插件系统升级',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'},c:{featureName:'MAGI-2独家首发',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'},d:{featureName:'全新光谱实验室',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'}}}]},Date.now(),[]))"));
+ assert.ok(rows.find(x=>x.name==='新增资产共享功能').dimensions.includes('asset'));
+ assert.ok(rows.find(x=>x.name==='插件系统升级').dimensions.includes('plugin'));
+ assert.deepEqual(rows.find(x=>x.name==='MAGI-2独家首发').dimensions,['integration']);
+ assert.deepEqual(rows.find(x=>x.name==='全新光谱实验室').dimensions,['other']);
+});

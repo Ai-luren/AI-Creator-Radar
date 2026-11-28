@@ -11,7 +11,7 @@ from pathlib import Path
 import re
 import urllib.request
 import urllib.error
-from urllib.parse import urlencode, urlsplit
+from urllib.parse import urlencode, urlsplit, urljoin
 from collections import Counter
 
 try:
@@ -27,7 +27,8 @@ MAX_BYTES=6*1024*1024
 HIGGS_CHANGELOG="https://higgsfield.ai/creator-hub/changelog"
 DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
                   "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog"}
-ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG,*DATED_CHANGELOGS.values()}
+PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/"}
+ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG,*DATED_CHANGELOGS.values(),*PRODUCT_SURFACES.values()}
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
 
 class VisibleText(HTMLParser):
@@ -78,6 +79,112 @@ def parse_surface(page,source):
     if not labels:
         raise ValueError("No explicit model labels in readable app surface")
     return labels
+
+
+class ProductLinks(VisibleText):
+    """Visible same-host navigation labels; never execute the page or follow links."""
+    def __init__(self):
+        super().__init__()
+        self.links=[]
+        self.active=None
+
+    def handle_starttag(self,tag,attrs):
+        super().handle_starttag(tag,attrs)
+        if tag=="a" and not any(hidden for _,hidden in self.stack):
+            a=dict(attrs)
+            self.active={"href":a.get("href",""),"label":a.get("aria-label",""),"parts":[]}
+
+    def handle_data(self,data):
+        super().handle_data(data)
+        if self.active is not None and not any(hidden for _,hidden in self.stack):
+            self.active["parts"].append(data)
+
+    def handle_endtag(self,tag):
+        if tag=="a" and self.active is not None:
+            self.links.append(self.active)
+            self.active=None
+        super().handle_endtag(tag)
+
+
+def parse_product_surface(page,source):
+    """Observe named public product surfaces, not the authenticated editor or changelog."""
+    if PRODUCT_SURFACES.get(source["id"])!=source["url"]:
+        raise ValueError("Unapproved public product surface")
+    parser=ProductLinks()
+    parser.feed(page)
+    parser.close()
+    text=" ".join(" ".join(parser.parts).split())
+    rows={}
+    def add(name,area,url):
+        name=" ".join(name.split()).strip()
+        if not 2<=len(name)<=100 or re.search(r"discount|coupon|pricing|black friday|% off|credits?|促销|折扣|积分|会员|低至|大赛|挑战赛",name,re.I):
+            return
+        key=hashlib.sha256((area+"|"+name.casefold()+"|"+url).encode()).hexdigest()
+        rows[key]={"featureName":name,"productArea":area,"featureUrl":url,"category":"app",
+                   "claimType":"first-party-product-surface","updateType":"surface-observation"}
+    if source["id"]=="libtv-home":
+        if not all(x in text for x in ("LibTV","版本更新记录","新建画布创作")):
+            raise ValueError("LibTV public product surface not readable")
+        for name in ("LibTV 画布","LibTV Agent BETA","LibTV 3D-BOX","视频生成","图片生成","音频生成","剧本生成","智能剪辑"):
+            if name in text:
+                add(name,"公开功能入口",source["url"])
+        # Project, asset and plugin are public navigation entries, not promises
+        # of specific features inside a logged-in workspace.
+        nav=text.split("创作",1)[0]
+        if "首页" in nav and all(x in nav for x in ("项目","资产","插件")):
+            for name in ("项目","资产","插件"):
+                add(name,"公开导航入口",source["url"])
+        # Read feature updates across the whole platform, not just canvas nodes.
+        # Restrict to the publisher's bounded recent-update section.
+        if "最近上新" in text and "创作精选" in text.split("最近上新",1)[1]:
+            # Use positions, rather than substring membership in the concatenated
+            # section: a repeated label outside the section is not new evidence.
+            active=False
+            for part in parser.parts:
+                label=" ".join(part.split()).strip()
+                if label=="最近上新":
+                    active=True
+                    continue
+                if active and label=="创作精选":
+                    break
+                if not active or not 2<=len(label)<=100:
+                    continue
+                if re.search(r"教程|课程|视频课|电影节|展评|比赛|挑战赛|活动|直播|获奖|作品精选|用户案例|tutorial|course|contest|festival|webinar",label,re.I):
+                    continue
+                if (re.search(r"新增|上新|上线|接入|升级|更新|优化|支持|已开放|正式开放|全新|功能发布|独家首发|\bnew\b|(?<=[\u4e00-\u9fff])New$|\b(?:launch(?:ed)?|introducing|now supports|now available)\b",label,re.I)):
+                    # Mixed promo and product headlines are retained only if the
+                    # explicit feature/model clause can be separated cleanly.
+                    label=re.split(r"[·|｜，,；;]",label,maxsplit=1)[0].strip()
+                    if re.search(r"新增|上新|上线|接入|升级|更新|优化|支持|已开放|正式开放|全新|功能发布|独家首发|\bnew\b|(?<=[\u4e00-\u9fff])New$|\b(?:launch(?:ed)?|introducing|now supports|now available)\b",label,re.I):
+                        add(label,"首页近期推荐",source["url"])
+    else:
+        if not all(x in text for x in ("Higgsfield","New drops","Cinema Studio")):
+            raise ValueError("Higgsfield public product surface not readable")
+        for link in parser.links:
+            try:
+                u=urlsplit(urljoin(source["url"],link["href"]))
+                if u.scheme!="https" or u.hostname!="higgsfield.ai" or u.username or u.password or u.port not in (None,443):
+                    continue
+            except ValueError:
+                continue
+            path=u.path.rstrip("/")
+            label=" ".join(" ".join(link["parts"]).split())
+            aria=" ".join(link["label"].split())
+            # Specific product routes and explicit promotional product labels.
+            # Exclude model-picker, login, pricing and community routes.
+            named=bool(re.fullmatch(r"/(?:[a-z0-9-]+-studio|editing-room|mangaka|canvas|supercomputer|playable|gpu|shorts|short-drama)",path))
+            explicit=bool(re.fullmatch(r"/[a-z0-9-]{3,60}",path) and aria.startswith("Open ") and
+                          re.search(r"\b(?:studio|editor|editing|tool|agent|canvas|computer)\b",aria,re.I))
+            if not (named or explicit):
+                continue
+            name=re.sub(r"^Open\s+","",aria or label,flags=re.I)
+            name=re.sub(r"\s+(?:New|Top|Soon)$","",name,flags=re.I)
+            if not name or len(name)>100:
+                continue
+            add(name,"公开产品入口","https://higgsfield.ai"+path)
+    if not rows:
+        raise ValueError("No explicit named public product capabilities")
+    return dict(list(rows.items())[:40])
 
 
 class ChangelogText(VisibleText):
@@ -408,7 +515,9 @@ def fetch(source):
         if source["url"] not in ALLOWED:
             raise ValueError("Unapproved app surface")
         url=source["url"]
-    if source.get("type") in {"higgs-changelog","dated-changelog"}:
+    if source.get("type") in {"higgs-changelog","dated-changelog","product-surface"}:
+        if source.get("type")=="product-surface" and PRODUCT_SURFACES.get(source["id"])!=url:
+            raise ValueError("Unapproved public product surface")
         if source.get("type")=="dated-changelog" and DATED_CHANGELOGS.get(source["id"])!=url:
             raise ValueError("Unapproved dated changelog")
         # Same-host fixed endpoints and robots policy, no alternate identity.
@@ -430,6 +539,8 @@ def fetch(source):
         return parse_higgs_changelog(data.decode("utf-8"),source)
     if source.get("type")=="dated-changelog":
         return parse_dated_changelog(data.decode("utf-8"),source)
+    if source.get("type")=="product-surface":
+        return parse_product_surface(data.decode("utf-8"),source)
     return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
 
 def aggregate_coverage(spec,targeted,now):
@@ -649,6 +760,8 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
                 elif value.get("claimType")=="first-party-product-changelog":
                     kind="new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry"
+                elif value.get("claimType")=="first-party-product-surface":
+                    kind="new-product-surface" if old.get("lastSuccessAt") else "baseline-product-surface"
                 else:
                     kind="new-visible-label" if old.get("lastSuccessAt") else "baseline-visible-label"
                 eid=hashlib.sha256((spec["id"]+"|"+k+"|"+stamp).encode()).hexdigest()
@@ -664,7 +777,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
                        "baselineSources":sum(bool(s.get("lastSuccessAt")) for s in sources),
                        "listedModels":sum(sum(v.get("visibleInLatestRead",False) and v.get("claimType")=="first-party-visible-label" for v in s["entries"].values()) for s in sources),
                        "reviewedObservations":len(config.get("reviewedObservations",[]))},
-            "policy":"App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only."}
+            "policy":"App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only."}
 
 def refresh_platform_coverage(config, result, data_dir, now):
     """Rebuild derived coverage from the final on-disk snapshots, without network IO."""

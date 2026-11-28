@@ -254,3 +254,36 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(final["platformCoverage"]["sources"][1]["fetchedAt"],later.isoformat())
         self.assertEqual({k:v for k,v in final.items() if k!="platformCoverage"},
                          {k:v for k,v in previous.items() if k!="platformCoverage"})
+
+    def test_public_product_surfaces_are_scoped_and_not_release_facts(self):
+        from scripts.collect_app_updates import parse_product_surface
+        hf={**self.spec,"id":"higgsfield-home","url":"https://higgsfield.ai/","type":"product-surface"}
+        page="""<main>Higgsfield New drops <a href="/cinema-studio">Cinema Studio</a>
+        <a href="/property-studio">Property Studio New</a><a href="/editing-room" aria-label="Open Higgsfield Editing Room">Editing Room</a>
+        <a href="https://higgsfield.ai.evil.test/fake-studio">Fake Studio</a>
+        <div hidden><a href="/hidden-studio">Hidden Studio</a></div><a href="/pricing">Discount</a></main>"""
+        rows=parse_product_surface(page,hf)
+        self.assertEqual({v["featureName"] for v in rows.values()},{"Cinema Studio","Property Studio","Higgsfield Editing Room"})
+        self.assertTrue(all(v["claimType"]=="first-party-product-surface" and "publisherCalendarDay" not in v for v in rows.values()))
+        lib={**self.spec,"id":"libtv-home","url":"https://www.liblib.tv/","type":"product-surface"}
+        html="<main>LibTV 版本更新记录 新建画布创作 <span>LibTV 画布</span><span>LibTV 3D-BOX</span><h2>最近上新</h2><div>元素替换New</div><div>大赛New</div><h2>创作精选</h2><div>其他功能New</div></main>"
+        values=list(parse_product_surface(html,lib).values())
+        self.assertEqual({v["featureName"] for v in values},{"LibTV 画布","LibTV 3D-BOX","元素替换New"})
+        with self.assertRaises(ValueError):parse_product_surface("<main>登录</main>",lib)
+        first=collect({"sources":[hf]}, {},self.now,lambda _:rows)
+        second=collect({"sources":[hf]},first,self.now+timedelta(hours=1),lambda _:parse_product_surface(page.replace("</main>",'<a href="/comic-studio">Comic Studio</a></main>'),hf))
+        self.assertTrue(all(e["kind"]=="baseline-product-surface" and e["releaseDate"] is None for e in first["events"]))
+        changes=[e for e in second["events"] if e["kind"]=="new-product-surface"]
+        self.assertEqual([e["featureName"] for e in changes],["Comic Studio"])
+        self.assertIsNone(changes[0]["releaseDate"])
+
+    def test_libtv_whole_product_updates_and_non_feature_exclusions(self):
+        from scripts.collect_app_updates import parse_product_surface
+        spec={**self.spec,"id":"libtv-home","url":"https://www.liblib.tv/","type":"product-surface"}
+        page="""<main><nav>首页项目资产插件</nav><span>LibTV 画布</span><span>版本更新记录</span><span>新建画布创作</span>
+        <h2>最近上新</h2><p>新增资产共享功能</p><p>智能剪辑支持字幕导出</p><p>插件系统升级</p>
+        <p>MAGI-2独家首发·低至12积分/秒</p><p>全新AI视频课程</p><p>电影节活动上线</p><p>会员优惠上线</p>
+        <h2>创作精选</h2><p>角色资产新功能上线</p></main>"""
+        labels={v["featureName"] for v in parse_product_surface(page,spec).values()}
+        self.assertTrue({"项目","资产","插件","新增资产共享功能","智能剪辑支持字幕导出","插件系统升级","MAGI-2独家首发"}<=labels)
+        self.assertFalse({"全新AI视频课程","电影节活动上线","会员优惠上线","角色资产新功能上线"}&labels)
