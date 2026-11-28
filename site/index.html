@@ -1790,6 +1790,7 @@ content.addEventListener('click',function(e){
  b=e.target.closest('[data-briefing-category]');if(b){state.briefingCategory=b.dataset.briefingCategory;render();return}
  b=e.target.closest('[data-creator-brand]');if(b){creatorBrand=b.dataset.creatorBrand;render();return}
  b=e.target.closest('[data-creator-refresh]');if(b){refreshCreatorIntel();return}
+ b=e.target.closest('[data-creator-story]');if(b){refreshCreatorStory(b.dataset.creatorStory);return}
  b=e.target.closest('[data-briefing]');if(b){state.briefingTab=b.dataset.briefing;creatorBrand='';render();return}
  b=e.target.closest('.topic-index-nav a');if(b){var target=document.querySelector(b.getAttribute('href'));if(target){e.preventDefault();window.history.replaceState(window.history.state,'',routeQuery()+b.getAttribute('href'));target.scrollIntoView({behavior:'auto',block:'start'})}return}
  b=e.target.closest('[data-topic-cat]');if(b){state.topicCategory=b.dataset.topicCat;render();return}
