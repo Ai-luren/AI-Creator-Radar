@@ -14,3 +14,5 @@
 - [V3–V3.6 设计历史](engineering-history/2026-11-26-design-history-through-v36.md)、[旧 README](engineering-history/2026-11-26-readme-before-v36.md) 和 [旧封面](engineering-history/2026-11-26-readme-hero-before-v36.svg)：保留原文件供追溯，现行规范已收敛至根目录。
 
 现行运行、设计和数据规则以[根 README](../README.md)、[维护索引](../docs/README.md)为准。本目录其他历史 Markdown 保留原时点内容，不随现行调度状态覆盖。
+
+- [退役阅读采集器](retired-reading-collectors/README.md)：保留最后版本的 Google Trends RSS、模型测评候选脚本、专用测试和原始快照；不参与线上调度、模型关联或发布包。

@@ -11,14 +11,14 @@
 | 修改官方社媒账号快照 | [社媒数据指南](social-monitor-data-guide.md) | `site/data/social-accounts.json` |
 | 理解能力榜的来源和展示口径 | [榜单方法审核](leaderboard-methodology-audit-2026-11-25.md)、[榜单规则](../site/ranking-rules.html) | `site/data/reference-rankings.json`、`site/data/maomu-rankings.json` |
 | 查看当前原榜规则 | [现行方法审计](leaderboard-methodology-audit-2026-11-25.md)、[榜单规则](../site/ranking-rules.html) | `site/data/unified-rankings.json` 的原榜字段 |
-| 查看历史综合榜实验 | [历史方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`（现行生成器仍同时执行历史试算，未完成退役） |
+| 查看历史综合榜实验 | [历史方法提案](leaderboard-methodology-proposal.md) | `scripts/build_unified_rankings.py`（仅保留旧算法用于等价回归；生产切换候选见 [原榜退役说明](primary-ranking-retirement.md)） |
 | 检查自动更新、漏跑补采和同步范围 | [自动更新说明](automation-runbook.md)、[Cloudflare 运维指南](../ops/cloudflare-watchdog/README.md) | `scripts/plan_refresh.py`、`scripts/scheduler_manifest.py`、`ops/cloudflare-watchdog/wrangler.toml` |
 
 ## 当前结构（V3.6）
 
 - 十个入口顺序见 [README](../README.md#功能结构v36) 与 [DESIGN](../DESIGN.md)，教程与案例在最后。
 - 四大展示类与音频子类只改变前端映射，数据字段、原榜任务及版本 ID 不迁移。
-- 首页正式发布统计、近期上新四种模式（正式发布、待复核、官方公告、产品更新）、最新一天简报、模型库日期倒序，以现行设计规范为准。旧迭代说明已归档，不作为当前开发规则。
+- 首页正式发布统计、近期上新默认近七天及发布日期倒序（正式发布、已核实官方公告、产品更新）、最新一天简报、模型库日期倒序，以现行设计规范为准。旧迭代说明已归档，不作为当前开发规则。
 
 ## 数据更新原则
 
@@ -62,4 +62,4 @@ Cloudflare 已部署为正式备用调度器，首次生产补采及 Pages 发�
 现行文档相对文件链接与退役采集器隔离由 Python 回归测试自动检查。旧版综合新闻采集器及配套材料见 [历史归档](../archive/legacy-news/README.md)，不在生产任务或发布包中运行。
 旧版 `site/data/news-today.json` 快照暂保留用于历史追溯，不参与现行简报或全局检索的数据加载；迁移或删除快照须先核查外部引用。
 
-- 旧社会热点 RSS 和模型测评候选快照已停止例行采集；保留原始快照与手动脚本，详见 [退役调度记录](retired-collector-schedule.md)。
+- 旧社会热点 RSS 和模型测评候选快照已停止例行采集；原始快照、脚本和专用测试原样归档，详见 [退役调度记录](retired-collector-schedule.md)。
