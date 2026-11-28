@@ -489,3 +489,35 @@ test('competitor first-party views separate dated providers and expose stale sou
  assert.match(node('content').innerHTML,/Audio separation/);assert.match(node('content').innerHTML,/超过30天/);assert.match(node('content').innerHTML,/正文未读/);assert.doesNotMatch(node('content').innerHTML,/Old relight/);
  run("creatorBrand='Flova';render()");assert.match(node('content').innerHTML,/Audio separation/);assert.doesNotMatch(node('content').innerHTML,/TapNow · 官方功能与模型接入/);
 });
+
+test('personal reader uses selected direct requests and independent cooldown without local server',async()=>{
+ const {run,node,ctx}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T00:00:00+08:00'});await run('loadData()');
+ assert.match(node('content').innerHTML,/个人阅读 · 双源最新精选/);
+ const calls=[];ctx.mockRequest=async(url,options)=>{
+  calls.push({url,options});
+  if(url.startsWith('https://aipick.news'))return {ok:false,status:429,headers:{get:()=> '3600'}};
+  return {ok:true,status:200,headers:{get:()=> 'etag'},text:async()=>JSON.stringify({items:[{title:'Higgsfield 新功能',links:{original:'https://higgsfield.ai/blog/demo'},publishedAt:'2026-11-27T08:00:00Z'}]})};
+ };
+ const result=JSON.parse(await run("readCreatorSources('competitors','Higgsfield',mockRequest).then(JSON.stringify)"));
+ assert.equal(calls.length,2);assert.ok(calls.every(x=>x.url.includes('mode=selected')&&x.url.includes('q=Higgsfield')&&x.options.credentials==='omit'));
+ assert.equal(result.sources.AIHOT.data.items.length,1);assert.match(result.sources.AIPick.error,/429/);
+ await run("readCreatorSources('competitors','Higgsfield',mockRequest)");assert.equal(calls.length,2);
+});
+
+test('platform adoption phrased model-first is recognized without confusing the publisher',()=>{
+ const {run}=setup();
+ assert.equal(run("creatorIntegrationTarget('MAGI-2 视频模型上线 LibTV','LibTV')"),true);
+ assert.equal(run("creatorIntegrationTarget('MAGI-2 视频模型上线 LibTVextra','LibTV')"),false);
+ assert.equal(run("creatorIntegrationTarget('Sand.ai 发布 MAGI-2，LibTV 用户讨论','LibTV')"),false);
+});
+
+test('creator rows retain WeChat originals and distinguish story from representative original',()=>{
+ const {run}=setup({now:'2026-11-28T00:00:00+08:00'});
+ const rows=JSON.parse(run("JSON.stringify(creatorRows([{name:'AIPick',items:[{title:'Higgsfield 新功能',publishedAt:null,discoveredAt:'2026-11-27T06:00:00Z',links:{original:'http://mp.weixin.qq.com/s?mid=123&idx=1'}},{title:'Higgsfield 新功能',publishedAt:'2026-11-27T06:00:00Z',links:{original:'https://mp.weixin.qq.com/s?idx=1&mid=123'}},{title:'Higgsfield 热点合集',latestAt:'2026-11-27T07:00:00Z',links:{original:'https://mp.weixin.qq.com/s?mid=123&idx=1',story:'https://aipick.news/story/demo'}},{title:'不安全原文',publishedAt:'2026-11-27T07:00:00Z',links:{original:'http://example.org/article'}}]}],Date.now()))"));
+ assert.equal(rows.length,2);
+ assert.equal(rows.filter(x=>x.story).length,1);
+ assert.equal(rows.filter(x=>!x.story).length,1);
+ assert.equal(run("creatorOriginalUrl('http://mp.weixin.qq.com/s?mid=123')"),'https://mp.weixin.qq.com/s?mid=123');
+ assert.equal(run("creatorOriginalUrl('http://mp.weixin.qq.com.evil.org/s?mid=123')"),'');
+ assert.equal(run("creatorOriginalUrl('https://user:pass@mp.weixin.qq.com/s')"),'');
+});

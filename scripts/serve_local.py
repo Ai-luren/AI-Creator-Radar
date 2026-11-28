@@ -359,7 +359,7 @@ def intel_endpoint(provider, mode, term):
         if term: raise ValueError("Hot board does not accept a brand query")
         return INTEL_PROVIDERS[provider]+"/api/v1/hot-topics"
     from urllib.parse import urlencode
-    params={"mode":"selected" if mode=="cases" and not term else "all","window":"7d","limit":20}
+    params={"mode":"selected","window":"7d","by":"published","limit":20}
     if term: params["q"]=term
     elif mode in {"competitors","vendors"}: params["category"]="ai-products" if mode=="competitors" else "ai-models"
     return INTEL_PROVIDERS[provider]+"/api/v1/items?"+urlencode(params)

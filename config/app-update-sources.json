@@ -129,7 +129,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "intervalMinutes": 480,
+    "intervalMinutes": 720,
     "globalIntervalMinutes": 25,
     "queries": [
       {
@@ -177,50 +177,254 @@
         "id": "higgsfield-aihot",
         "label": "Higgsfield",
         "term": "Higgsfield",
-        "provider": "AIHOT"
+        "provider": "AIHOT",
+        "priority": 0
       },
       {
         "id": "higgsfield-aipick",
         "label": "Higgsfield",
         "term": "Higgsfield",
-        "provider": "AIPick"
+        "provider": "AIPick",
+        "priority": 0
       },
       {
         "id": "flova-aihot",
         "label": "Flova",
         "term": "Flova",
-        "provider": "AIHOT"
+        "provider": "AIHOT",
+        "priority": 0
       },
       {
         "id": "flova-aipick",
         "label": "Flova",
         "term": "Flova",
-        "provider": "AIPick"
+        "provider": "AIPick",
+        "priority": 0
       },
       {
         "id": "tapnow-aihot",
         "label": "TapNow",
         "term": "TapNow",
-        "provider": "AIHOT"
+        "provider": "AIHOT",
+        "priority": 0
       },
       {
         "id": "tapnow-aipick",
         "label": "TapNow",
         "term": "TapNow",
-        "provider": "AIPick"
+        "provider": "AIPick",
+        "priority": 0
       },
       {
         "id": "libtv-aihot",
         "label": "LibTV",
         "term": "LibTV",
-        "provider": "AIHOT"
+        "provider": "AIHOT",
+        "priority": 0
       },
       {
         "id": "libtv-aipick",
         "label": "LibTV",
         "term": "LibTV",
-        "provider": "AIPick"
+        "provider": "AIPick",
+        "priority": 0
+      },
+      {
+        "id": "oiioii-aihot",
+        "label": "OiiOii",
+        "term": "OiiOii",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "oiioii-aipick",
+        "label": "OiiOii",
+        "term": "OiiOii",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "lovart-aihot",
+        "label": "Lovart",
+        "term": "Lovart",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "lovart-aipick",
+        "label": "Lovart",
+        "term": "Lovart",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "updream-aihot",
+        "label": "Updream",
+        "term": "Updream",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "updream-aipick",
+        "label": "Updream",
+        "term": "Updream",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "shotlab-aihot",
+        "label": "ShotLab",
+        "term": "ShotLab",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "shotlab-aipick",
+        "label": "ShotLab",
+        "term": "ShotLab",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "renoise-aihot",
+        "label": "Renoise",
+        "term": "Renoise",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "renoise-aipick",
+        "label": "Renoise",
+        "term": "Renoise",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "liblib-aihot",
+        "label": "Liblib",
+        "term": "Liblib",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "liblib-aipick",
+        "label": "Liblib",
+        "term": "Liblib",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "minimax-aihot",
+        "label": "MiniMax",
+        "term": "MiniMax",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "minimax-aipick",
+        "label": "MiniMax",
+        "term": "MiniMax",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "midjourney-aihot",
+        "label": "Midjourney",
+        "term": "Midjourney",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "midjourney-aipick",
+        "label": "Midjourney",
+        "term": "Midjourney",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "elevenlabs-aihot",
+        "label": "ElevenLabs",
+        "term": "ElevenLabs",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "elevenlabs-aipick",
+        "label": "ElevenLabs",
+        "term": "ElevenLabs",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "dreamina-aihot",
+        "label": "Dreamina",
+        "term": "Dreamina",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "dreamina-aipick",
+        "label": "Dreamina",
+        "term": "Dreamina",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "jimeng-products-aihot",
+        "label": "即梦",
+        "term": "即梦",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "jimeng-seedaudio-aihot",
+        "label": "SeedAudio",
+        "term": "SeedAudio",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "kling-products-aihot",
+        "label": "可灵",
+        "term": "可灵",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "hailuo-products-aihot",
+        "label": "海螺",
+        "term": "海螺",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "vidu-products-aihot",
+        "label": "Vidu",
+        "term": "Vidu",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "pixverse-products-aihot",
+        "label": "PixVerse",
+        "term": "PixVerse",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "sand-models-aihot",
+        "label": "Sand.ai",
+        "term": "Sand.ai",
+        "category": "ai-models",
+        "provider": "AIHOT",
+        "priority": 10
       }
-    ]
+    ],
+    "maxProvidersPerRun": 2
   }
 }

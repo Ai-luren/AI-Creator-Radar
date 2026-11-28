@@ -139,3 +139,23 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(second["sources"][0]["skipReason"],"aggregate-covered-sample")
         self.assertEqual(second["summary"]["successfulThisRun"],0)
         self.assertEqual(second["events"],[])
+
+    def test_dual_provider_round_robin_keeps_one_request_each_and_prioritizes_unseen(self):
+        from scripts.collect_app_updates import collect_targeted
+        cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[
+            {"id":"a","term":"Higgsfield","provider":"AIHOT","priority":0},
+            {"id":"b","term":"Higgsfield","provider":"AIPick","priority":0},
+            {"id":"c","term":"Flova","provider":"AIHOT","priority":10},
+            {"id":"d","term":"Flova","provider":"AIPick","priority":10}]}
+        calls=[]
+        def fetch(spec,etag):
+            calls.append(spec["id"])
+            return {"items":1},"e"
+        first=collect_targeted(cfg,{},self.now,fetch)
+        self.assertEqual(calls,["a","b"])
+        self.assertEqual(first["attemptedThisRun"],2)
+        collect_targeted(cfg,first,self.now+timedelta(minutes=20),fetch)
+        self.assertEqual(calls,["a","b"])
+        second=collect_targeted(cfg,first,self.now+timedelta(minutes=30),fetch)
+        self.assertEqual(calls,["a","b","c","d"])
+        self.assertEqual(second["attemptedThisRun"],2)

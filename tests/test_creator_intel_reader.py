@@ -37,3 +37,9 @@ class CreatorIntelTests(unittest.TestCase):
         for provider,mode,term in [("evil","hot",""),("AIHOT","unknown",""),("AIHOT","vendors","https://evil.org"),("AIHOT","hot","Renoise")]:
             with self.assertRaises(ValueError):reader.intel_endpoint(provider,mode,term)
         self.assertIn("q=LibTV",reader.intel_endpoint("AIPick","competitors","LibTV"))
+
+    def test_brand_reader_starts_from_editorial_selection(self):
+        url=reader.intel_endpoint("AIHOT","competitors","Higgsfield")
+        self.assertIn("mode=selected",url)
+        self.assertIn("q=Higgsfield",url)
+        self.assertIn("by=published",url)

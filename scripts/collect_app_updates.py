@@ -229,7 +229,9 @@ APPLE_LOOKUP="https://itunes.apple.com/lookup?id=6503676563&country=cn&entity=so
 AIPICK_QUERIES={
     ("即梦","ai-products"),("SeedAudio",None),("可灵","ai-products"),
     ("海螺","ai-products"),("Vidu","ai-products"),("PixVerse","ai-products"),("Sand.ai","ai-models"),
-    ("Higgsfield",None),("Flova",None),("TapNow",None),("LibTV",None)
+    ("Higgsfield",None),("Flova",None),("TapNow",None),("LibTV",None),
+    ("OiiOii",None),("Lovart",None),("Updream",None),("ShotLab",None),("Renoise",None),("Liblib",None),
+    ("MiniMax",None),("Midjourney",None),("ElevenLabs",None),("Dreamina",None)
 }
 
 
@@ -297,7 +299,9 @@ def fetch_target(spec,etag):
                 if row.get("selected") is not True or not host or not isinstance(original,str):
                     continue
                 u=urlsplit(original)
-                if u.scheme!="https" or u.username or u.password:
+                if u.username or u.password or u.port not in (None,443):
+                    continue
+                if u.scheme!="https" and not (u.scheme=="http" and host=="mp.weixin.qq.com" and u.port is None and re.match(r"^/s(?:/|$)",u.path)):
                     continue
                 if not re.match(r"^"+re.escape(term)+r"(?![A-Za-z0-9])",title.strip(),re.I):
                     continue
@@ -345,11 +349,20 @@ def collect_targeted(config,previous,now,fetcher=fetch_target):
         wait=parse_stamp(provider_services.get(row.get("provider","AIPick"),{}).get("nextAttemptAt"))
         return not wait or wait<=now
     due=[r for r in rows if provider_due(r) and (not parse_stamp(r.get("nextAttemptAt")) or parse_stamp(r["nextAttemptAt"])<=now)]
-    due.sort(key=lambda r:(r.get("nextAttemptAt") or "",r["id"]))
+    due.sort(key=lambda r:(bool(r.get("lastAttemptAt")),r.get("nextAttemptAt") or "",r.get("priority",50),r["id"]))
     attempted=0
-    if due and (not cooldown or cooldown<=now):
-        row=due[0]
-        attempted=1
+    budget=min(2,max(1,int(config.get("maxProvidersPerRun",1))))
+    chosen=[]
+    if budget==1 and cooldown and cooldown>now:
+        due=[]
+    for candidate in due:
+        provider=candidate.get("provider","AIPick")
+        if provider not in {x.get("provider","AIPick") for x in chosen}:
+            chosen.append(candidate)
+        if len(chosen)>=budget:
+            break
+    for row in chosen:
+        attempted+=1
         row["lastAttemptAt"]=stamp
         provider_state=provider_services.setdefault(row.get("provider","AIPick"),{})
         try:
