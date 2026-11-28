@@ -576,3 +576,11 @@ test('innovation opportunities do not alter overview loading or promote missing 
  const rows=run("innovationOpportunityRows({releases:[],app:{events:[]},batches:[{name:'AIHOT',items:[{title:'角色一致性',selected:true,category:'tip',discoveredAt:'2026-11-28',links:{original:'https://example.org/undated'}}]}],repos:{items:[{repo:'maker/whitebox',name:'白模预演',url:'https://github.com/maker/whitebox',research:{review:'readme-reviewed'}}]}},Date.now()).length");
  assert.equal(rows,0);
 });
+
+test('innovation exploration preserves new product shapes outside fixed themes and exact model adoption candidates',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const result=JSON.parse(run("JSON.stringify(innovationExplorationRows({releases:[{modelName:'MAGI-2',summary:'原生音视频生成',category:'video',modelFamilyId:'magi',modelVersionId:'magi-2',verifiedAt:'2026-11-24',evidenceType:'official',publishedAt:'2026-11-24',url:'https://example.org/magi'},{modelName:'MAGI-20',category:'video',modelFamilyId:'magi',modelVersionId:'magi-20',verifiedAt:'2026-11-24',evidenceType:'official',publishedAt:'2026-11-24',url:'https://example.org/magi20'}],app:{sources:[{id:'hf',role:'competitor',vendor:'Higgsfield'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Property Studio',updateType:'product-release',publisherCalendarDay:'2026-11-27',sourceUrl:'https://example.org/property'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/integration'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-20 Lite',updateType:'model-integration',publisherCalendarDay:'2026-11-27',sourceUrl:'https://example.org/lite'}]}},Date.now()))"));
+ assert.ok(result.some(r=>r.signal.title==='Property Studio'));
+ assert.equal(result.find(r=>r.signal.url.endsWith('/integration')).related.modelVersionId,'magi-2');
+ assert.equal(result.find(r=>r.signal.url.endsWith('/lite')).related,null);
+});
