@@ -49,7 +49,9 @@ test('calendar windows, issue dates, and undated discoveries are distinct',()=>{
  assert.equal(run("chinaDay('2026-11-25T17:00:00Z')"),'2026-11-26');
  assert.equal(run("briefIssueDay({title:'AI 日报（2026 年 11 月 25 日）',fetchedAt:'2026-11-26'})"),'2026-11-25');
  run("state.modelReleases=[{publishedAt:'2026-11-24'}];state.modelReleaseData={pending:[{publishedAt:null,discoveredAt:'2026-11-25'},{publishedAt:'2026-10-01',discoveredAt:'2026-11-26'}]};");
- assert.equal(run("overviewSummary(new Date('2026-11-26T06:00:00Z')).pendingUndated"),1);
+ assert.equal(run("overviewSummary(new Date('2026-11-26T06:00:00Z')).confirmed.length"),0);
+ assert.equal(run("state.modelReleaseData.pending.filter(x=>!x.publishedAt&&withinDays(x.discoveredAt,7,new Date('2026-11-26T06:00:00Z'))).length"),1);
+ assert.equal(run("Object.prototype.hasOwnProperty.call(overviewSummary(new Date('2026-11-26T06:00:00Z')),'pending')"),false);
 });
 test('briefing source links are explicit; adjacent headlines do not become originals',()=>{
  const {run}=setup();
@@ -81,11 +83,15 @@ test('failed source does not block other modules and missing data is explicit',a
  run("setView('feeds')");assert.match(node('content').innerHTML,/行业简报/);
 });
 
-test('overview jumps to distinct confirmed and pending release views',async()=>{
+test('overview and old pending routes stay on verified release projection',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');
- assert.match(node('content').innerHTML,/data-release-mode-target="pending"/);
- run("state.releaseMode='pending';setView('today')");assert.match(node('content').innerHTML,/aria-pressed="true" data-release-mode="pending"/);assert.doesNotMatch(node('content').innerHTML,/class="release-company"/);
- run("state.releaseMode='confirmed';render()");assert.match(node('content').innerHTML,/aria-pressed="true" data-release-mode="confirmed"/);assert.doesNotMatch(node('content').innerHTML,/<h2>官方动态 · 待复核<\/h2>/);
+ assert.doesNotMatch(node('content').innerHTML,/data-release-mode-target="pending"/);
+ run("state.modelReleaseData.pending.push({title:'Unverified injected model',id:'candidate',category:'video',publishedAt:new Date().toISOString()});state.releaseMode='pending';setView('today')");
+ assert.match(node('content').innerHTML,/aria-pressed="true" data-release-mode="confirmed"/);
+ assert.doesNotMatch(node('content').innerHTML,/Unverified injected model|data-release-mode="pending"/);
+ run('buildGlobalIndex()');assert.equal(run("globalIndex.some(x=>x.type==='release'&&x.title==='Unverified injected model')"),false);
+ assert.ok(run("state.modelReleaseData.pending.some(x=>x.id==='candidate')"));
+ const old=setup({query:'?view=today&status=pending'});await old.run('loadData()');assert.equal(old.run('state.releaseMode'),'confirmed');
 });
 
 test('global index finds exact versions and cross-module records',async()=>{
@@ -111,8 +117,8 @@ test('direct version links survive reload, unknown version degrades to family',a
  const b=setup({query:'?view=models&model=seedance&version=unknown'});await b.run('loadAllForTests()');assert.equal(b.run('state.selectedVersionId'),null);assert.match(b.node('content').innerHTML,/具体型号不存在/);b.run('render()');assert.match(b.node('content').innerHTML,/具体型号不存在/);b.run("setView('overview')");assert.doesNotMatch(b.node('content').innerHTML,/具体型号不存在/);
 });
 test('page filters and deep links survive browser back',async()=>{
- const {run}=setup();await run('loadAllForTests()');run("setView('today',{releaseMode:'pending'});state.releaseCategory='video';state.query='Seed';render();window.scrollY=380;setView('feeds',{briefingTab:'selected'});window.history.back()");
- assert.equal(run('state.view'),'today');assert.equal(run('state.releaseMode'),'pending');assert.equal(run('state.releaseCategory'),'video');assert.equal(run('state.query'),'Seed');assert.equal(run('window.scrollY'),380);
+ const {run}=setup();await run('loadAllForTests()');run("setView('today',{releaseMode:'announcements'});state.releaseCategory='video';state.query='Seed';render();window.scrollY=380;setView('feeds',{briefingTab:'selected'});window.history.back()");
+ assert.equal(run('state.view'),'today');assert.equal(run('state.releaseMode'),'announcements');assert.equal(run('state.releaseCategory'),'video');assert.equal(run('state.query'),'Seed');assert.equal(run('window.scrollY'),380);
 });
 
 test('rankings search indexes visible source rows and keeps task identity',async()=>{
@@ -136,11 +142,11 @@ test('grouped release list, recent known date and readable briefing preserve sou
 
 test('creator opportunities distinguish date precision and program registration',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');run("setView('opportunities')");
- assert.match(node('content').innerHTML,/AI 创作比赛/);assert.match(node('content').innerHTML,/Higgsfield Talent Contest/);
+ assert.match(node('content').innerHTML,/AI 创作比赛/);assert.match(node('content').innerHTML,/Runway AI Festival 2027/);assert.doesNotMatch(node('content').innerHTML,/Higgsfield Talent Contest/);
  assert.equal(run("contestStatus({deadlineDate:'2026-11-26',deadlineAt:'2026-11-26T19:00:00Z'},new Date('2026-11-26T18:59:00Z')).key"),'window');
  assert.equal(run("contestStatus({deadlineDate:'2026-11-26',deadlineAt:'2026-11-26T19:00:00Z'},new Date('2026-11-26T19:00:00Z')).key"),'closed');
  assert.equal(run("contestStatus({deadlineDate:'2026-11-26'},new Date('2026-11-26T10:00:00Z')).key"),'unknown');
- run("state.opportunityTab='programs';render()");assert.match(node('content').innerHTML,/开放状态待确认/);assert.ok(run('creatorPrograms().length')>20);assert.ok(run("searchGlobal('Higgsfield Talent Contest','contest').length")>0);
+ run("state.opportunityTab='programs';render()");assert.match(node('content').innerHTML,/开放状态待确认/);assert.ok(run('creatorPrograms().length')>20);assert.equal(run("searchGlobal('Higgsfield Talent Contest','contest').length"),0);assert.ok(run("searchGlobal('Runway AI Festival','contest').length")>0);
 });
 test('prompt and selection views preserve source and avoid invented scores',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');run("setView('practice',{practiceCategory:'视频',modelPracticeType:'prompt'})");assert.match(node('content').innerHTML,/data-copy-template="product-tvc"/);assert.match(node('content').innerHTML,/官方提示词指南/);assert.match(node('content').innerHTML,/提示词节选/);
@@ -175,9 +181,9 @@ test('canonical history preserves audited combined events and audio subclasses',
  assert.equal(run('isLocalAihot()'),false);
  assert.equal(run("topicEventCategoryMatches({modelCategory:'music'},'audio',{})"),true);
  assert.equal(run("topicEventCategoryMatches({modelCategory:['tts']},'audio',{})"),true);
- run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{auditId:'joint',date:'2026-01-01',title:'Veo 3 and Imagen 4 combined',kind:'模型',verificationStatus:'已确认：型号、日期与事件性质',modelCategory:['image','video']},{date:'2026-01-02',title:'Candidate',kind:'模型发布',autoCollected:true}]}];render()");
+ run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{auditId:'joint',date:'2026-01-01',title:'Veo 3 and Imagen 4 combined',url:'https://example.com/verified',kind:'模型',verificationStatus:'已确认：型号、日期与事件性质',modelCategory:['image','video']},{date:'2026-01-02',title:'Candidate',kind:'模型发布',autoCollected:true}]}];render()");
  assert.match(node('content').innerHTML,/Veo 3 and Imagen 4 combined/);
- assert.match(node('content').innerHTML,/来源日期非首发确认/);
+ assert.doesNotMatch(node('content').innerHTML,/Candidate|来源日期非首发确认/);
  run("state.topicCategory='image';state.query='combined';render()");
  assert.match(node('content').innerHTML,/Veo 3 and Imagen 4 combined/);
  assert.doesNotMatch(node('content').innerHTML,/<h3[^>]*>.*Candidate/);
@@ -194,7 +200,7 @@ test('creator program evidence ages independently of links and scan candidates s
  assert.equal(run("programReview({applicationReview:{status:'application-listed',checkedAt:'2026-11-26'}},new Date('2026-11-27T00:00:00Z')).key"),'unknown');
  run("state.opportunityDiscovery={checkedAt:'2026-11-26T00:00:00Z',sources:[],programSignals:[{platformId:'demo',scope:'global',sourceUrl:'https://example.com',status:'reachable',signal:'closure-signal'}],candidates:[{title:'Pending Example Festival',url:'https://example.com/contest',sourceName:'Demo',provenance:'directory'}]};setView('opportunities')");
  assert.equal(run("programReview({platformId:'demo',scope:'global',applicationReview:{status:'open',checkedAt:'2026-11-26',sourceUrl:'https://example.com'}},new Date('2026-11-27T00:00:00Z')).key"),'unknown');
- assert.match(node('content').innerHTML,/Pending Example Festival/);
+ assert.doesNotMatch(node('content').innerHTML,/Pending Example Festival/);assert.ok(run("state.opportunityDiscovery.candidates.some(x=>x.title==='Pending Example Festival')"));
  assert.equal(run("state.opportunityData.items.some(x=>x.title==='Pending Example Festival')"),false);
 });
 
@@ -256,7 +262,7 @@ test('briefing category and practice links keep full resources accessible',async
 });
 
 test('social views separate actual verified homepages, search entries and posts',async()=>{
- const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-matrix/);assert.match(node('content').innerHTML,/social-brand-record/);assert.match(node('content').innerHTML,/粉丝合计/);assert.match(node('content').innerHTML,/已核验主页/);assert.equal(run("socialAccountState({status:'verified-search'})"),'官方搜索入口');
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('social')");assert.match(node('content').innerHTML,/social-matrix/);assert.match(node('content').innerHTML,/social-brand-record/);assert.match(node('content').innerHTML,/粉丝合计/);assert.match(node('content').innerHTML,/已核验主页/);assert.equal(run("socialAccountState({status:'verified-search'})"),'暂无已核实主页');assert.doesNotMatch(node('content').innerHTML,/候选主页|待核验/);
  run("setView('social',{socialView:'platforms',socialRegion:'platform:X'})");assert.match(node('content').innerHTML,/social-brand-record/);assert.doesNotMatch(node('content').innerHTML,/social-platform-record/);
  run("setView('social',{socialView:'posts',socialRegion:'all'})");assert.equal(run('state.socialView'),'brands');assert.match(node('content').innerHTML,/social-brand-record/);assert.doesNotMatch(node('content').innerHTML,/data-social-view="posts"|未去重/);assert.match(node('content').innerHTML,/不同平台可能有重复用户/);assert.equal(setup({query:'?view=social&tab=posts'}).run('state.socialView'),'brands');
 });
@@ -267,8 +273,9 @@ test('reported internal-model concern is industry news, not a release',()=>{
 
 test('library prioritization, history year and review filters retain records',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');assert.equal(run('state.modelSort'),'recent');assert.equal(run("latestDatedVersion({versions:[{name:'unknown'},{name:'old',releaseDate:'2025-01-01'},{name:'new',releaseDate:'2026-01-01'}]}).name"),'new');
- run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{date:'2025-01-01',title:'Old checked',verificationStatus:'已确认'},{date:'2026-01-01',title:'New checked',verificationStatus:'已确认'},{date:'2026-01-02',title:'Pending discovery',autoCollected:true}]}];setView('topics',{activeTopic:'google',topicYear:'2026',topicReview:'verified'})");assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Old checked|Pending discovery/);
- run("state.topicReview='all';render()");assert.match(node('content').innerHTML,/Pending discovery/);
+ run("state.topics=[{id:'google',group:'公司与模型',name:'Google',milestones:[{date:'2025-01-01',title:'Old checked',url:'https://example.com/old',verificationStatus:'已确认'},{date:'2026-01-01',title:'New checked',url:'https://example.com/new',verificationStatus:'已确认'},{date:'2026-01-02',title:'Pending discovery',autoCollected:true}]}];setView('topics',{activeTopic:'google',topicYear:'2026',topicReview:'verified'})");assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Old checked|Pending discovery/);
+ run("state.topicReview='all';render()");assert.doesNotMatch(node('content').innerHTML,/Pending discovery/);
+ run("state.topicYear='all';render()");assert.match(node('content').innerHTML,/Old checked/);assert.match(node('content').innerHTML,/New checked/);assert.doesNotMatch(node('content').innerHTML,/Pending discovery/);
 });
 
 test('resource summaries and favorites do not change source data',async()=>{
@@ -318,11 +325,13 @@ test('program page renders both pre-collection and post-collection link snapshot
  assert.doesNotMatch(node('content').innerHTML,/class="creator-link-health">未检测/);
 });
 
-test('official announcement route loads discovery data and separates it from releases',async()=>{
- const {run,node,requested}=setup({query:'?view=today&status=announcements'});await run('loadData()');assert.ok(requested.includes('model-updates.json'));assert.match(node('content').innerHTML,/官方公告/);
- run("state.officialUpdates=[{official:true,title:'Verified source candidate',vendor:'Example',category:'video',url:'https://example.com/news',publishedAt:new Date().toISOString().slice(0,10)},{official:false,title:'Unofficial candidate',url:'https://example.com/rumor',publishedAt:new Date().toISOString().slice(0,10)}];render()");
- assert.match(node('content').innerHTML,/Verified source candidate/);assert.doesNotMatch(node('content').innerHTML,/Unofficial candidate|class="release-company"/);
+test('official announcement route renders verified stages without raw discovery',async()=>{
+ const {run,node,requested}=setup({query:'?view=today&status=announcements'});await run('loadData()');
+ assert.ok(!requested.includes('model-updates.json'));assert.match(node('content').innerHTML,/已核实公告/);
+ run("state.modelReleaseData.pending.push({official:true,title:'Raw official candidate',vendor:'Example',category:'video',url:'https://example.com/news',publishedAt:new Date().toISOString().slice(0,10)});state.modelReleaseData.verifiedStages.push({id:'test-stage',stage:'api-availability',stageDate:new Date().toISOString().slice(0,10),modelName:'Verified service stage',vendor:'Example',category:'video',url:'https://example.com/stage',verifiedAt:new Date().toISOString().slice(0,10)});render()");
+ assert.match(node('content').innerHTML,/Verified service stage/);assert.doesNotMatch(node('content').innerHTML,/Raw official candidate|class="release-company"/);
 });
+
 test('ranked MAGI-2 has the same model family and version IDs as its release',async()=>{
  const {run,node}=setup();await run('loadAllForTests()');run("setView('rankings',{rankTab:'video'})");
  const exists=run("(state.unifiedRankings.categories.find(c=>c.id==='video').primaryLeaderboards['image-to-video-audio'].rows||[]).some(r=>r.name==='MAGI-2')");
@@ -341,9 +350,11 @@ test('V3.4 chronology keeps evidence in default collapsed disclosure',async()=>{
  const {run,node}=setup({query:'?view=topics&topic=openai'});await run('loadAllForTests()');run("setView('topics',{activeTopic:'openai'})");
  assert.match(node('content').innerHTML,/<details class="topic-event-disclosure"><summary/);assert.doesNotMatch(node('content').innerHTML,/<details class="topic-event-disclosure" open/);assert.match(node('content').innerHTML,/原始公告/);assert.match(node('content').innerHTML,/data-topic-events="expand"/);
 });
-test('V3.4 merges only uniquely matched same-day release candidates in display',()=>{
- const {run}=setup();const rows=[{date:'2026-11-17',title:'Model A 发布',kind:'模型',verificationStatus:'已确认',modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]},{date:'2026-11-17',title:'Introducing Model A',kind:'模型发布',autoCollected:true,modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]},{date:'2026-11-17',title:'Model A Preview',kind:'模型发布',autoCollected:true,modelMentions:[{modelFamilyId:'a',modelVersionId:'a1'}]}];
- const result=JSON.parse(run('JSON.stringify(compactChronicleRows('+JSON.stringify(rows)+'))'));assert.equal(result.length,2);assert.equal(result[0]._related.length,1);assert.equal(result[1].title,'Model A Preview');
+test('history publication gate retains audited and proof-backed nodes, rejects unverified stages',()=>{
+ const {run}=setup();const base={date:'2026-11-17',title:'Model A 发布',kind:'模型',url:'https://example.com/a'};
+ const rows=[{...base,verificationStatus:'已确认'},{...base,title:'Introducing Model A',autoCollected:true},{...base,title:'Model A Preview',externalUnreviewed:true,verificationStatus:'已确认'},{...base,title:'Machine verified',autoCollected:true,verificationMethod:'automatic-dual-official',automaticReleaseEventId:'r1',corroboratingSources:[{url:'https://a.example/a'},{url:'https://b.example/a'}]},{...base,title:'Incomplete proof',autoCollected:true,verificationMethod:'automatic-dual-official',automaticReleaseEventId:'r2',corroboratingSources:[]}];
+ const result=JSON.parse(run('JSON.stringify('+JSON.stringify(rows)+'.filter(publishedChronicleNode))'));assert.deepEqual(result.map(x=>x.title),['Model A 发布','Machine verified']);
+ assert.equal(run('topicMilestoneCounts({milestones:'+JSON.stringify(rows)+'}).verified'),2);
 });
 
 test('V3.4 shared semantic icons and readable provider labels',()=>{
