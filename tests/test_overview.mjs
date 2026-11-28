@@ -953,3 +953,20 @@ test('recent curated creative reports fill reading gaps without inventing releas
  const markup=run("curatedCreativeMarkup(Date.now(),'',[])");
  assert.match(markup,/Hy3D 3.6/);assert.match(markup,/豆包工作独家接入剪映官方插件/);assert.match(markup,/非发布日期/);
 });
+
+test('first-party hands-on reports are not new product or model launch records',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const reports=[{item:{title:'即梦短剧工作室上线，实测剧本模型 DreamScript 与分镜模型 DreamShot',publishedAt:'2026-11-27T10:59:59Z',links:{original:'https://example.org/review'}}}];
+ const rows=JSON.parse(run('JSON.stringify(competitorBriefRows({},'+JSON.stringify(reports)+',{},Date.now()))'));
+ assert.equal(rows.length,1);assert.equal(rows[0].kind,'实测 / 创作案例');assert.equal(rows[0].proof,'相关报道 · 非官方确认');
+ assert.equal(run("competitorEventType('Higgsfield 接入 MAGI-2')"),'模型接入');
+ assert.equal(run("competitorEventType('TapNow launches a workflow')"),'产品 / 功能');
+});
+test('recent App Store versions use the store date rather than observation time',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const source={id:'jimeng-ios-cn',vendor:'字节跳动'};
+ const event={sourceId:source.id,claimType:'first-party-store-version',kind:'baseline-store-version',storeVersion:'2.4.3',storeVersionReleasedAt:'2026-11-23T03:04:45Z',observedAt:'2026-11-27T04:20:20Z',sourceUrl:'https://apps.apple.com/cn/app/id6503676563'};
+ const app={sources:[source],events:[event,{...event,storeVersion:'2.4.2',storeVersionReleasedAt:'2026-11-10T00:00:00Z'},{...event,storeVersion:'2.4.4',storeVersionReleasedAt:null}]};
+ const rows=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(app)+',[],{},Date.now()))'));
+ assert.equal(rows.length,1);assert.equal(rows[0].brand,'即梦');assert.equal(rows[0].day,'2026-11-23');assert.equal(rows[0].kind,'客户端版本');assert.match(rows[0].proof,/非模型发布日期/);
+});
