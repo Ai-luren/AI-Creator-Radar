@@ -1034,3 +1034,9 @@ test('model adoption opportunities keep verified integrations, own evidence and 
  assert.equal(result.length,1);assert.equal(result[0].priority,'优先评估');assert.deepEqual(result[0].confirmed,['Higgsfield']);assert.deepEqual(result[0].observed,['LibTV']);assert.equal(result[0].own.length,1);assert.equal(result[0].originals.length,2);assert.deepEqual(result[0].queryCounts.map(q=>q.count),[21,28]);
  const html=run('modelAdoptionOpportunityMarkup('+args+',Date.now())');assert.match(html,/国内站日期未核实/);assert.match(html,/暂无证据不等于未接入/);
 });
+
+test('agent research charter keeps evaluation targets separate from tested product facts',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const html=run('agentResearchCharterMarkup()');
+ assert.match(html,/Renoise Agent/);assert.match(html,/人物三视图/);assert.match(html,/模型路由/);assert.match(html,/局部修改/);assert.match(html,/同素材、同约束/);assert.match(html,/无实测不宣称改进/);assert.match(html,/不是现有能力或已测效果/);
+});

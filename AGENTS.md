@@ -4,6 +4,10 @@
 
 Maintain a personal AI product-design and creator radar focused on trustworthy relevant model and competitor updates, creative workflows, reusable public-source projects, and evidence-linked product opportunity hypotheses. The user should consume information, not perform recurring fact correction, missing-release discovery, or engineering maintenance. P1 data reliability takes precedence; P2 remains frozen until explicitly reopened.
 
+## Product research charter
+
+Follow [Renoise Agent 产品研究纲领](docs/renoise-agent-research.md) as the product-value constraint: prioritize creative quality, efficiency, controllability and product differentiation over information volume. Convert relevant evidence into user pain, reusable Agent skills/workflows or feature hypotheses and reproducible minimum tests. Distinguish research hypotheses, observed competitor facts, internal product status and actual test results; never assert unmeasured improvement. No new collection or architecture merely to increase counts.
+
 ## Directory conventions
 
 - `site/index.html` is the single website entry point; `site/assets/` contains published assets.
