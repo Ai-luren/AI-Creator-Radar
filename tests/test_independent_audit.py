@@ -86,6 +86,27 @@ class IndependentAuditTests(unittest.TestCase):
         self.assertEqual(len(row["cardEvidence"]),1)
         self.assertEqual(row["cardReview"]["role"],"auxiliary-prompt-expander")
 
+    def test_old_card_observations_remain_in_independent_denominator_without_requests(self):
+        first=self.run_audit()
+        later=audit(self.cfg,self.families,self.vendors,first,self.now+timedelta(days=9),self.fetch,
+                    lambda row:self.fail("old model card must not be fetched"))
+        self.assertEqual(later["summary"]["cardRequests"],0)
+        self.assertEqual(later["summary"]["initialStates"],first["summary"]["initialStates"])
+        self.assertEqual(later["summary"]["inScopeRepositorySamples"],first["summary"]["inScopeRepositorySamples"])
+        self.assertEqual({r["id"] for r in later["observations"]},{r["id"] for r in first["observations"]})
+
+    def test_recent_card_priority_does_not_reduce_sample_denominator(self):
+        from unittest.mock import patch
+        self.raw.append({"id":"MiniMaxAI/Demo-5","createdAt":"2026-11-22T00:00:00Z","pipeline_tag":"text-to-video"})
+        calls=[]
+        def card(row):
+            calls.append(row["modelName"])
+            return "# "+row["modelName"],row["url"]+"/raw/main/README.md"
+        with patch("scripts.collect_independent_audit.CARD_BUDGET",1):
+            result=audit(self.cfg,self.families,self.vendors,{},self.now,self.fetch,card)
+        self.assertEqual(calls,["Demo-4"])
+        self.assertEqual(result["summary"]["inScopeRepositorySamples"],3)
+
     def test_standalone_and_bundle_are_not_auto_closed(self):
         from scripts.collect_independent_audit import classify_card
         row={"modelName":"Demo","author":"MiniMaxAI"}
