@@ -361,3 +361,25 @@ class AppUpdatesTests(unittest.TestCase):
         result=model_watch_counts(rows,"Seedance 3.5")
         self.assertEqual(result["Higgsfield"],1)
         self.assertEqual(result["LibTV"],0)
+
+    def test_model_watch_gap_enables_existing_official_probe_but_respects_cooldown(self):
+        from scripts.collect_app_updates import model_watch_official_gap
+        spec={"id":"hf","name":"Higgsfield","vendor":"Higgsfield","type":"higgs-changelog","url":"https://higgsfield.ai/creator-hub/changelog","links":[],"minIntervalMinutes":360}
+        rows=[{"modelWatch":True,"modelFamilyId":"seedance","modelVersionId":"35","term":"Seedance 3.5",
+               "provider":provider,"publisherCalendarDay":self.now.date().isoformat(),"lastAttemptAt":self.now.isoformat()} for provider in ("AIHOT","AIPick")]
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows[:1]},{},self.now),[])
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows},{},self.now),["Seedance 3.5"])
+        prior={"sources":[spec],"events":[{"sourceId":"hf","claimType":"first-party-product-changelog","updateType":"model-integration",
+               "featureName":"Seedance 3.5","publisherCalendarDay":self.now.date().isoformat()}]}
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows},prior,self.now),[])
+        self.assertEqual(model_watch_official_gap(spec,{"queries":rows},{},self.now+timedelta(hours=13)),[])
+        release={"modelName":"Seedance 3.5","modelFamilyId":"seedance","modelVersionId":"35","category":"video",
+                 "publishedAt":self.now.date().isoformat(),"verifiedAt":self.now.date().isoformat(),
+                 "evidenceType":"official-release","url":"https://example.org/official"}
+        cfg={"sources":[{**spec,"aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":720,"globalIntervalMinutes":25,
+             "maxProvidersPerRun":2,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
+        previous={"schema":"app-updates/v1","sources":[{**spec,"nextAttemptAt":(self.now+timedelta(hours=1)).isoformat()}],"events":[]}
+        got=collect(cfg,previous,self.now,lambda _:self.fail("must honor source cooldown"),lambda *_:({"items":0},"e"),releases=[release])
+        self.assertEqual(got["sources"][0]["modelWatchGap"],["Seedance 3.5"])
+        self.assertTrue(got["sources"][0]["deferred"])
+        self.assertEqual(got["summary"]["successfulThisRun"],0)
