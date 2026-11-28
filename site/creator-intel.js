@@ -498,6 +498,14 @@ function creativeOriginalPlatform(url){
  }catch(e){}
  return '';
 }
+// Calendar context alone is not a viral signal. Keep explicit creative artifacts
+// while rejecting the software subscription/deal advertisements on the same dates.
+function seasonalCreativeCase(item){
+ var title=String(item&&item.title||'');
+ if(!/黑五|黑色星期五|感恩节|圣诞|万圣节|春节|元旦|跨年|情人节|开斋节|斋月|black friday|cyber monday|thanksgiving|christmas|halloween|lunar new year|new year|valentine|ramadan|eid al-fitr/i.test(title))return false;
+ if(/折扣|优惠|优惠券|套餐|积分|充值|限时免费|限免|赠送|抽奖|会员|discount|coupon|subscription|credits?|pricing|giveaway|\d+\s*%\s*off|\b(?:sale|deal)\b/i.test(title))return false;
+ return /品牌短片|广告片|创意广告|节日广告|商业广告|商品广告|广告视频|视觉特效|创意视频|短片|动画|漫剧|镜头拆解|分镜|模板制作|brand film|short film|creative ad|holiday ad|product commercial|product reveal|ad creative|commercial video|animation|VFX|visual effects|motion graphics/i.test(title);
+}
 function creativeDemandRows(batches,now){
  var rows=creatorRows(batches,now),out=[];
  rows.forEach(function(r){
@@ -506,14 +514,15 @@ function creativeDemandRows(batches,now){
   var demand=/爆款|爆火|走红|刷屏|病毒式|热播|热门视频|viral|went viral|trending video|\d[\d.,]*\s*(?:万|亿|million|billion|[mk])?\s*(?:播放|观看|views)/i.test(title);
   var craft=/复刻|模仿|还原|风格|变身|视觉特效|创意视频|短片|动画|漫剧|镜头|分镜|提示词|remake|recreat|style|transformation|VFX|short film|animation|cinematic|prompt/i.test(title);
   var media=/AI|视频|电影|影视|游戏|角色|动画|影像|video|film|game|character|animation|VFX/i.test(title);
-  if(!media||!(demand&&craft||craft&&(innovationCreativeCase(x)||/(?:照片|图片|图像|photo|image).{0,36}(?:风格|style)|(?:风格|style).{0,36}(?:照片|图片|图像|photo|image)/i.test(title))&&/复刻|模仿|还原|风格|变身|VFX|remake|recreat|style|transformation/i.test(title)))return;
-  out.push({title:title,url:url,platform:platform,day:chinaDay(x.publishedAt),time:published,providers:r.providers,reportedTrend:demand});
+  var seasonal=seasonalCreativeCase(x);
+  if(!seasonal&&(!media||!(demand&&craft||craft&&(innovationCreativeCase(x)||/(?:照片|图片|图像|photo|image).{0,36}(?:风格|style)|(?:风格|style).{0,36}(?:照片|图片|图像|photo|image)/i.test(title))&&/复刻|模仿|还原|风格|变身|VFX|remake|recreat|style|transformation/i.test(title))))return;
+  out.push({title:title,url:url,platform:platform,day:chinaDay(x.publishedAt),time:published,providers:r.providers,reportedTrend:demand,seasonal:seasonal});
  });
  return out.sort(function(a,b){return Number(b.reportedTrend)-Number(a.reportedTrend)||b.time-a.time}).slice(0,8);
 }
 function creativeDemandMarkup(batches,now){
  var rows=creativeDemandRows(batches,now).filter(function(r){return matches([r.title,r.platform].join(' '))});
- return '<section class="briefing-digest-section"><div class="section-head"><h2>创作爆点与复刻线索</h2><span class="head-meta">近3天 · '+rows.length+' 条原帖入口</span></div><p class="page-desc">来自已有精选原帖，不是社媒实时播放量榜。标题中的走红或播放量说法仅为报道线索；当前快照没有可核实播放量，不以精选分数代替。热门 IP、人物和音乐优先提炼可授权或原创的风格、镜头、创意与工作流。</p><div class="briefing-list">'+(rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.day+' · '+r.platform+' · '+(r.reportedTrend?'传播线索 · 播放量待核实':'创作玩法参考 · 非爆款认证'))+'</span><strong>'+esc(r.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>快速研究：</strong>打开原帖核对发布时间与公开播放量；拆解开头、视觉钩子、叙事、镜头和声音；用自有或授权素材复现关键手法；验证是否可封装模板、Skill 或 Agent 工作流。</p><p><strong>活动判断：</strong>核实需求、品牌适配及权利限制，再决定是否制作演示或发起创作者活动。</p>'+creatorLink(r.url,'原帖 / 核对指标')+'</div></details></article>'}).join('')||empty('当前快照暂无匹配创作爆点；未测量 Instagram / X 实际传播，不代表没有热点。'))+'</div><div class="briefing-original-links">'+creatorLink('https://www.instagram.com/explore/','Instagram 探索')+creatorLink('https://x.com/search?q=AI%20video%20viral&src=typed_query&f=live','X 创作热点搜索')+'</div></section>';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>创作爆点与复刻线索</h2><span class="head-meta">近3天 · '+rows.length+' 条原帖入口</span></div><p class="page-desc">来自已有精选原帖，不是社媒实时播放量榜。标题中的走红或播放量说法仅为报道线索；当前快照没有可核实播放量，不以精选分数代替。热门 IP、人物和音乐优先提炼可授权或原创的风格、镜头、创意与工作流。</p><div class="briefing-list">'+(rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.day+' · '+r.platform+' · '+(r.reportedTrend?'传播线索 · 播放量待核实':r.seasonal?'节日创意参考 · 非爆款认证':'创作玩法参考 · 非爆款认证'))+'</span><strong>'+esc(r.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>快速研究：</strong>打开原帖核对发布时间与公开播放量；拆解开头、视觉钩子、叙事、镜头和声音；用自有或授权素材复现关键手法；验证是否可封装模板、Skill 或 Agent 工作流。</p><p><strong>活动判断：</strong>核实需求、品牌适配及权利限制，再决定是否制作演示或发起创作者活动。</p>'+creatorLink(r.url,'原帖 / 核对指标')+'</div></details></article>'}).join('')||empty('当前快照暂无匹配创作爆点；未测量 Instagram / X 实际传播，不代表没有热点。'))+'</div><div class="briefing-original-links">'+creatorLink('https://www.instagram.com/explore/','Instagram 探索')+creatorLink('https://x.com/search?q=AI%20video%20viral&src=typed_query&f=live','X 创作热点搜索')+'</div></section>';
 }
 // A deterministic planning calendar, not a claim that a company has scheduled a campaign.
 // Date offsets are planning deadlines, not evidence of completion.
@@ -530,6 +539,7 @@ function campaignMilestones(day,days){
  ].map(function(m){var until=days+m.offset;return Object.assign({},m,{day:new Date(start+m.offset*86400000).toISOString().slice(0,10),status:until<0?'计划日已过 · 完成未知':until===0?'今日计划 · 待确认':'计划节点'})});
 }
 function campaignPreparationStage(days){
+ if(days<0)return 'D+'+(-days)+' · 复盘与沉淀';
  if(days===0)return 'D-Day · 发布与观察';
  if(days<=3)return 'D-3 · 上线与传播准备';
  if(days<=7)return 'D-7 · 成片与功能验收';
@@ -538,15 +548,15 @@ function campaignPreparationStage(days){
  return '提前规划';
 }
 function campaignResearchHandoff(r){
- return ['# 营销创作研究任务｜'+r.title,'状态：策划候选，非已立项或发布。','日期：'+(r.approx?'预计 ':'')+r.day+'｜市场：'+r.market,'创作机会：'+r.idea,'研究重点：候选模型优势、竞品同类入口、可复用 Agent 工具/Skill、原创或授权素材及创作需求。','当前计划阶段：'+r.stage,'计划节点（日期不表示完成）：'].concat(r.milestones.map(function(m){return '- '+m.day+'｜'+m.title+'｜'+m.owner+'（建议协作）｜'+m.deliverable+'｜'+m.status}),['验收：同素材对照，记录作品质量、可用交付、操作与返工成本；只有取得经授权的实际使用数据才判断用户增长和留存。','逾期：先核对已完成事项与可交付范围；时间不足时使用已验证能力或暂缓，不强行上线。',r.approx?'预计日期须按当地公告重算。':'日期和市场活动须按当地公告复核。']).join('\n');
+ return ['# 营销创作研究任务｜'+r.title,'状态：策划候选，非已立项或发布。','日期：'+(r.approx?'预计 ':'')+r.day+'｜市场：'+r.market,'创作机会：'+r.idea,'研究重点：候选模型优势、竞品同类入口、可复用 Agent 工具/Skill、原创或授权素材及创作需求。','当前计划阶段：'+r.stage,'计划节点（日期不表示完成）：'].concat(r.milestones.map(function(m){return '- '+m.day+'｜'+m.title+'｜'+m.owner+'（建议协作）｜'+m.deliverable+'｜'+m.status}),['验收：同素材对照，记录作品质量、可用交付、操作与返工成本；只有取得经授权的实际使用数据才判断用户增长和留存。',r.days<0?'复盘：先确认是否实际开展及取得授权的记录；未开展则只做同类案例研究，不虚构活动或用户数据。':'逾期：先核对已完成事项与可交付范围；时间不足时使用已验证能力或暂缓，不强行上线。',r.approx?'预计日期须按当地公告重算。':'日期和市场活动须按当地公告复核。']).join('\n');
 }
 function creativeCampaignCalendar(now){
  var today=chinaDay(new Date(now).toISOString()),start=Date.parse(today+'T00:00:00Z'),year=Number(today.slice(0,4)),rows=[];
  function add(day,title,market,idea,source,priority,approx){
-  var left=Math.round((Date.parse(day+'T00:00:00Z')-start)/86400000);if(!Number.isInteger(left)||left<0||left>90)return;
+  var left=Math.round((Date.parse(day+'T00:00:00Z')-start)/86400000);if(!Number.isInteger(left)||left<-7||left>90)return;
   rows.push({day:day,title:title,market:market,idea:idea,source:source||'',priority:priority||(/中国电商|^中国$|^国内及适用市场$/.test(market)?'domestic':'global'),approx:!!approx,days:left,stage:campaignPreparationStage(left),milestones:campaignMilestones(day,left)});
  }
- for(var y=year;y<=year+1;y++){
+ for(var y=year-1;y<=year+1;y++){
   [['01-01','元旦 / New Year','国内外','跨年与新年主题宣传、年度回顾'],
    ['02-14','情人节','国内外','情感故事、礼品广告及个性化祝福'],
    ['03-17','St. Patrick’s Day','爱尔兰及相关海外市场','绿色主题、原创节庆视觉'],
@@ -571,12 +581,16 @@ function creativeCampaignCalendar(now){
  add('2027-02-08','Ramadan 预计开始','中东及全球穆斯林社群','尊重文化习俗的家庭、餐饮和节期内容；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/ramadan-timetable/','global',true);
  add('2027-03-10','Eid al-Fitr 预计日期','中东及全球穆斯林社群','尊重文化习俗的祝福、家庭及节日视觉；当地日期待确认','https://www.islamic-relief.org.uk/giving/islamic-giving/ramadan/ramadan-timetable/','global',true);
  add('2027-03-28','Easter Sunday','采用西方教会历法的市场','春季主题、节日创意与品牌故事','https://www.info.gov.hk/gia/general/202605/15/P2026051400300p.htm','global');
- return rows.sort(function(a,b){return Number(a.priority==='domestic')-Number(b.priority==='domestic')||a.day.localeCompare(b.day)||a.title.localeCompare(b.title)});
+ return rows.sort(function(a,b){return Number(a.days<0)-Number(b.days<0)||Number(a.priority==='domestic')-Number(b.priority==='domestic')||(a.days<0&&b.days<0?b.day.localeCompare(a.day):a.day.localeCompare(b.day))||a.title.localeCompare(b.title)});
 }
 function creativeCampaignMarkup(now){
  var rows=creativeCampaignCalendar(now).filter(function(r){return matches([r.title,r.market,r.idea].join(' '))});
  if(!rows.length)return '';
- return '<section class="briefing-digest-section"><div class="section-head"><h2>节日与营销创作机会</h2><span class="head-meta">海外优先 · 未来90天</span></div><p class="page-desc">海外及跨市场节点优先，国内电商与本地节日补充。日历不代表已安排活动；各地区庆祝日期与文化语境须核对，预计日期以当地公告为准。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc((r.priority==='domestic'?'国内补充':'海外 / 跨市场')+' · '+(r.approx?'预计 ':'')+r.day+' · '+(r.days===0?'今天':'还有 '+r.days+' 天')+' · '+r.stage+' · '+r.market)+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>候选准备：</strong>确定主题与授权素材，制作 Agent 可复用模板、同素材测试、示范视频和活动创意；核对上线资源、用户交付与传播时间。不是已立项活动。</p>'+(r.source?creatorLink(r.source,r.approx?'预计日期参考':'已核对日期依据'):'')+researchHandoffMarkup(campaignResearchHandoff(r))+'</div></details></article>'}).join('')+'</div></section>';
+ var upcoming=rows.filter(function(r){return r.days>=0}),recent=rows.filter(function(r){return r.days<0});
+ function cards(items){
+  return '<div class="briefing-list">'+items.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc((r.priority==='domestic'?'国内补充':'海外 / 跨市场')+' · '+(r.approx?'预计 ':'')+r.day+' · '+(r.days===0?'今天':r.days<0?'节点已过 '+(-r.days)+' 天':'还有 '+r.days+' 天')+' · '+r.stage+' · '+r.market)+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.idea)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+(r.days<0?'<p><strong>复盘候选：</strong>先核实是否实际开展；记录可访问的公开案例、有效手法与经授权的实际反馈。无活动记录时只做创作案例研究，不虚构业绩。</p>':'<p><strong>候选准备：</strong>确定主题与授权素材，制作 Agent 可复用模板、同素材测试、示范视频和活动创意；核对上线资源、用户交付与传播时间。不是已立项活动。</p>')+(r.source?creatorLink(r.source,r.approx?'预计日期参考':'已核对日期依据'):'')+researchHandoffMarkup(campaignResearchHandoff(r))+'</div></details></article>'}).join('')+'</div>';
+ }
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>节日与营销创作机会</h2><span class="head-meta">海外优先 · 未来90天 + 近7天复盘</span></div><p class="page-desc">海外及跨市场节点优先，国内电商与本地节日补充。日历不代表已安排活动；各地区庆祝日期与文化语境须核对，预计日期以当地公告为准。</p>'+(upcoming.length?cards(upcoming):'')+(recent.length?'<details class="source-health"><summary>最近7天 · 复盘候选 '+recent.length+' 个节点</summary>'+cards(recent)+'</details>':'')+'</section>';
 }
 // Personal session only: no network, localStorage, upload, or shared data store.
 var revidSessionRows=[],revidSessionStatus='';
@@ -624,7 +638,7 @@ function creatorIntelPage(tabs){
  var status=Object.keys(sources).map(function(n){var x=sources[n];return n+' '+(x.error?'读取失败，保留可用记录：'+x.error:x.observedAt?overviewTime(x.observedAt):'未读取')}).join(' · ');
  var toolbar='<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div>'+filters+'<div class="news-toolbar"><p class="page-desc">'+(isLocalAihot()?'个人阅读实时查询，仅内存缓存。':'点击个人阅读，从你的浏览器直连双源，仅本次会话内存读取；不向本站服务器同步。失败可打开上游原站。')+'</p>'+live+'</div><div class="briefing-original-links">'+links+'</div>'+(status?'<p class="overview-notice">'+esc(status)+'</p>':'');
  if(hot){var dossierBatches=[{name:'AIHOT',items:(state.aihot.items||[]).concat(from('AIHOT','items',[]))},{name:'AIPick',items:(a.items||[]).concat(a.hotTopics||[],from('AIPick','items',[]))}];return head+toolbar+revidPersonalMarkup(now)+creativeDemandMarkup(dossierBatches,now)+creativeCampaignMarkup(now)+creatorDossierMarkup(creatorDossiers(state.modelReleases,dossierBatches,state.appUpdates||{},state.social||{},[{name:'AIHOT 日报',data:state.aihotDaily},{name:'橘鸦',data:state.juyaDaily}],now),now)+creatorUnifiedHotMarkup([{name:'AIHOT',items:from('AIHOT','items',[])},{name:'AIPick',items:from('AIPick','items',a.hotTopics)}],now,state.modelReleases)+creatorHotMarkup(from('AIHOT','items',[]),'AIHOT',stamp('AIHOT',''),now)+creatorHotMarkup(from('AIPick','items',a.hotTopics),'AIPick',stamp('AIPick',a.fetchedAt),now)+'<p class="page-desc">原榜分别展示，不将两个平台的参与者或来源数相加；报道合集包含同一事件的多篇报道。热度不等于事实核实。</p>'+creatorCoverageMarkup(mode,term);}
- var rows=creatorRows([{name:'AIHOT',items:competitorReadItems(state.aihot.items,from('AIHOT','items',[]))},{name:'AIPick',items:competitorReadItems((a.items||[]).concat(a.hotTopics||[]),from('AIPick','items',[]))}],now).filter(function(r){var x=r.item;return !/黑五|黑色星期五|折扣|优惠券|限时促销|black friday|discount|coupon/i.test(x.title)&&matches([x.title,x.source&&x.source.name].join(' '))&&(cases?innovationCreativeCase(x):mode==='competitors'?(term?[term]:trackingBrands).some(function(b){return creatorSubject(x.title,b)||creatorIntegrationTarget(x.title,b)||(!r.story&&creatorLaunchSignal(x.title,b))}):(creatorBrandMatch(x.title,mode,term)||mode==='vendors'&&!r.story&&(term?[term]:creatorBrands.vendors).some(function(b){return creatorLaunchSignal(x.title,b)})))});
+ var rows=creatorRows([{name:'AIHOT',items:competitorReadItems(state.aihot.items,from('AIHOT','items',[]))},{name:'AIPick',items:competitorReadItems((a.items||[]).concat(a.hotTopics||[]),from('AIPick','items',[]))}],now).filter(function(r){var x=r.item;return (cases||!/黑五|黑色星期五|折扣|优惠券|限时促销|black friday|discount|coupon/i.test(x.title))&&matches([x.title,x.source&&x.source.name].join(' '))&&(cases?innovationCreativeCase(x):mode==='competitors'?(term?[term]:trackingBrands).some(function(b){return creatorSubject(x.title,b)||creatorIntegrationTarget(x.title,b)||(!r.story&&creatorLaunchSignal(x.title,b))}):(creatorBrandMatch(x.title,mode,term)||mode==='vendors'&&!r.story&&(term?[term]:creatorBrands.vendors).some(function(b){return creatorLaunchSignal(x.title,b)})))});
  if(mode==='competitors')return competitorBriefPage(head,'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div>'+filters+'<div class="briefing-original-links"><button type="button" class="tab" data-creator-refresh '+(creatorBusy?'disabled':'')+'>'+(creatorBusy?'读取中…':term?'补充读取 '+esc(term)+' 最新精选':'个人阅读 · 近7天双源精选')+'</button></div>',rows,now,term,toolbar.replace('<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div>'+filters,''));
  var body=rows.map(function(r){var x=r.item,l=x.links||{};return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc([r.story?'讨论 '+overviewDateLabel(x.latestAt):x.publishedAt?overviewDateLabel(x.publishedAt):x.discoveredAt?'发现 '+overviewDateLabel(x.discoveredAt)+' · 发布日未知':'日期待确认',aihotCategoryName(x.category),r.providers.join(' / '),x.source&&x.source.name||''].filter(Boolean).join(' · '))+'</span><strong>'+esc(x.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><div class="briefing-original-links">'+creatorLink(l.original,r.story?'代表帖':'原帖')+creatorLink(l.story,'报道合集')+creatorLink(l.aihot,'资讯条目')+'</div><p class="page-desc">相关报道 · 不自动确认为产品已上线或模型首发。</p></div></details></article>'}).join('');
  return head+toolbar+(cases?revidPersonalMarkup(now)+creativeDemandMarkup([{name:'AIHOT',items:competitorReadItems(state.aihot.items,from('AIHOT','items',[]))},{name:'AIPick',items:competitorReadItems(a.items,from('AIPick','items',[]))}],now)+creativeCampaignMarkup(now):'')+(mode==='vendors'?creatorPropagationMarkup(rows,state.modelReleases||[],competitorBriefRows(state.appUpdates||{},rows,state.social||{},now),now,term,'vendors')+curatedCreativeMarkup(now,term,rows):'')+'<section class="briefing-digest-section"><div class="section-head"><h2>'+esc(term|| (cases?'创作线索':mode==='competitors'?'竞品相关报道':'厂商相关报道'))+'</h2><span class="head-meta">'+rows.filter(function(r){return !r.story}).length+' 条原文去重'+(rows.some(function(r){return r.story})?' · '+rows.filter(function(r){return r.story}).length+' 个事件合集':'')+'</span></div><div class="briefing-list">'+(body||empty('当前快照无匹配报道，不代表没有更新。请按厂商打开上游或在本地查询。'))+'</div></section>'+(cases?'':creatorCoverageMarkup(mode,term))
@@ -698,7 +712,8 @@ var innovationThemes=[
 // in its original briefing. Never treat selected reports as official launches.
 function innovationCreativeCase(item){
  var title=String(item&&item.title||'');
- if(!title||/折扣|积分|促销|优惠|discount|coupon|black friday/i.test(title))return false;
+ if(seasonalCreativeCase(item))return true;
+ if(!title||/折扣|积分|促销|优惠|discount|coupon|黑五|黑色星期五|black friday/i.test(title))return false;
  var creative=/(?:视频|图像|图片|音频|音乐)(?:生成|模型|编辑)|(?:生成|制作|创作)[^。；，,]{0,32}(?:视频|图像|图片|音频|音乐)|文生图|图生图|图生视频|文生视频|图像模型|文生图模型|AI\s*(?:视频|短片|短剧|动画|漫剧|影像|电影|绘画|广告|音乐)|影视|短片|短剧|漫剧|漫画|动画|分镜|三视图|角色一致性|角色设定|角色资产|音轨|音效|配音|对白|音画同步|字体动画|动效|镜头|运镜|白模|三维作品|3D\s*(?:动画|场景|建模)|落地页|提示词.*(?:视频|图像|角色|场景)|(?:video|image|audio|music)\s+(?:generat|edit|model)|storyboard|cinemat|animation|VFX|LoRA|Blender ID pass|motion capture/i;
  if(!creative.test(title))return false;
  if(['tip','opinion'].includes(item.category))return true;

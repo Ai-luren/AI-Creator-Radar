@@ -1117,14 +1117,26 @@ test('creative demand separates original posts, reported virality and ordinary r
  assert.equal(data.length,2);assert.equal(data[0].platform,'Instagram');assert.equal(data[0].reportedTrend,true);assert.equal(data[1].reportedTrend,false);assert.equal(data[0].views,undefined);
  const html=run('creativeDemandMarkup('+JSON.stringify(batches)+',Date.now())');assert.match(html,/播放量待核实/);assert.match(html,/非爆款认证/);assert.doesNotMatch(html,/普通模型发布/);
 });
+test('seasonal creative examples survive date-name filtering without admitting discount offers or claiming viral reach',()=>{
+ const {run}=setup({now:'2026-11-29T12:00:00+08:00'});
+ const titles=['AI 黑五品牌短片制作案例','Black Friday creative ad workflow','Higgsfield Black Friday 75% OFF','Black Friday creative ad subscription discount','圣诞节套餐优惠'];
+ const rows=titles.map((title,i)=>({title,selected:true,category:'tip',publishedAt:'2026-11-28T10:00:00Z',links:{original:'https://x.com/creator/status/'+(100+i)}}));
+ const result=JSON.parse(run('JSON.stringify(creativeDemandRows('+JSON.stringify([{name:'AIPick',items:rows}])+',Date.now()))'));
+ assert.deepEqual(result.map(r=>r.title),titles.slice(0,2));assert.ok(result.every(r=>r.seasonal&&!r.reportedTrend&&r.views===undefined));
+ assert.deepEqual(JSON.parse(run('JSON.stringify('+JSON.stringify(rows)+'.map(innovationCreativeCase))')),[true,true,false,false,false]);
+});
 test('campaign planning is forward-looking, cross-year and region-aware',()=>{
  const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
  const rows=JSON.parse(run('JSON.stringify(creativeCampaignCalendar(Date.now()))'));
  assert.equal(rows[0].title,'Cyber Monday 营销节点');assert.equal(rows[0].days,2);
  assert.equal(rows.find(r=>r.title==='Christmas').days,27);
  assert.equal(rows.find(r=>r.title==='春节 / Lunar New Year').day,'2027-02-06');
- assert.ok(rows.every(r=>r.days>=0&&r.days<=90));assert.ok(!rows.some(r=>r.title==='Black Friday 营销节点'));
- const html=run('creativeCampaignMarkup(Date.now())');assert.match(html,/不是已立项活动/);assert.match(html,/已核对日期依据/);
+ assert.ok(rows.every(r=>r.days>=-7&&r.days<=90));const black=rows.find(r=>r.title==='Black Friday 营销节点');assert.equal(black.days,-1);assert.equal(black.stage,'D+1 · 复盘与沉淀');
+ assert.ok(rows.findIndex(r=>r.title==='Cyber Monday 营销节点')<rows.findIndex(r=>r.title==='Black Friday 营销节点'));
+ assert.equal(black.milestones.find(m=>m.offset===7).day,'2026-12-04');
+ const later=JSON.parse(run("JSON.stringify(creativeCampaignCalendar(Date.parse('2026-12-05T12:00:00+08:00')))"));assert.ok(!later.some(r=>r.title==='Black Friday 营销节点'));
+ const crossYear=JSON.parse(run("JSON.stringify(creativeCampaignCalendar(Date.parse('2027-01-01T12:00:00+08:00')))"));assert.equal(crossYear.find(r=>r.title==='Christmas').days,-7);
+ const html=run('creativeCampaignMarkup(Date.now())');assert.match(html,/不是已立项活动/);assert.match(html,/已核对日期依据/);assert.match(html,/最近7天 · 复盘候选/);assert.match(html,/节点已过 1 天/);assert.match(html,/不虚构业绩/);
 });
 
 test('overseas and cross-market campaigns precede domestic-only events; estimated dates stay labeled',()=>{
