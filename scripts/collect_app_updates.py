@@ -148,8 +148,9 @@ def parse_higgs_changelog(page,source):
         if re.search(r"black friday|(?:^|\b)(?:pricing|discount|sale|credits?|subscription|bonus|deal|unlimited)(?:\b|$)|refund|promo",title,re.I):
             continue
         product=row["tags"][1] if len(row["tags"])>1 and len(row["tags"][1])<=45 else ""
-        # A platform's Models tag denotes model integration, not publisher release.
-        kind="model-integration" if product=="Models" else "product-feature" if stage=="Feature" else "product-release" if stage=="Release" else "product-improvement"
+        # The Models area also contains improvements to already integrated
+        # models. Publisher stage takes precedence over the area for these.
+        kind="product-improvement" if stage=="Improvement" else "model-integration" if product=="Models" else "product-feature" if stage=="Feature" else "product-release"
         key=hashlib.sha256((row["day"]+"|"+title).encode()).hexdigest()
         output[key]={"featureName":title,"publisherCalendarDay":row["day"],"updateType":kind,
                      "productArea":product,"publisherLabel":stage,"category":"app",
@@ -585,12 +586,23 @@ def snapshot_platform_coverage(platforms,snapshots,now):
             "policy":"Distinct recent selected original-link pointers in available snapshots, not direct platform access, verified update facts or exhaustive coverage. Hot source-name mentions are separate; zero is no sample observation, not an outage."}
 
 
+def correct_model_improvement(row):
+    """Correct a derived label using existing first-party tags, without re-observing."""
+    if (row.get("claimType")=="first-party-product-changelog"
+            and row.get("publisherLabel")=="Improvement"
+            and row.get("productArea")=="Models"
+            and row.get("updateType")=="model-integration"):
+        return {**row,"updateType":"product-improvement"}
+    return row
+
+
 def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
     stamp=now.isoformat(timespec="seconds")
     prior={s["id"]:s for s in previous.get("sources",[])}
-    events={e["id"]:e for e in previous.get("events",[])}
+    events={e["id"]:correct_model_improvement(e) if e.get("sourceId")=="higgsfield-changelog" else e
+            for e in previous.get("events",[])}
     targeted=collect_targeted(config.get("targetedDiscovery"),previous.get("targetedDiscovery",{}),now,target_fetcher)
     sources=[]
     for spec in config["sources"]:
@@ -602,6 +614,9 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target):
             sources.append({**row,"status":"navigation-only","entries":{},"lastSuccessAt":None,"error":None,"deferred":True})
             continue
         entries=old.get("entries",{})
+        if spec["id"]=="higgsfield-changelog" and spec.get("type")=="higgs-changelog":
+            entries={k:correct_model_improvement(v) for k,v in entries.items()}
+            row["entries"]=entries
         coverage=aggregate_coverage(spec,targeted,now)
         if coverage is not None:
             row["aggregateCoverage"]=coverage

@@ -81,17 +81,41 @@ class AppUpdatesTests(unittest.TestCase):
 
     def test_higgs_changelog_dates_stage_and_no_promotions(self):
         from scripts.collect_app_updates import parse_higgs_changelog
-        page="""<h1>What's new</h1><time>November 24, 2026</time><h2>MAGI-2</h2><ul><li>Feature</li><li>Models</li></ul><p>Video and sound</p>
+        page="""<h1>What's new</h1><time>November 26, 2026</time><h2>Seedream 5.5 now supports 4K</h2><ul><li>Improvement</li><li>Models</li></ul><p>Existing model resolution option.</p>
+        <time>November 24, 2026</time><h2>MAGI-2</h2><ul><li>Feature</li><li>Models</li></ul><p>Video and sound</p>
         <time>November 21, 2026</time><h2>Editing Room</h2><ul><li>Release</li><li>Video Tools</li></ul>
         <time>November 2, 2026</time><h2>Higgsfield Mangaka</h2><ul><li>Release</li><li>Image Tools</li></ul>
         <time>November 1, 2026</time><h2>Black Friday discount</h2><ul><li>Feature</li><li>Billing</li></ul>
         <h2>Old models</h2><p>Footer</p><script>November 28, 2026</script>"""
         values=list(parse_higgs_changelog(page,{}).values())
-        self.assertEqual([v["featureName"] for v in values],["MAGI-2","Editing Room","Higgsfield Mangaka"])
-        self.assertEqual(values[0]["updateType"],"model-integration")
-        self.assertEqual(values[2]["publisherCalendarDay"],"2026-11-02")
+        self.assertEqual([v["featureName"] for v in values],["Seedream 5.5 now supports 4K","MAGI-2","Editing Room","Higgsfield Mangaka"])
+        self.assertEqual(values[0]["updateType"],"product-improvement")
+        self.assertEqual(values[1]["updateType"],"model-integration")
+        self.assertEqual(values[3]["publisherCalendarDay"],"2026-11-02")
         self.assertTrue(all(v["claimType"]=="first-party-product-changelog" for v in values))
         with self.assertRaises(ValueError):parse_higgs_changelog("<h2>Models</h2>",{})
+
+    def test_correct_cached_model_improvement_during_cooldown_without_new_observation(self):
+        spec={**self.spec,"id":"higgsfield-changelog","type":"higgs-changelog","url":"https://higgsfield.ai/creator-hub/changelog"}
+        entry={"featureName":"Seedream 5.5 now supports 4K","publisherCalendarDay":"2026-11-26",
+               "publisherLabel":"Improvement","productArea":"Models","updateType":"model-integration",
+               "claimType":"first-party-product-changelog","firstObservedAt":"2026-11-27T00:00:00+00:00",
+               "lastObservedAt":"2026-11-27T00:00:00+00:00"}
+        integration={**entry,"featureName":"MAGI-2","publisherLabel":"Feature"}
+        prior={"schema":"app-updates/v1","sources":[{**spec,"status":"observed","lastSuccessAt":entry["lastObservedAt"],
+               "nextAttemptAt":(self.now+timedelta(hours=1)).isoformat(),"entries":{"feature":entry,"integration":integration}}],
+               "events":[{**entry,"id":"feature","sourceId":spec["id"],"observedAt":entry["firstObservedAt"],"releaseDate":None},
+                         {**integration,"id":"integration","sourceId":spec["id"],"observedAt":entry["firstObservedAt"],"releaseDate":None},
+                         {**entry,"id":"other-source","sourceId":"other","observedAt":entry["firstObservedAt"],"releaseDate":None}]}
+        result=collect({"sources":[spec]},prior,self.now,lambda *_:self.fail("cooldown must not fetch"))
+        self.assertEqual(result["summary"]["successfulThisRun"],0)
+        self.assertEqual(result["sources"][0]["entries"]["feature"],{**entry,"updateType":"product-improvement"})
+        self.assertEqual(result["sources"][0]["entries"]["integration"],integration)
+        byid={e["id"]:e for e in result["events"]}
+        self.assertEqual(byid["feature"],{**prior["events"][0],"updateType":"product-improvement"})
+        self.assertEqual(byid["integration"],prior["events"][1])
+        self.assertEqual(byid["other-source"],prior["events"][2])
+        self.assertEqual(prior["events"][0]["updateType"],"model-integration")
 
     def test_dated_changelog_adapter_keeps_real_dates_and_distinct_features(self):
         from scripts.collect_app_updates import parse_dated_changelog
