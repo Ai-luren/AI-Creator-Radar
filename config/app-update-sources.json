@@ -301,14 +301,14 @@
         "label": "即梦",
         "term": "即梦",
         "category": "ai-products",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
         "id": "jimeng-seedaudio",
         "label": "SeedAudio",
         "term": "SeedAudio",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -388,7 +388,7 @@
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 2,
         "intervalMinutes": 720
       },
       {
@@ -396,7 +396,7 @@
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 2,
         "intervalMinutes": 720
       },
       {
@@ -404,7 +404,7 @@
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 1,
         "intervalMinutes": 720
       },
       {
@@ -412,7 +412,7 @@
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 1,
         "intervalMinutes": 720
       },
       {
@@ -420,7 +420,7 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 3,
         "intervalMinutes": 720
       },
       {
@@ -428,7 +428,7 @@
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 3,
         "intervalMinutes": 720
       },
       {
@@ -532,7 +532,7 @@
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -540,7 +540,7 @@
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -549,7 +549,7 @@
         "term": "即梦",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -557,7 +557,7 @@
         "label": "SeedAudio",
         "term": "SeedAudio",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -610,7 +610,7 @@
         "label": "小云雀",
         "term": "小云雀",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -618,7 +618,7 @@
         "label": "小云雀",
         "term": "小云雀",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -626,7 +626,7 @@
         "label": "Pippit",
         "term": "Pippit",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -634,7 +634,7 @@
         "label": "Pippit",
         "term": "Pippit",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720
       },
       {
@@ -642,7 +642,7 @@
         "label": "Gemini",
         "term": "Gemini",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720,
         "category": "ai-products"
       },
@@ -651,7 +651,7 @@
         "label": "Gemini",
         "term": "Gemini",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 4,
         "intervalMinutes": 720,
         "category": "ai-products"
       }
