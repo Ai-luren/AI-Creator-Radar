@@ -96,3 +96,9 @@ jobs:
           script: |
             const deploy = require('./scripts/deploy_verified_pages.cjs')
             await deploy({github, context, core, artifactId: process.env.PAGES_ARTIFACT_ID})
+      - name: Verify publicly served site revision after publication
+        run: |
+          if ! timeout 12s python scripts/publication_guard.py --verify-live --summary "$GITHUB_STEP_SUMMARY"; then
+            echo "::warning::Live marker verification interrupted; publication remains unverified."
+            printf '\\n### Post-publication live marker\\n- Status: unverified (verification process failed or timed out)\\n' >> "$GITHUB_STEP_SUMMARY"
+          fi
