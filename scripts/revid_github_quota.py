@@ -21,6 +21,7 @@ class GitHubQuota:
         self.url = "https://api.github.com/repos/" + repository + "/contents/" + STATE_PATH
         self.token = token
         self.opener = opener or urllib.request.build_opener(NoRedirect())
+        self.pending = None
 
     def _request(self, method, url, payload=None):
         req = urllib.request.Request(url, method=method,
@@ -59,7 +60,7 @@ class GitHubQuota:
             raise ValueError("unconfirmed quota write")
 
     def reserve(self, now):
-        if now.tzinfo is None:
+        if now.tzinfo is None or self.pending is not None:
             return False
         now = now.astimezone(timezone.utc)
         try:
@@ -72,7 +73,28 @@ class GitHubQuota:
             state["attempts"] = [v for v in state["attempts"]
                                  if parse_time(v) > now - timedelta(hours=24)]
             state["attempts"].append(now.isoformat())
+            # Reserve a conservative 24h hold in the same CAS as the attempt.
+            # A killed runner or failed cooldown write cannot reopen the gate.
+            hold = (now + timedelta(hours=24)).isoformat()
+            state["blocked_until"] = hold
             self._write(sha, state)
+            self.pending = (now.isoformat(), hold)
+            return True
+        except (OSError, ValueError, TypeError, KeyError, AttributeError):
+            return False
+
+    def complete_success(self, now):
+        """Release only this runner's hold after a confirmed successful search."""
+        if self.pending is None or now.tzinfo is None:
+            return False
+        try:
+            sha, state = self._read(now.astimezone(timezone.utc))
+            attempt, hold = self.pending
+            if state["blocked_until"] != hold or not state["attempts"] or state["attempts"][-1] != attempt:
+                return False
+            state["blocked_until"] = None
+            self._write(sha, state)
+            self.pending = None
             return True
         except (OSError, ValueError, TypeError, KeyError, AttributeError):
             return False
