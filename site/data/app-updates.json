@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T01:36:42+00:00",
+  "checkedAt": "2026-11-28T01:39:10+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -966,7 +966,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T01:36:42+00:00",
+    "checkedAt": "2026-11-28T01:39:10+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2519,7 +2519,7 @@
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T01:36:46+00:00",
+    "checkedAt": "2026-11-28T01:39:14+00:00",
     "window": "7d",
     "sources": [
       {
