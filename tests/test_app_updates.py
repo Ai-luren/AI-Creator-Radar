@@ -401,6 +401,30 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertFalse(p.search("Seedance 3.5 Pro"))
         self.assertTrue(p.search("Seedance 3.5 视频模型"))
 
+    def test_first_primary_model_watch_outranks_overdue_brand_and_older_model(self):
+        from scripts.collect_app_updates import collect_targeted
+        now=datetime(2026,11,28,8,tzinfo=timezone.utc)
+        cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,
+             "queries":[{"id":"routine","term":"Flova","provider":"AIHOT","priority":20}]}
+        def model(name,day):
+            return {"modelName":name,"modelFamilyId":name,"modelVersionId":name,
+                    "category":"video","publishedAt":day,"verifiedAt":day,
+                    "evidenceType":"official-release","url":"https://example.org/official"}
+        releases=[model("MAGI-2","2026-11-26"),model("Seedance 3.5","2026-11-28")]
+        old={"queries":[{**cfg["queries"][0],"queuedAt":(now-timedelta(hours=25)).isoformat()}]}
+        calls=[]
+        def fetch(q,etag):
+            calls.append((q["provider"],q["term"]))
+            return {"items":0},"tag"
+        first=collect_targeted(cfg,old,now,fetch,releases=releases)
+        self.assertEqual(first["attemptedThisRun"],2)
+        self.assertEqual({provider for provider,term in calls},{"AIHOT","AIPick"})
+        self.assertTrue(all(term=="Seedance 3.5" for provider,term in calls))
+        calls.clear()
+        second=collect_targeted(cfg,first,now+timedelta(minutes=30),fetch,releases=releases)
+        self.assertEqual(second["attemptedThisRun"],2)
+        self.assertTrue(all(term=="MAGI-2" for provider,term in calls))
+
     def test_old_ordinary_query_gets_slot_before_repeated_watch(self):
         from scripts.collect_app_updates import collect_targeted
         cfg={"maxProvidersPerRun":1,"intervalMinutes":720,"globalIntervalMinutes":25,
