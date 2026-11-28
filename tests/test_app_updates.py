@@ -463,3 +463,18 @@ class CoreCompetitorConfigTests(unittest.TestCase):
             rows=[q for q in config["targetedDiscovery"]["queries"] if q["term"]==brand]
             self.assertEqual({q["provider"] for q in rows},{"AIHOT","AIPick"})
             self.assertTrue(all(q["priority"]<10 and q["intervalMinutes"]==720 for q in rows))
+
+
+class MonthProductHistoryTests(unittest.TestCase):
+    def test_oiioii_official_months_are_not_day_precision_or_recent_launches(self):
+        from scripts.collect_app_updates import parse_month_changelog
+        spec={"id":"oiioii-changelog-entry","name":"OiiOii","vendor":"OiiOii","role":"competitor","url":"https://www.oiioii.ai/zh/changelog","type":"dated-changelog","links":[],"minIntervalMinutes":1440}
+        page="<h1>更新日志</h1><h2>v5.0 — 多 Agent 流水线正式版（2026-06）</h2><p>完整视频创作流程中的多个智能体正式可用。</p><h2>v4.5 — 角色一致性引擎（2026-04）</h2><p>新增参考图生成角色，支持镜头间的身份保持。</p><h2>v4.0 — 画布式镜头编辑器（2026-02）</h2><p>画布用于排布和重新生成镜头与时间线调整。</p><h2>v3.0 — 促销（2026-01）</h2><p>这不是产品能力的重大演进历史。</p>"
+        rows=parse_month_changelog(page,spec)
+        self.assertEqual([r["publisherCalendarMonth"] for r in rows.values()],["2026-06","2026-04","2026-02"])
+        self.assertTrue(all("publisherCalendarDay" not in r and r["datePrecision"]=="month" for r in rows.values()))
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        result=collect({"sources":[spec]}, {}, now, lambda _:rows)
+        self.assertTrue(all(e["kind"]=="baseline-product-milestone" and e["releaseDate"] is None for e in result["events"]))
+        self.assertEqual(collect({"sources":[spec]},result,now+timedelta(days=1),lambda _:rows)["events"],result["events"])
+        with self.assertRaises(ValueError):parse_month_changelog("<h1>更新日志</h1><h2>v5.0 — 模型（2026-13）</h2><p>不可用的日期不应该进入历史。</p>",spec)

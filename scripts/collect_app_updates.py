@@ -26,7 +26,8 @@ OUTPUT=ROOT/"site/data/app-updates.json"
 MAX_BYTES=6*1024*1024
 HIGGS_CHANGELOG="https://higgsfield.ai/creator-hub/changelog"
 DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
-                  "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog"}
+                  "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog",
+                  "oiioii-changelog-entry":"https://www.oiioii.ai/zh/changelog"}
 PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/",
                   "oiioii-model-directory":"https://www.oiioii.ai/zh/explore/models"}
 PRODUCT_SURFACE_PARSER_VERSION=2
@@ -330,6 +331,45 @@ def parse_higgs_changelog(page,source):
                      "claimType":"first-party-product-changelog"}
     if not output:
         raise ValueError("No relevant recent product changelog entries")
+    return output
+
+
+def parse_month_changelog(page,source):
+    """Official month-precision product versions; never invent a day or new model launch."""
+    if source.get("id")!="oiioii-changelog-entry":
+        raise ValueError("Unapproved month changelog")
+    parser=ChangelogText()
+    parser.feed(page)
+    parser.close()
+    if not any(v in {"更新日志","OiiOii 的新版本"} for _,v in parser.tokens):
+        raise ValueError("Expected OiiOii changelog marker absent")
+    rows=[]
+    current=None
+    for kind,value in parser.tokens:
+        if kind=="heading":
+            current=None
+            match=re.fullmatch(r"(v\d+(?:\.\d+)+)\s*[—–-]\s*(.{2,120}?)\s*[（(](\d{4}-\d{2})[）)]",value)
+            if match:
+                version,title,month=match.groups()
+                try:
+                    datetime.strptime(month,"%Y-%m")
+                except ValueError:
+                    continue
+                current={"version":version,"title":title,"month":month,"body":[]}
+                rows.append(current)
+        elif current is not None and len(current["body"])<8:
+            current["body"].append(value)
+    output={}
+    for row in rows:
+        if len(" ".join(row["body"]))<12 or re.search(r"优惠|价格|促销|积分|宣传片",row["title"]):
+            continue
+        key=hashlib.sha256((row["month"]+"|"+row["version"]+"|"+row["title"]).encode()).hexdigest()
+        output[key]={"featureName":row["title"],"productVersion":row["version"],
+                     "publisherCalendarMonth":row["month"],"datePrecision":"month",
+                     "updateType":"product-release","productArea":"平台版本","publisherLabel":"Changelog",
+                     "category":"app","claimType":"first-party-product-milestone"}
+    if not output:
+        raise ValueError("No explicit monthly product versions")
     return output
 
 
@@ -698,7 +738,7 @@ def fetch(source):
     if source.get("type")=="higgs-changelog":
         return parse_higgs_changelog(data.decode("utf-8"),source)
     if source.get("type")=="dated-changelog":
-        return parse_dated_changelog(data.decode("utf-8"),source)
+        return (parse_month_changelog if source["id"]=="oiioii-changelog-entry" else parse_dated_changelog)(data.decode("utf-8"),source)
     if source.get("type")=="product-surface":
         return parse_product_surface(data.decode("utf-8"),source)
     return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
@@ -1009,6 +1049,8 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
             if k not in entries:
                 if value.get("claimType")=="first-party-store-version":
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
+                elif value.get("claimType")=="first-party-product-milestone":
+                    kind="new-product-milestone" if old.get("lastSuccessAt") else "baseline-product-milestone"
                 elif value.get("claimType")=="first-party-product-changelog":
                     kind="new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry"
                 elif value.get("claimType")=="first-party-product-surface":

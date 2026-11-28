@@ -544,8 +544,14 @@ function productChronicleCategory(e){
  if(/studio|video|image|audio|music|editing|camera|shot|scene|upscal|relight|generation|frame|漫画|分镜|镜头|剪辑|生成|音频/i.test(name))return 'tools';
  return 'other';
 }
+function productChronicleDate(e){
+ if(!e)return '';
+ if(e.claimType==='first-party-product-changelog'&&chronicleDay(e.publisherCalendarDay))return e.publisherCalendarDay;
+ var month=e.publisherCalendarMonth;
+ return e.claimType==='first-party-product-milestone'&&e.datePrecision==='month'&&/^\d{4}-(0[1-9]|1[0-2])$/.test(month||'')&&month<=chinaDay(Date.now()).slice(0,7)?month:'';
+}
 function productChronicleEligible(e){
- if(!e||e.claimType!=='first-party-product-changelog'||!chronicleDay(e.publisherCalendarDay)||!e.featureName||!['model-integration','product-release','product-feature','product-improvement','product-update'].includes(e.updateType))return false;
+ if(!e||!productChronicleDate(e)||!e.featureName||!['model-integration','product-release','product-feature','product-improvement','product-update'].includes(e.updateType))return false;
  if(/pricing|discount|coupon|credits|giveaway|contest|black friday|promotion|trailer|showcase|demo video|tutorial|academy|bug fix|profile management|unread conversation|conversation allowance|next.message suggestions|jump between turns|predict your next message|remember project grid layout|价格|积分|优惠|促销|宣传片|宣传视频|教程|修复bug|修复漏洞/i.test(e.featureName))return false;
  return true;
 }
@@ -563,10 +569,10 @@ function productChronicleTopics(app,models){
   if(!source||!productChronicleIds[brand]||!['competitor','first-party'].includes(source.role))return;
   var url=creatorOriginalUrl(e.sourceUrl),official=creatorOriginalUrl(source.url);
   if(!url||!official||new URL(url).hostname!==new URL(official).hostname)return;
-  var key=[brand,e.publisherCalendarDay,String(e.featureName).normalize('NFKC').trim().toLowerCase(),e.updateType].join('|');
+  var eventDay=productChronicleDate(e),key=[brand,eventDay,String(e.featureName).normalize('NFKC').trim().toLowerCase(),e.updateType].join('|');
   if(seen.has(key))return;seen.add(key);
   var kinds={'model-integration':'模型接入','product-release':'产品发布','product-feature':'新功能','product-improvement':'能力改进','product-update':'功能更新'};
-  var row={date:e.publisherCalendarDay,title:productReadingTitle(e.featureName),kind:kinds[e.updateType],url:url,summary:[e.productVersion?'版本 '+e.productVersion:'',e.productArea||'','官方日志日期；不代表当前仍可用。'].filter(Boolean).join(' · '),verificationStatus:'已核实：官方产品日志',productCategory:productChronicleCategory(e),modelMentions:productChronicleModelRefs(e,models),sourceEventId:e.id||key};
+  var row={date:eventDay,title:productReadingTitle(e.featureName),kind:kinds[e.updateType],url:url,summary:[e.productVersion?'版本 '+e.productVersion:'',e.productArea||'',(e.datePrecision==='month'?'官方日志仅标注月份；不推断具体日期。':'官方日志日期；不代表当前仍可用。')].filter(Boolean).join(' · '),verificationStatus:'已核实：官方产品日志',productCategory:productChronicleCategory(e),modelMentions:productChronicleModelRefs(e,models),sourceEventId:e.id||key};
   if(!nodes.has(brand))nodes.set(brand,[]);nodes.get(brand).push(row);
  });
  return trackingBrands.map(function(brand){
@@ -580,7 +586,12 @@ function chronicleTopics(raw,models,app){
   var id=chronicleModelTopic(f),topic=byId.get(id);if(!topic)return;
   (f.versions||[]).forEach(function(v){
    var node=chronicleReleaseNode(f,v,id);
-   if(node&&!topic.milestones.some(function(x){return chronicleSameRelease(x,node)}))topic.milestones.push(node);
+   if(!node)return;
+   var at=topic.milestones.findIndex(function(x){return chronicleSameRelease(x,node)});
+   if(at<0){topic.milestones.push(node);return}
+   var existing=topic.milestones[at],refs=(existing.modelMentions||[]).slice();
+   node.modelMentions.forEach(function(ref){if(!refs.some(function(r){return r.modelFamilyId===ref.modelFamilyId&&r.modelVersionId===ref.modelVersionId}))refs.push(ref)});
+   topic.milestones[at]=Object.assign({},existing,{modelMentions:refs});
   });
  });
  return topics.concat(productChronicleTopics(app,models));

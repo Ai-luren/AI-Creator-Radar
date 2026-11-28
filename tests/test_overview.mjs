@@ -781,3 +781,22 @@ test('canonical vendor mapping preserves all configured exact aliases',()=>{
  const mapping=JSON.parse(fs.readFileSync(path.join(root,'config/chronicle-release-links.json'),'utf8')).vendorTopics;
  for(const [id,names] of Object.entries(mapping))for(const vendor of names)assert.equal(run("chronicleModelTopic("+JSON.stringify({vendor})+")"),id);
 });
+
+test('monthly official history is shared but never treated as recent day-precision update',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=product-oiioii',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
+ const url='https://www.oiioii.ai/zh/changelog',source={id:'oiioii-changelog-entry',vendor:'OiiOii',role:'competitor',url};
+ const event={id:'month',sourceId:source.id,sourceUrl:url,claimType:'first-party-product-milestone',publisherCalendarMonth:'2026-06',datePrecision:'month',featureName:'多 Agent 流水线正式版',updateType:'product-release',productVersion:'v5.0',observedAt:'2026-11-28T10:00:00Z'};
+ run('state.appUpdates='+JSON.stringify({sources:[source],events:[event,{...event,id:'bad',publisherCalendarMonth:'2026-13'},{...event,id:'future',publisherCalendarMonth:'2027-01'}]})+';render()');
+ assert.match(node('content').innerHTML,/datetime="2026-06"/);
+ assert.equal(run("topicMilestoneCounts(currentChronicleTopics().find(t=>t.id==='product-oiioii')).verified"),1);
+ run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');
+ assert.doesNotMatch(node('content').innerHTML,/多 Agent 流水线正式版/);
+});
+test('shared history counts, search and timeline de-duplicate the same event without losing batch model identities',()=>{
+ const {run}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const e={eventId:'shared-event',publishedAt:'2025-01-01',verifiedAt:'2025-01-02',sourceUrl:'https://midjourney.com/v1'};
+ const f={id:'mj',vendor:'Midjourney',category:'image',versions:[{id:'v1',name:'V1',releaseEvidence:e},{id:'v2',name:'V2',releaseEvidence:e}]};
+ const t={id:'midjourney',group:'公司与模型',milestones:[]};
+ const rows=JSON.parse(run("JSON.stringify(publishedChronicleRows(chronicleTopics("+JSON.stringify([t])+","+JSON.stringify([f])+",{})[0]))"));
+ assert.equal(rows.length,1);assert.deepEqual(rows[0].modelMentions.map(r=>r.modelVersionId),['v1','v2']);
+});

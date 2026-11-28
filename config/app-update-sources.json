@@ -205,12 +205,12 @@
     },
     {
       "id": "oiioii-changelog-entry",
-      "name": "OiiOii · 官方产品入口",
+      "name": "OiiOii · 官方版本历史",
       "vendor": "OiiOii",
       "role": "competitor",
       "url": "https://www.oiioii.ai/zh/changelog",
-      "type": "navigation-only",
-      "minIntervalMinutes": 360,
+      "type": "dated-changelog",
+      "minIntervalMinutes": 1440,
       "links": [
         {
           "kind": "官方模型目录",
