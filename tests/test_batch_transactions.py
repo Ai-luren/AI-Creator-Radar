@@ -1,4 +1,6 @@
+import io
 import json
+from contextlib import redirect_stdout
 import subprocess
 import tempfile
 import unittest
@@ -16,6 +18,15 @@ class BatchTests(unittest.TestCase):
         self.data.mkdir(parents=True)
         self.file = self.data / "sample.json"
         self.file.write_text('{"value": 0}')
+
+    def run_expected_failure(self, transactions, runner, expected, warning, **kwargs):
+        # Negative-control logs deliberately contain Actions workflow commands.
+        # Assert them privately instead of publishing fake production warnings.
+        output = io.StringIO()
+        with redirect_stdout(output):
+            failures = run_batch(self.root, transactions, 10, runner, **kwargs)
+        self.assertEqual(failures, expected)
+        self.assertIn("::warning::" + warning, output.getvalue())
 
     def test_historical_network_repair_is_maintenance_only(self):
         for group in ("models", "recovery"):
@@ -44,7 +55,7 @@ class BatchTests(unittest.TestCase):
                 self.assertEqual(json.loads(self.file.read_text())["value"], 1)
                 self.assertFalse((self.data / "partial.json").exists())
                 (self.data / "later.json").write_text('{}')
-        self.assertEqual(run_batch(self.root, [("good",), ("bad",), ("later",)], 10, runner), ["bad"])
+        self.run_expected_failure([("good",), ("bad",), ("later",)], runner, ["bad"], "Rolled back bad: CalledProcessError")
         self.assertTrue((self.data / "later.json").exists())
 
     def test_dependent_failure_reverts_first_step_and_baseline(self):
@@ -57,7 +68,7 @@ class BatchTests(unittest.TestCase):
             baseline.write_text('{"changed":true}')
             if Path(args[1]).stem == "derive":
                 raise subprocess.TimeoutExpired(args, 1)
-        self.assertEqual(run_batch(self.root, [("fetch", "derive")], 10, runner), ["fetch+derive"])
+        self.run_expected_failure([("fetch", "derive")], runner, ["fetch+derive"], "Rolled back fetch+derive: TimeoutExpired")
         self.assertEqual(json.loads(self.file.read_text()), {"value": 0})
         self.assertEqual(baseline.read_text(), '{}')
 
@@ -68,7 +79,7 @@ class BatchTests(unittest.TestCase):
                     self.file.write_text('{')
                 else:
                     self.file.unlink()
-            self.assertEqual(run_batch(self.root, [(mode,)], 10, runner), [mode])
+            self.run_expected_failure([(mode,)], runner, [mode], "Rolled back " + mode + ": " + ("JSONDecodeError" if mode == "corrupt" else "ValueError"))
             self.assertEqual(json.loads(self.file.read_text()), {"value": 0})
 
     def test_budget_exhaustion_does_not_run_another_collector(self):
@@ -76,5 +87,5 @@ class BatchTests(unittest.TestCase):
         def runner(args, **kwargs):
             calls.append(args)
         stamps = iter([0, 11])
-        self.assertEqual(run_batch(self.root, [("skip",)], 10, runner, lambda: next(stamps)), ["skip"])
+        self.run_expected_failure([("skip",)], runner, ["skip"], "Collection time budget exhausted before skip", clock=lambda: next(stamps))
         self.assertEqual(calls, [])
