@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T16:17:40+00:00",
+  "checkedAt": "2026-11-28T16:23:03+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T12:18:06+00:00",
     "error": "OSError: URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -166,7 +166,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -483,7 +483,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -617,7 +617,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -724,7 +724,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -887,7 +887,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T15:56:12Z",
+          "lastObservedAt": "2026-11-28T16:22:52Z",
           "provenance": "existing-discovery"
         },
         {
@@ -974,7 +974,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T15:56:12Z",
+          "lastObservedAt": "2026-11-28T16:22:52Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1092,7 +1092,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1112,7 +1112,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T15:17:44Z",
+          "lastObservedAt": "2026-11-28T16:22:52Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1171,7 +1171,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T15:17:44Z",
+          "lastObservedAt": "2026-11-28T16:22:52Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1352,7 +1352,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1487,7 +1487,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T16:17:38+00:00",
+          "lastObservedAt": "2026-11-28T16:23:01+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1497,7 +1497,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T15:17:44Z",
+          "lastObservedAt": "2026-11-28T16:22:52Z",
           "provenance": "existing-discovery"
         }
       ],
