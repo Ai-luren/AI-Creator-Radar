@@ -521,3 +521,17 @@ test('creator rows retain WeChat originals and distinguish story from representa
  assert.equal(run("creatorOriginalUrl('http://mp.weixin.qq.com.evil.org/s?mid=123')"),'');
  assert.equal(run("creatorOriginalUrl('https://user:pass@mp.weixin.qq.com/s')"),'');
 });
+
+test('platform coverage displays measured originals, hot mentions and unexecuted queries separately',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=vendors',now:'2026-11-28T00:00:00+08:00'});await run('loadData()');
+ assert.ok(requested.includes('app-updates.json'));
+ run("state.appUpdates={platformCoverage:{platforms:[{id:'x',label:'X',role:'social',originalCount:3,providers:['AIHOT'],status:'original-observed'},{id:'instagram',label:'Instagram',role:'social',originalCount:0,hotSourceMentionCount:1,status:'hot-mention-only'},{id:'reddit',label:'Reddit',role:'social',originalCount:0,status:'not-observed'}]},targetedDiscovery:{queries:[{label:'MiniMax',provider:'AIPick'},{label:'MiniMax',provider:'AIHOT',lastAttemptAt:'2026-11-27T12:00:00Z',counts:{items:0}}]}};render()");
+ assert.match(node('content').innerHTML,/社媒 1\/3/);
+ assert.match(node('content').innerHTML,/仅热点来源提及/);
+ assert.match(node('content').innerHTML,/样本未覆盖/);
+ assert.match(node('content').innerHTML,/尚未执行/);
+ assert.match(node('content').innerHTML,/0 条检索结果/);
+ assert.equal(run("creatorBrandMatch('Seedance 2.5 上线 LibTV','vendors','Seedance')"),false);
+ assert.equal(run("creatorBrandMatch('Creatify Aurora 2.0 上线 ElevenCreative','vendors','ElevenCreative')"),true);
+ assert.equal(run("creatorBrandMatch('MAGI-2 视频模型上线 LibTV','competitors','LibTV')"),true);
+});

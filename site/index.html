@@ -911,7 +911,7 @@ var viewData={
  platforms:['platforms'],
  opportunities:['contests','platforms','creatorStatus','creatorDiscovery']
 };
-function currentDataKeys(){return Array.from(new Set((viewData[state.view]||viewData.overview).concat(state.view==='today'&&state.releaseMode==='announcements'?['announcements']:[],state.view==='today'&&state.releaseMode==='apps'?['appUpdates']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['aipick']:[],state.view==='feeds'&&state.briefingTab==='competitors'?['appUpdates']:[],state.selectedModelId?viewData.models:[])))}
+function currentDataKeys(){return Array.from(new Set((viewData[state.view]||viewData.overview).concat(state.view==='today'&&state.releaseMode==='announcements'?['announcements']:[],state.view==='today'&&state.releaseMode==='apps'?['appUpdates']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['aipick']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['appUpdates']:[],state.selectedModelId?viewData.models:[])))}
 function requestData(key){
  if(dataRequests[key])return dataRequests[key];
  var spec=dataFiles[key],name=spec[0],options={cache:'no-cache'};
