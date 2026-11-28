@@ -65,20 +65,26 @@ def safe_name(value):
 
 
 def repository_backed_names(discovery):
-    """Exact version labels from existing configured HF repository observations.
+    """Literal repository labels from existing listings or curated original links.
 
-    A repository pointer is not release evidence. Match its literal basename
-    to a separate news lead; never synthesize a name from headline fragments.
+    A model-hosting URL does not verify the account owner, artifact role,
+    release stage or date. Keep it only as a pointer for exact-name discovery.
+    Never generate a repository URL from a headline.
     """
     names = {}
     for row in discovery.get("items", []):
-        if row.get("dateKind") != "repository-created-at" or not str(row.get("sourceId", "")).startswith("hf-"):
+        source = str(row.get("sourceId", ""))
+        raw = str(row.get("url") or "")
+        match = re.fullmatch(r"https://huggingface\.co/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)", raw)
+        if not match or any(part in {".", ".."} for part in match[1].split("/")):
             continue
-        repo = str(row.get("title") or "")
-        if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo) or row.get("url") != "https://huggingface.co/" + repo:
-            continue
+        repo = match[1]
         name = safe_name(repo.split("/", 1)[1])
-        if name:
+        if not name:
+            continue
+        listing = row.get("dateKind") == "repository-created-at" and source.startswith("hf-")
+        briefing = source.startswith(("local-aihot-", "local-juya-")) and exact_label_match(row.get("title"), name)
+        if (listing and row.get("title") == repo) or briefing:
             names.setdefault(name.casefold(), []).append((name, row))
     return names
 
@@ -193,6 +199,9 @@ def local_context(target, discovery, reconciliation, product_state, index, allow
         values = repository_backed_names(discovery).get(str(target.get("query") or "").casefold(), [])
         if len({row["url"] for _, row in values}) != 1:
             return []
+        # Prefer the configured listing observation if it exists; otherwise
+        # retain the exact original URL and original briefing attribution.
+        values.sort(key=lambda pair: (pair[1].get("dateKind") != "repository-created-at", pair[1]["id"]))
         return [{"kind": "repository-pointer-unverified", "sourceUrl": row["url"],
                  "sourceRecordId": row["id"], "sourceId": row["sourceId"],
                  "assertedDate": None, "originalVerificationAt": None,
@@ -342,8 +351,9 @@ def bounded_broad_fetch(target,allowed,families,runner=subprocess.run):
 
 def broad_fallback_ready(target,now,recent_cutoff,providers):
     """A normal aggregator cooldown is not an observed coverage gap."""
-    first = stamp(target.get("firstDetectedAt"))
-    if not (target.get("identity") or target.get("repositoryBacked")) or first is None or first<recent_cutoff:
+    # The caller already admits only current seven-day targets. A retained
+    # old firstDetectedAt must not bypass aggregators on a distinct fresh report.
+    if not (target.get("identity") or target.get("repositoryBacked")):
         return True
     # Targets with existing index pointers are intentionally not re-queried
     # by the aggregate adapter; allow their ordinary due broad recovery.
