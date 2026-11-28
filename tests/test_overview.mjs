@@ -953,3 +953,16 @@ test('recent curated creative reports fill reading gaps without inventing releas
  const markup=run("curatedCreativeMarkup(Date.now(),'',[])");
  assert.match(markup,/Hy3D 3.6/);assert.match(markup,/豆包工作独家接入剪映官方插件/);assert.match(markup,/非发布日期/);
 });
+
+test('vendor personal reading retains persisted evidence after an empty refresh',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=vendors',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("state.aihot.items=[{title:'Gemini 视频功能更新',publishedAt:'2026-11-27T01:00:00Z',links:{original:'https://example.org/saved'}}];state.aipick={items:[]};creatorBrand='Gemini';creatorPrivate['vendors|Gemini']={sources:{AIHOT:{data:{items:[]}},AIPick:{data:{items:[{title:'Gemini 新增创作功能',publishedAt:'2026-11-28T01:00:00Z',links:{original:'https://example.org/new'}}]}}}};render()");
+ const out=node('content').innerHTML;
+ assert.match(out,/Gemini 视频功能更新/);assert.match(out,/Gemini 新增创作功能/);
+});
+test('competitor overview exposes the existing seven-day private read without selecting a vendor',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ assert.match(node('content').innerHTML,/个人阅读 · 近7天双源精选/);
+ const url=new URL(run("creatorApiUrl('AIHOT','competitors','')"));
+ assert.equal(url.searchParams.get('window'),'7d');assert.equal(url.searchParams.get('mode'),'selected');assert.equal(url.searchParams.get('limit'),'20');
+});
