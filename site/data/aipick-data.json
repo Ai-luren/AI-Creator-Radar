@@ -6,11 +6,11 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T08:32:40+00:00",
-  "checkedAt": "2026-11-28T08:32:40+00:00",
+  "fetchedAt": "2026-11-28T08:58:48+00:00",
+  "checkedAt": "2026-11-28T08:58:48+00:00",
   "etags": {
     "items": "W/\"v1-items-c65bb39416814710\"",
-    "hotTopics": "W/\"v1-hot-bbaf1620606da535\""
+    "hotTopics": "W/\"v1-hot-210912a5892239c8\""
   },
   "items": [
     {
@@ -902,27 +902,28 @@
     },
     {
       "rank": 10,
-      "id": "dy4c01xbkqhpyduubgx4nahas",
-      "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
+      "id": "hek7o2f64d2x9j66ntq5l4l47",
+      "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
       "source": {
-        "name": "公众号 · 新智元"
+        "name": "X · Ado Kukic"
       },
       "links": {
-        "aihot": "https://aipick.news/items/dy4c01xbkqhpyduubgx4nahas",
-        "original": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652745275&idx=2&sn=69a41c7c572e2e65dd5d255aeac62a87&chksm=f00abc5398e4de5b41b49f1ce2bdb06c0fd46d076d3ae047089e9066234f12f7538ee2d857b0&scene=126&sessionid=0#rd",
-        "story": "https://aipick.news/story/1bb5cece-a773-4345-8c46-9247af3d62ce"
+        "aihot": "https://aipick.news/items/hek7o2f64d2x9j66ntq5l4l47",
+        "original": "https://x.com/adocomplete/status/2125999147719524580",
+        "story": "https://aipick.news/story/f4c28842-d519-4452-a3b4-59d247d0e7c1"
       },
-      "sourceCount": 3,
+      "sourceCount": 2,
       "signalCount": 0,
-      "participantCount": 3,
+      "participantCount": 2,
       "sourceNames": [
-        "X · Bilawal Sidhu",
-        "X · Min Choi",
-        "公众号 · 新智元"
+        "X · Addy Osmani",
+        "X · Ado Kukic"
       ],
-      "latestAt": "2026-11-26T20:15:27.000Z"
+      "latestAt": "2026-11-26T19:26:08.000Z"
     }
   ],
-  "unchanged": [],
+  "unchanged": [
+    "items"
+  ],
   "errors": []
 }

@@ -1,29 +1,29 @@
 {
   "schema": "scheduler-health/v1",
-  "generatedAt": "2026-11-28T08:41:09.332771+00:00",
-  "nextDueAt": "2026-11-28T08:58:09.332771+00:00",
+  "generatedAt": "2026-11-28T08:59:16.454849+00:00",
+  "nextDueAt": "2026-11-28T08:59:16.454849+00:00",
   "trigger": {
     "event": "push",
-    "runId": "46126918383",
+    "runId": "46128266784",
     "attempt": "1",
     "schedule": "",
     "scope": ""
   },
   "groups": {
     "models": {
-      "oldestSnapshotAt": "2026-11-28T08:40:46+00:00",
+      "oldestSnapshotAt": "2026-11-28T08:58:50+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
     },
     "selected": {
       "oldestSnapshotAt": "2026-11-28T08:32:40+00:00",
-      "due": false,
-      "eligible": false,
+      "due": true,
+      "eligible": true,
       "retryAfter": null
     },
     "aipick": {
-      "oldestSnapshotAt": "2026-11-28T08:32:40+00:00",
+      "oldestSnapshotAt": "2026-11-28T08:58:48+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null

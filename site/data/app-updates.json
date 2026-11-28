@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T08:40:59+00:00",
+  "checkedAt": "2026-11-28T08:59:03+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -1663,7 +1663,7 @@
         }
       },
       "status": "observed",
-      "deferred": false,
+      "deferred": true,
       "checkedAt": "2026-11-28T08:40:59+00:00",
       "lastSuccessAt": "2026-11-28T08:40:59+00:00",
       "error": null,
@@ -2160,6 +2160,122 @@
       "lastSuccessAt": null,
       "error": null,
       "deferred": true
+    },
+    {
+      "id": "xiaoyunque-ios-cn",
+      "name": "小云雀 · iOS 中国区",
+      "vendor": "小云雀",
+      "url": "https://apps.apple.com/cn/app/id6746231056",
+      "links": [],
+      "type": "apple-store-version",
+      "role": "first-party",
+      "entries": {
+        "ios-1.5.7-06eef574384ead8b09b8f9cb95c64390cf8ba64abe70e13042049f12f9bd08e5": {
+          "storeVersion": "1.5.7",
+          "storeVersionReleasedAt": "2026-11-25T03:12:02+00:00",
+          "notesSha256": "06eef574384ead8b09b8f9cb95c64390cf8ba64abe70e13042049f12f9bd08e5",
+          "hasReleaseNotes": true,
+          "category": "app",
+          "claimType": "first-party-store-version",
+          "firstObservedAt": "2026-11-28T08:59:03+00:00",
+          "lastObservedAt": "2026-11-28T08:59:03+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T08:59:03+00:00",
+      "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T20:59:03.114309+00:00"
+    },
+    {
+      "id": "pippit-ios-sg",
+      "name": "Pippit · iOS 新加坡区",
+      "vendor": "Pippit",
+      "url": "https://apps.apple.com/sg/app/id6756709583",
+      "links": [],
+      "type": "apple-store-version",
+      "role": "first-party",
+      "entries": {
+        "ios-1.0.7-a77e1d5d395d813bce71ae9bf1aa4921cd1394c82fe38e649c9d6265183ab63b": {
+          "storeVersion": "1.0.7",
+          "storeVersionReleasedAt": "2026-07-25T11:27:46+00:00",
+          "notesSha256": "a77e1d5d395d813bce71ae9bf1aa4921cd1394c82fe38e649c9d6265183ab63b",
+          "hasReleaseNotes": true,
+          "category": "app",
+          "claimType": "first-party-store-version",
+          "firstObservedAt": "2026-11-28T08:59:03+00:00",
+          "lastObservedAt": "2026-11-28T08:59:03+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T08:59:03+00:00",
+      "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T20:59:03.114309+00:00"
+    },
+    {
+      "id": "dreamina-ios-sg",
+      "name": "Dreamina · iOS 新加坡区",
+      "vendor": "Dreamina",
+      "url": "https://apps.apple.com/sg/app/id6749606485",
+      "links": [],
+      "type": "apple-store-version",
+      "role": "first-party",
+      "entries": {
+        "ios-2.2.0-b009d6966a836822d4d8a4fb729ec850c941eae3303956510f7d9c61a6689ba3": {
+          "storeVersion": "2.2.0",
+          "storeVersionReleasedAt": "2026-11-24T02:13:59+00:00",
+          "notesSha256": "b009d6966a836822d4d8a4fb729ec850c941eae3303956510f7d9c61a6689ba3",
+          "hasReleaseNotes": true,
+          "category": "app",
+          "claimType": "first-party-store-version",
+          "firstObservedAt": "2026-11-28T08:59:03+00:00",
+          "lastObservedAt": "2026-11-28T08:59:03+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T08:59:03+00:00",
+      "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T20:59:03.114309+00:00"
+    },
+    {
+      "id": "gemini-ios-us",
+      "name": "Gemini · iOS 美国区",
+      "vendor": "Gemini",
+      "url": "https://apps.apple.com/us/app/id6477489729",
+      "links": [],
+      "type": "apple-store-version",
+      "role": "first-party",
+      "entries": {
+        "ios-1.2026.4570305-a15b6463a9a54abe16e15075aec2b795932a6dda488df910a35325c79b245eb7": {
+          "storeVersion": "1.2026.4570305",
+          "storeVersionReleasedAt": "2026-11-20T01:06:08+00:00",
+          "notesSha256": "a15b6463a9a54abe16e15075aec2b795932a6dda488df910a35325c79b245eb7",
+          "hasReleaseNotes": true,
+          "category": "app",
+          "claimType": "first-party-store-version",
+          "firstObservedAt": "2026-11-28T08:59:03+00:00",
+          "lastObservedAt": "2026-11-28T08:59:03+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T08:59:03+00:00",
+      "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T20:59:03.114309+00:00"
     },
     {
       "id": "gemini-app-updates",
@@ -2842,7 +2958,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T08:40:59+00:00",
+    "checkedAt": "2026-11-28T08:59:03+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -3669,7 +3785,24 @@
         "provider": "AIPick",
         "priority": 4,
         "intervalMinutes": 720,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T08:59:03+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T08:59:03+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-8667287204241e7c\"",
+        "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T20:59:03.114309+00:00"
       },
       {
         "id": "pippit-aihot",
@@ -3678,7 +3811,24 @@
         "provider": "AIHOT",
         "priority": 4,
         "intervalMinutes": 720,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T08:59:03+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T08:59:03+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-d302af71384d2d02\"",
+        "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T20:59:03.114309+00:00"
       },
       {
         "id": "pippit-aipick",
@@ -3934,24 +4084,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T08:32:47+00:00",
-      "nextAttemptAt": "2026-11-28T08:57:47.197577+00:00"
+      "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+      "nextAttemptAt": "2026-11-28T09:24:03.114309+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T08:32:47+00:00",
-        "nextAttemptAt": "2026-11-28T08:57:47.197577+00:00"
+        "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+        "nextAttemptAt": "2026-11-28T09:24:03.114309+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T08:32:47+00:00",
-        "nextAttemptAt": "2026-11-28T08:57:47.197577+00:00"
+        "lastSuccessAt": "2026-11-28T08:59:03+00:00",
+        "nextAttemptAt": "2026-11-28T09:24:03.114309+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "recentPolicy": {
       "calendarTimezone": "Asia/Shanghai",
       "primaryCalendarDays": 3,
@@ -3961,6 +4111,19 @@
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
+    {
+      "id": "higgsfield-gpu-harness-20261123-article",
+      "sourceId": "higgsfield-changelog",
+      "brand": "Higgsfield",
+      "title": "GPU Harness 云端创作工作站介绍",
+      "kind": "产品介绍 / 工作流",
+      "category": "app",
+      "observedOn": "2026-11-28",
+      "releaseDate": "2026-11-23",
+      "sourceUrl": "https://higgsfield.ai/blog/higgsfield-gpu-harness",
+      "observationMethod": "官方文章发布日期",
+      "note": "11月23日官方文章介绍通过远程GPU运行创作应用（如 Blender）及 AI 工作负载；文章引用11月20日的渲染测试，因此不能将11月23日当作首次开放日期。只记录创作工作流，不追踪价格。"
+    },
     {
       "id": "jimeng-seedaudio-1-5-20261127-observation",
       "sourceId": "jimeng",
@@ -4011,10 +4174,10 @@
       "kind": "宣发 / 演示",
       "category": "video",
       "observedOn": "2026-11-28",
-      "releaseDate": null,
+      "releaseDate": "2026-11-25",
       "sourceUrl": "https://higgsfield.ai/blog/higgsfield-magi-2",
-      "observationMethod": "人工核对 · 官方文章索引",
-      "note": "单独的模型产品介绍，与11月24日接入日志分别保留。"
+      "observationMethod": "官方文章发布日期",
+      "note": "官方文章标注11月25日；这是产品介绍及演示日，与11月24日官方接入日志分别保留，不据宣发声称全球独家。"
     },
     {
       "id": "renoise-magi-2-arena-20261126",
@@ -4136,6 +4299,62 @@
     }
   ],
   "events": [
+    {
+      "id": "f40858b4bf38df3609e6afd341969b0b169532fd2f457f1a4f3dd0f7a99a1cab",
+      "sourceId": "xiaoyunque-ios-cn",
+      "sourceUrl": "https://apps.apple.com/cn/app/id6746231056",
+      "kind": "baseline-store-version",
+      "observedAt": "2026-11-28T08:59:03+00:00",
+      "releaseDate": null,
+      "storeVersion": "1.5.7",
+      "storeVersionReleasedAt": "2026-11-25T03:12:02+00:00",
+      "notesSha256": "06eef574384ead8b09b8f9cb95c64390cf8ba64abe70e13042049f12f9bd08e5",
+      "hasReleaseNotes": true,
+      "category": "app",
+      "claimType": "first-party-store-version"
+    },
+    {
+      "id": "246ef0712272a5d104b10600b75d439c27fd7ee991513b48deb92a83d2b4deea",
+      "sourceId": "gemini-ios-us",
+      "sourceUrl": "https://apps.apple.com/us/app/id6477489729",
+      "kind": "baseline-store-version",
+      "observedAt": "2026-11-28T08:59:03+00:00",
+      "releaseDate": null,
+      "storeVersion": "1.2026.4570305",
+      "storeVersionReleasedAt": "2026-11-20T01:06:08+00:00",
+      "notesSha256": "a15b6463a9a54abe16e15075aec2b795932a6dda488df910a35325c79b245eb7",
+      "hasReleaseNotes": true,
+      "category": "app",
+      "claimType": "first-party-store-version"
+    },
+    {
+      "id": "1e56c5bd27c2f2f65eff08a1666297475c75d138565949b06b18a8d51ed0d2a7",
+      "sourceId": "dreamina-ios-sg",
+      "sourceUrl": "https://apps.apple.com/sg/app/id6749606485",
+      "kind": "baseline-store-version",
+      "observedAt": "2026-11-28T08:59:03+00:00",
+      "releaseDate": null,
+      "storeVersion": "2.2.0",
+      "storeVersionReleasedAt": "2026-11-24T02:13:59+00:00",
+      "notesSha256": "b009d6966a836822d4d8a4fb729ec850c941eae3303956510f7d9c61a6689ba3",
+      "hasReleaseNotes": true,
+      "category": "app",
+      "claimType": "first-party-store-version"
+    },
+    {
+      "id": "17a4fc8729c2271e6f045192328136881c9aded3ccf1b959fd4e215b6bf0cae0",
+      "sourceId": "pippit-ios-sg",
+      "sourceUrl": "https://apps.apple.com/sg/app/id6756709583",
+      "kind": "baseline-store-version",
+      "observedAt": "2026-11-28T08:59:03+00:00",
+      "releaseDate": null,
+      "storeVersion": "1.0.7",
+      "storeVersionReleasedAt": "2026-07-25T11:27:46+00:00",
+      "notesSha256": "a77e1d5d395d813bce71ae9bf1aa4921cd1394c82fe38e649c9d6265183ab63b",
+      "hasReleaseNotes": true,
+      "category": "app",
+      "claimType": "first-party-store-version"
+    },
     {
       "id": "eaa84ec12344ba53a856a51498d026e79d8c3c031a23b294a844c1511332e00d",
       "sourceId": "tapnow-changelog",
@@ -6882,15 +7101,15 @@
     }
   ],
   "summary": {
-    "configuredSources": 21,
-    "successfulThisRun": 1,
-    "baselineSources": 15,
+    "configuredSources": 25,
+    "successfulThisRun": 4,
+    "baselineSources": 19,
     "listedModels": 0,
-    "reviewedObservations": 11
+    "reviewedObservations": 12
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T08:41:03+00:00",
+    "checkedAt": "2026-11-28T08:59:09+00:00",
     "window": "7d",
     "sources": [
       {
@@ -6903,7 +7122,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T08:32:40+00:00",
+        "fetchedAt": "2026-11-28T08:58:48+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -6984,7 +7203,7 @@
         "providers": [
           "AIPick"
         ],
-        "hotSourceMentionCount": 3,
+        "hotSourceMentionCount": 2,
         "status": "original-observed"
       },
       {
