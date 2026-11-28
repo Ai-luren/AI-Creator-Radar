@@ -359,6 +359,38 @@
         "oiioii-aihot",
         "oiioii-aipick"
       ]
+    },
+    {
+      "id": "aiguanchao-featured",
+      "name": "AI观潮 · 精选 RSS",
+      "vendor": "AI观潮",
+      "role": "discovery",
+      "url": "https://aiguanchao.com/feed/featured.xml",
+      "type": "product-discovery-feed",
+      "minIntervalMinutes": 720,
+      "links": [
+        {
+          "kind": "精选与原文",
+          "url": "https://aiguanchao.com/picks",
+          "access": "第三方发现，报道日期不是上线日期"
+        }
+      ]
+    },
+    {
+      "id": "kreatorflow-creator-news",
+      "name": "KreatorFlow · 创作资讯 RSS",
+      "vendor": "KreatorFlow",
+      "role": "discovery",
+      "url": "https://kreatorflow.ai/news/rss.xml",
+      "type": "product-discovery-feed",
+      "minIntervalMinutes": 720,
+      "links": [
+        {
+          "kind": "创作资讯",
+          "url": "https://kreatorflow.ai/news",
+          "access": "第三方发现，非独立官方证据"
+        }
+      ]
     }
   ],
   "reviewedObservations": [

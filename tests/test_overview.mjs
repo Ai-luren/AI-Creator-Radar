@@ -132,7 +132,7 @@ test('rankings search indexes visible source rows and keeps task identity',async
 });
 
 test('grouped release list, recent known date and readable briefing preserve source links',async()=>{
- const {run,node}=setup();await run('loadAllForTests()');run("setView('today')");
+ const {run,node}=setup();await run('loadAllForTests()');run("setView('today',{releaseWindow:'30'})");
  const hasReleases=run("(state.modelReleases||[]).some(x=>releaseCategoryOrder(x.category)<99&&withinDays(x.publishedAt,30,new Date()))");
  if(hasReleases){assert.match(node('content').innerHTML,/class="release-main"/);assert.match(node('content').innerHTML,/class="release-actions"/);assert.match(node('content').innerHTML,/data-model-version=/)}
  else{assert.doesNotMatch(node('content').innerHTML,/class="release-main"/);assert.match(node('content').innerHTML,/最近 30 天没有符合当前筛选的已核实发布事件/)}
@@ -369,7 +369,7 @@ test('latest briefing date is shared across sources and fixed before search or c
  assert.equal(run('latestBriefingDay()'),'2026-11-26');const events=JSON.parse(run('JSON.stringify(combinedNews(latestBriefingDay()))'));assert.equal(events.length,2);assert.ok(events.every(e=>e.day==='2026-11-26'&&e.rows.every(r=>r.day==='2026-11-26')));assert.equal(run('latestDigest(state.aihotDaily,latestBriefingDay()).items.length'),0);assert.equal(run('latestSelectedNews(latestBriefingDay()).length'),1);run("state.query='昨日旧报道'");assert.equal(run('latestBriefingDay()'),'2026-11-26');assert.equal(run('combinedNews(latestBriefingDay()).filter(newsMatches).length'),0);
 });
 
-test('V3.5 separates formal releases from service stages',async()=>{const {run,node}=setup();await run('loadAllForTests()');assert.doesNotMatch(node('content').innerHTML,/overview-stage-count|overview-count-track/);run("setView('today',{releaseMode:'confirmed',releaseCategory:'all'})");assert.doesNotMatch(node('content').innerHTML,/\+\s*\d+\s*上线|已核实模型上线阶段|data-release-mode="all"/);run("setView('today',{releaseMode:'announcements',releaseCategory:'all'})");assert.match(node('content').innerHTML,/官方公告/);if(run("(state.modelReleaseData.verifiedStages||[]).some(x=>withinDays(x.stageDate,30,new Date()))"))assert.match(node('content').innerHTML,/已核实模型上线阶段/);});
+test('V3.5 separates formal releases from service stages',async()=>{const {run,node}=setup();await run('loadAllForTests()');assert.doesNotMatch(node('content').innerHTML,/overview-stage-count|overview-count-track/);run("setView('today',{releaseMode:'confirmed',releaseCategory:'all'})");assert.doesNotMatch(node('content').innerHTML,/\+\s*\d+\s*上线|已核实模型上线阶段|data-release-mode="all"/);run("setView('today',{releaseMode:'announcements',releaseCategory:'all',releaseWindow:'30'})");assert.match(node('content').innerHTML,/官方公告/);if(run("(state.modelReleaseData.verifiedStages||[]).some(x=>withinDays(x.stageDate,30,new Date()))"))assert.match(node('content').innerHTML,/已核实模型上线阶段/);});
 
 test('V3.5 model library defaults to strict latest dated family order and unknowns last',async()=>{
  const {run,node}=setup({query:'?view=models&category=video'});await run('loadAllForTests()');
@@ -489,8 +489,8 @@ test('hot view preserves original source rank and excludes stale observations',a
 
 test('official competitor changelog is distinct from model release and ignores other brand filter',async()=>{
  const {run,node,requested}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T00:00:00+08:00'});await run('loadData()');assert.ok(requested.includes('app-updates.json'));
- run("state.appUpdates={sources:[{id:'higgsfield-changelog',lastSuccessAt:'2026-11-27T12:00:00Z'}],events:[{sourceId:'higgsfield-changelog',claimType:'first-party-product-changelog',featureName:'Higgsfield Mangaka',publisherCalendarDay:'2026-11-02',updateType:'product-release',productArea:'Image Tools',sourceUrl:'https://higgsfield.ai/creator-hub/changelog'}]};render()");
- assert.match(node('content').innerHTML,/Higgsfield Mangaka/);assert.match(node('content').innerHTML,/2026-11-02 · 产品发布/);
+ run("state.appUpdates={sources:[{id:'higgsfield-changelog',lastSuccessAt:'2026-11-27T12:00:00Z'}],events:[{sourceId:'higgsfield-changelog',claimType:'first-party-product-changelog',featureName:'Higgsfield Mangaka',publisherCalendarDay:'2026-11-26',updateType:'product-release',productArea:'Image Tools',sourceUrl:'https://higgsfield.ai/creator-hub/changelog'}]};render()");
+ assert.match(node('content').innerHTML,/Higgsfield Mangaka/);assert.match(node('content').innerHTML,/2026-11-26 · 产品发布/);
  run("creatorBrand='LibTV';render()");assert.doesNotMatch(node('content').innerHTML,/Higgsfield Mangaka/);
 });
 
@@ -895,4 +895,12 @@ test('three-day primary and seven-day follow-up use China calendar and exclude o
  assert.deepEqual(b.primary.map(r=>r.day),['2026-11-28','2026-11-26']);
  assert.deepEqual(b.followup.map(r=>r.day),['2026-11-25','2026-11-22']);
  assert.deepEqual(b.review.map(r=>r.day),['2026-11-21','2026-10-30']);
+});
+
+test('alternative feed reports supplement competitor discovery without becoming releases',()=>{
+ const {run}=setup({now:'2026-11-28T23:59:59+08:00'});
+ const app={sources:[{id:'aiguanchao-featured',role:'discovery'}],events:[{sourceId:'aiguanchao-featured',claimType:'external-product-report',reportedBrand:'Higgsfield',reportPublishedAt:'2026-11-27T10:00:00Z',featureName:'Higgsfield launches workflow',sourceUrl:'https://example.org/report'}]};
+ const rows=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(app)+',[],{},Date.now()))'));
+ assert.equal(rows.length,1);assert.equal(rows[0].proof,'第三方报道日期 · 非上线日期');
+ assert.equal(run('productChronicleTopics('+JSON.stringify(app)+',[]).find(t=>t.id==="product-higgsfield").milestones.length'),0);
 });

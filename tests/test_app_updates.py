@@ -627,3 +627,32 @@ class RecentFirstPolicyTests(unittest.TestCase):
         result=collect_targeted(cfg,{},now,lambda q,e:(calls.append(q["id"]) or {"items":0},""),releases=[model])
         self.assertEqual(calls,["core"])
         self.assertEqual(result["recentPolicy"]["primaryCalendarDays"],3)
+
+class AlternativeProductSourcesTests(unittest.TestCase):
+    def test_feed_recent_exact_brand_and_report_only(self):
+        from scripts.collect_app_updates import parse_product_discovery_feed
+        now=datetime(2026,11,28,12,tzinfo=timezone.utc)
+        source={"id":"aiguanchao-featured","url":"https://aiguanchao.com/feed/featured.xml"}
+        def item(title,date,link):
+            return f"<item><title>{title}</title><pubDate>{date}</pubDate><link>{link}</link></item>"
+        body=("<rss><channel>"+item("Higgsfield launches new workflow","Fri, 27 Nov 2026 10:00:00 GMT","https://example.org/new")+item("Flova pricing update","Fri, 27 Nov 2026 10:00:00 GMT","https://example.org/price")+item("LibTV new feature","Fri, 20 Nov 2026 10:00:00 GMT","https://example.org/old")+"</channel></rss>").encode()
+        rows=list(parse_product_discovery_feed(body,source,now).values())
+        self.assertEqual(len(rows),1)
+        self.assertEqual(rows[0]["reportedBrand"],"Higgsfield")
+        self.assertEqual(rows[0]["claimType"],"external-product-report")
+        self.assertNotIn("publisherCalendarDay",rows[0])
+        self.assertEqual(parse_product_discovery_feed(b"<rss><channel/></rss>",source,now),{})
+    def test_repeated_failures_pause_only_the_unavailable_source(self):
+        from scripts.collect_app_updates import collect,app_probe_retry_at
+        from urllib.error import HTTPError
+        now=datetime(2026,11,28,12,tzinfo=timezone.utc)
+        self.assertGreaterEqual(datetime.fromisoformat(app_probe_retry_at(HTTPError("https://example.org",403,"Forbidden",{},None),now,1)),now+timedelta(days=1))
+        self.assertGreaterEqual(datetime.fromisoformat(app_probe_retry_at(ValueError("shell"),now,3)),now+timedelta(days=7))
+        blocked={"id":"jimeng","name":"Jimeng","vendor":"字节跳动","url":"https://jimeng.jianying.com/ai-tool/home","type":"visible-model-labels","links":[],"minIntervalMinutes":360}
+        fallback={"id":"aiguanchao-featured","name":"AI观潮","vendor":"AI观潮","url":"https://aiguanchao.com/feed/featured.xml","type":"product-discovery-feed","role":"discovery","links":[],"minIntervalMinutes":720}
+        old={"schema":"app-updates/v1","sources":[{**blocked,"status":"probe-unavailable","consecutiveFailures":6,"checkedAt":(now-timedelta(hours=14)).isoformat(),"nextAttemptAt":(now-timedelta(hours=1)).isoformat(),"entries":{}}],"events":[]}
+        calls=[]
+        result=collect({"sources":[blocked,fallback]},old,now,lambda s:calls.append(s["id"]) or {})
+        self.assertEqual(calls,["aiguanchao-featured"])
+        self.assertEqual(result["sources"][0]["skipReason"],"source-circuit-open")
+        self.assertEqual(result["sources"][1]["status"],"observed")

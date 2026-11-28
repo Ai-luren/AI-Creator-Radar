@@ -110,7 +110,9 @@ function competitorBriefRows(app,reports,social,now){
  }
  (app.events||[]).forEach(function(e){
   var s=sources.find(function(x){return x.id===e.sourceId}),brand=s&&(s.vendor==='字节跳动'&&/^jimeng/.test(s.id)?'即梦':s.vendor||(s.id==='higgsfield-changelog'?'Higgsfield':''));
-  if(productDatedEvent(e)){
+  if(e.claimType==='external-product-report'){
+   if(s&&s.role==='discovery'&&withinDays(e.reportPublishedAt,7,new Date(now)))add(e.reportedBrand,e.featureName,e.reportPublishedAt,'第三方产品线索',e.sourceUrl,'第三方报道日期 · 非上线日期',{note:'独立来源补缺，需交叉确认事件实际日期。'});
+  }else if(productDatedEvent(e)){
    var kinds={'model-integration':'模型接入','product-feature':'新功能','product-release':'产品发布','product-improvement':'能力改进','product-update':'功能更新'};
    add(brand,e.featureName,e.publisherCalendarDay,kinds[e.updateType]||'官方产品更新',e.sourceUrl,productEventProof(e),{modelName:e.updateType==='model-integration'?e.featureName:''});
   }else if(e.claimType==='first-party-visible-label'&&e.kind==='new-visible-label'&&firstPartyProducts.includes(brand)){
