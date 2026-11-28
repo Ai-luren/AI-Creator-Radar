@@ -959,7 +959,7 @@ def app_probe_retry_at(exc, now, count):
     # failure opens a seven-day circuit rather than spending every run on it.
     if count>=3:
         delay=max(delay,timedelta(days=7))
-    elif isinstance(exc,urllib.error.HTTPError) and exc.code==403:
+    elif isinstance(exc,urllib.error.HTTPError) and exc.code==403 and (exc.headers or {}).get("X-RateLimit-Remaining")!="0":
         delay=max(delay,timedelta(days=1))
     return (now+delay).isoformat()
 
