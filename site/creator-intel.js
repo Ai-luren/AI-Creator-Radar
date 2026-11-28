@@ -21,6 +21,13 @@ function creatorIntegrationTarget(title,brand){
  while(i>=0){if(/(?:上线|上架|接入|登陆|登录)\s*$/.test(t.slice(0,i))&&!/^[a-z0-9]/i.test(t.slice(i+b.length)))return true;i=t.indexOf(b,i+b.length)}
  return false
 }
+// An explicit brand mention in a creator review is a lead, not launch evidence.
+function creatorLaunchSignal(title,brand){
+ var t=String(title||''),b=String(brand||'');if(!b||/折扣|优惠|黑五|促销|赠送|抽奖|discount|coupon|black friday|giveaway/i.test(t))return false;
+ var pos=t.toLowerCase().indexOf(b.toLowerCase());
+ while(pos>=0){if(!/[A-Za-z0-9]$/.test(t.slice(0,pos))&&!/^[A-Za-z0-9]/.test(t.slice(pos+b.length))&&/实测|测评|评测|体验|上手|教程|演示|制作|案例|review|tutorial|demo|hands[- ]on|workflow/i.test(t)&&/新功能|新增|发布|上线|上新|接入|升级|首发|功能|模型|工作流|工作室|画布|feature|model|launch|workflow|studio|canvas/i.test(t))return true;pos=t.toLowerCase().indexOf(b.toLowerCase(),pos+b.length)}
+ return false;
+}
 function creatorBrandMatch(title,mode,term){
  var brands=creatorBrands[mode]||[],active=term?[term]:brands;
  var targets=creatorBrands.competitors.filter(function(b){return creatorIntegrationTarget(title,b)});
@@ -192,7 +199,7 @@ function creatorCoverageMarkup(mode,term){
  var monitored=platforms.filter(function(x){return x.role==='social'}),hit=monitored.filter(function(x){return x.originalCount>0}).length;
  var platformRows=platforms.map(function(x){return '<div class="overview-row"><span><strong>'+esc(x.label)+'</strong> · '+esc(status[x.status]||'未测量')+'</span><span class="overview-row-meta">'+esc((x.originalCount||0)+' 条原文'+(x.providers&&x.providers.length?' · '+x.providers.join(' / '):'')+(x.hotSourceMentionCount?' · 热点来源提及 '+x.hotSourceMentionCount:'')+(x.role==='reference'?' · 资料参考':x.role==='discovery'?' · 发现入口':''))+'</span></div>'}).join('');
  var relevant=queries.filter(function(q){return term?q.label===term:(creatorBrands[mode]||[]).includes(q.label)});
- var queryRows=relevant.map(function(q){var c=q.counts||{},actual=q.lastAttemptAt?'最近查询 '+overviewTime(q.lastAttemptAt):'尚未执行',provider=q.provider||'AIPick';return '<div class="overview-row"><span><strong>'+esc(q.label)+'</strong> · '+esc(provider)+'</span><span class="overview-row-meta">'+esc(actual+' · '+(q.status==='unavailable'?'读取失败':Number.isInteger(c.items)?c.items+' 条检索结果'+(Number.isInteger(c.selectedProductFeatures)?' · 功能 '+c.selectedProductFeatures+' / 接入 '+c.selectedModelIntegrations:''):'未测量'))+'</span></div>'}).join('');
+ var queryRows=relevant.map(function(q){var c=q.counts||{},actual=q.lastAttemptAt?'最近查询 '+overviewTime(q.lastAttemptAt):'尚未执行',provider=q.provider||'AIPick';return '<div class="overview-row"><span><strong>'+esc(q.label)+'</strong> · '+esc(provider)+'</span><span class="overview-row-meta">'+esc(actual+' · '+(q.status==='unavailable'?'读取失败':Number.isInteger(c.items)?c.items+' 条检索结果'+(Number.isInteger(c.selectedProductFeatures)?' · 功能 '+c.selectedProductFeatures+' / 接入 '+c.selectedModelIntegrations:'')+(Number.isInteger(c.selectedCreatorSignals)?' / 创作者线索 '+c.selectedCreatorSignals:''):'未测量'))+'</span></div>'}).join('');
  return (mode==='competitors'?coreCompetitorChannelMarkup(app,state.social,term):'')+'<details class="source-health"><summary>实际信源覆盖'+(platforms.length?' · 社媒 '+hit+'/'+monitored.length:'')+'</summary><p class="page-desc">当前七天精选快照的独立原文链接；未观察不代表平台不可访问。热点来源提及不算原文覆盖。定向查询结果数量不是已确认事件数。</p><div class="briefing-original-links">'+(cov.sources||[]).map(function(s){return '<span class="head-meta">'+esc(s.provider+' '+(s.fetchedAt?overviewTime(s.fetchedAt):'未读取')+(s.stale?' · 快照较旧':''))+'</span>'}).join('')+'</div>'+platformRows+(queryRows?'<h3>关注厂商查询记录</h3>'+queryRows:'')+'</details>'
 }
 // Vendor-first reading projection: no new data store or inferred publication.
@@ -280,8 +287,8 @@ function competitorBriefRows(app,reports,social,now){
  });
  (reports||[]).forEach(function(r){
   var x=r.item||{},l=x.links||{};
-  trackingBrands.filter(function(brand){return creatorSubject(x.title,brand)||creatorIntegrationTarget(x.title,brand)}).forEach(function(brand){
-   add(brand,x.title,x.publishedAt||x.latestAt||x.discoveredAt,competitorEventType(x.title),r.story?l.story:l.original,r.story?'讨论合集 · 非官方确认':x.publishedAt?'相关报道 · 非官方确认':'发现时间 · 非发布日期',{providers:r.providers||[]});
+  trackingBrands.filter(function(brand){return creatorSubject(x.title,brand)||creatorIntegrationTarget(x.title,brand)||(!r.story&&creatorLaunchSignal(x.title,brand))}).forEach(function(brand){
+   add(brand,x.title,x.publishedAt||x.latestAt||x.discoveredAt,(!r.story&&creatorLaunchSignal(x.title,brand)&&!creatorSubject(x.title,brand)&&!creatorIntegrationTarget(x.title,brand)?'创作者发现线索':competitorEventType(x.title)),r.story?l.story:l.original,r.story?'讨论合集 · 非官方确认':x.publishedAt?'相关报道 · 非官方确认':'发现时间 · 非发布日期',{providers:r.providers||[]});
   });
  });
  (social.posts||[]).forEach(function(x){
@@ -350,6 +357,51 @@ function curatedCreativeMarkup(now,term,reports){
  if(!rows.length)return '';
  return '<section class="briefing-digest-section"><div class="section-head"><h2>近3天 · 创作产品与模型线索</h2><span class="head-meta">'+rows.length+' 条日报补缺</span></div><p class="page-desc">复用精选日报的原始链接；日期为刊期，不代表模型发布或平台接入日期。未核实线索不写入正式模型库。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><div class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.day+' · '+r.providers.join(' / ')+' · '+r.proof)+'</span><strong>'+esc(r.title)+'</strong></span>'+creatorLink(r.url,'来源')+'</div></article>'}).join('')+'</div></section>';
 }
+// Reuse upstream story pointers and exact named feature/model anchors.
+// Never add upstream counts to local original counts or infer creator identity/sponsorship.
+function creatorPropagationGroups(reports,releases,events,now,term,scope){
+ var groups=new Map(),brands=term?[term]:scope==='vendors'?creatorBrands.vendors:priorityCompetitors.concat(firstPartyProducts);
+ var models=(releases||[]).filter(function(m){return m.modelName&&m.modelFamilyId&&m.modelVersionId&&m.verifiedAt&&['official-release','official-model-card'].includes(m.evidenceType)&&m.verificationStatus!=='pending'});
+ function identity(title,brand){
+  var hits=models.filter(function(m){return competitorModelPattern(m.modelName).test(title)});
+  if(hits.length===1)return {name:hits[0].modelName,key:'model:'+hits[0].modelFamilyId+'|'+hits[0].modelVersionId,pattern:competitorModelPattern(hits[0].modelName)};
+  if(hits.length>1)return null;
+  var i=title.toLowerCase().indexOf(brand.toLowerCase()),tail=i<0?'':title.slice(i+brand.length).trim();
+  // Only explicit names, not generic words such as "new feature" or "AI".
+  var m=tail.match(/^([\u4e00-\u9fff]{2,8}(?:工作室|导演台|造型室|编辑器|工具箱))/)||title.match(/(?:新功能|功能|feature)\s*[「『“"]?([A-Za-z][A-Za-z0-9-]{2,35})(?=[」』”"\s，,。:：]|$)/i)||title.match(/[「『“"]([^」』”"\n]{3,35})[」』”"]\s*(?:功能|工作流|工具)/);
+  if(!m||/^(?:new|the|and|with|for|model|feature|workflow|studio|canvas|video|image|audio)$/i.test(m[1]))return null;
+  var name=m[1],escaped=Array.from(name).map(function(c){return /[.*+?^$\x7b\x7d()|[\]\\]/.test(c)?'\\'+c:c}).join(''),pattern=new RegExp((/^[A-Za-z0-9]/.test(name)?'(?<![A-Za-z0-9])':'')+escaped+(/[A-Za-z0-9]$/.test(name)?'(?![A-Za-z0-9])':''),'i');
+  return {name:name,key:'feature:'+name.normalize('NFKC').toLowerCase(),pattern:pattern};
+ }
+ (reports||[]).forEach(function(r){
+  var x=r.item||{},title=String(x.title||''),links=x.links||{},date=r.story?x.latestAt:x.publishedAt;
+  if(!title||!date||!withinDays(date,3,new Date(now))||/黑五|折扣|优惠|促销|抽奖|discount|coupon|black friday|pricing|giveaway/i.test(title))return;
+  var bs=brands.filter(function(b){return creatorSubject(title,b)||creatorIntegrationTarget(title,b)});
+  if(!bs.length&&!r.story)bs=brands.filter(function(b){return creatorLaunchSignal(title,b)});
+  if(bs.length!==1)return;
+  var brand=bs[0],id=identity(title,brand),url=creatorOriginalUrl(r.story?links.story:links.original),story=r.story&&creatorStoryTarget(url);
+  if(!url||r.story&&!story)return;
+  var labels=r.story?Array.from(new Set((Array.isArray(x.sourceNames)?x.sourceNames:[]).filter(function(n){return typeof n==='string'&&n.trim()}))):[];
+  var productReport=creatorLaunchSignal(title,brand)||((creatorSubject(title,brand)||creatorIntegrationTarget(title,brand))&&/发布|推出|上线|上新|接入|首发|更新|升级|launch|release|introduc|now available|integrat/i.test(title));
+  if(r.story&&labels.length<2||!r.story&&(!id||!productReport))return;
+  var key=brand+'|'+(id?id.key:'story:'+newsUrlKey(url)),g=groups.get(key);
+  if(!g){g={brand:brand,name:id?id.name:title,pattern:id?id.pattern:null,originals:[],stories:[],latest:0,official:[]};groups.set(key,g)}
+  g.latest=Math.max(g.latest,Date.parse(date));
+  var lane=r.story?g.stories:g.originals;
+  if(!lane.some(function(z){return newsUrlKey(z.url)===newsUrlKey(url)}))lane.push({url:url,title:title,day:chinaDay(date),source:String(x.source&&x.source.name||''),labels:labels,providers:r.providers||[]});
+ });
+ return Array.from(groups.values()).filter(function(g){return g.originals.length>=2||g.stories.length}).map(function(g){
+  if(g.pattern){g.official=(events||[]).filter(function(e){return e.brand===g.brand&&g.pattern.test(e.title)&&['官方日志','官方插件发布提交','官方开发生态合并'].includes(e.proof)&&e.kind!=='下架 / 停服通知'});
+   if(scope==='vendors')models.filter(function(m){return String(m.vendor||'').toLowerCase()===g.brand.toLowerCase()&&m.modelName===g.name&&creatorOriginalUrl(m.url)&&m.publishedAt&&Date.parse(m.publishedAt)<=now}).forEach(function(m){g.official.push({day:m.publishedAt,kind:'模型发布记录',title:m.modelName,url:m.url})});
+  }
+  return g;
+ }).sort(function(a,b){return b.latest-a.latest||b.originals.length-a.originals.length}).slice(0,12);
+}
+function creatorPropagationMarkup(reports,releases,events,now,term,scope){
+ var groups=creatorPropagationGroups(reports,releases,events,now,term,scope);
+ if(!groups.length)return '';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>近期新品传播信号</h2><span class="head-meta">近3天 · '+groups.length+' 个线索</span></div><p class="page-desc">复用聚合专题与同名功能原文；集中传播不等于商业合作或新品上线。上游来源标签与本站原文数分开记录，不相加。</p><div class="briefing-list">'+groups.map(function(g){return '<article class="briefing-card"><details '+(g.stories.some(function(r){return creatorStoryBusy===r.url||creatorStoryDisplay[r.url]})?'open':'')+'><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(chinaDay(new Date(g.latest).toISOString())+' · '+(g.official.length?'有官方相关记录':'待官方核验')+' · '+g.originals.length+' 条去重原文 / '+g.stories.length+' 个上游合集')+'</span><strong>'+esc(g.brand+' · '+g.name)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded">'+g.official.map(function(r){return '<p>'+esc(r.day+' · '+r.kind+' · '+r.title)+' '+creatorLink(r.url,'官方记录')+'</p>'}).join('')+g.stories.map(function(r){return '<p>'+esc((r.providers||[]).join(' / ')+' · '+r.labels.join('、'))+' '+creatorLink(r.url,'报道合集')+'</p>'+creatorStoryReadMarkup(r.url)}).join('')+g.originals.map(function(r){return '<div class="vendor-event"><time>'+esc(r.day.slice(5))+'</time><div class="vendor-event-main"><strong>'+esc(r.title)+'</strong><small>'+esc(r.source+' · 创作者线索')+'</small></div>'+creatorLink(r.url,'原文')+'</div>'}).join('')+'<div class="briefing-original-links">'+creatorLink('https://aipick.news/api/v1/items?mode=all&window=7d&limit=20&q='+encodeURIComponent(g.brand+' '+g.name),'专项寻源')+'</div></div></details></article>'}).join('')+'</div></section>';
+}
 function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
  var app=state.appUpdates||{},all=competitorBriefRows(app,reports,state.social||{},now),brands=term?[term]:creatorBrands.competitors;
  var filtered=all.filter(function(r){return brands.includes(r.brand)&&matches([r.brand,r.title,productReadingTitle(r.title),r.kind,r.note].join(' '))});
@@ -380,7 +432,7 @@ function competitorBriefPage(head,toolbar,reports,now,term,diagnostics){
  var firstParty=term?'':'<section class="briefing-digest-section"><div class="section-head"><h2>一手产品动态</h2></div><div class="vendor-grid">'+firstPartyProducts.map(function(brand){var rs=all.filter(function(r){return r.brand===brand&&withinDays(r.day,7,new Date(now))&&matches([r.brand,r.title,r.kind].join(' '))}),buckets=competitorRecentBuckets(rs,now),source=(app.sources||[]).find(function(s){return s.vendor===brand||brand==='即梦'&&s.id==='jimeng'}),url=source&&source.url||(brand==='Dreamina'?'https://dreamina.capcut.com/':'');return '<section class="overview-panel"><div class="section-head"><h2>'+esc(brand)+'</h2>'+creatorLink(url,'官网')+'</div>'+(buckets.primary.slice(0,3).map(event).join('')||'<p class="overview-empty">近3天暂无记录</p>')+(buckets.primary.length>3?'<details class="source-health"><summary>其余 '+(buckets.primary.length-3)+' 条近3天记录</summary>'+buckets.primary.slice(3).map(event).join('')+'</details>':'')+(buckets.followup.length?'<details class="source-health"><summary>第4–7天补缺 · '+buckets.followup.length+' 条</summary>'+buckets.followup.map(event).join('')+'</details>':'')+'</section>'}).join('')+'</div></section>';
  var originalCount=reports.filter(function(r){return !r.story&&creatorBrandMatch(r.item.title,'competitors',term)}).length;
  var active=brands.filter(function(b){return recentFor(b).length>0}).length,primaryActive=brands.filter(function(b){return recentFor(b).some(function(r){return withinDays(r.day,3,new Date(now))})}).length;
- return head+toolbar+'<div class="vendor-overview-summary"><span><strong>'+primaryActive+'/'+brands.length+'</strong> 家有近3天记录</span><span><strong>'+active+'/'+brands.length+'</strong> 家有近7天记录</span><span><strong>'+traceRows.length+'</strong> 个模型响应追踪</span></div>'+(traces?'<section class="briefing-digest-section"><div class="section-head"><h2>重点模型 · 各平台接入与宣发</h2></div>'+traces+'</section>':'')+'<div class="briefing-original-links"><a href="?view=feeds&amp;briefing=hot">查看事件专题与报道合集 ↗</a></div><div class="section-head"><h2>近3天优先 · 近7天厂商动态</h2><span class="head-meta">'+originalCount+' 条原文去重</span></div><div class="vendor-grid">'+cards+'</div>'+firstParty+curatedCreativeMarkup(now,term,filtered)+'<p class="page-desc">近3天为重点，4–7天补缺；更早的已核实历史在厂商发展史自然沉淀。暂无记录不等于没有更新；现有能力不计作近期上新。模型响应仅统计可关联记录，不代表全部平台已接入。</p><details class="source-health"><summary>数据与信源诊断</summary>'+diagnostics+creatorCoverageMarkup('competitors',term)+'<details><summary>官方来源与历史观察</summary>'+creatorOfficialMarkup(now,term)+'</details></details>';
+ return head+toolbar+creatorPropagationMarkup(reports,state.modelReleases||[],all,now,term)+'<div class="vendor-overview-summary"><span><strong>'+primaryActive+'/'+brands.length+'</strong> 家有近3天记录</span><span><strong>'+active+'/'+brands.length+'</strong> 家有近7天记录</span><span><strong>'+traceRows.length+'</strong> 个模型响应追踪</span></div>'+(traces?'<section class="briefing-digest-section"><div class="section-head"><h2>重点模型 · 各平台接入与宣发</h2></div>'+traces+'</section>':'')+'<div class="briefing-original-links"><a href="?view=feeds&amp;briefing=hot">查看事件专题与报道合集 ↗</a></div><div class="section-head"><h2>近3天优先 · 近7天厂商动态</h2><span class="head-meta">'+originalCount+' 条原文去重</span></div><div class="vendor-grid">'+cards+'</div>'+firstParty+curatedCreativeMarkup(now,term,filtered)+'<p class="page-desc">近3天为重点，4–7天补缺；更早的已核实历史在厂商发展史自然沉淀。暂无记录不等于没有更新；现有能力不计作近期上新。模型响应仅统计可关联记录，不代表全部平台已接入。</p><details class="source-health"><summary>数据与信源诊断</summary>'+diagnostics+creatorCoverageMarkup('competitors',term)+'<details><summary>官方来源与历史观察</summary>'+creatorOfficialMarkup(now,term)+'</details></details>';
 }
 // A private refresh supplements persisted evidence; an empty or failed
 // upstream read must never erase the working production snapshot.
@@ -397,10 +449,10 @@ function creatorIntelPage(tabs){
  var status=Object.keys(sources).map(function(n){var x=sources[n];return n+' '+(x.error?'读取失败，保留可用记录：'+x.error:x.observedAt?overviewTime(x.observedAt):'未读取')}).join(' · ');
  var toolbar='<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div>'+filters+'<div class="news-toolbar"><p class="page-desc">'+(isLocalAihot()?'个人阅读实时查询，仅内存缓存。':'点击个人阅读，从你的浏览器直连双源，仅本次会话内存读取；不向本站服务器同步。失败可打开上游原站。')+'</p>'+live+'</div><div class="briefing-original-links">'+links+'</div>'+(status?'<p class="overview-notice">'+esc(status)+'</p>':'');
  if(hot){var dossierBatches=[{name:'AIHOT',items:(state.aihot.items||[]).concat(from('AIHOT','items',[]))},{name:'AIPick',items:(a.items||[]).concat(a.hotTopics||[],from('AIPick','items',[]))}];return head+toolbar+creatorDossierMarkup(creatorDossiers(state.modelReleases,dossierBatches,state.appUpdates||{},state.social||{},[{name:'AIHOT 日报',data:state.aihotDaily},{name:'橘鸦',data:state.juyaDaily}],now),now)+creatorUnifiedHotMarkup([{name:'AIHOT',items:from('AIHOT','items',[])},{name:'AIPick',items:from('AIPick','items',a.hotTopics)}],now,state.modelReleases)+creatorHotMarkup(from('AIHOT','items',[]),'AIHOT',stamp('AIHOT',''),now)+creatorHotMarkup(from('AIPick','items',a.hotTopics),'AIPick',stamp('AIPick',a.fetchedAt),now)+'<p class="page-desc">原榜分别展示，不将两个平台的参与者或来源数相加；报道合集包含同一事件的多篇报道。热度不等于事实核实。</p>'+creatorCoverageMarkup(mode,term);}
- var rows=creatorRows([{name:'AIHOT',items:competitorReadItems(state.aihot.items,from('AIHOT','items',[]))},{name:'AIPick',items:competitorReadItems((a.items||[]).concat(a.hotTopics||[]),from('AIPick','items',[]))}],now).filter(function(r){var x=r.item;return !/黑五|黑色星期五|折扣|优惠券|限时促销|black friday|discount|coupon/i.test(x.title)&&matches([x.title,x.source&&x.source.name].join(' '))&&(cases?innovationCreativeCase(x):mode==='competitors'&&!term?trackingBrands.some(function(b){return creatorSubject(x.title,b)||creatorIntegrationTarget(x.title,b)}):creatorBrandMatch(x.title,mode,term))});
+ var rows=creatorRows([{name:'AIHOT',items:competitorReadItems(state.aihot.items,from('AIHOT','items',[]))},{name:'AIPick',items:competitorReadItems((a.items||[]).concat(a.hotTopics||[]),from('AIPick','items',[]))}],now).filter(function(r){var x=r.item;return !/黑五|黑色星期五|折扣|优惠券|限时促销|black friday|discount|coupon/i.test(x.title)&&matches([x.title,x.source&&x.source.name].join(' '))&&(cases?innovationCreativeCase(x):mode==='competitors'?(term?[term]:trackingBrands).some(function(b){return creatorSubject(x.title,b)||creatorIntegrationTarget(x.title,b)||(!r.story&&creatorLaunchSignal(x.title,b))}):(creatorBrandMatch(x.title,mode,term)||mode==='vendors'&&!r.story&&(term?[term]:creatorBrands.vendors).some(function(b){return creatorLaunchSignal(x.title,b)})))});
  if(mode==='competitors')return competitorBriefPage(head,'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div>'+filters+'<div class="briefing-original-links"><button type="button" class="tab" data-creator-refresh '+(creatorBusy?'disabled':'')+'>'+(creatorBusy?'读取中…':term?'补充读取 '+esc(term)+' 最新精选':'个人阅读 · 近7天双源精选')+'</button></div>',rows,now,term,toolbar.replace('<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div>'+filters,''));
  var body=rows.map(function(r){var x=r.item,l=x.links||{};return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc([r.story?'讨论 '+overviewDateLabel(x.latestAt):x.publishedAt?overviewDateLabel(x.publishedAt):x.discoveredAt?'发现 '+overviewDateLabel(x.discoveredAt)+' · 发布日未知':'日期待确认',aihotCategoryName(x.category),r.providers.join(' / '),x.source&&x.source.name||''].filter(Boolean).join(' · '))+'</span><strong>'+esc(x.title)+'</strong></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><div class="briefing-original-links">'+creatorLink(l.original,r.story?'代表帖':'原帖')+creatorLink(l.story,'报道合集')+creatorLink(l.aihot,'资讯条目')+'</div><p class="page-desc">相关报道 · 不自动确认为产品已上线或模型首发。</p></div></details></article>'}).join('');
- return head+toolbar+(mode==='vendors'?curatedCreativeMarkup(now,term,rows):'')+'<section class="briefing-digest-section"><div class="section-head"><h2>'+esc(term|| (cases?'创作线索':mode==='competitors'?'竞品相关报道':'厂商相关报道'))+'</h2><span class="head-meta">'+rows.filter(function(r){return !r.story}).length+' 条原文去重'+(rows.some(function(r){return r.story})?' · '+rows.filter(function(r){return r.story}).length+' 个事件合集':'')+'</span></div><div class="briefing-list">'+(body||empty('当前快照无匹配报道，不代表没有更新。请按厂商打开上游或在本地查询。'))+'</div></section>'+(cases?'':creatorCoverageMarkup(mode,term))
+ return head+toolbar+(mode==='vendors'?creatorPropagationMarkup(rows,state.modelReleases||[],competitorBriefRows(state.appUpdates||{},rows,state.social||{},now),now,term,'vendors')+curatedCreativeMarkup(now,term,rows):'')+'<section class="briefing-digest-section"><div class="section-head"><h2>'+esc(term|| (cases?'创作线索':mode==='competitors'?'竞品相关报道':'厂商相关报道'))+'</h2><span class="head-meta">'+rows.filter(function(r){return !r.story}).length+' 条原文去重'+(rows.some(function(r){return r.story})?' · '+rows.filter(function(r){return r.story}).length+' 个事件合集':'')+'</span></div><div class="briefing-list">'+(body||empty('当前快照无匹配报道，不代表没有更新。请按厂商打开上游或在本地查询。'))+'</div></section>'+(cases?'':creatorCoverageMarkup(mode,term))
 }
 function refreshCreatorIntel(){
  if(creatorBusy)return;

@@ -657,6 +657,17 @@ def model_watch_counts(rows,term):
                 by_brand[brand]+=1
     return by_brand
 
+def creator_launch_signal(title,term):
+    """Creator coverage is a discovery lead, not an adoption or sponsorship claim."""
+    if not isinstance(title,str) or not isinstance(term,str) or not term.strip():
+        return False
+    if re.search(r"折扣|优惠|黑五|促销|赠送|抽奖|discount|coupon|black friday|giveaway",title,re.I):
+        return False
+    return bool(re.search(r"(?<![A-Za-z0-9])"+re.escape(term)+r"(?![A-Za-z0-9])",title,re.I)
+                and re.search(r"实测|测评|评测|体验|上手|教程|演示|制作|案例|review|tutorial|demo|hands[- ]on|workflow",title,re.I)
+                and re.search(r"新功能|新增|发布|上线|上新|接入|升级|首发|功能|模型|工作流|工作室|画布|feature|model|launch|workflow|studio|canvas",title,re.I))
+
+
 def fetch_target(spec,etag):
     term,category=spec["term"],spec.get("category")
     if (term,category) not in AIPICK_QUERIES and not (spec.get("modelWatch") is True and category is None and valid_watch_term(term)):
@@ -704,6 +715,11 @@ def fetch_target(spec,etag):
                     continue
                 if u.scheme!="https" and not (u.scheme=="http" and host=="mp.weixin.qq.com" and u.port is None and re.match(r"^/s(?:/|$)",u.path)):
                     continue
+                if not links.get("story") and creator_launch_signal(title,term):
+                    key=("creatorSignal",u.hostname.lower(),u.path,u.query)
+                    if key not in selected_originals:
+                        selected_originals.add(key)
+                        selected_updates["creatorSignal"]+=1
                 if not re.match(r"^"+re.escape(term)+r"(?![A-Za-z0-9])",title.strip(),re.I):
                     continue
                 if re.search(r"测评|实测|教程|提示词|折扣|优惠|黑五|discount|coupon|black friday|review|tutorial",title,re.I):
@@ -724,6 +740,7 @@ def fetch_target(spec,etag):
                     "otherOriginalLinks":domains["other"],"missingOriginalLinks":domains["missing"],
                     "exactTitleMatches":exact,"hasNextCursor":bool(payload.get("nextCursor") or (payload.get("page") or {}).get("nextCursor")),
                     "selectedProductFeatures":selected_updates["productFeature"],"selectedModelIntegrations":selected_updates["modelIntegration"],
+                    "selectedCreatorSignals":selected_updates["creatorSignal"],
                     **({"modelWatchBrandMentions":model_watch_counts(rows,term)} if spec.get("modelWatch") else {})},response.headers.get("ETag","")
     except urllib.error.HTTPError as exc:
         if exc.code==304 and etag:
@@ -1286,6 +1303,90 @@ def model_watch_official_gap(spec,targeted,previous,now):
     return sorted(set(gaps))
 
 
+def propagation_feature_name(title,brand):
+    """Named feature only; ambiguous or generic titles cannot trigger a probe."""
+    if not isinstance(title,str) or not isinstance(brand,str) or not brand:
+        return None
+    if re.search(r"折扣|优惠|黑五|促销|赠送|抽奖|discount|coupon|black friday|giveaway|pricing",title,re.I):
+        return None
+    match=re.search(r"(?<![A-Za-z0-9])"+re.escape(brand)+r"(?![A-Za-z0-9])",title,re.I)
+    if not match or not (creator_launch_signal(title,brand) or re.search(r"发布|推出|上线|上新|新增|接入|首发|更新|升级|launch|release|introduc|now available",title,re.I)):
+        return None
+    tail=title[match.end():].strip()
+    name=(re.match(r"([\u4e00-\u9fff]{2,8}(?:工作室|导演台|造型室|编辑器|工具箱))",tail)
+          or re.search(r'(?:新功能|功能|feature)\s*[「『“"]?([A-Za-z][A-Za-z0-9-]{2,35})(?=[」』”"\s，,。:：]|$)',title,re.I)
+          or re.search(r'[「『“"]([^」』”"\n]{3,35})[」』”"]\s*(?:功能|工作流|工具)',title))
+    if not name or re.fullmatch(r"new|the|and|with|for|model|feature|workflow|studio|canvas|video|image|audio",name[1],re.I):
+        return None
+    return name[1]
+
+
+def propagation_official_gap(spec,previous,snapshots,now):
+    """Existing fresh snapshots can authorize an existing official probe once.
+    No new endpoint, query, author identity, sponsorship or release inference.
+    A successful source read newer than the signal satisfies this probe trigger;
+    source cooldown and circuit breaker are still enforced by collect().
+    """
+    brand=spec.get("vendor")
+    if not spec.get("aggregateQueryIds") or not brand or spec.get("type") not in {"higgs-changelog","dated-changelog","product-surface"}:
+        return []
+    groups={}
+    for payload in (snapshots or {}).values():
+        if not isinstance(payload,dict):
+            continue
+        stamp=parse_stamp(payload.get("fetchedAt"))
+        if not stamp or not now-timedelta(hours=12)<=stamp<=now:
+            continue
+        for story,items in ((False,payload.get("items",[])),(True,payload.get("hotTopics",[]))):
+            for item in items if isinstance(items,list) else []:
+                if not isinstance(item,dict) or not story and item.get("selected") is not True:
+                    continue
+                date=parse_stamp(item.get("latestAt") if story else item.get("publishedAt"))
+                if not date or not now-timedelta(days=3)<=date<=now:
+                    continue
+                name=propagation_feature_name(item.get("title"),brand)
+                if not name:
+                    continue
+                links=item.get("links") or {}
+                if not isinstance(links,dict) or not story and links.get("story"):
+                    continue
+                url=links.get("story" if story else "original")
+                if not isinstance(url,str):
+                    continue
+                try:
+                    u=urlsplit(url)
+                    host=u.hostname
+                    if not host or u.username or u.password or u.port not in (None,443) or not (u.scheme=="https" or u.scheme=="http" and host=="mp.weixin.qq.com" and re.match(r"^/s(?:/|$)",u.path)):
+                        continue
+                except ValueError:
+                    continue
+                group=groups.setdefault(name.casefold(),{"name":name,"originals":set(),"story":False,"latest":date})
+                if story:
+                    labels=item.get("sourceNames")
+                    if host not in {"aihot.news","aipick.news"} or not re.fullmatch(r"/story/[A-Za-z0-9-]{1,128}",u.path) or not isinstance(labels,list) or len({x.strip() for x in labels if isinstance(x,str) and x.strip()})<2:
+                        continue
+                    group["story"]=True
+                else:
+                    # Drop tracking query parameters; preserve identifiers on
+                    # query-addressed WeChat and YouTube permalinks.
+                    q=parse_qs(u.query)
+                    identity=tuple((k,tuple(q[k])) for k in ("__biz","mid","idx","sn","v") if k in q)
+                    group["originals"].add((host.lower(),u.path.rstrip("/"),identity))
+                group["latest"]=max(group["latest"],date)
+    last=parse_stamp(next((s.get("lastSuccessAt") for s in previous.get("sources",[]) if s.get("id")==spec["id"]),None))
+    source_ids={s["id"] for s in previous.get("sources",[]) if s.get("vendor")==brand}|{spec["id"]}
+    evidence=[e.get("featureName","") for e in previous.get("events",[]) if e.get("sourceId") in source_ids and e.get("claimType") in {"first-party-product-changelog","first-party-plugin-release","first-party-developer-change"}]
+    result=[]
+    for g in groups.values():
+        if not (g["story"] or len(g["originals"])>=2) or last and last>=g["latest"]:
+            continue
+        name=g["name"]
+        pattern=re.compile((r"(?<![A-Za-z0-9])" if re.match(r"[A-Za-z0-9]",name) else "")+re.escape(name)+(r"(?![A-Za-z0-9])" if re.search(r"[A-Za-z0-9]$",name) else ""),re.I)
+        if not any(isinstance(e,str) and pattern.search(e) for e in evidence):
+            result.append(name)
+    return sorted(result)[:3]
+
+
 def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releases=None,snapshots=None):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
@@ -1316,9 +1417,14 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
             row["modelWatchGap"]=model_gaps
         else:
             row.pop("modelWatchGap",None)
+        propagation_gaps=propagation_official_gap(spec,previous,snapshots,now)
+        if propagation_gaps:
+            row["propagationGap"]=propagation_gaps
+        else:
+            row.pop("propagationGap",None)
         if coverage is not None:
             row["aggregateCoverage"]=coverage
-            if coverage["status"]!="aggregate-gap" and not model_gaps:
+            if coverage["status"]!="aggregate-gap" and not model_gaps and not propagation_gaps:
                 sources.append({**row,"entries":entries,"status":old.get("status","awaiting-aggregate"),"deferred":True,"skipReason":coverage["status"]})
                 continue
         row.pop("skipReason",None)
