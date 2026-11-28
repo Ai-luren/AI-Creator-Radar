@@ -800,3 +800,12 @@ test('shared history counts, search and timeline de-duplicate the same event wit
  const rows=JSON.parse(run("JSON.stringify(publishedChronicleRows(chronicleTopics("+JSON.stringify([t])+","+JSON.stringify([f])+",{})[0]))"));
  assert.equal(rows.length,1);assert.deepEqual(rows[0].modelMentions.map(r=>r.modelVersionId),['v1','v2']);
 });
+
+test('older official product history is retained beyond the recent-news window',async()=>{
+ const {run,node}=setup({query:'?view=topics&topic=product-tapnow',now:'2026-11-28T23:59:59+08:00'});await run('loadData()');
+ const url='https://docs.tapnow.ai/en/docs/changelog',source={id:'tapnow-changelog',vendor:'TapNow',role:'competitor',url};
+ const event={id:'old',sourceId:source.id,sourceUrl:url,claimType:'first-party-product-changelog',publisherCalendarDay:'2026-07-29',featureName:'Reusable Elements',updateType:'product-update',kind:'historical-changelog-backfill',observedAt:'2026-11-28T10:00:00Z'};
+ run('state.appUpdates='+JSON.stringify({sources:[source],events:[event]})+';render()');
+ assert.match(node('content').innerHTML,/Reusable Elements/);
+ run("setView('today',{releaseMode:'apps'})");await run('ensureViewData()');assert.doesNotMatch(node('content').innerHTML,/Reusable Elements/);
+});

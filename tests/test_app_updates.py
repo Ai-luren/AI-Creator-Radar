@@ -478,3 +478,27 @@ class MonthProductHistoryTests(unittest.TestCase):
         self.assertTrue(all(e["kind"]=="baseline-product-milestone" and e["releaseDate"] is None for e in result["events"]))
         self.assertEqual(collect({"sources":[spec]},result,now+timedelta(days=1),lambda _:rows)["events"],result["events"])
         with self.assertRaises(ValueError):parse_month_changelog("<h1>更新日志</h1><h2>v5.0 — 模型（2026-13）</h2><p>不可用的日期不应该进入历史。</p>",spec)
+
+
+class FullProductHistoryTests(unittest.TestCase):
+    def test_full_official_log_keeps_older_records_and_flova_month_precision(self):
+        from scripts.collect_app_updates import parse_higgs_changelog,parse_dated_changelog
+        higgs="<h1>What's new</h1><p>November 24, 2026</p><h2>MAGI-2</h2><p>Feature</p><p>Models</p><p>January 10, 2026</p><h2>Historic Studio</h2><p>Release</p><p>Video Tools</p>"
+        self.assertEqual([x["publisherCalendarDay"] for x in parse_higgs_changelog(higgs,{}).values()],["2026-11-24","2026-01-10"])
+        flova="<h1>Latest Updates</h1><p>2026-11-24</p><h2>Track separation</h2><p>Separate audio and preserve the editable timeline assets.</p><p>2026-05-13</p><h2>Skill sharing</h2><p>Reuse production rules by sharing a skill with collaborators.</p><p>2026-04 · Flova 1.0</p><h2>Four-panel workspace</h2><p>Separate storyboards, media, editing timeline and documents.</p>"
+        rows=list(parse_dated_changelog(flova,{"id":"flova-changelog"}).values())
+        self.assertEqual([r["featureName"] for r in rows],["Track separation","Skill sharing","Four-panel workspace"])
+        self.assertEqual(rows[1]["publisherCalendarDay"],"2026-05-13")
+        self.assertEqual(rows[2]["publisherCalendarMonth"],"2026-04")
+        self.assertNotIn("publisherCalendarDay",rows[2])
+        self.assertEqual(rows[2]["productVersion"],"v1.0")
+    def test_historical_backfill_retains_publisher_day_and_is_not_new_entry(self):
+        from scripts.collect_app_updates import parse_dated_changelog
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        spec={"id":"tapnow-changelog","name":"TapNow","vendor":"TapNow","role":"competitor","url":"https://docs.tapnow.ai/en/docs/changelog","type":"dated-changelog","links":[],"minIntervalMinutes":360}
+        page="<h1>TapNow changelog</h1><p>July 29, 2026</p><h2>Elements</h2><p>Save and reuse the same character across image and video references.</p>"
+        first=collect({"sources":[spec]}, {},now,lambda _:parse_dated_changelog(page,spec))
+        self.assertEqual(first["events"][0]["kind"],"historical-changelog-backfill")
+        self.assertEqual(first["events"][0]["publisherCalendarDay"],"2026-07-29")
+        self.assertIsNone(first["events"][0]["releaseDate"])
+        self.assertEqual(collect({"sources":[spec]},first,now+timedelta(hours=6),lambda _:parse_dated_changelog(page,spec))["events"],first["events"])
