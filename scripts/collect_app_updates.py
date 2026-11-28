@@ -27,7 +27,8 @@ MAX_BYTES=6*1024*1024
 HIGGS_CHANGELOG="https://higgsfield.ai/creator-hub/changelog"
 DATED_CHANGELOGS={"flova-changelog":"https://www.flova.ai/en/docs/changelog/",
                   "tapnow-changelog":"https://docs.tapnow.ai/en/docs/changelog"}
-PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/"}
+PRODUCT_SURFACES={"higgsfield-home":"https://higgsfield.ai/","libtv-home":"https://www.liblib.tv/",
+                  "oiioii-model-directory":"https://www.oiioii.ai/zh/explore/models"}
 PRODUCT_SURFACE_PARSER_VERSION=2
 ALLOWED={"https://jimeng.jianying.com/ai-tool/home",HIGGS_CHANGELOG,*DATED_CHANGELOGS.values(),*PRODUCT_SURFACES.values()}
 VOID={"area","base","br","col","embed","hr","img","input","link","meta","param","source","track","wbr"}
@@ -178,6 +179,33 @@ def parse_product_surface(page,source):
                     label=re.split(r"[·|｜，,；;]",label,maxsplit=1)[0].strip()
                     if re.search(r"新增|上新|上线|接入|升级|更新|优化|支持|已开放|正式开放|全新|功能发布|独家首发|\bnew\b|(?<=[\u4e00-\u9fff])New$|\b(?:launch(?:ed)?|introducing|now supports|now available)\b",label,re.I):
                         add(label,"首页近期推荐",source["url"])
+    elif source["id"]=="oiioii-model-directory":
+        # Public model directory only; this is a catalogue listing, not
+        # proof of authenticated generation or a dated integration.
+        if not ("OiiOii" in text and re.search(r"创作模型|模型介绍|AI Models",text,re.I)):
+            raise ValueError("OiiOii model directory heading missing")
+        label_pattern=re.compile(r"^(?:使用\s+)?((?:GPT[- ]Image|Seedance|Seedream|SeedAudio|MAGI|Kling|可灵|Vidu|Wan|HappyHorse|Veo|Gemini(?:\s+Omni)?|Grok Imagine|Midjourney|MiniMax(?:\s+H)?|Niji|Nano Banana|Sora)\s*[- ]?\s*V?\d+(?:\.\d+)*(?:\s+(?:Pro|Fast|Lite|Flash|Mini|Max|Turbo|Ultra|Preview|Plus))?)(?![A-Za-z0-9.]|[-_][A-Za-z0-9])",re.I)
+        for link in parser.links:
+            try:
+                u=urlsplit(urljoin(source["url"],link["href"]))
+                if u.scheme!="https" or u.hostname!="www.oiioii.ai" or u.username or u.password or u.port not in (None,443):
+                    continue
+            except ValueError:
+                continue
+            if not re.fullmatch(r"/zh/(?:[a-z0-9]+(?:[-_/][a-z0-9]+)*)/?",u.path):
+                continue
+            # Exclude tutorial/blog/navigation and non-model links.
+            if re.search(r"/(?:blog|articles|features|campaigns|pricing|price|explore|changelog|faq)(?:/|$)",u.path):
+                continue
+            label=" ".join(" ".join(link["parts"]).split())
+            if re.search(r"已停用|已下线|即将|预告|discontinued|coming soon|deprecated|tutorial|教程|价格",label,re.I):
+                continue
+            match=label_pattern.match(label)
+            if match:
+                name=" ".join(match[1].split())
+                add(name,"官方模型目录","https://www.oiioii.ai"+u.path.rstrip("/"),"catalog-listed",identity="model-directory|"+re.sub(r"[\s_-]+","",name.casefold()))
+        if len(rows)<2:
+            raise ValueError("OiiOii model directory cards not readable")
     else:
         if not all(x in text for x in ("Higgsfield","New drops","Cinema Studio")):
             raise ValueError("Higgsfield public product surface not readable")
