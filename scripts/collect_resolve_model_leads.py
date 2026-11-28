@@ -265,13 +265,13 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
         old = previous_rows.get(key, {})
         proof = old if old.get("articlePublishedAt") else old.get("lastVerifiedObservation") or {}
         published = proof.get("articlePublishedAt")
-        value = article_day_stamp(published, old["url"]) if published and old.get("url") else queue[key]["latest"]
+        value = article_day_stamp(published, old["url"]) if published and old.get("url") else queue[key]["latest"] or old.get("firstAttemptAt")
         try:
             day = datetime.fromisoformat(str(value).replace("Z", "+00:00")).date()
         except (ValueError, TypeError):
             return 1
-        age = (now.date() - day).days
-        return 0 if 0 <= age <= 6 else 1 if 0 <= age <= 29 else 2
+        age = ((now + timedelta(hours=8)).date() - day).days
+        return 0 if 0 <= age <= 2 else 1 if 0 <= age <= 6 else 2 if 0 <= age <= 29 else 3
 
     tiers = {key: age_tier(key) for key in queue}
     ordered = sorted(queue, key=lambda k: (-tiers[k], k not in previous_rows, len(queue[k]["sourceIds"]), len(related_counts.get(k, ())), queue[k]["latest"]), reverse=True)
@@ -286,6 +286,10 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
         retries = sorted((key for key in group if key in previous_rows), key=lambda k: previous_rows[k].get("nextAttemptAt") or "")
         first = new[:8] + retries[:4]
         priority.extend(first + [key for key in group if key not in first])
+    # Only when no fresh request is due, allow one untried 8–30 day
+    # pointer. Do not periodically re-fetch older resolved or failed URLs.
+    if not priority:
+        priority = [key for key in ordered if tiers[key] == 2 and key not in previous_rows][:1]
     def probe(key):
         task, old = queue[key], previous_rows.get(key, {})
         request_url = choose_article_url(task, old, config)

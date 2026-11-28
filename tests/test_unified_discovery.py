@@ -77,6 +77,25 @@ class UnifiedDiscoveryTests(unittest.TestCase):
             resolve(leads, {}, {"officialArticleHosts":self.hosts}, self.sources, self.families, self.now, lambda url: calls.append(url) or self.page)
         self.assertEqual(calls, [recent])
 
+    def test_three_day_priority_and_single_older_first_probe(self):
+        from unittest.mock import patch
+        leads = {"items":[
+            {"id":str(i),"sourceId":"a","title":"Demo 3","reportedAt":day,"officialArticleUrls":["https://official.example/news/demo-"+str(i)]}
+            for i,day in enumerate(["2026-11-21","2026-11-25","2026-11-08","2026-11-09"])]}
+        calls = []
+        def run(rows, previous=None, now=None):
+            return resolve({"items":rows},previous or {},{"officialArticleHosts":self.hosts},self.sources,self.families,now or self.now,lambda url:calls.append(url) or self.page)
+        with patch("scripts.collect_resolve_model_leads.MAX_PROBES", 1):
+            run(leads["items"])
+        self.assertEqual(calls,["https://official.example/news/demo-1"])
+        calls.clear()
+        run(leads["items"])
+        self.assertEqual(set(calls),{"https://official.example/news/demo-0","https://official.example/news/demo-1"})
+        calls.clear()
+        old = run(leads["items"][2:])
+        self.assertEqual(len(calls),1)
+        self.assertEqual(old["summary"]["attempted"],1)
+
     def test_recovery_is_independent_transaction_and_updates_derived_views(self):
         self.assertEqual(BATCHES["recovery"][1][0],BATCHES["models"][1][1])
         self.assertIn("collect_chronicle_updates",BATCHES["recovery"][1][0])

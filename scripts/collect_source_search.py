@@ -402,12 +402,12 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         if observed is None or observed > now:
             return 2
         age = now - observed
-        return 0 if age < timedelta(days=7) else 1 if age < timedelta(days=30) else 2
+        return 0 if age < timedelta(days=3) else 1 if age < timedelta(days=7) else 2
 
     due = [t for t in targets.values() if t["active"] and recent_tier(t) < 2 and
            (not stamp(t.get("nextAttemptAt")) or stamp(t["nextAttemptAt"]) <= now)]
-    # Recent seven-day gaps precede the rest of the 30-day window;
-    # preserve fair due-time ordering within each tier.
+    # Latest three days first, then the rest of the seven-day window.
+    # Older targets keep local context but receive no index requests.
     due.sort(key=lambda t: (recent_tier(t), t.get("nextAttemptAt") or t["firstDetectedAt"], t["id"]))
     attempted = 0
     # Use existing high-quality aggregation before broad search. Independent
@@ -422,7 +422,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         if until and until>now:
             return []
         rows = [t for t in targets.values() if t["active"] and t.get("identity")
-                and recent_tier(t)==0
+                and recent_tier(t)<2
                 and not any(r.get("officialCandidateUrl") for r in t.get("results",[]))
                 and (not stamp(t.get(prefix+"NextAttemptAt")) or stamp(t[prefix+"NextAttemptAt"])<=now)]
         if prefix=="aipick":
@@ -432,7 +432,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
             primary_failed=bool(aihot_service.get("error") and stamp(aihot_service.get("nextAttemptAt"))
                                 and stamp(aihot_service["nextAttemptAt"])>now)
             rows=[t for t in rows if t.get("aihotLastAttemptAt") or primary_failed]
-        return sorted(rows,key=lambda t:(t.get(prefix+"LastAttemptAt") or "",t["firstDetectedAt"],t["id"]))
+        return sorted(rows,key=lambda t:(recent_tier(t),t.get(prefix+"LastAttemptAt") or "",t["firstDetectedAt"],t["id"]))
 
     def search_aggregated(target, provider, prefix, provider_state, fetch_fn):
         target[prefix+"LastAttemptAt"]=checked

@@ -47,6 +47,14 @@ class SourceSearchTests(unittest.TestCase):
         search(self.families,leads,{}, {},{},self.allowed,self.now,lambda target,*a:calls.append(target["query"]) or [])
         self.assertEqual(calls,["Demo v3"])
 
+    def test_three_day_priority_and_no_eight_day_index_polling(self):
+        leads = {"items":self.discovery["items"]+[dict(self.discovery["items"][0],id="week",title="Demo v3 Live launched",firstSeenAt="2026-11-22T00:00:00Z")]}
+        calls = []
+        search(self.families,leads,{}, {},{},self.allowed,self.now,lambda target,*a:calls.append(target["query"]) or [])
+        self.assertEqual(calls,["Demo v3"])
+        later = search(self.families,self.discovery,{}, {},{},self.allowed,self.now+timedelta(days=8),lambda *a:self.fail("old index request"))
+        self.assertEqual(later["summary"]["attemptedThisRun"],0)
+
     def test_single_request_budget_and_cooldown(self):
         calls=[]
         def fetch(*args):
