@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-11-28T00:58:08Z",
+  "checkedAt": "2026-11-28T06:49:43Z",
   "feedCount": 2,
   "feedSuccess": 2,
   "feedFailed": 0,
-  "repositoryCount": 7,
-  "repositorySuccess": 7,
+  "repositoryCount": 16,
+  "repositorySuccess": 16,
   "feeds": [
     {
       "id": "goodcase",
@@ -13,8 +13,8 @@
       "website": "https://goodcase.ai/",
       "archiveUrl": null,
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
-      "lastSuccessAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "lastSuccessAt": "2026-11-28T06:49:43Z",
       "itemCount": 50,
       "error": null
     },
@@ -25,61 +25,138 @@
       "website": "https://daily.juya.uk/",
       "archiveUrl": "https://daily.juya.uk/archive/",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
-      "lastSuccessAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "lastSuccessAt": "2026-11-28T06:49:43Z",
       "itemCount": 10,
       "error": null
     }
   ],
   "repositories": [
     {
+      "id": "comfy-workflows",
+      "repo": "Comfy-Org/workflows",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "cozyclay",
+      "repo": "HaD0Yun/CozyClay",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
       "id": "goodcase-seedance",
       "repo": "LearnPrompt/awesome-seedance",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
       "error": null
     },
     {
       "id": "ad-video-prompts",
       "repo": "LichAmnesia/awesome-ad-video-prompts",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "previsforge",
+      "repo": "Pluviobyte/previsforge",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
       "error": null
     },
     {
       "id": "short-drama-skills",
       "repo": "UnderleveledBuilder/awesome-short-drama-skills",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
       "error": null
     },
     {
       "id": "nanobanana-prompts",
       "repo": "ZeroLu/awesome-nanobanana-pro",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
       "error": null
     },
     {
       "id": "zerolu-seedance",
       "repo": "ZeroLu/awesome-seedance",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
       "error": null
     },
     {
       "id": "image-video-prompts",
       "repo": "ai-boost/awesome-image-video-prompts",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "gpt-image-playground",
+      "repo": "alasano/gpt-image-playground",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
       "error": null
     },
     {
       "id": "lanshu-video-kit",
       "repo": "cclank/lanshu-awesome-ai-video-kit",
       "status": "ok",
-      "checkedAt": "2026-11-28T00:58:08Z",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "whisperx",
+      "repo": "m-bain/whisperX",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "audio-separator",
+      "repo": "nomadkaraoke/python-audio-separator",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "storyboard-scavenger",
+      "repo": "ouxxyy/storyboard-scavenger",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "renoise-kit",
+      "repo": "renoise-ai/renoise-kit",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
+      "error": null
+    },
+    {
+      "id": "character-turnaround-sheets",
+      "repo": "talvanes/character-turnaround-sheets",
+      "status": "ok",
+      "checkedAt": "2026-11-28T06:49:43Z",
       "error": null
     }
-  ]
+  ],
+  "researchDiscovery": {
+    "status": "ok",
+    "checkedAt": "2026-11-28T06:49:43+00:00",
+    "lastSuccessAt": "2026-11-28T06:49:43+00:00",
+    "lastProvider": "GitHub Search",
+    "lastLane": "image",
+    "lastMatched": 20,
+    "nextAttemptAt": null,
+    "error": null,
+    "consecutiveFailures": 0,
+    "nextLane": 1,
+    "deferred": false,
+    "policy": "One bounded selected pointer or scoped GitHub API search. Metadata candidates, not verified features or adoption recommendations. Star change uses actual observations."
+  }
 }

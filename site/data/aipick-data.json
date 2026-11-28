@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T06:02:38+00:00",
-  "checkedAt": "2026-11-28T06:02:38+00:00",
+  "fetchedAt": "2026-11-28T06:49:22+00:00",
+  "checkedAt": "2026-11-28T06:49:22+00:00",
   "etags": {
-    "items": "W/\"v1-items-7edeb86682296dcb\"",
-    "hotTopics": "W/\"v1-hot-6ff3eb6f4522e3d5\""
+    "items": "W/\"v1-items-a77d9e12efb03533\"",
+    "hotTopics": "W/\"v1-hot-f81c77e0330f495f\""
   },
   "items": [
+    {
+      "id": "gze8uxpdrlcj315mlr4u9o17g",
+      "title": "即梦短剧工作室用 DreamScript 与 DreamShot 制作仙侠 AI 短片",
+      "originalTitle": "是重逢，是离别...... 即梦短剧工作室做仙侠类AI短片也这么权威啊啊！！清冷师姐和灵动小师妹最后却...用即梦独家的DreamScript模型优化剧本＋DreamShot模型生成分镜，完全强强联手！情节反转再反转~场景高级更高级~话说双女主的表情神态也太自然了，大家下次还想看什么题材？ #即梦短剧工作室 #即梦AI #即梦掌管AI短剧的神 #AIGC #漫剧",
+      "summary": "创作者用即梦短剧工作室的 DreamScript 模型优化剧本、DreamShot 模型生成分镜，做出一支仙侠题材双女主 AI 短片。片中情节多次反转，场景与双女主的表情神态被作者认为较为自然。",
+      "source": {
+        "name": "抖音 · 话题 #即梦AI"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/gze8uxpdrlcj315mlr4u9o17g",
+        "original": "https://www.douyin.com/video/7712766640047361299"
+      },
+      "publishedAt": "2026-11-27T10:42:36.000Z",
+      "discoveredAt": "2026-11-28T06:48:20.208Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "用即梦短剧工作室的 DreamScript 和 DreamShot 做一支仙侠双女主短片，重点看剧本反转和人物表情神态是否自然。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/gze8uxpdrlcj315mlr4u9o17g"
+      }
+    },
     {
       "id": "aehdpfhbsjmr6i4a0x9l1nsqz",
       "title": "同素材实测MAGI-2与sd2.0视频生成效果对比",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/rzwd4qnxuwdjn6rvc2go3dfos"
       }
-    },
-    {
-      "id": "nw02w7jkdginvl4jmrbfklt9p",
-      "title": "创作者用即梦 Seedance 2.5 生成御剑科目二翻车短片",
-      "originalTitle": "小师妹御剑科目二考试，又又翻车了！ 【本视频由即梦Seedance 2.5生成】#即梦AI #一站式AI创作工作台 #即梦超级创作者 #中国人会飞 #御剑飞行",
-      "summary": "创作者头铁小师妹发布一段由即梦 Seedance 2.5 生成的短视频，内容是“小师妹御剑科目二考试”再次翻车。视频口播提到侧方位停剑失败、取信御剑失败，最终御剑科目二考试不通过，并带上 #即梦AI #一站式AI创作工作台 等话题标签。",
-      "source": {
-        "name": "抖音 · 话题 #即梦AI"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/nw02w7jkdginvl4jmrbfklt9p",
-        "original": "https://www.douyin.com/video/7712468315977634021"
-      },
-      "publishedAt": "2026-11-27T03:50:00.000Z",
-      "discoveredAt": "2026-11-27T10:44:35.617Z",
-      "category": null,
-      "score": 50,
-      "selected": true,
-      "reason": "用即梦 Seedance 2.5 生成一段御剑科目二翻车的搞笑短片，展示模型对荒诞场景和动作连贯性的表现。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/nw02w7jkdginvl4jmrbfklt9p"
-      }
     }
   ],
   "hotTopics": [
@@ -817,28 +817,6 @@
     },
     {
       "rank": 6,
-      "id": "m86vuscd3760ndq7qzgn4s6jl",
-      "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
-      "source": {
-        "name": "抖音 · 话题 #Seedance"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
-        "original": "https://www.douyin.com/video/7712158216540779377",
-        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
-      },
-      "sourceCount": 3,
-      "signalCount": 0,
-      "participantCount": 3,
-      "sourceNames": [
-        "抖音 · 热点搜「MAGI-2 视频模型」",
-        "X · AIWarper",
-        "量子位"
-      ],
-      "latestAt": "2026-11-27T11:01:03.000Z"
-    },
-    {
-      "rank": 7,
       "id": "cbhu8fz1dl8ttbucq9rqd6g7k",
       "title": "OpenAI反诉苹果窃取商业机密并阻挠供应商合作",
       "source": {
@@ -857,6 +835,27 @@
         "The Decoder"
       ],
       "latestAt": "2026-11-28T01:08:25.000Z"
+    },
+    {
+      "rank": 7,
+      "id": "m86vuscd3760ndq7qzgn4s6jl",
+      "title": "Sand.ai发布MAGI-2视频模型，登顶I2V榜并计划开源",
+      "source": {
+        "name": "抖音 · 话题 #Seedance"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/m86vuscd3760ndq7qzgn4s6jl",
+        "original": "https://www.douyin.com/video/7712158216540779377",
+        "story": "https://aipick.news/story/80ed6cb2-a810-4d6b-bbfe-96feebbb9820"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "抖音 · 热点搜「MAGI-2 视频模型」",
+        "X · AIWarper"
+      ],
+      "latestAt": "2026-11-27T11:01:03.000Z"
     },
     {
       "rank": 8,
@@ -924,9 +923,6 @@
       "latestAt": "2026-11-26T20:15:27.000Z"
     }
   ],
-  "unchanged": [
-    "items",
-    "hotTopics"
-  ],
+  "unchanged": [],
   "errors": []
 }

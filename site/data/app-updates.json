@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T06:27:48+00:00",
+  "checkedAt": "2026-11-28T06:49:40+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -403,8 +403,10 @@
           "selectedProductFeatures",
           "selectedModelIntegrations"
         ],
+        "queryLanes": [],
+        "readableLanes": [],
         "successfulProviders": 2,
-        "policy": "Observed selected-report lanes, not exhaustive event coverage."
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       }
     },
     {
@@ -421,8 +423,10 @@
           "selectedProductFeatures",
           "selectedModelIntegrations"
         ],
+        "queryLanes": [],
+        "readableLanes": [],
         "successfulProviders": 2,
-        "policy": "Observed selected-report lanes, not exhaustive event coverage."
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
       "entries": {
         "cc54edadd9c091a1ee16e2b4f0f19d0e92934abb1fc836a50b77671b1b478c05": {
@@ -434,7 +438,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "b122346edb6a81fb7a13f315a977d0bceaeb83b8a378432959ed9912aba53096": {
@@ -446,7 +450,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "120ae380a4df6c9239cd17f7b744c95b339e7bd999ffbd52804de6e5d0465ff5": {
@@ -458,7 +462,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "66630cb6613b03d924e340c8c40c871fed752e98d993490dada1f7058cf9c1f0": {
@@ -470,7 +474,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "3a866a9c10451ab97962d42c20629a91b2e20f4f85beb55b5dcc8b02c86cde1d": {
@@ -482,7 +486,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "debe1c40266262adc742c7e31524371854779c4b4de91d854f2240a48f80c8ee": {
@@ -494,7 +498,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "fe17e2d0a4c92a61602d3750e74dd8c0236e39bf4243e045f340c25c6b4de8d0": {
@@ -506,7 +510,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "52155f8a70dd32327edb4beaa2a462922c558ccd3a0f61e02646812d0f2528cd": {
@@ -518,7 +522,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "32888fae1b59a4a3b8fceae8b40c12534cca7ac066e8300d09a06842f088e61f": {
@@ -530,7 +534,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "83df6f54e59a17273d8951c5d80ebdc4557d5dcd0f3d4c60acc128356fef14ce": {
@@ -542,7 +546,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "bcd8fdbc10a937429f50e9ce94f2ef7382eaf2310f95ad6dda0c6041673c1e5a": {
@@ -554,7 +558,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "63956b0b84c89a20388bc8ab659fc61eff785b5d9c0abbb08aa30f9b75231dd5": {
@@ -566,7 +570,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "7cb540ba25080e6d193901a194bde13c5a7ef80f2b8e6a46c3c453e81b099e91": {
@@ -578,7 +582,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "1a833e9aaf00e3a4eaf272a7bb16661175206f0da83743c32f380ce76ccdccef": {
@@ -590,7 +594,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "404c44171d91430146f16f5f1add426b68b97fc4dc67e600cf1dcb5e7f667bc3": {
@@ -602,7 +606,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "71a4a95895a5410948980bec740bad33ae1886668836f3e97e8b0f4be05b6bb0": {
@@ -614,7 +618,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "fa40415566d0951daa6a2d584f2aaf208c51c33adfe88b8b13a0b4acda6fd6b0": {
@@ -626,7 +630,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "7c4b9cd7b866983d2fce28fef5fe5ab67c780561b2adcb56a64eaefde1172a0a": {
@@ -638,7 +642,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "b481cc04efed321964773c0c1fb6d0af319964ec6b60fbe6064514318a66b09c": {
@@ -650,7 +654,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "9894fd5b250db77a5e1238b5e4f221d41a60b0227b7f6f97824aec8bbb680bd0": {
@@ -662,7 +666,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "d7eb507dd685de5ac0bba2513d0dadadd152cbab3df8ff923352fab35452c44d": {
@@ -674,7 +678,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "58c489452cf41bdd38f8c69b8abbb603b2514b2cc85a6847b97379888f914ad9": {
@@ -686,7 +690,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "235478321cf33c3831c7322e88bd4952af365282062222ff51f7720e43bd71f6": {
@@ -698,7 +702,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "45de815dcd4cb0125c3cc48f0a6c391ea23f9061b90c877ac539c8fda0a13f08": {
@@ -710,7 +714,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "d319ddeed627e148345b1f93455436fc95d1686c32f0aced55d64f16ad27ffaa": {
@@ -722,7 +726,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "e6506515a2f12d47313ea64610eec933c9a9e89a1f25889cbed16e63864adf09": {
@@ -734,7 +738,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "572184fc9847e1eb861771b7e9d2cb0b8140fc3bae5f4579af9d4d550f1900e2": {
@@ -746,7 +750,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "4eb2fb9171c6b758fade40c28fc1d434784dc5185ec5e4dbed202b9a29df75c8": {
@@ -758,7 +762,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "5ff7621230e1cc0e0d606dd0b4530795b362134a7c12e237f5bac0d70d270e98": {
@@ -770,7 +774,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "c5afeae618cc3af332451689c25bba80ed3d075164499d6aa010a1e4ca3d04b0": {
@@ -782,7 +786,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "2e9fab0ed3e8401806978494bf11cf79373c920025a663d4b346787dca33446a": {
@@ -794,7 +798,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "7c16478cbe2391e248897979f5b4e1999fd5d2cbc428efbda102ae2cfc4bb92e": {
@@ -806,7 +810,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "63f17e869bac2a241722ad97c387a1ad20b6b2dbf71c4d222357c73bf2b565ec": {
@@ -818,7 +822,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "9cd9991f33d98e875d9117c6ec6f54ac6fd1900704499deddd5959d403fc008e": {
@@ -830,7 +834,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "c06b422b2a6b079c75bf7015fcedffc789e759e9e6427da38d8209b3b165921f": {
@@ -842,7 +846,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "3a98b939509e027d85a414b18bb70eb58d3d69603baa0a9d0bb271e3d7214866": {
@@ -854,7 +858,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "70af6bff7910aee41854f4a76ffe4e89a45de1f0364c892b89c08a873fe8d87f": {
@@ -866,7 +870,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "851d1189555e02cb2ef8e5abba2b2a3bbdcf18a4fb104220d4eaa38f0011298c": {
@@ -878,7 +882,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "1f9f65fca1acdaa82acc247818ee88aac55d00089aa78bba4baa59bd5c1dfa8e": {
@@ -890,7 +894,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "2a572aaf23fc60ab5fa058c2928b38be7819c111a590535856c2eb0fc06e5bc7": {
@@ -902,7 +906,7 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         },
         "e9c8d0e0d8136c321cf47b419658a3781d0770735a293c276df213bb167dc723": {
@@ -914,17 +918,17 @@
           "category": "app",
           "claimType": "first-party-product-changelog",
           "firstObservedAt": "2026-11-28T00:49:36+00:00",
-          "lastObservedAt": "2026-11-28T00:49:36+00:00",
+          "lastObservedAt": "2026-11-28T06:49:40+00:00",
           "visibleInLatestRead": true
         }
       },
       "status": "observed",
-      "deferred": true,
-      "checkedAt": "2026-11-28T00:49:36+00:00",
-      "lastSuccessAt": "2026-11-28T00:49:36+00:00",
+      "deferred": false,
+      "checkedAt": "2026-11-28T06:49:40+00:00",
+      "lastSuccessAt": "2026-11-28T06:49:40+00:00",
       "error": null,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-28T06:49:36.036028+00:00"
+      "nextAttemptAt": "2026-11-28T12:49:40.360992+00:00"
     },
     {
       "id": "tapnow-changelog",
@@ -940,8 +944,10 @@
           "selectedProductFeatures",
           "selectedModelIntegrations"
         ],
+        "queryLanes": [],
+        "readableLanes": [],
         "successfulProviders": 2,
-        "policy": "Observed selected-report lanes, not exhaustive event coverage."
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
       "entries": {
         "7749cf504651c0af364fca62be798bc0ce4450444bdf2de93789b5a7a1bf9cae": {
@@ -1117,8 +1123,10 @@
           "selectedProductFeatures",
           "selectedModelIntegrations"
         ],
+        "queryLanes": [],
+        "readableLanes": [],
         "successfulProviders": 2,
-        "policy": "Observed selected-report lanes, not exhaustive event coverage."
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
       "entries": {
         "a412ad57b350085eb4a084f6d4b37e5275cc1d5b164f0f73fdd8c3506967a4cd": {
@@ -1325,8 +1333,14 @@
         "missingLanes": [
           "selectedProductFeatures"
         ],
+        "queryLanes": [
+          "selectedModelIntegrations"
+        ],
+        "readableLanes": [
+          "selectedModelIntegrations"
+        ],
         "successfulProviders": 2,
-        "policy": "Observed selected-report lanes, not exhaustive event coverage."
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
       },
       "entries": {
         "299599761d29515375724c09d34c9cdbc5b84ae133317f7f91fb12f6541cdecc": {
@@ -1500,11 +1514,85 @@
       "lastSuccessAt": null,
       "error": null,
       "deferred": true
+    },
+    {
+      "id": "xiaoyunque-manual",
+      "name": "小云雀 · 官方产品入口",
+      "vendor": "小云雀",
+      "url": "https://xyq.jianying.com/tutorials/web-manual",
+      "links": [
+        {
+          "kind": "官方产品入口",
+          "url": "https://xyq.jianying.com/",
+          "access": "国内版"
+        }
+      ],
+      "type": "navigation-only",
+      "role": "first-party",
+      "status": "navigation-only",
+      "entries": {},
+      "lastSuccessAt": null,
+      "error": null,
+      "deferred": true
+    },
+    {
+      "id": "pippit-product",
+      "name": "Pippit · 官方产品入口",
+      "vendor": "Pippit",
+      "url": "https://www.pippit.ai/",
+      "links": [
+        {
+          "kind": "Seedance 2.5 官方首发介绍",
+          "url": "https://www.pippit.ai/business/seedance/seedance-2-5-launch",
+          "access": "历史产品介绍；非本周上新"
+        }
+      ],
+      "type": "navigation-only",
+      "role": "first-party",
+      "status": "navigation-only",
+      "entries": {},
+      "lastSuccessAt": null,
+      "error": null,
+      "deferred": true
+    },
+    {
+      "id": "gemini-app-updates",
+      "name": "Gemini · 官方产品入口",
+      "vendor": "Gemini",
+      "url": "https://gemini.google.com/updates",
+      "links": [],
+      "type": "navigation-only",
+      "role": "first-party",
+      "status": "navigation-only",
+      "entries": {},
+      "lastSuccessAt": null,
+      "error": null,
+      "deferred": true
+    },
+    {
+      "id": "oiioii-changelog-entry",
+      "name": "OiiOii · 官方产品入口",
+      "vendor": "OiiOii",
+      "url": "https://www.oiioii.ai/zh/changelog",
+      "links": [
+        {
+          "kind": "官方模型目录",
+          "url": "https://www.oiioii.ai/en/explore/models",
+          "access": "目录不等于发布日期"
+        }
+      ],
+      "type": "navigation-only",
+      "role": "competitor",
+      "status": "navigation-only",
+      "entries": {},
+      "lastSuccessAt": null,
+      "error": null,
+      "deferred": true
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T06:27:48+00:00",
+    "checkedAt": "2026-11-28T06:49:40+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1525,7 +1613,10 @@
         "etag": "W/\"v1-items-1812e8a646929e52\"",
         "lastSuccessAt": "2026-11-27T15:17:54+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T21:17:54.692662+00:00"
+        "nextAttemptAt": "2026-11-27T21:17:54.692662+00:00",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "jimeng-seedaudio",
@@ -1545,7 +1636,10 @@
         "etag": "W/\"v1-items-f7711022748fb2d8\"",
         "lastSuccessAt": "2026-11-27T16:48:03+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T22:48:03.254277+00:00"
+        "nextAttemptAt": "2026-11-27T22:48:03.254277+00:00",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "kling-products",
@@ -1566,7 +1660,10 @@
         "etag": "W/\"v1-items-da9cfee1a57c4e4a\"",
         "lastSuccessAt": "2026-11-27T17:54:09+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T23:54:09.333315+00:00"
+        "nextAttemptAt": "2026-11-27T23:54:09.333315+00:00",
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "hailuo-products",
@@ -1587,7 +1684,10 @@
         "etag": "W/\"v1-items-2b8b117a0b96c97f\"",
         "lastSuccessAt": "2026-11-27T23:17:48+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T05:17:48.414578+00:00"
+        "nextAttemptAt": "2026-11-28T05:17:48.414578+00:00",
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "vidu-products",
@@ -1608,7 +1708,10 @@
         "etag": "W/\"v1-items-234c8c91b05c6401\"",
         "lastSuccessAt": "2026-11-27T21:47:54+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T03:47:54.120721+00:00"
+        "nextAttemptAt": "2026-11-28T03:47:54.120721+00:00",
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "pixverse-products",
@@ -1629,7 +1732,10 @@
         "etag": "W/\"v1-items-0bdc89b7ccaa6698\"",
         "lastSuccessAt": "2026-11-27T19:02:48+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T01:02:48.605492+00:00"
+        "nextAttemptAt": "2026-11-28T01:02:48.605492+00:00",
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "sand-models",
@@ -1650,7 +1756,10 @@
         "etag": "W/\"v1-items-00cdcd77a89425f5\"",
         "lastSuccessAt": "2026-11-27T20:18:19+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T02:18:19.413628+00:00"
+        "nextAttemptAt": "2026-11-28T02:18:19.413628+00:00",
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "higgsfield-aihot",
@@ -1674,7 +1783,9 @@
         "etag": "W/\"v1-items-0e81f263ac4ab340\"",
         "lastSuccessAt": "2026-11-28T00:49:36+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T12:49:36.036028+00:00"
+        "nextAttemptAt": "2026-11-28T12:49:36.036028+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "higgsfield-aipick",
@@ -1698,7 +1809,9 @@
         "etag": "W/\"v1-items-416d3e3fdd3a5bb4\"",
         "lastSuccessAt": "2026-11-28T01:15:59+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:15:59.220955+00:00"
+        "nextAttemptAt": "2026-11-28T13:15:59.220955+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "flova-aihot",
@@ -1722,14 +1835,16 @@
         "lastSuccessAt": "2026-11-28T00:17:51+00:00",
         "error": null,
         "nextAttemptAt": "2026-11-28T08:17:51.152051+00:00",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "flova-aipick",
         "label": "Flova",
         "term": "Flova",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T00:49:36+00:00",
         "counts": {
           "items": 0,
@@ -1746,14 +1861,16 @@
         "etag": "W/\"v1-items-42b37bf08eea1f2a\"",
         "lastSuccessAt": "2026-11-28T00:49:36+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T12:49:36.036028+00:00"
+        "nextAttemptAt": "2026-11-28T12:49:36.036028+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "tapnow-aihot",
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 2,
         "lastAttemptAt": "2026-11-28T01:47:03+00:00",
         "counts": {
           "items": 0,
@@ -1770,14 +1887,16 @@
         "etag": "W/\"v1-items-06210453074a4040\"",
         "lastSuccessAt": "2026-11-28T01:47:03+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:47:03.031793+00:00"
+        "nextAttemptAt": "2026-11-28T13:47:03.031793+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "tapnow-aipick",
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 2,
         "lastAttemptAt": "2026-11-28T02:33:06+00:00",
         "counts": {
           "items": 0,
@@ -1794,14 +1913,16 @@
         "etag": "W/\"v1-items-06210453074a4040\"",
         "lastSuccessAt": "2026-11-28T02:33:06+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T14:33:06.814427+00:00"
+        "nextAttemptAt": "2026-11-28T14:33:06.814427+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "libtv-aihot",
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 1,
         "lastAttemptAt": "2026-11-28T01:15:59+00:00",
         "counts": {
           "items": 3,
@@ -1818,14 +1939,16 @@
         "etag": "W/\"v1-items-13ca4254baf3c30e\"",
         "lastSuccessAt": "2026-11-28T01:15:59+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:15:59.220955+00:00"
+        "nextAttemptAt": "2026-11-28T13:15:59.220955+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "libtv-aipick",
         "label": "LibTV",
         "term": "LibTV",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 1,
         "lastAttemptAt": "2026-11-28T01:47:03+00:00",
         "counts": {
           "items": 30,
@@ -1842,14 +1965,16 @@
         "etag": "W/\"v1-items-ffc8b290c7a08617\"",
         "lastSuccessAt": "2026-11-28T01:47:03+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T13:47:03.031793+00:00"
+        "nextAttemptAt": "2026-11-28T13:47:03.031793+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "oiioii-aihot",
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIHOT",
-        "priority": 0,
+        "priority": 3,
         "lastAttemptAt": "2026-11-28T06:27:48+00:00",
         "counts": {
           "items": 2,
@@ -1866,14 +1991,16 @@
         "etag": "W/\"v1-items-fb0fc9ff09c082c2\"",
         "lastSuccessAt": "2026-11-28T06:27:48+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T18:27:48.240175+00:00"
+        "nextAttemptAt": "2026-11-28T18:27:48.240175+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "oiioii-aipick",
         "label": "OiiOii",
         "term": "OiiOii",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 3,
         "lastAttemptAt": "2026-11-28T06:02:45+00:00",
         "counts": {
           "items": 1,
@@ -1890,49 +2017,61 @@
         "etag": "W/\"v1-items-aaa7d71b3dc1249f\"",
         "lastSuccessAt": "2026-11-28T06:02:45+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T18:02:45.092942+00:00"
+        "nextAttemptAt": "2026-11-28T18:02:45.092942+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "updream-aihot",
         "label": "Updream",
         "term": "Updream",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "updream-aipick",
         "label": "Updream",
         "term": "Updream",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "shotlab-aihot",
         "label": "ShotLab",
         "term": "ShotLab",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "shotlab-aipick",
         "label": "ShotLab",
         "term": "ShotLab",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "renoise-aihot",
         "label": "Renoise",
         "term": "Renoise",
         "provider": "AIHOT",
-        "priority": 0
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "renoise-aipick",
         "label": "Renoise",
         "term": "Renoise",
         "provider": "AIPick",
-        "priority": 0,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T06:27:48+00:00",
         "counts": {
           "items": 1,
@@ -1949,21 +2088,25 @@
         "etag": "W/\"v1-items-56e80acee6c5f5bb\"",
         "lastSuccessAt": "2026-11-28T06:27:48+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T18:27:48.240175+00:00"
+        "nextAttemptAt": "2026-11-28T18:27:48.240175+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "minimax-aihot",
         "label": "MiniMax",
         "term": "MiniMax",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "minimax-aipick",
         "label": "MiniMax",
         "term": "MiniMax",
         "provider": "AIPick",
-        "priority": 10,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T05:28:56+00:00",
         "counts": {
           "items": 30,
@@ -1980,21 +2123,25 @@
         "etag": "W/\"v1-items-9b7279229e8a78ee\"",
         "lastSuccessAt": "2026-11-28T05:28:56+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T17:28:56.938858+00:00"
+        "nextAttemptAt": "2026-11-28T17:28:56.938858+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "midjourney-aihot",
         "label": "Midjourney",
         "term": "Midjourney",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "midjourney-aipick",
         "label": "Midjourney",
         "term": "Midjourney",
         "provider": "AIPick",
-        "priority": 10,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T05:02:49+00:00",
         "counts": {
           "items": 28,
@@ -2011,14 +2158,16 @@
         "etag": "W/\"v1-items-7fac713f4e0c32d1\"",
         "lastSuccessAt": "2026-11-28T05:02:49+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T17:02:49.268586+00:00"
+        "nextAttemptAt": "2026-11-28T17:02:49.268586+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "elevenlabs-aihot",
         "label": "ElevenLabs",
         "term": "ElevenLabs",
         "provider": "AIHOT",
-        "priority": 10,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T02:59:32+00:00",
         "counts": {
           "items": 10,
@@ -2035,14 +2184,16 @@
         "etag": "W/\"v1-items-9459abd782b51fed\"",
         "lastSuccessAt": "2026-11-28T02:59:32+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T14:59:32.961331+00:00"
+        "nextAttemptAt": "2026-11-28T14:59:32.961331+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "elevenlabs-aipick",
         "label": "ElevenLabs",
         "term": "ElevenLabs",
         "provider": "AIPick",
-        "priority": 10,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T03:29:53+00:00",
         "counts": {
           "items": 30,
@@ -2059,14 +2210,16 @@
         "etag": "W/\"v1-items-0b03658a5b3b6926\"",
         "lastSuccessAt": "2026-11-28T03:29:53+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T15:29:53.118219+00:00"
+        "nextAttemptAt": "2026-11-28T15:29:53.118219+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "dreamina-aihot",
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIHOT",
-        "priority": 10,
+        "priority": 4,
         "lastAttemptAt": "2026-11-28T02:33:06+00:00",
         "counts": {
           "items": 2,
@@ -2083,14 +2236,16 @@
         "etag": "W/\"v1-items-bed68053ffe80639\"",
         "lastSuccessAt": "2026-11-28T02:33:06+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T14:33:06.814427+00:00"
+        "nextAttemptAt": "2026-11-28T14:33:06.814427+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "dreamina-aipick",
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIPick",
-        "priority": 10,
+        "priority": 4,
         "lastAttemptAt": "2026-11-28T02:59:32+00:00",
         "counts": {
           "items": 19,
@@ -2107,7 +2262,9 @@
         "etag": "W/\"v1-items-e587e62f1de554c8\"",
         "lastSuccessAt": "2026-11-28T02:59:32+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T14:59:32.961331+00:00"
+        "nextAttemptAt": "2026-11-28T14:59:32.961331+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "jimeng-products-aihot",
@@ -2115,7 +2272,7 @@
         "term": "即梦",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10,
+        "priority": 4,
         "lastAttemptAt": "2026-11-28T04:02:49+00:00",
         "counts": {
           "items": 0,
@@ -2132,14 +2289,16 @@
         "etag": "W/\"v1-items-47094f95f53fd23d\"",
         "lastSuccessAt": "2026-11-28T04:02:49+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T16:02:49.767367+00:00"
+        "nextAttemptAt": "2026-11-28T16:02:49.767367+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "jimeng-seedaudio-aihot",
         "label": "SeedAudio",
         "term": "SeedAudio",
         "provider": "AIHOT",
-        "priority": 10,
+        "priority": 4,
         "lastAttemptAt": "2026-11-28T04:28:30+00:00",
         "counts": {
           "items": 0,
@@ -2156,7 +2315,9 @@
         "etag": "W/\"v1-items-f7711022748fb2d8\"",
         "lastSuccessAt": "2026-11-28T04:28:30+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T16:28:30.542865+00:00"
+        "nextAttemptAt": "2026-11-28T16:28:30.542865+00:00",
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "kling-products-aihot",
@@ -2164,7 +2325,7 @@
         "term": "可灵",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T05:02:49+00:00",
         "counts": {
           "items": 7,
@@ -2181,7 +2342,9 @@
         "etag": "W/\"v1-items-1fe5dadc975d437f\"",
         "lastSuccessAt": "2026-11-28T05:02:49+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T17:02:49.268586+00:00"
+        "nextAttemptAt": "2026-11-28T17:02:49.268586+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "hailuo-products-aihot",
@@ -2189,7 +2352,7 @@
         "term": "海螺",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10,
+        "priority": 20,
         "lastAttemptAt": "2026-11-28T03:29:53+00:00",
         "counts": {
           "items": 0,
@@ -2206,7 +2369,9 @@
         "etag": "W/\"v1-items-2b8b117a0b96c97f\"",
         "lastSuccessAt": "2026-11-28T03:29:53+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-28T15:29:53.118219+00:00"
+        "nextAttemptAt": "2026-11-28T15:29:53.118219+00:00",
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "vidu-products-aihot",
@@ -2214,7 +2379,9 @@
         "term": "Vidu",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "pixverse-products-aihot",
@@ -2222,7 +2389,9 @@
         "term": "PixVerse",
         "category": "ai-products",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       },
       {
         "id": "sand-models-aihot",
@@ -2230,7 +2399,117 @@
         "term": "Sand.ai",
         "category": "ai-models",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 20,
+        "intervalMinutes": 1440,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "xiaoyunque-aihot",
+        "label": "小云雀",
+        "term": "小云雀",
+        "provider": "AIHOT",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "xiaoyunque-aipick",
+        "label": "小云雀",
+        "term": "小云雀",
+        "provider": "AIPick",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "pippit-aihot",
+        "label": "Pippit",
+        "term": "Pippit",
+        "provider": "AIHOT",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "pippit-aipick",
+        "label": "Pippit",
+        "term": "Pippit",
+        "provider": "AIPick",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "gemini-app-aihot",
+        "label": "Gemini",
+        "term": "Gemini",
+        "provider": "AIHOT",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "category": "ai-products",
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "gemini-app-aipick",
+        "label": "Gemini",
+        "term": "Gemini",
+        "provider": "AIPick",
+        "priority": 4,
+        "intervalMinutes": 720,
+        "category": "ai-products",
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "model-watch-1bd7d344ac446786bc23-aihot",
+        "term": "MAGI-2",
+        "label": "MAGI-2",
+        "provider": "AIHOT",
+        "priority": -10,
+        "intervalMinutes": 360,
+        "modelWatch": true,
+        "modelFamilyId": "magi-2",
+        "modelVersionId": "magi-2",
+        "publisherCalendarDay": "2026-11-24",
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "model-watch-1bd7d344ac446786bc23-aipick",
+        "term": "MAGI-2",
+        "label": "MAGI-2",
+        "provider": "AIPick",
+        "priority": -10,
+        "intervalMinutes": 360,
+        "modelWatch": true,
+        "modelFamilyId": "magi-2",
+        "modelVersionId": "magi-2",
+        "publisherCalendarDay": "2026-11-24",
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "model-watch-74fe8f5670051bef5bfd-aihot",
+        "term": "Niji 8",
+        "label": "Niji 8",
+        "provider": "AIHOT",
+        "priority": -10,
+        "intervalMinutes": 360,
+        "modelWatch": true,
+        "modelFamilyId": "midjourney",
+        "modelVersionId": "niji-8",
+        "publisherCalendarDay": "2026-11-24",
+        "queuedAt": "2026-11-28T06:49:40+00:00"
+      },
+      {
+        "id": "model-watch-74fe8f5670051bef5bfd-aipick",
+        "term": "Niji 8",
+        "label": "Niji 8",
+        "provider": "AIPick",
+        "priority": -10,
+        "intervalMinutes": 360,
+        "modelWatch": true,
+        "modelFamilyId": "midjourney",
+        "modelVersionId": "niji-8",
+        "publisherCalendarDay": "2026-11-24",
+        "queuedAt": "2026-11-28T06:49:40+00:00"
       }
     ],
     "service": {
@@ -2253,7 +2532,7 @@
         "nextAttemptAt": "2026-11-28T06:52:48.240175+00:00"
       }
     },
-    "attemptedThisRun": 2,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -3915,15 +4194,15 @@
     }
   ],
   "summary": {
-    "configuredSources": 9,
-    "successfulThisRun": 0,
+    "configuredSources": 13,
+    "successfulThisRun": 1,
     "baselineSources": 6,
     "listedModels": 0,
     "reviewedObservations": 5
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T06:27:57+00:00",
+    "checkedAt": "2026-11-28T06:50:39+00:00",
     "window": "7d",
     "sources": [
       {
@@ -3936,7 +4215,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T06:02:38+00:00",
+        "fetchedAt": "2026-11-28T06:49:22+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
