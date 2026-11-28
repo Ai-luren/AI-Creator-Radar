@@ -78,6 +78,7 @@ def render_acceptance(report):
     def names(values):
         return ", ".join(values) if values else ("not measured" if values is None else "none")
     feed=a["priorityDiscoveryLatency"].get("retainedFeedDiagnostic",{})
+    prospective=a["priorityDiscoveryLatency"].get("prospectiveFeedDiagnostic",{})
     incident=a["automaticRepairRate"].get("observedBatchIncidentDiagnostic",{})
     return "\n".join([
         "### Acceptance (pre-publication, not a deployment certificate)",
@@ -87,6 +88,7 @@ def render_acceptance(report):
         f"- Article-only gaps, do not reopen as event misses: {names(article['articleOnlyGapIds'])}",
         f"- Independent factual accuracy: {a['independentFactAccuracy']['status']}",
         f"- Priority discovery latency: {a['priorityDiscoveryLatency']['status']}; retained feed article diagnostic: {feed.get('observedArticles', 'not measured')} observations (not SLA)",
+        f"- Prospective precise feed cohort: {prospective.get('observedArticles', 'not measured')} observations; within two hours: {prospective.get('withinTwoHours', 'not measured')} (observed only, not independent SLA)",
         f"- Automatic repair rate: {a['automaticRepairRate']['status']}; observed batch incidents: {incident.get('observedIncidents', 'not measured')} (not recoverable-incident denominator)",
         f"- Structural integrity: {a['structuralIntegrity']['status']}; negative controls: {a['negativeControls']['status']}",
         f"- Blocking gates: {names(a['blockingGates'])}",
