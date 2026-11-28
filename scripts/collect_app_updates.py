@@ -152,6 +152,39 @@ class ModelTableRows(VisibleText):
         super().handle_endtag(tag)
 
 
+def flova_platform_specs(value):
+    """Extract bounded numeric claims from the publisher's specification cell.
+
+    These are platform-listed output choices, not native model capabilities.
+    No membership/pricing text, verbatim description, or inferred limits.
+    """
+    result={}
+    resolutions=list(dict.fromkeys(re.findall(r"\b(?:[0-9]{3,4}p|1(?:\.5)?K|2K|4K)\b",value)))
+    if resolutions:
+        result["resolutions"]=resolutions[:8]
+    duration=re.search(r"(?<![\d.])(\d{1,3}(?:\s*(?:[–-]|/)\s*\d{1,3})*)\s*sec\b",value,re.I)
+    if duration:
+        result["durationSeconds"]=re.sub(r"\s+","",duration[1]).replace("–","-")
+    omni=re.search(r"Omni Reference\s*\(([^)]{1,120})\)",value,re.I)
+    if omni:
+        limit=re.search(r"\bup to\s+(\d{1,3})\s*$|\b\d{1,3}\s*[–-]\s*(\d{1,3})\s*$",omni[1],re.I)
+        if limit:
+            result["omniReferenceMax"]=int(limit[1] or limit[2])
+    images=re.search(r"\bup to\s+(\d{1,3})\s+(?:Reference\s+images?|images?)\b",value,re.I)
+    if images:
+        result["imageReferenceMax"]=int(images[1])
+    references=re.search(r"\bup to\s+(\d{1,3})\s+references\b",value,re.I)
+    if references:
+        result["referenceMax"]=int(references[1])
+    if re.search(r"(?:^|·)\s*Native audio\s*(?:·|$)",value,re.I):
+        result["nativeAudio"]=True
+    # Scope can qualify a mode rather than the entire model.
+    restrictions=[label for phrase,label in (("Only new Projects","new-projects"),("Only old Projects","old-projects")) if phrase.casefold() in value.casefold()]
+    if restrictions:
+        result["projectRestrictions"]=restrictions
+    return result
+
+
 def parse_product_surface(page,source):
     """Observe named public product surfaces, not the authenticated editor or changelog."""
     if PRODUCT_SURFACES.get(source["id"])!=source["url"]:
@@ -262,8 +295,13 @@ def parse_product_surface(page,source):
                 continue
             if re.search(r"coming soon|discontinued|deprecated|offline|hidden model",name+" "+cells[1],re.I):
                 continue
-            add(name,"官方模型目录",source["url"],"catalog-listed",
-                identity="model-directory|"+re.sub(r"[\s_-]+","",name.casefold()))
+            identity="model-directory|"+re.sub(r"[\s_-]+","",name.casefold())
+            add(name,"官方模型目录",source["url"],"catalog-listed",identity=identity)
+            key=hashlib.sha256(identity.encode()).hexdigest()
+            if key in rows:
+                specs=flova_platform_specs(cells[2])
+                if specs:
+                    rows[key]["platformSpecs"]=specs
         if len(rows)<2 or len(rows)>60:
             raise ValueError("Unexpected Flova model directory size")
     elif source["id"]=="oiioii-model-directory":
