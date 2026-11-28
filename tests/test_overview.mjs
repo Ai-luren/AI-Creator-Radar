@@ -242,7 +242,7 @@ test('overview exposes all modules without duplicating raw daily feeds',async()=
  const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
  assert.match(markup,/今日行业简报/);assert.doesNotMatch(markup,/快捷入口|overview-module-grid|overview-stage-count/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
  assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds'])assert.ok(markup.includes('data-view="'+view+'"'),view);
- run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
+ run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/行业资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
 
 test('release range and order persist in route',async()=>{
@@ -674,4 +674,11 @@ test('vendor-first briefing groups actual product updates and cross-platform mod
  assert.ok(out.indexOf('近7天厂商动态')<out.indexOf('数据与信源诊断'));
  const rows=JSON.parse(run("JSON.stringify(competitorBriefRows(state.appUpdates,[],state.social,Date.now()))"));
  assert.equal(rows.find(x=>x.brand==='LibTV').proof,'官网人工观察 · 非发布日期');
+});
+
+test('model trace matches exact version references in reports without regex corruption or near-version collisions',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const result=JSON.parse(run("JSON.stringify(competitorModelTrace([{brand:'LibTV',title:'LibTV 上架 MAGI-2 视频模型',day:'2026-11-27',kind:'模型接入'},{brand:'TapNow',title:'TapNow MAGI-20 上线',day:'2026-11-27',kind:'模型接入'},{brand:'Flova',title:'Flova Seedream 5x5 更新',day:'2026-11-27',kind:'产品 / 功能'}],[{modelName:'MAGI-2',vendor:'Sand.ai',modelFamilyId:'magi',modelVersionId:'v2',publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'},{modelName:'Seedream 5.5',modelFamilyId:'seedream',modelVersionId:'55',publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://example.org/model'}],Date.now()))"));
+ assert.equal(result.length,1);assert.deepEqual(result[0].brands,['LibTV']);
+ assert.equal(run("productReadingTitle('Seedream 5.5 now supports 4K')"),'Seedream 5.5 支持 4K 输出');
 });
