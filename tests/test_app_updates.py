@@ -330,3 +330,34 @@ class AppUpdatesTests(unittest.TestCase):
         migrated=collect({"sources":[hf]},previous,self.now,lambda _:fresh)
         self.assertTrue(all(e["kind"]=="baseline-product-surface" for e in migrated["events"]))
         self.assertFalse(migrated["sources"][0]["entries"]["old"]["visibleInLatestRead"])
+
+    def test_model_watch_from_verified_recent_release_shares_existing_budget(self):
+        from scripts.collect_app_updates import collect_targeted, model_watch_queries, model_watch_counts
+        release={"modelName":"Seedance 3.5","modelFamilyId":"seedance","modelVersionId":"seedance-3-5","category":"video",
+                 "publishedAt":self.now.date().isoformat(),"verifiedAt":self.now.date().isoformat(),
+                 "evidenceType":"official-release","url":"https://example.org/official"}
+        bad=[{**release,"modelName":"Seedance 9.9","verificationStatus":"pending"},
+             {**release,"modelName":"Seedance 3.5?bad"},
+             {**release,"publishedAt":"2026-01-01"}]
+        queries=model_watch_queries([release,*bad],self.now)
+        self.assertEqual(len(queries),2)
+        self.assertEqual({q["provider"] for q in queries},{"AIHOT","AIPick"})
+        calls=[]
+        cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[
+            {"id":"hf","term":"Higgsfield","provider":"AIHOT","priority":0}]}
+        def fetch(q,etag):
+            calls.append(q["id"])
+            return {"items":1},"e"
+        first=collect_targeted(cfg,{},self.now,fetch,releases=[release])
+        self.assertEqual(first["attemptedThisRun"],2)
+        self.assertTrue(all(x.startswith("model-watch-") for x in calls))
+        blocked=collect_targeted(cfg,first,self.now+timedelta(minutes=10),fetch,releases=[release])
+        self.assertEqual(blocked["attemptedThisRun"],0)
+        later=collect_targeted(cfg,blocked,self.now+timedelta(minutes=30),fetch,releases=[release])
+        self.assertEqual(later["attemptedThisRun"],1)
+        self.assertEqual(calls[-1],"hf")
+        rows=[{"selected":True,"title":"Higgsfield 接入 Seedance 3.5","links":{"original":"https://example.org/1"}},
+              {"selected":True,"title":"LibTV Seedance 3.50","links":{"original":"https://example.org/2"}}]
+        result=model_watch_counts(rows,"Seedance 3.5")
+        self.assertEqual(result["Higgsfield"],1)
+        self.assertEqual(result["LibTV"],0)
