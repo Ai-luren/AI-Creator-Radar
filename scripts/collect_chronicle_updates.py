@@ -12,9 +12,13 @@ from urllib.parse import urlsplit, urlunsplit
 try:
     from scripts.collect_models import non_release_title
     from scripts.collect_resolve_model_leads import reconcile_candidate_dates
+    from scripts.build_model_release_digest import reviewed_pending_disposition
+    from scripts.collect_release_recall import url_key
 except ModuleNotFoundError:
     from collect_models import non_release_title
     from collect_resolve_model_leads import reconcile_candidate_dates
+    from build_model_release_digest import reviewed_pending_disposition
+    from collect_release_recall import url_key
 
 ROOT = Path(__file__).resolve().parents[1]
 TOPICS_FILE = ROOT / "site/data/topics.json"
@@ -78,6 +82,40 @@ def event_kind(update_type: str) -> str:
         "pricing": "接口价格更新",
         "announcement": "模型预告",
     }.get(update_type, "模型发布")
+
+
+# Reviewed one-to-one original article duplicates of existing audited nodes.
+# Do not infer equality from vendor/day alone, especially rolling docs.
+REVIEWED_HISTORY_DUPLICATES = {
+    "b6edf533d574346e9f": ("anthropic", "2026-11-09", "claude", "Introducing Claude Fable 5.2 and Claude Mythos 5.2", "https://www.anthropic.com/claude-fable-and-mythos-5-2", "v48-anthropic-0014", "https://www.anthropic.com/claude-fable-and-mythos-5-2"),
+    "5534c5e9b31121f3bc": ("anthropic", "2026-10-07", "claude", "Introducing Claude Haiku 5.5", "https://www.anthropic.com/claude-haiku-5-5", "v48-anthropic-0035", "https://www.anthropic.com/claude-haiku-5-5"),
+    "1d613fd24eac33beca": ("anthropic", "2026-09-22", "claude", "Introducing Claude Opus 5.5", "https://www.anthropic.com/claude-opus-5-5", "v48-anthropic-0046", "https://www.anthropic.com/claude-opus-5-5"),
+    "cde87921a4e22a4cb6": ("suno", "2025-10-21", "suno", "v4.5-all: A new free model for everyone", "https://suno.com/release-notes/v4-5-all-a-new-free-model-for-everyone", "review-20261126-suno-suno-v4-5-all-release-20251021", "https://suno.com/release-notes/v4-5-all-a-new-free-model-for-everyone"),
+    "02f7888b26ecc3fff0": ("bytedance", "2026-11-09", "seedream", "生成更真实，百轮编辑更稳定｜Seedream 5.5 发布", "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5?view_from=homepage_tab", "v48-bytedance-0012", "https://seed.bytedance.com/zh/blog/more-realistic-images-more-stable-editing-across-100-rounds-introducing-seedream-5-5"),
+    "a58e69516f39f27b5e": ("bytedance", "2026-08-05", "seed-realtime", "SeedRealtime 音视频全双工大模型发布：走向全模态自然交互", "https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction?view_from=homepage_tab", "v48-bytedance-seed-0088", "https://seed.bytedance.com/zh/blog/seedrealtime-audio-visual-full-duplex-llm-released-toward-omni-modal-natural-interaction"),
+    "839af1e97986262326": ("bytedance", "2026-07-31", "seedance", "一镜成片，随心参考：Seedance 2.5 正式发布", "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5?view_from=homepage_tab", "review-20261127-seedance-25", "https://seed.bytedance.com/zh/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5"),
+}
+
+
+def redundant_review_node(topic,event):
+    if protected(event):
+        return False
+    update={"id":event.get("sourceUpdateId"),"modelId":event.get("sourceModelId"),
+            "publishedAt":event.get("date"),"url":event.get("url"),"title":event.get("title"),
+            "official":event.get("sourceTier")=="official-primary"}
+    if reviewed_pending_disposition(update)=="reviewed-non-model":
+        return True
+    proof=REVIEWED_HISTORY_DUPLICATES.get(event.get("sourceUpdateId"))
+    if not proof:
+        return False
+    topic_id,day,family,title,url,audit_id,audit_url=proof
+    if (topic.get("id")!=topic_id or event.get("date")!=day or event.get("sourceModelId")!=family
+            or event.get("title")!=title or url_key(event.get("url"))!=url_key(url)):
+        return False
+    return any(n.get("auditId")==audit_id and n.get("date")==day
+               and url_key(n.get("url"))==url_key(audit_url)
+               and str(n.get("verificationStatus","")).startswith(("已确认","已核实"))
+               and n.get("autoCollected") is not True for n in topic.get("milestones",[]))
 
 
 def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: str) -> tuple[list[dict], dict]:
@@ -179,12 +217,16 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
 
     # Exact duplicate unreviewed nodes only. Preserve all audited history and distinct date conflicts.
     deduplicated = 0
+    reconciled = 0
     for topic in topics_by_id.values():
         seen = set()
         retained = []
         for event in topic.get("milestones", []):
             if protected(event):
                 retained.append(event)
+                continue
+            if redundant_review_node(topic,event):
+                reconciled += 1
                 continue
             identity = (normalize_url(str(event.get("url", ""))).split("?")[0], str(event.get("date", "")),
                         str(event.get("sourceModelId", "")), "".join(ch for ch in str(event.get("title", "")).casefold() if ch.isalnum()))
@@ -211,6 +253,7 @@ def merge_official_updates(topics: list[dict], updates: list[dict], checked_at: 
         "added": added,
         "updated": updated,
         "deduplicatedUnreviewed": deduplicated,
+        "reconciledReviewedOrNonModel": reconciled,
         "unmatchedVendors": sorted(unmatched_vendors),
         "policy": "仅收录已配置厂商的模型发布或预告候选；来源日期不等于首发日期；不覆盖人工审核记录、不自动新增厂商。",
     }

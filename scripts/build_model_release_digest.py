@@ -26,7 +26,37 @@ RESOLUTION = ROOT / "site/data/lead-resolution.json"
 CATEGORIES = ("video", "image", "llm", "music", "tts", "audio")
 
 
-def collect_pending(families: list, updates: list, confirmed: list, today: date) -> list:
+# Source-reviewed dispositions: identity, date, original URL and title must
+# still match. Stage records must remain in the verified-stage projection.
+# Never mark other rows with the same model or rolling URL as verified.
+REVIEWED_PENDING_DISPOSITIONS = {
+    "98d2bdcffca1339e0a": ("qwen-audio-realtime", "2026-11-23", "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models", "qwen-audio-3.1-live", "stage-v48-qwen-0001"),
+    "9b4e4228387e830531": ("gpt-live", "2026-11-20", "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537", "GPT-Live-1.1 has arrived in the API", "stage-radar-20261126-gpt-live-1-1-api"),
+    "633fc816a4a57ffa07": ("mureka", "2026-11-17", "https://platform.mureka.ai/docs/en/changelog.html", "Duration control for Prompt to song and instrumental generation: Prompt to song and Generate instrumental now accept the optional duration parameter. With mureka-9.5, set a target duration of 2–5 minutes, or omit it or s", "non-model"),
+    "262f5442d739957cd9": ("mureka", "2026-11-12", "https://platform.mureka.ai/docs/en/changelog.html", "Remix API: the mureka-9.5 model is now available to all users ($0.5/song). Supports audio up to 8 minutes, vocal-only / accompaniment-only / instrumental input, optional lyrics, and vocal gender control via prompt. Start", "stage-review-20261126-mureka-mureka-remix-v9-5-api-availability-20261112"),
+    "8e450599cbb0276aac": ("gpt", "2026-11-04", "https://openai.com/index/devrev-enterprise-self-service", "DevRev delivers autonomous self-service with GPT-6.1 Sol", "non-model"),
+}
+
+
+def reviewed_pending_disposition(update, verified_stages=()):
+    row=REVIEWED_PENDING_DISPOSITIONS.get(update.get("id"))
+    if not row:
+        return None
+    family,day,url,title,stage_id=row
+    if (update.get("modelId")!=family or str(update.get("publishedAt") or "")[:10]!=day
+            or url_key(update.get("url"))!=url_key(url) or update.get("title")!=title
+            or update.get("official") is not True):
+        return None
+    if stage_id=="non-model":
+        return "reviewed-non-model"
+    if any(s.get("id")==stage_id and s.get("modelFamilyId")==family
+           and s.get("stageDate")==day and s.get("stage")=="api-availability"
+           and s.get("verifiedAt") for s in verified_stages):
+        return "already-reviewed-stage"
+    return None
+
+
+def collect_pending(families: list, updates: list, confirmed: list, today: date, verified_stages=()) -> list:
     """Display discovery separately; never infer publication or verification dates."""
     family_map = {family["id"]: family for family in families}
     # Only canonical IDs: retired aliases may point to unrelated derivative products.
@@ -42,7 +72,8 @@ def collect_pending(families: list, updates: list, confirmed: list, today: date)
     start = today - timedelta(days=29)
     candidates = {}
     for update in updates:
-        if non_release_title(update.get("title")) or update.get("id") in confirmed_update_ids:
+        if (non_release_title(update.get("title")) or update.get("id") in confirmed_update_ids
+                or reviewed_pending_disposition(update, verified_stages)):
             continue
         family = family_map.get(update.get("modelId"))
         if not family or update.get("official") is not True:
@@ -179,6 +210,7 @@ def build(today: date) -> dict:
         and url_key(u.get("url")) == url_key(p["url"])
         and str(u.get("publishedAt") or "")[:10] == p["publishedAt"][:10]
         and (title_agrees(p["title"], u.get("title") or "") or title_agrees(u.get("title") or "", p["title"])) for u in updates)]
+    stages = collect_verified_stages(families, today, json.loads((ROOT / "config/chronicle-release-links.json").read_text(encoding="utf-8")).get("modelOnlyStages", []))
     return {
         "schema": "model-release-digest/v2",
         "sourceOfTruth": "site/data/models.json",
@@ -188,8 +220,8 @@ def build(today: date) -> dict:
         "updatedAt": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "categories": list(CATEGORIES),
         "items": items,
-        "verifiedStages": collect_verified_stages(families, today, json.loads((ROOT / "config/chronicle-release-links.json").read_text(encoding="utf-8")).get("modelOnlyStages", [])),
-        "pending": collect_pending(families, updates + recovered, items, today),
+        "verifiedStages": stages,
+        "pending": collect_pending(families, updates + recovered, items, today, stages),
     }
 
 

@@ -703,20 +703,6 @@
       "verificationStatus": "pending"
     },
     {
-      "id": "98d2bdcffca1339e0a",
-      "category": "audio",
-      "vendor": "阿里巴巴通义千问",
-      "title": "qwen-audio-3.1-live",
-      "summary": "官方模型可用性目录条目；具体发布阶段待复核。",
-      "url": "https://www.alibabacloud.com/help/zh/model-studio/newly-released-models",
-      "sourceName": "阿里云百炼新模型目录",
-      "publishedAt": "2026-11-23T00:00:00Z",
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "qwen-audio-realtime",
-      "updateType": "model-card",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "871cbddf6336174843",
       "category": "llm",
       "vendor": "智谱 / Z.ai",
@@ -728,20 +714,6 @@
       "discoveredAt": "2026-11-27T04:31:45Z",
       "modelFamilyId": "glm",
       "updateType": "model-card",
-      "verificationStatus": "pending"
-    },
-    {
-      "id": "9b4e4228387e830531",
-      "category": "audio",
-      "vendor": "OpenAI",
-      "title": "GPT-Live-1.1 has arrived in the API",
-      "summary": "Hi developers, GPT-Live-1.1 is now available in the API! You can use it to build voice agents that speak with more natural and consistent accents across languages, understand precise details like letters and numbers, follow instructions, and complete tasks more reliably. New: standby for quieter moments Standby is a new GPT-Live API configuration available for both GPT-Live-1 and GPT-Live-1.1. Set an idle timeout between 5 and 60 seconds. After that period of silence, the model temporarily pauses while the WebRTC c",
-      "url": "https://community.openai.com/t/gpt-live-1-1-has-arrived-in-the-api/1418537",
-      "sourceName": "OpenAI 开发者官方公告",
-      "publishedAt": "2026-11-20T04:12:19Z",
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "gpt-live",
-      "updateType": "announcement",
       "verificationStatus": "pending"
     },
     {
@@ -759,20 +731,6 @@
       "verificationStatus": "pending"
     },
     {
-      "id": "633fc816a4a57ffa07",
-      "category": "music",
-      "vendor": "昆仑万维",
-      "title": "Duration control for Prompt to song and instrumental generation: Prompt to song and Generate instrumental now accept the optional duration parameter. With mureka-9.5, set a target duration of 2–5 minutes, or omit it or s",
-      "summary": "2026.11.17api updateDuration control for Prompt to song and instrumental generation: Prompt to song and Generate instrumental now accept the optional duration parameter. With mureka-9.5, set a target duration of 2–5 minutes, or omit it or set it to null for Auto. Song duration control cannot be combined with vocal, audio, or melody references; instrumental duration control cannot be combined with reference audio. Specifying an out-of-range duration or using duration with an actual model other than mureka-9.5 return",
-      "url": "https://platform.mureka.ai/docs/en/changelog.html",
-      "sourceName": "Mureka 官方更新日志",
-      "publishedAt": "2026-11-17T00:00:00Z",
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "mureka",
-      "updateType": "model-card",
-      "verificationStatus": "pending"
-    },
-    {
       "id": "3a49a40bd5ac7a2b29",
       "category": "llm",
       "vendor": "智谱 / Z.ai",
@@ -783,20 +741,6 @@
       "publishedAt": "2026-11-13T07:46:22Z",
       "discoveredAt": "2026-11-26T19:15:43Z",
       "modelFamilyId": "glm",
-      "updateType": "model-card",
-      "verificationStatus": "pending"
-    },
-    {
-      "id": "262f5442d739957cd9",
-      "category": "music",
-      "vendor": "昆仑万维",
-      "title": "Remix API: the mureka-9.5 model is now available to all users ($0.5/song). Supports audio up to 8 minutes, vocal-only / accompaniment-only / instrumental input, optional lyrics, and vocal gender control via prompt. Start",
-      "summary": "2026.11.12api and llm updateRemix API: the mureka-9.5 model is now available to all users ($0.5/song). Supports audio up to 8 minutes, vocal-only / accompaniment-only / instrumental input, optional lyrics, and vocal gender control via prompt. Starting 2026.11.12, Remix requests without the model parameter will default to mureka-9.5. To keep using mureka-8, set \"model\": \"mureka-8\"",
-      "url": "https://platform.mureka.ai/docs/en/changelog.html",
-      "sourceName": "Mureka 官方更新日志",
-      "publishedAt": "2026-11-12T00:00:00Z",
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "mureka",
       "updateType": "model-card",
       "verificationStatus": "pending"
     },
@@ -837,20 +781,6 @@
       "url": "https://openai.com/index/daybreak-red-aws-govcloud",
       "sourceName": "OpenAI 官方新闻 RSS",
       "publishedAt": "2026-11-04T07:00:00Z",
-      "discoveredAt": "2026-11-26T12:21:41Z",
-      "modelFamilyId": "gpt",
-      "updateType": "release",
-      "verificationStatus": "pending"
-    },
-    {
-      "id": "8e450599cbb0276aac",
-      "category": "llm",
-      "vendor": "OpenAI",
-      "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
-      "summary": "DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.",
-      "url": "https://openai.com/index/devrev-enterprise-self-service",
-      "sourceName": "OpenAI 官方新闻 RSS",
-      "publishedAt": "2026-11-04T00:00:00Z",
       "discoveredAt": "2026-11-26T12:21:41Z",
       "modelFamilyId": "gpt",
       "updateType": "release",
