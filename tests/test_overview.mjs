@@ -599,6 +599,23 @@ test('overview prioritizes core product reporting without promoting promotions o
  assert.deepEqual(result,['LibTV 新画布节点','普通行业新闻','Higgsfield Black Friday discount','其他工具更新']);
 });
 
+test('model capability research uses official evidence, preserves unknowns and retains creative LLMs',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const model=(name,category,summary)=>({modelName:name,modelFamilyId:name,modelVersionId:name+'-v1',vendor:'test',category,summary,publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://example.org/model'});
+ const magi=model('MAGI-2','video','支持原生音视频生成，最高 1080p、30 秒。官方称权重后续开源。');
+ const ling=model('Ling-3.2-air','llm','原生多模态语言模型，支持图片和视频理解。');
+ const control=model('Test Camera','video','官方提及 4K、白模参考、3D 运镜与低成本模式。');
+ const profile=m=>JSON.parse(run('JSON.stringify(modelCapabilityReview('+JSON.stringify(m)+'))'));
+ assert.deepEqual(profile(magi).axes.map(a=>a.id),['resolution','duration','audio']);
+ assert.deepEqual(profile(control).axes.map(a=>a.id),['resolution','control','economy']);
+ assert.deepEqual(profile(ling).axes.map(a=>a.id),['agent']);
+ assert.equal(profile({...magi,evidenceType:'external-report'}),null);
+ assert.match(run('modelCapabilityReviewMarkup('+JSON.stringify(magi)+')'),/未取得实际数据前不判断便宜程度/);
+ assert.match(run('modelCapabilityReviewMarkup('+JSON.stringify(ling)+')'),/不把视频理解等同于剪辑能力/);
+ const rows=JSON.parse(run('JSON.stringify(innovationExplorationRows('+JSON.stringify({releases:[ling,model('General code','llm','面向软件工程任务的编码语言模型。')],app:{},batches:[]})+',Date.now()))'));
+ assert.deepEqual(rows.map(r=>r.signal.title).sort(),['General code','Ling-3.2-air']);
+});
+
 test('public feature baseline is matrix context and only later deltas enter innovation observations',async()=>{
  const {run,node}=setup({query:'?view=feeds&briefing=innovation',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
  run("state.appUpdates={sources:[{id:'libtv-home',vendor:'LibTV',role:'competitor',type:'product-surface',entries:{a:{featureName:'新画布节点',claimType:'first-party-product-surface',visibleInLatestRead:true,lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.liblib.tv/'}}}],events:[{sourceId:'libtv-home',kind:'baseline-product-surface',claimType:'first-party-product-surface',featureName:'初始基线功能',observedAt:'2026-11-28T02:00:00Z',sourceUrl:'https://www.liblib.tv/'},{sourceId:'libtv-home',kind:'new-product-surface',claimType:'first-party-product-surface',featureName:'新发现入口',observedAt:'2026-11-28T02:00:00Z',sourceUrl:'https://www.liblib.tv/'}]};render()");
@@ -1061,4 +1078,25 @@ test('Agent task research covers visual and reusable character quality with dist
  assert.equal(rows.find(x=>x.id==='visual-qa').signals[0].title,'SenseNova U1.6');
  assert.equal(rows.find(x=>x.id==='sound').signalCount,2);
  assert.equal(rows.find(x=>x.id==='sound').signals.length,2);
+});
+
+test('research handoff is actionable, escaped and never presents hypotheses as measured results',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const m={modelName:'MAGI-2',category:'video',summary:'支持原生音视频生成，最高 1080p、30 秒。',evidenceType:'official-release',url:'https://example.org/model'};
+ const out=run('modelCapabilityReviewMarkup('+JSON.stringify(m)+')');
+ assert.match(out,/研发任务单 · 可复制/);assert.match(out,/data-copy-research-brief/);assert.match(out,/最小可复现工作流/);assert.match(out,/失败样本/);assert.match(out,/非已立项或已接入/);
+ const r={title:'人物三视图',brief:'固定参考',plan:'生成与复用',checks:'角色一致性',signals:[{day:'2026-11-28',origin:'Test',title:'<script>bad</script>',url:'https://example.org/source'}]};
+ const handoff=run('researchHandoffMarkup(agentResearchHandoff('+JSON.stringify(r)+'))');
+ assert.match(handoff,/https:\/\/example.org\/source/);assert.match(handoff,/工具契约/);assert.match(handoff,/&lt;script&gt;/);assert.doesNotMatch(handoff,/<script>/);
+ const coding={modelName:'Test LLM',category:'llm',summary:'提升编码与软件工程任务',evidenceType:'official-release',url:'https://example.org/llm'};
+ const review=JSON.parse(run('JSON.stringify(modelCapabilityReview('+JSON.stringify(coding)+'))'));
+ assert.deepEqual(review.axes.map(a=>a.id),['creative-code']);
+ assert.match(review.axes[0].check,/不把编码能力等同于原生渲染/);
+});
+
+test('shared clipboard handler copies the correct research or template text',async()=>{
+ const {run}=setup();
+ const copied=run("(function(){var b={textContent:'复制',parentElement:{querySelector:function(){return {textContent:'固定输入与验收'}}},hasAttribute:function(){return false}};var saved='';globalThis.navigator={clipboard:{writeText:function(v){saved=v;return Promise.resolve()}}};var handled=copyResearchOrTemplate({closest:function(){return b}});return [handled,saved]})()");
+ assert.deepEqual(Array.from(copied),[true,'固定输入与验收']);
+ assert.equal(run("copyResearchOrTemplate({closest:function(){return null}})"),false);
 });
