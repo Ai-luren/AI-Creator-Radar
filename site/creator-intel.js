@@ -101,7 +101,7 @@ function competitorBriefRows(app,reports,social,now){
   }else if(e.claimType==='first-party-visible-label'&&e.kind==='new-visible-label'&&firstPartyProducts.includes(brand)){
    add(brand,e.modelName,e.observedAt,'模型可见',e.sourceUrl,'官网入口变化 · 非发布日期',{modelName:e.modelName});
   }else if(e.claimType==='first-party-product-surface'&&e.kind==='new-product-surface'){
-   add(brand,e.featureName,e.observedAt,competitorEventType(e.featureName),e.featureUrl||e.sourceUrl,'官网入口变化 · 非发布日期');
+   if(e.surfaceStage!=='catalog-listed')add(brand,e.featureName,e.observedAt,competitorEventType(e.featureName),e.featureUrl||e.sourceUrl,'官网入口变化 · 非发布日期');
   }
  });
  // Public model labels from a migration/baseline are not a product launch.
@@ -114,12 +114,12 @@ function competitorBriefRows(app,reports,social,now){
   Object.values(s.entries||{}).forEach(function(e){
    if(!e.visibleInLatestRead||!e.lastObservedAt||e.surfaceStage==='coming-soon')return;
    var label=e.modelName||e.featureName||'';
-   if(e.claimType!=='first-party-visible-label'&&!(e.claimType==='first-party-product-surface'&&/独家首发|模型上新|模型接入|模型上线/i.test(label)))return;
+   if(e.claimType!=='first-party-visible-label'&&!(e.claimType==='first-party-product-surface'&&(e.surfaceStage==='catalog-listed'||/独家首发|模型上新|模型接入|模型上线/i.test(label))))return;
    watches.forEach(function(q){
     var name=String(q.term||'');if(!name)return;
     var pattern=competitorModelPattern(name);
     if(!pattern.test(label))return;
-    add(brand,label,e.firstObservedAt||e.lastObservedAt,'模型可见 / 官网推荐',e.featureUrl||s.url,'官网可见 · 非发布日期',{modelName:name});
+    add(brand,label,e.firstObservedAt||e.lastObservedAt,e.surfaceStage==='catalog-listed'?'模型目录展示':'模型可见 / 官网推荐',e.featureUrl||s.url,'官网可见 · 非发布日期',{modelName:name});
    });
   });
  });
@@ -488,7 +488,7 @@ function competitorMatrixRows(app,now,reviewed){
  sources.filter(function(s){return s.type==='product-surface'&&s.role==='competitor'&&competitorMatrixBrands.includes(s.vendor)}).forEach(function(source){
   Object.values(source.entries||{}).filter(function(e){return e.claimType==='first-party-product-surface'&&e.visibleInLatestRead===true&&e.featureName&&e.lastObservedAt}).forEach(function(e){
    var url=creatorOriginalUrl(e.featureUrl||source.url);if(!url||/^(独家首发|模型上新|View all presets)$/i.test(e.featureName))return;
-   var dimensions=/模型上新|模型接入|模型上线|已接入|独家首发/i.test(e.featureName)?['integration']:competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName)}).map(function(x){return x.id});
+   var dimensions=e.productArea==='官方模型目录'||/模型上新|模型接入|模型上线|已接入|独家首发/i.test(e.featureName)?['integration']:competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName)}).map(function(x){return x.id});
    add({brand:source.vendor,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:null,reviewedOn:chinaDay(e.lastObservedAt),kind:e.surfaceStage==='coming-soon'?'官方预告 · 未上线':'官网自动观察',note:'最近成功读取的公开入口，不代表发布日期或登录后的完整功能。'});
   })
  });
