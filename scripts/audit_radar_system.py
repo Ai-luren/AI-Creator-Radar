@@ -9,6 +9,7 @@ from pathlib import Path
 try:
     from scripts.audit_model_completeness import audit
     from scripts.audit_p1_readiness import measure
+    from scripts.report_acceptance import render_acceptance
     from scripts.audit_same_stage_recall import assess_same_stage
     from scripts.audit_publisher_statements import inspect_statements
     from scripts.audit_discovery_coverage import inspect_leads
@@ -18,6 +19,7 @@ try:
 except ModuleNotFoundError:
     from audit_model_completeness import audit
     from audit_p1_readiness import measure
+    from report_acceptance import render_acceptance
     from audit_same_stage_recall import assess_same_stage
     from audit_publisher_statements import inspect_statements
     from audit_discovery_coverage import inspect_leads
@@ -87,7 +89,9 @@ def inspect(data, config, now):
     return result
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--write",action="store_true");a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument("--write",action="store_true")
+    p.add_argument("--summary",type=Path,help="Append concise, scope-separated acceptance to job summary")
+    a=p.parse_args()
     directory=ROOT/"site/data"
     def read(name):return json.loads((directory/name).read_text(encoding="utf-8"))
     data={k:read(v) for k,v in {"models":"models.json","topics":"topics.json","digest":"model-releases-30d.json",
@@ -108,6 +112,11 @@ def main():
     report["dueScopes"]=[k for k,v in plan(directory,"schedule",now=now,respect_backoff=False).items() if v]
     report["eligibleScopes"]=[k for k,v in plan(directory,"schedule",now=now).items() if v]
     print("System audit:",json.dumps(report,ensure_ascii=False))
+    summary=render_acceptance(report)
+    print(summary)
+    if a.summary:
+        with a.summary.open("a",encoding="utf-8") as stream:
+            stream.write(summary+"\n")
     if a.write:write_json(directory/"system-audit.json",report)
     return 1 if report["errors"] else 0
 if __name__=="__main__":raise SystemExit(main())
