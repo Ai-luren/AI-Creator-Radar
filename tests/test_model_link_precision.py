@@ -1,5 +1,6 @@
 """Regression guards for auto-generated model mentions, distinct from evidence."""
 import json
+import re
 import unittest
 from pathlib import Path
 
@@ -51,37 +52,61 @@ class ModelLinkPrecisionTests(unittest.TestCase):
                      "releaseEvidence": {"chronicleAuditId": "reviewed"}}]}]
         self.assertEqual(explicit_chronicle_refs(families)["reviewed"][("demo", "v2")]["matchedName"], "v2.5")
 
+def legacy_record_refs(text: str, families: list[dict]) -> list[dict]:
+    found = {}
+    for family in families:
+        if family.get("category") == "agent":
+            continue
+        for version in family.get("versions", []):
+            for phrase in phrases(family, version):
+                # A shorter version label can match several sibling variants;
+                # only attach a version when the exact full display name occurs.
+                pattern = re.compile(r"(?<![\w])" + re.escape(phrase) + r"(?![\w])", re.I)
+                match = pattern.search(text)
+                if match:
+                    tail = text[match.end():]
+                    is_sibling_prefix = any(
+                        sibling.get("id") != version.get("id")
+                        and str(sibling.get("name", "")).casefold().startswith(phrase.casefold())
+                        and len(str(sibling.get("name", ""))) > len(phrase)
+                        and (tail.casefold().startswith(str(sibling["name"])[len(phrase):].casefold())
+                             or re.match(r"^(?:[.-]\s*\d|\s+\d)", tail))
+                        for sibling in family.get("versions", [])
+                    )
+                    if is_sibling_prefix:
+                        continue
+                    key = (family["id"], version["id"])
+                    found[key] = {"modelFamilyId": family["id"], "modelVersionId": version["id"], "matchedName": phrase}
+    return sorted(found.values(), key=lambda item: (item["modelFamilyId"], item["modelVersionId"]))
+
+
+def legacy_family_refs(text: str, families: list[dict]) -> list[dict]:
+    found = {}
+    for family in families:
+        # Product/tool families are not part of the creator-model catalog links.
+        # Exact-name matching can otherwise turn mentions of Codex or Claude Code
+        # into misleading model references.
+        if family.get("category") == "agent":
+            continue
+        names = [family.get("name", "")] + (family.get("aliases") or [])
+        for name in names:
+            name = str(name).strip()
+            if len(name) < 4 or name.endswith("系列"):
+                continue
+            pattern = re.compile(r"(?<![\w])" + re.escape(name) + r"(?![\w])", re.I)
+            if pattern.search(text):
+                found[family["id"]] = {"modelFamilyId": family["id"], "matchedName": name}
+    return sorted(found.values(), key=lambda item: item["modelFamilyId"])
+
+
+
 class CompiledMentionIndexTests(unittest.TestCase):
     def test_equivalence_to_original_matcher(self):
-        import re
         from scripts.link_model_records import ModelMentionIndex
         families = json.loads((ROOT / "site/data/models.json").read_text())
         index = ModelMentionIndex(families)
         def old(text):
-            found, family_found = {}, {}
-            for family in families:
-                if family.get("category") == "agent":
-                    continue
-                for version in family.get("versions", []):
-                    for phrase in phrases(family, version):
-                        match = re.search(r"(?<![\\w])" + re.escape(phrase) + r"(?![\\w])", text, re.I)
-                        if not match:
-                            continue
-                        tail = text[match.end():]
-                        if any(sibling.get("id") != version.get("id")
-                               and str(sibling.get("name", "")).casefold().startswith(phrase.casefold())
-                               and len(str(sibling.get("name", ""))) > len(phrase)
-                               and (tail.casefold().startswith(str(sibling["name"])[len(phrase):].casefold())
-                                    or re.match(r"^(?:[.-]\\s*\\d|\\s+\\d)", tail))
-                               for sibling in family.get("versions", [])):
-                            continue
-                        key = (family["id"],version["id"])
-                        found[key] = {"modelFamilyId":key[0],"modelVersionId":key[1],"matchedName":phrase}
-                for name in [family.get("name", "")] + (family.get("aliases") or []):
-                    name = str(name).strip()
-                    if len(name) >= 4 and not name.endswith("系列") and re.search(r"(?<![\\w])" + re.escape(name) + r"(?![\\w])",text,re.I):
-                        family_found[family["id"]] = {"modelFamilyId":family["id"],"matchedName":name}
-            return [found[k] for k in sorted(found)], [family_found[k] for k in sorted(family_found)]
+            return legacy_record_refs(text, families), legacy_family_refs(text, families)
         samples = ["Gemini 2.5 Flash-Lite / Seedance 2.5", "DeepSeek-V4.1-Flash Release",
                    "GLM-5.4 和 GLM-5.3-Flash", "Kling 4.0 as video 1", "no model here", "İmage 2.0"]
         for relative, (section, fields) in RECORD_SECTIONS.items():
