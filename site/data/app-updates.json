@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T00:49:36+00:00",
+  "checkedAt": "2026-11-28T00:58:06+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -915,7 +915,7 @@
         }
       },
       "status": "observed",
-      "deferred": false,
+      "deferred": true,
       "checkedAt": "2026-11-28T00:49:36+00:00",
       "lastSuccessAt": "2026-11-28T00:49:36+00:00",
       "error": null,
@@ -962,7 +962,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T00:49:36+00:00",
+    "checkedAt": "2026-11-28T00:58:06+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1433,7 +1433,7 @@
         "nextAttemptAt": "2026-11-28T01:14:36.036028+00:00"
       }
     },
-    "attemptedThisRun": 2,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -2474,10 +2474,197 @@
   ],
   "summary": {
     "configuredSources": 6,
-    "successfulThisRun": 1,
+    "successfulThisRun": 0,
     "baselineSources": 3,
     "listedModels": 0,
     "reviewedObservations": 1
   },
-  "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only."
+  "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
+  "platformCoverage": {
+    "checkedAt": "2026-11-28T00:58:06+00:00",
+    "window": "7d",
+    "sources": [
+      {
+        "provider": "AIHOT",
+        "fetchedAt": "2026-11-28T00:02:40+00:00",
+        "selectedItems": 3,
+        "hotTopics": 0,
+        "errors": [],
+        "stale": false
+      },
+      {
+        "provider": "AIPick",
+        "fetchedAt": "2026-11-27T19:03:47+00:00",
+        "selectedItems": 30,
+        "hotTopics": 10,
+        "errors": [],
+        "stale": false
+      }
+    ],
+    "platforms": [
+      {
+        "id": "douyin",
+        "label": "抖音",
+        "role": "social",
+        "originalCount": 16,
+        "providers": [
+          "AIPick"
+        ],
+        "hotSourceMentionCount": 5,
+        "status": "original-observed"
+      },
+      {
+        "id": "xiaohongshu",
+        "label": "小红书",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "kuaishou",
+        "label": "快手",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "bilibili",
+        "label": "哔哩哔哩",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "weibo",
+        "label": "微博",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "zhihu",
+        "label": "知乎",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "wechat-video",
+        "label": "微信视频号",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "wechat-article",
+        "label": "微信公众号",
+        "role": "social",
+        "originalCount": 4,
+        "providers": [
+          "AIPick"
+        ],
+        "hotSourceMentionCount": 5,
+        "status": "original-observed"
+      },
+      {
+        "id": "wechat-search",
+        "label": "微信搜一搜",
+        "role": "discovery",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "tiktok",
+        "label": "TikTok",
+        "role": "social",
+        "originalCount": 3,
+        "providers": [
+          "AIPick"
+        ],
+        "hotSourceMentionCount": 0,
+        "status": "original-observed"
+      },
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "youtube",
+        "label": "YouTube",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "x",
+        "label": "X",
+        "role": "social",
+        "originalCount": 10,
+        "providers": [
+          "AIHOT",
+          "AIPick"
+        ],
+        "hotSourceMentionCount": 10,
+        "status": "original-observed"
+      },
+      {
+        "id": "reddit",
+        "label": "Reddit",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "facebook",
+        "label": "Facebook",
+        "role": "social",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      },
+      {
+        "id": "grokipedia",
+        "label": "Grokipedia",
+        "role": "reference",
+        "originalCount": 0,
+        "providers": [],
+        "hotSourceMentionCount": 0,
+        "status": "not-observed"
+      }
+    ],
+    "policy": "Distinct recent selected original-link pointers in available snapshots, not direct platform access, verified update facts or exhaustive coverage. Hot source-name mentions are separate; zero is no sample observation, not an outage."
+  }
 }
