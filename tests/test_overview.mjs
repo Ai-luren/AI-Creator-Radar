@@ -983,3 +983,10 @@ test('recent App Store versions use the store date rather than observation time'
  const rows=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(app)+',[],{},Date.now()))'));
  assert.equal(rows.length,1);assert.equal(rows[0].brand,'即梦');assert.equal(rows[0].day,'2026-11-23');assert.equal(rows[0].kind,'客户端版本');assert.match(rows[0].proof,/非模型发布日期/);
 });
+
+test('nonleading creator feature reviews enter competitor discovery as reports only',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const reports=[{item:{title:'实测 LibTV 新功能 Magic',publishedAt:'2026-11-27T10:59:59Z',links:{original:'https://example.org/review'}}},{item:{title:'实测 FakeLibTV 新功能 Magic',publishedAt:'2026-11-27T10:59:59Z',links:{original:'https://example.org/fake'}}}];
+ const rows=JSON.parse(run('JSON.stringify(competitorBriefRows({},'+JSON.stringify(reports)+',{},Date.now()))'));
+ assert.equal(rows.length,1);assert.equal(rows[0].brand,'LibTV');assert.equal(rows[0].kind,'创作者发现线索');assert.equal(rows[0].proof,'相关报道 · 非官方确认');assert.equal(run("creatorLaunchSignal('实测 LibTV 折扣新功能','LibTV')"),false);
+});

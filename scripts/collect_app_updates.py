@@ -657,6 +657,17 @@ def model_watch_counts(rows,term):
                 by_brand[brand]+=1
     return by_brand
 
+def creator_launch_signal(title,term):
+    """Creator coverage is a discovery lead, not an adoption or sponsorship claim."""
+    if not isinstance(title,str) or not isinstance(term,str) or not term.strip():
+        return False
+    if re.search(r"折扣|优惠|黑五|促销|赠送|抽奖|discount|coupon|black friday|giveaway",title,re.I):
+        return False
+    return bool(re.search(r"(?<![A-Za-z0-9])"+re.escape(term)+r"(?![A-Za-z0-9])",title,re.I)
+                and re.search(r"实测|测评|评测|体验|上手|教程|演示|制作|案例|review|tutorial|demo|hands[- ]on|workflow",title,re.I)
+                and re.search(r"新功能|新增|发布|上线|上新|接入|升级|首发|功能|模型|工作流|工作室|画布|feature|model|launch|workflow|studio|canvas",title,re.I))
+
+
 def fetch_target(spec,etag):
     term,category=spec["term"],spec.get("category")
     if (term,category) not in AIPICK_QUERIES and not (spec.get("modelWatch") is True and category is None and valid_watch_term(term)):
@@ -704,6 +715,11 @@ def fetch_target(spec,etag):
                     continue
                 if u.scheme!="https" and not (u.scheme=="http" and host=="mp.weixin.qq.com" and u.port is None and re.match(r"^/s(?:/|$)",u.path)):
                     continue
+                if not links.get("story") and creator_launch_signal(title,term):
+                    key=("creatorSignal",u.hostname.lower(),u.path,u.query)
+                    if key not in selected_originals:
+                        selected_originals.add(key)
+                        selected_updates["creatorSignal"]+=1
                 if not re.match(r"^"+re.escape(term)+r"(?![A-Za-z0-9])",title.strip(),re.I):
                     continue
                 if re.search(r"测评|实测|教程|提示词|折扣|优惠|黑五|discount|coupon|black friday|review|tutorial",title,re.I):
@@ -724,6 +740,7 @@ def fetch_target(spec,etag):
                     "otherOriginalLinks":domains["other"],"missingOriginalLinks":domains["missing"],
                     "exactTitleMatches":exact,"hasNextCursor":bool(payload.get("nextCursor") or (payload.get("page") or {}).get("nextCursor")),
                     "selectedProductFeatures":selected_updates["productFeature"],"selectedModelIntegrations":selected_updates["modelIntegration"],
+                    "selectedCreatorSignals":selected_updates["creatorSignal"],
                     **({"modelWatchBrandMentions":model_watch_counts(rows,term)} if spec.get("modelWatch") else {})},response.headers.get("ETag","")
     except urllib.error.HTTPError as exc:
         if exc.code==304 and etag:

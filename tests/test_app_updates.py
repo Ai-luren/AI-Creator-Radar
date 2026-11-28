@@ -71,6 +71,16 @@ class AppUpdatesTests(unittest.TestCase):
             self.assertNotIn("releaseNotes",row)
             self.assertNotIn("modelName",row)
 
+    def test_creator_launch_signal_retains_nonleading_reviews_without_promotions(self):
+        from scripts.collect_app_updates import creator_launch_signal
+        self.assertTrue(creator_launch_signal("实测 LibTV 新功能", "LibTV"))
+        self.assertTrue(creator_launch_signal("即梦短剧工作室用 DreamScript 与 DreamShot 制作仙侠 AI 短片","即梦"))
+        self.assertTrue(creator_launch_signal("即梦短剧工作室上线，实测剧本模型 DreamScript 与分镜模型 DreamShot","即梦"))
+        self.assertFalse(creator_launch_signal("LibTV 新功能发布","LibTV"))
+        self.assertFalse(creator_launch_signal("实测 LibTV 折扣优惠功能","LibTV"))
+        self.assertFalse(creator_launch_signal("实测 FakeLibTV 新功能","LibTV"))
+        self.assertFalse(creator_launch_signal("实测 LibTV 视频","LibTV"))
+
     def test_targeted_query_keeps_counts_not_articles_and_respects_cooldown(self):
         from scripts.collect_app_updates import collect_targeted
         cfg={"intervalMinutes":360,"globalIntervalMinutes":60,"queries":[{"id":"a","term":"即梦","category":"ai-products"},{"id":"b","term":"Sand.ai","category":"ai-models"}]}
