@@ -1062,3 +1062,22 @@ test('Agent task research covers visual and reusable character quality with dist
  assert.equal(rows.find(x=>x.id==='sound').signalCount,2);
  assert.equal(rows.find(x=>x.id==='sound').signals.length,2);
 });
+
+test('creative demand separates original posts, reported virality and ordinary references; no fabricated views',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const item=(title,url,extra={})=>({title,selected:true,publishedAt:'2026-11-27T10:00:00Z',links:{original:url},...extra});
+ const rows=[item('AI 蜘蛛侠风格短片爆火，报道声称百万播放','https://www.instagram.com/reel/Abcd123/'),item('AI 蜘蛛侠风格短片爆火，报道声称百万播放','https://www.instagram.com/reel/Abcd123/'),item('布布讲AI分享把实拍照片转成GTA风格的通用提示词','https://www.douyin.com/video/7712808775036206947',{category:'tip'}),item('普通模型发布','https://x.com/a/status/123'),item('AI 爆款动画复刻','https://www.instagram.com/explore/'),item('AI 爆款动画复刻','https://x.com/a/status/124',{publishedAt:'2026-11-01'}),item('AI 爆款动画复刻','https://x.com/a/status/125',{selected:false})];
+ const batches=[{name:'AIPick',items:rows}];
+ const data=JSON.parse(run('JSON.stringify(creativeDemandRows('+JSON.stringify(batches)+',Date.now()))'));
+ assert.equal(data.length,2);assert.equal(data[0].platform,'Instagram');assert.equal(data[0].reportedTrend,true);assert.equal(data[1].reportedTrend,false);assert.equal(data[0].views,undefined);
+ const html=run('creativeDemandMarkup('+JSON.stringify(batches)+',Date.now())');assert.match(html,/播放量待核实/);assert.match(html,/非爆款认证/);assert.doesNotMatch(html,/普通模型发布/);
+});
+test('campaign planning is forward-looking, cross-year and region-aware',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const rows=JSON.parse(run('JSON.stringify(creativeCampaignCalendar(Date.now()))'));
+ assert.equal(rows[0].title,'Cyber Monday 营销节点');assert.equal(rows[0].days,2);
+ assert.equal(rows.find(r=>r.title==='Christmas').days,27);
+ assert.equal(rows.find(r=>r.title==='春节 / Lunar New Year').day,'2027-02-06');
+ assert.ok(rows.every(r=>r.days>=0&&r.days<=90));assert.ok(!rows.some(r=>r.title==='Black Friday 营销节点'));
+ const html=run('creativeCampaignMarkup(Date.now())');assert.match(html,/不是已立项活动/);assert.match(html,/已核对日期依据/);
+});
