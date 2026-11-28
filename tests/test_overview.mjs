@@ -737,3 +737,13 @@ test('model-response exact matching accepts typography but not a different varia
  assert.equal(run("competitorModelPattern('Seedance 3.5').test('Seedance 3.5 Pro')"),false);
  assert.equal(run("competitorModelPattern('Seedance 3.5 Pro').test('Seedance 3.5 Pro 上线')"),true);
 });
+
+test('official model directory listings feed matching watches but not invented product launches',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const entry={claimType:'first-party-product-surface',featureName:'MAGI-2',productArea:'官方模型目录',surfaceStage:'catalog-listed',visibleInLatestRead:true,firstObservedAt:'2026-11-28T02:00:00Z',lastObservedAt:'2026-11-28T02:00:00Z',featureUrl:'https://www.oiioii.ai/zh/magi-2'};
+ const app={sources:[{id:'oiioii-model-directory',vendor:'OiiOii',role:'competitor',type:'product-surface',url:'https://www.oiioii.ai/zh/explore/models',entries:{a:entry}}],events:[{...entry,sourceId:'oiioii-model-directory',kind:'new-product-surface',observedAt:'2026-11-28T02:00:00Z'}],targetedDiscovery:{queries:[{modelWatch:true,term:'MAGI-2',publisherCalendarDay:'2026-11-24'}]}};
+ const rows=JSON.parse(run('JSON.stringify(competitorBriefRows('+JSON.stringify(app)+',[],{},Date.now()))'));
+ assert.equal(rows.length,1);assert.equal(rows[0].kind,'模型目录展示');assert.equal(rows[0].proof,'官网可见 · 非发布日期');
+ const matrix=JSON.parse(run('JSON.stringify(competitorMatrixRows('+JSON.stringify(app)+',Date.now(),[]))'));
+ assert.deepEqual(matrix[0].dimensions,['integration']);assert.equal(matrix[0].day,null);
+});

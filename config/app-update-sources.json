@@ -218,6 +218,26 @@
           "access": "目录不等于发布日期"
         }
       ]
+    },
+    {
+      "id": "oiioii-model-directory",
+      "name": "OiiOii · 官方模型目录",
+      "vendor": "OiiOii",
+      "role": "competitor",
+      "url": "https://www.oiioii.ai/zh/explore/models",
+      "type": "product-surface",
+      "minIntervalMinutes": 360,
+      "aggregateQueryIds": [
+        "oiioii-aihot",
+        "oiioii-aipick"
+      ],
+      "links": [
+        {
+          "kind": "产品更新日志",
+          "url": "https://www.oiioii.ai/zh/changelog",
+          "access": "按月发布历史版本；非实时接入时间"
+        }
+      ]
     }
   ],
   "reviewedObservations": [
