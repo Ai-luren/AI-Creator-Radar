@@ -4,7 +4,7 @@ import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from scripts.plan_refresh import GROUPS, plan
+from scripts.plan_refresh import GROUPS, plan, execution_plan
 
 
 class RefreshPlannerTests(unittest.TestCase):
@@ -148,3 +148,58 @@ class RefreshPlannerTests(unittest.TestCase):
         self.assertTrue(result["models"])
         self.assertTrue(result["resources"])
         self.assertTrue(plan(self.data,"schedule",now=self.now+timedelta(minutes=30))["aipick"])
+
+    def record_deferred(self, groups):
+        (self.data / "scheduler-health.json").write_text(json.dumps({
+            "schema":"scheduler-health/v1","deferredSlowGroups":groups}))
+
+    def test_hot_priority_defers_slow_groups_once_and_keeps_raw_due_visible(self):
+        for group in GROUPS:
+            self.stamp(group, 1500)
+        selected, deferred = execution_plan(self.data,"schedule",now=self.now)
+        self.assertTrue(selected["models"])
+        self.assertTrue(selected["aipick"])
+        self.assertFalse(selected["resources"])
+        self.assertFalse(selected["maintenance"])
+        self.assertEqual(deferred,["maintenance","resources"])
+        self.assertTrue(plan(self.data,"schedule",now=self.now)["resources"])
+        self.record_deferred(deferred)
+        selected, deferred = execution_plan(self.data,"workflow_dispatch","due",now=self.now)
+        self.assertTrue(selected["resources"])
+        self.assertTrue(selected["maintenance"])
+        self.assertEqual(deferred,[])
+
+    def test_explicit_dispatch_and_push_do_not_defer(self):
+        for group in GROUPS:
+            self.stamp(group,1500)
+        for event,scope in [("push",""),("workflow_dispatch","all")]:
+            selected,deferred=execution_plan(self.data,event,scope,now=self.now)
+            self.assertTrue(selected["resources"])
+            self.assertTrue(selected["maintenance"])
+            self.assertEqual(deferred,[])
+
+    def test_slow_only_run_never_defers_and_morning_does_not_erase_obligation(self):
+        for group in GROUPS:
+            self.stamp(group)
+        self.stamp("resources",400)
+        selected,deferred=execution_plan(self.data,"schedule",now=self.now)
+        self.assertTrue(selected["resources"])
+        self.assertEqual(deferred,[])
+        self.record_deferred(["resources"])
+        selected,deferred=execution_plan(self.data,"schedule",now=self.now,schedule="15,25 0,2 * * *")
+        self.assertFalse(selected["resources"])
+        self.assertEqual(deferred,["resources"])
+
+    def test_backoff_does_not_discard_deferred_obligation(self):
+        for group in GROUPS:
+            self.stamp(group,1500)
+        self.record_deferred(["resources"])
+        (self.data/"collection-health.json").write_text(json.dumps({"sources":{"resources-batch":{
+            "status":"degraded","consecutiveFailures":2,"lastAttemptAt":self.now.isoformat()}}}))
+        selected,deferred=execution_plan(self.data,"schedule",now=self.now)
+        self.assertFalse(selected["resources"])
+        self.assertIn("resources",deferred)
+        self.record_deferred(deferred)
+        selected,deferred=execution_plan(self.data,"schedule",now=self.now+timedelta(minutes=30))
+        self.assertTrue(selected["resources"])
+        self.assertEqual(deferred,[])

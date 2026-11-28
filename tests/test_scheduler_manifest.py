@@ -48,3 +48,13 @@ class SchedulerManifestTests(unittest.TestCase):
         self.assertIsNone(result["groups"]["models"]["oldestSnapshotAt"])
         self.assertEqual(result["groups"]["models"]["retryAfter"], (self.now + timedelta(minutes=15)).isoformat())
         self.assertEqual(result["nextDueAt"], (self.now + timedelta(minutes=15)).isoformat())
+
+    def test_deferred_groups_remain_due_and_are_persisted(self):
+        (self.data/"resource-status.json").unlink()
+        result=build(self.data,self.now,"schedule","123","1",deferred=["resources"])
+        self.assertEqual(result["deferredSlowGroups"],["resources"])
+        self.assertTrue(result["groups"]["resources"]["due"])
+        self.assertTrue(result["groups"]["resources"]["eligible"])
+        self.assertEqual(result["nextDueAt"],self.now.isoformat())
+        with self.assertRaises(ValueError):
+            build(self.data,self.now,"schedule","123","1",deferred=["models"])

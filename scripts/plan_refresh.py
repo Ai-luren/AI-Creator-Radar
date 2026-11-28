@@ -159,6 +159,43 @@ def plan(data_dir, event, scope="", now=None, schedule="", respect_backoff=True)
     return result
 
 
+HOT_GROUPS = frozenset(("models", "selected", "aipick", "aihot_daily", "juya_daily"))
+SLOW_GROUPS = frozenset(("resources", "maintenance"))
+
+
+def previously_deferred(data_dir):
+    try:
+        state = json.loads((data_dir / "scheduler-health.json").read_text(encoding="utf-8"))
+        values = state.get("deferredSlowGroups", [])
+        if state.get("schema") != "scheduler-health/v1" or not isinstance(values, list):
+            return set()
+        return {value for value in values if isinstance(value, str) and value in SLOW_GROUPS}
+    except (OSError, ValueError, AttributeError, TypeError):
+        return set()
+
+
+def execution_plan(data_dir, event, scope="", now=None, schedule=""):
+    """Prefer hot intelligence on automatic runs; a deferred group gets the next eligible turn.
+
+    Raw due planning remains unchanged for the watchdog and freshness manifest.
+    Explicit dispatches and collector pushes retain their existing scope.
+    The prior deferral is persisted only with the validated snapshot.
+    """
+    selected = plan(data_dir, event, scope, now, schedule)
+    deferred = previously_deferred(data_dir)
+    if event == "schedule" or (event == "workflow_dispatch" and scope == "due"):
+        due_slow = {group for group in SLOW_GROUPS if selected[group]}
+        hot_due = any(selected[group] for group in HOT_GROUPS)
+        # An existing obligation is never postponed again; when it is eligible,
+        # all eligible slow groups run together to avoid alternating starvation.
+        if hot_due and due_slow and not (due_slow & deferred):
+            for group in due_slow:
+                selected[group] = False
+            deferred |= due_slow
+    deferred -= {group for group in SLOW_GROUPS if selected[group]}
+    return selected, sorted(deferred)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--event", required=True, choices=("push", "schedule", "workflow_dispatch"))
@@ -167,12 +204,13 @@ def main():
     parser.add_argument("--data-dir", type=Path, default=ROOT / "site" / "data")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    result = plan(args.data_dir, args.event, args.scope, schedule=args.schedule)
+    result, deferred = execution_plan(args.data_dir, args.event, args.scope, schedule=args.schedule)
     result["collect"] = any(result.values())
     with args.output.open("a", encoding="utf-8") as stream:
         for key, value in result.items():
             stream.write(f"{key}={str(value).lower()}\n")
-    print("Collector plan:", json.dumps(result, sort_keys=True))
+        stream.write("deferred_slow_groups=" + json.dumps(deferred, separators=(",", ":")) + "\n")
+    print("Collector plan:", json.dumps(result, sort_keys=True), "deferred slow groups:", deferred)
 
 
 if __name__ == "__main__":
