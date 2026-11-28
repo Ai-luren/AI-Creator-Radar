@@ -101,6 +101,39 @@ class SourceSearchTests(unittest.TestCase):
         later = search(self.families,self.discovery,{}, {},{},self.allowed,self.now+timedelta(days=8),lambda *a:self.fail("old index request"))
         self.assertEqual(later["summary"]["attemptedThisRun"],0)
 
+    def test_recent_rediscovery_does_not_make_old_report_or_repository_fresh(self):
+        old = dict(self.discovery["items"][0], reportedAt="2026-11-04T00:00:00Z")
+        ledger = {"tasks":[{"id":"oldtask","taskType":"lead-review","state":"needs-source",
+                            "identity":{"modelFamilyId":"demo","modelVersionId":"v3"},
+                            "reportedDay":"2026-11-04","firstDetectedAt":self.now.isoformat()},
+                           {"id":"repo","taskType":"independent-repository","state":"needs-repository-identity",
+                            "modelName":"Demo v9","repositoryCreatedAt":"2026-11-06T00:00:00Z",
+                            "firstDetectedAt":self.now.isoformat()}]}
+        products = {"events":[{"id":"product","eventType":"added-to-catalog","product":{"name":"Demo v8","reportedReleaseDate":"2026-09-22"},
+                               "observedAt":self.now.isoformat()}]}
+        result=search(self.families,{"items":[old]},ledger,products,{},self.allowed,self.now,
+                      lambda *a:self.fail("historical broad request"),
+                      aihot_fetcher=lambda *a:self.fail("historical AIHOT request"),
+                      aipick_fetcher=lambda *a:self.fail("historical AIPick request"))
+        self.assertEqual(result["summary"]["attemptedThisRun"],0)
+        self.assertEqual(result["summary"]["priorityTargetCounts"]["outsideHotWindowOrUnknown"],3)
+        self.assertEqual({t["priorityDay"] for t in result["targets"]},{"2026-11-04","2026-11-06","2026-09-22"})
+        self.assertTrue(all(t["active"] for t in result["targets"]))
+
+    def test_distinct_recent_report_reopens_priority_without_resetting_first_detection(self):
+        old = dict(self.discovery["items"][0], reportedAt="2026-11-04", firstSeenAt="2026-11-04T00:00:00Z")
+        fresh = dict(old,id="fresh",reportedAt="2026-11-27",firstSeenAt=self.now.isoformat())
+        second = dict(old,id="week",title="Demo v3 Live launched",reportedAt="2026-11-22",firstSeenAt=self.now.isoformat())
+        calls=[]
+        result=search(self.families,{"items":[old,fresh,second]}, {}, {},{},self.allowed,self.now,
+                      lambda *a:self.fail("broad before AIHOT"),
+                      aihot_fetcher=lambda t,*a:(calls.append(t["query"]) or [],"etag"))
+        self.assertEqual(calls,["Demo v3"])
+        target=next(t for t in result["targets"] if t["query"]=="Demo v3")
+        self.assertEqual(target["priorityDay"],"2026-11-27")
+        self.assertEqual(target["firstDetectedAt"],old["firstSeenAt"])
+        self.assertEqual(result["summary"]["priorityTargetCounts"],{"latestThreeDays":1,"remainingSevenDays":1,"outsideHotWindowOrUnknown":0})
+
     def test_single_request_budget_and_cooldown(self):
         calls=[]
         def fetch(*args):

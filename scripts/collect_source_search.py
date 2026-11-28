@@ -99,6 +99,17 @@ def exact_repository_names(title, names):
     return hits if len(hits) == 1 else []
 
 
+def scheduling_day(value):
+    """Calendar date of a source claim, not a verified release fact."""
+    raw = str(value or "")
+    if not re.match(r"^\d{4}-\d{2}-\d{2}(?:$|T| )", raw):
+        return None
+    try:
+        return datetime.fromisoformat(raw[:10]).date().isoformat()
+    except ValueError:
+        return None
+
+
 def build_targets(families, discovery, reconciliation, product_state):
     index = model_index(families)
     names = {(f["id"], v["id"]): (safe_name(v.get("name")) or safe_name((v.get("releaseEvidence") or {}).get("modelName")))
@@ -106,14 +117,20 @@ def build_targets(families, discovery, reconciliation, product_state):
     targets = {}
     repository_names = repository_backed_names(discovery)
 
-    def add(name, identity, origin, first, repository_backed=False):
+    def add(name, identity, origin, first, repository_backed=False, reported=None):
         name = safe_name(name)
         if not name:
             return
         tid = stable_id("canonical", *identity) if identity else stable_id("unclassified", name.casefold())
         target = targets.setdefault(tid, {"id": tid, "query": name, "identity": (
             {"modelFamilyId": identity[0], "modelVersionId": identity[1]} if identity else None),
-            "originIds": [], "firstDetectedAt": first})
+            "originIds": [], "firstDetectedAt": first, "priorityDay": None})
+        # A dated source report or repository/catalog claim is authoritative
+        # only for scheduling. Re-observation or task creation cannot make
+        # an old dated item fresh. Distinct newer reports can restore priority.
+        day = scheduling_day(reported) or scheduling_day(first)
+        if day:
+            target["priorityDay"] = max(target.get("priorityDay") or day, day)
         target["repositoryBacked"] = bool(target.get("repositoryBacked") or repository_backed)
         target["originIds"] = sorted(set(target["originIds"] + [origin]))
         target["firstDetectedAt"] = min(x for x in (target["firstDetectedAt"], first) if x) if first or target["firstDetectedAt"] else None
@@ -123,20 +140,20 @@ def build_targets(families, discovery, reconciliation, product_state):
             continue
         identity = identify(index, lead.get("title"), lead.get("titleHints") or ())
         if identity in names:
-            add(names[identity], identity, lead["id"], lead.get("firstSeenAt"))
+            add(names[identity], identity, lead["id"], lead.get("firstSeenAt"), reported=lead.get("reportedAt"))
         elif not identity and str(lead.get("sourceId", "")).startswith(("local-aihot-", "local-juya-")):
             matches = exact_repository_names(lead.get("title"), repository_names)
             if matches:
-                add(matches[0], None, lead["id"], lead.get("firstSeenAt"), repository_backed=True)
+                add(matches[0], None, lead["id"], lead.get("firstSeenAt"), repository_backed=True, reported=lead.get("reportedAt"))
     for task in reconciliation.get("tasks", []):
         if task.get("state") not in OPEN_STATES:
             continue
         obj = task.get("identity") or {}
         identity = (obj.get("modelFamilyId"), obj.get("modelVersionId"))
         if identity in names:
-            add(names[identity], identity, task["id"], task.get("firstDetectedAt"))
+            add(names[identity], identity, task["id"], task.get("firstDetectedAt"), reported=task.get("reportedDay") or task.get("reportedReleaseDate") or task.get("repositoryCreatedAt"))
         elif task.get("taskType") in {"product-observation", "independent-repository"}:
-            add(task.get("modelName"), None, task["id"], task.get("firstDetectedAt"))
+            add(task.get("modelName"), None, task["id"], task.get("firstDetectedAt"), reported=task.get("reportedReleaseDate") or task.get("repositoryCreatedAt") or task.get("reportedDay"))
     for event in product_state.get("events", []):
         if event.get("eventType") not in {"added-to-catalog", "baseline-recent-reported-date"}:
             continue
@@ -145,7 +162,7 @@ def build_targets(families, discovery, reconciliation, product_state):
         name = (event.get("product") or {}).get("name")
         identity = identify(index, name)
         if not identity:
-            add(name, None, event["id"], event.get("observedAt"))
+            add(name, None, event["id"], event.get("observedAt"), reported=(event.get("product") or {}).get("reportedReleaseDate"))
     return targets
 
 
@@ -447,19 +464,22 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
     service = dict(previous.get("service", {}))
     cooldown = stamp(service.get("nextAttemptAt"))
     def recent_tier(target):
-        # Current active input, not the durable first-detection timestamp,
-        # governs scheduling. Retain original detection for audit.
-        observed = stamp(active[target["id"]].get("firstDetectedAt"))
-        if observed is None or observed > now:
+        # Match the reader's China-local calendar windows, not the time a
+        # historical feed was ingested. Retain original detection for audit.
+        day = active[target["id"]].get("priorityDay")
+        if not day:
             return 2
-        age = now - observed
-        return 0 if age < timedelta(days=3) else 1 if age < timedelta(days=7) else 2
+        age = ((now + timedelta(hours=8)).date() - datetime.fromisoformat(day).date()).days
+        return 0 if 0 <= age <= 2 else 1 if 3 <= age <= 6 else 2
 
     due = [t for t in targets.values() if t["active"] and recent_tier(t) < 2 and
            (not stamp(t.get("nextAttemptAt")) or stamp(t["nextAttemptAt"]) <= now)]
     # Latest three days first, then the rest of the seven-day window.
     # Older targets keep local context but receive no index requests.
-    due.sort(key=lambda t: (recent_tier(t), t.get("nextAttemptAt") or t["firstDetectedAt"], t["id"]))
+    def priority_key(t):
+        return (recent_tier(t), -datetime.fromisoformat(t["priorityDay"]).date().toordinal())
+
+    due.sort(key=lambda t: (*priority_key(t), t.get("nextAttemptAt") or t["firstDetectedAt"], t["id"]))
     attempted = 0
     # Use existing high-quality aggregation before broad search. Independent
     # providers keep their own health and per-target cooldown. One request total.
@@ -483,7 +503,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
             primary_failed=bool(aihot_service.get("error") and stamp(aihot_service.get("nextAttemptAt"))
                                 and stamp(aihot_service["nextAttemptAt"])>now)
             rows=[t for t in rows if t.get("aihotLastAttemptAt") or primary_failed]
-        return sorted(rows,key=lambda t:(recent_tier(t),t.get(prefix+"LastAttemptAt") or "",t["firstDetectedAt"],t["id"]))
+        return sorted(rows,key=lambda t:(*priority_key(t),t.get(prefix+"LastAttemptAt") or "",t["firstDetectedAt"],t["id"]))
 
     def search_aggregated(target, provider, prefix, provider_state, fetch_fn):
         target[prefix+"LastAttemptAt"]=checked
@@ -576,6 +596,9 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
             "targets": sorted(targets.values(), key=lambda t: t["id"]),
             "summary": {"activeTargets": len(active_rows), "attemptedThisRun": attempted,
                         "targetStates": dict(sorted(counts.items())),
+                        "priorityTargetCounts": {"latestThreeDays": sum(recent_tier(t)==0 for t in active_rows),
+                                                 "remainingSevenDays": sum(recent_tier(t)==1 for t in active_rows),
+                                                 "outsideHotWindowOrUnknown": sum(recent_tier(t)==2 for t in active_rows)},
                         "broadDeferredForAggregators": len(due)-len(broad_due),
                         "broadDeadlineSeconds": BROAD_DEADLINE_SECONDS,
                         "targetsWithLocalContext": sum(bool(t["localContext"]) for t in active_rows),
