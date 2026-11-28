@@ -1022,3 +1022,15 @@ test('source learning displays repeated event coverage as candidates, not verifi
  const out=run('creatorSourceLearningMarkup('+JSON.stringify(app)+',"competitors","LibTV")');
  assert.match(out,/高价值传播信源候选/);assert.match(out,/2 个不同事件/);assert.match(out,/上游归属名称 · 未核实/);assert.match(out,/不自动订阅/);assert.equal(run('creatorSourceLearningMarkup('+JSON.stringify(app)+',"competitors","Higgsfield")'),'');
 });
+
+test('model adoption opportunities keep verified integrations, own evidence and organic reports separate',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const m={modelName:'MAGI-2',modelFamilyId:'magi',modelVersionId:'2',vendor:'Sand.ai',category:'video',publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'};
+ const app={sources:[{id:'hf',vendor:'Higgsfield'},{id:'lib',vendor:'LibTV'},{id:'renoise',vendor:'Renoise'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',updateType:'model-integration',featureName:'MAGI-2',publisherCalendarDay:'2026-11-24',sourceUrl:'https://higgsfield.ai/creator-hub/changelog'}],reviewedObservations:[{sourceId:'lib',brand:'LibTV',title:'MAGI-2 官网首发宣传',kind:'模型接入 / 宣发',modelName:'MAGI-2',observedOn:'2026-11-28',sourceUrl:'https://www.liblib.tv/'},{sourceId:'renoise',brand:'Renoise',title:'MAGI-2 国际站介绍',kind:'模型接入 / 产品介绍',modelName:'MAGI-2',observedOn:'2026-11-28',sourceUrl:'https://renoise.ai/models/magi-2',note:'国内站日期未核实'}],targetedDiscovery:{queries:[{modelWatch:true,modelFamilyId:'magi',modelVersionId:'2',provider:'AIHOT',lastSuccessAt:'2026-11-28T01:00:00Z',counts:{exactTitleMatches:21}},{modelWatch:true,modelFamilyId:'magi',modelVersionId:'2',provider:'AIPick',lastSuccessAt:'2026-11-28T01:00:00Z',counts:{exactTitleMatches:28,hasNextCursor:true}}]}};
+ const item=(title,url)=>({item:{title,selected:true,publishedAt:'2026-11-27T10:42:36Z',links:{original:url}}});
+ const x=item('实测 MAGI-2 视频模型','https://x.com/a/status/123'),y=item('MAGI-2 创作案例','https://www.douyin.com/video/456');
+ const args=[[m],[x,y,x,item('MAGI-2 黑五优惠','https://example.org/promo')],app,{}].map(z=>JSON.stringify(z)).join(',');
+ const result=JSON.parse(run('JSON.stringify(modelAdoptionOpportunities('+args+',Date.now()))'));
+ assert.equal(result.length,1);assert.equal(result[0].priority,'优先评估');assert.deepEqual(result[0].confirmed,['Higgsfield']);assert.deepEqual(result[0].observed,['LibTV']);assert.equal(result[0].own.length,1);assert.equal(result[0].originals.length,2);assert.deepEqual(result[0].queryCounts.map(q=>q.count),[21,28]);
+ const html=run('modelAdoptionOpportunityMarkup('+args+',Date.now())');assert.match(html,/国内站日期未核实/);assert.match(html,/暂无证据不等于未接入/);
+});
