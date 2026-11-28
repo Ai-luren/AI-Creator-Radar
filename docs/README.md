@@ -4,6 +4,7 @@
 
 | 要做什么 | 先读 | 关键文件 |
 |---|---|---|
+| 理解 Agent 产品研究目标与创作质量标准 | [产品研究纲领](renoise-agent-research.md) | `site/creator-intel.js`、`AGENTS.md` |
 | 理解整体目录与发布 | 本页、根目录 `AGENTS.md` | `.github/workflows/update-site.yml`、`.github/workflows/deploy-pages.yml` |
 | 修改当前界面与交互 | [设计系统](../DESIGN.md) | `site/index.html`、`tests/test_browser_visual.mjs` |
 | 修改模型目录或跨模块模型引用 | [模型数据契约](model-data-contract.md) | `site/data/models.json`、`scripts/link_model_records.py` |
