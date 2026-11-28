@@ -78,3 +78,155 @@ class AppUpdatesTests(unittest.TestCase):
         self.assertEqual(second["queries"][0]["counts"],first["queries"][0]["counts"])
         self.assertEqual(second["queries"][0]["lastSuccessAt"],first["queries"][0]["lastSuccessAt"])
         self.assertEqual(second["service"]["nextAttemptAt"],(self.now+timedelta(hours=14)).isoformat())
+
+    def test_higgs_changelog_dates_stage_and_no_promotions(self):
+        from scripts.collect_app_updates import parse_higgs_changelog
+        page="""<h1>What's new</h1><time>November 24, 2026</time><h2>MAGI-2</h2><ul><li>Feature</li><li>Models</li></ul><p>Video and sound</p>
+        <time>November 21, 2026</time><h2>Editing Room</h2><ul><li>Release</li><li>Video Tools</li></ul>
+        <time>November 2, 2026</time><h2>Higgsfield Mangaka</h2><ul><li>Release</li><li>Image Tools</li></ul>
+        <time>November 1, 2026</time><h2>Black Friday discount</h2><ul><li>Feature</li><li>Billing</li></ul>
+        <h2>Old models</h2><p>Footer</p><script>November 28, 2026</script>"""
+        values=list(parse_higgs_changelog(page,{}).values())
+        self.assertEqual([v["featureName"] for v in values],["MAGI-2","Editing Room","Higgsfield Mangaka"])
+        self.assertEqual(values[0]["updateType"],"model-integration")
+        self.assertEqual(values[2]["publisherCalendarDay"],"2026-11-02")
+        self.assertTrue(all(v["claimType"]=="first-party-product-changelog" for v in values))
+        with self.assertRaises(ValueError):parse_higgs_changelog("<h2>Models</h2>",{})
+
+    def test_dated_changelog_adapter_keeps_real_dates_and_distinct_features(self):
+        from scripts.collect_app_updates import parse_dated_changelog
+        page="""<h1>Latest Updates</h1><p>2026-11-24</p><h2>Audio processing and track separation</h2><p>Split vocals and background music into independent tracks.</p><h2>Video and timeline audio translation</h2><p>Translate the selected track and retain editable project media.</p><p>2026-11-14</p><h2>Seedance 2.5 Flash is here</h2><p>Generate and extend videos within the creative application.</p><h2>Credit estimates for upscaling</h2><p>See the estimated credits before submitting a job.</p>"""
+        rows=list(parse_dated_changelog(page,{"id":"flova-changelog"}).values())
+        self.assertEqual(len(rows),3)
+        self.assertEqual(rows[0]["publisherCalendarDay"],"2026-11-24")
+        self.assertEqual(rows[2]["updateType"],"model-integration")
+        self.assertNotIn("releaseDate",rows[2])
+        self.assertEqual(rows[0]["updateType"],"product-update")
+        tap='<h1>TapNow changelog</h1><p>v2.20.10</p><p>October 13, 2026</p><h2>Preview relighting live</h2><p>Adjust the light and export the image to a canvas.</p>'
+        v=next(iter(parse_dated_changelog(tap,{"id":"tapnow-changelog"}).values()))
+        self.assertEqual(v["publisherCalendarDay"],"2026-10-13")
+        self.assertEqual(v["productVersion"],"v2.20.10")
+        with self.assertRaises(ValueError):parse_dated_changelog("<h2>Login</h2>",{"id":"flova-changelog"})
+
+    def test_navigation_only_never_fetches_or_claims_success(self):
+        cfg={"sources":[{"id":"libtv","name":"LibTV","vendor":"LibTV","role":"competitor","url":"https://www.liblib.tv/show","type":"navigation-only","links":[]}]}
+        result=collect(cfg,{},self.now,lambda *_:self.fail("navigation-only must not fetch"))
+        self.assertEqual(result["sources"][0]["status"],"navigation-only")
+        self.assertIsNone(result["sources"][0]["lastSuccessAt"])
+        self.assertEqual(result["summary"]["successfulThisRun"],0)
+        self.assertEqual(result["events"],[])
+
+    def test_aggregate_first_coverage_defers_only_after_both_provider_queries(self):
+        from scripts.collect_app_updates import aggregate_coverage
+        spec={"aggregateQueryIds":["a","b"]}
+        def row(key,provider,features,models):
+            return {"id":key,"provider":provider,"status":"observed","lastAttemptAt":self.now.isoformat(),"lastSuccessAt":self.now.isoformat(),"counts":{"selectedProductFeatures":features,"selectedModelIntegrations":models}}
+        first=row("a","AIHOT",0,4)
+        second=row("b","AIPick",3,0)
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first]},self.now)["status"],"awaiting-aggregate")
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now)["status"],"aggregate-covered-sample")
+        second["counts"]["selectedProductFeatures"]=0
+        result=aggregate_coverage(spec,{"queries":[first,second]},self.now)
+        self.assertEqual(result["status"],"aggregate-gap")
+        self.assertEqual(result["missingLanes"],["selectedProductFeatures"])
+        self.assertEqual(aggregate_coverage(spec,{"queries":[first,second]},self.now+timedelta(hours=13))["status"],"awaiting-aggregate")
+
+    def test_aggregate_first_skips_direct_probe_and_preserves_existing_events(self):
+        cfg={"sources":[{**self.spec,"aggregateQueryIds":["a","b"]}],"targetedDiscovery":{"intervalMinutes":480,"globalIntervalMinutes":25,"queries":[{"id":"a","term":"Higgsfield","provider":"AIHOT"},{"id":"b","term":"Higgsfield","provider":"AIPick"}]}}
+        first=collect(cfg,{},self.now,lambda *_:self.fail("wait for both aggregate queries"),lambda *_:({"selectedProductFeatures":2,"selectedModelIntegrations":0},"a"))
+        self.assertEqual(first["sources"][0]["skipReason"],"awaiting-aggregate")
+        second=collect(cfg,first,self.now+timedelta(minutes=30),lambda *_:self.fail("no duplicate probe when both lanes covered"),lambda *_:({"selectedProductFeatures":0,"selectedModelIntegrations":2},"b"))
+        self.assertEqual(second["sources"][0]["skipReason"],"aggregate-covered-sample")
+        self.assertEqual(second["summary"]["successfulThisRun"],0)
+        self.assertEqual(second["events"],[])
+
+    def test_dual_provider_round_robin_keeps_one_request_each_and_prioritizes_unseen(self):
+        from scripts.collect_app_updates import collect_targeted
+        cfg={"maxProvidersPerRun":2,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[
+            {"id":"a","term":"Higgsfield","provider":"AIHOT","priority":0},
+            {"id":"b","term":"Higgsfield","provider":"AIPick","priority":0},
+            {"id":"c","term":"Flova","provider":"AIHOT","priority":10},
+            {"id":"d","term":"Flova","provider":"AIPick","priority":10}]}
+        calls=[]
+        def fetch(spec,etag):
+            calls.append(spec["id"])
+            return {"items":1},"e"
+        first=collect_targeted(cfg,{},self.now,fetch)
+        self.assertEqual(calls,["a","b"])
+        self.assertEqual(first["attemptedThisRun"],2)
+        collect_targeted(cfg,first,self.now+timedelta(minutes=20),fetch)
+        self.assertEqual(calls,["a","b"])
+        second=collect_targeted(cfg,first,self.now+timedelta(minutes=30),fetch)
+        self.assertEqual(calls,["a","b","c","d"])
+        self.assertEqual(second["attemptedThisRun"],2)
+
+    def test_platform_coverage_counts_originals_separately_from_hot_mentions(self):
+        from scripts.collect_app_updates import snapshot_platform_coverage,platform_key
+        platforms=[{"id":"x","label":"X","role":"social","domains":["x.com","twitter.com"]},
+                   {"id":"wechat-article","label":"微信公众号","role":"social","domains":["mp.weixin.qq.com"]},
+                   {"id":"instagram","label":"Instagram","role":"social","domains":["instagram.com"]}]
+        def item(url,selected=True):
+            return {"selected":selected,"publishedAt":self.now.isoformat(),"links":{"original":url}}
+        snapshots={"AIHOT":{"fetchedAt":self.now.isoformat(),"items":[item("https://x.com/example/status/123?utm_source=a"),item("https://x.com.evil.test/status/123")]},
+                   "AIPick":{"fetchedAt":self.now.isoformat(),"items":[item("https://twitter.com/example/status/123"),item("http://mp.weixin.qq.com/s?mid=123"),item("https://instagram.com/p/one",False)],"hotTopics":[{"latestAt":self.now.isoformat(),"sourceNames":["Instagram · creator","X · example"]}]}}
+        result=snapshot_platform_coverage(platforms,snapshots,self.now)
+        rows={x["id"]:x for x in result["platforms"]}
+        self.assertEqual(rows["x"]["originalCount"],1)
+        self.assertEqual(rows["x"]["providers"],["AIHOT","AIPick"])
+        self.assertEqual(rows["wechat-article"]["originalCount"],1)
+        self.assertEqual(rows["instagram"]["status"],"hot-mention-only")
+        self.assertEqual(rows["instagram"]["originalCount"],0)
+        self.assertIsNone(platform_key("https://x.com.evil.test/status/123",platforms))
+        self.assertIsNone(platform_key("https://x.com:8000/status/123",platforms))
+        self.assertIsNone(platform_key("https://user@x.com/status/123",platforms))
+
+    def test_platform_coverage_rejects_non_content_urls_and_story_representatives(self):
+        from scripts.collect_app_updates import platform_key,snapshot_platform_coverage
+        platforms=[{"id":"x","label":"X","role":"social","domains":["x.com","twitter.com"]},
+                   {"id":"wechat-article","label":"微信公众号","role":"social","domains":["mp.weixin.qq.com"]},
+                   {"id":"douyin","label":"抖音","role":"social","domains":["douyin.com"]},
+                   {"id":"youtube","label":"YouTube","role":"social","domains":["youtube.com","youtu.be"]},
+                   {"id":"instagram","label":"Instagram","role":"social","domains":["instagram.com"]}]
+        for url in ("https://x.com","https://x.com/Higgsfield","https://x.com/search?q=Higgsfield",
+                    "https://mp.weixin.qq.com/","https://mp.weixin.qq.com/s",
+                    "https://www.douyin.com/user/123","https://youtube.com/@creator",
+                    "https://youtu.be/","https://instagram.com/creator/","https://x.com:80/a/status/123"):
+            with self.subTest(url=url):
+                self.assertIsNone(platform_key(url,platforms))
+        for url,key in (("https://x.com/Higgsfield/status/123","x"),
+                        ("https://www.douyin.com/video/123","douyin"),
+                        ("https://www.youtube.com/watch?v=dQw4w9WgXcQ","youtube"),
+                        ("https://youtu.be/dQw4w9WgXcQ","youtube"),
+                        ("https://instagram.com/reel/ABC123/","instagram"),
+                        ("http://mp.weixin.qq.com/s?mid=123","wechat-article")):
+            with self.subTest(url=url):
+                self.assertEqual(platform_key(url,platforms),key)
+        item={"selected":True,"publishedAt":self.now.isoformat(),"links":{"original":"https://x.com/a/status/123","story":"https://aipick.news/story/abc"}}
+        coverage=snapshot_platform_coverage(platforms,{"AIPick":{"fetchedAt":self.now.isoformat(),"items":[item]}},self.now)
+        self.assertEqual(coverage["platforms"][0]["originalCount"],0)
+
+    def test_refresh_coverage_uses_final_snapshot_without_rewriting_probe_state(self):
+        import json
+        from pathlib import Path
+        from tempfile import TemporaryDirectory
+        from scripts.collect_app_updates import refresh_platform_coverage
+        cfg={"monitoredPlatforms":[{"id":"x","label":"X","role":"social","domains":["x.com"]}]}
+        previous={"schema":"app-updates/v1","checkedAt":self.now.isoformat(),
+                  "sources":[{"id":"source","lastSuccessAt":self.now.isoformat()}],
+                  "targetedDiscovery":{"attemptedThisRun":1},"events":[{"id":"event"}],
+                  "platformCoverage":{"checkedAt":self.now.isoformat()}}
+        later=self.now+timedelta(minutes=2)
+        item={"selected":True,"publishedAt":later.isoformat(),"links":{"original":"https://x.com/a/status/123"}}
+        with TemporaryDirectory() as tmp:
+            directory=Path(tmp)
+            (directory/"aihot-items.json").write_text(json.dumps({"fetchedAt":self.now.isoformat(),"items":[]}),encoding="utf-8")
+            file=directory/"aipick-data.json"
+            file.write_text(json.dumps({"fetchedAt":self.now.isoformat(),"items":[]}),encoding="utf-8")
+            early=refresh_platform_coverage(cfg,previous,directory,self.now)
+            file.write_text(json.dumps({"fetchedAt":later.isoformat(),"items":[item]}),encoding="utf-8")
+            final=refresh_platform_coverage(cfg,early,directory,later)
+        self.assertEqual(early["platformCoverage"]["platforms"][0]["originalCount"],0)
+        self.assertEqual(final["platformCoverage"]["platforms"][0]["originalCount"],1)
+        self.assertEqual(final["platformCoverage"]["sources"][1]["fetchedAt"],later.isoformat())
+        self.assertEqual({k:v for k,v in final.items() if k!="platformCoverage"},
+                         {k:v for k,v in previous.items() if k!="platformCoverage"})

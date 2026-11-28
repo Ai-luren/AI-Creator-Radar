@@ -109,5 +109,23 @@ class ChronicleUpdateTests(unittest.TestCase):
         self.assertEqual(len([n for n in next(t for t in merged if t["id"]=="sandai")["milestones"] if "GAGA-1" in n["title"]]),1)
 
 
+
+
+class ReviewedHistoryDuplicateTests(unittest.TestCase):
+    def test_only_exact_reviewed_duplicate_is_removed(self):
+        for uid,(topic_id,day,family,title,url,audit_id,audit_url) in chronicles.REVIEWED_HISTORY_DUPLICATES.items():
+            event={"sourceUpdateId":uid,"sourceModelId":family,"date":day,"title":title,"url":url,
+                   "autoCollected":True,"sourceTier":"official-primary","verificationStatus":chronicles.PENDING_STATUS}
+            audit={"auditId":audit_id,"date":day,"url":audit_url,"verificationStatus":"已确认：型号、日期与事件性质"}
+            topic={"id":topic_id,"group":"公司与模型","milestones":[event,audit]}
+            self.assertTrue(chronicles.redundant_review_node(topic,event))
+            self.assertFalse(chronicles.redundant_review_node({**topic,"milestones":[event]},event))
+            self.assertFalse(chronicles.redundant_review_node(topic,{**event,"date":"2026-11-29"}))
+            self.assertFalse(chronicles.redundant_review_node(topic,{**event,"auditId":"protected"}))
+            result,status=chronicles.merge_official_updates([topic],[], "2026-11-28T12:00:00Z")
+            self.assertEqual(result[0]["milestones"],[audit])
+            self.assertEqual(status["reconciledReviewedOrNonModel"],1)
+
+
 if __name__ == "__main__":
     unittest.main()

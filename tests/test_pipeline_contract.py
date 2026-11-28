@@ -11,7 +11,8 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("workflow_call:", text)
         self.assertIn("ref: main", text)
         self.assertIn("group: radar-pages-publish", text)
-        self.assertIn("node --test tests/test_overview.mjs", text)
+        self.assertIn("run: python scripts/validate_snapshot.py", text)
+        self.assertLess(text.index("run: python scripts/validate_snapshot.py"), text.index("Upload Pages artifact"))
         self.assertIn("actions/github-script@v8", text)
         self.assertIn("deploy_verified_pages.cjs", text)
         self.assertNotIn("python scripts/collect_", text)
@@ -32,7 +33,10 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("Concurrent main update won", persist)
         self.assertIn("timeout 45s git push origin HEAD:main", persist)
         self.assertNotIn("git push --force", persist)
-        self.assertIn("node --test tests/test_overview.mjs", text)
+        self.assertLess(text.index("run: python scripts/validate_snapshot.py"), text.index("run: bash scripts/persist_data.sh"))
+        self.assertIn("run: python scripts/validate_snapshot.py", text)
+        self.assertIn('run: python scripts/audit_radar_system.py --write --summary "$GITHUB_STEP_SUMMARY"', text)
+        self.assertLess(text.index("python scripts/audit_radar_system.py --write"), text.index("run: bash scripts/persist_data.sh"))
 
     def test_pages_artifacts_are_isolated_by_run_and_attempt(self):
         workflow = (ROOT / ".github/workflows/deploy-pages.yml").read_text()
@@ -69,3 +73,10 @@ class PipelineContractTests(unittest.TestCase):
         self.assertIn("publication_guard.py --write-marker", deploy)
         self.assertEqual(deploy.count("if: inputs.force || steps.publication.outputs.publication_status != 'current'"), 5)
         self.assertIn("force:", deploy)
+
+    def test_live_verification_is_after_deploy_and_not_a_new_writer(self):
+        text=(ROOT/".github/workflows/deploy-pages.yml").read_text()
+        self.assertLess(text.index("Deploy to GitHub Pages"),text.index("Verify publicly served site revision"))
+        self.assertIn('timeout 12s python scripts/publication_guard.py --verify-live --summary "$GITHUB_STEP_SUMMARY"',text)
+        self.assertIn("publication remains unverified",text)
+        self.assertNotIn("git push",text)

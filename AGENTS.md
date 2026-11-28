@@ -12,6 +12,10 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - `scripts/` contains Python collectors and builders; `tests/` contains their unit tests; `config/` contains source configuration; `.github/workflows/` contains automation.
 - Project Skills live under `.agents/skills/<short-name>/`.
 
+## Consumer publication gate
+
+The public reading workbench must not act as a manual review inbox. Recent releases, verified announcements, company histories, search entries, and account/contest discovery views must share evidence-based publication eligibility. Keep unresolved raw observations, conflicting dates, review tasks and automatic repair in the existing pipeline and audit datasets; never mark an unresolved row verified to remove a negative label. Known fields missing from an otherwise verified catalog identity remain honestly unknown. Legacy pending routes fall back to confirmed views. Test injected/unreviewed rows, search, counts, and old links; do not add a second data store or suppress production failures.
+
 ## Naming and data rules
 
 - Use stable kebab-case IDs for model and source records.
@@ -53,3 +57,29 @@ Maintain a personal AI creator radar focused on trustworthy model updates, video
 - Keep retired broad-news code/config/tests under the historical archive, not the active collector directories. Run the repository hygiene tests with the normal Python suite; validate current documentation links and do not revive obsolete data outputs.
 
 - P1 event reconciliation is a shadow layer: preserve historical evidence and real original verification times; distinguish article, lifecycle and canonical release facts. Related leads only prioritize existing probes; never invent a source or promote a reported date. Keep fixed benchmark metrics unchanged. See docs/model-data-contract.md.
+
+
+## Source strategy
+
+- Optimize effective event coverage, not HTTP success or source count. When an endpoint is denied, empty or repeatedly unproductive, prefer genuinely independent permitted alternatives and reuse existing aggregated clues before writing new scrapers.
+- Use AIHOT and other aggregators for discovery, not canonical release truth. Respect their published access and reuse rules; do not mirror or bulk redistribute. Prefer targeted queries, original publisher links, conditional requests and bounded retry; independently validate model identity, date and stage.
+- Before adding a collector or audit layer, compare a configuration change, a reused adapter, and simpler cross-domain approaches. Measure unique verified contribution, latency and request/maintenance cost; remove only demonstrably redundant routes, preserve evidence and negative controls. Do not repeatedly repair one blocked URL when an equivalent publisher source works.
+
+- Prefer AIHOT for model/industry discovery, AIPick for creator-oriented complementary discovery, and Juya or direct official sources for gaps. Shared framework or a repeated original URL never constitutes an independent confirmation. Reuse one adapter and shared budget rather than duplicate collectors. Free public reading APIs do not authorize wholesale public redistribution; keep new aggregator use bounded to original links and separately verified facts.
+
+- Prioritize AI product design and video creation intelligence for aggregation competitors: model integration, feature and workflow changes, new product forms and creative capabilities; exclude price/credit/discount-only updates. Use first-party changelogs and New drops as direct sources, not only social coverage; distinguish upstream vendor model releases from downstream platform adoption. Reuse AIHOT and AIPick as primary discovery; preserve original story links and independent provider ranks, do not equate discussion metrics or editorial picks with post views. Keep creator news separate from canonical model facts; no bulk public mirror without permission.
+
+- Extend first-party product sources through the shared app-update adapter and configured brand roles. A navigation-only source or stale changelog is a coverage gap, not successful monitoring. Preserve original calendar days, first observations, distinct model integration and product update types; avoid duplicate data stores and new scheduling groups.
+
+- Prefer AIHOT + AIPick selected information first for competitor research; run direct changelog probes only for observed coverage gaps, preserve existing evidence and separate feature versus model-integration signals. A brand mention or a positive sample is not proof of exhaustive coverage. Avoid duplicate crawling and prioritize product design relevance over raw source volume.
+
+- Prioritize unattempted monitored brand/provider pairs with bounded independent request budgets. Personal direct-browser selected reading is not a public data mirror or proxy; verify real CORS, keep fallback links and never certify unsupported providers.
+
+- For the 17 user-selected platforms, report actual recent distinct original-link contributions from existing AIHOT/AIPick selected snapshots, separately from hot-topic source-name mentions and unobserved platforms. Do not mistake directories, counts-only queries or source labels for direct platform access. WeChat search is discovery; Grokipedia is reference. No new platform crawlers without a demonstrated gap.
+
+## Acceptance and recurring-defect prevention
+
+- Before reopening a reported release miss or declaring P1 incomplete, pin current main and read `site/data/system-audit.json` via `python scripts/report_acceptance.py`. The authoritative same-stage metric is `p1Readiness.gates.sameStageEventRecall` (cross-check `sameStageRecall`), not `sampleRecall.endToEndDated` or `release-recall-status.json`. Article-only gaps with valid same-stage alternate proofs are not reopened as event misses. Preserve their separate source-health/repair status and never feed benchmark URLs to discovery. Other blocking gates remain independent; only an explicitly observed regression or a new coverage gap justifies reopening an accepted event.
+- For recurring failures, use the [reliability acceptance skill](.agents/skills/reliability-acceptance/SKILL.md) and the [Nov 28 retrospective](docs/reliability-retrospective-2026-11-28.md). Distinguish browser access from actual production runner transport, parser and evidence outcomes. Do not infer the WAF/DNS cause without runner evidence; no access-control bypass or proxy rotation. Prefer independently permitted alternate publisher evidence, hard wall-clock deadlines for demonstrated long-tail sources and explicit preservation of old timestamps.
+- Before changing a workflow or shared entrypoint, inspect all callers and structural tests, execute the actual production wrapper in PR CI, and prove equivalence/negative cases. Pin the exact head and current main; compare touched paths against concurrent PRs. Keep feature-specific operational notes in separate docs instead of appending competing sections to a shared file. Resolve shared-file conflicts on the PR branch, preserve both changes and rerun exact-revision CI and both browsers. Never force main or overwrite generated data.
+- Every performance claim must name baseline/candidate run IDs, selected scopes, attempt type, critical-path and full wall time, source coverage/recall, and persistence/publication results. One favorable run is not a stable SLA. Prefer same-scope comparable repeated samples and show outliers; no extra production dispatch solely to obtain a flattering number. Only call a real regression fixed when the relevant gate and production evidence pass, and record the next unresolved action once rather than repeatedly reopening the same accepted work.

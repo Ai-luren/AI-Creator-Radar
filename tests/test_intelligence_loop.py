@@ -135,3 +135,131 @@ class IntelligenceLoopTests(unittest.TestCase):
         self.assertEqual(second["summary"]["uniqueOfficialUrls"], 1)
         self.assertEqual(second["items"][0]["status"], "article-date-verified")
         self.assertEqual(calls, [self.url, self.url + "?lang=en"])
+
+class SandGraphicHeadingTests(unittest.TestCase):
+    def setUp(self):
+        self.url = "https://sand.ai/blog/magi-2/"
+        self.now = datetime(2026,11,28,tzinfo=timezone.utc)
+        self.title = "MAGI-2: A 480B Frontier Video Generation Model"
+        self.sources = [{"id":"sandai-research","url":"https://sand.ai/research/","active":True,"official":True,
+                         "modelMatches":{"magi-2":["re:\\bMAGI[- ]2\\b"]}}]
+        self.catalog = {"magi-2":{"id":"magi-2","vendor":"Sand.ai","category":"video","versions":[
+            {"id":"magi-2-preview","name":"MAGI-2 Preview"},{"id":"magi-2","name":"MAGI-2"}]}}
+        self.page = ('<title>'+self.title+'</title><div><span>November 24, 2026•RESEARCH</span>'
+                     '<h1><img src="logo.svg" alt="">A 480B Frontier<br>Video Generation Model</h1>'
+                     '<p>In August 2026, we released MAGI-2 Preview.</p>'
+                     '<p>Today, we are launching MAGI-2—our flagship model.</p></div>')
+
+    def parse(self, page=None, url=None):
+        return parse_article(page or self.page,url or self.url,["MAGI-2"],self.sources,self.catalog,self.now)
+
+    def test_graphic_heading_recovers_exact_launch_evidence(self):
+        row = self.parse()
+        self.assertEqual(row["status"],"article-date-verified")
+        self.assertEqual(row["title"],self.title)
+        self.assertEqual(row["articlePublishedAt"][:10],"2026-11-24")
+        self.assertEqual(row["publisherReleaseStatement"]["modelName"],"MAGI-2")
+        self.assertEqual(row["publisherReleaseStatement"]["calendarDay"],"2026-11-24")
+        self.assertEqual(row["publisherReleaseStatement"]["statement"],"Today, we are launching MAGI-2")
+        self.assertNotIn("releaseEvidence",row)
+
+    def test_future_preview_missing_title_and_conflicting_dates_do_not_pass(self):
+        for page in [self.page.replace("we are launching MAGI-2—","we will launch MAGI-2—"),
+                     self.page.replace("we are launching MAGI-2—","we are launching MAGI-2 Preview—"),
+                     self.page.replace("<title>"+self.title+"</title>",""),
+                     self.page.replace("A 480B Frontier<br>","A Different Model<br>"),
+                     '<meta property="article:published_time" content="2026-11-25">'+self.page]:
+            self.assertNotEqual(self.parse(page)["status"],"article-date-verified")
+        self.assertEqual(self.parse(url="https://unrelated.example/blog/magi-2/")["status"],"identity-unresolved")
+
+class SandLocalizedDiscoveryTests(unittest.TestCase):
+    def test_chinese_research_fallback_keeps_publisher_date_and_article_url(self):
+        from pathlib import Path
+        from unittest.mock import patch
+        from scripts.collect_models import fetch_source, html_page_items
+        sources = json.loads((Path(__file__).resolve().parents[1] / "config/model-sources.json").read_text())
+        source = next(s for s in sources if s["id"] == "sandai-research")
+        cn = "https://sandai.cn/research"
+        article = "https://sand.ai/blog/magi-2/"
+        page = ('<a href="'+article+'"><h2>MAGI-2：480B 旗舰视频生成模型</h2>'
+                '<span>2026年11月24日 · 研究</span></a>'
+                '<a href="https://sand.ai/blog/magi-2-preview/"><h2>MAGI-2 Preview</h2>'
+                '<span>2026年8月5日 · 研究</span></a>'
+                '<a href="https://unrelated.example/blog/magi-2/">MAGI-2 2026年11月25日</a>')
+        for error in ("HTTPError: HTTP Error 403: Forbidden", None):
+            calls = []
+            def fetch(endpoint):
+                calls.append(endpoint["url"])
+                if endpoint["url"] == source["url"]:
+                    return endpoint, [], error
+                self.assertEqual(endpoint["url"],cn)
+                return endpoint, html_page_items(page,endpoint), None
+            with patch("scripts.collect_models.fetch_source_once",side_effect=fetch):
+                effective, rows, err = fetch_source(source,now=datetime(2026,11,28,tzinfo=timezone.utc))
+            self.assertEqual(calls,[source["url"],cn])
+            self.assertIsNone(err)
+            self.assertTrue(effective["primaryDegraded"])
+            self.assertEqual(effective["url"],cn)
+            self.assertEqual(len(rows),2)
+            row = next(x for x in rows if x["url"]==article)
+            self.assertEqual(row["publishedAt"][:10],"2026-11-24")
+            self.assertEqual(row["modelId"],"magi-2")
+            self.assertEqual(row["updateType"],"announcement")
+            self.assertNotIn("releaseEvidence",row)
+            self.assertNotIn("publicationDateKind",row)
+
+class AccessDomainRoutingTests(unittest.TestCase):
+    def test_denied_locales_skip_without_blocking_independent_api(self):
+        from unittest.mock import patch
+        from scripts.collect_models import fetch_source
+        cfg = {"id":"niji","url":"https://nijijourney.com/blog",
+               "fallbackUrls":["https://nijijourney.com/en/blog","https://nijijourney.com/zh/blog",
+                               "https://docs.midjourney.com/hc/en-us/articles/test",
+                               "https://docs.midjourney.com/api/v2/help_center/articles/test.json"],
+               "fallbackOnZeroMatch":True}
+        calls=[]
+        def fetch(source):
+            url=source["url"];calls.append(url)
+            return (source,[{"title":"Niji 8"}],None) if "/api/" in url else (source,[],"HTTPError: HTTP Error 403: Forbidden")
+        with patch("scripts.collect_models.fetch_source_once",side_effect=fetch):
+            state, rows, error=fetch_source(cfg,now=datetime(2026,11,28,tzinfo=timezone.utc))
+        self.assertEqual(calls,[cfg["url"],cfg["fallbackUrls"][2],cfg["fallbackUrls"][3]])
+        self.assertIsNone(error)
+        self.assertEqual(len(rows),1)
+        self.assertEqual(sum(a.get("skipReason")=="access-domain-cooldown" for a in state["attempts"]),2)
+
+    def test_resolver_403_reallocates_budget_and_preserves_observations(self):
+        from datetime import timedelta
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        urls=["https://official.example/blog/a","https://official.example/zh/blog/b",
+              "https://other.example/news/c"]
+        config={"officialArticleHosts":{"official.example":["/blog/","/zh/blog/"],"other.example":["/news/"]}}
+        sources=[{"id":str(i),"url":url,"active":True,"official":True,"modelMatches":{"demo":["Demo"]}} for i,url in enumerate(urls)]
+        discovery={"items":[{"id":str(i),"title":"Demo 3","sourceId":"feed",
+                             "officialArticleUrls":[url],"reportedAt":"2026-11-27"} for i,url in enumerate(urls)]}
+        family=[{"id":"demo","vendor":"Demo","category":"llm"}]
+        calls=[]
+        def fetch(url):
+            calls.append(url)
+            if "official.example" in url:
+                raise OSError("HTTP 403")
+            return '<h1>Introducing Demo 3</h1><time datetime="2026-11-27">November 27, 2026</time>'
+        first=resolve(discovery,{},config,sources,family,now,fetch)
+        self.assertEqual(first["summary"]["attempted"],2)
+        self.assertEqual(first["summary"]["accessDomainDeferred"],1)
+        self.assertEqual(first["summary"]["articleDateVerified"],1)
+        self.assertEqual(sum("official.example" in u for u in calls),1)
+        second=resolve(discovery,first,config,sources,family,now+timedelta(minutes=10),
+                       lambda url:self.fail("cooldown must not request"))
+        self.assertEqual(second["summary"]["attempted"],0)
+        self.assertEqual(second["items"],first["items"])
+        self.assertEqual(second["accessFaultDomains"],first["accessFaultDomains"])
+
+    def test_429_honors_retry_after_and_404_does_not_open_domain(self):
+        from scripts.collect_models import access_fault_code, access_retry_at
+        from urllib.error import HTTPError
+        from datetime import timedelta
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        error=HTTPError("https://official.example/blog/a",429,"rate limit",{"Retry-After":"86400"},None)
+        self.assertEqual(access_retry_at(error,now,now+timedelta(hours=6)),now+timedelta(days=1))
+        self.assertIsNone(access_fault_code(HTTPError("https://official.example/blog/a",404,"missing",{},None)))

@@ -1,6 +1,6 @@
 {
   "schema": "product-state/v1",
-  "checkedAt": "2026-11-27T13:02:48+00:00",
+  "checkedAt": "2026-11-28T03:17:40+00:00",
   "sources": [
     {
       "id": "models-dev",
@@ -71,6 +71,46 @@
             "reportedReleaseDate": "2026-10-23"
           },
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
+          "missingChecks": 0
+        },
+        "alibaba|mindlab/macaron-v1-tall": {
+          "product": {
+            "providerId": "alibaba",
+            "productId": "mindlab/macaron-v1-tall",
+            "name": "Macaron V1 Tall",
+            "reportedReleaseDate": "2026-07-21"
+          },
+          "firstSeenAt": "2026-11-27T17:54:10+00:00",
+          "missingChecks": 0
+        },
+        "alibaba|mindlab/macaron-v1.1-coding-venti": {
+          "product": {
+            "providerId": "alibaba",
+            "productId": "mindlab/macaron-v1.1-coding-venti",
+            "name": "Macaron V1.1 Coding Venti",
+            "reportedReleaseDate": "2026-09-22"
+          },
+          "firstSeenAt": "2026-11-27T17:54:10+00:00",
+          "missingChecks": 0
+        },
+        "alibaba|mindlab/macaron-v1.1-venti": {
+          "product": {
+            "providerId": "alibaba",
+            "productId": "mindlab/macaron-v1.1-venti",
+            "name": "Macaron V1.1 Venti",
+            "reportedReleaseDate": "2026-09-22"
+          },
+          "firstSeenAt": "2026-11-27T17:54:10+00:00",
+          "missingChecks": 0
+        },
+        "alibaba|mindlab/macaron-v1.1-venti-pro": {
+          "product": {
+            "providerId": "alibaba",
+            "productId": "mindlab/macaron-v1.1-venti-pro",
+            "name": "Macaron V1.1 Venti Pro",
+            "reportedReleaseDate": "2026-09-22"
+          },
+          "firstSeenAt": "2026-11-27T17:54:10+00:00",
           "missingChecks": 0
         },
         "alibaba|qwen-flash": {
@@ -2024,12 +2064,12 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T12:02:59+00:00",
-      "lastSuccessAt": "2026-11-27T12:02:59+00:00",
+      "checkedAt": "2026-11-28T02:33:08+00:00",
+      "lastSuccessAt": "2026-11-28T02:33:08+00:00",
       "error": null,
       "deferred": true,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T13:02:59.422488+00:00",
+      "nextAttemptAt": "2026-11-28T03:33:08.725219+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -4381,16 +4421,6 @@
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
           "missingChecks": 0
         },
-        "qwen|qwen/qwen3-235b-a22b-thinking-2507": {
-          "product": {
-            "providerId": "qwen",
-            "productId": "qwen/qwen3-235b-a22b-thinking-2507",
-            "name": "Qwen: Qwen3 235B A22B Thinking 2507",
-            "providerRecordCreatedAt": "2025-07-25T13:19:17+00:00"
-          },
-          "firstSeenAt": "2026-11-27T03:11:31+00:00",
-          "missingChecks": 0
-        },
         "qwen|qwen/qwen3-30b-a3b": {
           "product": {
             "providerId": "qwen",
@@ -5110,14 +5140,24 @@
           },
           "firstSeenAt": "2026-11-27T03:11:31+00:00",
           "missingChecks": 0
+        },
+        "qwen|qwen/qwen3-235b-a22b-thinking-2507": {
+          "product": {
+            "providerId": "qwen",
+            "productId": "qwen/qwen3-235b-a22b-thinking-2507",
+            "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+            "providerRecordCreatedAt": "2025-07-25T13:19:17+00:00"
+          },
+          "firstSeenAt": "2026-11-27T03:11:31+00:00",
+          "missingChecks": 2
         }
       },
-      "checkedAt": "2026-11-27T12:02:59+00:00",
-      "lastSuccessAt": "2026-11-27T12:02:59+00:00",
+      "checkedAt": "2026-11-28T02:33:08+00:00",
+      "lastSuccessAt": "2026-11-28T02:33:08+00:00",
       "error": null,
       "deferred": true,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T13:02:59.422488+00:00",
+      "nextAttemptAt": "2026-11-28T03:33:08.725219+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     },
     {
@@ -5460,16 +5500,129 @@
           "missingChecks": 0
         }
       },
-      "checkedAt": "2026-11-27T12:02:59+00:00",
-      "lastSuccessAt": "2026-11-27T12:02:59+00:00",
+      "checkedAt": "2026-11-28T02:33:08+00:00",
+      "lastSuccessAt": "2026-11-28T02:33:08+00:00",
       "error": null,
       "deferred": true,
       "consecutiveFailures": 0,
-      "nextAttemptAt": "2026-11-27T13:02:59.422488+00:00",
+      "nextAttemptAt": "2026-11-28T03:33:08.725219+00:00",
       "baselineInitializedAt": "2026-11-27T03:11:31+00:00"
     }
   ],
   "events": [
+    {
+      "id": "31f1e98a08484e9e43515de2444939630bf02676bcd73d8c157b2bb5813a4920",
+      "sourceId": "openrouter-models",
+      "sourceUrl": "https://openrouter.ai/api/v1/models",
+      "attribution": {
+        "name": "OpenRouter",
+        "url": "https://openrouter.ai/docs/api/api-reference/models/get-models"
+      },
+      "eventType": "absent-from-catalog",
+      "observedAt": "2026-11-27T23:17:49+00:00",
+      "productKey": "qwen|qwen/qwen3-235b-a22b-thinking-2507",
+      "product": {
+        "providerId": "qwen",
+        "productId": "qwen/qwen3-235b-a22b-thinking-2507",
+        "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+        "providerRecordCreatedAt": "2025-07-25T13:19:17+00:00"
+      },
+      "previousProduct": null,
+      "identity": null,
+      "claimType": "catalog-observation"
+    },
+    {
+      "id": "c431da093c49c817705484ed5535050bd5aa660b3e4e8e5ac349d94ed8864292",
+      "sourceId": "models-dev",
+      "sourceUrl": "https://models.dev/api.json",
+      "attribution": {
+        "name": "Models.dev",
+        "url": "https://github.com/anomalyco/models.dev",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/anomalyco/models.dev/blob/dev/LICENSE"
+      },
+      "eventType": "added-to-catalog",
+      "observedAt": "2026-11-27T17:54:10+00:00",
+      "productKey": "alibaba|mindlab/macaron-v1.1-coding-venti",
+      "product": {
+        "providerId": "alibaba",
+        "productId": "mindlab/macaron-v1.1-coding-venti",
+        "name": "Macaron V1.1 Coding Venti",
+        "reportedReleaseDate": "2026-09-22"
+      },
+      "previousProduct": null,
+      "identity": null,
+      "claimType": "catalog-observation"
+    },
+    {
+      "id": "a5d0fb32d9241af4aee27fd248984b98f0c1b195a3753693c5a6b74135487033",
+      "sourceId": "models-dev",
+      "sourceUrl": "https://models.dev/api.json",
+      "attribution": {
+        "name": "Models.dev",
+        "url": "https://github.com/anomalyco/models.dev",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/anomalyco/models.dev/blob/dev/LICENSE"
+      },
+      "eventType": "added-to-catalog",
+      "observedAt": "2026-11-27T17:54:10+00:00",
+      "productKey": "alibaba|mindlab/macaron-v1.1-venti",
+      "product": {
+        "providerId": "alibaba",
+        "productId": "mindlab/macaron-v1.1-venti",
+        "name": "Macaron V1.1 Venti",
+        "reportedReleaseDate": "2026-09-22"
+      },
+      "previousProduct": null,
+      "identity": null,
+      "claimType": "catalog-observation"
+    },
+    {
+      "id": "82484c4aa0f7f51f72e9c10b8617bad8f1a314c166282a960c68dc9bf63c7413",
+      "sourceId": "models-dev",
+      "sourceUrl": "https://models.dev/api.json",
+      "attribution": {
+        "name": "Models.dev",
+        "url": "https://github.com/anomalyco/models.dev",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/anomalyco/models.dev/blob/dev/LICENSE"
+      },
+      "eventType": "added-to-catalog",
+      "observedAt": "2026-11-27T17:54:10+00:00",
+      "productKey": "alibaba|mindlab/macaron-v1.1-venti-pro",
+      "product": {
+        "providerId": "alibaba",
+        "productId": "mindlab/macaron-v1.1-venti-pro",
+        "name": "Macaron V1.1 Venti Pro",
+        "reportedReleaseDate": "2026-09-22"
+      },
+      "previousProduct": null,
+      "identity": null,
+      "claimType": "catalog-observation"
+    },
+    {
+      "id": "07c69144fea828a99192237b09e1f329839af49b49b38368e982b05a7aa51d7e",
+      "sourceId": "models-dev",
+      "sourceUrl": "https://models.dev/api.json",
+      "attribution": {
+        "name": "Models.dev",
+        "url": "https://github.com/anomalyco/models.dev",
+        "license": "MIT",
+        "licenseUrl": "https://github.com/anomalyco/models.dev/blob/dev/LICENSE"
+      },
+      "eventType": "added-to-catalog",
+      "observedAt": "2026-11-27T17:54:10+00:00",
+      "productKey": "alibaba|mindlab/macaron-v1-tall",
+      "product": {
+        "providerId": "alibaba",
+        "productId": "mindlab/macaron-v1-tall",
+        "name": "Macaron V1 Tall",
+        "reportedReleaseDate": "2026-07-21"
+      },
+      "previousProduct": null,
+      "identity": null,
+      "claimType": "catalog-observation"
+    },
     {
       "id": "fff2a859fea830b2c61380fa0a1f0ac3b5489f98a4a4a7dcbd74cb3e96137620",
       "sourceId": "models-dev",
@@ -5808,8 +5961,8 @@
     "sourcesWithBaseline": 3,
     "successfulThisRun": 0,
     "newEvents": 0,
-    "retainedEvents": 13,
-    "listedEntries": 541
+    "retainedEvents": 18,
+    "listedEntries": 544
   },
   "policy": "Public catalog observations only; never equate provider creation, reported metadata, first observation, addition or absence with formal launch, availability or withdrawal."
 }

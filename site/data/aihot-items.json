@@ -6,11 +6,11 @@
     "url": "https://aihot.news"
   },
   "window": "24h",
-  "fetchedAt": "2026-11-27T13:02:32+00:00",
-  "etag": "W/\"v1-items-74c677dbeda94232\"",
+  "fetchedAt": "2026-11-28T00:02:40+00:00",
+  "etag": "W/\"v1-items-3304eb85ea905768\"",
   "schemaVersion": 1,
   "page": {
-    "count": 4,
+    "count": 3,
     "hasMore": false,
     "nextCursor": null
   },
@@ -62,50 +62,28 @@
       }
     },
     {
-      "id": "cdkswjz368inpelrz3f52rekx",
-      "title": "实测支付宝 SkillPay：手把手教你怎么把 Skill 挂上去卖钱",
-      "originalTitle": null,
-      "summary": "作者完整实测支付宝 SkillPay 平台的 Skill 变现流程，该平台7月上线，支持买断和订阅两种售卖模式。买断制将 Skill 完整内容交付本地，订阅制把 Skill 保留在云端沙盒中、Agent 看不到明文；买断定价 0.01-50 元，订阅按周月季度收费上限 50 元，免费试用最低 5 次。",
+      "id": "l9md8ugx8e2zlm5g1tuqthmaw",
+      "title": "OpenBMB 点评 InternLM 基于 MiniCPM-o 4.5 打造的 Sage-Interaction",
+      "originalTitle": "Exciting to see Sage-Interaction built on MiniCPM-o 4.5! 💙 Listening while speaking and delegating complex tasks without interrupting th...",
+      "summary": "OpenBMB 转发并点评上海人工智能实验室 InternLM 团队发布的开源全双工语音视频模型 Sage-Interaction，该模型基于 MiniCPM-o 4.5 构建。OpenBMB 称赞其边说边听、在不打断对话的情况下把复杂任务交给后端模型，是迈向更自然 AI 交互的一步，并向 InternLM 团队致意。",
       "source": {
-        "name": "公众号：数字生命卡兹克"
+        "name": "X：面壁智能 OpenBMB (@OpenBMB)"
       },
       "links": {
-        "aihot": "https://aihot.news/items/cdkswjz368inpelrz3f52rekx",
-        "original": "https://mp.weixin.qq.com/s/x7Yt237NPL-sLvkUJlwESw"
+        "aihot": "https://aihot.news/items/l9md8ugx8e2zlm5g1tuqthmaw",
+        "original": "https://x.com/OpenBMB/status/2126308118741323853"
       },
-      "publishedAt": "2026-11-26T23:56:00.000Z",
-      "discoveredAt": "2026-11-27T00:02:10.632Z",
-      "category": "tip",
-      "score": 71,
-      "selected": true,
-      "reason": "作者以买家和卖家双视角实测支付宝 SkillPay 的买断与订阅两种模式，给出了从签约、定价到收款的上架流程和费用细节。",
-      "attribution": {
-        "name": "AIHOT",
-        "url": "https://aihot.news/items/cdkswjz368inpelrz3f52rekx"
-      }
-    },
-    {
-      "id": "jcdfpftbam647yhc210dbace9",
-      "title": "Philipp Schmid 撰文解释为何在 Skills 与 CLI 兴起后仍更看好 MCP",
-      "originalTitle": "Everyone hated on MCP when Skills and CLIs took over. I'm more bullish on MCP than ever",
-      "summary": "Philipp Schmid 撰文解释为何在 Skills 和 CLI 流行后依然看好 MCP：Linear 和 Notion 的 agent 每周创建约 240 万条 issue 和页面，Atlassian 每天 MCP 工具调用超 500 万次，其中 44% 用户来自软件团队之外，Notion 报告 60 倍 MCP 流量增长。",
-      "source": {
-        "name": "X：Philipp Schmid（Google DeepMind 开发者体验） (@_philschmid)"
-      },
-      "links": {
-        "aihot": "https://aihot.news/items/jcdfpftbam647yhc210dbace9",
-        "original": "https://x.com/_philschmid/status/2125945282072297794"
-      },
-      "publishedAt": "2026-11-26T13:30:28.000Z",
-      "discoveredAt": "2026-11-26T13:48:42.406Z",
-      "category": "opinion",
+      "publishedAt": "2026-11-27T13:32:15.000Z",
+      "discoveredAt": "2026-11-27T13:51:45.203Z",
+      "category": "industry",
       "score": 65,
       "selected": true,
-      "reason": "作者基于 Linear、Notion、Atlassian 等真实用量数据解释为何依然看好 MCP，并梳理 Code Mode、Skills、Events、MCP Apps 四个方向。",
+      "reason": "OpenBMB 对他人基于 MiniCPM-o 4.5 构建的全双工语音模型给予反馈，侧面说明该底座模型在语音交互场景的外部落地情况。",
       "attribution": {
         "name": "AIHOT",
-        "url": "https://aihot.news/items/jcdfpftbam647yhc210dbace9"
+        "url": "https://aihot.news/items/l9md8ugx8e2zlm5g1tuqthmaw"
       }
     }
-  ]
+  ],
+  "checkedAt": "2026-11-28T03:17:33+00:00"
 }

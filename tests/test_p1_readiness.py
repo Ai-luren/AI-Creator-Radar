@@ -48,3 +48,79 @@ class P1ReadinessTests(unittest.TestCase):
         self.assertEqual(gate["factReview"]["initialStrictAccuracy"],0)
         self.assertEqual(gate["factReview"]["currentAlignedWithReviewedFacts"],1)
         self.assertFalse(result["engineeringReady"])
+
+    def test_same_stage_result_is_separate_from_fixed_article_recall(self):
+        report={**self.report,"sameStageRecall":{"status":"pass","events":8,"matched":8}}
+        data={"recall":{"allSample":{"events":8,"endToEndDated":6,"dateConflicts":0}}}
+        r=measure(data,report,self.now)
+        self.assertEqual(r["gates"]["fixedArticleRecall"]["matched"],6)
+        self.assertEqual(r["gates"]["sameStageEventRecall"]["matched"],8)
+        self.assertNotIn("sameStageEventRecall",r["blockingGates"])
+        self.assertFalse(r["engineeringReady"])
+
+    def test_latency_diagnostic_never_promotes_sla_and_deduplicates(self):
+        from scripts.audit_p1_readiness import retained_feed_latency
+        source={"id":"official","active":True,"official":True,"type":"rss"}
+        row={"id":"one","sourceId":"official","official":True,"modelId":"demo",
+             "url":"https://official.example/blog/one","updateType":"release","publicationDateKind":"feed-published",
+             "publishedAt":"2026-11-27T10:00:00Z","firstSeenAt":"2026-11-27T11:30:00Z",
+             "publicationObservedAt":"2026-11-27T11:30:00Z"}
+        duplicate={**row,"id":"two","url":row["url"]+"?utm_source=demo","firstSeenAt":"2026-11-27T11:45:00Z","publicationObservedAt":"2026-11-27T11:45:00Z"}
+        midnight={**row,"id":"day","url":"https://official.example/blog/day","publishedAt":"2026-11-27T00:00:00Z"}
+        corrected={**row,"id":"corrected","previousSourceDates":["2026-11-26T10:00:00Z"]}
+        future={**row,"id":"future","url":"https://official.example/blog/future","firstSeenAt":"2026-11-27T09:00:00Z"}
+        data={"model_source_config":[source],"updates":{"items":[row,duplicate,midnight,corrected,future]}}
+        result=measure(data,self.report,self.now)
+        gate=result["gates"]["priorityDiscoveryLatency"]
+        self.assertEqual(gate["status"],"not-measured")
+        d=gate["retainedFeedDiagnostic"]
+        self.assertEqual(d["observedArticles"],1)
+        self.assertEqual(d["withinTwoHours"],1)
+        self.assertEqual(d["medianSeconds"],5400)
+        self.assertEqual(d["rows"][0]["recordIds"],["one","two"])
+        self.assertEqual(d["excluded"]["midnight-ambiguous-precision"],1)
+        self.assertEqual(d["excluded"]["invalid-chronology"],1)
+        self.assertEqual(d["excluded"]["unverified-precision-or-corrected-date"],1)
+        data["updates"]["items"].append({**row,"id":"conflict","publishedAt":"2026-11-27T10:01:00Z"})
+        conflict=retained_feed_latency(data,self.now)
+        self.assertEqual(conflict["observedArticles"],0)
+        self.assertIsNone(conflict["medianSeconds"])
+        self.assertEqual(conflict["excluded"]["conflicting-publication-timestamps"],1)
+
+    def test_incident_denominator_not_equated_to_automatic_repair(self):
+        empty=measure({},self.report,self.now)["gates"]["automaticRepairRate"]
+        self.assertEqual(empty["status"],"not-measured")
+        self.assertEqual(empty["observedBatchIncidentDiagnostic"]["observedIncidents"],0)
+        self.assertIsNone(empty["observedBatchIncidentDiagnostic"]["scheduledRecoveryShareOfClosed"])
+        rows=[{"origin":"observed-failure","openedAt":"2026-11-27T10:00:00+00:00",
+               "closedAt":"2026-11-27T11:00:00+00:00","recoveryTrigger":"schedule"}]
+        result=measure({"health":{"incidents":rows}},self.report,self.now)["gates"]["automaticRepairRate"]
+        self.assertEqual(result["status"],"not-measured")
+        self.assertEqual(result["observedBatchIncidentDiagnostic"]["scheduledRecoveries"],1)
+        self.assertEqual(result["observedBatchIncidentDiagnostic"]["maxRecoverySeconds"],3600)
+
+    def test_prospective_cohort_excludes_backfill_and_uses_observation_upper_bound(self):
+        from scripts.audit_p1_readiness import prospective_feed_latency
+        now=datetime(2026,11,28,12,tzinfo=timezone.utc)
+        source={"id":"official","active":True,"official":True,"type":"rss"}
+        row={"id":"new","sourceId":"official","official":True,"modelId":"demo",
+             "url":"https://official.example/blog/new","updateType":"release","publicationDateKind":"feed-published",
+             "publishedAt":"2026-11-28T02:30:00Z","preciseFeedPublishedAt":"2026-11-28T02:30:00Z",
+             "firstSeenAt":"2026-11-28T04:29:55Z","feedTimestampFirstObservedBy":"2026-11-28T04:30:05Z"}
+        historical={**row,"id":"historical","publishedAt":"2026-11-27T12:00:00Z",
+                    "preciseFeedPublishedAt":"2026-11-27T12:00:00Z"}
+        unproven={**row,"id":"unproven","url":"https://official.example/blog/unproven","preciseFeedPublishedAt":None}
+        duplicate={**row,"id":"duplicate","feedTimestampFirstObservedBy":"2026-11-28T05:00:00Z"}
+        data={"model_source_config":[source],"updates":{"items":[row,historical,unproven,duplicate]}}
+        d=prospective_feed_latency(data,now)
+        self.assertEqual(d["observedArticles"],1)
+        self.assertEqual(d["withinTwoHours"],0)
+        self.assertEqual(d["maxUpperBoundSeconds"],7205)
+        self.assertEqual(d["excluded"]["historical-or-undated"],1)
+        self.assertEqual(d["excluded"]["missing-precise-post-baseline-observation"],1)
+        self.assertEqual(measure(data,self.report,now)["gates"]["priorityDiscoveryLatency"]["status"],"not-measured")
+        data["updates"]["items"].append({**row,"id":"conflict","feedTimestampConflict":True})
+        blocked=prospective_feed_latency(data,now)
+        self.assertEqual(blocked["observedArticles"],0)
+        self.assertIsNone(blocked["withinTwoHoursShare"])
+        self.assertEqual(blocked["excluded"]["conflicting-publication-timestamps"],1)

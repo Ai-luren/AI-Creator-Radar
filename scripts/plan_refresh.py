@@ -13,16 +13,18 @@ ROOT = Path(__file__).resolve().parents[1]
 GROUPS = {
     "models": (("model-monitor-status.json", "checkedAt"), ("chronicle-updates-status.json", "checkedAt"), ("model-releases-30d.json", "updatedAt"), ("cross-platform-discovery.json", "checkedAt"), ("lead-resolution.json", "checkedAt"), ("model-intake.json", "checkedAt"), ("release-recall-status.json", "checkedAt"), ("model-release-verification-status.json", "checkedAt"), ("event-reconciliation.json", "checkedAt"), ("product-state.json", "checkedAt"), ("source-search.json", "checkedAt"), ("event-claims.json", "checkedAt"), ("independent-coverage.json", "checkedAt"), ("historical-evidence.json", "checkedAt"), ("app-updates.json", "checkedAt")),
     "selected": (("aihot-items.json", "fetchedAt"),),
+    "aipick": (("aipick-data.json", "fetchedAt"),),
     "aihot_daily": (("aihot-daily.json", "fetchedAt"),),
     "juya_daily": (("juya-daily.json", "fetchedAt"),),
-    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt"), ("maomu-rankings.json", "checkedAt"), ("unified-rankings.json", "calculatedAt"), ("aipick-data.json", "fetchedAt"), ("social-trends.json", "fetchedAt")),
+    "resources": (("resource-status.json", "checkedAt"), ("reference-rankings.json", "fetchedAt"), ("maomu-rankings.json", "checkedAt"), ("unified-rankings.json", "calculatedAt"), ("social-trends.json", "fetchedAt")),
     "maintenance": (("model-resource-status.json", "checkedAt"), ("creator-link-status.json", "checkedAt"), ("creator-opportunity-discovery.json", "checkedAt"), ("model-evaluations.json", "generatedAt")),
 }
-INTERVAL_MINUTES = {"models": 25, "selected": 25, "aihot_daily": 10, "juya_daily": 10, "resources": 350, "maintenance": 1430}
+INTERVAL_MINUTES = {"models": 25, "selected": 25, "aipick": 25, "aihot_daily": 10, "juya_daily": 10, "resources": 350, "maintenance": 1430}
 MANUAL = {
     "all": set(GROUPS),
     "models": {"models", "selected"},
-    "resources": {"resources", "aihot_daily", "juya_daily"},
+    "resources": {"resources", "aihot_daily", "juya_daily", "aipick"},
+    "aipick": {"aipick"},
     "maintenance": {"maintenance"},
     "deploy-only": set(),
 }
@@ -98,7 +100,7 @@ def daily_due(data_dir, group, now):
 
 # Delay only a group with a recorded failure, never unrelated collectors.
 # Keep the cap within the existing 30-minute scheduler heartbeat horizon.
-HEALTH_SOURCE = {"models": "models-batch", "selected": "aihot-selected",
+HEALTH_SOURCE = {"models": "models-batch", "selected": "aihot-selected", "aipick": "aipick-selected",
                  "aihot_daily": "aihot-daily", "juya_daily": "juya-daily",
                  "resources": "resources-batch", "maintenance": "maintenance-batch"}
 
@@ -157,6 +159,43 @@ def plan(data_dir, event, scope="", now=None, schedule="", respect_backoff=True)
     return result
 
 
+HOT_GROUPS = frozenset(("models", "selected", "aipick", "aihot_daily", "juya_daily"))
+SLOW_GROUPS = frozenset(("resources", "maintenance"))
+
+
+def previously_deferred(data_dir):
+    try:
+        state = json.loads((data_dir / "scheduler-health.json").read_text(encoding="utf-8"))
+        values = state.get("deferredSlowGroups", [])
+        if state.get("schema") != "scheduler-health/v1" or not isinstance(values, list):
+            return set()
+        return {value for value in values if isinstance(value, str) and value in SLOW_GROUPS}
+    except (OSError, ValueError, AttributeError, TypeError):
+        return set()
+
+
+def execution_plan(data_dir, event, scope="", now=None, schedule=""):
+    """Prefer hot intelligence on automatic runs; a deferred group gets the next eligible turn.
+
+    Raw due planning remains unchanged for the watchdog and freshness manifest.
+    Explicit dispatches and collector pushes retain their existing scope.
+    The prior deferral is persisted only with the validated snapshot.
+    """
+    selected = plan(data_dir, event, scope, now, schedule)
+    deferred = previously_deferred(data_dir)
+    if event == "schedule" or (event == "workflow_dispatch" and scope == "due"):
+        due_slow = {group for group in SLOW_GROUPS if selected[group]}
+        hot_due = any(selected[group] for group in HOT_GROUPS)
+        # An existing obligation is never postponed again; when it is eligible,
+        # all eligible slow groups run together to avoid alternating starvation.
+        if hot_due and due_slow and not (due_slow & deferred):
+            for group in due_slow:
+                selected[group] = False
+            deferred |= due_slow
+    deferred -= {group for group in SLOW_GROUPS if selected[group]}
+    return selected, sorted(deferred)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--event", required=True, choices=("push", "schedule", "workflow_dispatch"))
@@ -165,12 +204,13 @@ def main():
     parser.add_argument("--data-dir", type=Path, default=ROOT / "site" / "data")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    result = plan(args.data_dir, args.event, args.scope, schedule=args.schedule)
+    result, deferred = execution_plan(args.data_dir, args.event, args.scope, schedule=args.schedule)
     result["collect"] = any(result.values())
     with args.output.open("a", encoding="utf-8") as stream:
         for key, value in result.items():
             stream.write(f"{key}={str(value).lower()}\n")
-    print("Collector plan:", json.dumps(result, sort_keys=True))
+        stream.write("deferred_slow_groups=" + json.dumps(deferred, separators=(",", ":")) + "\n")
+    print("Collector plan:", json.dumps(result, sort_keys=True), "deferred slow groups:", deferred)
 
 
 if __name__ == "__main__":

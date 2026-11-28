@@ -16,6 +16,11 @@ on:
       - 'scripts/publication_guard.py'
       - 'scripts/persist_data.sh'
       - 'scripts/run_collection_batch.py'
+      - 'scripts/validate_snapshot.py'
+      - 'scripts/audit_radar_system.py'
+      - 'scripts/audit_p1_readiness.py'
+      - 'scripts/audit_same_stage_recall.py'
+      - 'scripts/report_acceptance.py'
       - 'config/**'
       - '.github/workflows/update-site.yml'
   schedule:
@@ -35,6 +40,7 @@ on:
           - due
           - models
           - resources
+          - aipick
           - maintenance
           - deploy-only
 
@@ -107,6 +113,13 @@ jobs:
             python scripts/collect_aihot.py
           fi
 
+      - name: Collect AIPick selected items and hot topics independently
+        id: aipick
+        continue-on-error: true
+        timeout-minutes: 2
+        if: steps.plan.outputs.aipick == 'true'
+        run: python scripts/collect_aipick.py
+
       - name: Collect model updates and derived views transactionally
         id: models_batch
         continue-on-error: true
@@ -149,6 +162,7 @@ jobs:
         if: steps.plan.outputs.collect == 'true'
         env:
           AIHOT_SELECTED: ${{ steps.aihot.outcome }}
+          AIPICK_SELECTED: ${{ steps.aipick.outcome }}
           AIHOT_DAILY: ${{ steps.aihot_daily.outcome }}
           JUYA_DAILY: ${{ steps.juya_daily.outcome }}
           MODEL_BATCH: ${{ steps.models_batch.outcome }}
@@ -160,25 +174,20 @@ jobs:
           RADAR_RUN_ATTEMPT: ${{ github.run_attempt }}
         run: python scripts/collection_health.py --critical-output --output "$GITHUB_OUTPUT" --summary "$GITHUB_STEP_SUMMARY"
 
+      - name: Reconcile platform coverage with final upstream snapshots
+        if: steps.plan.outputs.collect == 'true'
+        run: python scripts/collect_app_updates.py --coverage-only
+
       - name: Reconcile derived release digest after all upstream writes
         if: steps.plan.outputs.collect == 'true'
         run: python scripts/preflight.py --digest-only --repair-digest
 
-      - name: Test collectors and current data after regeneration
-        run: python -m unittest discover -s tests -v
-
-      - name: Test overview and navigation rendering
-        run: node --test tests/test_overview.mjs
-
-      - name: Validate shared model references
-        run: python scripts/validate_model_links.py
-
-      - name: Audit model and historical evidence coverage
-        run: python scripts/audit_model_completeness.py
+      - name: Validate regenerated snapshot in isolated parallel lanes
+        run: python scripts/validate_snapshot.py
 
       - name: Publish cross-module integrity audit
         if: steps.plan.outputs.collect == 'true'
-        run: python scripts/audit_radar_system.py --write
+        run: python scripts/audit_radar_system.py --write --summary "$GITHUB_STEP_SUMMARY"
 
       - name: Record validated collection heartbeat and next due time
         if: steps.plan.outputs.collect == 'true'
@@ -188,6 +197,7 @@ jobs:
           RADAR_RUN_ID: ${{ github.run_id }}
           RADAR_RUN_ATTEMPT: ${{ github.run_attempt }}
           RADAR_SCOPE: ${{ inputs.scope || '' }}
+          RADAR_DEFERRED_SLOW_GROUPS: ${{ steps.plan.outputs.deferred_slow_groups }}
         run: python scripts/scheduler_manifest.py
 
       - name: Persist collected data to the triggering branch

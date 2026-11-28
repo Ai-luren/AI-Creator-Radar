@@ -41,6 +41,75 @@
       "expectedName": "即梦",
       "minIntervalMinutes": 360,
       "links": []
+    },
+    {
+      "id": "higgsfield-changelog",
+      "name": "Higgsfield · 官方更新日志",
+      "vendor": "Higgsfield",
+      "url": "https://higgsfield.ai/creator-hub/changelog",
+      "type": "higgs-changelog",
+      "minIntervalMinutes": 360,
+      "links": [
+        {
+          "kind": "New drops / 产品入口",
+          "url": "https://higgsfield.ai/",
+          "access": "首页推荐，不等于完整更新历史"
+        },
+        {
+          "kind": "官方 Blog",
+          "url": "https://higgsfield.ai/blog/editorials",
+          "access": "产品详解与使用说明"
+        }
+      ],
+      "role": "competitor",
+      "aggregateQueryIds": [
+        "higgsfield-aihot",
+        "higgsfield-aipick"
+      ]
+    },
+    {
+      "id": "flova-changelog",
+      "name": "Flova · 官方更新日志",
+      "vendor": "Flova",
+      "role": "competitor",
+      "url": "https://www.flova.ai/en/docs/changelog/",
+      "type": "dated-changelog",
+      "minIntervalMinutes": 360,
+      "links": [],
+      "aggregateQueryIds": [
+        "flova-aihot",
+        "flova-aipick"
+      ]
+    },
+    {
+      "id": "tapnow-changelog",
+      "name": "TapNow · 官方更新日志",
+      "vendor": "TapNow",
+      "role": "competitor",
+      "url": "https://docs.tapnow.ai/en/docs/changelog",
+      "type": "dated-changelog",
+      "minIntervalMinutes": 360,
+      "links": [],
+      "aggregateQueryIds": [
+        "tapnow-aihot",
+        "tapnow-aipick"
+      ]
+    },
+    {
+      "id": "libtv-entry",
+      "name": "LibTV · 版本更新入口",
+      "vendor": "LibTV",
+      "role": "competitor",
+      "url": "https://www.liblib.tv/show",
+      "type": "navigation-only",
+      "minIntervalMinutes": 60,
+      "links": [
+        {
+          "kind": "版本更新记录",
+          "url": "https://www.liblib.tv/show",
+          "access": "官网可见入口，正文尚未验证可自动读取"
+        }
+      ]
     }
   ],
   "reviewedObservations": [
@@ -60,8 +129,8 @@
   ],
   "targetedDiscovery": {
     "source": "AIPick",
-    "intervalMinutes": 360,
-    "globalIntervalMinutes": 60,
+    "intervalMinutes": 720,
+    "globalIntervalMinutes": 25,
     "queries": [
       {
         "id": "jimeng-products",
@@ -103,7 +172,405 @@
         "label": "Sand.ai",
         "term": "Sand.ai",
         "category": "ai-models"
+      },
+      {
+        "id": "higgsfield-aihot",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIHOT",
+        "priority": 0
+      },
+      {
+        "id": "higgsfield-aipick",
+        "label": "Higgsfield",
+        "term": "Higgsfield",
+        "provider": "AIPick",
+        "priority": 0
+      },
+      {
+        "id": "flova-aihot",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIHOT",
+        "priority": 0
+      },
+      {
+        "id": "flova-aipick",
+        "label": "Flova",
+        "term": "Flova",
+        "provider": "AIPick",
+        "priority": 0
+      },
+      {
+        "id": "tapnow-aihot",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIHOT",
+        "priority": 0
+      },
+      {
+        "id": "tapnow-aipick",
+        "label": "TapNow",
+        "term": "TapNow",
+        "provider": "AIPick",
+        "priority": 0
+      },
+      {
+        "id": "libtv-aihot",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIHOT",
+        "priority": 0
+      },
+      {
+        "id": "libtv-aipick",
+        "label": "LibTV",
+        "term": "LibTV",
+        "provider": "AIPick",
+        "priority": 0
+      },
+      {
+        "id": "oiioii-aihot",
+        "label": "OiiOii",
+        "term": "OiiOii",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "oiioii-aipick",
+        "label": "OiiOii",
+        "term": "OiiOii",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "lovart-aihot",
+        "label": "Lovart",
+        "term": "Lovart",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "lovart-aipick",
+        "label": "Lovart",
+        "term": "Lovart",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "updream-aihot",
+        "label": "Updream",
+        "term": "Updream",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "updream-aipick",
+        "label": "Updream",
+        "term": "Updream",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "shotlab-aihot",
+        "label": "ShotLab",
+        "term": "ShotLab",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "shotlab-aipick",
+        "label": "ShotLab",
+        "term": "ShotLab",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "renoise-aihot",
+        "label": "Renoise",
+        "term": "Renoise",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "renoise-aipick",
+        "label": "Renoise",
+        "term": "Renoise",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "liblib-aihot",
+        "label": "Liblib",
+        "term": "Liblib",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "liblib-aipick",
+        "label": "Liblib",
+        "term": "Liblib",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "minimax-aihot",
+        "label": "MiniMax",
+        "term": "MiniMax",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "minimax-aipick",
+        "label": "MiniMax",
+        "term": "MiniMax",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "midjourney-aihot",
+        "label": "Midjourney",
+        "term": "Midjourney",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "midjourney-aipick",
+        "label": "Midjourney",
+        "term": "Midjourney",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "elevenlabs-aihot",
+        "label": "ElevenLabs",
+        "term": "ElevenLabs",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "elevenlabs-aipick",
+        "label": "ElevenLabs",
+        "term": "ElevenLabs",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "dreamina-aihot",
+        "label": "Dreamina",
+        "term": "Dreamina",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "dreamina-aipick",
+        "label": "Dreamina",
+        "term": "Dreamina",
+        "provider": "AIPick",
+        "priority": 10
+      },
+      {
+        "id": "jimeng-products-aihot",
+        "label": "即梦",
+        "term": "即梦",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "jimeng-seedaudio-aihot",
+        "label": "SeedAudio",
+        "term": "SeedAudio",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "kling-products-aihot",
+        "label": "可灵",
+        "term": "可灵",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "hailuo-products-aihot",
+        "label": "海螺",
+        "term": "海螺",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "vidu-products-aihot",
+        "label": "Vidu",
+        "term": "Vidu",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "pixverse-products-aihot",
+        "label": "PixVerse",
+        "term": "PixVerse",
+        "category": "ai-products",
+        "provider": "AIHOT",
+        "priority": 10
+      },
+      {
+        "id": "sand-models-aihot",
+        "label": "Sand.ai",
+        "term": "Sand.ai",
+        "category": "ai-models",
+        "provider": "AIHOT",
+        "priority": 10
       }
-    ]
-  }
+    ],
+    "maxProvidersPerRun": 2
+  },
+  "monitoredPlatforms": [
+    {
+      "id": "douyin",
+      "label": "抖音",
+      "domains": [
+        "douyin.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "xiaohongshu",
+      "label": "小红书",
+      "domains": [
+        "xiaohongshu.com",
+        "xhslink.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "kuaishou",
+      "label": "快手",
+      "domains": [
+        "kuaishou.com",
+        "gifshow.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "bilibili",
+      "label": "哔哩哔哩",
+      "domains": [
+        "bilibili.com",
+        "b23.tv"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "weibo",
+      "label": "微博",
+      "domains": [
+        "weibo.com",
+        "weibo.cn"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "zhihu",
+      "label": "知乎",
+      "domains": [
+        "zhihu.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "wechat-video",
+      "label": "微信视频号",
+      "domains": [
+        "channels.weixin.qq.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "wechat-article",
+      "label": "微信公众号",
+      "domains": [
+        "mp.weixin.qq.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "wechat-search",
+      "label": "微信搜一搜",
+      "domains": [
+        "weixin.sogou.com"
+      ],
+      "role": "discovery"
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "domains": [
+        "tiktok.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "domains": [
+        "instagram.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube",
+      "domains": [
+        "youtube.com",
+        "youtu.be"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "x",
+      "label": "X",
+      "domains": [
+        "x.com",
+        "twitter.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "reddit",
+      "label": "Reddit",
+      "domains": [
+        "reddit.com",
+        "redd.it"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "domains": [
+        "linkedin.com"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "facebook",
+      "label": "Facebook",
+      "domains": [
+        "facebook.com",
+        "fb.watch"
+      ],
+      "role": "social"
+    },
+    {
+      "id": "grokipedia",
+      "label": "Grokipedia",
+      "domains": [
+        "grokipedia.com"
+      ],
+      "role": "reference"
+    }
+  ]
 }

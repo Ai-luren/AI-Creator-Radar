@@ -4,7 +4,7 @@ import json
 import unittest
 from pathlib import Path
 
-from scripts.build_model_release_digest import build, collect_verified_stages
+from scripts.build_model_release_digest import build, collect_verified_stages, reviewed_pending_disposition, REVIEWED_PENDING_DISPOSITIONS
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -35,6 +35,17 @@ class AudioStageTests(unittest.TestCase):
         for row in result["verifiedStages"]:
             if row["stage"] == "preview":
                 self.assertEqual(row["url"], "https://microsoft.ai/news/introducing-mai-image-2-7/")
+
+    def test_reviewed_stages_and_non_model_updates_not_pending(self):
+        result=build(date(2026,11,28))
+        self.assertFalse(set(REVIEWED_PENDING_DISPOSITIONS).intersection(r["id"] for r in result["pending"]))
+        for uid,(family,day,url,title,stage_id) in REVIEWED_PENDING_DISPOSITIONS.items():
+            row={"id":uid,"modelId":family,"publishedAt":day,"url":url,"title":title,"official":True}
+            self.assertIsNotNone(reviewed_pending_disposition(row,result["verifiedStages"]))
+            self.assertIsNone(reviewed_pending_disposition({**row,"title":title+" changed"},result["verifiedStages"]))
+            self.assertIsNone(reviewed_pending_disposition({**row,"publishedAt":"2026-11-29"},result["verifiedStages"]))
+            if stage_id!="non-model":
+                self.assertIsNone(reviewed_pending_disposition(row,[]))
 
     def test_window_and_unknown_stages(self):
         families = json.loads((ROOT / "site/data/models.json").read_text(encoding="utf-8"))

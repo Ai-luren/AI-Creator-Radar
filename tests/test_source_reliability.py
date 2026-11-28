@@ -189,3 +189,209 @@ class EndpointBackoffTests(unittest.TestCase):
         rows = collector.html_page_items('<a href="/blog/niji-8"><h2>Welcome to Niji 8!</h2><p>Details</p></a>', source)
         self.assertEqual(rows[0]["articleTitle"], "Welcome to Niji 8!")
         self.assertIsNone(rows[0]["publishedAt"])
+
+class CollectionPerformanceTests(unittest.TestCase):
+    def test_identical_article_probe_is_reused_but_different_title_is_not(self):
+        cache = collector.ArticleDateProbeCache()
+        source = {"url":"https://example.com/news","articleDateCheck":True}
+        original = {"url":"https://example.com/news/demo","title":"Demo model release"}
+        with patch.object(collector, "probe_article_date", return_value="2026-11-27T00:00:00Z") as probe:
+            first = collector.enrich_article_dates(source, [dict(original)], cache)
+            second = collector.enrich_article_dates(source, [dict(original)], cache)
+            collector.enrich_article_dates(source, [{**original,"title":"Another release"}], cache)
+        self.assertEqual(first, second)
+        self.assertEqual(first[0]["publicationDateKind"], "article-explicit-date")
+        self.assertEqual(probe.call_count, 2)
+        self.assertEqual((cache.requests, cache.reused), (2, 1))
+
+    def test_failed_probe_not_cached_or_promoted(self):
+        cache = collector.ArticleDateProbeCache()
+        key = ("https://example.com/news/demo", "Demo release")
+        with patch.object(collector, "probe_article_date", side_effect=[None, "2026-11-27T00:00:00Z"]) as probe:
+            self.assertIsNone(cache.get(key, lambda: probe(*key)))
+            self.assertEqual(cache.get(key, lambda: probe(*key)), "2026-11-27T00:00:00Z")
+            self.assertEqual(probe.call_count, 2)
+
+    def test_concurrent_probes_share_one_request(self):
+        from concurrent.futures import ThreadPoolExecutor
+        from threading import Event
+        cache = collector.ArticleDateProbeCache()
+        entered, release = Event(), Event()
+        def fetch():
+            entered.set()
+            self.assertTrue(release.wait(3))
+            return "2026-11-27T00:00:00Z"
+        key = ("https://example.com/news/demo", "Demo release")
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            first = pool.submit(cache.get, key, fetch)
+            self.assertTrue(entered.wait(3))
+            second = pool.submit(cache.get, key, lambda: self.fail("duplicate request"))
+            release.set()
+            self.assertEqual(first.result(timeout=3), second.result(timeout=3))
+        self.assertEqual((cache.requests, cache.reused), (1, 1))
+
+    def test_unmatched_headings_do_not_scan_full_page_for_date(self):
+        source = {"url":"https://example.com/news","modelMatches":{"demo":["demo"]}}
+        page = "".join("<h2>Navigation section %d</h2>" % n for n in range(100))
+        page += '<a href="/news/demo"><h2>Introducing Demo 2.0</h2></a>'
+        with patch.object(collector, "find_date_near_title", wraps=collector.find_date_near_title) as scan:
+            items = collector.html_page_items(page, source)
+        self.assertEqual([i["title"] for i in items], ["Introducing Demo 2.0"])
+        self.assertEqual(scan.call_count, 1)
+
+class ConditionalFeedTests(unittest.TestCase):
+    def setUp(self):
+        from datetime import datetime, timezone
+        self.now = datetime(2026,11,28,0,0,tzinfo=timezone.utc)
+        self.source = {"id":"feed","name":"Feed","url":"https://example.com/rss","type":"rss","modelMatches":{"demo":["demo"]}}
+        self.items = [{"title":"Demo 2.0 release","summary":"","url":"https://example.com/release","publishedAt":"2026-11-27T00:00:00Z","modelId":"demo","publicationDateKind":"feed-published"}]
+        self.cache = {"key":collector.feed_cache_key(self.source,"parser"),"etag":'"v1"',"downloadedAt":self.now.isoformat(),"items":self.items,"itemsHash":collector.feed_items_hash(self.items)}
+        self.conditional = {"entry":self.cache,"now":self.now,"revision":"parser"}
+
+    def test_304_reuses_exact_parsed_feed_and_original_download_time(self):
+        import urllib.error
+        err = urllib.error.HTTPError(self.source["url"],304,"Not Modified",{},None)
+        with patch.object(collector.urllib.request,"urlopen",side_effect=err) as fetch:
+            effective, items, error = collector.fetch_source_once(self.source,conditional=self.conditional)
+        self.assertIsNone(error)
+        self.assertEqual(items,self.items)
+        self.assertTrue(effective["_notModified"])
+        self.assertEqual(effective["_feedCache"]["downloadedAt"],self.cache["downloadedAt"])
+        self.assertEqual(fetch.call_args.args[0].get_header("If-none-match"),'"v1"')
+
+    def test_expired_changed_or_corrupt_cache_and_article_probes_not_reused(self):
+        from datetime import timedelta
+        for source, entry, now, revision in [
+            (self.source,self.cache,self.now+timedelta(hours=6),"parser"),
+            (self.source,self.cache,self.now,"new-parser"),
+            ({**self.source,"url":"https://example.com/other"},self.cache,self.now,"parser"),
+            ({**self.source,"articleDateCheck":True},self.cache,self.now,"parser"),
+            (self.source,{**self.cache,"items":[]},self.now,"parser"),
+            (self.source,{**self.cache,"downloadedAt":"bad"},self.now,"parser"),
+        ]:
+            self.assertIsNone(collector.reusable_feed_cache(source,entry,now,revision))
+
+    def test_unconditional_304_is_failure_not_empty_success(self):
+        import urllib.error
+        err = urllib.error.HTTPError(self.source["url"],304,"Not Modified",{},None)
+        with patch.object(collector.urllib.request,"urlopen",side_effect=err) as fetch:
+            effective, items, error = collector.fetch_source_once(self.source,conditional={**self.conditional,"entry":None})
+        self.assertIsNotNone(error)
+        self.assertEqual(items,[])
+        self.assertIsNone(fetch.call_args.args[0].get_header("If-none-match"))
+
+    def test_valid_200_stores_exact_representation(self):
+        from unittest.mock import MagicMock
+        response = MagicMock()
+        response.__enter__.return_value = response
+        response.headers = {"ETag":'"v2"',"Content-Type":"application/rss+xml"}
+        response.read.return_value = b"<rss/>"
+        with patch.object(collector.urllib.request,"urlopen",return_value=response), patch.object(collector,"rss_items",return_value=self.items):
+            effective, items, error = collector.fetch_source_once(self.source,conditional={**self.conditional,"entry":None})
+        self.assertIsNone(error)
+        self.assertEqual(items,self.items)
+        self.assertEqual(effective["_feedCache"]["etag"],'"v2"')
+        self.assertIsNotNone(collector.reusable_feed_cache(self.source,effective["_feedCache"],self.now,"parser"))
+
+    def test_source_attempt_records_304_without_changing_publication_date(self):
+        import urllib.error
+        err = urllib.error.HTTPError(self.source["url"],304,"Not Modified",{},None)
+        with patch.object(collector.urllib.request,"urlopen",side_effect=err):
+            effective, items, error = collector.fetch_source(self.source,now=self.now,feed_state=self.cache,parser_revision="parser")
+        self.assertIsNone(error)
+        self.assertEqual(items,self.items)
+        self.assertTrue(effective["attempts"][0]["httpNotModified"])
+        self.assertEqual(effective["attempts"][0]["representationFetchedAt"],self.cache["downloadedAt"])
+        self.assertEqual(items[0]["publishedAt"],"2026-11-27T00:00:00Z")
+
+class HardSourceDeadlineTests(unittest.TestCase):
+    def test_only_configured_source_is_isolated_and_timeout_is_not_success(self):
+        from datetime import datetime, timezone
+        import subprocess
+        from unittest.mock import Mock
+        source = {"id":"zhipu","name":"Zhipu","url":"https://example.com/news","hardDeadlineSeconds":18}
+        now = datetime(2026,11,28,tzinfo=timezone.utc)
+        runner = Mock(side_effect=subprocess.TimeoutExpired("worker",18))
+        effective, items, error = collector.fetch_with_hard_deadline(source,{},now,None,None,None,runner)
+        self.assertEqual(items,[])
+        self.assertIn("SourceDeadlineExceeded",error)
+        self.assertEqual(effective["attempts"][0]["budgetSeconds"],18)
+        self.assertFalse(effective["sourceDeferred"])
+        self.assertEqual(runner.call_args.kwargs["timeout"],18)
+        self.assertEqual(runner.call_args.args[0][-1],"--isolated-source-worker")
+        with patch.object(collector,"fetch_source",return_value=(source,[],None)) as normal:
+            collector.fetch_with_hard_deadline({"id":"other"},None,now,None,None,None,runner)
+        normal.assert_called_once()
+        self.assertEqual(runner.call_count,1)
+
+    def test_isolated_success_preserves_actual_evidence_and_attempts(self):
+        from datetime import datetime, timezone
+        import json
+        from types import SimpleNamespace
+        from unittest.mock import Mock
+        source = {"id":"zhipu","name":"Zhipu","url":"https://example.com/news","hardDeadlineSeconds":18}
+        result = [{**source,"attempts":[{"url":source["url"],"error":None}]},[{"title":"GLM 5","publishedAt":"2026-11-01T00:00:00Z"}],None]
+        runner=Mock(return_value=SimpleNamespace(stdout=json.dumps(result)))
+        actual=collector.fetch_with_hard_deadline(source,None,datetime.now(timezone.utc),None,None,None,runner)
+        self.assertEqual(list(actual),result)
+
+    def test_bounded_retry_moves_to_fallback_without_sleep(self):
+        source={"id":"zhipu","name":"Zhipu","url":"https://example.com/news",
+                "fallbackUrls":["https://example.com/research"],"maxTransientAttempts":1}
+        with patch.object(collector,"fetch_source_once",side_effect=[
+            (source,[],"URLError: timed out"),(source,[{"title":"GLM 5"}],None)]) as fetch, patch.object(collector.time,"sleep") as sleep:
+            effective, items, error = collector.fetch_source(source)
+        self.assertIsNone(error)
+        self.assertEqual(fetch.call_count,2)
+        self.assertEqual(effective["url"],source["fallbackUrls"][0])
+        sleep.assert_not_called()
+
+    def test_real_process_deadline_kills_slow_response(self):
+        from datetime import datetime, timezone
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        import threading
+        import time
+        class SlowHandler(BaseHTTPRequestHandler):
+            def do_GET(self):
+                time.sleep(3)
+            def log_message(self,*args):
+                pass
+        server=ThreadingHTTPServer(("127.0.0.1",0),SlowHandler)
+        thread=threading.Thread(target=server.serve_forever,daemon=True)
+        thread.start()
+        try:
+            source={"id":"slow","name":"Slow","url":f"http://127.0.0.1:{server.server_port}/",
+                    "hardDeadlineSeconds":1,"requestTimeoutSeconds":10}
+            started=time.monotonic()
+            effective, items, error=collector.fetch_with_hard_deadline(source,None,datetime.now(timezone.utc),None,None,None)
+            self.assertLess(time.monotonic()-started,3)
+            self.assertIn("SourceDeadlineExceeded",error)
+            self.assertEqual(items,[])
+        finally:
+            server.shutdown()
+            server.server_close()
+
+class PreciseFeedObservationTests(unittest.TestCase):
+    def test_raw_precision_requires_clock_and_timezone(self):
+        for raw in ("2026-11-28","2026-11-28T12:00:00","Sat, 28 Nov 2026 12:00:00",
+                    "2026-11-28T12:00Z","invalid"):
+            self.assertIsNone(collector.precise_feed_timestamp(raw),raw)
+        self.assertEqual(collector.precise_feed_timestamp("2026-11-28T00:00:00Z"),"2026-11-28T00:00:00Z")
+        self.assertEqual(collector.precise_feed_timestamp("Sat, 28 Nov 2026 10:30:00 +0800"),"2026-11-28T02:30:00Z")
+
+    def test_parser_and_merge_preserve_real_observation_upper_bound(self):
+        source={"id":"demo","name":"Demo","url":"https://example.com/rss","type":"rss",
+                "modelMatches":{"demo":["demo"]}}
+        raw=collector.rss_items(b"""<rss><channel><item><title>Demo 2.0 released</title>
+                <link>https://example.com/release</link><pubDate>Sat, 28 Nov 2026 10:30:00 +0800</pubDate>
+                </item></channel></rss>""",source)[0]
+        self.assertEqual(raw["preciseFeedPublishedAt"],"2026-11-28T02:30:00Z")
+        first=collector.make_item(raw,source,{},"2026-11-28T02:35:00Z","2026-11-28T02:35:20Z")
+        later=collector.make_item(raw,source,{},"2026-11-28T03:05:00Z","2026-11-28T03:05:25Z")
+        self.assertEqual(collector.merge_item(first,later)["feedTimestampFirstObservedBy"],"2026-11-28T02:35:20Z")
+        changed={**later,"publishedAt":"2026-11-28T02:31:00Z","preciseFeedPublishedAt":"2026-11-28T02:31:00Z"}
+        self.assertTrue(collector.merge_item(first,changed)["feedTimestampConflict"])
+        day=collector.rss_items(b"""<rss><channel><item><title>Demo 2.0 released</title>
+              <link>https://example.com/release</link><pubDate>2026-11-28</pubDate>
+              </item></channel></rss>""",source)[0]
+        self.assertNotIn("preciseFeedPublishedAt",day)

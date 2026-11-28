@@ -5,6 +5,14 @@ the seven-day production clock. Missing measurements are never green.
 """
 from collections import Counter
 from datetime import datetime, timedelta
+from statistics import median
+
+try:
+    from scripts.collect_release_recall import url_key
+    from scripts.collection_health import incident_summary
+except ModuleNotFoundError:
+    from collect_release_recall import url_key
+    from collection_health import incident_summary
 
 def stamp(value):
     try:
@@ -47,6 +55,127 @@ def review_fact_sample(data):
             "currentAlignedWithReviewedFacts":sum(r["alignedWithReviewedFact"] for r in current),
             "currentRows":current,"additionalFindingCount":len(review.get("additionalFindings",[])),
             "policy":"Purposive independently reviewed initial snapshot; current alignment is regression checking, not fresh independent re-audit or population accuracy. No claim of 99% coverage."}
+
+def retained_feed_latency(data, now):
+    """Retrospective article-observation diagnostic, not event-level SLA.
+
+    Use only explicit publisher feed publication timestamps and recorded first
+    observations. Exclude midnight (may be synthesized date-only precision),
+    date corrections and ambiguous duplicate publication timestamps. No claim
+    that historical backfills were live monitored or missed events observed.
+    """
+    active={s["id"] for s in data.get("model_source_config",[])
+            if s.get("active") is True and s.get("official") is True and s.get("type")=="rss"}
+    groups={}
+    excluded=Counter()
+    for row in data.get("updates",{}).get("items",[]):
+        if row.get("sourceId") not in active or row.get("official") is not True or not row.get("modelId"):
+            continue
+        if row.get("updateType") not in {"announcement","release","model-release"}:
+            continue
+        if row.get("publicationDateKind")!="feed-published" or row.get("previousSourceDates"):
+            excluded["unverified-precision-or-corrected-date"]+=1
+            continue
+        published=stamp(row.get("publishedAt"))
+        first=stamp(row.get("firstSeenAt"))
+        observed=stamp(row.get("publicationObservedAt"))
+        key=(row["modelId"],url_key(row.get("url")))
+        if not published or not first or not observed or not key[1] or not row.get("id"):
+            excluded["missing-provenance"]+=1
+            continue
+        if not published.hour and not published.minute and not published.second:
+            excluded["midnight-ambiguous-precision"]+=1
+            continue
+        if published<now-timedelta(days=30):
+            excluded["outside-window"]+=1
+            continue
+        if not published<=first<=observed<=now:
+            excluded["invalid-chronology"]+=1
+            continue
+        groups.setdefault(key,[]).append((published,first,row["id"]))
+    rows=[]
+    for (model,url),values in sorted(groups.items()):
+        if len({v[0] for v in values})!=1:
+            excluded["conflicting-publication-timestamps"]+=1
+            continue
+        published,first,_=min(values,key=lambda v:v[1])
+        rows.append({"modelFamilyId":model,"url":url,"publishedAt":published.isoformat(),
+                     "firstRecordedAt":first.isoformat(),"observationLagSeconds":int((first-published).total_seconds()),
+                     "recordIds":sorted({v[2] for v in values})})
+    seconds=[r["observationLagSeconds"] for r in rows]
+    return {"status":"observed-only" if rows else "no-eligible-observations",
+            "windowDays":30,"observedArticles":len(rows),
+            "withinTwoHours":sum(s<=7200 for s in seconds),
+            "medianSeconds":median(seconds) if seconds else None,"maxSeconds":max(seconds,default=None),
+            "excluded":dict(sorted(excluded.items())),"rows":rows,
+            "policy":"Retained precise official feed article publication to first recorded observation; includes historical backfill, excludes unknown and missed events. Not independent same-stage event latency, live publication time or a two-hour SLA denominator."}
+
+
+# Frozen before the new collector instrumentation; older publications are
+# excluded even if re-observed or assigned a precise timestamp later.
+PROSPECTIVE_FEED_START="2026-11-28T02:00:38+00:00"
+
+
+def prospective_feed_latency(data,now):
+    """Observed-only forward cohort, not independent event recall or SLA."""
+    start=stamp(PROSPECTIVE_FEED_START)
+    active={s["id"] for s in data.get("model_source_config",[])
+            if s.get("active") is True and s.get("official") is True and s.get("type")=="rss"}
+    groups={}
+    invalid=Counter()
+    for row in data.get("updates",{}).get("items",[]):
+        if row.get("sourceId") not in active or row.get("official") is not True or not row.get("modelId"):
+            continue
+        if row.get("updateType") not in {"announcement","release","model-release"}:
+            continue
+        published=stamp(row.get("publishedAt"))
+        if not published or published<start:
+            invalid["historical-or-undated"]+=1
+            continue
+        if published<now-timedelta(days=30):
+            invalid["outside-window"]+=1
+            continue
+        first=stamp(row.get("firstSeenAt"))
+        upper=stamp(row.get("feedTimestampFirstObservedBy"))
+        precise=stamp(row.get("preciseFeedPublishedAt"))
+        key=(row["modelId"],url_key(row.get("url")))
+        if not key[1] or not row.get("id"):
+            invalid["missing-identity"]+=1
+            continue
+        # Group all current candidate timestamps even when one record lacks
+        # precise provenance; conflicting duplicates cannot yield a hit.
+        value=groups.setdefault(key,{"dates":set(),"rows":[],"blocked":False})
+        value["dates"].add(published)
+        if row.get("feedTimestampConflict") or row.get("previousSourceDates"):
+            value["blocked"]=True
+        if (row.get("publicationDateKind")!="feed-published" or precise!=published
+                or first is None or upper is None or not start<=first<=upper<=now
+                or not published<=upper):
+            invalid["missing-precise-post-baseline-observation"]+=1
+            continue
+        value["rows"].append((upper,row["id"]))
+    rows=[]
+    for (family,url),value in sorted(groups.items()):
+        if value["blocked"] or len(value["dates"])!=1:
+            invalid["conflicting-publication-timestamps"]+=1
+            continue
+        if not value["rows"]:
+            continue
+        published=next(iter(value["dates"]))
+        upper=min(x[0] for x in value["rows"])
+        rows.append({"modelFamilyId":family,"url":url,"publishedAt":published.isoformat(),
+                     "firstPreciseObservationBy":upper.isoformat(),
+                     "observationLagUpperBoundSeconds":int((upper-published).total_seconds()),
+                     "recordIds":sorted({x[1] for x in value["rows"]})})
+    seconds=[r["observationLagUpperBoundSeconds"] for r in rows]
+    return {"status":"observed-only" if rows else "awaiting-new-observations",
+            "measurementStart":PROSPECTIVE_FEED_START,"windowDays":30,
+            "observedArticles":len(rows),"withinTwoHours":sum(s<=7200 for s in seconds),
+            "withinTwoHoursShare":sum(s<=7200 for s in seconds)/len(seconds) if seconds else None,
+            "medianUpperBoundSeconds":median(seconds) if seconds else None,
+            "maxUpperBoundSeconds":max(seconds,default=None),"excluded":dict(sorted(invalid.items())),
+            "rows":rows,"policy":"Only post-baseline official feed model article observations with explicit timezone/seconds and post-read clock. Historical backfill excluded by publication cutoff; observations retained within current 30-day window. Missed events and publisher coverage are not independently measured; not a same-stage event SLA."}
+
 
 def measure(data,report,now):
     monitor=data.get("monitor",{})
@@ -98,7 +227,7 @@ def measure(data,report,now):
                               "missingIds":[r["id"] for r in recall.get("events",[]) if not r.get("endToEndDated")]},
         "availabilityStatementPilot":{"status":"pass" if availability.get("events")==2 and availability.get("matched")==2 else "incomplete",
                                      "matched":availability.get("matched"),"events":availability.get("events")},
-        "sameStageEventRecall":{"status":"not-measured","reason":"No independently reviewed same-stage event benchmark and matcher for all eight cases; article and availability samples cannot be added."},
+        "sameStageEventRecall":report.get("sameStageRecall",{"status":"not-measured","reason":"No independently reviewed same-stage event benchmark and matcher for all eight cases; article and availability samples cannot be added."}),
         "independentFactAccuracy":{"status":"not-measured","reason":"Repository identity observations are not audited release facts; need independently adjudicated positive and negative release events.",
                                    "repositorySamples":ind.get("inScopeRepositorySamples"),
                                    "repositoryExactMatches":ind.get("currentStates",{}).get("exact-catalog-match",0),
@@ -108,6 +237,9 @@ def measure(data,report,now):
         "productionPublication":{"status":"external-verification-required","reason":"This audit precedes persistence and Pages deployment; only post-deployment checks may certify published revision."},
         "sevenDayProduction":{"status":"not-started","reason":"Requires all engineering gates and independent persisted production observations, not elapsed time or a pre-deployment audit."}
     }
+    gates["priorityDiscoveryLatency"]["retainedFeedDiagnostic"]=retained_feed_latency(data,now)
+    gates["priorityDiscoveryLatency"]["prospectiveFeedDiagnostic"]=prospective_feed_latency(data,now)
+    gates["automaticRepairRate"]["observedBatchIncidentDiagnostic"]=incident_summary(data.get("health",{}).get("incidents",[]),now)
     fact_review=review_fact_sample(data)
     if fact_review:
         gates["independentFactAccuracy"].update(status="incomplete",reason="Initial independent factual review measured; purposive sample is not representative and does not establish 99% accuracy.",factReview=fact_review)

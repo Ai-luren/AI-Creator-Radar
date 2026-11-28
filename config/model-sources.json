@@ -975,6 +975,8 @@
     "name": "Sand.ai 官方研究与发布目录",
     "type": "html",
     "url": "https://sand.ai/research/",
+    "fallbackUrls": ["https://sandai.cn/research"],
+    "fallbackOnZeroMatch": true,
     "vendor": "Sand.ai",
     "official": true,
     "active": true,
@@ -1170,6 +1172,9 @@
     "active": true,
     "updateType": "model-card",
     "titleModelOnly": true,
+    "hardDeadlineSeconds": 18,
+    "requestTimeoutSeconds": 5,
+    "maxTransientAttempts": 1,
     "articleDateCheck": true,
     "articleHosts": [
       "www.zhipuai.cn"

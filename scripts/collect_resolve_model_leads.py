@@ -13,13 +13,15 @@ from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
 
 try:
     from scripts.collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date,
+        access_fault_domain, access_fault_code, access_retry_at)
     from scripts.collect_cross_platform import article_url
     from scripts.collect_release_recall import url_key, article_day_stamp
     from scripts.collect_source_search import augment_discovery
 except ModuleNotFoundError:
     from collect_models import (BlockParser, MAX_BYTES, USER_AGENT, SameHostRedirect,
-        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date)
+        article_publication_date, title_identity, compact_heading, match_model, non_release_title, is_release_candidate, write_json, parts_for_leading_date,
+        access_fault_domain, access_fault_code, access_retry_at)
     from collect_cross_platform import article_url
     from collect_release_recall import url_key, article_day_stamp
     from collect_source_search import augment_discovery
@@ -27,7 +29,7 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "site/data/lead-resolution.json"
 MAX_PROBES = 12
-RESOLVER_REVISION = 4
+RESOLVER_REVISION = 5
 CATEGORY = {"video", "image", "llm", "music", "tts", "audio"}
 
 
@@ -59,8 +61,8 @@ def source_families(url, title, sources):
     return families
 
 
-def explicit_body_release(blocks, title, family):
-    """Recognize a same-model launch statement in the article introduction only."""
+def explicit_body_release(blocks, title, family, heading_title=None):
+    """Return exact present-day launch wording from the matched introduction."""
     names = {v.get("name", "") for v in family.get("versions", [])}
     names = sorted((name for name in names if name and re.search(r"\d", name)
                     and title_agrees(title, name)), key=len, reverse=True)
@@ -69,13 +71,54 @@ def explicit_body_release(blocks, title, family):
     name = names[0]
     model_pattern = r"[\s_-]+".join(re.escape(p) for p in re.split(r"[\s_-]+", name))
     vendor_pattern = re.escape(family["vendor"])
-    heading = next((b["sequence"] for b in blocks if b["tag"] == "h1" and b["text"] == title), None)
+    heading = next((b["sequence"] for b in blocks if b["tag"] == "h1" and b["text"] == (heading_title or title)), None)
     if heading is None:
         return False
     paragraphs = [b["text"] for b in blocks if b["tag"] == "p" and heading < b["sequence"] <= heading + 80][:8]
     pattern = (r"(?:^|[.!?]\s+)Today,\s+(?:" + vendor_pattern + r"\s+(?:is releasing|has released|is launching|has launched|introduces)|we\s+(?:are releasing|have released|are launching|have launched|introduce))\s+"
-               + model_pattern + r"(?=\s*[,.;:!?]|\s*$)")
-    return any(re.search(pattern, p, re.I) for p in paragraphs)
+               + model_pattern + r"(?=\s*[,.;:!?—–]|\s*$)")
+    for paragraph in paragraphs:
+        match = re.search(pattern, paragraph, re.I)
+        if match:
+            return {"modelName": name, "statement": match.group(0).lstrip(".!? ")}
+    return None
+
+
+def sand_graphic_heading_title(page, url, headings, titles):
+    """Sand.ai renders the model mark as an image inside the article H1.
+
+    Require one real heading, a publisher document title whose descriptive
+    suffix exactly matches that heading, and an independently matching lead.
+    The caller must also verify a present-day launch in the article body.
+    """
+    parts = urlsplit(url)
+    if parts.hostname not in {"sand.ai", "www.sand.ai"} or not parts.path.startswith("/blog/") or len(headings) != 1:
+        return None
+
+    class DocumentTitleParser(BlockParser):
+        CAPTURE = BlockParser.CAPTURE | {"title"}
+
+        def __init__(self):
+            super().__init__()
+            self.meta_titles = []
+
+        def handle_starttag(self, tag, attrs):
+            super().handle_starttag(tag, attrs)
+            attrs = dict(attrs)
+            if tag == "meta" and attrs.get("property", "").lower() == "og:title" and attrs.get("content"):
+                self.meta_titles.append(attrs["content"])
+
+    parser = DocumentTitleParser()
+    parser.feed(page)
+    parser.close()
+    candidates = []
+    for raw in parser.meta_titles + [x["text"] for x in parser.blocks if x["tag"] == "title"]:
+        title = re.sub(r"\s+(?:\||–|—)\s+Sand\.ai\s*$", "", raw.strip(), flags=re.I)
+        prefix, sep, suffix = title.partition(":")
+        if sep and prefix.strip() and compact_heading(suffix) == compact_heading(headings[0]) and any(title_agrees(title, hint) for hint in titles):
+            candidates.append(title)
+    distinct = {title_identity(t): t for t in candidates}
+    return next(iter(distinct.values())) if len(distinct) == 1 else None
 
 
 def parse_article(page, url, titles, sources, catalog, now):
@@ -84,31 +127,46 @@ def parse_article(page, url, titles, sources, catalog, now):
     parser.close()
     headings = [b["text"] for b in sorted(parser.blocks, key=lambda b: b["sequence"]) if b["tag"] == "h1"]
     matches = list(dict.fromkeys(t for t in headings if any(title_agrees(t, x) for x in titles)))
-    if len(matches) != 1:
+    graphic_heading = False
+    if len(matches) == 1:
+        title = matches[0]
+        heading_title = title
+    elif not matches:
+        title = sand_graphic_heading_title(page, url, headings, titles)
+        if not title:
+            return {"status": "identity-unresolved"}
+        heading_title = headings[0]
+        graphic_heading = True
+    else:
         return {"status": "identity-unresolved"}
-    title = matches[0]
     if non_release_title(title) or re.search(r"\b(?:partnership|case study|customer story|pricing|tutorial|guide)\b|合作伙伴|使用教程", title, re.I):
         return {"status": "not-model-announcement", "title": title}
     ids = source_families(url, title, sources) & set(catalog)
     if len(ids) != 1:
         # Record an unclassified official article without fabricating a family.
-        stamp = article_publication_date(page, title, leading_date=parts_for_leading_date(url), publisher_host=urlsplit(url).hostname)
+        stamp = article_publication_date(page, heading_title, leading_date=parts_for_leading_date(url), publisher_host=urlsplit(url).hostname)
         return {"status": "family-unresolved", "title": title,
                 "articlePublishedAt": stamp, "possibleModelFamilyIds": sorted(ids)}
     family = catalog[ids.pop()]
     if family.get("category") not in CATEGORY:
         return {"status": "outside-model-scope", "title": title}
-    stamp = article_publication_date(page, title, leading_date=parts_for_leading_date(url), publisher_host=urlsplit(url).hostname)
+    stamp = article_publication_date(page, heading_title, leading_date=parts_for_leading_date(url), publisher_host=urlsplit(url).hostname)
     if not stamp:
         return {"status": "date-unresolved", "title": title, "modelId": family["id"]}
     day = article_day_stamp(stamp, url)[:10]
     if not (now - timedelta(days=45)).date().isoformat() <= day <= now.date().isoformat():
         return {"status": "outside-current-window", "title": title, "articlePublishedAt": stamp,
                 "modelId": family["id"], "vendor": family["vendor"], "category": family["category"]}
-    if not is_release_candidate(title, stamp, True) and not explicit_body_release(sorted(parser.blocks, key=lambda b: b["sequence"]), title, family):
+    body_proof = explicit_body_release(sorted(parser.blocks, key=lambda b: b["sequence"]), title, family, heading_title)
+    if (graphic_heading or not is_release_candidate(title, stamp, True)) and not body_proof:
         return {"status": "not-model-announcement", "title": title}
-    return {"status": "article-date-verified", "title": title, "modelId": family["id"],
-            "vendor": family["vendor"], "category": family["category"], "articlePublishedAt": stamp}
+    result = {"status": "article-date-verified", "title": title, "modelId": family["id"],
+              "vendor": family["vendor"], "category": family["category"], "articlePublishedAt": stamp}
+    if graphic_heading:
+        result["titleMethod"] = "publisher-document-title-plus-heading-and-launch"
+    if body_proof:
+        result["publisherReleaseStatement"] = {**body_proof, "calendarDay": day, "kind": "explicit-present-day-launch"}
+    return result
 
 
 def fetch_page(url):
@@ -175,6 +233,24 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
             if key in queue and set(candidate.get("supportingLeadIds", [])) & queue[key]["leadIds"]:
                 related_counts.setdefault(key, set()).add(lead["id"])
     previous_rows = {r["urlKey"]: r for r in previous.get("items", [])}
+    # Preserve observed failures across process runs, never refresh their clocks
+    # for skipped requests. A locale sibling shares the same access fault domain.
+    domains = {}
+    def remember_fault(domain, record):
+        try:
+            until = datetime.fromisoformat(str(record.get("blockedUntil") or "").replace("Z", "+00:00"))
+            if until.tzinfo and until > now and access_fault_code(record.get("error")):
+                prior = domains.get(domain)
+                if not prior or until > prior[0]:
+                    domains[domain] = (until, record)
+        except (ValueError, TypeError, AttributeError):
+            pass
+    for domain, record in previous.get("accessFaultDomains", {}).items():
+        remember_fault(domain, record)
+    for old in previous_rows.values():
+        if old.get("status") == "fetch-failed" and access_fault_code(old.get("error")) and old.get("url"):
+            remember_fault(access_fault_domain(old["url"]), {"blockedUntil": old.get("nextAttemptAt"),
+                           "error": old["error"], "sourceUrl": old["url"], "observedAt": old.get("checkedAt")})
     def due(key):
         old = previous_rows.get(key, {})
         return (not old.get("nextAttemptAt") or old["nextAttemptAt"] <= stamp
@@ -188,41 +264,83 @@ def resolve(discovery, previous, config, sources, families, now, fetcher=fetch_p
     new = [key for key in eligible if key not in previous_rows]
     retries = sorted((key for key in eligible if key in previous_rows), key=lambda k: previous_rows[k].get("nextAttemptAt") or "")
     # Prevent a continuous stream of new leads from starving deferred evidence.
-    selected = new[:8] + retries[:4]
-    selected += [key for key in eligible if key not in selected][:MAX_PROBES-len(selected)]
+    priority = new[:8] + retries[:4]
+    priority += [key for key in eligible if key not in priority]
     def probe(key):
         task, old = queue[key], previous_rows.get(key, {})
         request_url = choose_article_url(task, old, config)
+        access_error = None
         try:
             outcome = parse_article(fetcher(request_url), request_url, sorted(task["titles"]), sources, catalog, now)
         except (OSError, ValueError, TypeError) as exc:
             outcome = {"status": "fetch-failed", "error": f"{type(exc).__name__}: {str(exc)[:180]}"}
+            if access_fault_code(exc):
+                access_error = exc
         state = outcome["status"]
         failures = 0 if state == "article-date-verified" else int(old.get("consecutiveUnresolved", 0)) + 1
         delay = 24 * 60 if state in {"article-date-verified", "not-model-announcement", "outside-current-window"} else min(24 * 60, 30 * 2 ** min(failures, 6))
+        next_attempt = now + timedelta(minutes=delay)
+        if access_error is not None:
+            if access_fault_code(access_error) == 429:
+                next_attempt = max(next_attempt, now + timedelta(hours=6))
+            next_attempt = access_retry_at(access_error, now, next_attempt)
         row = {"id": "recovery-" + hashlib.sha256(key.encode()).hexdigest()[:20], "urlKey": key, "url": request_url,
                "leadIds": sorted(task["leadIds"]), "discoverySourceIds": sorted(task["sourceIds"]),
                "titleHintsChecked": sorted(task["titles"]), "resolverRevision": RESOLVER_REVISION,
                "reportedDates": sorted(task["reportedDates"]), "checkedAt": stamp,
                "firstAttemptAt": old.get("firstAttemptAt", stamp), "consecutiveUnresolved": failures,
-               "nextAttemptAt": (now + timedelta(minutes=delay)).isoformat(timespec="seconds"), **outcome}
+               "nextAttemptAt": next_attempt.isoformat(timespec="seconds"), **outcome}
         if state == "article-date-verified":
             row["firstVerifiedAt"] = old.get("firstVerifiedAt") or (old.get("lastVerifiedObservation") or {}).get("firstVerifiedAt") or stamp
         # Preserve last confirmed observation on transient failure without claiming a new successful read.
         elif state == "fetch-failed" and (old.get("status") == "article-date-verified" or old.get("lastVerifiedObservation")):
             prior = old.get("lastVerifiedObservation") or {k: old[k] for k in ("title", "modelId", "vendor", "category", "articlePublishedAt", "firstVerifiedAt", "checkedAt")}
+            if old.get("publisherReleaseStatement") and "publisherReleaseStatement" not in prior:
+                prior["publisherReleaseStatement"] = old["publisherReleaseStatement"]
             row["lastVerifiedObservation"] = prior
         return key, row
+    # Schedule one request per access domain in each wave. A denied domain
+    # relinquishes its remaining budget to independent channels in this run.
+    current = {}
+    deferred = set()
+    remaining = list(priority)
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-        current = dict(pool.map(probe, selected))
+        while remaining and len(current) < MAX_PROBES:
+            wave = []
+            wave_domains = set()
+            keep = []
+            capacity = min(4, MAX_PROBES - len(current))
+            for key in remaining:
+                domain = access_fault_domain(choose_article_url(queue[key], previous_rows.get(key, {}), config))
+                if domain in domains:
+                    deferred.add(key)
+                elif len(wave) < capacity and domain not in wave_domains:
+                    wave.append(key)
+                    wave_domains.add(domain)
+                else:
+                    keep.append(key)
+            remaining = keep
+            if not wave:
+                break
+            for key, row in pool.map(probe, wave):
+                current[key] = row
+                if row.get("status") == "fetch-failed" and access_fault_code(row.get("error")):
+                    domain = access_fault_domain(row["url"])
+                    remember_fault(domain, {"blockedUntil": row["nextAttemptAt"], "error": row["error"],
+                                           "sourceUrl": row["url"], "observedAt": row["checkedAt"]})
+    # Count skipped URLs even when they were not due individually.
+    deferred.update(key for key in queue if key not in current and
+                    access_fault_domain(choose_article_url(queue[key], previous_rows.get(key, {}), config)) in domains)
     rows = [current.get(key) or previous_rows[key] for key in ordered if key in current or key in previous_rows]
-    counts = {"uniqueOfficialUrls": len(queue), "attempted": len(selected),
+    counts = {"uniqueOfficialUrls": len(queue), "attempted": len(current), "accessDomainDeferred": len(deferred),
               "articleDateVerified": sum(r["status"] == "article-date-verified" for r in rows),
               "newlyCheckedVerified": sum(r["status"] == "article-date-verified" for r in current.values()),
               "awaitingProbe": len(queue) - len(rows),
               "unresolved": sum(r["status"] not in {"article-date-verified", "not-model-announcement", "outside-current-window"} for r in rows),
               "notAnnouncement": sum(r["status"] == "not-model-announcement" for r in rows)}
-    return {"schema": "lead-resolution/v1", "checkedAt": stamp, "summary": counts, "items": rows[:500]}
+    return {"schema": "lead-resolution/v1", "checkedAt": stamp, "summary": counts, "items": rows[:500],
+            "accessFaultDomains": {k: record for k, (_, record) in sorted(domains.items())},
+            "deferredAccessDomainUrls": sorted(deferred)}
 
 
 def candidate_rows(resolution):
