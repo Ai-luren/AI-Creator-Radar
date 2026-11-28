@@ -61,6 +61,8 @@ def acceptance(report):
                                   "events":article.get("events"),"missingIds":sorted(missing_article),
                                   "articleOnlyGapIds":article_only,"blocking":False},
             "independentFactAccuracy":gates["independentFactAccuracy"],
+            "priorityDiscoveryLatency":gates["priorityDiscoveryLatency"],
+            "automaticRepairRate":gates["automaticRepairRate"],
             "structuralIntegrity":gates["structuralIntegrity"],
             "negativeControls":gates["negativeControls"],
             "blockingGates":blockers,
@@ -75,6 +77,8 @@ def render_acceptance(report):
         return f"{g['matched']}/{g['events']}" if g["matched"] is not None and g["events"] is not None else "not measured"
     def names(values):
         return ", ".join(values) if values else ("not measured" if values is None else "none")
+    feed=a["priorityDiscoveryLatency"].get("retainedFeedDiagnostic",{})
+    incident=a["automaticRepairRate"].get("observedBatchIncidentDiagnostic",{})
     return "\n".join([
         "### Acceptance (pre-publication, not a deployment certificate)",
         f"Audit checked: {a['auditCheckedAt']}",
@@ -82,6 +86,8 @@ def render_acceptance(report):
         f"- Fixed original-article recall: {count(article)} ({article['status']}, non-blocking); missing: {names(article['missingIds'])}",
         f"- Article-only gaps, do not reopen as event misses: {names(article['articleOnlyGapIds'])}",
         f"- Independent factual accuracy: {a['independentFactAccuracy']['status']}",
+        f"- Priority discovery latency: {a['priorityDiscoveryLatency']['status']}; retained feed article diagnostic: {feed.get('observedArticles', 'not measured')} observations (not SLA)",
+        f"- Automatic repair rate: {a['automaticRepairRate']['status']}; observed batch incidents: {incident.get('observedIncidents', 'not measured')} (not recoverable-incident denominator)",
         f"- Structural integrity: {a['structuralIntegrity']['status']}; negative controls: {a['negativeControls']['status']}",
         f"- Blocking gates: {names(a['blockingGates'])}",
         "- Verify production persistence and Pages separately against actual revision.",
