@@ -16,7 +16,7 @@ PRODUCT_STATE = ("collect_product_state",)
 RECONCILE = ("collect_event_reconciliation",)
 EVENT_CLAIMS = ("collect_event_claims",)
 INDEPENDENT_AUDIT = ("collect_independent_audit",)
-HISTORICAL_EVIDENCE = ("collect_historical_evidence",)
+HISTORICAL_EVIDENCE = ("collect_historical_evidence",)  # passive queue reconciliation; explicit repair opt-in only
 APP_UPDATES = ("collect_app_updates",)
 BATCHES = {
     "models": (420, (("collect_models", "collect_verify_model_releases", "build_model_release_digest", "collect_chronicle_updates", "collect_release_recall"), RECOVERY, APP_UPDATES, PRODUCT_STATE, INDEPENDENT_AUDIT, EVENT_CLAIMS, RECONCILE)),

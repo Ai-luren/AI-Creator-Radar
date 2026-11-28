@@ -608,3 +608,51 @@ class ProductChangelogRecallTests(unittest.TestCase):
         self.assertEqual(later["events"][0]["id"],first["events"][0]["id"])
         self.assertEqual(later["events"][0]["observedAt"],first["events"][0]["observedAt"])
         self.assertEqual(later["events"][0]["updateType"],"product-improvement")
+
+class RecentFirstPolicyTests(unittest.TestCase):
+    def test_model_watch_calendar_priority_and_expiry(self):
+        from scripts.collect_app_updates import model_watch_queries
+        now=datetime(2026,11,27,16,30,tzinfo=timezone.utc)
+        def row(name,day,category="video"):
+            return {"modelName":name,"modelFamilyId":name,"modelVersionId":name,"category":category,"publishedAt":day,"verifiedAt":day,"evidenceType":"official-release","url":"https://example.org/release"}
+        watches=model_watch_queries([row("Seedance 3.5","2026-11-28"),row("MAGI-2","2026-11-26"),row("Niji 8","2026-11-25","image"),row("Veo 4","2026-11-21"),row("Kling 5","2026-11-29")],now)
+        self.assertEqual(len(watches),6)
+        self.assertEqual([(q["term"],q["watchWindow"],q["intervalMinutes"]) for q in watches[::2]],[("Seedance 3.5","primary-3d",360),("MAGI-2","primary-3d",360),("Niji 8","followup-7d",720)])
+    def test_followup_watch_does_not_displace_core_brand(self):
+        from scripts.collect_app_updates import collect_targeted
+        now=datetime(2026,11,28,tzinfo=timezone.utc)
+        model={"modelName":"MAGI-2","modelFamilyId":"magi","modelVersionId":"2","category":"video","publishedAt":"2026-11-24","verifiedAt":"2026-11-24","evidenceType":"official-release","url":"https://example.org/release"}
+        cfg={"maxProvidersPerRun":1,"intervalMinutes":720,"globalIntervalMinutes":25,"queries":[{"id":"core","term":"Higgsfield","provider":"AIHOT","priority":0}]}
+        calls=[]
+        result=collect_targeted(cfg,{},now,lambda q,e:(calls.append(q["id"]) or {"items":0},""),releases=[model])
+        self.assertEqual(calls,["core"])
+        self.assertEqual(result["recentPolicy"]["primaryCalendarDays"],3)
+
+class AlternativeProductSourcesTests(unittest.TestCase):
+    def test_feed_recent_exact_brand_and_report_only(self):
+        from scripts.collect_app_updates import parse_product_discovery_feed
+        now=datetime(2026,11,28,12,tzinfo=timezone.utc)
+        source={"id":"aiguanchao-featured","url":"https://aiguanchao.com/feed/featured.xml"}
+        def item(title,date,link):
+            return f"<item><title>{title}</title><pubDate>{date}</pubDate><link>{link}</link></item>"
+        body=("<rss><channel>"+item("Higgsfield launches new workflow","Fri, 27 Nov 2026 10:00:00 GMT","https://example.org/new")+item("Flova pricing update","Fri, 27 Nov 2026 10:00:00 GMT","https://example.org/price")+item("LibTV new feature","Fri, 20 Nov 2026 10:00:00 GMT","https://example.org/old")+"</channel></rss>").encode()
+        rows=list(parse_product_discovery_feed(body,source,now).values())
+        self.assertEqual(len(rows),1)
+        self.assertEqual(rows[0]["reportedBrand"],"Higgsfield")
+        self.assertEqual(rows[0]["claimType"],"external-product-report")
+        self.assertNotIn("publisherCalendarDay",rows[0])
+        self.assertEqual(parse_product_discovery_feed(b"<rss><channel/></rss>",source,now),{})
+    def test_repeated_failures_pause_only_the_unavailable_source(self):
+        from scripts.collect_app_updates import collect,app_probe_retry_at
+        from urllib.error import HTTPError
+        now=datetime(2026,11,28,12,tzinfo=timezone.utc)
+        self.assertGreaterEqual(datetime.fromisoformat(app_probe_retry_at(HTTPError("https://example.org",403,"Forbidden",{},None),now,1)),now+timedelta(days=1))
+        self.assertGreaterEqual(datetime.fromisoformat(app_probe_retry_at(ValueError("shell"),now,3)),now+timedelta(days=7))
+        blocked={"id":"jimeng","name":"Jimeng","vendor":"字节跳动","url":"https://jimeng.jianying.com/ai-tool/home","type":"visible-model-labels","links":[],"minIntervalMinutes":360}
+        fallback={"id":"aiguanchao-featured","name":"AI观潮","vendor":"AI观潮","url":"https://aiguanchao.com/feed/featured.xml","type":"product-discovery-feed","role":"discovery","links":[],"minIntervalMinutes":720}
+        old={"schema":"app-updates/v1","sources":[{**blocked,"status":"probe-unavailable","consecutiveFailures":6,"checkedAt":(now-timedelta(hours=14)).isoformat(),"nextAttemptAt":(now-timedelta(hours=1)).isoformat(),"entries":{}}],"events":[]}
+        calls=[]
+        result=collect({"sources":[blocked,fallback]},old,now,lambda s:calls.append(s["id"]) or {})
+        self.assertEqual(calls,["aiguanchao-featured"])
+        self.assertEqual(result["sources"][0]["skipReason"],"source-circuit-open")
+        self.assertEqual(result["sources"][1]["status"],"observed")

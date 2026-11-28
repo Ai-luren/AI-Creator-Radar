@@ -8,6 +8,8 @@ from html.parser import HTMLParser
 import hashlib
 import json
 import os
+import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 import re
 import urllib.request
@@ -543,6 +545,18 @@ def parse_store(payload,source):
 
 # Exact model names are derived only from verified release rows, not arbitrary
 # article text or external instructions. No URL/host is supplied by a model.
+PRIMARY_CALENDAR_DAYS=3
+FOLLOWUP_CALENDAR_DAYS=7
+REVIEW_CALENDAR_DAYS=30
+def china_calendar_day(now):
+    return now.astimezone(timezone(timedelta(hours=8))).date()
+
+def release_calendar_age(day, now):
+    try:
+        return (china_calendar_day(now)-datetime.strptime(day,"%Y-%m-%d").date()).days
+    except (TypeError,ValueError):
+        return None
+
 MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","Flova","小云雀","Pippit","即梦","Dreamina","Gemini")
 MODEL_WATCH_NAME=re.compile(r"^(?:Seedance|Seedream|SeedAudio|MAGI|Kling|可灵|Vidu|Wan|HappyHorse|Veo|Gemini|GPT[- ]Image|Nano Banana|Hailuo|海螺|PixVerse|MiniMax|Niji|Midjourney|Suno|ElevenLabs|Scribe|Eleven|HY[- ]?3D)(?:[ -]|\d|$)",re.I)
 def valid_watch_term(term):
@@ -561,7 +575,8 @@ def model_watch_queries(releases,now):
             url=urlsplit(row.get("url") or "")
         except (TypeError,ValueError):
             continue
-        if not (now.date()-timedelta(days=6)<=published.date()<=now.date() and
+        age=release_calendar_age(day,now)
+        if not (age is not None and 0<=age<FOLLOWUP_CALENDAR_DAYS and
                 row.get("category") in {"video","image","audio","music","tts","speech","audio-other","llm"} and
                 row.get("modelFamilyId") and row.get("modelVersionId") and row.get("verifiedAt") and
                 row.get("evidenceType") in {"official-release","official-model-card"} and
@@ -573,14 +588,15 @@ def model_watch_queries(releases,now):
             continue
         seen.add(key)
         candidates.append((row,name,day))
-    candidates.sort(key=lambda x:(x[0].get("category") in {"video","image","audio","music","tts","speech","audio-other"},x[2],x[0].get("category")=="video",x[1]),reverse=True)
+    candidates.sort(key=lambda x:(release_calendar_age(x[2],now)<PRIMARY_CALENDAR_DAYS,x[0].get("category") in {"video","image","audio","music","tts","speech","audio-other"},x[2],x[0].get("category")=="video",x[1]),reverse=True)
     # At most three active model watches. Two provider slots remain the same.
     out=[]
     for row,name,day in candidates[:3]:
         key=hashlib.sha256((row["modelFamilyId"]+"|"+row["modelVersionId"]+"|"+day).encode()).hexdigest()[:20]
+        primary=release_calendar_age(day,now)<PRIMARY_CALENDAR_DAYS
         for provider in ("AIHOT","AIPick"):
             out.append({"id":"model-watch-"+key+"-"+provider.lower(),"term":name,"label":name,"provider":provider,
-                        "priority":-10,"intervalMinutes":360,"modelWatch":True,"modelFamilyId":row["modelFamilyId"],
+                        "priority":-10 if primary else 10,"intervalMinutes":360 if primary else 720,"watchWindow":"primary-3d" if primary else "followup-7d","modelWatch":True,"modelFamilyId":row["modelFamilyId"],
                         "modelVersionId":row["modelVersionId"],"publisherCalendarDay":day})
     return out
 
@@ -721,12 +737,15 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
         last=parse_stamp(row.get("lastAttemptAt"))
         queued=parse_stamp(row.get("queuedAt"))
         overdue=(retry or queued or now)<=now-timedelta(hours=24)
-        # New watches first; overdue ordinary queries outrank repeated watches.
+        # New three-day watches are urgent; repeat watches never monopolize
+        # provider slots. Ordinary overdue queries retain a bounded fairness
+        # escape. Four-to-seven-day watches are follow-up, not launch alerts.
         if row.get("modelWatch"):
-            tier=-10 if not last else 5
+            primary=row.get("watchWindow")=="primary-3d"
+            tier=(-10 if not last else 5) if primary else (10 if not last else 15)
         else:
             tier=-20 if overdue else int(row.get("priority",50))
-        return (tier,bool(last),row.get("nextAttemptAt") or "",row["id"])
+        return (tier,bool(last),row.get("nextAttemptAt") or "",row.get("lastAttemptAt") or "",row["id"])
     due.sort(key=priority_key)
     attempted=0
     budget=min(2,max(1,int(config.get("maxProvidersPerRun",1))))
@@ -772,6 +791,7 @@ def collect_targeted(config,previous,now,fetcher=fetch_target,releases=None):
                            nextAttemptAt=(now+timedelta(minutes=config["globalIntervalMinutes"])).isoformat())
     return {"source":"AIHOT + AIPick" if any(r.get("provider")=="AIHOT" for r in rows) else "AIPick","checkedAt":stamp,"queries":rows,"service":service,"providerServices":provider_services,
             "attemptedThisRun":attempted,
+            "recentPolicy":{"calendarTimezone":"Asia/Shanghai","primaryCalendarDays":PRIMARY_CALENDAR_DAYS,"followupCalendarDays":FOLLOWUP_CALENDAR_DAYS,"reviewCalendarDays":REVIEW_CALENDAR_DAYS},
             "policy":"Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."}
 
 
@@ -871,6 +891,59 @@ def plugin_request(source_id="libtv-codex-plugin"):
     return urllib.request.Request(GITHUB_PRODUCT_APIS[source_id][1],headers=headers)
 
 
+PRODUCT_DISCOVERY_FEEDS={
+    "aiguanchao-featured":"https://aiguanchao.com/feed/featured.xml",
+    "kreatorflow-creator-news":"https://kreatorflow.ai/news/rss.xml",
+}
+DISCOVERY_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","Flova","即梦","Dreamina","小云雀","Pippit","Gemini")
+def parse_product_discovery_feed(raw,source,now):
+    """Public RSS titles and source pointers only; report date is not launch."""
+    if PRODUCT_DISCOVERY_FEEDS.get(source.get("id"))!=source.get("url"):
+        raise ValueError("Unapproved product discovery feed")
+    if b"<!doctype" in raw.lower() or b"<!entity" in raw.lower():
+        raise ValueError("Unexpected feed document declaration")
+    try:
+        root=ET.fromstring(raw)
+    except ET.ParseError as exc:
+        raise ValueError("Invalid RSS XML") from exc
+    def tag(node):
+        return node.tag.rsplit("}",1)[-1].lower()
+    if tag(root) not in {"rss","feed","rdf"}:
+        raise ValueError("Expected RSS or Atom feed")
+    rows={}
+    for item in [x for x in root.iter() if tag(x) in {"item","entry"}][:100]:
+        fields={tag(x):(x.text or "").strip() for x in item}
+        title=" ".join(fields.get("title","").split())
+        if not 4<=len(title)<=200 or re.search(r"折扣|优惠|黑五|积分|会员促销|\b(?:pricing|discount|coupon|black friday|giveaway|contest)\b",title,re.I):
+            continue
+        if not re.search(r"上线|发布|推出|上新|更新|接入|支持|功能|工作流|\b(?:launch(?:es|ed)?|release[sd]?|introduc\w*|update[sd]?|integrat\w*|feature|now available|now supports|workflow)\b",title,re.I):
+            continue
+        link=fields.get("link","")
+        if not link:
+            link=next((x.get("href","") for x in item if tag(x)=="link" and x.get("rel","alternate")=="alternate"),"")
+        try:
+            u=urlsplit(link)
+            if u.scheme!="https" or not u.hostname or u.username or u.password or u.port not in (None,443) or not u.path or u.path=="/":
+                continue
+            value=fields.get("pubdate") or fields.get("published") or fields.get("updated")
+            if not value:
+                continue
+            try:
+                published=parsedate_to_datetime(value)
+            except (TypeError,ValueError):
+                published=datetime.fromisoformat(value.replace("Z","+00:00"))
+            if published.tzinfo is None or published>now or published<now-timedelta(days=7):
+                continue
+        except (ValueError,TypeError,OverflowError):
+            continue
+        for brand in DISCOVERY_BRANDS:
+            if not re.search(r"(?<![A-Za-z0-9])"+re.escape(brand)+r"(?![A-Za-z0-9])",title,re.I):
+                continue
+            key=hashlib.sha256((brand+"|"+link).encode()).hexdigest()
+            rows[key]={"featureName":title,"reportedBrand":brand,"reportPublishedAt":published.isoformat(),"sourceUrl":link,
+                       "category":"app","claimType":"external-product-report","updateType":"discovery-report","productArea":"第三方报道"}
+    return rows
+
 def app_probe_retry_at(exc, now, count):
     delay=timedelta(minutes=min(720,60*2**min(count-1,3)))
     if isinstance(exc,urllib.error.HTTPError) and exc.code in (403,429,503):
@@ -882,10 +955,17 @@ def app_probe_retry_at(exc, now, count):
         reset=headers.get("X-RateLimit-Reset","")
         if str(reset).isdigit() and headers.get("X-RateLimit-Remaining")=="0":
             delay=max(delay,datetime.fromtimestamp(int(reset),timezone.utc)-now+timedelta(minutes=1))
+    # Repeated inaccessible/changed pages are not a critical path. A third
+    # failure opens a seven-day circuit rather than spending every run on it.
+    if count>=3:
+        delay=max(delay,timedelta(days=7))
+    elif isinstance(exc,urllib.error.HTTPError) and exc.code==403 and (exc.headers or {}).get("X-RateLimit-Remaining")!="0":
+        delay=max(delay,timedelta(days=1))
     return (now+delay).isoformat()
 
 
 def fetch(source):
+    is_feed=source.get("type")=="product-discovery-feed"
     is_store=source.get("type")=="apple-store-version"
     is_plugin=source.get("type") in {"github-plugin-release","github-feature-merge"}
     if is_plugin:
@@ -894,6 +974,10 @@ def fetch(source):
         if not approved or source.get("url")!=approved[0] or source.get("type")!=expected.get(source.get("id")):
             raise ValueError("Unapproved GitHub product repository")
         url=approved[1]
+    elif is_feed:
+        if PRODUCT_DISCOVERY_FEEDS.get(source.get("id"))!=source.get("url"):
+            raise ValueError("Unapproved discovery feed")
+        url=source["url"]
     elif is_store:
         if source.get("lookupUrl")!=APPLE_LOOKUP or source.get("trackId")!=6503676563:
             raise ValueError("Unapproved store lookup")
@@ -917,11 +1001,13 @@ def fetch(source):
         rules.parse(raw.decode("utf-8").splitlines())
         if not rules.can_fetch(USER_AGENT,url):
             raise ValueError("Changelog robots policy disallows access")
-    req=plugin_request(source['id']) if is_plugin else urllib.request.Request(url,headers={"Accept":"application/json" if is_store else "text/html","User-Agent":USER_AGENT})
+    req=plugin_request(source['id']) if is_plugin else urllib.request.Request(url,headers={"Accept":"application/rss+xml, application/atom+xml, application/xml" if is_feed else "application/json" if is_store else "text/html","User-Agent":USER_AGENT})
     with urllib.request.build_opener(PluginNoRedirect() if is_plugin else SameHostRedirect()).open(req,timeout=18) as response:
         data=response.read(MAX_BYTES+1)
     if len(data)>MAX_BYTES:
         raise ValueError("App surface exceeds byte limit")
+    if is_feed:
+        return parse_product_discovery_feed(data,source,datetime.now(timezone.utc))
     if is_plugin:
         return (parse_higgs_skills_features if source['id']=='higgsfield-skills-features' else parse_libtv_plugin_releases)(json.loads(data),source)
     if source.get("type")=="higgs-changelog":
@@ -1185,7 +1271,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
     stamp=now.isoformat(timespec="seconds")
     prior={s["id"]:s for s in previous.get("sources",[])}
     events={e["id"]:correct_model_improvement(e) if e.get("sourceId")=="higgsfield-changelog" else e
-            for e in previous.get("events",[])}
+            for e in previous.get("events",[]) if e.get("claimType")!="external-product-report" or (parse_stamp(e.get("reportPublishedAt")) or datetime.min.replace(tzinfo=timezone.utc))>=now-timedelta(days=7)}
     targeted=collect_targeted(config.get("targetedDiscovery"),previous.get("targetedDiscovery",{}),now,target_fetcher,releases)
     sources=[]
     for spec in config["sources"]:
@@ -1197,6 +1283,9 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
             sources.append({**row,"status":"navigation-only","entries":{},"lastSuccessAt":None,"error":None,"deferred":True})
             continue
         entries=old.get("entries",{})
+        is_feed=spec.get("type")=="product-discovery-feed"
+        if is_feed:
+            entries={k:v for k,v in entries.items() if (parse_stamp(v.get("reportPublishedAt")) or datetime.min.replace(tzinfo=timezone.utc))>=now-timedelta(days=7)}
         if spec["id"]=="higgsfield-changelog" and spec.get("type")=="higgs-changelog":
             entries={k:correct_model_improvement(v) for k,v in entries.items()}
             row["entries"]=entries
@@ -1213,12 +1302,19 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                 continue
         row.pop("skipReason",None)
         next_at=parse_stamp(old.get("nextAttemptAt"))
+        if int(old.get("consecutiveFailures",0))>=3 and old.get("status")=="probe-unavailable":
+            last_failure=parse_stamp(old.get("checkedAt"))
+            if last_failure:
+                next_at=max(next_at or now,last_failure+timedelta(days=7))
+                row["nextAttemptAt"]=next_at.isoformat()
+                if next_at>now:
+                    row["skipReason"]="source-circuit-open"
         if next_at and next_at>now:
             sources.append({**row,"entries":entries,"deferred":True})
             continue
         try:
             fresh=fetcher(spec)
-            if not fresh:
+            if not fresh and not is_feed:
                 raise ValueError("Empty app observations")
         except (OSError,ValueError,TypeError) as exc:
             count=int(old.get("consecutiveFailures",0))+1
@@ -1244,7 +1340,9 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                 if old_event and old_event.get("sourceId")==spec["id"] and old_event.get("featureName")==value.get("featureName") and old_event.get("publisherCalendarDay")==value.get("publisherCalendarDay") and old_event.get("publisherCalendarMonth")==value.get("publisherCalendarMonth"):
                     events[eid]={**old_event,**value}
             if k not in entries:
-                if value.get("claimType")=="first-party-store-version":
+                if value.get("claimType")=="external-product-report":
+                    kind="external-product-report"
+                elif value.get("claimType")=="first-party-store-version":
                     kind="store-version-or-notes-changed" if old.get("lastSuccessAt") else "baseline-store-version"
                 elif value.get("claimType")=="first-party-product-milestone":
                     kind="new-product-milestone" if old.get("lastSuccessAt") else "baseline-product-milestone"
@@ -1253,7 +1351,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
                 elif value.get("claimType")=="first-party-plugin-release":
                     kind="new-plugin-release" if old.get("lastSuccessAt") else "baseline-plugin-release"
                 elif value.get("claimType")=="first-party-product-changelog":
-                    old_day=(now.date()-timedelta(days=30)).isoformat()
+                    old_day=(china_calendar_day(now)-timedelta(days=REVIEW_CALENDAR_DAYS-1)).isoformat()
                     kind=("historical-changelog-backfill" if value.get("publisherCalendarDay","")<old_day else
                           "new-changelog-entry" if old.get("lastSuccessAt") else "baseline-changelog-entry")
                 elif value.get("claimType")=="first-party-product-surface":

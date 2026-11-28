@@ -249,7 +249,7 @@ def inspect_page(html,url,identity,model_name,index,sources,now):
             "claimType":kind,"service":service,"eventDate":None}
 
 
-def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_page):
+def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_page,network=True):
     if previous and previous.get("schema")!="historical-evidence/v1":
         raise ValueError("Unknown historical evidence schema")
     stamp=now.isoformat(timespec="seconds")
@@ -319,17 +319,17 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
             continue
         due[url].append(task)
     urls=sorted(due,key=lambda u:(min(t.get("nextAttemptAt") or t["firstDetectedAt"] for t in due[u]),u))
-    platform_service,platform_attempts=recover_platform_log(tasks,previous,now,fetcher)
+    platform_service,platform_attempts=(recover_platform_log(tasks,previous,now,fetcher) if network else (dict(previous.get("platformChangelog",{})),0))
     attempted=0
     document_attempts=0
     for task in tasks.values():
-        if not task["active"] or task["status"]!="repository-documents-pending":
+        if not network or not task["active"] or task["status"]!="repository-documents-pending":
             continue
         obj=task["identity"]
         mapping=REPOSITORY_DOCUMENTS[(obj["modelFamilyId"],obj["modelVersionId"])]
         document_attempts+=recover_repository_documents(task,mapping,now,fetcher,MAX_URLS-document_attempts-platform_attempts)
     attempted=document_attempts+platform_attempts
-    for url in urls:
+    for url in urls if network else []:
         if attempted>=MAX_URLS:
             break
         host=urlsplit(url).hostname
@@ -366,7 +366,7 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
     active=[t for t in tasks.values() if t["active"]]
     return {"schema":"historical-evidence/v1","checkedAt":stamp,"tasks":sorted(tasks.values(),key=lambda t:t["id"]),
             "platformChangelog":platform_service,
-            "summary":{"activeTasks":len(active),"urlsAttemptedThisRun":attempted,
+            "summary":{"activeTasks":len(active),"networkMode":"explicit-repair" if network else "passive-preserve","urlsAttemptedThisRun":attempted,
                        "states":dict(sorted(Counter(t["status"] for t in active).items())),
                        "tasksWithDatedArticleEvidence":sum(bool(t.get("evidence")) for t in active),
                        "datedArticleRecords":sum(len(t.get("evidence",[])) for t in tasks.values()),
@@ -383,6 +383,7 @@ def recover(families,gaps,sources,allowed,previous,resolution,now,fetcher=fetch_
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dry-run",action="store_true")
+    parser.add_argument("--repair-history",action="store_true",help="Explicitly opt in to bounded historical network repair; ordinary maintenance only preserves evidence")
     parser.add_argument("--resolution",type=Path)
     parser.add_argument("--report",type=Path)
     args=parser.parse_args()
@@ -395,7 +396,7 @@ def main():
         raise ValueError("Cannot inspect invalid canonical catalog")
     result=recover(families,report["gaps"],read(ROOT/"config/model-sources.json"),
                    read(ROOT/"config/cross-platform-sources.json")["officialArticleHosts"],
-                   read(OUTPUT,True),read(args.resolution or directory/"lead-resolution.json",True),datetime.now(timezone.utc))
+                   read(OUTPUT,True),read(args.resolution or directory/"lead-resolution.json",True),datetime.now(timezone.utc),network=args.repair_history)
     print("Historical evidence:",json.dumps(result["summary"],ensure_ascii=False))
     if args.report:
         write_json(args.report,result)

@@ -80,7 +80,7 @@ try{
    if(view==='models'&&viewport.width>=1200){const fit=await page.locator('.model-table').evaluate(el=>({width:el.scrollWidth,container:el.parentElement.clientWidth}));assert.ok(fit.width<=fit.container+2,'model table horizontal overflow '+JSON.stringify(fit));}
    if(view==='platforms'){const fav=page.locator('.platform-favorite').first();if(await fav.count()){const checkCenter=async()=>{const delta=await fav.evaluate(el=>{const a=el.getBoundingClientRect(),b=el.querySelector('svg').getBoundingClientRect();return {x:Math.abs(a.x+a.width/2-b.x-b.width/2),y:Math.abs(a.y+a.height/2-b.y-b.height/2)}});assert.ok(delta.x<=1&&delta.y<=1,'favorite star not centered '+JSON.stringify(delta));};await checkCenter();await fav.click();await checkCenter();await fav.click();}}
    if(viewport.width>=1440&&['practice','platforms'].includes(view)){const grid=page.locator(view==='practice'?'.practice-grid':'.platform-grid').first();if(await grid.count())assert.equal(await grid.evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),4);}
-   if(view==='today'){const expected=await page.evaluate(()=>releaseEvents((state.modelReleases||[]).filter(x=>releaseCategoryOrder(x.category)<99&&withinDays(x.publishedAt,30,new Date()))).length);if(expected)assert.ok(await page.locator('.release-main').count()>0);else{assert.equal(await page.locator('.release-main').count(),0);assert.match(await page.locator('#content').textContent(),/最近 30 天没有符合当前筛选的已核实发布事件/);}}
+   if(view==='today'){const expected=await page.evaluate(()=>releaseEvents((state.modelReleases||[]).filter(x=>releaseCategoryOrder(x.category)<99&&withinDays(x.publishedAt,Number(state.releaseWindow),new Date()))).length);if(expected)assert.ok(await page.locator('.release-main').count()>0);else{assert.equal(await page.locator('.release-main').count(),0);assert.match(await page.locator('#content').textContent(),/最近 3 天没有符合当前筛选的已核实发布事件/);}}
    if(view==='overview'){assert.equal(loaded.size,5);assert.ok(!loaded.has('models.json'));assert.ok(!loaded.has('unified-rankings.json'))}if(view==='rankings')assert.deepEqual([...loaded],['unified-rankings.json']);page.off('request',capture);
    console.log('DATA '+label+' '+view+' '+loaded.size+' requests');
   });
@@ -143,7 +143,9 @@ try{
    assert.equal(await page.locator('[data-release-mode="apps"]').getAttribute('aria-pressed'),'true');
    assert.ok(new URL(page.url()).searchParams.get('status')==='apps');
    assert.equal(await page.locator('[data-release-window]').isVisible(),true);
-   assert.equal(await page.locator('[data-release-window]').inputValue(),'7');
+   assert.equal(await page.locator('[data-release-window]').inputValue(),'3');
+   await page.locator('[data-release-window]').selectOption('3');
+   assert.equal(await page.evaluate(()=>state.releaseWindow),'3');
    await page.locator('[data-release-window]').selectOption('30');
    assert.equal(await page.evaluate(()=>state.releaseWindow),'30');
    await page.locator('[data-release-window]').selectOption('7');
@@ -253,7 +255,7 @@ try{
    await page.locator('[data-topic-cat="integration"]').click();assert.ok(await page.evaluate(()=>document.querySelectorAll('.topic-event').length>0&&Array.from(document.querySelectorAll('.topic-event-kind')).every(el=>el.textContent==='模型接入')));
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
    await page.screenshot({path:path.join(out,label+'-product-history.png')});
-   await page.goto(base+'?view=today',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   await page.goto(base+'?view=today&days=30',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.evaluate(()=>!!dataSettled.models),false);
    const first=page.locator('.release-model-link').first();const version=await first.getAttribute('data-model-version');await first.click();
    await page.locator('.model-detail-panel').waitFor({state:'visible'});if(version)assert.equal(await page.locator('.model-detail-version-selected').getAttribute('data-version-id'),version);
