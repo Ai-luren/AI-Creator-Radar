@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T04:28:30+00:00",
+  "checkedAt": "2026-11-28T04:38:11+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -24,7 +24,7 @@
       "error": "ValueError: Expected app navigation absent; login, client-rendered shell or changed template",
       "status": "probe-unavailable",
       "checkedAt": "2026-11-28T04:28:30+00:00",
-      "deferred": false,
+      "deferred": true,
       "consecutiveFailures": 6,
       "nextAttemptAt": "2026-11-28T12:28:30.542865+00:00",
       "type": "visible-model-labels"
@@ -1106,7 +1106,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T04:28:30+00:00",
+    "checkedAt": "2026-11-28T04:38:11+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1815,7 +1815,7 @@
         "nextAttemptAt": "2026-11-28T04:53:30.542865+00:00"
       }
     },
-    "attemptedThisRun": 2,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -3023,7 +3023,7 @@
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T04:28:37+00:00",
+    "checkedAt": "2026-11-28T04:38:14+00:00",
     "window": "7d",
     "sources": [
       {

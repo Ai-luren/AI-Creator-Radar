@@ -1,12 +1,12 @@
 {
   "schema": "lead-resolution/v1",
-  "checkedAt": "2026-11-28T04:28:29+00:00",
+  "checkedAt": "2026-11-28T04:38:08+00:00",
   "summary": {
     "uniqueOfficialUrls": 29,
-    "attempted": 0,
+    "attempted": 1,
     "accessDomainDeferred": 1,
     "articleDateVerified": 9,
-    "newlyCheckedVerified": 0,
+    "newlyCheckedVerified": 1,
     "awaitingProbe": 0,
     "unresolved": 12,
     "notAnnouncement": 2,
@@ -117,14 +117,14 @@
       "titleHintsChecked": [
         "GLM-5.4"
       ],
-      "resolverRevision": 4,
+      "resolverRevision": 5,
       "reportedDates": [
         "2026-11-27"
       ],
-      "checkedAt": "2026-11-27T04:31:59+00:00",
+      "checkedAt": "2026-11-28T04:38:08+00:00",
       "firstAttemptAt": "2026-11-27T04:31:59+00:00",
       "consecutiveUnresolved": 0,
-      "nextAttemptAt": "2026-11-28T04:31:59+00:00",
+      "nextAttemptAt": "2026-11-29T04:38:08+00:00",
       "status": "article-date-verified",
       "title": "GLM-5.4：瞄向泛Coding，首个Loop Transformer带来的惊喜",
       "modelId": "glm",
