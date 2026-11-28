@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T00:58:06+00:00",
+  "checkedAt": "2026-11-28T01:09:44+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -962,7 +962,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T00:58:06+00:00",
+    "checkedAt": "2026-11-28T01:09:44+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2481,7 +2481,7 @@
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T00:58:06+00:00",
+    "checkedAt": "2026-11-28T01:10:12+00:00",
     "window": "7d",
     "sources": [
       {
@@ -2494,7 +2494,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-27T19:03:47+00:00",
+        "fetchedAt": "2026-11-28T00:59:05+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -2506,7 +2506,7 @@
         "id": "douyin",
         "label": "抖音",
         "role": "social",
-        "originalCount": 16,
+        "originalCount": 15,
         "providers": [
           "AIPick"
         ],
@@ -2571,7 +2571,7 @@
         "id": "wechat-article",
         "label": "微信公众号",
         "role": "social",
-        "originalCount": 4,
+        "originalCount": 3,
         "providers": [
           "AIPick"
         ],
@@ -2591,11 +2591,11 @@
         "id": "tiktok",
         "label": "TikTok",
         "role": "social",
-        "originalCount": 3,
+        "originalCount": 4,
         "providers": [
           "AIPick"
         ],
-        "hotSourceMentionCount": 0,
+        "hotSourceMentionCount": 1,
         "status": "original-observed"
       },
       {
@@ -2611,10 +2611,12 @@
         "id": "youtube",
         "label": "YouTube",
         "role": "social",
-        "originalCount": 0,
-        "providers": [],
+        "originalCount": 1,
+        "providers": [
+          "AIPick"
+        ],
         "hotSourceMentionCount": 0,
-        "status": "not-observed"
+        "status": "original-observed"
       },
       {
         "id": "x",
@@ -2625,7 +2627,7 @@
           "AIHOT",
           "AIPick"
         ],
-        "hotSourceMentionCount": 10,
+        "hotSourceMentionCount": 9,
         "status": "original-observed"
       },
       {
