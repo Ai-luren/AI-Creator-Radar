@@ -303,3 +303,70 @@ class ConditionalFeedTests(unittest.TestCase):
         self.assertTrue(effective["attempts"][0]["httpNotModified"])
         self.assertEqual(effective["attempts"][0]["representationFetchedAt"],self.cache["downloadedAt"])
         self.assertEqual(items[0]["publishedAt"],"2026-11-27T00:00:00Z")
+
+class HardSourceDeadlineTests(unittest.TestCase):
+    def test_only_configured_source_is_isolated_and_timeout_is_not_success(self):
+        from datetime import datetime, timezone
+        import subprocess
+        from unittest.mock import Mock
+        source = {"id":"zhipu","name":"Zhipu","url":"https://example.com/news","hardDeadlineSeconds":18}
+        now = datetime(2026,11,28,tzinfo=timezone.utc)
+        runner = Mock(side_effect=subprocess.TimeoutExpired("worker",18))
+        effective, items, error = collector.fetch_with_hard_deadline(source,{},now,None,None,None,runner)
+        self.assertEqual(items,[])
+        self.assertIn("SourceDeadlineExceeded",error)
+        self.assertEqual(effective["attempts"][0]["budgetSeconds"],18)
+        self.assertFalse(effective["sourceDeferred"])
+        self.assertEqual(runner.call_args.kwargs["timeout"],18)
+        self.assertEqual(runner.call_args.args[0][-1],"--isolated-source-worker")
+        with patch.object(collector,"fetch_source",return_value=(source,[],None)) as normal:
+            collector.fetch_with_hard_deadline({"id":"other"},None,now,None,None,None,runner)
+        normal.assert_called_once()
+        self.assertEqual(runner.call_count,1)
+
+    def test_isolated_success_preserves_actual_evidence_and_attempts(self):
+        from datetime import datetime, timezone
+        import json
+        from types import SimpleNamespace
+        from unittest.mock import Mock
+        source = {"id":"zhipu","name":"Zhipu","url":"https://example.com/news","hardDeadlineSeconds":18}
+        result = [{**source,"attempts":[{"url":source["url"],"error":None}]},[{"title":"GLM 5","publishedAt":"2026-11-01T00:00:00Z"}],None]
+        runner=Mock(return_value=SimpleNamespace(stdout=json.dumps(result)))
+        actual=collector.fetch_with_hard_deadline(source,None,datetime.now(timezone.utc),None,None,None,runner)
+        self.assertEqual(list(actual),result)
+
+    def test_bounded_retry_moves_to_fallback_without_sleep(self):
+        source={"id":"zhipu","name":"Zhipu","url":"https://example.com/news",
+                "fallbackUrls":["https://example.com/research"],"maxTransientAttempts":1}
+        with patch.object(collector,"fetch_source_once",side_effect=[
+            (source,[],"URLError: timed out"),(source,[{"title":"GLM 5"}],None)]) as fetch, patch.object(collector.time,"sleep") as sleep:
+            effective, items, error = collector.fetch_source(source)
+        self.assertIsNone(error)
+        self.assertEqual(fetch.call_count,2)
+        self.assertEqual(effective["url"],source["fallbackUrls"][0])
+        sleep.assert_not_called()
+
+    def test_real_process_deadline_kills_slow_response(self):
+        from datetime import datetime, timezone
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        import threading
+        import time
+        class SlowHandler(BaseHTTPRequestHandler):
+            def do_GET(self):
+                time.sleep(3)
+            def log_message(self,*args):
+                pass
+        server=ThreadingHTTPServer(("127.0.0.1",0),SlowHandler)
+        thread=threading.Thread(target=server.serve_forever,daemon=True)
+        thread.start()
+        try:
+            source={"id":"slow","name":"Slow","url":f"http://127.0.0.1:{server.server_port}/",
+                    "hardDeadlineSeconds":1,"requestTimeoutSeconds":10}
+            started=time.monotonic()
+            effective, items, error=collector.fetch_with_hard_deadline(source,None,datetime.now(timezone.utc),None,None,None)
+            self.assertLess(time.monotonic()-started,3)
+            self.assertIn("SourceDeadlineExceeded",error)
+            self.assertEqual(items,[])
+        finally:
+            server.shutdown()
+            server.server_close()
