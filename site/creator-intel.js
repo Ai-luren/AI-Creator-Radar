@@ -136,7 +136,7 @@ var innovationThemes=[
 function innovationCreativeCase(item){
  var title=String(item&&item.title||'');
  if(!title||/折扣|积分|促销|优惠|discount|coupon|black friday/i.test(title))return false;
- var creative=/视频生成|图像生成|图片生成|文生图|图生图|图生视频|文生视频|图像模型|文生图模型|AI\s*(?:视频|短片|短剧|动画|漫剧|影像|电影|绘画|广告|音乐)|影视|短片|短剧|漫剧|漫画|动画|分镜|三视图|角色一致性|角色设定|角色资产|音轨|音效|配音|对白|音画同步|字体动画|动效|镜头|运镜|白模|三维作品|3D\s*(?:动画|场景|建模)|落地页|提示词.*(?:视频|图像|角色|场景)|(?:video|image|audio|music)\s+(?:generat|edit|model)|storyboard|cinemat|animation|VFX|LoRA|Blender ID pass|motion capture/i;
+ var creative=/(?:视频|图像|图片|音频|音乐)(?:生成|模型|编辑)|(?:生成|制作|创作)[^。；，,]{0,32}(?:视频|图像|图片|音频|音乐)|文生图|图生图|图生视频|文生视频|图像模型|文生图模型|AI\s*(?:视频|短片|短剧|动画|漫剧|影像|电影|绘画|广告|音乐)|影视|短片|短剧|漫剧|漫画|动画|分镜|三视图|角色一致性|角色设定|角色资产|音轨|音效|配音|对白|音画同步|字体动画|动效|镜头|运镜|白模|三维作品|3D\s*(?:动画|场景|建模)|落地页|提示词.*(?:视频|图像|角色|场景)|(?:video|image|audio|music)\s+(?:generat|edit|model)|storyboard|cinemat|animation|VFX|LoRA|Blender ID pass|motion capture/i;
  if(!creative.test(title))return false;
  if(['tip','opinion'].includes(item.category))return true;
  // Creative demonstrations and explicit workflow reports may carry the
