@@ -28,12 +28,13 @@ def search(query, key, reserve, *, now=None, opener=None, creative_only=False):
     if not isinstance(query, str) or not query.strip() or len(query) > 300:
         return {"status": "configuration-error", "candidates": []}
     params = {"query": query, "limit": 12, "minViews": 10000,
-              "postedAfter": (now - timedelta(days=3)).isoformat(),
+              "postedAfter": (now - timedelta(days=3)).date().isoformat(),
               "sort": "relevance"}
-    # Explicit platform list encoded as repeated query parameters.
-    params["platforms"] = ["youtube", "instagram", "tiktok", "x"]
+    # Official API accepts a comma-separated platform string.
+    params["platforms"] = "youtube,instagram,tiktok,x"
     req = urllib.request.Request(ENDPOINT + "?" + urlencode(params, doseq=True),
-                                 headers={"key": key, "Accept": "application/json"})
+                                 headers={"key": key, "Accept": "application/json",
+                                          "User-Agent": "AI-Creator-Radar/1.0"})
     if not reserve(now):
         return {"status": "budget-exhausted", "candidates": []}
     opener = opener or urllib.request.build_opener(NoRedirect())
