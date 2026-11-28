@@ -1129,3 +1129,22 @@ test('overseas and cross-market campaigns precede domestic-only events; estimate
  const future=JSON.parse(run("JSON.stringify(creativeCampaignCalendar(Date.parse('2026-12-01T12:00:00+08:00')))"));
  assert.ok(future.some(r=>r.title==='Ramadan 预计开始'&&r.approx===true));
 });
+
+test('campaign milestones convert planning dates into research handoffs without claiming completion',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const rows=JSON.parse(run('JSON.stringify(creativeCampaignCalendar(Date.now()))'));
+ const christmas=rows.find(r=>r.title==='Christmas'),cyber=rows.find(r=>r.title==='Cyber Monday 营销节点');
+ assert.equal(christmas.stage,'D-30 · 机会与能力研究');
+ assert.equal(christmas.milestones.length,6);
+ assert.equal(christmas.milestones.find(m=>m.offset===-30).day,'2026-11-25');
+ assert.equal(christmas.milestones.find(m=>m.offset===-14).day,'2026-12-11');
+ assert.equal(christmas.milestones.find(m=>m.offset===-7).day,'2026-12-18');
+ assert.equal(christmas.milestones.find(m=>m.offset===-3).day,'2026-12-22');
+ assert.equal(christmas.milestones.find(m=>m.offset===7).day,'2027-01-01');
+ assert.match(christmas.milestones[0].status,/完成未知/);
+ assert.match(cyber.stage,/D-3/);
+ const html=run('creativeCampaignMarkup(Date.now())');
+ assert.match(html,/复制研发任务单/);assert.match(html,/不强行上线/);assert.match(html,/非已立项或发布/);
+ assert.equal(run('campaignPreparationStage(7)'),'D-7 · 成片与功能验收');
+ assert.equal(run('campaignPreparationStage(0)'),'D-Day · 发布与观察');
+});

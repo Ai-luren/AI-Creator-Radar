@@ -10,6 +10,8 @@ Follow [Renoise Agent 产品研究纲领](docs/renoise-agent-research.md) as the
 
 Model research must retain explicit official capability limits and modes (native resolution versus upscaling, duration, spatial/camera/reference controls, native audio, editing/understanding and tool execution), including creative LLM capabilities. Meaningful inference cost and efficiency are relevant product signals, but subscription promotions remain excluded; compare cost per accepted output under equivalent quality and settings. Never infer support or actual cost from a keyword, an advertisement, or a benchmark alone.
 
+Follow the [unified P0 delivery plan](docs/renoise-agent-research.md) for current product research work. Product P0 starts with verifiable evidence, executable Agent research and overseas campaign deadlines, then actual production validation; preserve existing reliability gates and frozen P2. Campaign milestone dates are planning deadlines only, not observed completion or authorized company activity.
+
 ## Directory conventions
 
 - `site/index.html` is the single website entry point; `site/assets/` contains published assets.
