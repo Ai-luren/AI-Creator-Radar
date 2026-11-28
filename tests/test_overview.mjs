@@ -613,7 +613,7 @@ test('model capability research uses official evidence, preserves unknowns and r
  assert.match(run('modelCapabilityReviewMarkup('+JSON.stringify(magi)+')'),/未取得实际数据前不判断便宜程度/);
  assert.match(run('modelCapabilityReviewMarkup('+JSON.stringify(ling)+')'),/不把视频理解等同于剪辑能力/);
  const rows=JSON.parse(run('JSON.stringify(innovationExplorationRows('+JSON.stringify({releases:[ling,model('General code','llm','面向软件工程任务的编码语言模型。')],app:{},batches:[]})+',Date.now()))'));
- assert.deepEqual(rows.map(r=>r.signal.title),['Ling-3.2-air']);
+ assert.deepEqual(rows.map(r=>r.signal.title).sort(),['General code','Ling-3.2-air']);
 });
 
 test('public feature baseline is matrix context and only later deltas enter innovation observations',async()=>{
@@ -1066,4 +1066,30 @@ test('Agent task research turns recent creative evidence into test hypotheses wi
  assert.deepEqual(rows.map(r=>r.id).sort(),['agent-workflow','product-ad','story']);assert.equal(rows.find(r=>r.id==='story').signalCount,1);
  const out=run('agentTaskResearchMarkup('+arg+',Date.now())');assert.match(out,/待实测/);assert.match(out,/首次可用作品所需时间/);assert.match(out,/不填造指标值/);assert.doesNotMatch(out,/accounting|promo/);
  assert.equal(run('agentTaskResearchMarkup({releases:[],app:{},batches:[]},Date.now())'),'');
+});
+
+test('Agent task research covers visual and reusable character quality with distinct changelog entries',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const m=(name,summary,id)=>({modelName:name,summary,modelFamilyId:id,modelVersionId:id+'-v1',verifiedAt:'2026-11-25',evidenceType:'official-release',category:'image',publishedAt:'2026-11-24',url:'https://example.org/'+id});
+ const event=(featureName)=>({sourceId:'flova',claimType:'first-party-product-changelog',featureName,publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/changelog'});
+ const snap={releases:[m('Niji 8','新版动画风格图像模型，支持高清生成和保持角色一致性的编辑。','niji'),m('SenseNova U1.6','支持图像生成与编辑，8B 开放权重版本可检查初稿并自我修正画面文字。','sense')],app:{sources:[{id:'flova',vendor:'Flova',role:'competitor'}],events:[event('Video and timeline audio translation'),event('Audio processing and track separation'),event('Audio processing and track separation')]},batches:[]};
+ const rows=JSON.parse(run('JSON.stringify(agentTaskResearchRows('+JSON.stringify(snap)+',Date.now()))'));
+ assert.equal(rows.find(x=>x.id==='character-assets').signals[0].title,'Niji 8');
+ assert.equal(rows.find(x=>x.id==='visual-qa').signals[0].title,'SenseNova U1.6');
+ assert.equal(rows.find(x=>x.id==='sound').signalCount,2);
+ assert.equal(rows.find(x=>x.id==='sound').signals.length,2);
+});
+
+test('research handoff is actionable, escaped and never presents hypotheses as measured results',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const m={modelName:'MAGI-2',category:'video',summary:'支持原生音视频生成，最高 1080p、30 秒。',evidenceType:'official-release',url:'https://example.org/model'};
+ const out=run('modelCapabilityReviewMarkup('+JSON.stringify(m)+')');
+ assert.match(out,/研发任务单 · 可复制/);assert.match(out,/data-copy-research-brief/);assert.match(out,/最小可复现工作流/);assert.match(out,/失败样本/);assert.match(out,/非已立项或已接入/);
+ const r={title:'人物三视图',brief:'固定参考',plan:'生成与复用',checks:'角色一致性',signals:[{day:'2026-11-28',origin:'Test',title:'<script>bad</script>',url:'https://example.org/source'}]};
+ const handoff=run('researchHandoffMarkup(agentResearchHandoff('+JSON.stringify(r)+'))');
+ assert.match(handoff,/https:\/\/example.org\/source/);assert.match(handoff,/工具契约/);assert.match(handoff,/&lt;script&gt;/);assert.doesNotMatch(handoff,/<script>/);
+ const coding={modelName:'Test LLM',category:'llm',summary:'提升编码与软件工程任务',evidenceType:'official-release',url:'https://example.org/llm'};
+ const review=JSON.parse(run('JSON.stringify(modelCapabilityReview('+JSON.stringify(coding)+'))'));
+ assert.deepEqual(review.axes.map(a=>a.id),['creative-code']);
+ assert.match(review.axes[0].check,/不把编码能力等同于原生渲染/);
 });

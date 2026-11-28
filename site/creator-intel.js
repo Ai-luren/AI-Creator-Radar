@@ -644,7 +644,7 @@ function innovationExplorationRows(snapshot,now){
 }
 // Research axes are prompts for verification, not structured claims of model support.
 function modelCreativeLlmCandidate(text){
- return /视频理解|视频分析|视频剪辑|剪辑决策|镜头理解|分镜规划|创作规划|工具调用|多模态.{0,18}(?:视频|图像|音频)|video understanding|video analysis|video edit|shot planning|storyboard|tool.calling|multimodal.{0,24}(?:video|image|audio)/i.test(String(text||''));
+ return /视频理解|视频分析|视频剪辑|剪辑决策|镜头理解|分镜规划|创作规划|工具调用|多模态.{0,18}(?:视频|图像|音频)|video understanding|video analysis|video edit|shot planning|storyboard|tool.calling|multimodal.{0,24}(?:video|image|audio)|编程|编码|软件工程|代码生成|网页|前端|游戏|3D|三维|脚本|coding|software engineering|code generation|web development|front.end|game development|scripting/i.test(String(text||''));
 }
 function modelCapabilityReview(model){
  if(!model||!['official-release','official-model-card'].includes(model.evidenceType)||!creatorOriginalUrl(model.url))return null;
@@ -657,15 +657,25 @@ function modelCapabilityReview(model){
   {id:'audio',label:'声音与音画联动',pattern:/原生音频|原生音视频|音视频生成|音画同步|音频生成|配音|口型同步|native audio|audio.video generation|lip.sync/i,check:'核对可用音轨、对白声线、同步、音质与分轨输出，区分原生生成和后期合成。'},
   {id:'repair',label:'视觉自检与修复',pattern:/自我修正|自我纠错|画面文字|文字校正|self.correct|self.repair|text rendering|text correction/i,check:'提供带准确品牌文案的失败样本，测试错误检测、局部修复、误改率及人工审美。'},
   {id:'agent',label:'Agent 理解、规划与剪辑',pattern:/视频理解|视频分析|视频剪辑|剪辑决策|镜头理解|分镜规划|创作规划|工具调用|video understanding|video analysis|video edit|shot planning|storyboard|tool.calling/i,check:'固定原片及创作 brief，要求结构化镜头表、剪辑点、工具参数及可执行时间线；验证实际工具执行，不把视频理解等同于剪辑能力。'},
+  {id:'creative-code',label:'创意编程、网页、游戏与三维工具',pattern:/编程|编码|软件工程|代码生成|网页|前端|游戏|3D|三维|脚本|coding|software engineering|code generation|web development|front.end|game development|scripting/i,check:'用同一交互网页、游戏小样或三维场景 brief 比较代码可运行性、视觉还原、交互、动画、性能及可编辑交付；验证实际渲染器和工具执行，不把编码能力等同于原生渲染。'},
   {id:'economy',label:'推理效率与生成经济性',pattern:/低成本|高性价比|推理成本|低延迟|推理加速|生成速度|吞吐|cost.efficien|inference cost|low.latency|throughput|faster inference/i,check:'同模式、同输出规格、同质量门槛记录实际生成成本和等待时间；计入失败、重试及后期，不拿套餐折扣当推理成本。'}
  ];
  rules.forEach(function(r){if(r.pattern.test(detail))axes.push({id:r.id,label:r.label,check:r.check})});
- if(category==='llm'&&modelCreativeLlmCandidate(detail)&&!axes.some(function(r){return r.id==='agent'}))axes.push({id:'agent',label:'Agent 多模态创作研究',check:'固定素材，验证理解准确性、结构化规划和真实工具执行；不预设支持视频编辑。'});
+ if(category==='llm'&&modelCreativeLlmCandidate(detail)&&!axes.some(function(r){return r.id==='agent'||r.id==='creative-code'}))axes.push({id:'agent',label:'Agent 多模态创作研究',check:'固定素材，验证理解准确性、结构化规划和真实工具执行；不预设支持视频编辑。'});
  return {axes:axes,access:String(model.access||''),detail:detail,source:model.url};
+}
+function researchHandoffMarkup(text){
+ return '<details class="source-health"><summary>研发任务单 · 可复制</summary><div class="prompt-row"><pre data-research-brief>'+esc(text)+'</pre><button type="button" class="filter-chip" data-copy-research-brief>复制研发任务单</button></div></details>';
+}
+function modelResearchHandoff(model,review){
+ return ['# 模型能力验证｜'+(model.modelName||model.title),'状态：待实测；非已立项或已接入。','官方来源：'+review.source,'官方摘要：'+(review.detail||'现有摘要不足，先查官方模型卡及规格。'),'访问条件：'+(review.access||'待核实 API、权限及商用许可。'),'目标：改善 Renoise Agent 创作质量、效率或可控性。','实验：固定授权素材、创作 brief、输出规格和当前产品基线；记录精确模型版本、接口模式、参数及重复样本。','专项验证：'].concat(review.axes.length?review.axes.map(function(a){return '- '+a.label+'：'+a.check}):['- 先核实输入输出契约、能力边界及可执行接口。'],['统一验收：人工盲评与技术检查分开；记录失败、返工、耗时、生成/重试/后期总成本及可用交付数。','交付：最小可复现工作流/Skill 或工具契约、输入输出样例、失败样本、对比结果及接入/暂缓建议。','决策：未实测不得填入效果提升；先核对内部现状和授权。']).join('\n');
+}
+function agentResearchHandoff(r){
+ return ['# Agent 研发任务｜'+r.title,'状态：待实测；非已立项或已实现。','目标：提升创作者的有效交付质量与操作效率。','固定输入：'+r.brief,'候选流程：'+r.plan,'当前基线：同素材、同约束使用现有流程，记录版本及失败样本。','验收：'+r.checks,'体验指标：首次可用作品时间、人工操作、干预、返工、有效交付；指标待测。','工具契约：明确输入、输出、模型版本、异常与重试、可编辑中间产物。','交付：可复现工作流/Skill、对照样片、失败记录和是否产品化的建议。','近期研究证据：'].concat(r.signals.map(function(s){return '- '+s.day+'｜'+s.origin+'｜'+s.title+'｜'+s.url}),['注意：关联记录不等于独立验证或真实用户需求；用户留存需实际授权数据。']).join('\n');
 }
 function modelCapabilityReviewMarkup(model){
  var r=modelCapabilityReview(model);if(!r)return '';
- return '<h3>能力上限与产品化研究 · 待实测</h3><p class="page-desc">以下按已有官方来源摘要匹配研究维度；提及不等于已支持，未提及不等于不支持。上限与模式组合仍需查官方规格及实测。</p>'+(r.access?'<p><strong>已记录访问方式：</strong>'+esc(r.access)+'</p>':'')+(r.axes.length?'<div class="briefing-list">'+r.axes.map(function(a){return '<p><strong>'+esc(a.label)+'：</strong>'+esc(a.check)+'</p>'}).join('')+'</div>':'<p>现有摘要不足以识别明确的特殊能力，先检查官方模型卡与接口规格。</p>')+'<p><strong>统一经济性验证：</strong>同质量门槛下记录总生成、重试、后期成本与可用交付数，计算每个可用作品成本；未取得实际数据前不判断便宜程度。</p><p><strong>产品化判断：</strong>将可重复验证的能力封装成工具、Skill 或画布节点，再验证 Agent 是否可以稳定调用。 '+creatorLink(r.source,'官方能力证据')+'</p>';
+ return '<h3>能力上限与产品化研究 · 待实测</h3><p class="page-desc">以下按已有官方来源摘要匹配研究维度；提及不等于已支持，未提及不等于不支持。上限与模式组合仍需查官方规格及实测。</p>'+(r.access?'<p><strong>已记录访问方式：</strong>'+esc(r.access)+'</p>':'')+(r.axes.length?'<div class="briefing-list">'+r.axes.map(function(a){return '<p><strong>'+esc(a.label)+'：</strong>'+esc(a.check)+'</p>'}).join('')+'</div>':'<p>现有摘要不足以识别明确的特殊能力，先检查官方模型卡与接口规格。</p>')+'<p><strong>统一经济性验证：</strong>同质量门槛下记录总生成、重试、后期成本与可用交付数，计算每个可用作品成本；未取得实际数据前不判断便宜程度。</p><p><strong>产品化判断：</strong>将可重复验证的能力封装成工具、Skill 或画布节点，再验证 Agent 是否可以稳定调用。 '+creatorLink(r.source,'官方能力证据')+'</p>'+researchHandoffMarkup(modelResearchHandoff(model,r));
 }
 function innovationModelTestPlan(signal){
  if(!signal||signal.type!=='model')return null;
@@ -675,7 +685,7 @@ function innovationModelTestPlan(signal){
   audio:['固定视频或音频参考、对白和环境音','对比音质、时间戳、声源保持和同步','检查独立音轨、可编辑输出与授权限制'],
   music:['固定场景、时长、情绪及参考节奏','对比结构、节奏、情绪和重复生成一致性','检查编辑、分轨和授权边界'],
   tts:['固定多语言台词、情绪与发音词表','对比可懂度、发音、停顿与情绪稳定性','核查说话人授权和对齐时间戳'],
-  llm:['固定创作任务、输入资料与输出结构','对比指令遵循、素材理解及结构化输出','检查工具调用边界、重复稳定性与可复现性']
+  llm:['固定同一创作 brief、素材、可用工具与交付规格，比较不同模型作为 Agent 主脑','对比剧本分镜、镜头与剪辑决策、视觉理解、网页/游戏原型或三维脚本（按任务选用），实际执行后评价作品','核对工具调用、代码运行、渲染输出、错误恢复、人工干预与可复现性；区别模型推理与工具完成的结果']
  };
  return {status:'待实测',baseline:'上一可用版本；若接口或输入不可比，记录差异，不强行评分',steps:plans[signal.category]||plans.llm};
 }
@@ -707,6 +717,8 @@ function innovationSurfaceMarkup(app,now){
 var agentCreativeTasks=[
  {id:'product-ad',title:'产品广告 / 宣传片',brief:'授权产品参考图、品牌卖点、目标受众与交付规格。',pattern:/产品广告|产品宣传|产品一致性|商品一致性|商品图|产品摄影|商业摄影|品牌广告|产品展示|产品保真|product (?:advertis|commercial|photograph|showcase|consistency|preserv)|brand commercial|\bTVC\b/i,plan:'理解卖点与产品真值 → 创意分镜 → 产品参考资产 → 镜头生成 → 声音与落版。',checks:'产品外形、Logo、材质和卖点表达；镜头节奏、品牌信息准确度。'},
  {id:'story',title:'短片 / 短剧连续叙事',brief:'剧本、角色参考、场景约束、镜头时长与叙事目标。',pattern:/短片|短剧|漫剧|分镜|多场景|多镜头|storyboard|short film|multi.scene|multi.shot|character consistency/i,plan:'结构化剧本 → 角色场景资产 → 分镜与镜头依赖 → 镜头生成 → 连贯性检查。',checks:'人物、场景、道具连续性；叙事清楚、镜头衔接、局部重做影响范围。'},
+ {id:'character-assets',title:'人物三视图与风格资产',brief:'固定授权人物参考、身份与服装描述、正侧背视角、目标风格及场景。',pattern:/人物三视图|角色三视图|角色一致性|角色设定|角色多视角|角色资产|角色.{0,8}LoRA|身份一致性|character consistency|character turnaround|character sheet|character asset|identity preservation/i,plan:'结构化角色档案 → 三视图与风格变体 → 复用角色参考生成不同场景 → 检测一致性与局部修正。',checks:'身份、体型、服装和视角正确性；跨镜头保持、风格差异与资产复用。'},
+ {id:'visual-qa',title:'视觉质量与广告文字校验',brief:'固定授权品牌/产品图、必须正确的文字和 Logo、目标构图及交付分辨率。',pattern:/画面文字|文字.{0,8}(?:修正|校正|准确|渲染)|字体动画|文字编辑|Logo.{0,8}(?:准确|保真|一致)|4K (?:输出|生成)|supports 4K|text (?:rendering|correction|accuracy)|typography|logo preservation/i,plan:'锁定品牌资产与文案 → 图像生成/编辑 → 检查文字、构图和材质 → 定向修正 → 验证实际交付分辨率。',checks:'文字与品牌信息准确、产品保真、细节质感、修改范围；人工审美和技术检查分别记录。'},
  {id:'agent-workflow',title:'Agent 自动编排与可编辑交付',brief:'明确创作任务、素材、可用模型工具与期望输出。',pattern:/(?:创作|creation|creative|模型|model).{0,20}(?:Agent|路由|routing|编排|orchestrat)|(?:Agent|路由|routing|编排|orchestrat).{0,24}(?:创作|creation|creative|模型|model)|\blibtv-use\b|多模型串联|并行生成|parallel.*generat|generat.*parallel|生成.*并行|并行.*生成/i,plan:'结构化需求 → 任务拆解 → 工具与模型路由 → 保存中间结果 → 失败恢复及局部修改。',checks:'任务完成率、用户操作步骤、人工干预、失败恢复及交付可编辑性。'},
  {id:'sound',title:'声音设计与音画交付',brief:'同一授权视频、台词、声线、情绪、音乐和音效要求。',pattern:/音轨|音频翻译|配音|声线|音画同步|口型同步|原生音视频|audio processing|track separation|audio translation|voiceover|lip.sync|audio.video generation/i,plan:'对白与音乐规划 → 角色声线 → 音轨生成/拆分 → 时间线对齐 → 局部替换。',checks:'发音、情绪、音质、原声保护、音画同步和分轨可编辑性。'}
 ];
@@ -715,15 +727,22 @@ function agentTaskResearchRows(snapshot,now){
  return agentCreativeTasks.map(function(task){
   var found=signals.filter(function(s){return task.pattern.test(s.title+' '+s.detail)}).sort(function(a,b){return b.day.localeCompare(a.day)||({product:0,model:1,case:2}[a.type]-{product:0,model:1,case:2}[b.type])});
   var unique=[],keys=new Set();
-  found.forEach(function(s){var k=newsUrlKey(s.url);if(k&&!keys.has(k)){keys.add(k);unique.push(s)}});
-  return {id:task.id,title:task.title,brief:task.brief,plan:task.plan,checks:task.checks,signals:unique.slice(0,3),signalCount:unique.length,latest:unique[0]&&unique[0].day||''};
+  // Distinct dated product entries can share a changelog URL. Keep their event identities;
+  // other originals are deduplicated across providers, not treated as independent confirmations.
+  found.forEach(function(s){var url=newsUrlKey(s.url);if(!url)return;var k=s.type==='product'?url+'|'+newsTitleKey(s.title)+'|'+s.day:url;if(!keys.has(k)){keys.add(k);unique.push(s)}});
+  var selected=[],selectedKeys=new Set(),types=new Set();
+  // Prefer diverse evidence: latest record, then one example of each other type,
+  // then fill the remaining slots without changing the actual evidence count.
+  unique.forEach(function(s){if(selected.length<3&&!types.has(s.type)){selected.push(s);selectedKeys.add(s);types.add(s.type)}});
+  unique.forEach(function(s){if(selected.length<3&&!selectedKeys.has(s)){selected.push(s);selectedKeys.add(s)}});
+  return {id:task.id,title:task.title,brief:task.brief,plan:task.plan,checks:task.checks,signals:selected,signalCount:unique.length,latest:unique[0]&&unique[0].day||''};
  }).filter(function(r){return r.signalCount>0}).sort(function(a,b){return b.latest.localeCompare(a.latest)||b.signalCount-a.signalCount||a.id.localeCompare(b.id)});
 }
 function agentTaskResearchMarkup(snapshot,now){
  var rows=agentTaskResearchRows(snapshot,now).filter(function(r){return matches([r.title,r.brief,r.plan,r.checks,r.signals.map(function(s){return s.title+' '+s.origin}).join(' ')].join(' '))});
  if(!rows.length)return '';
  var labels={model:'已核实模型发布',product:'官方产品日志',case:'创作者精选线索'};
- return '<section class="briefing-digest-section"><div class="section-head"><h2>Agent 创作任务验证</h2><span class="head-meta">近7天 · '+rows.length+' 个有证据的研究方向</span></div><p class="page-desc">把近期信号转成可与工程师讨论的商业创作任务。以下是候选测试方案，不代表已实现或已取得效果提升。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.latest+' · '+r.signalCount+' 条去重证据 · 待实测')+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.checks)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>固定输入：</strong>'+esc(r.brief)+'</p><p><strong>Agent 方案假设：</strong>'+esc(r.plan)+'</p><p><strong>对照实验：</strong>先用当前产品流程建立基线，再用候选 Agent 流程处理同一素材和约束；记录模型及工作流版本、失败样本与人工评审。</p><p><strong>质量验收：</strong>'+esc(r.checks)+'</p><p><strong>体验验收：</strong>记录有效交付、首次可用作品所需时间、人工操作与返工；后续用经授权的实际使用数据验证用户是否更愿意持续使用。不填造指标值。</p><h3>近期研究证据</h3>'+r.signals.map(function(s){return '<div class="overview-row"><span>'+esc(labels[s.type]+' · '+s.day+' · '+s.origin)+'<br><strong>'+esc(s.title)+'</strong></span>'+creatorLink(s.url,'原始证据')+'</div>'}).join('')+'</div></details></article>'}).join('')+'</div></section>';
+ return '<section class="briefing-digest-section"><div class="section-head"><h2>Agent 创作任务验证</h2><span class="head-meta">近7天 · '+rows.length+' 个有证据的研究方向</span></div><p class="page-desc">把近期信号转成可与工程师讨论的商业创作任务。以下是候选测试方案，不代表已实现或已取得效果提升。</p><div class="briefing-list">'+rows.map(function(r){return '<article class="briefing-card"><details><summary class="briefing-headline"><span class="briefing-headline-copy"><span class="overview-row-meta">'+esc(r.latest+' · '+r.signalCount+' 条关联记录 · 待实测')+'</span><strong>'+esc(r.title)+'</strong><span>'+esc(r.checks)+'</span></span><span class="briefing-disclosure">'+icon('chevron')+'</span></summary><div class="briefing-expanded"><p><strong>固定输入：</strong>'+esc(r.brief)+'</p><p><strong>Agent 方案假设：</strong>'+esc(r.plan)+'</p><p><strong>对照实验：</strong>先用当前产品流程建立基线，再用候选 Agent 流程处理同一素材和约束；记录模型及工作流版本、失败样本与人工评审。</p><p><strong>质量验收：</strong>'+esc(r.checks)+'</p><p><strong>体验验收：</strong>记录有效交付、首次可用作品所需时间、人工操作与返工；后续用经授权的实际使用数据验证用户是否更愿意持续使用。不填造指标值。</p><h3>近期研究证据</h3>'+r.signals.map(function(s){return '<div class="overview-row"><span>'+esc(labels[s.type]+' · '+s.day+' · '+s.origin)+'<br><strong>'+esc(s.title)+'</strong></span>'+creatorLink(s.url,'原始证据')+'</div>'}).join('')+researchHandoffMarkup(agentResearchHandoff(r))+'</div></details></article>'}).join('')+'</div></section>';
 }
 function agentResearchCharterMarkup(){
  return '<details class="source-health"><summary>Renoise Agent · 产品研究与质量标准</summary><p class="page-desc">研究目标：让用户更轻松、可控地创作高质量商业作品；以下为研究清单与待验证标准，不是现有能力或已测效果。</p><h3>五项工作职责</h3><p>产品体验优化 · 工作流封装 · 新功能研发 · 竞品差异化 · 创作质量提升</p><h3>与 Agent 工程师协作</h3><p>理解用户简报 → 创意与分镜规划 → 模型路由 → 可复用工具及资产 → 质量检查 → 局部修改 → 可编辑交付。</p><h3>创作环节与验证</h3><p>创意与品牌卖点；人物三视图、角色/产品/场景一致性与风格；分镜及白模；图像、视频动作与镜头连续性；声线、配音、音乐、音效与音画同步；剪辑、落版及交付。</p><p><strong>最小实验：</strong>同素材、同约束、记录模型和工作流版本，比较生成质量、操作效率、可控性及返工成本。无实测不宣称改进。</p><p><strong>研发讨论：</strong>原始证据 → 用户痛点 → 竞品做法 → Agent / 工具 / 节点方案 → 最小实验 → 决策。优先产品广告、产品发布宣传、品牌短片及其他实际创作场景。</p>'+creatorLink('https://github.com/Ai-luren/AI-Creator-Radar/blob/main/docs/renoise-agent-research.md','完整研究纲领')+'</details>';

@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T09:14:25+00:00",
+  "checkedAt": "2026-11-28T09:32:41+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -2958,28 +2958,31 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T09:14:25+00:00",
+    "checkedAt": "2026-11-28T09:32:41+00:00",
     "queries": [
       {
         "id": "jimeng-products",
         "label": "即梦",
         "term": "即梦",
         "category": "ai-products",
-        "lastAttemptAt": "2026-11-27T15:17:54+00:00",
+        "lastAttemptAt": "2026-11-28T09:32:41+00:00",
         "counts": {
-          "items": 21,
+          "items": 26,
           "wechatOriginalLinks": 0,
-          "otherOriginalLinks": 21,
+          "otherOriginalLinks": 26,
           "missingOriginalLinks": 0,
-          "exactTitleMatches": 21,
-          "hasNextCursor": false
+          "exactTitleMatches": 26,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 3,
+          "selectedModelIntegrations": 1,
+          "selectedCreatorSignals": 2
         },
-        "countsObservedAt": "2026-11-27T15:17:54+00:00",
+        "countsObservedAt": "2026-11-28T09:32:41+00:00",
         "status": "observed",
-        "etag": "W/\"v1-items-1812e8a646929e52\"",
-        "lastSuccessAt": "2026-11-27T15:17:54+00:00",
+        "etag": "W/\"v1-items-2ed88b07203e3081\"",
+        "lastSuccessAt": "2026-11-28T09:32:41+00:00",
         "error": null,
-        "nextAttemptAt": "2026-11-27T21:17:54.692662+00:00",
+        "nextAttemptAt": "2026-11-28T21:32:41.704036+00:00",
         "priority": 4,
         "intervalMinutes": 720,
         "queuedAt": "2026-11-28T06:49:40+00:00"
@@ -3776,7 +3779,25 @@
         "provider": "AIHOT",
         "priority": 4,
         "intervalMinutes": 720,
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T09:32:41+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0,
+          "selectedCreatorSignals": 0
+        },
+        "countsObservedAt": "2026-11-28T09:32:41+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-8667287204241e7c\"",
+        "lastSuccessAt": "2026-11-28T09:32:41+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T21:32:41.704036+00:00"
       },
       {
         "id": "xiaoyunque-aipick",
@@ -4084,24 +4105,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T08:59:03+00:00",
-      "nextAttemptAt": "2026-11-28T09:24:03.114309+00:00"
+      "lastSuccessAt": "2026-11-28T09:32:41+00:00",
+      "nextAttemptAt": "2026-11-28T09:57:41.704036+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T08:59:03+00:00",
-        "nextAttemptAt": "2026-11-28T09:24:03.114309+00:00"
+        "lastSuccessAt": "2026-11-28T09:32:41+00:00",
+        "nextAttemptAt": "2026-11-28T09:57:41.704036+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T08:59:03+00:00",
-        "nextAttemptAt": "2026-11-28T09:24:03.114309+00:00"
+        "lastSuccessAt": "2026-11-28T09:32:41+00:00",
+        "nextAttemptAt": "2026-11-28T09:57:41.704036+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "recentPolicy": {
       "calendarTimezone": "Asia/Shanghai",
       "primaryCalendarDays": 3,
@@ -7115,7 +7136,7 @@
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T09:14:29+00:00",
+    "checkedAt": "2026-11-28T09:32:48+00:00",
     "window": "7d",
     "sources": [
       {
@@ -7128,7 +7149,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T08:58:48+00:00",
+        "fetchedAt": "2026-11-28T09:32:31+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -7225,7 +7246,7 @@
         "id": "tiktok",
         "label": "TikTok",
         "role": "social",
-        "originalCount": 6,
+        "originalCount": 7,
         "providers": [
           "AIPick"
         ],
@@ -7256,7 +7277,7 @@
         "id": "x",
         "label": "X",
         "role": "social",
-        "originalCount": 6,
+        "originalCount": 5,
         "providers": [
           "AIHOT",
           "AIPick"
