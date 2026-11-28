@@ -392,16 +392,16 @@
         "label": "Flova",
         "term": "Flova",
         "provider": "AIHOT",
-        "priority": 20,
-        "intervalMinutes": 1440
+        "priority": 4,
+        "intervalMinutes": 720
       },
       {
         "id": "flova-aipick",
         "label": "Flova",
         "term": "Flova",
         "provider": "AIPick",
-        "priority": 20,
-        "intervalMinutes": 1440
+        "priority": 4,
+        "intervalMinutes": 720
       },
       {
         "id": "tapnow-aihot",

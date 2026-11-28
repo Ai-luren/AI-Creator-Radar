@@ -433,7 +433,7 @@ def parse_store(payload,source):
 
 # Exact model names are derived only from verified release rows, not arbitrary
 # article text or external instructions. No URL/host is supplied by a model.
-MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","小云雀","Pippit","即梦","Dreamina","Gemini")
+MODEL_WATCH_BRANDS=("Higgsfield","LibTV","TapNow","OiiOii","Flova","小云雀","Pippit","即梦","Dreamina","Gemini")
 MODEL_WATCH_NAME=re.compile(r"^(?:Seedance|Seedream|SeedAudio|MAGI|Kling|可灵|Vidu|Wan|HappyHorse|Veo|Gemini|GPT[- ]Image|Nano Banana|Hailuo|海螺|PixVerse|MiniMax|Niji|Midjourney|Suno|ElevenLabs|Scribe|Eleven|HY[- ]?3D)(?:[ -]|\d|$)",re.I)
 def valid_watch_term(term):
     return isinstance(term,str) and len(term)<=80 and bool(MODEL_WATCH_NAME.match(term)) and bool(re.fullmatch(r"[\w .+\-]+",term)) and bool(re.search(r"\d",term))
