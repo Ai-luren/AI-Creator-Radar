@@ -6,13 +6,17 @@ import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 try:
-    from scripts.plan_refresh import GROUPS, plan, read_stamp, retry_after
+    from scripts.plan_refresh import GROUPS, SLOW_GROUPS, plan, read_stamp, retry_after, previously_deferred
 except ModuleNotFoundError:
-    from plan_refresh import GROUPS, plan, read_stamp, retry_after
+    from plan_refresh import GROUPS, SLOW_GROUPS, plan, read_stamp, retry_after, previously_deferred
 
 ROOT = Path(__file__).resolve().parents[1]
 
-def build(data_dir, now, event, run_id, attempt, schedule="", scope=""):
+def build(data_dir, now, event, run_id, attempt, schedule="", scope="", deferred=None):
+    if deferred is None:
+        deferred = previously_deferred(data_dir)
+    if not isinstance(deferred, (list, set)) or any(not isinstance(g, str) or g not in SLOW_GROUPS for g in deferred):
+        raise ValueError("Invalid deferred slow groups")
     due_now = plan(data_dir, "schedule", now=now, respect_backoff=False)
     eligible_now = plan(data_dir, "schedule", now=now)
     # Models are due at most 25 minutes after a successful check. Calculate
@@ -38,6 +42,7 @@ def build(data_dir, now, event, run_id, attempt, schedule="", scope=""):
     return {"schema":"scheduler-health/v1", "generatedAt":now.isoformat(),
             "nextDueAt":next_due.isoformat(), "trigger":{"event":event,"runId":run_id,
             "attempt":attempt,"schedule":schedule,"scope":scope}, "groups":groups,
+            "deferredSlowGroups":sorted(set(deferred)),
             "policy":"Validated snapshot freshness; due is raw staleness, eligible applies bounded retry backoff. Heartbeat is not proof every source succeeded."}
 
 def main():
@@ -45,7 +50,8 @@ def main():
     now = datetime.now(timezone.utc)
     result = build(data, now, os.environ.get("RADAR_EVENT",""), os.environ.get("RADAR_RUN_ID",""),
                    os.environ.get("RADAR_RUN_ATTEMPT",""), os.environ.get("RADAR_SCHEDULE",""),
-                   os.environ.get("RADAR_SCOPE",""))
+                   os.environ.get("RADAR_SCOPE",""),
+                   json.loads(os.environ["RADAR_DEFERRED_SLOW_GROUPS"]) if os.environ.get("RADAR_DEFERRED_SLOW_GROUPS") else None)
     path = data / "scheduler-health.json"
     tmp = path.with_suffix(".tmp")
     tmp.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
