@@ -908,7 +908,7 @@ var viewData={
  topics:['topics','chronicle'],
  social:['social'],
  platforms:['platforms'],
- opportunities:['contests','platforms','creatorStatus']
+ opportunities:['contests','platforms','creatorStatus','creatorDiscovery']
 };
 function currentDataKeys(){return Array.from(new Set((viewData[state.view]||viewData.overview).concat(state.view==='today'&&state.releaseMode==='apps'?['appUpdates']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['aipick']:[],state.view==='feeds'&&['competitors','vendors','hot','cases'].includes(state.briefingTab)?['appUpdates']:[],state.selectedModelId?viewData.models:[])))}
 function requestData(key){
@@ -1230,6 +1230,7 @@ function buildGlobalIndex(){
  function route(view,options){return {view:view,options:options||{}}}
  (state.models||[]).forEach(function(f){add('model',f.name,f.vendor+' · '+categoryName(f.category)+' · 家族',(f.aliases||[]).join(' ')+' '+(f.note||''),{family:f.id});(f.versions||[]).forEach(function(v){add('model',v.name,[f.vendor,categoryName(f.category),v.releaseDate||'发布日期待确认'].join(' · '),[f.name,f.id,v.id,(f.aliases||[]).join(' '),v.note,(v.leaderboardAliases||[]).map(function(a){return a.name}).join(' ')].join(' '),{family:f.id,version:v.id})})});
  (state.modelReleases||[]).forEach(function(x){add('release',x.modelName,[x.vendor,x.publishedAt,'已核实'].join(' · '),x.summary,x.modelFamilyId?{family:x.modelFamilyId,version:x.modelVersionId}:external(x.url))});
+ ((state.modelReleaseData||{}).verifiedStages||[]).forEach(function(x){add('release',x.modelName,[x.vendor,x.stageDate,historicalMilestoneLabel(x.stage)].join(' · '),x.summary,x.modelFamilyId?{family:x.modelFamilyId,version:x.modelVersionId}:external(x.url))});
  (state.topics||[]).forEach(function(t){if(t.group!=='公司与模型')return;add('topic',t.name,'厂商发展史',t.description,route('topics',{activeTopic:t.id}));(t.milestones||[]).filter(publishedChronicleNode).forEach(function(x){add('topic',x.title,[t.name,x.date,x.verificationStatus||'历史节点'].join(' · '),x.summary,external(x.url)||route('topics',{activeTopic:t.id}))})});
  [state.aihotDaily,state.juyaDaily].forEach(function(d,i){latestDigest(d,latestBriefingDay()).items.forEach(function(x){var link=briefArticleLinks(x)[0];add('news',x.title,[d.source||'日报',briefIssueDay(d),x.category].join(' · '),x.summary,external(link&&link.url)||route('feeds',{briefingTab:i?'juya':'aihot',query:x.title}))})});
  latestSelectedNews(latestBriefingDay()).forEach(function(x){add('news',x.title,[x.source&&x.source.name||'AIHOT',overviewDateLabel(x.publishedAt),'精选'].join(' · '),x.summary,external(x.links&&(x.links.original||x.links.aihot))||route('feeds',{briefingTab:'selected',query:x.title}))});

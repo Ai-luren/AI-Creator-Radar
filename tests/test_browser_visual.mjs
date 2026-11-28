@@ -134,7 +134,7 @@ try{
    await page.goto(base+'?view=today&status=pending',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.evaluate(()=>state.releaseMode),'confirmed');
    assert.equal(await page.locator('[data-release-mode="pending"],.release-review-label').count(),0);
-   assert.ok(await page.evaluate(()=>state.modelReleaseData.pending.length>0),'internal queue retained');
+   assert.ok(await page.evaluate(()=>Array.isArray(state.modelReleaseData.pending)),'internal queue retained even when empty');
    await page.locator('[data-release-mode="announcements"]').click();await page.waitForFunction(()=>state.dataReady);
    assert.equal(await page.locator('.release-review-label').count(),0);
    assert.ok(await page.evaluate(()=>Array.from(document.querySelectorAll('.release-card h3')).every(el=>state.modelReleaseData.verifiedStages.some(s=>s.modelName===el.textContent))),'announcements only validated stages');
@@ -167,7 +167,7 @@ try{
   });
   if(viewport.width!==360)await check('search-and-version',async()=>{
    await page.goto(base+'?view=models&category=image',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
-   await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});await page.waitForFunction(()=>state.indexReady);assert.equal(await page.evaluate(()=>globalIndex.some(x=>(x.type==='release'||x.type==='topic'||x.type==='social')&&/待复核|待核验/.test(x.meta))),false);assert.ok(await page.evaluate(()=>globalIndex.filter(x=>x.type==='release').every(x=>state.modelReleases.some(r=>r.modelName===x.title))));
+   await page.keyboard.press('Control+k');await page.locator('#globalSearchDialog').waitFor({state:'visible'});await page.waitForFunction(()=>state.indexReady);assert.equal(await page.evaluate(()=>globalIndex.some(x=>(x.type==='release'||x.type==='topic'||x.type==='social')&&/待复核|待核验/.test(x.meta))),false);assert.ok(await page.evaluate(()=>globalIndex.filter(x=>x.type==='release').every(x=>state.modelReleases.concat(state.modelReleaseData.verifiedStages||[]).some(r=>r.modelName===x.title))));
    await page.locator('#globalSearchInput').fill('Seedance 2.0');
    await page.locator('[data-global-type="model"]').click();await page.screenshot({path:path.join(out,label+'-search.png')});
    await page.locator('#globalSearchInput').press('Enter');await page.locator('.model-detail-version-selected').waitFor({state:'visible'});
@@ -177,7 +177,7 @@ try{
    assert.equal(await page.evaluate(()=>state.modelCategory),'image');
   });
   if(viewport.width!==360)await check('creator workflow',async()=>{
-   await page.goto(base+'?view=opportunities&tab=programs',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);const regionFilter=page.locator('[data-opportunity-select="opportunityRegion"]');await regionFilter.selectOption('domestic');assert.equal(await page.evaluate(()=>state.opportunityRegion),'domestic');await regionFilter.selectOption('all');
+   await page.goto(base+'?view=opportunities&tab=programs',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);assert.equal(await page.evaluate(()=>Object.keys(dataRequests).includes('creatorDiscovery')),true);const regionFilter=page.locator('[data-opportunity-select="opportunityRegion"]');await regionFilter.selectOption('domestic');assert.equal(await page.evaluate(()=>state.opportunityRegion),'domestic');await regionFilter.selectOption('all');
    const progress=page.locator('[data-creator-progress]').first();await progress.selectOption('watch');await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-creator-progress]').first().inputValue(),'watch');
    await page.screenshot({path:path.join(out,label+'-programs.png')});
    await page.goto(base+'?view=platforms',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);const fav=page.locator('[data-platform-favorite]').first(),favoriteId=await fav.getAttribute('data-platform-favorite');await fav.click();await page.reload();await page.waitForFunction(()=>state.dataReady);assert.equal(await page.locator('[data-platform-favorite="'+favoriteId+'"]').getAttribute('aria-pressed'),'true');
@@ -192,6 +192,7 @@ try{
    assert.equal(await page.locator('[data-topic-review="pending"],.topic-event-review.pending').count(),0);
    assert.equal(await page.evaluate(()=>Array.from(document.querySelectorAll('.topic-event-title')).every(el=>state.topics.find(t=>t.id==='google').milestones.some(m=>m.title===el.textContent&&publishedChronicleNode(m)))),true);
    assert.equal(await page.evaluate(()=>topicMilestoneCounts(state.topics.find(t=>t.id==='google')).verified),await page.locator('.topic-event').count());
+   assert.equal(await page.evaluate(()=>{const base={title:'Injected candidate',url:'https://example.com/pending',date:'2026-11-27',verificationStatus:'已核实'};return [publishedChronicleNode({...base,externalUnreviewed:true}),publishedChronicleNode({...base,autoCollected:true}),publishedChronicleNode({...base,autoCollected:true,verificationMethod:'automatic-dual-official',automaticReleaseEventId:'test',corroboratingSources:[]})].some(Boolean)}),false);
    await page.locator('[data-topic-cat="image"]').click();assert.equal(await page.evaluate(()=>state.topicCategory),'image');
    await page.screenshot({path:path.join(out,label+'-history.png')});
    await page.goto(base+'?view=today',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
