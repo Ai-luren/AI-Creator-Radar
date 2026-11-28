@@ -395,11 +395,20 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
             targets[tid] = {**prior, "active": False}
     service = dict(previous.get("service", {}))
     cooldown = stamp(service.get("nextAttemptAt"))
-    due = [t for t in targets.values() if t["active"] and
+    def recent_tier(target):
+        # Current active input, not the durable first-detection timestamp,
+        # governs scheduling. Retain original detection for audit.
+        observed = stamp(active[target["id"]].get("firstDetectedAt"))
+        if observed is None or observed > now:
+            return 2
+        age = now - observed
+        return 0 if age < timedelta(days=3) else 1 if age < timedelta(days=7) else 2
+
+    due = [t for t in targets.values() if t["active"] and recent_tier(t) < 2 and
            (not stamp(t.get("nextAttemptAt")) or stamp(t["nextAttemptAt"]) <= now)]
-    # Oldest untried first, then least-recently attempted. A flood of new tasks
-    # cannot indefinitely starve an older retry with an earlier due time.
-    due.sort(key=lambda t: (t.get("nextAttemptAt") or t["firstDetectedAt"], t["id"]))
+    # Latest three days first, then the rest of the seven-day window.
+    # Older targets keep local context but receive no index requests.
+    due.sort(key=lambda t: (recent_tier(t), t.get("nextAttemptAt") or t["firstDetectedAt"], t["id"]))
     attempted = 0
     # Use existing high-quality aggregation before broad search. Independent
     # providers keep their own health and per-target cooldown. One request total.
@@ -413,7 +422,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
         if until and until>now:
             return []
         rows = [t for t in targets.values() if t["active"] and t.get("identity")
-                and stamp(t.get("firstDetectedAt")) and stamp(t["firstDetectedAt"])>=recent_cutoff
+                and recent_tier(t)<2
                 and not any(r.get("officialCandidateUrl") for r in t.get("results",[]))
                 and (not stamp(t.get(prefix+"NextAttemptAt")) or stamp(t[prefix+"NextAttemptAt"])<=now)]
         if prefix=="aipick":
@@ -423,7 +432,7 @@ def search(families, discovery, reconciliation, product_state, previous, allowed
             primary_failed=bool(aihot_service.get("error") and stamp(aihot_service.get("nextAttemptAt"))
                                 and stamp(aihot_service["nextAttemptAt"])>now)
             rows=[t for t in rows if t.get("aihotLastAttemptAt") or primary_failed]
-        return sorted(rows,key=lambda t:(t.get(prefix+"LastAttemptAt") or "",t["firstDetectedAt"],t["id"]))
+        return sorted(rows,key=lambda t:(recent_tier(t),t.get(prefix+"LastAttemptAt") or "",t["firstDetectedAt"],t["id"]))
 
     def search_aggregated(target, provider, prefix, provider_state, fetch_fn):
         target[prefix+"LastAttemptAt"]=checked
