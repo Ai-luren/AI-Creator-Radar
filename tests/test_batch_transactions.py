@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.run_collection_batch import run_batch
+from scripts.run_collection_batch import BATCHES, run_batch
 
 
 class BatchTests(unittest.TestCase):
@@ -16,6 +16,13 @@ class BatchTests(unittest.TestCase):
         self.data.mkdir(parents=True)
         self.file = self.data / "sample.json"
         self.file.write_text('{"value": 0}')
+
+    def test_historical_network_repair_is_maintenance_only(self):
+        for group in ("models", "recovery"):
+            scripts = [s for t in BATCHES[group][1] for s in t]
+            self.assertNotIn("collect_historical_evidence", scripts)
+            self.assertIn("collect_event_reconciliation", scripts)
+        self.assertIn(("collect_historical_evidence", "collect_event_reconciliation"), BATCHES["maintenance"][1])
 
     def test_failure_rolls_back_only_its_transaction(self):
         def runner(args, **kwargs):
