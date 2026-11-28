@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T08:58:48+00:00",
-  "checkedAt": "2026-11-28T08:58:48+00:00",
+  "fetchedAt": "2026-11-28T09:32:31+00:00",
+  "checkedAt": "2026-11-28T09:32:31+00:00",
   "etags": {
-    "items": "W/\"v1-items-c65bb39416814710\"",
+    "items": "W/\"v1-items-bc089c6a8ee8cd62\"",
     "hotTopics": "W/\"v1-hot-210912a5892239c8\""
   },
   "items": [
+    {
+      "id": "q01xhbh5d8oiv1vmh9bxghyy1",
+      "title": "Anthropic 两周内上线 10 项 Claude 更新，含 MCP 2.0 与 Code Mode",
+      "originalTitle": "Anthropic shipped 10 huge Claude upgrades in the last two weeks. Here's all ten: 1. Claude Apps: install any artifact as a real desktop app 2. MCP 2.0: skills, background tasks, check-ins before risky actions 3. Code Mode: one script runs all of Claude's tool calls together 4. /ship: opens your PR and fixes what breaks for 7 days 5. Whiteboards: an infinite canvas Claude builds on with you 6. Claude Sheets: Claude's own spreadsheet 7. Claude Data: live dashboards on your data 8. Claude Meetings: Claude joins your Google Meet and takes notes 9. Fable Advisor: the top model advises a cheaper one 10. Monthly Recap: now includes your Claude Code sessions Get my Claude Code masterclass inside Chase AI Plus. Link in bio. #claudecode #anthropic #ai #aitools",
+      "summary": "Anthropic 在两周内为 Claude 上线 10 项更新，包括把 artifact 安装为 Windows 和 Mac 桌面应用的 Claude Apps、新增技能与后台任务及风险操作前确认的 MCP 2.0、用一段 JavaScript 同时执行全部工具调用并过滤输出的 Code Mode。",
+      "source": {
+        "name": "TikTok · 搜「ai tools」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/q01xhbh5d8oiv1vmh9bxghyy1",
+        "original": "https://www.tiktok.com/@chase_ai_/video/7712926135771794701"
+      },
+      "publishedAt": "2026-11-27T18:53:05.000Z",
+      "discoveredAt": "2026-11-28T09:26:20.292Z",
+      "category": "ai-products",
+      "score": 58,
+      "selected": true,
+      "reason": "原文列出 Claude 两周内十项更新，其中 MCP 2.0 的技能、后台任务和风险操作前确认，适合逐条演示新旧差异。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/q01xhbh5d8oiv1vmh9bxghyy1"
+      }
+    },
     {
       "id": "z49e304m2h496g4cjrl0jrcx3",
       "title": "腾讯混元3D 3.6实测：高模与PBR材质贴图生成能力提升",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/egxw9i3127xvq7r83hp4oguxh"
       }
-    },
-    {
-      "id": "uwynu0hnzr8avvi3bo7q5l121",
-      "title": "用 Minimax H3 和熔金提示词生成电影级字体动画",
-      "originalTitle": "Motion designers, this prompt is pure GOLD. 🥇🔥 Literally. I've been pushing cinematic typography with molten metal, and Minimax H3 makes this kind of luxury title reveal ridiculously fun. Forget basic text animations. Let's forge LEGEND like it's worth a billion dollars. 💀 Full prompt below — steal it! 👇 Extreme cinematic close-up of molten gold pouring through a dark ancient forge. The camera follows the glowing metal through channels at hyperspeed before emerging into an enormous underground chamber. Rivers of molten gold converge at the center and erupt upward like a reverse waterfall. The liquid metal begins sculpting gigantic letters in midair, progressively forming the word “LEGEND.” As each letter solidifies, its surface transitions from incandescent liquid to polished engraved gold. The camera performs a majestic orbit while enormous sparks rain through the chamber. On the final beat, a hammer-like shockwave hits the ground and illuminates the entire golden word. Premium lu",
-      "summary": "创作者 Charaspower 分享了一段用于 Minimax H3 的提示词，可生成熔金浇筑成“LEGEND”字样的电影级片头动画。提示词描述了熔金流经古老锻造通道、在巨大地下空间汇聚成反向瀑布、液态金属在空中塑形成字母并逐渐凝固为抛光金面，镜头环绕并伴随火花与锤击冲击波。作者称这类奢华标题揭示效果用 Minimax H3 做起来很有趣，并鼓励直接取用该提示词。",
-      "source": {
-        "name": "X · Charaspower"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/uwynu0hnzr8avvi3bo7q5l121",
-        "original": "https://x.com/CharaspowerAI/status/2126284947249872961"
-      },
-      "publishedAt": "2026-11-27T12:00:10.000Z",
-      "discoveredAt": "2026-11-27T13:00:35.627Z",
-      "category": "tip",
-      "score": 58,
-      "selected": true,
-      "reason": "作者公开了一段可直接复用的熔金字体提示词，并附上 Minimax H3 生成的成片，适合照着复现并对比普通文字动画的效果。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/uwynu0hnzr8avvi3bo7q5l121"
-      }
     }
   ],
   "hotTopics": [
@@ -923,7 +923,7 @@
     }
   ],
   "unchanged": [
-    "items"
+    "hotTopics"
   ],
   "errors": []
 }
