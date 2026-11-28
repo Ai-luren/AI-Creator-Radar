@@ -68,6 +68,45 @@ class SourceSearchTests(unittest.TestCase):
         self.assertEqual([r["officialCandidateUrl"] for r in target["results"]],["https://official.example/blog/design"])
         self.assertNotIn("publishedAt",target["results"][0])
 
+    def test_curated_exact_original_repository_link_does_not_require_full_vendor_listing(self):
+        name = "Nemotron-Labs-Image-30B-A3B"
+        lead = {"id":"direct","sourceId":"local-juya-daily","title":"NVIDIA 开放 "+name,
+                "url":"https://huggingface.co/nvidia/"+name,"officialArticleUrls":[],
+                "reportedAt":"2026-11-26","firstSeenAt":"2026-11-26T02:00:00Z"}
+        calls=[]
+        result=search(self.families,{"items":[lead]}, {}, {},{},self.allowed,self.now,
+                      lambda *a:self.fail("broad before aggregate"),
+                      aihot_fetcher=lambda t,*a:(calls.append(t["query"]) or [],"etag"))
+        self.assertEqual(calls,[name])
+        target=result["targets"][0]
+        self.assertTrue(target["repositoryBacked"])
+        self.assertIsNone(target["identity"])
+        self.assertEqual(target["localContext"][0]["sourceUrl"],lead["url"])
+        self.assertIsNone(target["localContext"][0]["assertedDate"])
+        self.assertIsNone(target["localContext"][0]["originalVerificationAt"])
+        self.assertEqual(augment_discovery({"items":[lead]},result),{"items":[lead]})
+        for wrong in (dict(lead,url=lead["url"]+"/tree/main"),
+                      dict(lead,url="https://huggingface.co.evil.test/nvidia/"+name),
+                      dict(lead,url="https://huggingface.co/nvidia/"+name+"-Other"),
+                      dict(lead,title=lead["title"]+"-Other"),
+                      dict(lead,sourceId="untrusted-feed")):
+            self.assertEqual(build_targets(self.families,{"items":[wrong]},{},{}),{})
+        competing = dict(lead,id="other",url="https://huggingface.co/other/"+name)
+        self.assertEqual(build_targets(self.families,{"items":[lead,competing]},{},{}),{})
+
+    def test_distinct_fresh_report_with_old_detection_does_not_bypass_aggregators(self):
+        lead = dict(self.discovery["items"][0],reportedAt="2026-11-27",
+                    firstSeenAt="2026-10-01T00:00:00Z")
+        previous={"schema":"source-search/v1","targets":[],
+                  "aihotService":{"nextAttemptAt":(self.now+timedelta(minutes=10)).isoformat(),"error":None}}
+        result=search(self.families,{"items":[lead]}, {}, {},previous,self.allowed,self.now,
+                      lambda *a:self.fail("broad index during normal aggregate cooldown"),
+                      aihot_fetcher=lambda *a:self.fail("aggregate cooldown"))
+        self.assertEqual(result["summary"]["attemptedThisRun"],0)
+        self.assertEqual(result["summary"]["broadDeferredForAggregators"],1)
+        self.assertEqual(result["targets"][0]["priorityDay"],"2026-11-27")
+        self.assertEqual(result["targets"][0]["firstDetectedAt"],lead["firstSeenAt"])
+
     def test_title_variant_and_host_validation(self):
         results = parse_results({"articles":[
             {"title":"Introducing Demo v3","url":"https://official.example/blog/v3","seendate":"20261126T120000Z"},
