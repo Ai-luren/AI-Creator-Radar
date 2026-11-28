@@ -261,12 +261,18 @@ function prioritizeProductNews(rows){
 // guarantees of access. Existing collector logs remain the only live input.
 var competitorMatrixBrands=['Higgsfield','LibTV','Flova','TapNow','Renoise'];
 var competitorMatrixDimensions=[
- {id:'canvas',name:'创作画布',pattern:/画布|canvas|workflow|工作流|node|节点/i},
+ {id:'canvas',name:'画布与工作流',pattern:/画布|canvas|workflow|工作流|node|节点/i},
+ {id:'project',name:'项目与协作',pattern:/项目|协作|团队|共享|权限|project|collaborat|team workspace|sharing/i},
+ {id:'asset',name:'资产与素材',pattern:/资产|素材|角色库|资源库|asset|media library|reference library/i},
+ {id:'script',name:'剧本与分镜',pattern:/剧本|脚本|分镜|storyboard|screenplay|script writing/i},
  {id:'studio',name:'垂直 Studio',pattern:/Mangaka|漫画|漫剧|Short Drama Studio|Property Studio|Shorts Studio|Ads Studio|Cinema Studio|studio\b/i},
- {id:'image',name:'图像与角色',pattern:/角色|三视图|character|image edit|图片编辑|图像编辑|reframe.*panel/i},
- {id:'video',name:'视频与预演',pattern:/白模|预演|3D.BOX|Editing Room|video edit|智能剪辑|camera control|运镜|video.*timeline|分镜/i},
+ {id:'image',name:'图像与角色',pattern:/角色|三视图|character|image (?:edit|generat)|图片(?:编辑|生成)|图像(?:编辑|生成)|reframe.*panel/i},
+ {id:'video',name:'视频生成与预演',pattern:/白模|预演|3D.BOX|视频生成|video generat|camera control|运镜|镜头控制/i},
+ {id:'editing',name:'剪辑与后期',pattern:/Editing Room|video edit|智能剪辑|剪辑|时间线|字幕|调色|修复|去水印|timeline|subtitle|upscal|relight/i},
  {id:'sound',name:'音频与对白',pattern:/audio|音频|音轨|对白|lip.sync|Intone|配音/i},
  {id:'agent',name:'Agent / Skills',pattern:/agent|Supercomputer|导演分身|TV Director|skills/i},
+ {id:'plugin',name:'插件与开放生态',pattern:/插件|plugin|extension|MCP|SDK|\bAPI\b|开发者/i},
+ {id:'delivery',name:'导出与交付',pattern:/导出|下载|交付|export|render output|download/i},
  {id:'integration',name:'模型接入',pattern:null},
  {id:'other',name:'其他产品功能',pattern:null}
 ];
@@ -277,7 +283,13 @@ var competitorMatrixReviewed=[
  {brand:'LibTV',name:'LibTV 3D-BOX',dimensions:['video'],url:'https://www.liblib.tv/3d-box',reviewedOn:'2026-11-28',note:'官方说明含搭景、站位及手绘运镜；未实测镜头参数。'},
  {brand:'LibTV',name:'LibTV Agent BETA',dimensions:['agent'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页展示 Beta 入口。'},
  {brand:'LibTV',name:'音频生成',dimensions:['sound'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页列出能力；未实测具体音频工具。'},
- {brand:'LibTV',name:'智能剪辑',dimensions:['video'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页列出能力；未实测。'}
+ {brand:'LibTV',name:'智能剪辑',dimensions:['editing'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官方首页列出能力；未实测。'},
+ {brand:'LibTV',name:'项目',dimensions:['project'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'},
+ {brand:'LibTV',name:'资产',dimensions:['asset'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'},
+ {brand:'LibTV',name:'插件',dimensions:['plugin'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'},
+ {brand:'LibTV',name:'视频生成',dimensions:['video'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'},
+ {brand:'LibTV',name:'图片生成',dimensions:['image'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'},
+ {brand:'LibTV',name:'剧本生成',dimensions:['script'],url:'https://www.liblib.tv/',reviewedOn:'2026-11-28',note:'官网显示入口；未实测内部功能。'}
 ];
 function competitorMatrixRows(app,now,reviewed){
  app=app||{};var seen=new Set(),rows=[],sources=app.sources||[];
@@ -292,7 +304,7 @@ function competitorMatrixRows(app,now,reviewed){
  sources.filter(function(s){return s.type==='product-surface'&&s.role==='competitor'&&competitorMatrixBrands.includes(s.vendor)}).forEach(function(source){
   Object.values(source.entries||{}).filter(function(e){return e.claimType==='first-party-product-surface'&&e.visibleInLatestRead===true&&e.featureName&&e.lastObservedAt}).forEach(function(e){
    var url=creatorOriginalUrl(e.featureUrl||source.url);if(!url)return;
-   var dimensions=competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName)}).map(function(x){return x.id});
+   var dimensions=/模型上新|模型接入|模型上线|已接入|独家首发/i.test(e.featureName)?['integration']:competitorMatrixDimensions.filter(function(x){return x.pattern&&x.pattern.test(e.featureName)}).map(function(x){return x.id});
    add({brand:source.vendor,name:e.featureName,dimensions:dimensions.length?dimensions:['other'],url:url,day:null,reviewedOn:chinaDay(e.lastObservedAt),kind:'官网自动观察',note:'最近成功读取的公开入口，不代表发布日期或登录后的完整功能。'});
   })
  });
@@ -309,5 +321,5 @@ function competitorMatrixPage(tabs){
   }).join('')+'</tr>'
  }).join('');
  var health=competitorMatrixBrands.map(function(brand){var ss=sources.filter(function(s){return s.vendor===brand&&s.role==='competitor'});return '<p>'+esc(brand+' · '+(ss.length?ss.map(function(s){return s.type==='navigation-only'?'官网入口 · 功能日志未读':s.lastSuccessAt?'最近成功 '+overviewTime(s.lastSuccessAt):'尚无成功采集'}).join(' / '):'暂无已配置官方日志'))+'</p>'}).join('');
- return pageHead('行业简报','从官方功能证据横向比较创作平台，发现值得进一步验证的能力。','功能矩阵 · 重点5家')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">近30天官方更新日志 + 已核查官网能力。未观察不等于不支持；官网观察不是发布日期，也不是实际功能测试。功能形态归类仅供研究。</p><div class="competitor-matrix-wrap" tabindex="0" role="region" aria-label="竞品功能矩阵，可横向滚动"><table class="competitor-matrix"><thead><tr><th scope="col">能力维度</th>'+competitorMatrixBrands.map(function(x){return '<th scope="col">'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>'+body+'</tbody></table></div><details class="source-health"><summary>来源覆盖与局限</summary>'+health+'<p>其他关注平台仍在竞品动态定向发现中；尚未进入本矩阵，不代表不关注。</p></details>'
+ return pageHead('行业简报','从官方功能证据横向比较创作平台，发现值得进一步验证的能力。','功能矩阵 · 重点5家')+'<div class="tabs briefing-tabs" role="group" aria-label="简报来源">'+tabs+'</div><p class="page-desc">整个平台的近30天官方功能更新 + 已核查官网能力，不限于画布。新增产品形态无法匹配时仍保留在其他产品功能。未观察不等于不支持；官网观察不是发布日期，也不是实际功能测试。</p><div class="competitor-matrix-wrap" tabindex="0" role="region" aria-label="竞品功能矩阵，可横向滚动"><table class="competitor-matrix"><thead><tr><th scope="col">能力维度</th>'+competitorMatrixBrands.map(function(x){return '<th scope="col">'+esc(x)+'</th>'}).join('')+'</tr></thead><tbody>'+body+'</tbody></table></div><details class="source-health"><summary>来源覆盖与局限</summary>'+health+'<p>其他关注平台仍在竞品动态定向发现中；尚未进入本矩阵，不代表不关注。</p></details>'
 }
