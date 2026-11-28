@@ -675,7 +675,57 @@ def fetch(source):
         return parse_product_surface(data.decode("utf-8"),source)
     return parse_store(json.loads(data),source) if is_store else parse_surface(data.decode("utf-8"),source)
 
-def aggregate_coverage(spec,targeted,now):
+def readable_competitor_lanes(snapshots,term,now):
+    """Only recent selected original links actually present in saved reading data."""
+    found=set()
+    if not term:
+        return found
+    brand=re.escape(term)
+    for payload in (snapshots or {}).values():
+        if not isinstance(payload,dict):
+            continue
+        stamp=parse_stamp(payload.get("fetchedAt"))
+        if not stamp or not now-timedelta(hours=12)<=stamp<=now:
+            continue
+        for item in payload.get("items",[]):
+            if not isinstance(item,dict) or item.get("selected") is not True:
+                continue
+            when=parse_stamp(item.get("publishedAt"))
+            links=item.get("links") or {}
+            if not when or not now-timedelta(days=7)<=when<=now or not isinstance(links,dict) or links.get("story"):
+                continue
+            original=links.get("original")
+            if not isinstance(original,str):
+                continue
+            try:
+                u=urlsplit(original)
+                if not u.hostname or u.username or u.password or u.port not in (None,443) or not (u.scheme=="https" or u.scheme=="http" and u.hostname=="mp.weixin.qq.com" and re.match(r"^/s(?:/|$)",u.path)):
+                    continue
+            except ValueError:
+                continue
+            title=str(item.get("title") or "").strip()
+            if not (re.match(r"^"+brand+r"(?![A-Za-z0-9])",title,re.I) or re.search(r"(?:接入|上线|上架|登陆|登录)\s*"+brand+r"(?![A-Za-z0-9])",title,re.I)):
+                continue
+            if re.search(r"测评|实测|教程|提示词|折扣|优惠|黑五|discount|coupon|black friday|review|tutorial",title,re.I):
+                continue
+            if re.search(r"上线|接入|上架|支持|integrat|now live|available",title,re.I) and re.search(r"模型|MAGI[- ]?\d|Seedance|Seedream|Kling|GPT[- ]?\d|Gemini|Vidu|Wan\s*\d",title,re.I):
+                found.add("selectedModelIntegrations")
+            elif re.search(r"新功能|新增|更新|推出|发布|上线|升级|功能|工作流|画布|编辑|feature|launch|introduc|release|update|workflow",title,re.I):
+                found.add("selectedProductFeatures")
+    return found
+
+
+def read_selected_snapshots(data_dir):
+    snapshots={}
+    for provider,filename in (("AIHOT","aihot-items.json"),("AIPick","aipick-data.json")):
+        try:
+            snapshots[provider]=json.loads((data_dir/filename).read_text(encoding="utf-8"))
+        except (OSError,ValueError):
+            pass
+    return snapshots
+
+
+def aggregate_coverage(spec,targeted,now,snapshots=None):
     """Selected-report coverage, not a proof of completeness or release facts."""
     ids=spec.get("aggregateQueryIds")
     if not ids:
@@ -694,9 +744,13 @@ def aggregate_coverage(spec,targeted,now):
         counts=r.get("counts") or {}
         if r.get("status") in {"observed","unchanged"} and success and limit<=success<=now and all(k in counts for k in ("selectedProductFeatures","selectedModelIntegrations")):
             fresh.append(counts)
-    missing=[lane for lane in ("selectedProductFeatures","selectedModelIntegrations") if not any(c.get(lane,0)>0 for c in fresh)]
+    lanes=("selectedProductFeatures","selectedModelIntegrations")
+    queried={lane for lane in lanes if any(c.get(lane,0)>0 for c in fresh)}
+    visible=readable_competitor_lanes(snapshots,spec.get("vendor") or rows[0].get("term"),now)
+    missing=[lane for lane in lanes if lane not in queried or lane not in visible]
     return {"status":"aggregate-gap" if missing else "aggregate-covered-sample","missingLanes":missing,
-            "successfulProviders":len(fresh),"policy":"Observed selected-report lanes, not exhaustive event coverage."}
+            "queryLanes":sorted(queried),"readableLanes":sorted(visible),
+            "successfulProviders":len(fresh),"policy":"Require both query and readable selected evidence; not exhaustive coverage."}
 
 
 
@@ -868,7 +922,7 @@ def model_watch_official_gap(spec,targeted,previous,now):
     return sorted(set(gaps))
 
 
-def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releases=None):
+def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releases=None,snapshots=None):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
     stamp=now.isoformat(timespec="seconds")
@@ -889,7 +943,7 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
         if spec["id"]=="higgsfield-changelog" and spec.get("type")=="higgs-changelog":
             entries={k:correct_model_improvement(v) for k,v in entries.items()}
             row["entries"]=entries
-        coverage=aggregate_coverage(spec,targeted,now)
+        coverage=aggregate_coverage(spec,targeted,now,snapshots)
         model_gaps=model_watch_official_gap(spec,targeted,previous,now)
         if model_gaps:
             row["modelWatchGap"]=model_gaps
@@ -976,7 +1030,7 @@ def main():
     else:
         release_path=ROOT/"site/data/model-releases-30d.json"
         releases=read(release_path).get("items",[]) if release_path.exists() else []
-        result=collect(config,previous,datetime.now(timezone.utc),releases=releases)
+        result=collect(config,previous,datetime.now(timezone.utc),releases=releases,snapshots=read_selected_snapshots(ROOT/"site/data"))
     result=refresh_platform_coverage(config,result,ROOT/"site/data",datetime.now(timezone.utc))
     print("Platform coverage:",json.dumps(result["platformCoverage"],ensure_ascii=False))
     if not a.coverage_only:
