@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T07:41:16+00:00",
+  "checkedAt": "2026-11-28T07:52:16+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -72,6 +72,16 @@
           "kind": "官方 Blog",
           "url": "https://higgsfield.ai/blog/editorials",
           "access": "产品详解与使用说明"
+        },
+        {
+          "kind": "官方 CLI",
+          "url": "https://github.com/higgsfield-ai/cli",
+          "access": "官方版本与源码；无说明的小版本不自动充当重大产品迭代"
+        },
+        {
+          "kind": "官方 Skills",
+          "url": "https://github.com/higgsfield-ai/skills",
+          "access": "明确合并的面向创作者功能进入开发生态事件"
         }
       ],
       "type": "higgs-changelog",
@@ -417,7 +427,18 @@
       "name": "Flova · 官方更新日志",
       "vendor": "Flova",
       "url": "https://www.flova.ai/en/docs/changelog/",
-      "links": [],
+      "links": [
+        {
+          "kind": "官方 Agent 插件",
+          "url": "https://github.com/FlovaAI/flova-plugin",
+          "access": "官方 MCP 与 Skills 仓库；当前指南提交不等于新功能上线"
+        },
+        {
+          "kind": "官方 MCP",
+          "url": "https://www.flova.ai/en/agent-mcp/",
+          "access": "公开能力说明，非发布日期"
+        }
+      ],
       "type": "dated-changelog",
       "role": "competitor",
       "aggregateCoverage": {
@@ -942,7 +963,13 @@
       "name": "TapNow · 官方更新日志",
       "vendor": "TapNow",
       "url": "https://docs.tapnow.ai/en/docs/changelog",
-      "links": [],
+      "links": [
+        {
+          "kind": "官方 MCP / 外部 Agent",
+          "url": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+          "access": "公开能力说明；不确认所有客户端当前开放范围"
+        }
+      ],
       "type": "dated-changelog",
       "role": "competitor",
       "aggregateCoverage": {
@@ -1612,6 +1639,11 @@
           "kind": "官方模型目录",
           "url": "https://www.oiioii.ai/en/explore/models",
           "access": "目录不等于发布日期"
+        },
+        {
+          "kind": "官方 CLI / 插件入口",
+          "url": "https://www.oiioii.ai/",
+          "access": "官网可见，不推断上线日期"
         }
       ],
       "type": "dated-changelog",
@@ -2005,11 +2037,220 @@
       "deferred": true,
       "consecutiveFailures": 0,
       "nextAttemptAt": "2026-11-28T19:36:49.417790+00:00"
+    },
+    {
+      "id": "higgsfield-skills-features",
+      "name": "Higgsfield · 官方 Skills 功能合并",
+      "vendor": "Higgsfield",
+      "url": "https://github.com/higgsfield-ai/skills",
+      "links": [
+        {
+          "kind": "官方合并记录",
+          "url": "https://github.com/higgsfield-ai/skills/pulls?q=is%3Apr+is%3Amerged",
+          "access": "仅面向创作者的明确功能合并；非网页发布或接入日期"
+        }
+      ],
+      "type": "github-feature-merge",
+      "role": "competitor",
+      "entries": {
+        "fc1bb89ce8d38728ba1d026d69d4727e37cde12fac115914152bb2a6dbad189d": {
+          "featureName": "Higgsfield Skills · default to GPT Image 2.6 with native GIF and SVG",
+          "publisherCalendarDay": "2026-11-05",
+          "publisherCommitAt": "2026-11-05T01:43:23+00:00",
+          "productArea": "Agent / Skills",
+          "publisherLabel": "官方功能合并记录",
+          "updateType": "product-feature",
+          "category": "app",
+          "claimType": "first-party-developer-change",
+          "sourceUrl": "https://github.com/higgsfield-ai/skills/pull/17",
+          "firstObservedAt": "2026-11-28T07:52:16+00:00",
+          "lastObservedAt": "2026-11-28T07:52:16+00:00",
+          "visibleInLatestRead": true
+        },
+        "e94edc22bd4c58b595cce1519dffeb4dacdbc6dbfa6824f483caa1ac0284f7e2": {
+          "featureName": "Higgsfield Skills · Add faceless video skill",
+          "publisherCalendarDay": "2026-10-27",
+          "publisherCommitAt": "2026-10-27T17:53:59+00:00",
+          "productArea": "Agent / Skills",
+          "publisherLabel": "官方功能合并记录",
+          "updateType": "product-feature",
+          "category": "app",
+          "claimType": "first-party-developer-change",
+          "sourceUrl": "https://github.com/higgsfield-ai/skills/pull/15",
+          "firstObservedAt": "2026-11-28T07:52:16+00:00",
+          "lastObservedAt": "2026-11-28T07:52:16+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T07:52:16+00:00",
+      "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T19:52:16.947276+00:00"
+    },
+    {
+      "id": "tapnow-agent-docs",
+      "name": "TapNow · 官方开发生态入口",
+      "vendor": "TapNow",
+      "url": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "links": [],
+      "type": "product-surface",
+      "role": "competitor",
+      "modelWatchGap": [
+        "MAGI-2",
+        "Niji 8"
+      ],
+      "aggregateCoverage": {
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "queryLanes": [],
+        "readableLanes": [],
+        "successfulProviders": 2,
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
+      },
+      "surfaceParserVersion": 2,
+      "entries": {
+        "b9cd99102655e259a7fa2dac021ca076de81a49290a26d07b1913af897e6b31e": {
+          "featureName": "TapNow MCP 外部 Agent 创作入口",
+          "productArea": "公开开发生态",
+          "featureUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T07:52:16+00:00",
+          "lastObservedAt": "2026-11-28T07:52:16+00:00",
+          "visibleInLatestRead": true
+        },
+        "90989104183b14b0975bd824084f56a9099c1cc5d6fa0021193ed316a9ee7a5d": {
+          "featureName": "外部 Agent 委托完整创作任务",
+          "productArea": "公开开发生态",
+          "featureUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T07:52:16+00:00",
+          "lastObservedAt": "2026-11-28T07:52:16+00:00",
+          "visibleInLatestRead": true
+        },
+        "21812e31efd43087d072d22222a43d62775ca65063320418b200031b21c8389b": {
+          "featureName": "从画布连接外部 Agent",
+          "productArea": "公开开发生态",
+          "featureUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T07:52:16+00:00",
+          "lastObservedAt": "2026-11-28T07:52:16+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T07:52:16+00:00",
+      "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-29T07:52:16.947276+00:00"
+    },
+    {
+      "id": "flova-agent-docs",
+      "name": "Flova · 官方开发生态入口",
+      "vendor": "Flova",
+      "url": "https://www.flova.ai/en/agent-mcp/",
+      "links": [],
+      "type": "product-surface",
+      "role": "competitor",
+      "modelWatchGap": [
+        "MAGI-2",
+        "Niji 8"
+      ],
+      "aggregateCoverage": {
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "queryLanes": [],
+        "readableLanes": [],
+        "successfulProviders": 2,
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
+      },
+      "surfaceParserVersion": 2,
+      "entries": {
+        "1245c7fdba0daed386dd49f757fd57886522d5aa86240731ee6a9a2a0c6f8c24": {
+          "featureName": "Flova 官方 Agent 插件 / MCP / Skills",
+          "productArea": "公开开发生态",
+          "featureUrl": "https://www.flova.ai/en/agent-mcp/",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T07:52:16+00:00",
+          "lastObservedAt": "2026-11-28T07:52:16+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T07:52:16+00:00",
+      "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-29T07:52:16.947276+00:00"
+    },
+    {
+      "id": "oiioii-agent-home",
+      "name": "OiiOii · 官方开发生态入口",
+      "vendor": "OiiOii",
+      "url": "https://www.oiioii.ai/",
+      "links": [],
+      "type": "product-surface",
+      "role": "competitor",
+      "modelWatchGap": [
+        "MAGI-2",
+        "Niji 8"
+      ],
+      "aggregateCoverage": {
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "queryLanes": [],
+        "readableLanes": [],
+        "successfulProviders": 2,
+        "policy": "Require both query and readable selected evidence; not exhaustive coverage."
+      },
+      "surfaceParserVersion": 2,
+      "entries": {
+        "df3f3fac9a0f3865aada740e7e792188d858101836f334e0c73cb9009382975c": {
+          "featureName": "Oii Plugin",
+          "productArea": "公开开发生态",
+          "featureUrl": "https://www.oiioii.ai/",
+          "category": "app",
+          "claimType": "first-party-product-surface",
+          "updateType": "surface-observation",
+          "firstObservedAt": "2026-11-28T07:52:16+00:00",
+          "lastObservedAt": "2026-11-28T07:52:16+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "checkedAt": "2026-11-28T07:52:16+00:00",
+      "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+      "status": "observed",
+      "error": null,
+      "deferred": false,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-29T07:52:16.947276+00:00"
     }
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T07:41:16+00:00",
+    "checkedAt": "2026-11-28T07:52:16+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -2864,7 +3105,24 @@
         "priority": 4,
         "intervalMinutes": 720,
         "category": "ai-products",
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T07:52:16+00:00",
+        "counts": {
+          "items": 29,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 29,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 23,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T07:52:16+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-fdbaddd16d8e4794\"",
+        "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T19:52:16.947276+00:00"
       },
       {
         "id": "gemini-app-aipick",
@@ -2874,7 +3132,24 @@
         "priority": 4,
         "intervalMinutes": 720,
         "category": "ai-products",
-        "queuedAt": "2026-11-28T06:49:40+00:00"
+        "queuedAt": "2026-11-28T06:49:40+00:00",
+        "lastAttemptAt": "2026-11-28T07:52:16+00:00",
+        "counts": {
+          "items": 30,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 30,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 26,
+          "hasNextCursor": true,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 2
+        },
+        "countsObservedAt": "2026-11-28T07:52:16+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-f021611110b0512a\"",
+        "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T19:52:16.947276+00:00"
       },
       {
         "id": "model-watch-1bd7d344ac446786bc23-aihot",
@@ -3046,24 +3321,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T07:24:43+00:00",
-      "nextAttemptAt": "2026-11-28T07:49:43.297116+00:00"
+      "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+      "nextAttemptAt": "2026-11-28T08:17:16.947276+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T07:24:43+00:00",
-        "nextAttemptAt": "2026-11-28T07:49:43.297116+00:00"
+        "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+        "nextAttemptAt": "2026-11-28T08:17:16.947276+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T07:24:43+00:00",
-        "nextAttemptAt": "2026-11-28T07:49:43.297116+00:00"
+        "lastSuccessAt": "2026-11-28T07:52:16+00:00",
+        "nextAttemptAt": "2026-11-28T08:17:16.947276+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -3242,6 +3517,108 @@
     }
   ],
   "events": [
+    {
+      "id": "fe70b9ac953bcc848633acd6050f83a4e6e19495c76943de0804d9e7204f3798",
+      "sourceId": "tapnow-agent-docs",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T07:52:16+00:00",
+      "releaseDate": null,
+      "featureName": "外部 Agent 委托完整创作任务",
+      "productArea": "公开开发生态",
+      "featureUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "e1737930067cf75cf37aaf8f1dc3d49b8ca4c0691d257797bd1797c5f3a4beba",
+      "sourceId": "higgsfield-skills-features",
+      "sourceUrl": "https://github.com/higgsfield-ai/skills/pull/15",
+      "kind": "baseline-developer-change",
+      "observedAt": "2026-11-28T07:52:16+00:00",
+      "releaseDate": null,
+      "featureName": "Higgsfield Skills · Add faceless video skill",
+      "publisherCalendarDay": "2026-10-27",
+      "publisherCommitAt": "2026-10-27T17:53:59+00:00",
+      "productArea": "Agent / Skills",
+      "publisherLabel": "官方功能合并记录",
+      "updateType": "product-feature",
+      "category": "app",
+      "claimType": "first-party-developer-change"
+    },
+    {
+      "id": "c1b52bd4682b4b4b671c090651c379d20d72988a3d67a7b6c98587c6ec9ff9ce",
+      "sourceId": "tapnow-agent-docs",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T07:52:16+00:00",
+      "releaseDate": null,
+      "featureName": "TapNow MCP 外部 Agent 创作入口",
+      "productArea": "公开开发生态",
+      "featureUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "9e750a85da953f46486a717f825821b9cf20cc3b131d7a108ce76ca614a282c9",
+      "sourceId": "flova-agent-docs",
+      "sourceUrl": "https://www.flova.ai/en/agent-mcp/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T07:52:16+00:00",
+      "releaseDate": null,
+      "featureName": "Flova 官方 Agent 插件 / MCP / Skills",
+      "productArea": "公开开发生态",
+      "featureUrl": "https://www.flova.ai/en/agent-mcp/",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "328668fb9fd508cc36608cb48b1329606e639698bd3403e31a5dfa42e4c0026e",
+      "sourceId": "higgsfield-skills-features",
+      "sourceUrl": "https://github.com/higgsfield-ai/skills/pull/17",
+      "kind": "baseline-developer-change",
+      "observedAt": "2026-11-28T07:52:16+00:00",
+      "releaseDate": null,
+      "featureName": "Higgsfield Skills · default to GPT Image 2.6 with native GIF and SVG",
+      "publisherCalendarDay": "2026-11-05",
+      "publisherCommitAt": "2026-11-05T01:43:23+00:00",
+      "productArea": "Agent / Skills",
+      "publisherLabel": "官方功能合并记录",
+      "updateType": "product-feature",
+      "category": "app",
+      "claimType": "first-party-developer-change"
+    },
+    {
+      "id": "2ea59600abfbd59631467486135ded1dd3ebd954a3ce6652480be99413b5e8a8",
+      "sourceId": "tapnow-agent-docs",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T07:52:16+00:00",
+      "releaseDate": null,
+      "featureName": "从画布连接外部 Agent",
+      "productArea": "公开开发生态",
+      "featureUrl": "https://docs.tapnow.ai/en/docs/mcp/use-tapnow-in-other-agents",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
+    {
+      "id": "0efa2f89177afeb81337d50bd6bb1dd423d1b7427d2eec71d79cc25becc38b28",
+      "sourceId": "oiioii-agent-home",
+      "sourceUrl": "https://www.oiioii.ai/",
+      "kind": "baseline-product-surface",
+      "observedAt": "2026-11-28T07:52:16+00:00",
+      "releaseDate": null,
+      "featureName": "Oii Plugin",
+      "productArea": "公开开发生态",
+      "featureUrl": "https://www.oiioii.ai/",
+      "category": "app",
+      "claimType": "first-party-product-surface",
+      "updateType": "surface-observation"
+    },
     {
       "id": "d7ea6ca3c0008bda60de8b7300b2a9d7dcbafa7b00bf33e1999fb4fb44866ba0",
       "sourceId": "libtv-codex-plugin",
@@ -5214,15 +5591,15 @@
     }
   ],
   "summary": {
-    "configuredSources": 15,
-    "successfulThisRun": 0,
-    "baselineSources": 9,
+    "configuredSources": 19,
+    "successfulThisRun": 4,
+    "baselineSources": 13,
     "listedModels": 0,
     "reviewedObservations": 11
   },
   "policy": "App visible model label or public feature entry is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T07:41:21+00:00",
+    "checkedAt": "2026-11-28T07:52:28+00:00",
     "window": "7d",
     "sources": [
       {
@@ -5235,7 +5612,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T07:17:31+00:00",
+        "fetchedAt": "2026-11-28T07:51:54+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],

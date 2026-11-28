@@ -1,11 +1,11 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T07:41:14+00:00",
+  "checkedAt": "2026-11-28T07:52:08+00:00",
   "service": {
-    "lastAttemptAt": "2026-11-28T01:46:48+00:00",
-    "error": "HTTPError: HTTP Error 429: Too Many Requests",
-    "consecutiveFailures": 1,
-    "nextAttemptAt": "2026-11-28T07:46:48.626953+00:00",
+    "lastAttemptAt": "2026-11-28T07:52:08+00:00",
+    "error": "OSError: URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
+    "consecutiveFailures": 2,
+    "nextAttemptAt": "2026-11-28T11:52:08.844192+00:00",
     "lastSuccessAt": "2026-11-28T01:09:27+00:00"
   },
   "aihotService": {
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -156,7 +156,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:28:20Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         },
         {
@@ -166,7 +166,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -401,7 +401,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -535,7 +535,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -642,7 +642,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -805,7 +805,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:01Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         },
         {
@@ -892,7 +892,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:01Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1010,7 +1010,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1020,7 +1020,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:28:20Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1030,7 +1030,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:36:35Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1089,7 +1089,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:36:35Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1270,7 +1270,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -1318,7 +1318,10 @@
       "aipickETag": "W/\"v1-items-ed9a68af1868fb38\"",
       "aipickLastSuccessAt": "2026-11-28T04:38:07+00:00",
       "aipickStatus": "no-matching-index-results",
-      "aipickNextAttemptAt": "2026-11-29T04:38:07.098374+00:00"
+      "aipickNextAttemptAt": "2026-11-29T04:38:07.098374+00:00",
+      "lastAttemptAt": "2026-11-28T07:52:08+00:00",
+      "status": "index-unavailable",
+      "nextAttemptAt": "2026-11-28T11:52:08.844192+00:00"
     },
     {
       "id": "f3521190c7e1cec59ec5f87b18f8f2bdb269aa0d3cf76063115e3d747f34ab18",
@@ -1392,7 +1395,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:28:20Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1402,7 +1405,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:41:11+00:00",
+          "lastObservedAt": "2026-11-28T07:52:06+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1412,7 +1415,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T07:36:35Z",
+          "lastObservedAt": "2026-11-28T07:51:55Z",
           "provenance": "existing-discovery"
         }
       ],
@@ -1428,10 +1431,10 @@
   ],
   "summary": {
     "activeTargets": 23,
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 1,
     "targetStates": {
-      "awaiting-search": 18,
-      "index-unavailable": 4,
+      "awaiting-search": 17,
+      "index-unavailable": 5,
       "no-matching-index-results": 1
     },
     "priorityTargetCounts": {
@@ -1454,8 +1457,8 @@
     "aihotError": null,
     "aihotPointers": 0,
     "indexLastSuccessAt": "2026-11-28T01:09:27+00:00",
-    "indexError": "HTTPError: HTTP Error 429: Too Many Requests",
-    "nextIndexAttemptAt": "2026-11-28T07:46:48.626953+00:00"
+    "indexError": "OSError: URLError: <urlopen error _ssl.c:994: The handshake operation timed out>",
+    "nextIndexAttemptAt": "2026-11-28T11:52:08.844192+00:00"
   },
   "policy": "Search only unresolved observed names. Search hits and index observation times are not release facts, and mirrors are not independent official sources."
 }
