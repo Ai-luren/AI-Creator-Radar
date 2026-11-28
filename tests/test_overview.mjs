@@ -1148,3 +1148,19 @@ test('campaign milestones convert planning dates into research handoffs without 
  assert.equal(run('campaignPreparationStage(7)'),'D-7 · 成片与功能验收');
  assert.equal(run('campaignPreparationStage(0)'),'D-Day · 发布与观察');
 });
+
+
+test('Revid personal research renders only valid recent original posts in the existing cases route',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=cases',now:'2026-11-28T12:00:00Z'});
+ await run('loadAllForTests()');
+ assert.match(node('content').innerHTML,/海外爆款 · 个人研究/);
+ const row={source:'revid',verification:'provider-reported',url:'https://x.com/i/web/status/123',platform:'x',postedAt:'2026-11-27T12:00:00Z',observedAt:'2026-11-28T10:00:00Z',views:30000,likes:null,shares:0,creativeTopics:['cinematic']};
+ const raw=JSON.stringify({candidates:[row,row,{...row,url:'https://example.com/video'},{...row,url:'https://x.com/i/web/status/124',platform:'youtube'},{...row,url:'https://x.com/i/web/status/125',postedAt:'2026-11-01T00:00:00Z'},{...row,url:'https://x.com/i/web/status/126',views:'30000'},{...row,url:'https://x.com/i/web/status/127',creativeTopics:['constructor']}]});
+ run('revidSessionRows=revidPersonalRows('+JSON.stringify(raw)+',Date.now());render()');
+ assert.equal(run('revidSessionRows.length'),1);
+ assert.match(node('content').innerHTML,/https:\/\/x\.com\/i\/web\/status\/123/);
+ assert.match(node('content').innerHTML,/来源报告浏览\/播放 30,000 · 点赞 未知 · 分享 0/);
+ assert.doesNotMatch(node('content').innerHTML,/https:\/\/example\.com\/video/);
+ run('revidSessionRows=[];render()');
+ assert.doesNotMatch(node('content').innerHTML,/https:\/\/x\.com\/i\/web\/status\/123/);
+});
