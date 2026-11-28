@@ -629,3 +629,38 @@ test('homepage excludes explicit promotional headlines without deleting briefing
  const rows=JSON.parse(run("JSON.stringify(overviewProductNews([{title:'阶跃星辰：免费赠送 3 个月 Step Plan Pro',category:'其他'},{title:'硅基流动限免上线模型',category:'其他'},{title:'LibTV 新画布节点',category:'产品'},{title:'其他开源工具更新',category:'产品'}]).map(x=>x.title))"));
  assert.deepEqual(rows,['LibTV 新画布节点','其他开源工具更新']);
 });
+
+test('innovation relevance audit retains actual creative demos regardless of editorial category',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const examples=[
+  ['数学家沈钰谈AI证明黎曼猜想：从崩溃到重新看待数学','opinion'],
+  ['博主用 Codex 搭建纽约追阳光跑步路线规划器','tip'],
+  ['Antigravity 实用技巧：在 GEMINI.md 加一句话让模型边干活边汇报','tip'],
+  ['谷歌砍掉Gemini 3.5 Pro四个月后，Gemini 4家族连发四款登顶榜单','opinion'],
+  ['同素材实测MAGI-2与sd2.0视频生成效果对比','tip'],
+  ['用 MAGI-2 实操拆解多场景 AI 短片：23 个分镜怎么接','tip'],
+  ['实测 MAGI-2 把 Midjourney 图片做成《八仙》动画','ai-products'],
+  ['即梦短剧工作室上线，实测剧本模型dream script与分镜模型dream shot','ai-products'],
+  ['RGB Mocap 开源工具可将单段视频转为 3D 动画，支持 Blender 与 Unreal Engine','ai-products'],
+  ['创作者用即梦AI制作小妹妹与大怪兽打斗AI漫剧',null],
+  ['视频生成工具限时优惠','tip'],
+  ['LibTV 视频生成工具上线','ai-products']
+ ];
+ const classified=JSON.parse(run('JSON.stringify('+JSON.stringify(examples.map(([title,category])=>({title,category})))+'.map(innovationCreativeCase))'));
+ assert.deepEqual(classified,[false,false,false,false,true,true,true,true,true,true,false,false]);
+ const items=examples.map(([title,category],i)=>({title,category,selected:true,publishedAt:'2026-11-27T02:00:00Z',links:{original:'https://example.org/case/'+i}}));
+ const rows=JSON.parse(run('JSON.stringify(innovationSignals({batches:[{name:"AIPick",items:'+JSON.stringify(items)+'}]},Date.now()))'));
+ assert.equal(rows.length,6);assert.ok(rows.every(row=>row.type==='case'));
+});
+
+test('creative case relevance retains model comparison and verb-first generation descriptions',()=>{
+ const {run}=setup();
+ const items=[
+ {title:'即梦 Dreamina 用 Seedance 2.5 生成 4K 甜品质感视频',category:'ai-products'},
+ {title:'LibTV 上架 MAGI-2 视频模型，创作者用四模型盲评对比',category:'ai-products'},
+ {title:'ChatGPT 推出会计产品，会计硕士拍视频吐槽自己失业',category:null},
+ {title:'某平台推出视频模型，限时优惠',category:'ai-products'},
+ {title:'某平台视频模型正式上线',category:'ai-products'}
+ ];
+ assert.deepEqual(JSON.parse(run('JSON.stringify('+JSON.stringify(items)+'.map(innovationCreativeCase))')),[true,true,false,false,false]);
+});
