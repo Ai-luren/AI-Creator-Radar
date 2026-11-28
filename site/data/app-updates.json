@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T02:06:32+00:00",
+  "checkedAt": "2026-11-28T02:33:06+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -935,13 +935,153 @@
       "type": "dated-changelog",
       "role": "competitor",
       "aggregateCoverage": {
-        "status": "awaiting-aggregate",
-        "missingLanes": []
+        "status": "aggregate-gap",
+        "missingLanes": [
+          "selectedProductFeatures",
+          "selectedModelIntegrations"
+        ],
+        "successfulProviders": 2,
+        "policy": "Observed selected-report lanes, not exhaustive event coverage."
       },
-      "entries": {},
-      "status": "awaiting-aggregate",
-      "deferred": true,
-      "skipReason": "awaiting-aggregate"
+      "entries": {
+        "7749cf504651c0af364fca62be798bc0ce4450444bdf2de93789b5a7a1bf9cae": {
+          "featureName": "Preview relighting live and export an image",
+          "publisherCalendarDay": "2026-10-13",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.20.10",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "4ed251122e8cd614d6d2051c88c51e19110424b0c02e84673401f840e4e9aedc": {
+          "featureName": "Follow tutorials in Academy",
+          "publisherCalendarDay": "2026-10-09",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.19.10",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "7a4eac4dfc4eb52018a71ec0b11876417fc5ca8e4fb211c7af3a09647b20432f": {
+          "featureName": "Generate images with Nano Banana 2.1",
+          "publisherCalendarDay": "2026-10-07",
+          "updateType": "model-integration",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.19.8",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "76042072bb29011d61d57ef1c6502b85857bf309c07b5cd3b2a258e757622fdc": {
+          "featureName": "Save a studio frame as an image",
+          "publisherCalendarDay": "2026-10-01",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.19.6",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "8cbeb8adb30c53598040be629637e2c13dd3ca433ef5a2cea72029f48d5e16d3": {
+          "featureName": "Connect an external Agent from the canvas",
+          "publisherCalendarDay": "2026-10-01",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.19.6",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "b7c4531a6f1d468c1cbbe94992c87436611a8286ee57526899d694f139f886af": {
+          "featureName": "Send a preview result back to the canvas",
+          "publisherCalendarDay": "2026-09-29",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.19.4",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "a990d85cbf7ff6e2b207edf5dd497f37b24ef1db9419af29001124fa353ac831": {
+          "featureName": "Build a scene and camera motion with Agentic Previs",
+          "publisherCalendarDay": "2026-09-25",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.19.0",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "a4f6ae64d26044c909296cd5135161ca964c8cbf1c2a85cf5c102aa52a66a9ff": {
+          "featureName": "Start creating with Astra 6 Studio",
+          "publisherCalendarDay": "2026-09-24",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.18.13",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "afbf07bdbc33e60407346737e3af898fd9f5776993c23cdcee296c05f5fec5b1": {
+          "featureName": "Seedance 2.5 Draft Mode",
+          "publisherCalendarDay": "2026-09-24",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.18.13",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        },
+        "8be16666aa1b0eb5a22097767c177cab19c11784875d3ed283ecb9d8a44181f5": {
+          "featureName": "Retake shots with Depth Filmmaking Studio",
+          "publisherCalendarDay": "2026-09-24",
+          "updateType": "product-update",
+          "productArea": "",
+          "publisherLabel": "Changelog",
+          "category": "app",
+          "claimType": "first-party-product-changelog",
+          "productVersion": "v2.18.13",
+          "firstObservedAt": "2026-11-28T02:33:06+00:00",
+          "lastObservedAt": "2026-11-28T02:33:06+00:00",
+          "visibleInLatestRead": true
+        }
+      },
+      "status": "observed",
+      "deferred": false,
+      "checkedAt": "2026-11-28T02:33:06+00:00",
+      "lastSuccessAt": "2026-11-28T02:33:06+00:00",
+      "error": null,
+      "consecutiveFailures": 0,
+      "nextAttemptAt": "2026-11-28T08:33:06.814427+00:00"
     },
     {
       "id": "libtv-entry",
@@ -966,7 +1106,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T02:06:32+00:00",
+    "checkedAt": "2026-11-28T02:33:06+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1239,7 +1379,24 @@
         "label": "TapNow",
         "term": "TapNow",
         "provider": "AIPick",
-        "priority": 0
+        "priority": 0,
+        "lastAttemptAt": "2026-11-28T02:33:06+00:00",
+        "counts": {
+          "items": 0,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 0,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 0,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T02:33:06+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-06210453074a4040\"",
+        "lastSuccessAt": "2026-11-28T02:33:06+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T14:33:06.814427+00:00"
       },
       {
         "id": "libtv-aihot",
@@ -1420,7 +1577,24 @@
         "label": "Dreamina",
         "term": "Dreamina",
         "provider": "AIHOT",
-        "priority": 10
+        "priority": 10,
+        "lastAttemptAt": "2026-11-28T02:33:06+00:00",
+        "counts": {
+          "items": 2,
+          "wechatOriginalLinks": 0,
+          "otherOriginalLinks": 2,
+          "missingOriginalLinks": 0,
+          "exactTitleMatches": 1,
+          "hasNextCursor": false,
+          "selectedProductFeatures": 0,
+          "selectedModelIntegrations": 0
+        },
+        "countsObservedAt": "2026-11-28T02:33:06+00:00",
+        "status": "observed",
+        "etag": "W/\"v1-items-bed68053ffe80639\"",
+        "lastSuccessAt": "2026-11-28T02:33:06+00:00",
+        "error": null,
+        "nextAttemptAt": "2026-11-28T14:33:06.814427+00:00"
       },
       {
         "id": "dreamina-aipick",
@@ -1488,24 +1662,24 @@
     "service": {
       "consecutiveFailures": 0,
       "error": null,
-      "lastSuccessAt": "2026-11-28T01:47:03+00:00",
-      "nextAttemptAt": "2026-11-28T02:12:03.031793+00:00"
+      "lastSuccessAt": "2026-11-28T02:33:06+00:00",
+      "nextAttemptAt": "2026-11-28T02:58:06.814427+00:00"
     },
     "providerServices": {
       "AIHOT": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T01:47:03+00:00",
-        "nextAttemptAt": "2026-11-28T02:12:03.031793+00:00"
+        "lastSuccessAt": "2026-11-28T02:33:06+00:00",
+        "nextAttemptAt": "2026-11-28T02:58:06.814427+00:00"
       },
       "AIPick": {
         "consecutiveFailures": 0,
         "error": null,
-        "lastSuccessAt": "2026-11-28T01:47:03+00:00",
-        "nextAttemptAt": "2026-11-28T02:12:03.031793+00:00"
+        "lastSuccessAt": "2026-11-28T02:33:06+00:00",
+        "nextAttemptAt": "2026-11-28T02:58:06.814427+00:00"
       }
     },
-    "attemptedThisRun": 0,
+    "attemptedThisRun": 2,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -1524,6 +1698,166 @@
     }
   ],
   "events": [
+    {
+      "id": "f2210e2a9366b20196faa4b0f11e14a2c34b8da16f34770932df24d0397372d0",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Save a studio frame as an image",
+      "publisherCalendarDay": "2026-10-01",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.19.6"
+    },
+    {
+      "id": "cd5aaaddef9aadaa83046445e4ffbd3a82ee7b52bbd399770c6abb158de0cc5c",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Retake shots with Depth Filmmaking Studio",
+      "publisherCalendarDay": "2026-09-24",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.18.13"
+    },
+    {
+      "id": "b0619b1c3a1057cc5914a207365b12f8efa652f86aa7ce6af518ae1661f7484f",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Build a scene and camera motion with Agentic Previs",
+      "publisherCalendarDay": "2026-09-25",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.19.0"
+    },
+    {
+      "id": "9beaa97b7e400b8584e775c18bccdc019ea2d70bc687716578410cd1551dcc30",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Preview relighting live and export an image",
+      "publisherCalendarDay": "2026-10-13",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.20.10"
+    },
+    {
+      "id": "85012b55042662b5d16810cec086e1b2c1d76b0566292f35e05ed2482a0e6aa7",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Send a preview result back to the canvas",
+      "publisherCalendarDay": "2026-09-29",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.19.4"
+    },
+    {
+      "id": "4f0464521d25f5115e9cfc2611d519fafd1e80cbec29c444642cbd404c4e28b1",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Connect an external Agent from the canvas",
+      "publisherCalendarDay": "2026-10-01",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.19.6"
+    },
+    {
+      "id": "48af3e1bbfd9b44b9f8882f79625ecf3da90c6dded805be4b9e8cf59c44747e8",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Start creating with Astra 6 Studio",
+      "publisherCalendarDay": "2026-09-24",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.18.13"
+    },
+    {
+      "id": "43fac492ca91aedcb7a59c5c324c733c4792e1f31b566c0cc2418713d04ecd8b",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Generate images with Nano Banana 2.1",
+      "publisherCalendarDay": "2026-10-07",
+      "updateType": "model-integration",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.19.8"
+    },
+    {
+      "id": "36a2be87f61dd9939e39039957ab6aaddcc36f987c734c4552e999e249e39f75",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Seedance 2.5 Draft Mode",
+      "publisherCalendarDay": "2026-09-24",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.18.13"
+    },
+    {
+      "id": "22d97389f22b570f9aae894f6a0a3f99514c9834bf31c438b360c150d07c0952",
+      "sourceId": "tapnow-changelog",
+      "sourceUrl": "https://docs.tapnow.ai/en/docs/changelog",
+      "kind": "baseline-changelog-entry",
+      "observedAt": "2026-11-28T02:33:06+00:00",
+      "releaseDate": null,
+      "featureName": "Follow tutorials in Academy",
+      "publisherCalendarDay": "2026-10-09",
+      "updateType": "product-update",
+      "productArea": "",
+      "publisherLabel": "Changelog",
+      "category": "app",
+      "claimType": "first-party-product-changelog",
+      "productVersion": "v2.19.10"
+    },
     {
       "id": "ff1bdcda0f7b6329f4bd17422fa748caf41f150fea408ee4bb43a6da5852992f",
       "sourceId": "flova-changelog",
@@ -2546,14 +2880,14 @@
   ],
   "summary": {
     "configuredSources": 6,
-    "successfulThisRun": 0,
-    "baselineSources": 3,
+    "successfulThisRun": 1,
+    "baselineSources": 4,
     "listedModels": 0,
     "reviewedObservations": 1
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T02:06:37+00:00",
+    "checkedAt": "2026-11-28T02:33:12+00:00",
     "window": "7d",
     "sources": [
       {
@@ -2566,7 +2900,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T01:51:01+00:00",
+        "fetchedAt": "2026-11-28T02:32:38+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],

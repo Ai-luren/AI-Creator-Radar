@@ -1,6 +1,6 @@
 {
   "schema": "source-search/v1",
-  "checkedAt": "2026-11-28T02:06:28+00:00",
+  "checkedAt": "2026-11-28T02:33:04+00:00",
   "service": {
     "lastAttemptAt": "2026-11-28T01:46:48+00:00",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
@@ -9,11 +9,11 @@
     "lastSuccessAt": "2026-11-28T01:09:27+00:00"
   },
   "aihotService": {
-    "lastAttemptAt": "2026-11-28T01:56:29+00:00",
-    "lastSuccessAt": "2026-11-28T01:56:29+00:00",
+    "lastAttemptAt": "2026-11-28T02:33:04+00:00",
+    "lastSuccessAt": "2026-11-28T02:33:04+00:00",
     "error": null,
     "consecutiveFailures": 0,
-    "nextAttemptAt": "2026-11-28T02:26:29.718794+00:00"
+    "nextAttemptAt": "2026-11-28T03:03:04.285673+00:00"
   },
   "aipickService": {
     "lastAttemptAt": "2026-11-28T02:06:28+00:00",
@@ -64,7 +64,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -154,7 +154,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:14Z",
+          "lastObservedAt": "2026-11-28T02:32:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -164,7 +164,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -376,7 +376,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -508,7 +508,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -611,7 +611,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         }
       ],
@@ -758,7 +758,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:14Z",
+          "lastObservedAt": "2026-11-28T02:32:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -948,7 +948,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -958,7 +958,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:14Z",
+          "lastObservedAt": "2026-11-28T02:32:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1160,10 +1160,16 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         }
-      ]
+      ],
+      "aihotLastAttemptAt": "2026-11-28T02:33:04+00:00",
+      "results": [],
+      "aihotETag": "W/\"v1-items-f34e81aa101298f7\"",
+      "aihotLastSuccessAt": "2026-11-28T02:33:04+00:00",
+      "aihotStatus": "no-matching-index-results",
+      "aihotNextAttemptAt": "2026-11-29T02:33:04.285673+00:00"
     },
     {
       "id": "f3521190c7e1cec59ec5f87b18f8f2bdb269aa0d3cf76063115e3d747f34ab18",
@@ -1237,7 +1243,7 @@
           "sourceId": "local-official-candidates",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:14Z",
+          "lastObservedAt": "2026-11-28T02:32:40Z",
           "provenance": "existing-discovery"
         },
         {
@@ -1247,7 +1253,7 @@
           "sourceId": "llm-world-json",
           "assertedDate": null,
           "originalVerificationAt": null,
-          "lastObservedAt": "2026-11-28T02:06:26+00:00",
+          "lastObservedAt": "2026-11-28T02:33:02+00:00",
           "provenance": "existing-discovery"
         },
         {
@@ -1277,12 +1283,12 @@
     "localContextRecords": 73,
     "officialCandidates": 0,
     "indexReports": 0,
-    "aipickAttemptedThisRun": 1,
+    "aipickAttemptedThisRun": 0,
     "aipickLastSuccessAt": "2026-11-28T02:06:28+00:00",
     "aipickError": null,
     "aipickPointers": 0,
-    "aihotAttemptedThisRun": 0,
-    "aihotLastSuccessAt": "2026-11-28T01:56:29+00:00",
+    "aihotAttemptedThisRun": 1,
+    "aihotLastSuccessAt": "2026-11-28T02:33:04+00:00",
     "aihotError": null,
     "aihotPointers": 0,
     "indexLastSuccessAt": "2026-11-28T01:09:27+00:00",

@@ -6,11 +6,11 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T01:51:01+00:00",
-  "checkedAt": "2026-11-28T01:51:01+00:00",
+  "fetchedAt": "2026-11-28T02:32:38+00:00",
+  "checkedAt": "2026-11-28T02:32:38+00:00",
   "etags": {
     "items": "W/\"v1-items-d9ab31809fb41ad7\"",
-    "hotTopics": "W/\"v1-hot-af021ad3c64e6307\""
+    "hotTopics": "W/\"v1-hot-e24c3c8199dc91cb\""
   },
   "items": [
     {
@@ -776,6 +776,27 @@
     },
     {
       "rank": 4,
+      "id": "x9kn0v5d0naqm47jnxhfk14jg",
+      "title": "Higgsfield 黑五套餐最高 75% OFF，Secret 计划年付 258 美元/月",
+      "source": {
+        "name": "TikTok · 搜「higgsfield」"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/x9kn0v5d0naqm47jnxhfk14jg",
+        "original": "https://www.tiktok.com/@fabrizioromano/video/7712957869959761174",
+        "story": "https://aipick.news/story/760edc2b-43a9-4179-bbde-ac7bfee3776b"
+      },
+      "sourceCount": 2,
+      "signalCount": 0,
+      "participantCount": 2,
+      "sourceNames": [
+        "TikTok · 搜「higgsfield」",
+        "X · Higgsfield"
+      ],
+      "latestAt": "2026-11-27T20:55:51.000Z"
+    },
+    {
+      "rank": 5,
       "id": "erpb8ni5g8247xgt7i7d77tpy",
       "title": "Higgsfield 上线 MAGI-2 视频模型，创作者实测褒贬不一",
       "source": {
@@ -797,7 +818,7 @@
       "latestAt": "2026-11-27T04:02:25.000Z"
     },
     {
-      "rank": 5,
+      "rank": 6,
       "id": "zzhdfuax9o0ecxkduwy154a11",
       "title": "VAST 发布 Tripo H3.5 Preview 3D 模型",
       "source": {
@@ -819,7 +840,7 @@
       "latestAt": "2026-11-27T12:30:00.000Z"
     },
     {
-      "rank": 6,
+      "rank": 7,
       "id": "dy4c01xbkqhpyduubgx4nahas",
       "title": "Karpathy 用 Claude 生成美国数据文明风格地图",
       "source": {
@@ -842,7 +863,7 @@
       "latestAt": "2026-11-26T20:15:27.000Z"
     },
     {
-      "rank": 7,
+      "rank": 8,
       "id": "hjt6j074njrxk9kbx6dxq4m58",
       "title": "蚂蚁灵波开源 LingBot-Map 2.0 与 Navi 导航模型",
       "source": {
@@ -864,7 +885,7 @@
       "latestAt": "2026-11-27T07:01:20.000Z"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "id": "cg4q318bmvm8ra8i0gdjl5klb",
       "title": "Higgsfield 黑五折扣说法多次变化，最高至75%",
       "source": {
@@ -885,7 +906,7 @@
       "latestAt": "2026-11-27T14:54:40.000Z"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "id": "hek7o2f64d2x9j66ntq5l4l47",
       "title": "Claude Max 与 Team 套餐每月附赠 API 额度",
       "source": {
@@ -904,31 +925,10 @@
         "X · Ado Kukic"
       ],
       "latestAt": "2026-11-26T19:26:08.000Z"
-    },
-    {
-      "rank": 10,
-      "id": "ym76f5pfjjh91sxqyanpsji89",
-      "title": "一目科技战略升级，构建灵巧操作生态",
-      "source": {
-        "name": "量子位"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/ym76f5pfjjh91sxqyanpsji89",
-        "original": "https://www.qbitai.com/2026/11/513101.html",
-        "story": "https://aipick.news/story/4289be1f-126d-47d7-8d34-37264963a2d8"
-      },
-      "sourceCount": 2,
-      "signalCount": 0,
-      "participantCount": 2,
-      "sourceNames": [
-        "量子位",
-        "公众号 · 智东西"
-      ],
-      "latestAt": "2026-11-27T03:23:25.000Z"
     }
   ],
   "unchanged": [
-    "hotTopics"
+    "items"
   ],
   "errors": []
 }
