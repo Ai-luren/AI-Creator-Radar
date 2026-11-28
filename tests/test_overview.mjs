@@ -242,7 +242,7 @@ test('overview exposes all modules without duplicating raw daily feeds',async()=
  const {run,node}=setup();await run('loadAllForTests()');const markup=node('content').innerHTML;
  assert.match(markup,/今日行业简报/);assert.doesNotMatch(markup,/快捷入口|overview-module-grid|overview-stage-count/);assert.doesNotMatch(markup,/完整日报与精选/);assert.doesNotMatch(markup,/<h2>官方发现 · 待复核<\/h2>/);
  assert.match(markup,/data-briefing-target="combined"/);assert.doesNotMatch(markup,/data-briefing-target="(?:aihot|juya|selected)"/);for(const view of ['today','feeds'])assert.ok(markup.includes('data-view="'+view+'"'),view);
- run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/综合资讯/);assert.match(node('content').innerHTML,/条原始报道/);
+ run("setView('feeds',{briefingTab:'combined'})");assert.match(node('content').innerHTML,/行业资讯/);assert.match(node('content').innerHTML,/条原始报道/);
 });
 
 test('release range and order persist in route',async()=>{
@@ -429,7 +429,7 @@ test('AIHOT unchanged content keeps download date but uses successful validation
 
 // The retired broad-news snapshot must not affect current briefing availability.
 test('briefings load only the three current snapshots and never request retired news',async()=>{
- const {run,node,requested}=setup({query:'?view=feeds',fail:['news-today.json']});
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=combined',fail:['news-today.json']});
  await run('loadData()');
  assert.deepEqual([...requested].sort(),['aihot-daily.json','aihot-items.json','juya-daily.json']);
  assert.doesNotMatch(node('content').innerHTML,/部分数据未加载/);
@@ -663,4 +663,49 @@ test('creative case relevance retains model comparison and verb-first generation
  {title:'某平台视频模型正式上线',category:'ai-products'}
  ];
  assert.deepEqual(JSON.parse(run('JSON.stringify('+JSON.stringify(items)+'.map(innovationCreativeCase))')),[true,true,false,false,false]);
+});
+
+test('vendor-first briefing groups actual product updates and cross-platform model adoption without inventing launch dates',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ assert.ok(requested.includes('model-releases-30d.json'));assert.ok(requested.includes('social-accounts.json'));
+ run("state.appUpdates={sources:[{id:'hf',vendor:'Higgsfield',role:'competitor'},{id:'lib',vendor:'LibTV',role:'competitor'},{id:'flova',vendor:'Flova',role:'competitor'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://higgsfield.ai/creator-hub/changelog'},{sourceId:'flova',claimType:'first-party-product-changelog',featureName:'Audio track separation',publisherCalendarDay:'2026-11-24',sourceUrl:'https://www.flova.ai/en/docs/changelog/'}],reviewedObservations:[{sourceId:'lib',brand:'LibTV',title:'MAGI-2 官网宣传',modelName:'MAGI-2',kind:'模型接入 / 宣发',observedOn:'2026-11-28',releaseDate:null,sourceUrl:'https://www.liblib.tv/'}]};state.modelReleases=[{modelName:'MAGI-2',vendor:'Sand.ai',publishedAt:'2026-11-24',modelFamilyId:'magi',modelVersionId:'v2',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'}];state.aihot.items=[];state.aipick={items:[]};state.social={posts:[],brands:[]};render()");
+ const out=node('content').innerHTML;
+ assert.match(out,/重点模型 · 各平台接入与宣发/);assert.match(out,/2 家有相关证据/);assert.match(out,/Audio track separation/);assert.match(out,/官网人工观察 · 非发布日期/);assert.match(out,/TapNow/);assert.match(out,/Updream/);assert.doesNotMatch(out,/data-creator-brand="Lovart"/);
+ assert.ok(out.indexOf('近7天厂商动态')<out.indexOf('数据与信源诊断'));
+ const rows=JSON.parse(run("JSON.stringify(competitorBriefRows(state.appUpdates,[],state.social,Date.now()))"));
+ assert.equal(rows.find(x=>x.brand==='LibTV').proof,'官网人工观察 · 非发布日期');
+});
+
+test('model trace matches exact version references in reports without regex corruption or near-version collisions',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const result=JSON.parse(run("JSON.stringify(competitorModelTrace([{brand:'LibTV',title:'LibTV 上架 MAGI-2 视频模型',day:'2026-11-27',kind:'模型接入'},{brand:'TapNow',title:'TapNow MAGI-20 上线',day:'2026-11-27',kind:'模型接入'},{brand:'Flova',title:'Flova Seedream 5x5 更新',day:'2026-11-27',kind:'产品 / 功能'}],[{modelName:'MAGI-2',vendor:'Sand.ai',modelFamilyId:'magi',modelVersionId:'v2',publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://sand.ai/blog/magi-2/'},{modelName:'Seedream 5.5',modelFamilyId:'seedream',modelVersionId:'55',publishedAt:'2026-11-24',verifiedAt:'2026-11-26',evidenceType:'official-release',url:'https://example.org/model'}],Date.now()))"));
+ assert.equal(result.length,1);assert.deepEqual(result[0].brands,['LibTV']);
+ assert.equal(run("productReadingTitle('Seedream 5.5 now supports 4K')"),'Seedream 5.5 支持 4K 输出');
+});
+
+test('vendor response status preserves evidence class and deduplicates exact original claims',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const out=JSON.parse(run("JSON.stringify([competitorResponseStatus([{kind:'模型接入',proof:'官方日志',day:'2026-11-24'}]),competitorResponseStatus([{kind:'模型接入 / 宣发',proof:'官网人工观察 · 非发布日期',day:'2026-11-28'}]),competitorResponseStatus([{kind:'模型接入',proof:'相关报道 · 非官方确认',day:'2026-11-27'}])])"));
+ assert.deepEqual(out.map(x=>x.label),['官方接入','官方宣发记录','相关报道']);
+ const rows=JSON.parse(run("JSON.stringify(competitorBriefRows({sources:[{id:'hf',vendor:'Higgsfield'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Higgsfield MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://higgsfield.ai/update'}]},[{item:{title:'Higgsfield MAGI-2',publishedAt:'2026-11-24T03:00:00Z',links:{original:'https://higgsfield.ai/update'}}}],{posts:[]},Date.now()))"));
+ assert.equal(rows.length,1);assert.equal(rows[0].proof,'官方日志');assert.equal(rows[0].alternates.length,1);
+});
+test('matrix dimension filter reduces rows without changing the full competitor set',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=matrix',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("competitorMatrixFocus='canvas';render()");
+ const out=node('content').innerHTML;assert.match(out,/Agentic Creative Canvas/);assert.match(out,/Renoise/);
+ assert.match(out,/value="canvas" selected/);assert.equal((out.match(/scope="row"/g)||[]).length,1);
+});
+
+test('private competitor reading supplements saved evidence instead of erasing it',async()=>{
+ const {run,node}=setup({query:'?view=feeds&briefing=competitors',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ run("state.aihot.items=[{title:'TapNow 画布更新',publishedAt:'2026-11-27T01:00:00Z',links:{original:'https://example.org/saved'}}];state.aipick={items:[]};creatorBrand='TapNow';creatorPrivate['competitors|TapNow']={sources:{AIHOT:{data:{items:[]}},AIPick:{data:{items:[{title:'TapNow 官方演示',publishedAt:'2026-11-28T01:00:00Z',links:{original:'https://example.org/new'}}]}}}};render()");
+ const out=node('content').innerHTML;
+ assert.match(out,/TapNow 画布更新/);assert.match(out,/TapNow 官方演示/);assert.match(out,/补充读取 TapNow 最新精选/);
+});
+test('dated official comparison article is evidence of promotion, not first model adoption',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const rows=JSON.parse(run("JSON.stringify(competitorBriefRows({sources:[{id:'rn',vendor:'Renoise'}],reviewedObservations:[{sourceId:'rn',title:'MAGI-2 官方实测',modelName:'MAGI-2',kind:'宣发 / 演示',releaseDate:'2026-11-26',observedOn:'2026-11-28',observationMethod:'官方文章发布日期',sourceUrl:'https://renoise.ai/blog/magi-2-vs-seedance-2-5'}]},[],{},Date.now()))"));
+ assert.equal(rows[0].day,'2026-11-26');assert.equal(rows[0].proof,'官方文章');
+ assert.equal(run("competitorResponseStatus([{kind:'宣发 / 演示',proof:'官方文章',day:'2026-11-26'}]).label"),'官方宣发记录');
 });
