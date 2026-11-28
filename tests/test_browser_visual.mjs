@@ -152,7 +152,7 @@ try{
    assert.equal(await page.evaluate(()=>state.releaseWindow),'7');
    assert.ok(await page.evaluate(()=>Array.from(document.querySelectorAll('.source-health-row a')).filter(a=>a.textContent.includes(' · AIHOT')).every(a=>new URL(a.href).hostname==='aihot.news')));
    await page.locator('details.source-health').filter({has:page.locator('summary',{hasText:'数据与信源诊断'})}).locator(':scope > summary').click();
-   assert.equal(await page.getByRole('link',{name:'官方更新日志 ↗',exact:true}).count(),1);
+   assert.equal(await page.getByRole('link',{name:'官方更新日志 ↗',exact:true}).and(page.locator('a[href="https://bytedance.larkoffice.com/wiki/QxMCwlqmhisbwhklwPLctMyNncb"]')).count(),1,'即梦官方更新日志入口必须唯一');
    assert.equal(await page.getByRole('link',{name:'官方教程专区 ↗',exact:true}).count(),1);
    assert.equal(await page.getByRole('link',{name:'即梦 / 字节专题 ↗',exact:true}).getAttribute('href'),'https://aipick.news/topics/doubao');
    assert.ok(await page.getByRole('heading',{name:'即梦 AI · SeedAudio 1.5 已在即梦界面出现',exact:true}).isVisible());
