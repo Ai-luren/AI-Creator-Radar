@@ -6,13 +6,36 @@
     "url": "https://aipick.news"
   },
   "window": "7d",
-  "fetchedAt": "2026-11-28T01:25:48+00:00",
-  "checkedAt": "2026-11-28T01:25:48+00:00",
+  "fetchedAt": "2026-11-28T01:51:01+00:00",
+  "checkedAt": "2026-11-28T01:51:01+00:00",
   "etags": {
-    "items": "W/\"v1-items-aec0097aeb03e19e\"",
+    "items": "W/\"v1-items-d9ab31809fb41ad7\"",
     "hotTopics": "W/\"v1-hot-af021ad3c64e6307\""
   },
   "items": [
+    {
+      "id": "jevnv61mch48csxo0p5hso47y",
+      "title": "Fable 5.2 与 GPT 6.2 Astra 实测 12 个真实项目：7 比 5 胜出但成本高 7 倍",
+      "originalTitle": "Fable 5.2 vs GPT 6.2 Astra: Fable won 7–5, but cost 7× more. A real-world AI tools test on quality, time, and price. #AI #AITools #Claude #Codex",
+      "summary": "创作者让 Fable 5.2（搭配 Claude Code）与 GPT 6.2 Astra（搭配 Codex）用相同提示词、相同 effort 完成 12 个真实商业项目，最终 Fable 以 7 比 5 胜出，但成本是对方的 7 倍、耗时接近 5 倍，而两者每 token 单价相同。",
+      "source": {
+        "name": "TikTok · ai.with.andrew"
+      },
+      "links": {
+        "aihot": "https://aipick.news/items/jevnv61mch48csxo0p5hso47y",
+        "original": "https://www.tiktok.com/@ai.with.andrew/video/7712949532580924692"
+      },
+      "publishedAt": "2026-11-27T20:23:37.000Z",
+      "discoveredAt": "2026-11-28T01:32:49.636Z",
+      "category": "ai-models",
+      "score": 58,
+      "selected": true,
+      "reason": "作者用同一批 12 个真实商业项目对比 Fable 5.2 与 GPT 6.2 Astra 的质量、耗时和花费，适合按项目逐项复盘 7 比 5 的胜负与 7 倍成本差。",
+      "attribution": {
+        "name": "AIPick",
+        "url": "https://aipick.news/items/jevnv61mch48csxo0p5hso47y"
+      }
+    },
     {
       "id": "gm49g2idchabxetvc67rybwyc",
       "title": "用 MAGI-2 实操拆解多场景 AI 短片：23 个分镜怎么接",
@@ -679,29 +702,6 @@
         "name": "AIPick",
         "url": "https://aipick.news/items/f1h5xw0ve8y2vujkgkxy64tai"
       }
-    },
-    {
-      "id": "bs07aclg1rk0uszqhl3rjkba8",
-      "title": "海森堡AI 实测 Claude Opus 5.6 写代码生成 3 分 40 秒动画",
-      "originalTitle": "这段动画，是 Claude 一行行写出来的？ 这期拿两段同人动画，聊聊 AI 做视频的另一条路。3Claude #AI视频 #代码动画 #海森堡AI",
-      "summary": "海森堡AI 用两段同人动画展示 Claude Opus 5.6 不靠视频模型、逐行写代码生成视频，两条片子合计 3 分 40 秒、5200 多帧、100 多个镜头，风格从水彩换到漫画格再到厚涂，角色脸部保持一致。",
-      "source": {
-        "name": "抖音 · 热点搜「Claude Artifacts」"
-      },
-      "links": {
-        "aihot": "https://aipick.news/items/bs07aclg1rk0uszqhl3rjkba8",
-        "original": "https://www.douyin.com/video/7712438176488394024"
-      },
-      "publishedAt": "2026-11-26T11:19:29.000Z",
-      "discoveredAt": "2026-11-27T08:19:32.999Z",
-      "category": "opinion",
-      "score": 66,
-      "selected": true,
-      "reason": "作者用两段同人动画实测 Claude Opus 5.6 写代码生成视频，可对比视频模型猜像素与语言模型写乐谱两条路线。",
-      "attribution": {
-        "name": "AIPick",
-        "url": "https://aipick.news/items/bs07aclg1rk0uszqhl3rjkba8"
-      }
     }
   ],
   "hotTopics": [
@@ -928,7 +928,6 @@
     }
   ],
   "unchanged": [
-    "items",
     "hotTopics"
   ],
   "errors": []

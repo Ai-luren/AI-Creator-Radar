@@ -1,6 +1,6 @@
 {
   "schema": "app-updates/v1",
-  "checkedAt": "2026-11-28T01:47:03+00:00",
+  "checkedAt": "2026-11-28T01:51:15+00:00",
   "sources": [
     {
       "id": "jimeng",
@@ -966,7 +966,7 @@
   ],
   "targetedDiscovery": {
     "source": "AIHOT + AIPick",
-    "checkedAt": "2026-11-28T01:47:03+00:00",
+    "checkedAt": "2026-11-28T01:51:15+00:00",
     "queries": [
       {
         "id": "jimeng-products",
@@ -1505,7 +1505,7 @@
         "nextAttemptAt": "2026-11-28T02:12:03.031793+00:00"
       }
     },
-    "attemptedThisRun": 2,
+    "attemptedThisRun": 0,
     "policy": "Aggregate query diagnostics only; zero results do not prove absence of product updates. No article redistribution."
   },
   "reviewedObservations": [
@@ -2553,7 +2553,7 @@
   },
   "policy": "App visible model label is a product observation, not launch date, availability guarantee or withdrawal. Manual observations separate from automated counts. Private notice and guide links are navigation only.",
   "platformCoverage": {
-    "checkedAt": "2026-11-28T01:47:10+00:00",
+    "checkedAt": "2026-11-28T01:51:19+00:00",
     "window": "7d",
     "sources": [
       {
@@ -2566,7 +2566,7 @@
       },
       {
         "provider": "AIPick",
-        "fetchedAt": "2026-11-28T01:25:48+00:00",
+        "fetchedAt": "2026-11-28T01:51:01+00:00",
         "selectedItems": 30,
         "hotTopics": 10,
         "errors": [],
@@ -2578,7 +2578,7 @@
         "id": "douyin",
         "label": "抖音",
         "role": "social",
-        "originalCount": 15,
+        "originalCount": 14,
         "providers": [
           "AIPick"
         ],
@@ -2663,7 +2663,7 @@
         "id": "tiktok",
         "label": "TikTok",
         "role": "social",
-        "originalCount": 4,
+        "originalCount": 5,
         "providers": [
           "AIPick"
         ],
