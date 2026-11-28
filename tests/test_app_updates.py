@@ -429,3 +429,23 @@ class AppUpdatesTests(unittest.TestCase):
         snapshots["AIHOT"]["fetchedAt"]=(self.now-timedelta(hours=13)).isoformat()
         snapshots["AIHOT"]["checkedAt"]=self.now.isoformat()
         self.assertEqual(readable_competitor_lanes(snapshots,"Higgsfield",self.now),set())
+
+    def test_oiioii_public_directory_lists_models_not_launch_dates(self):
+        from scripts.collect_app_updates import parse_product_surface
+        spec={**self.spec,"id":"oiioii-model-directory","vendor":"OiiOii","type":"product-surface",
+              "url":"https://www.oiioii.ai/zh/explore/models"}
+        page="""<main><h1>AI 创作模型介绍 · OiiOii</h1>
+        <a href="/zh/gpt-image-2-6">GPT Image 2.6 图像生成器</a>
+        <a href="/zh/seedance-2-5">Seedance 2.5</a>
+        <a href="/zh/seedance-2-0-fast">Seedance 2.0 Fast</a>
+        <a href="/zh/sora-2">Sora 2 已停用</a>
+        <a href="/zh/veo-4">Veo 4 即将上线</a>
+        <a href="/zh/blog/seedance">Seedance 9.9 教程</a>
+        <a href="https://example.org/zh/magi">MAGI-2</a>
+        <a hidden href="/zh/magi">MAGI-2</a></main>"""
+        rows=parse_product_surface(page,spec)
+        self.assertEqual({x["featureName"] for x in rows.values()},{"GPT Image 2.6","Seedance 2.5","Seedance 2.0 Fast"})
+        self.assertTrue(all(x["surfaceStage"]=="catalog-listed" for x in rows.values()))
+        first=collect({"sources":[spec]}, {},self.now,lambda _:rows)
+        self.assertTrue(all(e["kind"]=="baseline-product-surface" and e["releaseDate"] is None for e in first["events"]))
+        with self.assertRaises(ValueError):parse_product_surface("<main>OiiOii AI 创作模型介绍</main>",spec)
