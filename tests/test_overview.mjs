@@ -559,3 +559,42 @@ test('open source radar distinguishes curated research from metadata discovery a
  run("state.repoRadar={items:[{repo:'maker/whitebox',url:'https://github.com/maker/whitebox',name:'Whitebox',category:'video',license:'AGPL-3.0',research:{idea:'白模导演台',caution:'许可证需评估',review:'readme-reviewed',evidenceUrl:'https://github.com/maker/whitebox#readme'},metadataStatus:'ok'}],researchDiscovery:{items:[{repo:'maker/voice',url:'https://github.com/maker/voice',description:'audio separation',researchCategory:'audio',provider:'GitHub Search',stars:5,metadataCheckedAt:'2026-11-28T00:00:00Z'},{repo:'maker/unsafe',url:'https://github.com.evil.test/maker/unsafe',description:'Unsafe injected repository'}]}};render()");
  const out=node('content').innerHTML;assert.match(out,/白模导演台/);assert.match(out,/README 已阅读/);assert.match(out,/候选 · GitHub Search/);assert.match(out,/AGPL-3.0/);assert.doesNotMatch(out,/Unsafe injected repository/);assert.match(out,/非 GitHub 热榜/);
 });
+
+test('innovation page reads existing snapshots lazily and separates facts, themes and proposals',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=innovation',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ assert.equal(run('state.briefingTab'),'innovation');
+ for(const file of ['model-releases-30d.json','app-updates.json','aipick-data.json','awesome-repos.json'])assert.ok(requested.includes(file),file);
+ run("state.modelReleases=[{modelName:'Test AV',summary:'原生音视频生成',category:'video',modelFamilyId:'av',modelVersionId:'v1',verifiedAt:'2026-11-27',evidenceType:'official',publishedAt:'2026-11-27',url:'https://example.org/model'},{modelName:'Pending camera',summary:'镜头预演',category:'video',publishedAt:'2026-11-27',url:'https://example.org/pending'}];state.appUpdates={sources:[{id:'flova',role:'competitor',vendor:'Flova'}],events:[{sourceId:'flova',claimType:'first-party-product-changelog',featureName:'Audio processing and track separation',publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/log'},{sourceId:'flova',claimType:'first-party-product-changelog',featureName:'Old storyboard',publisherCalendarDay:'2026-11-01',observedAt:'2026-11-28',sourceUrl:'https://example.org/old'}]};state.aihot.items=[];state.aipick={items:[{title:'音轨分离案例',selected:true,category:'tip',publishedAt:'2026-11-27T02:00:00Z',links:{original:'https://example.org/case'}},{title:'未选中的漫画',selected:false,category:'tip',publishedAt:'2026-11-27',links:{original:'https://example.org/unselected'}}]};state.repoRadar={items:[{repo:'maker/audio',name:'Audio separation',url:'https://github.com/maker/audio',research:{review:'readme-reviewed',idea:'音轨分离',caution:'许可待查'}},{repo:'maker/unsafe',name:'Audio separation unsafe',url:'https://github.com.evil.org/maker/unsafe',research:{review:'readme-reviewed'}},{repo:'maker/old-previs',name:'白模预演',url:'https://github.com/maker/old-previs',research:{review:'readme-reviewed'}}]};render()");
+ const out=node('content').innerHTML;
+ assert.match(out,/影视声音工作台/);assert.match(out,/产品机会假设/);assert.match(out,/已核实模型发布/);assert.match(out,/官方产品日志/);assert.match(out,/创作者精选线索/);assert.match(out,/README 已阅读/);
+ assert.match(out,/https:\/\/example.org\/model/);assert.match(out,/https:\/\/example.org\/log/);
+ assert.doesNotMatch(out,/Pending camera|Old storyboard|未选中的漫画|unsafe|白模导演与镜头预演/);
+ run("state.query='does-not-exist';render()");assert.match(node('content').innerHTML,/暂无符合规则/);
+});
+test('innovation opportunities do not alter overview loading or promote missing dates and repository-only context',async()=>{
+ const {run,requested}=setup();await run('loadData()');assert.equal(requested.length,5);
+ const rows=run("innovationOpportunityRows({releases:[],app:{events:[]},batches:[{name:'AIHOT',items:[{title:'角色一致性',selected:true,category:'tip',discoveredAt:'2026-11-28',links:{original:'https://example.org/undated'}}]}],repos:{items:[{repo:'maker/whitebox',name:'白模预演',url:'https://github.com/maker/whitebox',research:{review:'readme-reviewed'}}]}},Date.now()).length");
+ assert.equal(rows,0);
+});
+
+test('innovation exploration preserves new product shapes outside fixed themes and exact model adoption candidates',()=>{
+ const {run}=setup({now:'2026-11-28T12:00:00+08:00'});
+ const result=JSON.parse(run("JSON.stringify(innovationExplorationRows({releases:[{modelName:'MAGI-2',summary:'原生音视频生成',category:'video',modelFamilyId:'magi',modelVersionId:'magi-2',verifiedAt:'2026-11-24',evidenceType:'official',publishedAt:'2026-11-24',url:'https://example.org/magi'},{modelName:'MAGI-20',category:'video',modelFamilyId:'magi',modelVersionId:'magi-20',verifiedAt:'2026-11-24',evidenceType:'official',publishedAt:'2026-11-24',url:'https://example.org/magi20'}],app:{sources:[{id:'hf',role:'competitor',vendor:'Higgsfield'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Property Studio',updateType:'product-release',publisherCalendarDay:'2026-11-27',sourceUrl:'https://example.org/property'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/integration'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-20 Lite',updateType:'model-integration',publisherCalendarDay:'2026-11-27',sourceUrl:'https://example.org/lite'}]}},Date.now()))"));
+ assert.ok(result.some(r=>r.signal.title==='Property Studio'));
+ assert.equal(result.find(r=>r.signal.url.endsWith('/integration')).related.modelVersionId,'magi-2');
+ assert.equal(result.find(r=>r.signal.url.endsWith('/lite')).related,null);
+});
+
+test('competitor feature matrix keeps official observations separate from dated logs and never infers missing support',async()=>{
+ const {run,node,requested}=setup({query:'?view=feeds&briefing=matrix',now:'2026-11-28T12:00:00+08:00'});await run('loadData()');
+ assert.ok(requested.includes('app-updates.json'));assert.ok(!requested.includes('models.json'));
+ run("state.appUpdates={sources:[{id:'hf',vendor:'Higgsfield',role:'competitor'}],events:[{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'MAGI-2',updateType:'model-integration',publisherCalendarDay:'2026-11-24',sourceUrl:'https://example.org/model'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Editing Room',updateType:'product-release',publisherCalendarDay:'2026-11-20',sourceUrl:'https://example.org/edit'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Black Friday credits',publisherCalendarDay:'2026-11-25',sourceUrl:'https://example.org/promo'},{sourceId:'hf',claimType:'first-party-product-changelog',featureName:'Old storyboard',publisherCalendarDay:'2026-10-01',sourceUrl:'https://example.org/old'}]};render()");
+ const out=node('content').innerHTML;assert.match(out,/Mangaka/);assert.match(out,/LibTV 3D-BOX/);assert.match(out,/官网观察/);assert.match(out,/官方日志/);assert.match(out,/当前未观察/);assert.match(out,/MAGI-2/);assert.doesNotMatch(out,/Black Friday credits|Old storyboard/);
+ const matrix=JSON.parse(run("JSON.stringify(competitorMatrixRows(state.appUpdates,Date.now(),competitorMatrixReviewed))"));
+ assert.deepEqual(matrix.find(x=>x.name==='MAGI-2').dimensions,['integration']);assert.equal(matrix.find(x=>x.name==='LibTV 3D-BOX').day,null);
+});
+test('overview prioritizes core product reporting without promoting promotions or dropping other news',()=>{
+ const {run}=setup();
+ const result=JSON.parse(run("JSON.stringify(prioritizeProductNews([{title:'普通行业新闻',category:'行业'},{title:'Higgsfield Black Friday discount',category:'产品'},{title:'LibTV 新画布节点',category:'产品'},{title:'其他工具更新',category:'产品'}]).map(x=>x.title))"));
+ assert.deepEqual(result,['LibTV 新画布节点','普通行业新闻','Higgsfield Black Friday discount','其他工具更新']);
+});

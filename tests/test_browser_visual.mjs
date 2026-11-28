@@ -166,6 +166,22 @@ try{
    const details=page.locator('.combined-news-card details').first();if(await details.count()){await details.locator('summary').click();assert.equal(await details.evaluate(el=>el.open),true);}else{assert.equal(await page.evaluate(()=>combinedNews(latestBriefingDay()).filter(x=>x.category==='模型').length),0);assert.ok(await page.locator('#content .empty').count()>0);}
    await page.screenshot({path:path.join(out,label+'-news-detail.png')});
   });
+  await check('innovation opportunity responsive reading',async()=>{
+   await page.goto(base+'?view=feeds&briefing=innovation',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   assert.equal(await page.locator('[data-briefing="innovation"]').getAttribute('aria-pressed'),'true');
+   assert.equal(await page.getByRole('heading',{name:'新能力与功能探索'}).count(),1);
+   const cards=page.locator('.briefing-card details');if(await cards.count()){await cards.first().locator('summary').click();assert.equal(await cards.first().getAttribute('open'),'');}
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'innovation horizontal overflow');
+   await page.screenshot({path:path.join(out,label+'-innovation.png'),animations:'disabled'});
+  });
+  await check('competitor matrix responsive reading',async()=>{
+   await page.goto(base+'?view=feeds&briefing=matrix',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
+   assert.equal(await page.locator('[data-briefing="matrix"]').getAttribute('aria-pressed'),'true');
+   assert.equal(await page.locator('.competitor-matrix thead th').count(),6);
+   assert.ok(await page.locator('.competitor-matrix').getByText('LibTV 3D-BOX',{exact:false}).count());
+   assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'matrix horizontal overflow');
+   await page.screenshot({path:path.join(out,label+'-competitor-matrix.png'),animations:'disabled'});
+  });
   if(viewport.width!==360)await check('social views',async()=>{
    await page.goto(base+'?view=social',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>state.dataReady);
    const brand=page.locator('.social-brand-record').first(),button=brand.locator('[data-social-detail]');assert.equal(await page.locator('.social-matrix th').count(),10);assert.equal(await page.locator('.social-brand-record').count(),12);assert.equal(await page.locator('.social-total').count(),12);if(viewport.width===1440){const fit=await page.locator('.social-matrix-footer').evaluate(el=>({bottom:el.getBoundingClientRect().bottom,height:innerHeight}));assert.ok(fit.bottom<=fit.height,'social matrix page and total must fit '+JSON.stringify(fit));}const firstTotal=await page.locator('.social-matrix-footer strong').textContent();await page.locator('[data-social-page="1"]').click();assert.equal(await page.locator('.social-matrix-footer strong').textContent(),firstTotal);await page.locator('[data-social-page="-1"]').click();await button.click();assert.equal(await button.getAttribute('aria-expanded'),'true');assert.equal(await page.locator('.social-matrix-detail').first().isVisible(),true);await page.screenshot({path:path.join(out,label+'-social-brand-expanded.png')});
