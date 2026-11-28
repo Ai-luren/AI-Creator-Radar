@@ -1093,3 +1093,10 @@ test('research handoff is actionable, escaped and never presents hypotheses as m
  assert.deepEqual(review.axes.map(a=>a.id),['creative-code']);
  assert.match(review.axes[0].check,/不把编码能力等同于原生渲染/);
 });
+
+test('shared clipboard handler copies the correct research or template text',async()=>{
+ const {run}=setup();
+ const copied=run("(function(){var b={textContent:'复制',parentElement:{querySelector:function(){return {textContent:'固定输入与验收'}}},hasAttribute:function(){return false}};var saved='';globalThis.navigator={clipboard:{writeText:function(v){saved=v;return Promise.resolve()}}};var handled=copyResearchOrTemplate({closest:function(){return b}});return [handled,saved]})()");
+ assert.deepEqual(Array.from(copied),[true,'固定输入与验收']);
+ assert.equal(run("copyResearchOrTemplate({closest:function(){return null}})"),false);
+});

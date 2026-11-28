@@ -660,9 +660,16 @@ function modelCapabilityReview(model){
   {id:'creative-code',label:'创意编程、网页、游戏与三维工具',pattern:/编程|编码|软件工程|代码生成|网页|前端|游戏|3D|三维|脚本|coding|software engineering|code generation|web development|front.end|game development|scripting/i,check:'用同一交互网页、游戏小样或三维场景 brief 比较代码可运行性、视觉还原、交互、动画、性能及可编辑交付；验证实际渲染器和工具执行，不把编码能力等同于原生渲染。'},
   {id:'economy',label:'推理效率与生成经济性',pattern:/低成本|高性价比|推理成本|低延迟|推理加速|生成速度|吞吐|cost.efficien|inference cost|low.latency|throughput|faster inference/i,check:'同模式、同输出规格、同质量门槛记录实际生成成本和等待时间；计入失败、重试及后期，不拿套餐折扣当推理成本。'}
  ];
- rules.forEach(function(r){if(r.pattern.test(detail))axes.push({id:r.id,label:r.label,check:r.check})});
+ rules.forEach(function(r){if((r.id!=='creative-code'||category==='llm')&&r.pattern.test(detail))axes.push({id:r.id,label:r.label,check:r.check})});
  if(category==='llm'&&modelCreativeLlmCandidate(detail)&&!axes.some(function(r){return r.id==='agent'||r.id==='creative-code'}))axes.push({id:'agent',label:'Agent 多模态创作研究',check:'固定素材，验证理解准确性、结构化规划和真实工具执行；不预设支持视频编辑。'});
  return {axes:axes,access:String(model.access||''),detail:detail,source:model.url};
+}
+function copyResearchOrTemplate(target){
+ var b=target.closest('[data-copy-research-brief],[data-copy-template]');
+ if(!b)return false;
+ var brief=b.parentElement.querySelector('[data-research-brief]'),item=b.hasAttribute('data-copy-template')?(state.promptTemplates.items||[]).find(function(x){return x.id===b.dataset.copyTemplate}):null,value=brief?brief.textContent:item&&item.body;
+ if(value&&navigator.clipboard)navigator.clipboard.writeText(value).then(function(){b.textContent='已复制'}).catch(function(){b.textContent='复制失败，请手动选择'});else b.textContent='请手动选择文本';
+ return true;
 }
 function researchHandoffMarkup(text){
  return '<details class="source-health"><summary>研发任务单 · 可复制</summary><div class="prompt-row"><pre data-research-brief>'+esc(text)+'</pre><button type="button" class="filter-chip" data-copy-research-brief>复制研发任务单</button></div></details>';
