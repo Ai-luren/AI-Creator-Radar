@@ -130,6 +130,19 @@ var innovationThemes=[
  {id:'graphic',title:'可编辑视觉与动态图形素材',form:'小工具 / 资产节点',pain:'生成的文字、图形和视觉资产难以精确修改或重复利用。',idea:'探索文字校正、矢量或透明素材、动态表情包的可编辑交付。',test:'按原始需求分别验证文字准确度、背景分离与实际导出格式，不假定模型原生支持这些格式。',pattern:/文字.*(?:修正|校正|渲染|编辑)|矢量|透明背景|动态图形|表情包|sprite sheet|vector asset|transparent background|text rendering|text correction|\bsvg\b|\bgif\b/i},
  {id:'workflow',title:'多模型创作与后期编排',form:'画布节点 / 工作流模板',pain:'跨模型切换、生成任务依赖和后期处理耗费重复操作。',idea:'探索可复用节点、并行生成、质量检查与时间线输出。',test:'先跑一条两阶段创作流程，验证输入输出契约、错误重试与结果可编辑性。',pattern:/工作流|多模型串联|并行生成|节点编排|时间线剪辑|画布节点|comfyui|workflow|parallel|timeline edit|video editor|frame.*render/i}
 ];
+// Editorial category is a hint, not a creative-relevance guarantee.
+// Keep actual creative experiments across categories; leave unrelated reporting
+// in its original briefing. Never treat selected reports as official launches.
+function innovationCreativeCase(item){
+ var title=String(item&&item.title||'');
+ if(!title||/折扣|积分|促销|优惠|discount|coupon|black friday/i.test(title))return false;
+ var creative=/视频生成|图像生成|图片生成|文生图|图生图|图生视频|文生视频|图像模型|文生图模型|AI\s*(?:视频|短片|短剧|动画|漫剧|影像|电影|绘画|广告|音乐)|影视|短片|短剧|漫剧|漫画|动画|分镜|三视图|角色一致性|角色设定|角色资产|音轨|音效|配音|对白|音画同步|字体动画|动效|镜头|运镜|白模|三维作品|3D\s*(?:动画|场景|建模)|落地页|提示词.*(?:视频|图像|角色|场景)|(?:video|image|audio|music)\s+(?:generat|edit|model)|storyboard|cinemat|animation|VFX|LoRA|Blender ID pass|motion capture/i;
+ if(!creative.test(title))return false;
+ if(['tip','opinion'].includes(item.category))return true;
+ // Creative demonstrations and explicit workflow reports may carry the
+ // ai-products/ai-models category or no category at all.
+ return /实测|实操|对比|盲评|拆解|制作|教程|工作流|用.+(?:生成|创作|做成|制作)|创作者|提示词|演示|开源工具|benchmark|tutorial|demo|workflow|case study/i.test(title);
+}
 function innovationSignals(snapshot,now){
  var signals=[],seen=new Set(),dateNow=new Date(now),app=snapshot.app||{};
  function add(type,title,detail,url,day,origin,meta){
@@ -152,8 +165,7 @@ function innovationSignals(snapshot,now){
  });
  (snapshot.batches||[]).forEach(function(batch){
   (batch.items||[]).forEach(function(x){
-   if(!x||x.selected!==true||!x.publishedAt||!['tip','opinion'].includes(x.category)||x.links&&x.links.story)return;
-   if(/折扣|积分|促销|优惠|discount|coupon|black friday/i.test(x.title||''))return;
+   if(!x||x.selected!==true||!x.publishedAt||x.links&&x.links.story||!innovationCreativeCase(x))return;
    add('case',x.title,'',x.links&&x.links.original,x.publishedAt,batch.name);
   })
  });
