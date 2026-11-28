@@ -9,6 +9,7 @@ import hashlib
 import html
 import json
 import re
+import subprocess
 import sys
 import tempfile
 import threading
@@ -1162,7 +1163,7 @@ def fetch_source_once(source: dict, article_cache=None, conditional=None) -> tup
         headers["If-None-Match"] = cache["etag"]
     request = urllib.request.Request(source["url"], headers=headers)
     try:
-        with urllib.request.urlopen(request, timeout=24) as response:
+        with urllib.request.urlopen(request, timeout=source.get('requestTimeoutSeconds', 24)) as response:
             body = response.read(MAX_BYTES + 1)
             content_type = response.headers.get("Content-Type", "")
             etag = response.headers.get("ETag", "")
@@ -1312,7 +1313,8 @@ def fetch_source(source: dict, prior=None, now=None, article_cache=None, feed_st
         except (ValueError, TypeError, AttributeError):
             pass
         requested = True
-        for attempt in range(2):
+        max_attempts = source.get('maxTransientAttempts', 2)
+        for attempt in range(max_attempts):
             conditional = ({"entry":feed_state, "now":now, "revision":parser_revision}
                            if parser_revision else None)
             if conditional:
@@ -1350,13 +1352,54 @@ def fetch_source(source: dict, prior=None, now=None, article_cache=None, feed_st
                 empty = empty or result
                 break
             last_error = error
-            if attempt or not retryable_source_error(error):
+            if attempt + 1 >= max_attempts or not retryable_source_error(error):
                 break
             time.sleep(2)
     if empty:
         return {**empty, "attempts": attempts}, [], None
     return {**source, "primaryUrl": primary_url, "attempts": attempts,
             "sourceConfigHash": fingerprint, "sourceDeferred": not requested}, [], last_error
+
+
+def isolated_source_worker():
+    """No data writes: parent owns all persistence and may terminate this process."""
+    payload = json.load(sys.stdin)
+    source = payload["source"]
+    result = fetch_source(source, payload.get("prior"), datetime.fromisoformat(payload["now"]),
+                          ArticleDateProbeCache(), payload.get("feedState"), payload.get("parserRevision"))
+    print(json.dumps(result, ensure_ascii=False))
+    return 0
+
+
+def fetch_with_hard_deadline(source, prior, now, article_cache, feed_state, parser_revision, runner=subprocess.run):
+    budget = source.get("hardDeadlineSeconds")
+    if budget is None:
+        return fetch_source(source, prior, now, article_cache, feed_state, parser_revision)
+    if type(budget) is not int or not 1 <= budget <= 120:
+        raise ValueError("Invalid per-source hard deadline")
+    payload = {"source":source,"prior":prior,"now":now.isoformat(),
+               "feedState":feed_state,"parserRevision":parser_revision}
+    error = None
+    try:
+        result = runner([sys.executable, str(Path(__file__).resolve()), "--isolated-source-worker"],
+                        input=json.dumps(payload, ensure_ascii=False), text=True,
+                        capture_output=True, check=True, timeout=budget)
+        effective, items, failure = json.loads(result.stdout)
+        if not isinstance(effective, dict) or effective.get("id") != source["id"] or not isinstance(items,list):
+            raise ValueError("Invalid isolated source result")
+        return effective, items, failure
+    except subprocess.TimeoutExpired:
+        # Socket timeouts are not wall-clock limits (DNS, TLS and slow reads).
+        # subprocess.run kills and reaps the worker on timeout, including its threads.
+        error = f"SourceDeadlineExceeded: hard wall-clock budget {budget}s"
+    except (subprocess.SubprocessError, OSError, ValueError, TypeError) as exc:
+        error = f"IsolatedSourceError: {type(exc).__name__}"
+    fingerprint = hashlib.sha256(json.dumps(source, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    return {**source, "primaryUrl":source["url"], "sourceConfigHash":fingerprint,
+            "attempts":[{"url":source["url"],"error":error,"itemCount":None,
+                         "checkedAt":now.isoformat(timespec="seconds"),"deferred":False,
+                         "scope":"source-hard-deadline","budgetSeconds":budget}],
+            "sourceDeferred":False}, [], error
 
 
 def main() -> int:
@@ -1393,8 +1436,8 @@ def main() -> int:
     started = time.monotonic()
     def timed_source(source):
         begin = time.monotonic()
-        result = fetch_source(source, None if args.dry_run else old_status.get(source["id"]), now, article_cache,
-                              feed_state.get(source["id"]), parser_revision)
+        result = fetch_with_hard_deadline(source, None if args.dry_run else old_status.get(source["id"]), now, article_cache,
+                                         feed_state.get(source["id"]), parser_revision)
         return result, round(time.monotonic() - begin, 3)
 
     durations = []
@@ -1561,4 +1604,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(isolated_source_worker() if sys.argv[1:] == ["--isolated-source-worker"] else main())
