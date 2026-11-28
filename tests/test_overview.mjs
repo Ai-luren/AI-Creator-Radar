@@ -937,3 +937,19 @@ test('on-demand story reader accepts only returned story pointers, deduplicates 
  await run('readCreatorStory('+JSON.stringify(link)+',mockRequest)');assert.equal(calls.length,1);
  await assert.rejects(run("readCreatorStory('https://aipick.news/story/guessed',mockRequest)"));assert.equal(calls.length,1);
 });
+
+test('recent curated creative reports fill reading gaps without inventing release dates',()=>{
+ const {run}=setup({now:'2026-11-28T08:30:00Z'});
+ const rows=[{title:'腾讯混元发布 3D 大模型 Hy3D 3.6',url:'https://example.com/hy3d'},{title:'豆包工作独家接入剪映官方插件',url:'https://example.com/capcut'},{title:'LibTV 上新视频剪辑功能',url:'https://example.com/libtv'},{title:'Higgsfield 黑五折扣上线',url:'https://example.com/sale'},{title:'腾讯混元发布翻译模型',url:'https://example.com/mt'},{title:'TapNow 发布功能',url:'https://daily.juya.uk/issues/2026-11-28/#overview-item-1'}];
+ const digests=[{name:'橘鸦',data:{title:'AI 早报 2026-11-28',items:rows}},{name:'AIHOT',data:{title:'AI 日报 2026-11-27',items:[rows[0]]}},{name:'旧日报',data:{title:'AI 日报 2026-11-25',items:[{title:'LibTV 发布功能',url:'https://example.com/old'}]}},{name:'未来日报',data:{title:'AI 日报 2026-11-29',items:[{title:'LibTV 发布功能',url:'https://example.com/future'}]}}];
+ const leads=JSON.parse(run('JSON.stringify(curatedCreativeLeads('+JSON.stringify(digests)+',Date.now(),\'\',[]))'));
+ assert.equal(leads.length,3);
+ assert.ok(leads.every(r=>r.proof==='日报刊期 · 非发布日期'&&!('releaseDate' in r)));
+ assert.equal(leads.find(r=>r.url==='https://example.com/hy3d').providers.length,2);
+ const filtered=JSON.parse(run('JSON.stringify(curatedCreativeLeads('+JSON.stringify(digests)+',Date.now(),\'LibTV\',[]))'));
+ assert.equal(filtered.length,1);
+ assert.equal(JSON.parse(run('JSON.stringify(curatedCreativeLeads('+JSON.stringify(digests)+',Date.now(),\'\',[\'https://example.com/libtv\']))')).length,2);
+ run('state.juyaDaily='+JSON.stringify(digests[0].data)+';state.aihotDaily='+JSON.stringify(digests[1].data));
+ const markup=run("curatedCreativeMarkup(Date.now(),'',[])");
+ assert.match(markup,/Hy3D 3.6/);assert.match(markup,/豆包工作独家接入剪映官方插件/);assert.match(markup,/非发布日期/);
+});
