@@ -503,3 +503,10 @@ test('personal reader uses selected direct requests and independent cooldown wit
  assert.equal(result.sources.AIHOT.data.items.length,1);assert.match(result.sources.AIPick.error,/429/);
  await run("readCreatorSources('competitors','Higgsfield',mockRequest)");assert.equal(calls.length,2);
 });
+
+test('platform adoption phrased model-first is recognized without confusing the publisher',()=>{
+ const {run}=setup();
+ assert.equal(run("creatorIntegrationTarget('MAGI-2 视频模型上线 LibTV','LibTV')"),true);
+ assert.equal(run("creatorIntegrationTarget('MAGI-2 视频模型上线 LibTVextra','LibTV')"),false);
+ assert.equal(run("creatorIntegrationTarget('Sand.ai 发布 MAGI-2，LibTV 用户讨论','LibTV')"),false);
+});
