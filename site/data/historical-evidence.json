@@ -1,6 +1,6 @@
 {
   "schema": "historical-evidence/v1",
-  "checkedAt": "2026-11-28T03:17:41+00:00",
+  "checkedAt": "2026-11-28T11:01:25+00:00",
   "tasks": [
     {
       "id": "history-04a48fa2a5702ddc791bb6a4be28406666f34807327c68c8812f5004c46ff35b",
@@ -99,7 +99,7 @@
           "firstContentSha256": "57eed52d56216c2e0b60f0e926267a0708fc18de2109e5a60a01d8ccac6e49dc"
         }
       ],
-      "status": "repository-document-evidence-observed",
+      "status": "repository-documents-pending",
       "repositoryDocuments": {
         "readme": {
           "sourceUrl": "https://raw.githubusercontent.com/Tencent-Hunyuan/HunyuanVideo-1.5/main/README.md",
@@ -171,7 +171,7 @@
       "active": true,
       "evidence": [],
       "repositoryEvidence": [],
-      "status": "platform-changelog-evidence-observed",
+      "status": "unsupported-original-pointer",
       "platformEvidence": [
         {
           "id": "historical-platform-2718a1705ad50be7f2e2de97dbedc9d5e656a7728614fe0fb116ce0fed47ee49",
@@ -325,7 +325,7 @@
       "active": true,
       "evidence": [],
       "repositoryEvidence": [],
-      "status": "platform-changelog-evidence-observed",
+      "status": "unsupported-original-pointer",
       "platformEvidence": [
         {
           "id": "historical-platform-091accd39cbb21779d8c11a4a9cf11cd586d1a5cdb2215b605700900da084569",
@@ -365,7 +365,7 @@
       "active": true,
       "evidence": [],
       "repositoryEvidence": [],
-      "status": "platform-changelog-evidence-observed",
+      "status": "unsupported-original-pointer",
       "platformEvidence": [
         {
           "id": "historical-platform-808f65be272db8a5482fb5868d7e1d9f0ce5033eb2ecaaccc0fd84b33ffe693f",
@@ -609,7 +609,7 @@
       "active": true,
       "evidence": [],
       "repositoryEvidence": [],
-      "status": "platform-changelog-evidence-observed",
+      "status": "unsupported-original-pointer",
       "platformEvidence": [
         {
           "id": "historical-platform-086500bbdaff377cb7fd8639ca028c64e9c8029efd67dc987c3bde0cf4fc4029",
@@ -1063,7 +1063,7 @@
       "active": true,
       "evidence": [],
       "repositoryEvidence": [],
-      "status": "platform-changelog-evidence-observed",
+      "status": "unsupported-original-pointer",
       "platformEvidence": [
         {
           "id": "historical-platform-7c0aff529d608f3d33b9905483f0ed50a15fb5b26a26f9699fa0843a3f36fa2a",
@@ -1160,7 +1160,7 @@
       "active": true,
       "evidence": [],
       "repositoryEvidence": [],
-      "status": "platform-changelog-evidence-observed",
+      "status": "unsupported-original-pointer",
       "platformEvidence": [
         {
           "id": "historical-platform-09a1dd4b82ba73f96b4b48fd40340a712ac4f51b805d408a8135b627b3d898f4",
@@ -1340,14 +1340,14 @@
   },
   "summary": {
     "activeTasks": 69,
+    "networkMode": "passive-preserve",
     "urlsAttemptedThisRun": 0,
     "states": {
       "identity-mismatch": 6,
       "identity-needs-review": 4,
       "missing-original-pointer": 14,
-      "platform-changelog-evidence-observed": 6,
-      "repository-document-evidence-observed": 1,
-      "unsupported-original-pointer": 38
+      "repository-documents-pending": 1,
+      "unsupported-original-pointer": 44
     },
     "tasksWithDatedArticleEvidence": 0,
     "datedArticleRecords": 0,

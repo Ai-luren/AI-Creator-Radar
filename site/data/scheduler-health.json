@@ -1,53 +1,53 @@
 {
   "schema": "scheduler-health/v1",
-  "generatedAt": "2026-11-28T10:59:10.249250+00:00",
-  "nextDueAt": "2026-11-28T10:59:10.249250+00:00",
+  "generatedAt": "2026-11-28T11:01:33.681769+00:00",
+  "nextDueAt": "2026-11-28T11:25:33.681769+00:00",
   "trigger": {
-    "event": "push",
-    "runId": "46137646437",
+    "event": "workflow_dispatch",
+    "runId": "46137679522",
     "attempt": "1",
     "schedule": "",
-    "scope": ""
+    "scope": "all"
   },
   "groups": {
     "models": {
-      "oldestSnapshotAt": "2026-11-28T10:58:43+00:00",
+      "oldestSnapshotAt": "2026-11-28T11:00:03+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
     },
     "selected": {
-      "oldestSnapshotAt": "2026-11-28T10:17:37+00:00",
-      "due": true,
-      "eligible": true,
+      "oldestSnapshotAt": "2026-11-28T11:00:02+00:00",
+      "due": false,
+      "eligible": false,
       "retryAfter": null
     },
     "aipick": {
-      "oldestSnapshotAt": "2026-11-28T10:58:42+00:00",
+      "oldestSnapshotAt": "2026-11-28T11:00:02+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
     },
     "aihot_daily": {
-      "oldestSnapshotAt": "2026-11-28T00:17:30+00:00",
+      "oldestSnapshotAt": "2026-11-28T10:59:59+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
     },
     "juya_daily": {
-      "oldestSnapshotAt": "2026-11-28T02:06:13+00:00",
+      "oldestSnapshotAt": "2026-11-28T11:00:01+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
     },
     "resources": {
-      "oldestSnapshotAt": "2026-11-28T06:49:43+00:00",
+      "oldestSnapshotAt": "2026-11-28T11:00:19+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null
     },
     "maintenance": {
-      "oldestSnapshotAt": "2026-11-27T12:33:01+00:00",
+      "oldestSnapshotAt": "2026-11-28T11:01:13+00:00",
       "due": false,
       "eligible": false,
       "retryAfter": null

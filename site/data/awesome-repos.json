@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T06:49:43Z",
+  "generatedAt": "2026-11-28T11:00:19Z",
   "items": [
     {
       "id": "goodcase-seedance",
@@ -17,21 +17,30 @@
       "readmePath": "README_zh.md",
       "priority": 1,
       "url": "https://github.com/LearnPrompt/awesome-seedance",
-      "stars": 2669,
-      "forks": 403,
-      "updatedAt": "2026-11-28T06:10:56Z",
-      "pushedAt": "2026-11-27T22:01:33Z",
+      "stars": 2671,
+      "forks": 404,
+      "updatedAt": "2026-11-28T07:56:58Z",
+      "pushedAt": "2026-11-28T09:05:31Z",
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 2669
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 2671
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 2
+      }
     },
     {
       "id": "image-video-prompts",
@@ -49,21 +58,30 @@
       "readmePath": "README_zh.md",
       "priority": 2,
       "url": "https://github.com/ai-boost/awesome-image-video-prompts",
-      "stars": 3543,
+      "stars": 3544,
       "forks": 254,
-      "updatedAt": "2026-11-28T05:22:24Z",
+      "updatedAt": "2026-11-28T07:39:43Z",
       "pushedAt": "2026-11-27T18:06:05Z",
       "license": "GPL-3.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 3543
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 3544
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 1
+      }
     },
     {
       "id": "lanshu-video-kit",
@@ -88,14 +106,23 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 469
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 469
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "zerolu-seedance",
@@ -113,21 +140,30 @@
       "readmePath": "README-zh.md",
       "priority": 4,
       "url": "https://github.com/ZeroLu/awesome-seedance",
-      "stars": 2885,
+      "stars": 2886,
       "forks": 318,
-      "updatedAt": "2026-11-28T02:32:41Z",
+      "updatedAt": "2026-11-28T07:13:51Z",
       "pushedAt": "2026-11-28T00:21:34Z",
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 2885
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 2886
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 1
+      }
     },
     {
       "id": "ad-video-prompts",
@@ -153,14 +189,23 @@
       "license": "CC-BY-4.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 85
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 85
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "nanobanana-prompts",
@@ -177,21 +222,30 @@
       "readmePath": "README.md",
       "priority": 6,
       "url": "https://github.com/ZeroLu/awesome-nanobanana-pro",
-      "stars": 10423,
+      "stars": 10422,
       "forks": 873,
-      "updatedAt": "2026-11-27T19:43:25Z",
+      "updatedAt": "2026-11-28T08:52:50Z",
       "pushedAt": "2026-11-28T05:39:06Z",
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 10423
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 10422
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": -1
+      }
     },
     {
       "id": "short-drama-skills",
@@ -209,21 +263,30 @@
       "readmePath": "README.md",
       "priority": 7,
       "url": "https://github.com/UnderleveledBuilder/awesome-short-drama-skills",
-      "stars": 2925,
-      "forks": 359,
-      "updatedAt": "2026-11-28T06:00:03Z",
+      "stars": 2931,
+      "forks": 360,
+      "updatedAt": "2026-11-28T10:45:05Z",
       "pushedAt": "2026-11-23T17:16:46Z",
       "license": "CC0-1.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 2925
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 2931
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 6
+      }
     },
     {
       "id": "cozyclay",
@@ -244,21 +307,30 @@
         "evidenceUrl": "https://github.com/HaD0Yun/CozyClay#readme"
       },
       "url": "https://github.com/HaD0Yun/CozyClay",
-      "stars": 1895,
-      "forks": 213,
-      "updatedAt": "2026-11-28T06:45:45Z",
-      "pushedAt": "2026-11-28T00:01:13Z",
+      "stars": 1896,
+      "forks": 212,
+      "updatedAt": "2026-11-28T10:59:56Z",
+      "pushedAt": "2026-11-28T10:47:53Z",
       "license": "AGPL-3.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 1895
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 1896
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 1
+      }
     },
     {
       "id": "previsforge",
@@ -286,14 +358,23 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 2
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 2
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "character-turnaround-sheets",
@@ -321,14 +402,23 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 3
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 3
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "storyboard-scavenger",
@@ -356,14 +446,23 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 6
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 6
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "gpt-image-playground",
@@ -391,14 +490,23 @@
       "license": "MIT",
       "defaultBranch": "master",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 255
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 255
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "comfy-workflows",
@@ -426,14 +534,23 @@
       "license": "GPL-3.0",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 97
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 97
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "renoise-kit",
@@ -461,14 +578,23 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 1
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 1
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "audio-separator",
@@ -496,14 +622,23 @@
       "license": "MIT",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 1516
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 1516
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 0
+      }
     },
     {
       "id": "whisperx",
@@ -524,38 +659,455 @@
         "evidenceUrl": "https://github.com/m-bain/whisperX"
       },
       "url": "https://github.com/m-bain/whisperX",
-      "stars": 26002,
-      "forks": 2642,
-      "updatedAt": "2026-11-28T06:46:21Z",
+      "stars": 26041,
+      "forks": 2646,
+      "updatedAt": "2026-11-28T10:47:39Z",
       "pushedAt": "2026-11-21T12:32:21Z",
       "license": "BSD-2-Clause",
       "defaultBranch": "main",
       "archived": false,
-      "metadataCheckedAt": "2026-11-28T06:49:43Z",
+      "metadataCheckedAt": "2026-11-28T11:00:19Z",
       "metadataStatus": "ok",
       "starObservations": [
         {
           "at": "2026-11-28T06:49:43Z",
           "stars": 26002
+        },
+        {
+          "at": "2026-11-28T11:00:19Z",
+          "stars": 26041
         }
-      ]
+      ],
+      "observedStarChange": {
+        "from": "2026-11-28T06:49:43Z",
+        "to": "2026-11-28T11:00:19Z",
+        "delta": 39
+      }
     }
   ],
   "researchDiscovery": {
     "status": "ok",
-    "checkedAt": "2026-11-28T06:49:43+00:00",
-    "lastSuccessAt": "2026-11-28T06:49:43+00:00",
+    "checkedAt": "2026-11-28T11:00:19+00:00",
+    "lastSuccessAt": "2026-11-28T11:00:19+00:00",
     "lastProvider": "GitHub Search",
-    "lastLane": "image",
-    "lastMatched": 20,
+    "lastLane": "video",
+    "lastMatched": 19,
     "nextAttemptAt": null,
     "error": null,
     "consecutiveFailures": 0,
-    "nextLane": 1,
+    "nextLane": 2,
     "recentPointerAttempts": [],
     "deferred": false,
     "policy": "One bounded selected pointer or scoped GitHub API search. Metadata candidates, not verified features or adoption recommendations. Star change uses actual observations.",
     "items": [
+      {
+        "repo": "xumeng-0905/suojingtai",
+        "url": "https://github.com/xumeng-0905/suojingtai",
+        "description": "锁镜台 · 编导的 AI 工作台：先立资产，再拆镜头，把一版剧本变成能直接投给生成模型的镜头表。纯静态版双击即用，无需安装。",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T10:09:21Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "xrlite/ShotField",
+        "url": "https://github.com/xrlite/ShotField",
+        "description": "VR 空间预演与虚拟制片工具：在共享片场排走位、架机位、存镜头意图，检查镜头连续性，并对照 AI 生成结果。",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T09:58:38Z",
+        "license": "AGPL-3.0",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "subclip-app/subclip-skills",
+        "url": "https://github.com/subclip-app/subclip-skills",
+        "description": "Agent skills for the Subclip AI Video Editor (Claude Code, Codex, Cursor)",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 1,
+        "pushedAt": "2026-11-28T09:47:37Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 1
+          }
+        ]
+      },
+      {
+        "repo": "runeBl4z3/seedance-2-5-api-sdk",
+        "url": "https://github.com/runeBl4z3/seedance-2-5-api-sdk",
+        "description": "Python SDK for Seedance and Flash: text/image-to-video, references, edit, extend, native 4K",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 189,
+        "pushedAt": "2026-11-28T10:00:25Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 189
+          }
+        ]
+      },
+      {
+        "repo": "p32929/draconia",
+        "url": "https://github.com/p32929/draconia",
+        "description": "Every Draconia Malfoy (Malfoid, female Draco Malfoy) AI video on YouTube in one list — sort, track what you watched, hide channels",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T09:40:01Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "omnimux-ai/omnimux-client",
+        "url": "https://github.com/omnimux-ai/omnimux-client",
+        "description": "Open-source local AI video studio & editor for e-commerce product videos, UGC ads & AI agent workflows (macOS/Windows). 开源本地 AI 电商带货与 UGC 短视频工作台，集成数字人资产库、灵感拆解、无限多模态画布与多轨剪辑。",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 148,
+        "pushedAt": "2026-11-28T10:16:33Z",
+        "license": "AGPL-3.0",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 148
+          }
+        ]
+      },
+      {
+        "repo": "ogneocortext/Native-Media-AI-Studio",
+        "url": "https://github.com/ogneocortext/Native-Media-AI-Studio",
+        "description": "Full-stack music-video creation suite: React + Vite + Remotion frontend, FastAPI backend with ComfyUI integration, Unity/Blender MCP bridges for 3D scene generation and beat-synced animation, GPU-accelerated audio analysis, and an Obsidian knowledge library.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 1,
+        "pushedAt": "2026-11-28T10:59:11Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 1
+          }
+        ]
+      },
+      {
+        "repo": "magichourhq/docs",
+        "url": "https://github.com/magichourhq/docs",
+        "description": "Documentation for Magic Hour API",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 10,
+        "pushedAt": "2026-11-28T10:03:05Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 10
+          }
+        ]
+      },
+      {
+        "repo": "hoobnn/plein",
+        "url": "https://github.com/hoobnn/plein",
+        "description": "Plein：开源 AI 无限画布，让故事在这里展开。从一句创意开始，剧本、分镜、镜头与配音在画布上铺开，和 AI Agent 一起完成你的作品 · Open-source AI infinite canvas where stories unfold",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 5,
+        "pushedAt": "2026-11-28T10:19:04Z",
+        "license": "AGPL-3.0",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 5
+          }
+        ]
+      },
+      {
+        "repo": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "description": "Open-source AI video editor: edit your own footage, or create and remake any video with Claude Code, Codex or the free Studio app. Write HTML, render MP4. By HeyGen.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 91760,
+        "pushedAt": "2026-11-28T10:47:44Z",
+        "license": "Apache-2.0",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 91760
+          }
+        ]
+      },
+      {
+        "repo": "getway/tingyin-canvas",
+        "url": "https://github.com/getway/tingyin-canvas",
+        "description": "听音无限画布",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T10:34:00Z",
+        "license": "Apache-2.0",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "aqm857886159/Nomi",
+        "url": "https://github.com/aqm857886159/Nomi",
+        "description": "Open-source AI video workbench. Bring any model or your local ComfyUI, and let Claude Code / Codex / Cursor direct it over MCP — storyboard, references, generation, editable first cut on a real timeline. Local-first: projects, prompts, and keys stay on your machine. No account, no telemetry.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 672,
+        "pushedAt": "2026-11-28T10:58:25Z",
+        "license": "AGPL-3.0",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T06:49:43+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T06:49:43Z",
+            "stars": 671
+          },
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 672
+          }
+        ],
+        "observedStarChange": {
+          "from": "2026-11-28T06:49:43Z",
+          "to": "2026-11-28T11:00:19Z",
+          "delta": 1
+        }
+      },
+      {
+        "repo": "amsibtain5/ai-video-production-studio",
+        "url": "https://github.com/amsibtain5/ai-video-production-studio",
+        "description": "An AI-powered video production automation framework built around Claude Code, integrating YouTube Agent Skills, motion graphics, FFmpeg, HyperFrames, Whisper, and local AI voice generation. Streamlines end-to-end workflow from niche research and scriptwriting to AI video generation, visual effects, editing, captioning, multi-platform publishing.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T09:49:43Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "ZeronoonHQ/reelzgen-ai",
+        "url": "https://github.com/ZeronoonHQ/reelzgen-ai",
+        "description": "AI short-form video studio: prompt or product photo to captioned vertical reels (slideshows, AI actors, talking avatars) rendered with Remotion and published to TikTok/Instagram.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T09:50:54Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "ZanePoe/awesome_ai_video_creation",
+        "url": "https://github.com/ZanePoe/awesome_ai_video_creation",
+        "description": "Curated open-source AI video generation, editing, agentic production, code-to-video, digital humans, ComfyUI and media CLIs. Default English; 中文/Español/हिन्दी/Français under locales/.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 3,
+        "pushedAt": "2026-11-28T10:43:49Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 3
+          }
+        ]
+      },
+      {
+        "repo": "TM-AutoClip/tm-concept",
+        "url": "https://github.com/TM-AutoClip/tm-concept",
+        "description": "Open-source desktop app: describe a channel idea, let an online AI model (your own API key: Anthropic, OpenAI, OpenRouter, fal, Z.ai, Mistral) draft video concepts, approve the ones you like and render them to videos locally (HyperFrames / Remotion / Revideo) with a local voice. No account, encrypted keys. Windows + Linux.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T10:49:56Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "Orkas-AI/Orkas-VideoStudio",
+        "url": "https://github.com/Orkas-AI/Orkas-VideoStudio",
+        "description": "AI video editor for coding agents: Claude Code, Codex or Cursor edits your footage, makes motion graphics, adds narration and captions, and renders a checked MP4. Open-source alternative to Claude Motion, CapCut and Higgsfield. Also built into the Orkas desktop app.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 392,
+        "pushedAt": "2026-11-28T10:05:07Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 392
+          }
+        ]
+      },
+      {
+        "repo": "Kanishk688/agentic-3d-explainer-pipeline",
+        "url": "https://github.com/Kanishk688/agentic-3d-explainer-pipeline",
+        "description": "Cinematic 3D defence & science videos built in code by an AI agent (Three.js, Blender, HyperFrames), timed word-for-word to the voice. Not text-to-video.",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T10:35:38Z",
+        "license": null,
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
+      {
+        "repo": "FURUYAN1234/gemini-narration-studio",
+        "url": "https://github.com/FURUYAN1234/gemini-narration-studio",
+        "description": "Local Gemini narration, visual review and subtitled video studio",
+        "researchCategory": "video",
+        "provider": "GitHub Search",
+        "stars": 0,
+        "pushedAt": "2026-11-28T10:51:10Z",
+        "license": "MIT",
+        "metadataCheckedAt": "2026-11-28T11:00:19+00:00",
+        "review": "metadata-only",
+        "archived": false,
+        "lastMetadataProvider": "GitHub Search",
+        "firstObservedAt": "2026-11-28T11:00:19+00:00",
+        "starObservations": [
+          {
+            "at": "2026-11-28T11:00:19Z",
+            "stars": 0
+          }
+        ]
+      },
       {
         "repo": "unslothai/unsloth",
         "url": "https://github.com/unslothai/unsloth",
@@ -910,69 +1462,6 @@
           {
             "at": "2026-11-28T06:49:43Z",
             "stars": 64
-          }
-        ]
-      },
-      {
-        "repo": "aqm857886159/Nomi",
-        "url": "https://github.com/aqm857886159/Nomi",
-        "description": "Open-source AI video workbench. Bring any model or your local ComfyUI, and let Claude Code / Codex / Cursor direct it over MCP — storyboard, references, generation, editable first cut on a real timeline. Local-first: projects, prompts, and keys stay on your machine. No account, no telemetry.",
-        "researchCategory": "image",
-        "provider": "GitHub Search",
-        "stars": 671,
-        "pushedAt": "2026-11-28T06:49:09Z",
-        "license": "AGPL-3.0",
-        "metadataCheckedAt": "2026-11-28T06:49:43+00:00",
-        "review": "metadata-only",
-        "archived": false,
-        "lastMetadataProvider": "GitHub Search",
-        "firstObservedAt": "2026-11-28T06:49:43+00:00",
-        "starObservations": [
-          {
-            "at": "2026-11-28T06:49:43Z",
-            "stars": 671
-          }
-        ]
-      },
-      {
-        "repo": "YouMind-OpenLab/awesome-christmas-card-prompts",
-        "url": "https://github.com/YouMind-OpenLab/awesome-christmas-card-prompts",
-        "description": "🍌 A curated collection of high-quality Christmas card prompts designed for Nano Banana Pro and modern image generation models.",
-        "researchCategory": "image",
-        "provider": "GitHub Search",
-        "stars": 7,
-        "pushedAt": "2026-11-28T06:13:43Z",
-        "license": "NOASSERTION",
-        "metadataCheckedAt": "2026-11-28T06:49:43+00:00",
-        "review": "metadata-only",
-        "archived": false,
-        "lastMetadataProvider": "GitHub Search",
-        "firstObservedAt": "2026-11-28T06:49:43+00:00",
-        "starObservations": [
-          {
-            "at": "2026-11-28T06:49:43Z",
-            "stars": 7
-          }
-        ]
-      },
-      {
-        "repo": "ShinChven/remix-studio",
-        "url": "https://github.com/ShinChven/remix-studio",
-        "description": "Self-hosted, multi-agent orchestrated AI content generation studio with full multimodal support (text, image, video, audio), reusable batch workflows, interactive MCP Apps, and social campaign automation.",
-        "researchCategory": "image",
-        "provider": "GitHub Search",
-        "stars": 14,
-        "pushedAt": "2026-11-28T06:00:23Z",
-        "license": "MIT",
-        "metadataCheckedAt": "2026-11-28T06:49:43+00:00",
-        "review": "metadata-only",
-        "archived": false,
-        "lastMetadataProvider": "GitHub Search",
-        "firstObservedAt": "2026-11-28T06:49:43+00:00",
-        "starObservations": [
-          {
-            "at": "2026-11-28T06:49:43Z",
-            "stars": 14
           }
         ]
       }
