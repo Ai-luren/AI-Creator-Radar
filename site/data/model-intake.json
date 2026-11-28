@@ -1,12 +1,12 @@
 {
   "schema": "model-intake/v1",
-  "checkedAt": "2026-11-28T04:02:49.160082+00:00",
+  "checkedAt": "2026-11-28T04:17:02.191258+00:00",
   "items": [],
   "summary": {
     "candidateIdentities": 0,
     "unclassifiedFamilies": 0,
     "knownFamilyNewVersions": 0,
-    "externalUnverifiedLeads": 58
+    "externalUnverifiedLeads": 78
   },
   "policy": "Automatic staging only. No inferred release date, model category, license, availability, or new canonical family."
 }
