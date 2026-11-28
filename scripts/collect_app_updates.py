@@ -828,6 +828,35 @@ def correct_model_improvement(row):
     return row
 
 
+def model_watch_official_gap(spec,targeted,previous,now):
+    """A recent model-specific two-provider attempt authorizes the existing
+    official gap probe, even if generic brand-level query counts look covered.
+    Do not skip on mention counts or an unattempted model watch."""
+    brand=spec.get("vendor")
+    if brand not in MODEL_WATCH_BRANDS or spec.get("type") not in {"higgs-changelog","dated-changelog","product-surface"}:
+        return []
+    groups={}
+    for row in targeted.get("queries",[]):
+        if row.get("modelWatch") is True:
+            groups.setdefault((row.get("modelFamilyId"),row.get("modelVersionId"),row.get("term")),[]).append(row)
+    source_ids={s["id"] for s in previous.get("sources",[]) if s.get("vendor")==brand}
+    evidence=[]
+    for event in previous.get("events",[]):
+        if event.get("sourceId") in source_ids and event.get("claimType")=="first-party-product-changelog" and event.get("updateType")=="model-integration":
+            evidence.append((event.get("featureName",""),event.get("publisherCalendarDay","")))
+    gaps=[]
+    for (_,_,term),rows in groups.items():
+        if not valid_watch_term(term) or {r.get("provider") for r in rows}!={"AIHOT","AIPick"}:
+            continue
+        if any(not (now-timedelta(hours=12)<=(parse_stamp(r.get("lastAttemptAt")) or datetime.min.replace(tzinfo=timezone.utc))<=now) for r in rows):
+            continue
+        pattern=re.compile(r"(?<![A-Za-z0-9])"+re.escape(term)+r"(?![A-Za-z0-9.])",re.I)
+        day=rows[0].get("publisherCalendarDay") or ""
+        if not any(d>=day and pattern.search(name) for name,d in evidence if isinstance(name,str) and isinstance(d,str)):
+            gaps.append(term)
+    return sorted(set(gaps))
+
+
 def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releases=None):
     if previous and previous.get("schema")!="app-updates/v1":
         raise ValueError("Unexpected app updates schema")
@@ -850,9 +879,14 @@ def collect(config,previous,now,fetcher=fetch,target_fetcher=fetch_target,releas
             entries={k:correct_model_improvement(v) for k,v in entries.items()}
             row["entries"]=entries
         coverage=aggregate_coverage(spec,targeted,now)
+        model_gaps=model_watch_official_gap(spec,targeted,previous,now)
+        if model_gaps:
+            row["modelWatchGap"]=model_gaps
+        else:
+            row.pop("modelWatchGap",None)
         if coverage is not None:
             row["aggregateCoverage"]=coverage
-            if coverage["status"]!="aggregate-gap":
+            if coverage["status"]!="aggregate-gap" and not model_gaps:
                 sources.append({**row,"entries":entries,"status":old.get("status","awaiting-aggregate"),"deferred":True,"skipReason":coverage["status"]})
                 continue
         row.pop("skipReason",None)
